@@ -44,13 +44,12 @@ export class ScreenBadges extends Component<{}, ScreenBadgesState> {
 
         if (window.getScreenDetails) {
             window.getScreenDetails().then(result => {
-                console.log(result);
                 result.onscreenschange = () => {
                     this.updateScreenDetails(result);
                 };
 
                 this.updateScreenDetails(result);
-            }).catch(() => {});    
+            });    
         }
 
         let screenJson = JSON.stringify(this.state);

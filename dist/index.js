@@ -863,12 +863,11 @@
             _this.state = _this.updateScreen();
             if (window.getScreenDetails) {
                 window.getScreenDetails().then(function (result) {
-                    console.log(result);
                     result.onscreenschange = function () {
                         _this.updateScreenDetails(result);
                     };
                     _this.updateScreenDetails(result);
-                }).catch(function () { });
+                });
             }
             var screenJson = JSON.stringify(_this.state);
             _this.timer = window.setInterval(function () {
