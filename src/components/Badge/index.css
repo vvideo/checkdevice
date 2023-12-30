@@ -3,7 +3,6 @@
     padding: 0 20px;
     width: auto;
     line-height: 80px;
-    text-align: center;
     border-radius: 20px;
     font-size: 70px;
     margin-right: 20px;
@@ -24,9 +23,13 @@
     min-height: 45px;
 }
 
+.badge__body {
+    text-align: center;
+}
+
 .badge__top-text {
-    margin-top: 5px;
     text-align: left;
+    margin-top: 5px;
     font-size: 20px;
     line-height: 26px;
     font-weight: normal;

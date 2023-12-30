@@ -3,7 +3,6 @@
     padding: 0 20px;
     width: auto;
     line-height: 80px;
-    text-align: center;
     border-radius: 20px;
     font-size: 70px;
     margin-right: 20px;
@@ -24,9 +23,13 @@
     min-height: 45px;
 }
 
+.badge__body {
+    text-align: center;
+}
+
 .badge__top-text {
-    margin-top: 5px;
     text-align: left;
+    margin-top: 5px;
     font-size: 20px;
     line-height: 26px;
     font-weight: normal;
@@ -218,8 +221,8 @@
 
 .header {
     position: relative;
-    margin: 30px 0 30px 0;
-    font-size: 60px;
+    margin: 20px 0 20px 0;
+    font-size: 50px;
     font-weight: normal;
     line-height: 70px;
 }
@@ -266,7 +269,7 @@
 
 .active-question__body {
     display: none;
-    margin: 0 20px 20px 20px;
+    margin: 0 20px 20px 30px;
 }
 
 .active-question_opened .active-question__body {
@@ -304,9 +307,8 @@
 }
 
 .main-page {
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
 .footer {

@@ -5,7 +5,7 @@
 
 .active-question__body {
     display: none;
-    margin: 0 20px 20px 20px;
+    margin: 0 20px 20px 30px;
 }
 
 .active-question_opened .active-question__body {
