@@ -1,8 +1,8 @@
 import { html } from 'htm/preact';
+import { isAV1Supported, isHdrScreenSupported, isHevcMainSupported, isVp9Supported } from 'detect-audio-video';
 import { ActiveQuestion } from '../ActiveQuestion';
 import { Result } from '../Result';
 import { Codec } from '../Codec';
-import { isAV1Supported, isHdrScreenSupported, isHevcMainSupported, isVp9Supported } from 'detect-audio-video';
 
 export function QuestionHdr() {
     const isVp9 = isVp9Supported().any;

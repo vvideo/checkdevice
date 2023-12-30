@@ -1,9 +1,9 @@
 import { useState } from 'preact/hooks';
+import { html } from 'htm/preact';
+import { AV1_CONTENT_TYPE, HEV_MAIN_CONTENT_TYPE, VP9_CONTENT_TYPE, isWidevineSupported } from 'detect-audio-video';
 import { ActiveQuestion } from '../ActiveQuestion';
 import { Result } from '../Result';
 import { Codec } from '../Codec';
-import { AV1_CONTENT_TYPE, HEV_MAIN_CONTENT_TYPE, VP9_CONTENT_TYPE, isWidevineSupported } from 'detect-audio-video';
-import { html } from 'htm/preact';
 
 export function QuestionDrm4K() {
     const [isVp9, setIsVp9] = useState(false);

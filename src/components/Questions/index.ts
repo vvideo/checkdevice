@@ -1,6 +1,5 @@
 import { html } from 'htm/preact';
 import { block } from '../../utils/bem';
-
 import { Question4K } from '../Question4K';
 import { QuestionHdr } from '../QuestionHdr';
 import { QuestionSurroundSound } from '../QuestionSurroundSound';

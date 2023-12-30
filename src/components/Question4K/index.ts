@@ -1,7 +1,7 @@
 import { html } from 'htm/preact';
+import { isAV1Supported, isHevcMainSupported, isVp9Supported } from 'detect-audio-video';
 import { Result } from '../Result';
 import { ActiveQuestion } from '../ActiveQuestion';
-import { isAV1Supported, isHevcMainSupported, isVp9Supported } from 'detect-audio-video';
 import { Codec } from '../Codec';
 
 export function Question4K() {

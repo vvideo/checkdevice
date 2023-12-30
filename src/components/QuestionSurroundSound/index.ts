@@ -1,8 +1,8 @@
 import { html } from 'htm/preact';
+import { isDolbyAtmosSupported, isDolbyDigitalPlusSupported, isDolbyDigitalSupported } from 'detect-audio-video';
 import { ActiveQuestion } from '../ActiveQuestion';
 import { Result } from '../Result';
 import { Codec } from '../Codec';
-import { isDolbyAtmosSupported, isDolbyDigitalPlusSupported, isDolbyDigitalSupported } from 'detect-audio-video';
 
 export function QuestionSurroundSound() {
     const isDolbyDigital = isDolbyDigitalSupported().any;
