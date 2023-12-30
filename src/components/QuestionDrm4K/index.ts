@@ -2,7 +2,7 @@ import { useState } from 'preact/hooks';
 import { ActiveQuestion } from '../ActiveQuestion';
 import { Result } from '../Result';
 import { Codec } from '../Codec';
-import { AV1_CONTENT_TYPE, HEVC_MAIN_CONTENT_TYPE, VP9_CONTENT_TYPE, isWidevineSupported } from 'detect-audio-video';
+import { AV1_CONTENT_TYPE, HEV_MAIN_CONTENT_TYPE, VP9_CONTENT_TYPE, isWidevineSupported } from 'detect-audio-video';
 import { html } from 'htm/preact';
 
 export function QuestionDrm4K() {
@@ -14,7 +14,7 @@ export function QuestionDrm4K() {
         setIsVp9(result);
     });
 
-    isWidevineSupported(HEVC_MAIN_CONTENT_TYPE).then(result => {
+    isWidevineSupported(HEV_MAIN_CONTENT_TYPE).then(result => {
         setIsHevc(result);
     });
 

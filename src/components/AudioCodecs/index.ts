@@ -1,15 +1,4 @@
 import {
-    DOLBY_AC3_CONTENT_TYPE,
-    AAC_CONTENT_TYPE,
-    DOLBY_ATMOS_CONTENT_TYPE,
-    DOLBY_EC3_CONTENT_TYPE,
-    FLAC_CONTENT_TYPE,
-    MPEG_H_AUDIO_LC_PROFILE_LEVEL_3_CONTENT_TYPE,
-    OPUS_CONTENT_TYPE,
-    VORBIS_CONTENT_TYPE,
-    DTS_CORE_CONTENT_TYPE,
-    DTS_HD_CORE_PLUS_EXTENSION_CONTENT_TYPE,
-    DTS_UHD_PROFILE_2_CONTENT_TYPE,
     isAacSupported,
     isDolbyAtmosSupported,
     isDolbyDigitalPlusSupported,
@@ -22,10 +11,9 @@ import {
     isDtsHdSupported,
     isDtsXSupported,
     isMp3Supported,
-    MP3_CONTENT_TYPE,
     isMp4AudioSupported,
-    MP4_AUDIO_CONTENT_TYPE,
 } from 'detect-audio-video';
+
 import { Codec } from '../Codec';
 import { html } from 'htm/preact';
 import { block } from '../../utils/bem';
@@ -42,21 +30,21 @@ export function AudioCodecs() {
     const unsupported: VNode[] = [];
 
     [
-        { supported: isMp3Supported(), name: 'MP3', color: 'orange', contentType: MP3_CONTENT_TYPE },
-        { supported: isMp4AudioSupported(), name: 'MP4', color: 'orange', contentType: MP4_AUDIO_CONTENT_TYPE },
-        { supported: isAacSupported(), name: 'AAC', color: 'orange', contentType: AAC_CONTENT_TYPE },
-        { supported: isFlacSupported(), name: 'FLAC', color: 'blue', contentType: FLAC_CONTENT_TYPE },
-        { supported: isVorbisSupported(), name: 'Vorbis', color: 'orange', contentType: VORBIS_CONTENT_TYPE },
-        { supported: isOpusSupported(), name: 'Opus', color: 'green', contentType: OPUS_CONTENT_TYPE },
-        { supported: isDolbyDigitalSupported(), name: 'Dolby Digital', color: 'black', contentType: DOLBY_AC3_CONTENT_TYPE },
-        { supported: isDolbyDigitalPlusSupported(), name: 'Dolby Digital Plus', color: 'black', contentType: DOLBY_EC3_CONTENT_TYPE },
-        { supported: isDolbyAtmosSupported(), name: 'Dolby Atmos', color: 'black', contentType: DOLBY_ATMOS_CONTENT_TYPE},
-        { supported: isDtsSupported(), name: 'DTS', color: 'black', contentType: DTS_CORE_CONTENT_TYPE },
-        { supported: isDtsHdSupported(), name: 'DTS:HD', color: 'black', contentType: DTS_HD_CORE_PLUS_EXTENSION_CONTENT_TYPE },
-        { supported: isDtsXSupported(), name: 'DTS:X', color: 'black', contentType: DTS_UHD_PROFILE_2_CONTENT_TYPE},
-        { supported: isMpegHAudioSupported(), name: 'MPEG-H Audio', color: 'blue', contentType: MPEG_H_AUDIO_LC_PROFILE_LEVEL_3_CONTENT_TYPE },
+        { supported: isMp3Supported(), name: 'MP3', color: 'orange' },
+        { supported: isMp4AudioSupported(), name: 'MP4', color: 'orange' },
+        { supported: isAacSupported(), name: 'AAC', color: 'orange' },
+        { supported: isFlacSupported(), name: 'FLAC', color: 'blue' },
+        { supported: isVorbisSupported(), name: 'Vorbis', color: 'orange' },
+        { supported: isOpusSupported(), name: 'Opus', color: 'green' },
+        { supported: isDolbyDigitalSupported(), name: 'Dolby Digital', color: 'black' },
+        { supported: isDolbyDigitalPlusSupported(), name: 'Dolby Digital Plus', color: 'black' },
+        { supported: isDolbyAtmosSupported(), name: 'Dolby Atmos', color: 'black' },
+        { supported: isDtsSupported(), name: 'DTS', color: 'black' },
+        { supported: isDtsHdSupported(), name: 'DTS:HD', color: 'black' },
+        { supported: isDtsXSupported(), name: 'DTS:X', color: 'black' },
+        { supported: isMpegHAudioSupported(), name: 'MPEG-H Audio', color: 'blue' },
     ].map(item => {
-        const tooltip = getTooltip(item.supported, item.contentType);
+        const tooltip = getTooltip(item.supported);
         if (item.supported.any) {
             supported.push(Codec({
                 name: item.name,

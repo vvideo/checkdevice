@@ -277,13 +277,14 @@
     }
 
     function isContentTypeSupported(contentType) {
-        const canPlayTypeResult = canPlayType(contentType);
+        const canPlayTypeResult = canPlayType(contentType) !== '';
         const isTypeSupportedResult = isTypeSupported(contentType);
         return {
             file: canPlayTypeResult,
             mediaSource: isTypeSupportedResult,
             any: canPlayTypeResult || isTypeSupportedResult,
             both: canPlayTypeResult && isTypeSupportedResult,
+            contentType,
         };
     }
 
@@ -333,8 +334,11 @@
     const VP8_CONTENT_TYPE = 'video/webm; codecs="vp8"';
     const VP9_CONTENT_TYPE = 'video/webm; codecs="vp9"';
     const AV1_CONTENT_TYPE = 'video/mp4; codecs="av01.0.01M.08"';
-    const HEVC_MAIN_CONTENT_TYPE = 'video/mp4; codecs="hev1.1.6.L123.B0"';
-    const HEVC_MAIN10_CONTENT_TYPE = 'video/mp4; codecs="hev1.2.4.L153.B0"';
+    const HEV_MAIN_CONTENT_TYPE = 'video/mp4; codecs="hev1.1.6.L123.B0"';
+    const HEV_MAIN10_CONTENT_TYPE = 'video/mp4; codecs="hev1.2.4.L153.B0"';
+    // For iOS
+    const HVC_MAIN_CONTENT_TYPE = 'video/mp4; codecs="hvc1.1.6.L123.B0"';
+    const HVC_MAIN10_CONTENT_TYPE = 'video/mp4; codecs="hvc1.2.4.L153.B0"';
     const DOLBY_VISION_CONTENT_TYPE = 'video/mp4; codecs="dvhe.08.09"';
     const MPEG2T_CONTENT_TYPE = 'video/mp2t';
 
@@ -357,10 +361,18 @@
         return isContentTypeSupported(AV1_CONTENT_TYPE);
     }
     function isHevcMainSupported() {
-        return isContentTypeSupported(HEVC_MAIN_CONTENT_TYPE);
+        const resultHev = isContentTypeSupported(HEV_MAIN_CONTENT_TYPE);
+        if (resultHev.any) {
+            return resultHev;
+        }
+        return isContentTypeSupported(HVC_MAIN_CONTENT_TYPE);
     }
     function isHevcMain10Supported() {
-        return isContentTypeSupported(HEVC_MAIN10_CONTENT_TYPE);
+        const resultHev = isContentTypeSupported(HEV_MAIN10_CONTENT_TYPE);
+        if (resultHev.any) {
+            return resultHev;
+        }
+        return isContentTypeSupported(HVC_MAIN10_CONTENT_TYPE);
     }
     function isDolbyVisionSupported() {
         return isContentTypeSupported(DOLBY_VISION_CONTENT_TYPE);
@@ -948,8 +960,8 @@
     }
     var templateObject_1$k;
 
-    function getTooltip(result, contentType) {
-        return m$1(templateObject_1$j || (templateObject_1$j = __makeTemplateObject(["\n        video.canPlayType(): ", "<br />\n        MediaSource.isTypeSupported(): ", "<br />\n        <hr />\n        ", "\n    "], ["\n        video.canPlayType(): ", "<br />\n        MediaSource.isTypeSupported(): ", "<br />\n        <hr />\n        ", "\n    "])), result.file ? 'Yes' : 'No', result.mediaSource ? 'Yes' : 'No', contentType);
+    function getTooltip(result) {
+        return m$1(templateObject_1$j || (templateObject_1$j = __makeTemplateObject(["\n        video.canPlayType(): ", "<br />\n        MediaSource.isTypeSupported(): ", "<br />\n        <hr />\n        ", "\n    "], ["\n        video.canPlayType(): ", "<br />\n        MediaSource.isTypeSupported(): ", "<br />\n        <hr />\n        ", "\n    "])), result.file ? 'Yes' : 'No', result.mediaSource ? 'Yes' : 'No', result.contentType);
     }
     var templateObject_1$j;
 
@@ -958,21 +970,21 @@
         var supported = [];
         var unsupported = [];
         [
-            { supported: isMp3Supported(), name: 'MP3', color: 'orange', contentType: MP3_CONTENT_TYPE },
-            { supported: isMp4AudioSupported(), name: 'MP4', color: 'orange', contentType: MP4_AUDIO_CONTENT_TYPE },
-            { supported: isAacSupported(), name: 'AAC', color: 'orange', contentType: AAC_CONTENT_TYPE },
-            { supported: isFlacSupported(), name: 'FLAC', color: 'blue', contentType: FLAC_CONTENT_TYPE },
-            { supported: isVorbisSupported(), name: 'Vorbis', color: 'orange', contentType: VORBIS_CONTENT_TYPE },
-            { supported: isOpusSupported(), name: 'Opus', color: 'green', contentType: OPUS_CONTENT_TYPE },
-            { supported: isDolbyDigitalSupported(), name: 'Dolby Digital', color: 'black', contentType: DOLBY_AC3_CONTENT_TYPE },
-            { supported: isDolbyDigitalPlusSupported(), name: 'Dolby Digital Plus', color: 'black', contentType: DOLBY_EC3_CONTENT_TYPE },
-            { supported: isDolbyAtmosSupported(), name: 'Dolby Atmos', color: 'black', contentType: DOLBY_ATMOS_CONTENT_TYPE },
-            { supported: isDtsSupported(), name: 'DTS', color: 'black', contentType: DTS_CORE_CONTENT_TYPE },
-            { supported: isDtsHdSupported(), name: 'DTS:HD', color: 'black', contentType: DTS_HD_CORE_PLUS_EXTENSION_CONTENT_TYPE },
-            { supported: isDtsXSupported(), name: 'DTS:X', color: 'black', contentType: DTS_UHD_PROFILE_2_CONTENT_TYPE },
-            { supported: isMpegHAudioSupported(), name: 'MPEG-H Audio', color: 'blue', contentType: MPEG_H_AUDIO_LC_PROFILE_LEVEL_3_CONTENT_TYPE },
+            { supported: isMp3Supported(), name: 'MP3', color: 'orange' },
+            { supported: isMp4AudioSupported(), name: 'MP4', color: 'orange' },
+            { supported: isAacSupported(), name: 'AAC', color: 'orange' },
+            { supported: isFlacSupported(), name: 'FLAC', color: 'blue' },
+            { supported: isVorbisSupported(), name: 'Vorbis', color: 'orange' },
+            { supported: isOpusSupported(), name: 'Opus', color: 'green' },
+            { supported: isDolbyDigitalSupported(), name: 'Dolby Digital', color: 'black' },
+            { supported: isDolbyDigitalPlusSupported(), name: 'Dolby Digital Plus', color: 'black' },
+            { supported: isDolbyAtmosSupported(), name: 'Dolby Atmos', color: 'black' },
+            { supported: isDtsSupported(), name: 'DTS', color: 'black' },
+            { supported: isDtsHdSupported(), name: 'DTS:HD', color: 'black' },
+            { supported: isDtsXSupported(), name: 'DTS:X', color: 'black' },
+            { supported: isMpegHAudioSupported(), name: 'MPEG-H Audio', color: 'blue' },
         ].map(function (item) {
-            var tooltip = getTooltip(item.supported, item.contentType);
+            var tooltip = getTooltip(item.supported);
             if (item.supported.any) {
                 supported.push(Codec({
                     name: item.name,
@@ -997,18 +1009,18 @@
         var supported = [];
         var unsupported = [];
         [
-            { supported: isH264BaselineSupported(), name: 'H.264 Baseline', color: 'blue', contentType: H264_BASELINE_CONTENT_TYPE },
-            { supported: isH264MainSupported(), name: 'H.264 Main', color: 'blue', contentType: H264_MAIN_CONTENT_TYPE },
-            { supported: isH264HighSupported(), name: 'H.264 High', color: 'blue', contentType: H264_HIGH_CONTENT_TYPE },
-            { supported: isHevcMainSupported(), name: 'H.265 Main', color: 'orange', contentType: HEVC_MAIN_CONTENT_TYPE },
-            { supported: isHevcMain10Supported(), name: 'H.265 Main10', color: 'orange', contentType: HEVC_MAIN10_CONTENT_TYPE },
-            { supported: isVp8Supported(), name: 'VP8', color: 'green', contentType: VP8_CONTENT_TYPE },
-            { supported: isVp9Supported(), name: 'VP9', color: 'green', contentType: VP9_CONTENT_TYPE },
-            { supported: isDolbyVisionSupported(), name: 'Dolby Vision', color: 'black', contentType: DOLBY_VISION_CONTENT_TYPE },
-            { supported: isAV1Supported(), name: 'AV1', color: 'yellow', contentType: AV1_CONTENT_TYPE },
-            { supported: isMpeg2TSupported(), name: 'MPEG2-TS', color: 'yellow', contentType: MPEG2T_CONTENT_TYPE },
+            { supported: isH264BaselineSupported(), name: 'H.264 Baseline', color: 'blue' },
+            { supported: isH264MainSupported(), name: 'H.264 Main', color: 'blue' },
+            { supported: isH264HighSupported(), name: 'H.264 High', color: 'blue' },
+            { supported: isHevcMainSupported(), name: 'H.265 Main', color: 'orange' },
+            { supported: isHevcMain10Supported(), name: 'H.265 Main10', color: 'orange' },
+            { supported: isVp8Supported(), name: 'VP8', color: 'green' },
+            { supported: isVp9Supported(), name: 'VP9', color: 'green' },
+            { supported: isDolbyVisionSupported(), name: 'Dolby Vision', color: 'black' },
+            { supported: isAV1Supported(), name: 'AV1', color: 'yellow' },
+            { supported: isMpeg2TSupported(), name: 'MPEG2-TS', color: 'yellow' },
         ].map(function (item) {
-            var tooltip = getTooltip(item.supported, item.contentType);
+            var tooltip = getTooltip(item.supported);
             if (item.supported.any) {
                 supported.push(Codec({
                     name: item.name,
@@ -1030,7 +1042,7 @@
 
     var b$c = block('header');
     function Header() {
-        return m$1(templateObject_1$g || (templateObject_1$g = __makeTemplateObject(["\n        <div class=\"", "\">\n            Can I Watch Video<span class=\"", "\"><span class=\"", "\">beta</span></span>\n        </div>\n    "], ["\n        <div class=\"", "\">\n            Can I Watch Video<span class=\"", "\"><span class=\"", "\">beta</span></span>\n        </div>\n    "])), b$c(), b$c('beta-container'), b$c('beta'));
+        return m$1(templateObject_1$g || (templateObject_1$g = __makeTemplateObject(["\n        <div class=\"", "\">\n            Can I\u00A0Watch Video<span class=\"", "\"><span class=\"", "\">beta</span></span>\n        </div>\n    "], ["\n        <div class=\"", "\">\n            Can I\\u00a0Watch Video<span class=\"", "\"><span class=\"", "\">beta</span></span>\n        </div>\n    "])), b$c(), b$c('beta-container'), b$c('beta'));
     }
     var templateObject_1$g;
 
@@ -1339,7 +1351,7 @@
         isWidevineSupported(VP9_CONTENT_TYPE).then(function (result) {
             setIsVp9(result);
         });
-        isWidevineSupported(HEVC_MAIN_CONTENT_TYPE).then(function (result) {
+        isWidevineSupported(HEV_MAIN_CONTENT_TYPE).then(function (result) {
             setIsHevc(result);
         });
         isWidevineSupported(AV1_CONTENT_TYPE).then(function (result) {
