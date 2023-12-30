@@ -12,6 +12,7 @@ import { HtmlVideoElementFeatures } from '../HtmlVideoElementFeatures';
 import { block } from '../../utils/bem';
 
 import './index.css';
+import { Footer } from '../Footer';
 
 const b = block('main-page');
 
@@ -44,5 +45,7 @@ export function MainPage() {
             <${Row} name="HTMLVideoElement Features">
                 <${HtmlVideoElementFeatures}><//>
             <//>
+
+            <${Footer}><//>
         </div>`;
 }
