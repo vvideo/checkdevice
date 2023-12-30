@@ -1,0 +1,30 @@
+.active-question__head {
+    cursor: pointer;
+    display: flex;
+}
+
+.active-question__body {
+    display: none;
+    margin: 0 20px 20px 20px;
+}
+
+.active-question_opened .active-question__body {
+    display: block;
+}
+
+.active-question__plus {
+    width: 1em;
+    line-height: 1em;
+    height: 1em;
+    text-align: center;
+    border: 1px dotted white;
+    border-radius: 5px;
+    margin-right: 10px;
+    vertical-align: middle;
+    align-self: center;
+}
+
+.active-question ul {
+    padding: 0;
+    margin: 0 0 0 20px;
+}

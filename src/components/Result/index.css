@@ -1,0 +1,15 @@
+.result_type_yes {
+    color: green;
+}
+
+.result_type_no {
+    color: red;
+}
+
+.result_type_undefined {
+    color: yellow;
+}
+
+.result__details {
+    margin-left: 1em;
+}

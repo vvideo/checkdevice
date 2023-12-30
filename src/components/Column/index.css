@@ -1,0 +1,14 @@
+.column {
+    max-width: 80%;
+    margin-bottom: 20px;
+}
+
+.column__category {
+    color: gray;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.column__body {
+    margin-top: 10px;
+}
