@@ -315,3 +315,11 @@ html, body {
     line-height: 24px;
 }
 
+a:link, a:visited, a:hover, a:active {
+    color: #009cf4;
+}
+
+a:hover {
+    color: #30Acf4;
+}
+

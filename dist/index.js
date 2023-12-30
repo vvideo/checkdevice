@@ -229,16 +229,16 @@
     var b$l = block('badge');
     function Badge(props) {
         var _a, _b;
-        return m$1(templateObject_3$1 || (templateObject_3$1 = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n            <div class=\"", "\">", "</div>\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n            <div class=\"", "\">", "</div>\n            ", "\n        </div>\n    "])), b$l({
+        return m$1(templateObject_3$2 || (templateObject_3$2 = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n            <div class=\"", "\">", "</div>\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n            <div class=\"", "\">", "</div>\n            ", "\n        </div>\n    "])), b$l({
             type: props.type,
             background: props.background,
             disabled: props.disabled,
             hidden: props.hidden,
             size: props.size,
             click: props.click,
-        }), ((_a = props.top) === null || _a === void 0 ? void 0 : _a.text) ? m$1(templateObject_1$r || (templateObject_1$r = __makeTemplateObject(["<div class=\"", "\" title=\"", "\">", "</div>"], ["<div class=\"", "\" title=\"", "\">", "</div>"])), b$l('top-text'), props.top.title, props.top.text) : '', b$l('body'), props.text, ((_b = props.bottom) === null || _b === void 0 ? void 0 : _b.text) ? m$1(templateObject_2$d || (templateObject_2$d = __makeTemplateObject(["<div class=\"", "\" title=\"", "\">", "</div>"], ["<div class=\"", "\" title=\"", "\">", "</div>"])), b$l('bottom-text'), props.bottom.title, props.bottom.text) : '');
+        }), ((_a = props.top) === null || _a === void 0 ? void 0 : _a.text) ? m$1(templateObject_1$r || (templateObject_1$r = __makeTemplateObject(["<div class=\"", "\" title=\"", "\">", "</div>"], ["<div class=\"", "\" title=\"", "\">", "</div>"])), b$l('top-text'), props.top.title, props.top.text) : '', b$l('body'), props.text, ((_b = props.bottom) === null || _b === void 0 ? void 0 : _b.text) ? m$1(templateObject_2$c || (templateObject_2$c = __makeTemplateObject(["<div class=\"", "\" title=\"", "\">", "</div>"], ["<div class=\"", "\" title=\"", "\">", "</div>"])), b$l('bottom-text'), props.bottom.title, props.bottom.text) : '');
     }
-    var templateObject_1$r, templateObject_2$d, templateObject_3$1;
+    var templateObject_1$r, templateObject_2$c, templateObject_3$2;
 
     const AAC_CONTENT_TYPE = 'audio/mp4; codecs="mp4a.40.2"';
     const DOLBY_AC3_CONTENT_TYPE = 'audio/mp4; codecs="ac-3"';
@@ -248,10 +248,21 @@
     const OPUS_CONTENT_TYPE = 'audio/mp4; codecs="opus"';
     const FLAC_CONTENT_TYPE = 'audio/mp4; codecs="flac"';
     const MP3_CONTENT_TYPE = 'audio/mpeg';
+    const MP4_AUDIO_CONTENT_TYPE = 'audio/mp4';
     const MPEG_H_AUDIO_LC_PROFILE_LEVEL_3_CONTENT_TYPE = 'audio/mp4; codecs="mhm1.0x0D"';
     const DTS_CORE_CONTENT_TYPE = 'audio/mp4; codecs="dtsc"';
     const DTS_HD_CORE_PLUS_EXTENSION_CONTENT_TYPE = 'audio/mp4; codecs="dtsh"';
     const DTS_UHD_PROFILE_2_CONTENT_TYPE = 'audio/mp4; codecs="dtsx"';
+
+    let defaultVideoElement;
+    function canPlayType(type) {
+        if (!defaultVideoElement) {
+            defaultVideoElement = document.createElement('video');
+        }
+        return defaultVideoElement.canPlayType ?
+            defaultVideoElement.canPlayType(type) :
+            '';
+    }
 
     function isTypeSupported(value) {
         if (!window.MediaSource) {
@@ -265,41 +276,55 @@
         return result;
     }
 
+    function isContentTypeSupported(contentType) {
+        const canPlayTypeResult = canPlayType(contentType);
+        const isTypeSupportedResult = isTypeSupported(contentType);
+        return {
+            file: canPlayTypeResult,
+            mediaSource: isTypeSupportedResult,
+            any: canPlayTypeResult || isTypeSupportedResult,
+            both: canPlayTypeResult && isTypeSupportedResult,
+        };
+    }
+
     function isMp3Supported() {
-        return isTypeSupported(MP3_CONTENT_TYPE);
+        return isContentTypeSupported(MP3_CONTENT_TYPE);
+    }
+    function isMp4AudioSupported() {
+        return isContentTypeSupported(MP4_AUDIO_CONTENT_TYPE);
     }
     function isAacSupported() {
-        return isTypeSupported(AAC_CONTENT_TYPE);
+        return isContentTypeSupported(AAC_CONTENT_TYPE);
     }
     function isDolbyDigitalSupported() {
-        return isTypeSupported(DOLBY_AC3_CONTENT_TYPE);
+        return isContentTypeSupported(DOLBY_AC3_CONTENT_TYPE);
     }
     function isDolbyDigitalPlusSupported() {
-        return isTypeSupported(DOLBY_EC3_CONTENT_TYPE);
+        return isContentTypeSupported(DOLBY_EC3_CONTENT_TYPE);
     }
     function isDolbyAtmosSupported() {
-        return isTypeSupported(DOLBY_ATMOS_CONTENT_TYPE);
+        return isContentTypeSupported(DOLBY_ATMOS_CONTENT_TYPE);
     }
     function isMpegHAudioSupported() {
-        return isTypeSupported(MPEG_H_AUDIO_LC_PROFILE_LEVEL_3_CONTENT_TYPE);
+        return isContentTypeSupported(MPEG_H_AUDIO_LC_PROFILE_LEVEL_3_CONTENT_TYPE);
     }
     function isVorbisSupported() {
-        return isTypeSupported(VORBIS_CONTENT_TYPE);
+        return isContentTypeSupported(VORBIS_CONTENT_TYPE);
     }
     function isFlacSupported() {
-        return isTypeSupported(FLAC_CONTENT_TYPE);
+        return isContentTypeSupported(FLAC_CONTENT_TYPE);
     }
     function isOpusSupported() {
-        return isTypeSupported(OPUS_CONTENT_TYPE);
+        return isContentTypeSupported(OPUS_CONTENT_TYPE);
     }
     function isDtsSupported() {
-        return isTypeSupported(DTS_CORE_CONTENT_TYPE);
+        return isContentTypeSupported(DTS_CORE_CONTENT_TYPE);
     }
     function isDtsHdSupported() {
-        return isTypeSupported(DTS_HD_CORE_PLUS_EXTENSION_CONTENT_TYPE);
+        return isContentTypeSupported(DTS_HD_CORE_PLUS_EXTENSION_CONTENT_TYPE);
     }
     function isDtsXSupported() {
-        return isTypeSupported(DTS_UHD_PROFILE_2_CONTENT_TYPE);
+        return isContentTypeSupported(DTS_UHD_PROFILE_2_CONTENT_TYPE);
     }
 
     const H264_BASELINE_CONTENT_TYPE = 'video/mp4; codecs="avc1.42E01E"';
@@ -308,39 +333,45 @@
     const VP8_CONTENT_TYPE = 'video/webm; codecs="vp8"';
     const VP9_CONTENT_TYPE = 'video/webm; codecs="vp9"';
     const AV1_CONTENT_TYPE = 'video/mp4; codecs="av01.0.01M.08"';
+    const HEVC_MAIN_CONTENT_TYPE = 'video/mp4; codecs="hev1.1.6.L123.B0"';
+    const HEVC_MAIN10_CONTENT_TYPE = 'video/mp4; codecs="hev1.2.4.L153.B0"';
+    const DOLBY_VISION_CONTENT_TYPE = 'video/mp4; codecs="dvhe.08.09"';
+    const MPEG2T_CONTENT_TYPE = 'video/mp2t';
 
     function isVp8Supported() {
-        return isTypeSupported(VP8_CONTENT_TYPE);
+        return isContentTypeSupported(VP8_CONTENT_TYPE);
     }
     function isVp9Supported() {
-        return isTypeSupported(VP9_CONTENT_TYPE);
+        return isContentTypeSupported(VP9_CONTENT_TYPE);
     }
     function isH264BaselineSupported() {
-        return isTypeSupported(H264_BASELINE_CONTENT_TYPE);
+        return isContentTypeSupported(H264_BASELINE_CONTENT_TYPE);
     }
     function isH264MainSupported() {
-        return isTypeSupported(H264_MAIN_CONTENT_TYPE);
+        return isContentTypeSupported(H264_MAIN_CONTENT_TYPE);
     }
     function isH264HighSupported() {
-        return isTypeSupported(H264_HIGH_CONTENT_TYPE);
+        return isContentTypeSupported(H264_HIGH_CONTENT_TYPE);
     }
     function isAV1Supported() {
-        return isTypeSupported(AV1_CONTENT_TYPE);
+        return isContentTypeSupported(AV1_CONTENT_TYPE);
+    }
+    function isHevcMainSupported() {
+        return isContentTypeSupported(HEVC_MAIN_CONTENT_TYPE);
+    }
+    function isHevcMain10Supported() {
+        return isContentTypeSupported(HEVC_MAIN10_CONTENT_TYPE);
+    }
+    function isDolbyVisionSupported() {
+        return isContentTypeSupported(DOLBY_VISION_CONTENT_TYPE);
+    }
+    function isMpeg2TSupported() {
+        return isContentTypeSupported(MPEG2T_CONTENT_TYPE);
     }
 
     const MPD_CONTENT_TYPE = 'application/dash+xml';
     const HLS_CONTENT_TYPE = 'application/vnd.apple.mpegurl';
     const MSS_CONTENT_TYPE = 'application/vnd.ms-sstr+xml';
-
-    let defaultVideoElement;
-    function canPlayType(type) {
-        if (!defaultVideoElement) {
-            defaultVideoElement = document.createElement('video');
-        }
-        return defaultVideoElement.canPlayType ?
-            defaultVideoElement.canPlayType(type) :
-            '';
-    }
 
     function isNativeHlsSupported() {
         return canPlayType(HLS_CONTENT_TYPE) !== '';
@@ -542,38 +573,38 @@
         ]);
     }
 
-    function isWidevineSupported() {
+    function isWidevineSupported(contentType = H264_BASELINE_CONTENT_TYPE, initDataTypes = ['cenc']) {
         return requestMediaKeySystemAccess(WIDEWINE_KEY_SYSTEM, [
             {
-                initDataTypes: ['cenc'],
+                initDataTypes,
                 videoCapabilities: [
                     {
-                        contentType: H264_BASELINE_CONTENT_TYPE,
+                        contentType,
                     },
                 ],
             },
         ]);
     }
-    function isWidevineL1Supported() {
+    function isWidevineL1Supported(contentType = H264_BASELINE_CONTENT_TYPE, initDataTypes = ['cenc']) {
         return requestMediaKeySystemAccess(WIDEWINE_KEY_SYSTEM, [
             {
-                initDataTypes: ['cenc'],
+                initDataTypes,
                 videoCapabilities: [
                     {
-                        contentType: H264_BASELINE_CONTENT_TYPE,
+                        contentType,
                         robustness: 'HW_SECURE_DECODE',
                     },
                 ],
             },
         ]);
     }
-    function isWidevineL3Supported() {
+    function isWidevineL3Supported(contentType = H264_BASELINE_CONTENT_TYPE, initDataTypes = ['cenc']) {
         return requestMediaKeySystemAccess(WIDEWINE_KEY_SYSTEM, [
             {
-                initDataTypes: ['cenc'],
+                initDataTypes,
                 videoCapabilities: [
                     {
-                        contentType: H264_BASELINE_CONTENT_TYPE,
+                        contentType,
                         robustness: 'SW_SECURE_DECODE',
                     },
                 ],
@@ -663,28 +694,28 @@
     function AudioBadges() {
         var audioCodecs20 = [];
         var audioCodecs51 = [];
-        if (isAacSupported()) {
+        if (isAacSupported().any) {
             audioCodecs20.push('AAC');
         }
-        if (isDolbyDigitalSupported()) {
+        if (isDolbyDigitalSupported().any) {
             audioCodecs51.push('AC-3');
         }
-        if (isDolbyDigitalPlusSupported()) {
+        if (isDolbyDigitalPlusSupported().any) {
             audioCodecs51.push('EC-3');
         }
         var has51 = audioCodecs51.length;
-        return m$1(templateObject_2$c || (templateObject_2$c = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n\n            ", "\n        </div>\n    "])), b$k(), Badge({
+        return m$1(templateObject_2$b || (templateObject_2$b = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n\n            ", "\n        </div>\n    "])), b$k(), Badge({
             text: has51 ? '5.1' : '2.0',
             background: has51 ? 'gold' : 'transparent',
             bottom: {
                 text: (has51 ? audioCodecs51 : audioCodecs20).join(', '),
             },
-        }), isDolbyAtmosSupported() && Badge({
+        }), isDolbyAtmosSupported().any && Badge({
             text: m$1(templateObject_1$q || (templateObject_1$q = __makeTemplateObject(["<b>Dolby</b> Atmos"], ["<b>Dolby</b> Atmos"]))),
             background: 'transparent',
         }));
     }
-    var templateObject_1$q, templateObject_2$c;
+    var templateObject_1$q, templateObject_2$b;
 
     const standardAspectRatio = [
         [1, 1],
@@ -765,6 +796,21 @@
 
     var t,r,u,i,o=0,f=[],c=[],e=l$1.__b,a=l$1.__r,v=l$1.diffed,l=l$1.__c,m=l$1.unmount;function d(t,u){l$1.__h&&l$1.__h(r,t,o||u),o=0;var i=r.__H||(r.__H={__:[],__h:[]});return t>=i.__.length&&i.__.push({__V:c}),i.__[t]}function h(n){return o=1,s(B,n)}function s(n,u,i){var o=d(t++,2);if(o.t=n,!o.__c&&(o.__=[i?i(u):B(void 0,u),function(n){var t=o.__N?o.__N[0]:o.__[0],r=o.t(t,n);t!==r&&(o.__N=[r,o.__[1]],o.__c.setState({}));}],o.__c=r,!r.u)){var f=function(n,t,r){if(!o.__c.__H)return !0;var u=o.__c.__H.__.filter(function(n){return n.__c});if(u.every(function(n){return !n.__N}))return !c||c.call(this,n,t,r);var i=!1;return u.forEach(function(n){if(n.__N){var t=n.__[0];n.__=n.__N,n.__N=void 0,t!==n.__[0]&&(i=!0);}}),!(!i&&o.__c.props===n)&&(!c||c.call(this,n,t,r))};r.u=!0;var c=r.shouldComponentUpdate,e=r.componentWillUpdate;r.componentWillUpdate=function(n,t,r){if(this.__e){var u=c;c=void 0,f(n,t,r),c=u;}e&&e.call(this,n,t,r);},r.shouldComponentUpdate=f;}return o.__N||o.__}function F(n,r){var u=d(t++,7);return z(u.__H,r)?(u.__V=n(),u.i=r,u.__h=n,u.__V):u.__}function T(n,t){return o=8,F(function(){return n},t)}function b$j(){for(var t;t=f.shift();)if(t.__P&&t.__H)try{t.__H.__h.forEach(k),t.__H.__h.forEach(w),t.__H.__h=[];}catch(r){t.__H.__h=[],l$1.__e(r,t.__v);}}l$1.__b=function(n){r=null,e&&e(n);},l$1.__r=function(n){a&&a(n),t=0;var i=(r=n.__c).__H;i&&(u===r?(i.__h=[],r.__h=[],i.__.forEach(function(n){n.__N&&(n.__=n.__N),n.__V=c,n.__N=n.i=void 0;})):(i.__h.forEach(k),i.__h.forEach(w),i.__h=[],t=0)),u=r;},l$1.diffed=function(t){v&&v(t);var o=t.__c;o&&o.__H&&(o.__H.__h.length&&(1!==f.push(o)&&i===l$1.requestAnimationFrame||((i=l$1.requestAnimationFrame)||j)(b$j)),o.__H.__.forEach(function(n){n.i&&(n.__H=n.i),n.__V!==c&&(n.__=n.__V),n.i=void 0,n.__V=c;})),u=r=null;},l$1.__c=function(t,r){r.some(function(t){try{t.__h.forEach(k),t.__h=t.__h.filter(function(n){return !n.__||w(n)});}catch(u){r.some(function(n){n.__h&&(n.__h=[]);}),r=[],l$1.__e(u,t.__v);}}),l&&l(t,r);},l$1.unmount=function(t){m&&m(t);var r,u=t.__c;u&&u.__H&&(u.__H.__.forEach(function(n){try{k(n);}catch(n){r=n;}}),u.__H=void 0,r&&l$1.__e(r,u.__v));};var g="function"==typeof requestAnimationFrame;function j(n){var t,r=function(){clearTimeout(u),g&&cancelAnimationFrame(t),setTimeout(n);},u=setTimeout(r,100);g&&(t=requestAnimationFrame(r));}function k(n){var t=r,u=n.__c;"function"==typeof u&&(n.__c=void 0,u()),r=t;}function w(n){var t=r;n.__c=n.__(),r=t;}function z(n,t){return !n||n.length!==t.length||t.some(function(t,r){return t!==n[r]})}function B(n,t){return "function"==typeof t?t(n):t}
 
+    function hasZoom() {
+        var devicePixelRatio = getDevicePixelRatio();
+        var floorDevicePixelRatio = Math.floor(devicePixelRatio);
+        if (devicePixelRatio === 1.5) {
+            return false;
+        }
+        if (devicePixelRatio !== floorDevicePixelRatio) {
+            return true;
+        }
+        if (devicePixelRatio > 4) {
+            return true;
+        }
+        return false;
+    }
+
     var b$i = block('screen-badge');
     function ScreenBadge(props) {
         var _a = h(true), withDevicePixelRatio = _a[0], setWithDevicePixelRatio = _a[1];
@@ -774,18 +820,14 @@
         var screenSize = withDevicePixelRatio ?
             [props.width, props.height, props.devicePixelRatio].join('×') :
             [props.width * props.devicePixelRatio, props.height * props.devicePixelRatio].join('×');
-        var screenText = [
-            screenSize,
-            "".concat(props.colorDepth, " bit"),
-            calcAspectRatio(props.width, props.height).value,
-        ].join(', ');
-        return m$1(templateObject_2$b || (templateObject_2$b = __makeTemplateObject(["        \n        <div class=\"", "\" onClick=", ">\n            <div class=\"", "\">", "</div>\n            ", "\n        </div>\n    "], ["        \n        <div class=\"", "\" onClick=", ">\n            <div class=\"", "\">", "</div>\n            ", "\n        </div>\n    "])), b$i(), handleClick, b$i('label'), props.label, Badge({
-            text: getResolutionBadge(props.width * props.devicePixelRatio) || '',
+        var screenText = m$1(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n        <div>Size: ", "</div>\n        ", "\n        <div>Color depth: ", " bit</div>\n        <div>Aspect ratio: ", "</div>\n        ", "\n        ", "\n    "], ["\n        <div>Size: ", "</div>\n        ", "\n        <div>Color depth: ", " bit</div>\n        <div>Aspect ratio: ", "</div>\n        ", "\n        ", "\n    "])), screenSize, hasZoom() ? m$1(templateObject_1$p || (templateObject_1$p = __makeTemplateObject(["<div>\u26A0 Please reset zoom in the page</div>"], ["<div>\u26A0 Please reset zoom in the page</div>"]))) : '', props.colorDepth, calcAspectRatio(props.width, props.height).value, props.isPrimary ? m$1(templateObject_2$a || (templateObject_2$a = __makeTemplateObject(["<div>Primary: Yes</div>"], ["<div>Primary: Yes</div>"]))) : '', props.isInternal ? m$1(templateObject_3$1 || (templateObject_3$1 = __makeTemplateObject(["<div>Internal: Yes</div>"], ["<div>Internal: Yes</div>"]))) : '');
+        return m$1(templateObject_6 || (templateObject_6 = __makeTemplateObject(["        \n        <div class=\"", "\" onClick=", ">\n            <div class=\"", "\">", "</div>\n            ", "\n        </div>\n    "], ["        \n        <div class=\"", "\" onClick=", ">\n            <div class=\"", "\">", "</div>\n            ", "\n        </div>\n    "])), b$i(), handleClick, b$i('label'), props.label, Badge({
+            text: getResolutionBadge(Math.max(props.width, props.height) * props.devicePixelRatio) || '',
             type: '4k',
             click: true,
             background: 'gold',
             top: {
-                text: props.isHDR ? m$1(templateObject_1$p || (templateObject_1$p = __makeTemplateObject(["<b>HDR</b>"], ["<b>HDR</b>"]))) : '',
+                text: props.isHDR ? m$1(templateObject_5 || (templateObject_5 = __makeTemplateObject(["<b>HDR</b>"], ["<b>HDR</b>"]))) : '',
             },
             bottom: {
                 text: screenText,
@@ -793,7 +835,7 @@
             },
         }));
     }
-    var templateObject_1$p, templateObject_2$b;
+    var templateObject_1$p, templateObject_2$a, templateObject_3$1, templateObject_4, templateObject_5, templateObject_6;
 
     var b$h = block('row');
     function Row(props) {
@@ -805,7 +847,34 @@
         __extends(ScreenBadges, _super);
         function ScreenBadges() {
             var _this = _super.call(this) || this;
-            _this.state = { screens: [{
+            _this.timer = -1;
+            _this.state = _this.updateScreen();
+            if (window.getScreenDetails) {
+                window.getScreenDetails().then(function (result) {
+                    console.log(result);
+                    result.onscreenschange = function () {
+                        _this.updateScreenDetails(result);
+                    };
+                    _this.updateScreenDetails(result);
+                }).catch(function () { });
+            }
+            var screenJson = JSON.stringify(_this.state);
+            _this.timer = window.setInterval(function () {
+                if (_this.state.isScreenDetails) {
+                    return;
+                }
+                var currentScreenJson = JSON.stringify(_this.updateScreen());
+                if (screenJson !== currentScreenJson) {
+                    screenJson = currentScreenJson;
+                    _this.setState(_this.updateScreen());
+                }
+            }, 1000);
+            return _this;
+        }
+        ScreenBadges.prototype.updateScreen = function () {
+            return {
+                isScreenDetails: false,
+                screens: [{
                         label: '',
                         availWidth: screen.availWidth,
                         availHeight: screen.availHeight,
@@ -816,23 +885,12 @@
                         devicePixelRatio: getDevicePixelRatio(),
                         isHDR: Boolean(isHdrScreenSupported()),
                         orientation: screen.orientation,
-                        isInternal: true,
-                        isPrimary: true,
-                        // @ts-ignore
-                        isExtended: screen.isExtended,
-                    }] };
-            if (window.getScreenDetails) {
-                window.getScreenDetails().then(function (result) {
-                    result.onscreenschange = function () {
-                        _this.updateScreens(result);
-                    };
-                    _this.updateScreens(result);
-                });
-            }
-            return _this;
-        }
-        ScreenBadges.prototype.updateScreens = function (result) {
+                    }],
+            };
+        };
+        ScreenBadges.prototype.updateScreenDetails = function (result) {
             this.setState({
+                isScreenDetails: true,
                 screens: result.screens.map(function (item) {
                     return {
                         label: item.label,
@@ -858,21 +916,25 @@
                 return m$1(templateObject_1$n || (templateObject_1$n = __makeTemplateObject(["<", " ...", "><//>"], ["<", " ...", "><//>"])), ScreenBadge, item);
             });
             var name = screens.length > 1 ? 'Screens' : 'Screen';
-            return m$1(templateObject_2$a || (templateObject_2$a = __makeTemplateObject(["<", " name=\"", "\">", "<//>"], ["<", " name=\"", "\">", "<//>"])), Row, name, content);
+            return m$1(templateObject_2$9 || (templateObject_2$9 = __makeTemplateObject(["<", " name=\"", "\">", "<//>"], ["<", " name=\"", "\">", "<//>"])), Row, name, content);
+        };
+        ScreenBadges.prototype.componentWillUnmount = function () {
+            window.clearInterval(this.timer);
         };
         return ScreenBadges;
     }(b$m));
-    var templateObject_1$n, templateObject_2$a;
+    var templateObject_1$n, templateObject_2$9;
 
     var b$g = block('codec');
     function Codec(props) {
+        var color = props.disabled ? 'black' : (props.color || 'black');
         var tooltip = props.tooltip ? m$1(templateObject_1$m || (templateObject_1$m = __makeTemplateObject(["<div class=\"", "\">", "</div>"], ["<div class=\"", "\">", "</div>"])), b$g('tooltip'), props.tooltip) : '';
-        return m$1(templateObject_2$9 || (templateObject_2$9 = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n            <div class=\"", "\">", "</div>\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n            <div class=\"", "\">", "</div>\n        </div>\n    "])), b$g({
-            color: props.disabled ? 'black' : (props.color || 'black'),
+        return m$1(templateObject_2$8 || (templateObject_2$8 = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n            <div class=\"", "\">", "</div>\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n            <div class=\"", "\">", "</div>\n        </div>\n    "])), b$g({
+            color: color,
             disabled: props.disabled,
         }), tooltip, b$g('name'), props.name);
     }
-    var templateObject_1$m, templateObject_2$9;
+    var templateObject_1$m, templateObject_2$8;
 
     var b$f = block('column');
     function Column(props) {
@@ -886,29 +948,36 @@
     }
     var templateObject_1$k;
 
+    function getTooltip(result, contentType) {
+        return m$1(templateObject_1$j || (templateObject_1$j = __makeTemplateObject(["\n        video.canPlayType(): ", "<br />\n        MediaSource.isTypeSupported(): ", "<br />\n        <hr />\n        ", "\n    "], ["\n        video.canPlayType(): ", "<br />\n        MediaSource.isTypeSupported(): ", "<br />\n        <hr />\n        ", "\n    "])), result.file ? 'Yes' : 'No', result.mediaSource ? 'Yes' : 'No', contentType);
+    }
+    var templateObject_1$j;
+
     var b$d = block('audio-codecs');
     function AudioCodecs() {
         var supported = [];
         var unsupported = [];
         [
-            { supported: isMp3Supported(), name: 'MP3', color: 'orange', tooltip: MP3_CONTENT_TYPE },
-            { supported: isAacSupported(), name: 'AAC', color: 'orange', tooltip: AAC_CONTENT_TYPE },
-            { supported: isFlacSupported(), name: 'FLAC', color: 'blue', tooltip: FLAC_CONTENT_TYPE },
-            { supported: isVorbisSupported(), name: 'Vorbis', color: 'orange', tooltip: VORBIS_CONTENT_TYPE },
-            { supported: isOpusSupported(), name: 'Opus', color: 'green', tooltip: OPUS_CONTENT_TYPE },
-            { supported: isDolbyDigitalSupported(), name: 'Dolby Digital', color: 'black', tooltip: DOLBY_AC3_CONTENT_TYPE },
-            { supported: isDolbyDigitalPlusSupported(), name: 'Dolby Digital Plus', color: 'black', tooltip: DOLBY_EC3_CONTENT_TYPE },
-            { supported: isDolbyAtmosSupported(), name: 'Dolby Atmos', color: 'black', tooltip: DOLBY_ATMOS_CONTENT_TYPE },
-            { supported: isDtsSupported(), name: 'DTS', color: 'black', tooltip: DTS_CORE_CONTENT_TYPE },
-            { supported: isDtsHdSupported(), name: 'DTS:HD', color: 'black', tooltip: DTS_HD_CORE_PLUS_EXTENSION_CONTENT_TYPE },
-            { supported: isDtsXSupported(), name: 'DTS:X', color: 'black', tooltip: DTS_UHD_PROFILE_2_CONTENT_TYPE },
-            { supported: isMpegHAudioSupported(), name: 'MPEG-H Audio', color: 'blue', tooltip: MPEG_H_AUDIO_LC_PROFILE_LEVEL_3_CONTENT_TYPE },
+            { supported: isMp3Supported(), name: 'MP3', color: 'orange', contentType: MP3_CONTENT_TYPE },
+            { supported: isMp4AudioSupported(), name: 'MP4', color: 'orange', contentType: MP4_AUDIO_CONTENT_TYPE },
+            { supported: isAacSupported(), name: 'AAC', color: 'orange', contentType: AAC_CONTENT_TYPE },
+            { supported: isFlacSupported(), name: 'FLAC', color: 'blue', contentType: FLAC_CONTENT_TYPE },
+            { supported: isVorbisSupported(), name: 'Vorbis', color: 'orange', contentType: VORBIS_CONTENT_TYPE },
+            { supported: isOpusSupported(), name: 'Opus', color: 'green', contentType: OPUS_CONTENT_TYPE },
+            { supported: isDolbyDigitalSupported(), name: 'Dolby Digital', color: 'black', contentType: DOLBY_AC3_CONTENT_TYPE },
+            { supported: isDolbyDigitalPlusSupported(), name: 'Dolby Digital Plus', color: 'black', contentType: DOLBY_EC3_CONTENT_TYPE },
+            { supported: isDolbyAtmosSupported(), name: 'Dolby Atmos', color: 'black', contentType: DOLBY_ATMOS_CONTENT_TYPE },
+            { supported: isDtsSupported(), name: 'DTS', color: 'black', contentType: DTS_CORE_CONTENT_TYPE },
+            { supported: isDtsHdSupported(), name: 'DTS:HD', color: 'black', contentType: DTS_HD_CORE_PLUS_EXTENSION_CONTENT_TYPE },
+            { supported: isDtsXSupported(), name: 'DTS:X', color: 'black', contentType: DTS_UHD_PROFILE_2_CONTENT_TYPE },
+            { supported: isMpegHAudioSupported(), name: 'MPEG-H Audio', color: 'blue', contentType: MPEG_H_AUDIO_LC_PROFILE_LEVEL_3_CONTENT_TYPE },
         ].map(function (item) {
-            if (item.supported) {
+            var tooltip = getTooltip(item.supported, item.contentType);
+            if (item.supported.any) {
                 supported.push(Codec({
                     name: item.name,
                     color: item.color,
-                    tooltip: item.tooltip,
+                    tooltip: tooltip,
                 }));
             }
             else {
@@ -916,50 +985,54 @@
                     name: item.name,
                     color: 'black',
                     disabled: true,
-                    tooltip: item.tooltip,
+                    tooltip: tooltip,
                 }));
             }
         });
-        return m$1(templateObject_1$j || (templateObject_1$j = __makeTemplateObject(["\n        <", " name=\"Audio Codecs\">\n            <", ">\n                <", " name=\"Supported\">\n                    <div class=\"", "\">\n                        ", "\n                    </div>\n                <//>\n                <", " name=\"Unsupported\">\n                    <div class=\"", "\">\n                        ", "\n                    </div>\n                <//>\n            <//>\n        <//>\n    "], ["\n        <", " name=\"Audio Codecs\">\n            <", ">\n                <", " name=\"Supported\">\n                    <div class=\"", "\">\n                        ", "\n                    </div>\n                <//>\n                <", " name=\"Unsupported\">\n                    <div class=\"", "\">\n                        ", "\n                    </div>\n                <//>\n            <//>\n        <//>\n    "])), Row, Columns, Column, b$d(), supported, Column, b$d(), unsupported);
+        return m$1(templateObject_1$i || (templateObject_1$i = __makeTemplateObject(["\n        <", " name=\"Audio Codecs\">\n            <", ">\n                <", " name=\"Supported\">\n                    <div class=\"", "\">\n                        ", "\n                    </div>\n                <//>\n                <", " name=\"Unsupported\">\n                    <div class=\"", "\">\n                        ", "\n                    </div>\n                <//>\n            <//>\n        <//>\n    "], ["\n        <", " name=\"Audio Codecs\">\n            <", ">\n                <", " name=\"Supported\">\n                    <div class=\"", "\">\n                        ", "\n                    </div>\n                <//>\n                <", " name=\"Unsupported\">\n                    <div class=\"", "\">\n                        ", "\n                    </div>\n                <//>\n            <//>\n        <//>\n    "])), Row, Columns, Column, b$d(), supported, Column, b$d(), unsupported);
     }
-    var templateObject_1$j;
+    var templateObject_1$i;
 
     function VideoCodecs() {
         var supported = [];
         var unsupported = [];
         [
-            { supported: isH264BaselineSupported(), name: 'H.264 Baseline', color: 'blue', tooltip: H264_BASELINE_CONTENT_TYPE },
-            { supported: isH264MainSupported(), name: 'H.264 Main', color: 'blue', tooltip: H264_MAIN_CONTENT_TYPE },
-            { supported: isH264HighSupported(), name: 'H.264 High', color: 'blue', tooltip: H264_HIGH_CONTENT_TYPE },
-            { supported: isVp8Supported(), name: 'VP8', color: 'green', tooltip: VP8_CONTENT_TYPE },
-            { supported: isVp9Supported(), name: 'VP9', color: 'green', tooltip: VP9_CONTENT_TYPE },
-            { supported: isAV1Supported(), name: 'AV1', color: 'yellow', tooltip: AV1_CONTENT_TYPE },
+            { supported: isH264BaselineSupported(), name: 'H.264 Baseline', color: 'blue', contentType: H264_BASELINE_CONTENT_TYPE },
+            { supported: isH264MainSupported(), name: 'H.264 Main', color: 'blue', contentType: H264_MAIN_CONTENT_TYPE },
+            { supported: isH264HighSupported(), name: 'H.264 High', color: 'blue', contentType: H264_HIGH_CONTENT_TYPE },
+            { supported: isHevcMainSupported(), name: 'H.265 Main', color: 'orange', contentType: HEVC_MAIN_CONTENT_TYPE },
+            { supported: isHevcMain10Supported(), name: 'H.265 Main10', color: 'orange', contentType: HEVC_MAIN10_CONTENT_TYPE },
+            { supported: isVp8Supported(), name: 'VP8', color: 'green', contentType: VP8_CONTENT_TYPE },
+            { supported: isVp9Supported(), name: 'VP9', color: 'green', contentType: VP9_CONTENT_TYPE },
+            { supported: isDolbyVisionSupported(), name: 'Dolby Vision', color: 'black', contentType: DOLBY_VISION_CONTENT_TYPE },
+            { supported: isAV1Supported(), name: 'AV1', color: 'yellow', contentType: AV1_CONTENT_TYPE },
+            { supported: isMpeg2TSupported(), name: 'MPEG2-TS', color: 'yellow', contentType: MPEG2T_CONTENT_TYPE },
         ].map(function (item) {
-            if (item.supported) {
+            var tooltip = getTooltip(item.supported, item.contentType);
+            if (item.supported.any) {
                 supported.push(Codec({
                     name: item.name,
                     color: item.color,
-                    tooltip: item.tooltip,
+                    tooltip: tooltip,
                 }));
             }
             else {
                 unsupported.push(Codec({
                     name: item.name,
-                    color: 'black',
                     disabled: true,
-                    tooltip: item.tooltip,
+                    tooltip: tooltip,
                 }));
             }
         });
-        return m$1(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n        <", " name=\"Video Codecs\">\n            ", "\n            ", "\n        <//>\n"], ["\n        <", " name=\"Video Codecs\">\n            ", "\n            ", "\n        <//>\n"])), Columns, supported.length ? m$1(templateObject_1$i || (templateObject_1$i = __makeTemplateObject(["<", " name=\"Supported\">\n                ", "\n            <//>"], ["<", " name=\"Supported\">\n                ", "\n            <//>"])), Column, supported) : '', unsupported.length ? m$1(templateObject_2$8 || (templateObject_2$8 = __makeTemplateObject(["<", " name=\"Unsupported\">\n                ", "\n            <//>"], ["<", " name=\"Unsupported\">\n                ", "\n            <//>"])), Column, unsupported) : '');
+        return m$1(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n        <", " name=\"Video Codecs\">\n            ", "\n            ", "\n        <//>\n"], ["\n        <", " name=\"Video Codecs\">\n            ", "\n            ", "\n        <//>\n"])), Columns, supported.length ? m$1(templateObject_1$h || (templateObject_1$h = __makeTemplateObject(["<", " name=\"Supported\">\n                ", "\n            <//>"], ["<", " name=\"Supported\">\n                ", "\n            <//>"])), Column, supported) : '', unsupported.length ? m$1(templateObject_2$7 || (templateObject_2$7 = __makeTemplateObject(["<", " name=\"Unsupported\">\n                ", "\n            <//>"], ["<", " name=\"Unsupported\">\n                ", "\n            <//>"])), Column, unsupported) : '');
     }
-    var templateObject_1$i, templateObject_2$8, templateObject_3;
+    var templateObject_1$h, templateObject_2$7, templateObject_3;
 
     var b$c = block('header');
     function Header() {
-        return m$1(templateObject_1$h || (templateObject_1$h = __makeTemplateObject(["\n        <div class=\"", "\">\n            Can I Watch Video<span class=\"", "\"><span class=\"", "\">beta</span></span>\n        </div>\n    "], ["\n        <div class=\"", "\">\n            Can I Watch Video<span class=\"", "\"><span class=\"", "\">beta</span></span>\n        </div>\n    "])), b$c(), b$c('beta-container'), b$c('beta'));
+        return m$1(templateObject_1$g || (templateObject_1$g = __makeTemplateObject(["\n        <div class=\"", "\">\n            Can I Watch Video<span class=\"", "\"><span class=\"", "\">beta</span></span>\n        </div>\n    "], ["\n        <div class=\"", "\">\n            Can I Watch Video<span class=\"", "\"><span class=\"", "\">beta</span></span>\n        </div>\n    "])), b$c(), b$c('beta-container'), b$c('beta'));
     }
-    var templateObject_1$h;
+    var templateObject_1$g;
 
     function getKeySystemsText(keySystems) {
         if (keySystems.length === 0) {
@@ -1006,7 +1079,7 @@
             getSecurityLevelsText(levels),
             getKeySystemsText([WIDEWINE_KEY_SYSTEM]),
         ].join('\n');
-        return m$1(templateObject_1$g || (templateObject_1$g = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "])), b$b(), hasWidevine && Badge({
+        return m$1(templateObject_1$f || (templateObject_1$f = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "])), b$b(), hasWidevine && Badge({
             text: 'Widevine',
             background: 'white',
             top: {
@@ -1017,7 +1090,7 @@
             },
         }));
     }
-    var templateObject_1$g;
+    var templateObject_1$f;
 
     var b$a = block('clearkey-badge');
     function ClearkeyBadge() {
@@ -1028,7 +1101,7 @@
         var text = [
             getKeySystemsText([CLEAR_KEY_SYSTEM]),
         ].join('\n');
-        return m$1(templateObject_1$f || (templateObject_1$f = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "])), b$a(), hasClearkey && Badge({
+        return m$1(templateObject_1$e || (templateObject_1$e = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "])), b$a(), hasClearkey && Badge({
             text: 'ClearKey',
             size: 'small',
             background: 'white',
@@ -1037,7 +1110,7 @@
             },
         }));
     }
-    var templateObject_1$f;
+    var templateObject_1$e;
 
     var b$9 = block('fairplay-badge');
     function FairplayBadge() {
@@ -1073,7 +1146,7 @@
         var text = [
             getKeySystemsText(keySystems),
         ].join('\n');
-        return m$1(templateObject_1$e || (templateObject_1$e = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "])), b$9(), hasFairplay && Badge({
+        return m$1(templateObject_1$d || (templateObject_1$d = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "])), b$9(), hasFairplay && Badge({
             text: 'FairPlay',
             background: 'white',
             top: {
@@ -1084,7 +1157,7 @@
             },
         }));
     }
-    var templateObject_1$e;
+    var templateObject_1$d;
 
     var b$8 = block('playready-badge');
     function PlayreadyBadge() {
@@ -1118,7 +1191,7 @@
             getSecurityLevelsText(levels),
             getKeySystemsText([PLAYREADY_KEY_SYSTEM]),
         ].join('\n');
-        return m$1(templateObject_1$d || (templateObject_1$d = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "])), b$8(), hasPlayready && Badge({
+        return m$1(templateObject_1$c || (templateObject_1$c = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "])), b$8(), hasPlayready && Badge({
             text: 'PlayReady',
             background: 'white',
             top: {
@@ -1129,7 +1202,7 @@
             },
         }));
     }
-    var templateObject_1$d;
+    var templateObject_1$c;
 
     var b$7 = block('primetime-badge');
     function PrimetimeBadge() {
@@ -1142,7 +1215,7 @@
                 PRIMETIME_KEY_SYSTEM,
             ]),
         ].join('\n');
-        return m$1(templateObject_1$c || (templateObject_1$c = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "])), b$7(), hasPrimetime && Badge({
+        return m$1(templateObject_1$b || (templateObject_1$b = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "])), b$7(), hasPrimetime && Badge({
             text: 'Primetime',
             background: 'white',
             top: {
@@ -1153,13 +1226,13 @@
             },
         }));
     }
-    var templateObject_1$c;
+    var templateObject_1$b;
 
     var b$6 = block('drm-badges');
     function DrmBadges() {
-        return m$1(templateObject_1$b || (templateObject_1$b = __makeTemplateObject(["\n        <div class=\"", "\">\n            <", "><//>\n            <", "><//>\n            <", "><//>\n            <", "><//>\n            <", "><//>\n        </div>\n    "], ["\n        <div class=\"", "\">\n            <", "><//>\n            <", "><//>\n            <", "><//>\n            <", "><//>\n            <", "><//>\n        </div>\n    "])), b$6(), WidevineBadge, PlayreadyBadge, FairplayBadge, PrimetimeBadge, ClearkeyBadge);
+        return m$1(templateObject_1$a || (templateObject_1$a = __makeTemplateObject(["\n        <div class=\"", "\">\n            <", "><//>\n            <", "><//>\n            <", "><//>\n            <", "><//>\n            <", "><//>\n        </div>\n    "], ["\n        <div class=\"", "\">\n            <", "><//>\n            <", "><//>\n            <", "><//>\n            <", "><//>\n            <", "><//>\n        </div>\n    "])), b$6(), WidevineBadge, PlayreadyBadge, FairplayBadge, PrimetimeBadge, ClearkeyBadge);
     }
-    var templateObject_1$b;
+    var templateObject_1$a;
 
     var b$5 = block('native-streaming');
     function NativeStreaming() {
@@ -1187,11 +1260,11 @@
             return 1;
         });
         var result = items.map(function (item) {
-            return m$1(templateObject_1$a || (templateObject_1$a = __makeTemplateObject(["", ": ", "<br/>"], ["", ": ", "<br/>"])), item.label, item.supported ? '✓' : 'No');
+            return m$1(templateObject_1$9 || (templateObject_1$9 = __makeTemplateObject(["", ": ", "<br/>"], ["", ": ", "<br/>"])), item.label, item.supported ? '✓' : 'No');
         });
-        return m$1(templateObject_2$7 || (templateObject_2$7 = __makeTemplateObject(["\n        <div class=", ">\n            ", "\n        </div>\n    "], ["\n        <div class=", ">\n            ", "\n        </div>\n    "])), b$5(), result);
+        return m$1(templateObject_2$6 || (templateObject_2$6 = __makeTemplateObject(["\n        <div class=", ">\n            ", "\n        </div>\n    "], ["\n        <div class=", ">\n            ", "\n        </div>\n    "])), b$5(), result);
     }
-    var templateObject_1$a, templateObject_2$7;
+    var templateObject_1$9, templateObject_2$6;
 
     var b$4 = block('result');
     function Result(props) {
@@ -1211,11 +1284,11 @@
                 type = 'warning';
             }
         }
-        return m$1(templateObject_2$6 || (templateObject_2$6 = __makeTemplateObject(["<span class=\"", "\">\n        ", "\n        ", "\n    </span>"], ["<span class=\"", "\">\n        ", "\n        ", "\n    </span>"])), b$4({
+        return m$1(templateObject_2$5 || (templateObject_2$5 = __makeTemplateObject(["<span class=\"", "\">\n        ", "\n        ", "\n    </span>"], ["<span class=\"", "\">\n        ", "\n        ", "\n    </span>"])), b$4({
             type: type,
-        }), text, props.details ? m$1(templateObject_1$9 || (templateObject_1$9 = __makeTemplateObject(["<span class=\"", "\">", "</span>"], ["<span class=\"", "\">", "</span>"])), b$4('details'), props.details) : '');
+        }), text, props.details ? m$1(templateObject_1$8 || (templateObject_1$8 = __makeTemplateObject(["<span class=\"", "\">", "</span>"], ["<span class=\"", "\">", "</span>"])), b$4('details'), props.details) : '');
     }
-    var templateObject_1$9, templateObject_2$6;
+    var templateObject_1$8, templateObject_2$5;
 
     var b$3 = block('active-question');
     function ActiveQuestion(props) {
@@ -1223,47 +1296,64 @@
         var callback = T(function () {
             setOpened(!opened);
         }, [opened]);
-        return m$1(templateObject_1$8 || (templateObject_1$8 = __makeTemplateObject(["<div class=\"", "\" onClick=", ">\n        <div class=\"", "\">\n            <div class=\"", "\">", "</div>\n            <div class=\"", "\">", "</div>\n        </div>\n        <div class=\"", "\">", "</div>\n    </div>"], ["<div class=\"", "\" onClick=", ">\n        <div class=\"", "\">\n            <div class=\"", "\">", "</div>\n            <div class=\"", "\">", "</div>\n        </div>\n        <div class=\"", "\">", "</div>\n    </div>"])), b$3({ opened: opened }), callback, b$3('head'), b$3('plus'), opened ? '-' : '+', b$3('question'), props.head, b$3('body'), props.children);
+        return m$1(templateObject_1$7 || (templateObject_1$7 = __makeTemplateObject(["<div class=\"", "\">\n        <div class=\"", "\" onClick=", ">\n            <div class=\"", "\">", "</div>\n            <div class=\"", "\">", "</div>\n        </div>\n        <div class=\"", "\">", "</div>\n    </div>"], ["<div class=\"", "\">\n        <div class=\"", "\" onClick=", ">\n            <div class=\"", "\">", "</div>\n            <div class=\"", "\">", "</div>\n        </div>\n        <div class=\"", "\">", "</div>\n    </div>"])), b$3({ opened: opened }), b$3('head'), callback, b$3('plus'), opened ? '-' : '+', b$3('question'), props.head, b$3('body'), props.children);
     }
-    var templateObject_1$8;
+    var templateObject_1$7;
 
     function Question4K() {
         var isScreen4k = true;
-        var isVp9 = isVp9Supported();
-        var isAv1 = isAV1Supported();
-        var mainAnswer = (isVp9 || isAv1);
-        var head = m$1(templateObject_1$7 || (templateObject_1$7 = __makeTemplateObject(["Can I watch 4K video? <", " value=\"", "\"><//>"], ["Can I watch 4K video? <", " value=\"", "\"><//>"])), Result, mainAnswer);
-        return m$1(templateObject_2$5 || (templateObject_2$5 = __makeTemplateObject(["  \n        <", " head=\"", "\">\n            <ul>\n                <li>Is the screen larger than 2K? <", " value=\"", "\"><//></li>\n                <li>\n                    Support one of the video codecs? <", " value=", "><//>\n                    <ul>\n                        <li>\n                            <", "\n                                name=\"VP9\"\n                                color=\"green\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>HEVC</li>\n                        <li>\n                            <", "\n                                name=\"AV1\"\n                                color=\"yellow\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    "], ["  \n        <", " head=\"", "\">\n            <ul>\n                <li>Is the screen larger than 2K? <", " value=\"", "\"><//></li>\n                <li>\n                    Support one of the video codecs? <", " value=", "><//>\n                    <ul>\n                        <li>\n                            <", "\n                                name=\"VP9\"\n                                color=\"green\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>HEVC</li>\n                        <li>\n                            <", "\n                                name=\"AV1\"\n                                color=\"yellow\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    "])), ActiveQuestion, head, Result, isScreen4k, Result, true, Codec, !isVp9, Result, isVp9, Codec, !isAv1, Result, isAv1);
-    }
-    var templateObject_1$7, templateObject_2$5;
-
-    function QuestionHdr() {
-        var head = m$1(templateObject_1$6 || (templateObject_1$6 = __makeTemplateObject(["Can I watch HDR video? <", " type=\"yes\"><//>"], ["Can I watch HDR video? <", " type=\"yes\"><//>"])), Result);
-        return m$1(templateObject_2$4 || (templateObject_2$4 = __makeTemplateObject(["  \n        <", " head=\"", "\">\n            <ul>\n                <li>Is this an HDR screen?</li>\n                <li>Support one of the video codecs (VP9, HEVC, AV1)?</li>\n            </ul>\n        <//>\n    "], ["  \n        <", " head=\"", "\">\n            <ul>\n                <li>Is this an HDR screen?</li>\n                <li>Support one of the video codecs (VP9, HEVC, AV1)?</li>\n            </ul>\n        <//>\n    "])), ActiveQuestion, head);
+        var isVp9 = isVp9Supported().any;
+        var isHevc = isHevcMainSupported().any;
+        var isAv1 = isAV1Supported().any;
+        var mainAnswer = Boolean(isVp9 || isHevc || isAv1);
+        var head = m$1(templateObject_1$6 || (templateObject_1$6 = __makeTemplateObject(["Can I watch 4K video? <", " value=\"", "\"><//>"], ["Can I watch 4K video? <", " value=\"", "\"><//>"])), Result, mainAnswer);
+        return m$1(templateObject_2$4 || (templateObject_2$4 = __makeTemplateObject(["  \n        <", " head=\"", "\">\n            <ul>\n                <li>Is the screen larger than 2K? <", " value=\"", "\"><//></li>\n                <li>\n                    Support one of the video codecs? <", " value=", "><//>\n                    <ul>\n                        <li>\n                            <", "\n                                name=\"VP9\"\n                                color=\"green\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"HEVC\"\n                                color=\"orange\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"AV1\"\n                                color=\"yellow\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    "], ["  \n        <", " head=\"", "\">\n            <ul>\n                <li>Is the screen larger than 2K? <", " value=\"", "\"><//></li>\n                <li>\n                    Support one of the video codecs? <", " value=", "><//>\n                    <ul>\n                        <li>\n                            <", "\n                                name=\"VP9\"\n                                color=\"green\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"HEVC\"\n                                color=\"orange\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"AV1\"\n                                color=\"yellow\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    "])), ActiveQuestion, head, Result, isScreen4k, Result, true, Codec, !isVp9, Result, isVp9, Codec, !isHevc, Result, isHevc, Codec, !isAv1, Result, isAv1);
     }
     var templateObject_1$6, templateObject_2$4;
 
-    function QuestionSurroundSound() {
-        var head = m$1(templateObject_1$5 || (templateObject_1$5 = __makeTemplateObject(["Can I listen surround sound? <", " type=\"yes\"><//>"], ["Can I listen surround sound? <", " type=\"yes\"><//>"])), Result);
-        return m$1(templateObject_2$3 || (templateObject_2$3 = __makeTemplateObject(["  \n        <", " head=\"", "\">\n            <ul>\n                <li>Support one of the audio codecs (Dolby Digital, Dolby Digital Plus or Dolby Atmos)?</li>\n            </ul>\n        <//>\n    "], ["  \n        <", " head=\"", "\">\n            <ul>\n                <li>Support one of the audio codecs (Dolby Digital, Dolby Digital Plus or Dolby Atmos)?</li>\n            </ul>\n        <//>\n    "])), ActiveQuestion, head);
+    function QuestionHdr() {
+        var isVp9 = isVp9Supported().any;
+        var isHevc = isHevcMainSupported().any;
+        var isAv1 = isAV1Supported().any;
+        var isHdr = isHdrScreenSupported();
+        var mainAnswer = isHdr && Boolean(isVp9 || isHevc || isAv1);
+        var head = m$1(templateObject_1$5 || (templateObject_1$5 = __makeTemplateObject(["Can I watch HDR video? <", " value=\"", "\"><//>"], ["Can I watch HDR video? <", " value=\"", "\"><//>"])), Result, mainAnswer);
+        return m$1(templateObject_2$3 || (templateObject_2$3 = __makeTemplateObject(["  \n        <", " head=\"", "\">\n            <ul>\n                <li>Is this an HDR screen? <", " value=\"", "\"><//></li>\n                <li>Support one of the video codecs? <", " value=\"", "\"><//>\n                    <ul>\n                        <li>\n                            <", "\n                                name=\"VP9\"\n                                color=\"green\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"HEVC\"\n                                color=\"orange\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"AV1\"\n                                color=\"yellow\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    "], ["  \n        <", " head=\"", "\">\n            <ul>\n                <li>Is this an HDR screen? <", " value=\"", "\"><//></li>\n                <li>Support one of the video codecs? <", " value=\"", "\"><//>\n                    <ul>\n                        <li>\n                            <", "\n                                name=\"VP9\"\n                                color=\"green\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"HEVC\"\n                                color=\"orange\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"AV1\"\n                                color=\"yellow\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    "])), ActiveQuestion, head, Result, isHdr, Result, Boolean(isVp9 || isHevc || isAv1), Codec, !isVp9, Result, isVp9, Codec, !isHevc, Result, isHevc, Codec, !isAv1, Result, isAv1);
     }
     var templateObject_1$5, templateObject_2$3;
 
-    function QuestionDrm4K( /*props: Question4KProps*/) {
-        var head = m$1(templateObject_1$4 || (templateObject_1$4 = __makeTemplateObject(["Can I watch 4K video on online services? <", " type=\"yes\"><//>"], ["Can I watch 4K video on online services? <", " type=\"yes\"><//>"])), Result);
-        return m$1(templateObject_2$2 || (templateObject_2$2 = __makeTemplateObject(["  \n        <", " head=\"", "\">\n            In online services, content is protected using <a target=\"_blank\" href=\"https://en.wikipedia.org/wiki/Digital_rights_management\">DRM</a>.\n        <//>\n    "], ["  \n        <", " head=\"", "\">\n            In online services, content is protected using <a target=\"_blank\" href=\"https://en.wikipedia.org/wiki/Digital_rights_management\">DRM</a>.\n        <//>\n    "])), ActiveQuestion, head);
+    function QuestionSurroundSound() {
+        var isDolbyDigital = isDolbyDigitalSupported().any;
+        var isDolbyDigitalPlus = isDolbyDigitalPlusSupported().any;
+        var isDolbyAtmos = isDolbyAtmosSupported().any;
+        var mainAnswer = isDolbyDigital || isDolbyDigitalPlus || isDolbyAtmos;
+        var head = m$1(templateObject_1$4 || (templateObject_1$4 = __makeTemplateObject(["Can I listen surround sound? <", " value=\"", "\"><//>"], ["Can I listen surround sound? <", " value=\"", "\"><//>"])), Result, mainAnswer);
+        return m$1(templateObject_2$2 || (templateObject_2$2 = __makeTemplateObject(["  \n        <", " head=\"", "\">\n            <ul>\n                <li>Support one of the audio codecs? <", " value=\"", "\"><//>\n                    <ul>\n                        <li>\n                            <", "\n                                name=\"Dolby Digital\"\n                                color=\"black\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"Dolby Digital Plus\"\n                                color=\"black\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"Dolby Atmos\"\n                                color=\"black\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    "], ["  \n        <", " head=\"", "\">\n            <ul>\n                <li>Support one of the audio codecs? <", " value=\"", "\"><//>\n                    <ul>\n                        <li>\n                            <", "\n                                name=\"Dolby Digital\"\n                                color=\"black\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"Dolby Digital Plus\"\n                                color=\"black\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"Dolby Atmos\"\n                                color=\"black\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    "])), ActiveQuestion, head, Result, mainAnswer, Codec, !isDolbyDigital, Result, isDolbyDigital, Codec, !isDolbyDigitalPlus, Result, isDolbyDigitalPlus, Codec, !isDolbyAtmos, Result, isDolbyAtmos);
     }
     var templateObject_1$4, templateObject_2$2;
 
-    function QuestionDrmHdr( /*props: Question4KProps*/) {
-        var head = m$1(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["Can I watch HDR video on online services? <", " type=\"yes\"><//>"], ["Can I watch HDR video on online services? <", " type=\"yes\"><//>"])), Result);
-        return m$1(templateObject_2$1 || (templateObject_2$1 = __makeTemplateObject(["  \n        <", " head=\"", "\">\n            In online services, content is protected using <a target=\"_blank\" href=\"https://en.wikipedia.org/wiki/Digital_rights_management\">DRM</a>.\n        <//>\n    "], ["  \n        <", " head=\"", "\">\n            In online services, content is protected using <a target=\"_blank\" href=\"https://en.wikipedia.org/wiki/Digital_rights_management\">DRM</a>.\n        <//>\n    "])), ActiveQuestion, head);
+    function QuestionDrm4K() {
+        var _a = h(false), isVp9 = _a[0], setIsVp9 = _a[1];
+        var _b = h(false), isHevc = _b[0], setIsHevc = _b[1];
+        var _c = h(false), isAv1 = _c[0], setIsAv1 = _c[1];
+        isWidevineSupported(VP9_CONTENT_TYPE).then(function (result) {
+            setIsVp9(result);
+        });
+        isWidevineSupported(HEVC_MAIN_CONTENT_TYPE).then(function (result) {
+            setIsHevc(result);
+        });
+        isWidevineSupported(AV1_CONTENT_TYPE).then(function (result) {
+            setIsAv1(result);
+        });
+        var anyCodec = Boolean(isVp9 || isHevc || isAv1);
+        var head = m$1(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["Can I watch 4K video on online services? <", " value=\"", "\"><//>"], ["Can I watch 4K video on online services? <", " value=\"", "\"><//>"])), Result, anyCodec);
+        return m$1(templateObject_2$1 || (templateObject_2$1 = __makeTemplateObject(["  \n        <", " head=\"", "\">\n            Online services protect content using <a target=\"_blank\" href=\"https://en.wikipedia.org/wiki/Digital_rights_management\">DRM</a>.\n            <ul>\n                <li>\n                Support one of the video codecs? <", " value=", "><//>\n                    <ul>\n                        <li>\n                            <", "\n                                name=\"VP9\"\n                                color=\"green\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"HEVC\"\n                                color=\"orange\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"AV1\"\n                                color=\"yellow\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    "], ["  \n        <", " head=\"", "\">\n            Online services protect content using <a target=\"_blank\" href=\"https://en.wikipedia.org/wiki/Digital_rights_management\">DRM</a>.\n            <ul>\n                <li>\n                Support one of the video codecs? <", " value=", "><//>\n                    <ul>\n                        <li>\n                            <", "\n                                name=\"VP9\"\n                                color=\"green\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"HEVC\"\n                                color=\"orange\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"AV1\"\n                                color=\"yellow\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    "])), ActiveQuestion, head, Result, anyCodec, Codec, !isVp9, Result, isVp9, Codec, !isHevc, Result, isHevc, Codec, !isAv1, Result, isAv1);
     }
     var templateObject_1$3, templateObject_2$1;
 
     var b$2 = block('questions');
     function Questions( /*props: Question4KProps*/) {
-        return m$1(templateObject_1$2 || (templateObject_1$2 = __makeTemplateObject(["    \n        <div class=", ">    \n            <", "><//>\n            <", "><//>\n            <", "><//>\n            <", "><//>\n            <", "><//>\n        <//>\n    "], ["    \n        <div class=", ">    \n            <", "><//>\n            <", "><//>\n            <", "><//>\n            <", "><//>\n            <", "><//>\n        <//>\n    "])), b$2(), Question4K, QuestionHdr, QuestionSurroundSound, QuestionDrm4K, QuestionDrmHdr);
+        return m$1(templateObject_1$2 || (templateObject_1$2 = __makeTemplateObject(["    \n        <div class=", ">    \n            <", "><//>\n            <", "><//>\n            <", "><//>\n            <", "><//>\n        <//>\n    "], ["    \n        <div class=", ">    \n            <", "><//>\n            <", "><//>\n            <", "><//>\n            <", "><//>\n        <//>\n    "])), b$2(), Question4K, QuestionHdr, QuestionSurroundSound, QuestionDrm4K);
     }
     var templateObject_1$2;
 
