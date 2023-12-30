@@ -35,12 +35,12 @@ export function NativeStreaming() {
     });
 
     let result = items.map(item => {
-        return html`${item.label}: ${item.supported ? '✓' : 'No' }<br/>`;
+        return html`<li>${item.label}: ${item.supported ? '✓' : 'No' }</li>`;
     });
 
     return html`
-        <div class=${b()}>
+        <ul class=${b()}>
             ${result}
-        </div>
+        </ul>
     `;
 }

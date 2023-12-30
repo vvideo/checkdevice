@@ -38,12 +38,12 @@ export function HtmlVideoElementFeatures() {
     });
 
     let result = items.map(item => {
-        return html`<div title="${item.title}">${item.label}: ${item.supported ? '✓' : 'No' }</div>`;
+        return html`<li title="${item.title}">${item.label}: ${item.supported ? '✓' : 'No' }</li>`;
     });
 
     return html`
-        <div class=${b()}>
+        <ul class=${b()}>
             ${result}
-        </div>
+        </ul>
     `;
 }

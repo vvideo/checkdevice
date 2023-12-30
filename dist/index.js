@@ -1272,9 +1272,9 @@
             return 1;
         });
         var result = items.map(function (item) {
-            return m$1(templateObject_1$9 || (templateObject_1$9 = __makeTemplateObject(["", ": ", "<br/>"], ["", ": ", "<br/>"])), item.label, item.supported ? '✓' : 'No');
+            return m$1(templateObject_1$9 || (templateObject_1$9 = __makeTemplateObject(["<li>", ": ", "</li>"], ["<li>", ": ", "</li>"])), item.label, item.supported ? '✓' : 'No');
         });
-        return m$1(templateObject_2$6 || (templateObject_2$6 = __makeTemplateObject(["\n        <div class=", ">\n            ", "\n        </div>\n    "], ["\n        <div class=", ">\n            ", "\n        </div>\n    "])), b$5(), result);
+        return m$1(templateObject_2$6 || (templateObject_2$6 = __makeTemplateObject(["\n        <ul class=", ">\n            ", "\n        </ul>\n    "], ["\n        <ul class=", ">\n            ", "\n        </ul>\n    "])), b$5(), result);
     }
     var templateObject_1$9, templateObject_2$6;
 
@@ -1398,9 +1398,9 @@
             return 1;
         });
         var result = items.map(function (item) {
-            return m$1(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["<div title=\"", "\">", ": ", "</div>"], ["<div title=\"", "\">", ": ", "</div>"])), item.title, item.label, item.supported ? '✓' : 'No');
+            return m$1(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["<li title=\"", "\">", ": ", "</li>"], ["<li title=\"", "\">", ": ", "</li>"])), item.title, item.label, item.supported ? '✓' : 'No');
         });
-        return m$1(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n        <div class=", ">\n            ", "\n        </div>\n    "], ["\n        <div class=", ">\n            ", "\n        </div>\n    "])), b$1(), result);
+        return m$1(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n        <ul class=", ">\n            ", "\n        </ul>\n    "], ["\n        <ul class=", ">\n            ", "\n        </ul>\n    "])), b$1(), result);
     }
     var templateObject_1$1, templateObject_2;
 
