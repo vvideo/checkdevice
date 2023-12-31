@@ -1,6 +1,6 @@
 export function getSecurityLevelsText(levels: string[]) {
     if (levels.length === 0) {
-        return '';
+        return 'Not detected';
     }
 
     if (levels.length === 1) {
