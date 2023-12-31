@@ -27,7 +27,7 @@ export function QuestionHdr() {
                         </li>
                         <li>
                             <${Codec}
-                                name="HEVC"
+                                name="H.265"
                                 color="orange"
                                 disabled="${!isHevc}">
                                 <//> <${Result} value="${isHevc}"><//>
