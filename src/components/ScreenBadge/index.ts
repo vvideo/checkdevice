@@ -2,7 +2,7 @@ import { calcAspectRatio } from 'calc-aspect-ratio';
 import { html } from 'htm/preact';
 import { useCallback, useState } from 'preact/hooks';
 import { Badge } from '../Badge';
-import { getResolutionBadge } from 'detect-audio-video';
+import { getResolutionBadge, isHdrScreenSupported } from 'detect-audio-video';
 import { block } from '../../utils/bem';
 
 import './index.css';
@@ -11,12 +11,12 @@ import { hasZoom } from '../../utils/hasZoom';
 const b = block('screen-badge');
 
 interface ScreenBadge {
+    isScreenDetails?: boolean;
     width: number;
     height: number;
     devicePixelRatio: number;
     colorDepth: number;
     isHDR?: boolean;
-    isExtended?: boolean;
     isInternal?: boolean;
     isPrimary?: boolean;
     label?: string;
@@ -41,6 +41,8 @@ export function ScreenBadge(props: ScreenBadge) {
         ${props.isInternal ? html`<div>Internal: Yes</div>` : ''}
     `;
 
+    const isHDR = props.isScreenDetails ? props.colorDepth > 24 : isHdrScreenSupported();
+    
     return html`        
         <div class="${b()}" onClick=${handleClick}>
             <div class="${b('label')}">${props.label}</div>
@@ -50,7 +52,7 @@ export function ScreenBadge(props: ScreenBadge) {
                 click: true,
                 background: 'gold',
                 top: {
-                    text: props.isHDR ? html`<b>HDR</b>` : '',
+                    text: isHDR ? html`<b>HDR</b>` : '',
                 },
                 bottom: {
                     text: screenText,

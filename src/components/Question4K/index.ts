@@ -1,21 +1,43 @@
 import { html } from 'htm/preact';
+import { useEffect, useState } from 'preact/hooks';
 import { isAV1Supported, isHevcMainSupported, isVp9Supported } from 'detect-audio-video';
 import { Result } from '../Result';
 import { ActiveQuestion } from '../ActiveQuestion';
 import { Codec } from '../Codec';
+import { screenInfo } from '../../lib/ScreenInfo';
+
+const FULL_HD_HEIGHT = 1080;
 
 export function Question4K() {
-    const isScreen4k = true;
+    const [screens, setScreens] = useState(screenInfo.get().screens);
+    
+    useEffect(() => {
+        const handler = () => {
+            setScreens(screenInfo.get().screens);     
+        };
+
+        screenInfo.addListener(handler);
+
+        return () => {
+            screenInfo.removeListener(handler);
+        };
+    }, [screens]);
+
+    const screensLargerThan2K = screens.some(screen => {
+        const height = Math.min(screen.width, screen.height) * screen.devicePixelRatio;
+        return height > FULL_HD_HEIGHT;
+    });
+
     const isVp9 = isVp9Supported().any;
     const isHevc = isHevcMainSupported().any;
     const isAv1 = isAV1Supported().any;
-    const mainAnswer = isScreen4k && Boolean(isVp9 || isHevc || isAv1);
+    const mainAnswer = screensLargerThan2K && Boolean(isVp9 || isHevc || isAv1);
     const head = html`Can I watch 4K video? <${Result} value="${mainAnswer}"><//>`;
 
     return html`  
         <${ActiveQuestion} head="${head}">
             <ul>
-                <li>Is the screen larger than 2K? <${Result} value="${isScreen4k}"><//></li>
+                <li>Is the screen larger than 2K? <${Result} value="${screensLargerThan2K}"><//></li>
                 <li>
                     Support one of the video codecs? <${Result} value=${true}><//>
                     <ul>
@@ -28,7 +50,7 @@ export function Question4K() {
                         </li>
                         <li>
                             <${Codec}
-                                name="HEVC"
+                                name="H.265"
                                 color="orange"
                                 disabled="${!isHevc}">
                                 <//> <${Result} value="${isHevc}"><//>

@@ -1,6 +1,5 @@
 - Minimize code and style
 - Details page with copy to clipboard
 - Paste code to html
-- Screen info refactoring
 - i18n
 - Supported codecs for Widevine
