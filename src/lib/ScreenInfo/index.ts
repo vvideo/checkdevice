@@ -33,20 +33,21 @@ class ScreenInfo {
     private devicePixelRatio = getDevicePixelRatio();
     private isScreenDetails = false;
     private screens: ScreenDetailed[] = [];
+    private timer = -1;
 
     public needUserActivity = false;
 
     constructor() {
         let screenJson = JSON.stringify(this.getScreen());
 
-        window.setInterval(() => {
+        this.timer = window.setInterval(() => {
             const currentDevicePixelRation = getDevicePixelRatio();
             if (this.devicePixelRatio !== currentDevicePixelRation) {
                 this.devicePixelRatio = currentDevicePixelRation;
                 this.handleScreenChange();
             }
 
-            if (this.isScreenDetails || window.screen.addEventListener) {
+            if (window.screen.addEventListener) {
                 return;
             }
 
@@ -57,9 +58,7 @@ class ScreenInfo {
             }
         }, 500);
 
-        if (window.screen.addEventListener) {
-            window.screen.addEventListener('change', this.handleScreenChange);
-        }
+        this.bindScreenChange();
 
         this.getScreenDetails();
     }
@@ -80,23 +79,63 @@ class ScreenInfo {
         }
 
         return window.getScreenDetails().then(result => {
+            window.clearInterval(this.timer);
+
             this.isScreenDetails = true;
             this.needUserActivity = false;
+
             this.screens = result.screens;
             this.emit();
 
+            this.unbindScreenChange();
+            this.bindScreensChange(result.screens);
+
             result.onscreenschange = () => {
+                this.bindScreensChange(result.screens);
                 this.screens = result.screens;
                 this.emit();
             };
 
             return result;
         }).catch(e => {
-            this.needUserActivity = true;
+            console.log(e.name);
+
+            if (e.name === 'NotAllowerError') {
+                this.needUserActivity = false;
+            } else {
+                this.needUserActivity = true;
+            }
+
             this.emit();
 
             throw e;
         });
+    }
+
+    private bindScreensChange(screens: ScreenDetailed[]) {
+        screens.forEach(screen => {
+            if (screen.removeEventListener) {
+                screen.removeEventListener('change', this.handleScreenChange);
+            }
+
+            if (screen.addEventListener) {
+                screen.addEventListener('change', this.handleScreenChange);
+            }
+        });
+    }
+
+    private bindScreenChange() {
+        this.unbindScreenChange();
+
+        if (screen.addEventListener) {
+            screen.addEventListener('change', this.handleScreenChange);
+        }
+    }
+
+    private unbindScreenChange() {
+        if (screen.removeEventListener) {
+            screen.removeEventListener('change', this.handleScreenChange);
+        }
     }
 
     public get() {
@@ -132,10 +171,6 @@ class ScreenInfo {
     }
 
     private handleScreenChange = () => {
-        if (this.isScreenDetails) {
-            return;
-        }
-
         this.emit();
     }
 
