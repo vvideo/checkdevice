@@ -871,21 +871,19 @@
             this.devicePixelRatio = getDevicePixelRatio();
             this.isScreenDetails = false;
             this.screens = [];
+            this.timer = -1;
             this.needUserActivity = false;
             this.handleScreenChange = function () {
-                if (_this.isScreenDetails) {
-                    return;
-                }
                 _this.emit();
             };
             var screenJson = JSON.stringify(this.getScreen());
-            window.setInterval(function () {
+            this.timer = window.setInterval(function () {
                 var currentDevicePixelRation = getDevicePixelRatio();
                 if (_this.devicePixelRatio !== currentDevicePixelRation) {
                     _this.devicePixelRatio = currentDevicePixelRation;
                     _this.handleScreenChange();
                 }
-                if (_this.isScreenDetails || window.screen.addEventListener) {
+                if (window.screen.addEventListener) {
                     return;
                 }
                 var currentScreenJson = JSON.stringify(_this.getScreen());
@@ -894,9 +892,7 @@
                     _this.handleScreenChange();
                 }
             }, 500);
-            if (window.screen.addEventListener) {
-                window.screen.addEventListener('change', this.handleScreenChange);
-            }
+            this.bindScreenChange();
             this.getScreenDetails();
         }
         ScreenInfo.prototype.addListener = function (callback) {
@@ -913,20 +909,52 @@
                 return Promise.resolve();
             }
             return window.getScreenDetails().then(function (result) {
+                window.clearInterval(_this.timer);
                 _this.isScreenDetails = true;
                 _this.needUserActivity = false;
                 _this.screens = result.screens;
                 _this.emit();
+                _this.unbindScreenChange();
+                _this.bindScreensChange(result.screens);
                 result.onscreenschange = function () {
+                    _this.bindScreensChange(result.screens);
                     _this.screens = result.screens;
                     _this.emit();
                 };
                 return result;
             }).catch(function (e) {
-                _this.needUserActivity = true;
+                console.log(e.name);
+                if (e.name === 'NotAllowerError') {
+                    _this.needUserActivity = false;
+                }
+                else {
+                    _this.needUserActivity = true;
+                }
                 _this.emit();
                 throw e;
             });
+        };
+        ScreenInfo.prototype.bindScreensChange = function (screens) {
+            var _this = this;
+            screens.forEach(function (screen) {
+                if (screen.removeEventListener) {
+                    screen.removeEventListener('change', _this.handleScreenChange);
+                }
+                if (screen.addEventListener) {
+                    screen.addEventListener('change', _this.handleScreenChange);
+                }
+            });
+        };
+        ScreenInfo.prototype.bindScreenChange = function () {
+            this.unbindScreenChange();
+            if (screen.addEventListener) {
+                screen.addEventListener('change', this.handleScreenChange);
+            }
+        };
+        ScreenInfo.prototype.unbindScreenChange = function () {
+            if (screen.removeEventListener) {
+                screen.removeEventListener('change', this.handleScreenChange);
+            }
         };
         ScreenInfo.prototype.get = function () {
             var result = {
