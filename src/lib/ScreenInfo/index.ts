@@ -98,15 +98,20 @@ class ScreenInfo {
 
             return result;
         }).catch(e => {
-            console.log(e.name);
+            // @ts-ignore
+            navigator.permissions.query({ name: 'window-management' }).then((result) => {
+                if (result.state === 'denied') {
+                    this.needUserActivity = false; 
+                } else {
+                    this.needUserActivity = true;
+                }
 
-            if (e.name === 'NotAllowerError') {
-                this.needUserActivity = false;
-            } else {
-                this.needUserActivity = true;
-            }
+                this.emit();
+            });
 
+            this.needUserActivity = true;
             this.emit();
+
 
             throw e;
         });

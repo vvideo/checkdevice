@@ -923,13 +923,17 @@
                 };
                 return result;
             }).catch(function (e) {
-                console.log(e.name);
-                if (e.name === 'NotAllowerError') {
-                    _this.needUserActivity = false;
-                }
-                else {
-                    _this.needUserActivity = true;
-                }
+                // @ts-ignore
+                navigator.permissions.query({ name: 'window-management' }).then(function (result) {
+                    if (result.state === 'denied') {
+                        _this.needUserActivity = false;
+                    }
+                    else {
+                        _this.needUserActivity = true;
+                    }
+                    _this.emit();
+                });
+                _this.needUserActivity = true;
                 _this.emit();
                 throw e;
             });
