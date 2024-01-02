@@ -36,9 +36,9 @@ export function AudioCodecs() {
         { supported: isFlacSupported(), name: 'FLAC', color: 'blue' },
         { supported: isVorbisSupported(), name: 'Vorbis', color: 'orange' },
         { supported: isOpusSupported(), name: 'Opus', color: 'green' },
-        { supported: isDolbyDigitalSupported(), name: 'Dolby Digital', color: 'black' },
-        { supported: isDolbyDigitalPlusSupported(), name: 'Dolby Digital Plus', color: 'black' },
-        { supported: isDolbyAtmosSupported(), name: 'Dolby Atmos', color: 'black' },
+        { supported: isDolbyDigitalSupported(), name: html`<b>Dolby</b> Digital`, color: 'black', border: 'white' },
+        { supported: isDolbyDigitalPlusSupported(), name: html`<b>Dolby</b> Digital Plus`, color: 'black', border: 'white' },
+        { supported: isDolbyAtmosSupported(), name: html`<b>Dolby</b> Atmos`, color: 'black', border: 'white' },
         { supported: isDtsSupported(), name: 'DTS', color: 'black' },
         { supported: isDtsHdSupported(), name: 'DTS:HD', color: 'black' },
         { supported: isDtsXSupported(), name: 'DTS:X', color: 'black' },
@@ -49,6 +49,7 @@ export function AudioCodecs() {
             supported.push(Codec({
                 name: item.name,
                 color: item.color,
+                border: item.border,
                 tooltip,
             }));
         } else {

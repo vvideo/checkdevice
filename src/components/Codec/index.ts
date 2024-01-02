@@ -7,10 +7,11 @@ import { VNode } from 'preact';
 const b = block('codec');
 
 interface CodecProps {
-    name: string;
+    name: string | VNode;
     tooltip?: string | VNode;
     color?: string;
     disabled?: boolean;
+    border?: string; 
 }
 
 export function Codec(props: CodecProps) {
@@ -20,6 +21,7 @@ export function Codec(props: CodecProps) {
     return html`
         <div class="${b({
             color,
+            border: props.border,
             disabled: props.disabled,
         })}">
             ${tooltip}

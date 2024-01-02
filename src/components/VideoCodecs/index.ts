@@ -30,7 +30,7 @@ export function VideoCodecs() {
         { supported: isHevcMain10Supported(), name: 'H.265 Main10', color: 'orange' },
         { supported: isVp8Supported(), name: 'VP8', color: 'green' },
         { supported: isVp9Supported(), name: 'VP9', color: 'green' },
-        { supported: isDolbyVisionSupported(), name: 'Dolby Vision', color: 'black' },
+        { supported: isDolbyVisionSupported(), name: html`<b>Dolby</b> Vision`, color: 'black', border: 'white' },
         { supported: isAV1Supported(), name: 'AV1', color: 'yellow' },
         { supported: isMpeg2TSupported(), name: 'MPEG2-TS', color: 'yellow' },
     ].map(item => {
@@ -39,6 +39,7 @@ export function VideoCodecs() {
             supported.push(Codec({
                 name: item.name,
                 color: item.color,
+                border: item.border,
                 tooltip,
             }));
         } else {

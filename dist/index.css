@@ -125,6 +125,12 @@
     border: 3px #333 solid;
 }
 
+.codec_border_white .codec__name {
+    border: 3px solid white;
+    border-radius: 5px;
+    font-weight: normal;
+}
+
 .codec_color_blue .codec__name {
     background-color: #009cf4;
     border: 3px #009cf4 solid;

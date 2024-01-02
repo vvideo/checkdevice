@@ -18,11 +18,15 @@ export function AudioBadges() {
     }
 
     if (isDolbyDigitalSupported().any) {
-        audioCodecs51.push('AC-3');
+        audioCodecs51.push('Dolby Digital');
     }
 
     if (isDolbyDigitalPlusSupported().any) {
-        audioCodecs51.push('EC-3');
+        audioCodecs51.push('Dolby Digital Plus');
+    }
+
+    if (isDolbyAtmosSupported().any) {
+        audioCodecs51.push('Dolby Atmos');
     }
 
     const has51 = audioCodecs51.length;
@@ -36,13 +40,6 @@ export function AudioBadges() {
                     text: (has51 ? audioCodecs51 : audioCodecs20).join(', '),
                 },
             })}
-
-            ${
-                isDolbyAtmosSupported().any && Badge({
-                    text: html`<b>Dolby</b> Atmos`,
-                    background: 'transparent',
-                })
-            }
         </div>
     `;
 }

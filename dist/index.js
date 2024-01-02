@@ -240,7 +240,7 @@
     var b$m = block('badge');
     function Badge(props) {
         var _a, _b;
-        return m$1(templateObject_3$3 || (templateObject_3$3 = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n            <div class=\"", "\">", "</div>\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n            <div class=\"", "\">", "</div>\n            ", "\n        </div>\n    "])), b$m({
+        return m$1(templateObject_3$4 || (templateObject_3$4 = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n            <div class=\"", "\">", "</div>\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n            <div class=\"", "\">", "</div>\n            ", "\n        </div>\n    "])), b$m({
             type: props.type,
             background: props.background,
             disabled: props.disabled,
@@ -249,7 +249,7 @@
             click: props.click,
         }), ((_a = props.top) === null || _a === void 0 ? void 0 : _a.text) ? m$1(templateObject_1$s || (templateObject_1$s = __makeTemplateObject(["<div class=\"", "\" title=\"", "\">", "</div>"], ["<div class=\"", "\" title=\"", "\">", "</div>"])), b$m('top-text'), props.top.title, props.top.text) : '', b$m('body'), props.text, ((_b = props.bottom) === null || _b === void 0 ? void 0 : _b.text) ? m$1(templateObject_2$c || (templateObject_2$c = __makeTemplateObject(["<div class=\"", "\" title=\"", "\">", "</div>"], ["<div class=\"", "\" title=\"", "\">", "</div>"])), b$m('bottom-text'), props.bottom.title, props.bottom.text) : '');
     }
-    var templateObject_1$s, templateObject_2$c, templateObject_3$3;
+    var templateObject_1$s, templateObject_2$c, templateObject_3$4;
 
     const AAC_CONTENT_TYPE = 'audio/mp4; codecs="mp4a.40.2"';
     const DOLBY_AC3_CONTENT_TYPE = 'audio/mp4; codecs="ac-3"';
@@ -718,24 +718,24 @@
             audioCodecs20.push('AAC');
         }
         if (isDolbyDigitalSupported().any) {
-            audioCodecs51.push('AC-3');
+            audioCodecs51.push('Dolby Digital');
         }
         if (isDolbyDigitalPlusSupported().any) {
-            audioCodecs51.push('EC-3');
+            audioCodecs51.push('Dolby Digital Plus');
+        }
+        if (isDolbyAtmosSupported().any) {
+            audioCodecs51.push('Dolby Atmos');
         }
         var has51 = audioCodecs51.length;
-        return m$1(templateObject_2$b || (templateObject_2$b = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n\n            ", "\n        </div>\n    "])), b$l(), Badge({
+        return m$1(templateObject_1$r || (templateObject_1$r = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "])), b$l(), Badge({
             text: has51 ? '5.1' : '2.0',
             background: has51 ? 'gold' : 'transparent',
             bottom: {
                 text: (has51 ? audioCodecs51 : audioCodecs20).join(', '),
             },
-        }), isDolbyAtmosSupported().any && Badge({
-            text: m$1(templateObject_1$r || (templateObject_1$r = __makeTemplateObject(["<b>Dolby</b> Atmos"], ["<b>Dolby</b> Atmos"]))),
-            background: 'transparent',
         }));
     }
-    var templateObject_1$r, templateObject_2$b;
+    var templateObject_1$r;
 
     const standardAspectRatio = [
         [1, 1],
@@ -840,7 +840,7 @@
         var screenSize = withDevicePixelRatio ?
             [props.width, props.height, props.devicePixelRatio].join('×') :
             [props.width * props.devicePixelRatio, props.height * props.devicePixelRatio].join('×');
-        var screenText = m$1(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n        <div>Size: ", "</div>\n        ", "\n        <div>Color depth: ", " bit</div>\n        <div>Aspect ratio: ", "</div>\n        ", "\n        ", "\n    "], ["\n        <div>Size: ", "</div>\n        ", "\n        <div>Color depth: ", " bit</div>\n        <div>Aspect ratio: ", "</div>\n        ", "\n        ", "\n    "])), screenSize, hasZoom() ? m$1(templateObject_1$q || (templateObject_1$q = __makeTemplateObject(["<div>\u26A0 Please reset zoom in the page</div>"], ["<div>\u26A0 Please reset zoom in the page</div>"]))) : '', props.colorDepth, calcAspectRatio(props.width, props.height).value, props.isPrimary ? m$1(templateObject_2$a || (templateObject_2$a = __makeTemplateObject(["<div>Primary: Yes</div>"], ["<div>Primary: Yes</div>"]))) : '', props.isInternal ? m$1(templateObject_3$2 || (templateObject_3$2 = __makeTemplateObject(["<div>Internal: Yes</div>"], ["<div>Internal: Yes</div>"]))) : '');
+        var screenText = m$1(templateObject_4$2 || (templateObject_4$2 = __makeTemplateObject(["\n        <div>Size: ", "</div>\n        ", "\n        <div>Color depth: ", " bit</div>\n        <div>Aspect ratio: ", "</div>\n        ", "\n        ", "\n    "], ["\n        <div>Size: ", "</div>\n        ", "\n        <div>Color depth: ", " bit</div>\n        <div>Aspect ratio: ", "</div>\n        ", "\n        ", "\n    "])), screenSize, hasZoom() ? m$1(templateObject_1$q || (templateObject_1$q = __makeTemplateObject(["<div>\u26A0 Please reset zoom in the page</div>"], ["<div>\u26A0 Please reset zoom in the page</div>"]))) : '', props.colorDepth, calcAspectRatio(props.width, props.height).value, props.isPrimary ? m$1(templateObject_2$b || (templateObject_2$b = __makeTemplateObject(["<div>Primary: Yes</div>"], ["<div>Primary: Yes</div>"]))) : '', props.isInternal ? m$1(templateObject_3$3 || (templateObject_3$3 = __makeTemplateObject(["<div>Internal: Yes</div>"], ["<div>Internal: Yes</div>"]))) : '');
         var isHDR = props.isScreenDetails ? props.colorDepth > 24 : isHdrScreenSupported();
         return m$1(templateObject_6 || (templateObject_6 = __makeTemplateObject(["        \n        <div class=\"", "\" onClick=", ">\n            <div class=\"", "\">", "</div>\n            ", "\n        </div>\n    "], ["        \n        <div class=\"", "\" onClick=", ">\n            <div class=\"", "\">", "</div>\n            ", "\n        </div>\n    "])), b$j(), handleClick, b$j('label'), props.label, Badge({
             text: getResolutionBadge(Math.max(props.width, props.height) * props.devicePixelRatio) || '',
@@ -856,7 +856,7 @@
             },
         }));
     }
-    var templateObject_1$q, templateObject_2$a, templateObject_3$2, templateObject_4, templateObject_5, templateObject_6;
+    var templateObject_1$q, templateObject_2$b, templateObject_3$3, templateObject_4$2, templateObject_5, templateObject_6;
 
     var b$i = block('row');
     function Row(props) {
@@ -1034,25 +1034,26 @@
                 return m$1(templateObject_1$o || (templateObject_1$o = __makeTemplateObject(["<", " ...", "><//>"], ["<", " ...", "><//>"])), ScreenBadge, props);
             });
             var name = screens.length > 1 ? 'Screens' : 'Screen';
-            return m$1(templateObject_3$1 || (templateObject_3$1 = __makeTemplateObject(["<", " name=\"", "\">\n            ", "\n            ", "\n        <//>"], ["<", " name=\"", "\">\n            ", "\n            ", "\n        <//>"])), Row, name, screenInfo.needUserActivity ? m$1(templateObject_2$9 || (templateObject_2$9 = __makeTemplateObject(["<div><button onClick=\"", "\">Request</button></div>"], ["<div><button onClick=\"", "\">Request</button></div>"])), this.handleClick) : '', content);
+            return m$1(templateObject_3$2 || (templateObject_3$2 = __makeTemplateObject(["<", " name=\"", "\">\n            ", "\n            ", "\n        <//>"], ["<", " name=\"", "\">\n            ", "\n            ", "\n        <//>"])), Row, name, screenInfo.needUserActivity ? m$1(templateObject_2$a || (templateObject_2$a = __makeTemplateObject(["<div><button onClick=\"", "\">Request</button></div>"], ["<div><button onClick=\"", "\">Request</button></div>"])), this.handleClick) : '', content);
         };
         ScreenBadges.prototype.componentWillUnmount = function () {
             screenInfo.removeListener(this.handleScreenChange);
         };
         return ScreenBadges;
     }(b$n));
-    var templateObject_1$o, templateObject_2$9, templateObject_3$1;
+    var templateObject_1$o, templateObject_2$a, templateObject_3$2;
 
     var b$h = block('codec');
     function Codec(props) {
         var color = props.disabled ? 'black' : (props.color || 'black');
         var tooltip = props.tooltip ? m$1(templateObject_1$n || (templateObject_1$n = __makeTemplateObject(["<div class=\"", "\">", "</div>"], ["<div class=\"", "\">", "</div>"])), b$h('tooltip'), props.tooltip) : '';
-        return m$1(templateObject_2$8 || (templateObject_2$8 = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n            <div class=\"", "\">", "</div>\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n            <div class=\"", "\">", "</div>\n        </div>\n    "])), b$h({
+        return m$1(templateObject_2$9 || (templateObject_2$9 = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n            <div class=\"", "\">", "</div>\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n            <div class=\"", "\">", "</div>\n        </div>\n    "])), b$h({
             color: color,
+            border: props.border,
             disabled: props.disabled,
         }), tooltip, b$h('name'), props.name);
     }
-    var templateObject_1$n, templateObject_2$8;
+    var templateObject_1$n, templateObject_2$9;
 
     var b$g = block('column');
     function Column(props) {
@@ -1082,9 +1083,9 @@
             { supported: isFlacSupported(), name: 'FLAC', color: 'blue' },
             { supported: isVorbisSupported(), name: 'Vorbis', color: 'orange' },
             { supported: isOpusSupported(), name: 'Opus', color: 'green' },
-            { supported: isDolbyDigitalSupported(), name: 'Dolby Digital', color: 'black' },
-            { supported: isDolbyDigitalPlusSupported(), name: 'Dolby Digital Plus', color: 'black' },
-            { supported: isDolbyAtmosSupported(), name: 'Dolby Atmos', color: 'black' },
+            { supported: isDolbyDigitalSupported(), name: m$1(templateObject_1$j || (templateObject_1$j = __makeTemplateObject(["<b>Dolby</b> Digital"], ["<b>Dolby</b> Digital"]))), color: 'black', border: 'white' },
+            { supported: isDolbyDigitalPlusSupported(), name: m$1(templateObject_2$8 || (templateObject_2$8 = __makeTemplateObject(["<b>Dolby</b> Digital Plus"], ["<b>Dolby</b> Digital Plus"]))), color: 'black', border: 'white' },
+            { supported: isDolbyAtmosSupported(), name: m$1(templateObject_3$1 || (templateObject_3$1 = __makeTemplateObject(["<b>Dolby</b> Atmos"], ["<b>Dolby</b> Atmos"]))), color: 'black', border: 'white' },
             { supported: isDtsSupported(), name: 'DTS', color: 'black' },
             { supported: isDtsHdSupported(), name: 'DTS:HD', color: 'black' },
             { supported: isDtsXSupported(), name: 'DTS:X', color: 'black' },
@@ -1095,6 +1096,7 @@
                 supported.push(Codec({
                     name: item.name,
                     color: item.color,
+                    border: item.border,
                     tooltip: tooltip,
                 }));
             }
@@ -1107,9 +1109,9 @@
                 }));
             }
         });
-        return m$1(templateObject_1$j || (templateObject_1$j = __makeTemplateObject(["\n        <", " name=\"Audio Codecs\">\n            <", ">\n                <", " name=\"Supported\">\n                    <div class=\"", "\">\n                        ", "\n                    </div>\n                <//>\n                <", " name=\"Unsupported\">\n                    <div class=\"", "\">\n                        ", "\n                    </div>\n                <//>\n            <//>\n        <//>\n    "], ["\n        <", " name=\"Audio Codecs\">\n            <", ">\n                <", " name=\"Supported\">\n                    <div class=\"", "\">\n                        ", "\n                    </div>\n                <//>\n                <", " name=\"Unsupported\">\n                    <div class=\"", "\">\n                        ", "\n                    </div>\n                <//>\n            <//>\n        <//>\n    "])), Row, Columns, Column, b$e(), supported, Column, b$e(), unsupported);
+        return m$1(templateObject_4$1 || (templateObject_4$1 = __makeTemplateObject(["\n        <", " name=\"Audio Codecs\">\n            <", ">\n                <", " name=\"Supported\">\n                    <div class=\"", "\">\n                        ", "\n                    </div>\n                <//>\n                <", " name=\"Unsupported\">\n                    <div class=\"", "\">\n                        ", "\n                    </div>\n                <//>\n            <//>\n        <//>\n    "], ["\n        <", " name=\"Audio Codecs\">\n            <", ">\n                <", " name=\"Supported\">\n                    <div class=\"", "\">\n                        ", "\n                    </div>\n                <//>\n                <", " name=\"Unsupported\">\n                    <div class=\"", "\">\n                        ", "\n                    </div>\n                <//>\n            <//>\n        <//>\n    "])), Row, Columns, Column, b$e(), supported, Column, b$e(), unsupported);
     }
-    var templateObject_1$j;
+    var templateObject_1$j, templateObject_2$8, templateObject_3$1, templateObject_4$1;
 
     function VideoCodecs() {
         var supported = [];
@@ -1122,7 +1124,7 @@
             { supported: isHevcMain10Supported(), name: 'H.265 Main10', color: 'orange' },
             { supported: isVp8Supported(), name: 'VP8', color: 'green' },
             { supported: isVp9Supported(), name: 'VP9', color: 'green' },
-            { supported: isDolbyVisionSupported(), name: 'Dolby Vision', color: 'black' },
+            { supported: isDolbyVisionSupported(), name: m$1(templateObject_1$i || (templateObject_1$i = __makeTemplateObject(["<b>Dolby</b> Vision"], ["<b>Dolby</b> Vision"]))), color: 'black', border: 'white' },
             { supported: isAV1Supported(), name: 'AV1', color: 'yellow' },
             { supported: isMpeg2TSupported(), name: 'MPEG2-TS', color: 'yellow' },
         ].map(function (item) {
@@ -1131,6 +1133,7 @@
                 supported.push(Codec({
                     name: item.name,
                     color: item.color,
+                    border: item.border,
                     tooltip: tooltip,
                 }));
             }
@@ -1142,9 +1145,9 @@
                 }));
             }
         });
-        return m$1(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n        <", " name=\"Video Codecs\">\n            ", "\n            ", "\n        <//>\n"], ["\n        <", " name=\"Video Codecs\">\n            ", "\n            ", "\n        <//>\n"])), Columns, supported.length ? m$1(templateObject_1$i || (templateObject_1$i = __makeTemplateObject(["<", " name=\"Supported\">\n                ", "\n            <//>"], ["<", " name=\"Supported\">\n                ", "\n            <//>"])), Column, supported) : '', unsupported.length ? m$1(templateObject_2$7 || (templateObject_2$7 = __makeTemplateObject(["<", " name=\"Unsupported\">\n                ", "\n            <//>"], ["<", " name=\"Unsupported\">\n                ", "\n            <//>"])), Column, unsupported) : '');
+        return m$1(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n        <", " name=\"Video Codecs\">\n            ", "\n            ", "\n        <//>\n"], ["\n        <", " name=\"Video Codecs\">\n            ", "\n            ", "\n        <//>\n"])), Columns, supported.length ? m$1(templateObject_2$7 || (templateObject_2$7 = __makeTemplateObject(["<", " name=\"Supported\">\n                ", "\n            <//>"], ["<", " name=\"Supported\">\n                ", "\n            <//>"])), Column, supported) : '', unsupported.length ? m$1(templateObject_3 || (templateObject_3 = __makeTemplateObject(["<", " name=\"Unsupported\">\n                ", "\n            <//>"], ["<", " name=\"Unsupported\">\n                ", "\n            <//>"])), Column, unsupported) : '');
     }
-    var templateObject_1$i, templateObject_2$7, templateObject_3;
+    var templateObject_1$i, templateObject_2$7, templateObject_3, templateObject_4;
 
     var b$d = block('header');
     function Header() {
