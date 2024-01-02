@@ -1419,6 +1419,10 @@
     var templateObject_1$8;
 
     var FULL_HD_HEIGHT = 1080;
+    var HEIGHT_PADDING = 5;
+    function isLargerFullHd(height) {
+        return height > FULL_HD_HEIGHT + HEIGHT_PADDING;
+    }
     function Question4K() {
         var _a = h(screenInfo.get().screens), screens = _a[0], setScreens = _a[1];
         p(function () {
@@ -1431,8 +1435,7 @@
             };
         }, [screens]);
         var screensLargerThan2K = screens.some(function (screen) {
-            var height = Math.min(screen.width, screen.height) * screen.devicePixelRatio;
-            return height > FULL_HD_HEIGHT;
+            return isLargerFullHd(Math.min(screen.width, screen.height) * screen.devicePixelRatio);
         });
         var isVp9 = isVp9Supported().any;
         var isHevc = isHevcMainSupported().any;
