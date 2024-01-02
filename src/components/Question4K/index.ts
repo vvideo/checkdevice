@@ -7,6 +7,11 @@ import { Codec } from '../Codec';
 import { screenInfo } from '../../lib/ScreenInfo';
 
 const FULL_HD_HEIGHT = 1080;
+const HEIGHT_PADDING = 5;
+
+function isLargerFullHd(height: number) {
+    return height > FULL_HD_HEIGHT + HEIGHT_PADDING;
+}
 
 export function Question4K() {
     const [screens, setScreens] = useState(screenInfo.get().screens);
@@ -24,8 +29,7 @@ export function Question4K() {
     }, [screens]);
 
     const screensLargerThan2K = screens.some(screen => {
-        const height = Math.min(screen.width, screen.height) * screen.devicePixelRatio;
-        return height > FULL_HD_HEIGHT;
+        return isLargerFullHd(Math.min(screen.width, screen.height) * screen.devicePixelRatio);
     });
 
     const isVp9 = isVp9Supported().any;
