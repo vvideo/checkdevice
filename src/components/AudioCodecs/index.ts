@@ -45,7 +45,8 @@ export function AudioCodecs() {
         { supported: isMpegHAudioSupported(), name: 'MPEG-H Audio', color: 'blue' },
     ].map(item => {
         const tooltip = getTooltip(item.supported);
-        if (item.supported.any) {
+        const isSupported = typeof item.supported === 'boolean' ? item.supported : item.supported.any;
+        if (isSupported) {
             supported.push(Codec({
                 name: item.name,
                 color: item.color,

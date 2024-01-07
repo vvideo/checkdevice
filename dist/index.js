@@ -254,7 +254,6 @@
     const AAC_CONTENT_TYPE = 'audio/mp4; codecs="mp4a.40.2"';
     const DOLBY_AC3_CONTENT_TYPE = 'audio/mp4; codecs="ac-3"';
     const DOLBY_EC3_CONTENT_TYPE = 'audio/mp4; codecs="ec-3"';
-    const DOLBY_ATMOS_CONTENT_TYPE = 'audio/mp4; codecs="ec-3"; spatialRendering=true';
     const VORBIS_CONTENT_TYPE = 'audio/mp4; codecs="vorbis"';
     const OPUS_CONTENT_TYPE = 'audio/mp4; codecs="opus"';
     const FLAC_CONTENT_TYPE = 'audio/mp4; codecs="flac"';
@@ -314,8 +313,18 @@
     function isDolbyDigitalPlusSupported() {
         return isContentTypeSupported(DOLBY_EC3_CONTENT_TYPE);
     }
+    // audio/mp4; codecs="ec-3"; spatialRendering=true - no support
     function isDolbyAtmosSupported() {
-        return isContentTypeSupported(DOLBY_ATMOS_CONTENT_TYPE);
+        var _a, _b, _c;
+        // Chromecast
+        if (window.cast) {
+            return Boolean((_c = (_b = (_a = window.cast.framework) === null || _a === void 0 ? void 0 : _a.system) === null || _b === void 0 ? void 0 : _b.DeviceCapabilities) === null || _c === void 0 ? void 0 : _c.IS_DOLBY_ATMOS_SUPPORTED);
+        }
+        // Hisense TV
+        if (window.Hisense_GetSupportForDolbyAtmos) {
+            return window.Hisense_GetSupportForDolbyAtmos();
+        }
+        return false;
     }
     function isMpegHAudioSupported() {
         return isContentTypeSupported(MPEG_H_AUDIO_LC_PROFILE_LEVEL_3_CONTENT_TYPE);
@@ -723,7 +732,7 @@
         if (isDolbyDigitalPlusSupported().any) {
             audioCodecs51.push('Dolby Digital Plus');
         }
-        if (isDolbyAtmosSupported().any) {
+        if (isDolbyAtmosSupported()) {
             audioCodecs51.push('Dolby Atmos');
         }
         var has51 = audioCodecs51.length;
@@ -1068,6 +1077,9 @@
     var templateObject_1$l;
 
     function getTooltip(result) {
+        if (typeof result === 'boolean') {
+            return '';
+        }
         return m$1(templateObject_1$k || (templateObject_1$k = __makeTemplateObject(["\n        video.canPlayType(): ", "<br />\n        MediaSource.isTypeSupported(): ", "<br />\n        <hr />\n        ", "\n    "], ["\n        video.canPlayType(): ", "<br />\n        MediaSource.isTypeSupported(): ", "<br />\n        <hr />\n        ", "\n    "])), result.file ? 'Yes' : 'No', result.mediaSource ? 'Yes' : 'No', result.contentType);
     }
     var templateObject_1$k;
@@ -1092,7 +1104,8 @@
             { supported: isMpegHAudioSupported(), name: 'MPEG-H Audio', color: 'blue' },
         ].map(function (item) {
             var tooltip = getTooltip(item.supported);
-            if (item.supported.any) {
+            var isSupported = typeof item.supported === 'boolean' ? item.supported : item.supported.any;
+            if (isSupported) {
                 supported.push(Codec({
                     name: item.name,
                     color: item.color,
@@ -1463,7 +1476,7 @@
     function QuestionSurroundSound() {
         var isDolbyDigital = isDolbyDigitalSupported().any;
         var isDolbyDigitalPlus = isDolbyDigitalPlusSupported().any;
-        var isDolbyAtmos = isDolbyAtmosSupported().any;
+        var isDolbyAtmos = isDolbyAtmosSupported();
         var mainAnswer = isDolbyDigital || isDolbyDigitalPlus || isDolbyAtmos;
         var head = m$1(templateObject_1$5 || (templateObject_1$5 = __makeTemplateObject(["Can I listen surround sound? <", " value=\"", "\"><//>"], ["Can I listen surround sound? <", " value=\"", "\"><//>"])), Result, mainAnswer);
         return m$1(templateObject_2$2 || (templateObject_2$2 = __makeTemplateObject(["  \n        <", " head=\"", "\">\n            <ul>\n                <li>Support one of the audio codecs? <", " value=\"", "\"><//>\n                    <ul>\n                        <li>\n                            <", "\n                                name=\"Dolby Digital\"\n                                color=\"black\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"Dolby Digital Plus\"\n                                color=\"black\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"Dolby Atmos\"\n                                color=\"black\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    "], ["  \n        <", " head=\"", "\">\n            <ul>\n                <li>Support one of the audio codecs? <", " value=\"", "\"><//>\n                    <ul>\n                        <li>\n                            <", "\n                                name=\"Dolby Digital\"\n                                color=\"black\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"Dolby Digital Plus\"\n                                color=\"black\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"Dolby Atmos\"\n                                color=\"black\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    "])), ActiveQuestion, head, Result, mainAnswer, Codec, !isDolbyDigital, Result, isDolbyDigital, Codec, !isDolbyDigitalPlus, Result, isDolbyDigitalPlus, Codec, !isDolbyAtmos, Result, isDolbyAtmos);

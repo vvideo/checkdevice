@@ -7,7 +7,7 @@ import { Codec } from '../Codec';
 export function QuestionSurroundSound() {
     const isDolbyDigital = isDolbyDigitalSupported().any;
     const isDolbyDigitalPlus = isDolbyDigitalPlusSupported().any;
-    const isDolbyAtmos = isDolbyAtmosSupported().any;
+    const isDolbyAtmos = isDolbyAtmosSupported();
     const mainAnswer = isDolbyDigital || isDolbyDigitalPlus || isDolbyAtmos;
     const head = html`Can I listen surround sound? <${Result} value="${mainAnswer}"><//>`;
 

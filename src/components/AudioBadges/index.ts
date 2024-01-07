@@ -25,7 +25,7 @@ export function AudioBadges() {
         audioCodecs51.push('Dolby Digital Plus');
     }
 
-    if (isDolbyAtmosSupported().any) {
+    if (isDolbyAtmosSupported()) {
         audioCodecs51.push('Dolby Atmos');
     }
 
