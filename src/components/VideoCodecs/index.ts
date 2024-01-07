@@ -55,7 +55,7 @@ export function VideoCodecs() {
         <${Columns} name="Video Codecs">
             ${supported.length ? html`<${Column} name="Supported">
                 ${supported}
-            <//>` : ''}
+            <//>` : 'No supported video codecs.'}
             ${unsupported.length ? html`<${Column} name="Unsupported">
                 ${unsupported}
             <//>` : ''}

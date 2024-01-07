@@ -16,14 +16,11 @@ import {
 
 import { Codec } from '../Codec';
 import { html } from 'htm/preact';
-import { block } from '../../utils/bem';
 import { Row } from '../Row';
 import { VNode } from 'preact';
 import { Column } from '../Column';
 import { Columns } from '../Columns';
 import { getTooltip } from '../../utils/getTooltip';
-
-const b = block('audio-codecs');
 
 export function AudioCodecs() {
     const supported: VNode[] = [];
@@ -63,20 +60,12 @@ export function AudioCodecs() {
         }
     });
 
-    return html`
-        <${Row} name="Audio Codecs">
-            <${Columns}>
-                <${Column} name="Supported">
-                    <div class="${b()}">
-                        ${supported}
-                    </div>
-                <//>
-                <${Column} name="Unsupported">
-                    <div class="${b()}">
-                        ${unsupported}
-                    </div>
-                <//>
+    return html`<${Row} name="Audio Codecs">
+        <${Columns}>
+            <${Column} name="Supported">
+                ${supported.length ? supported : 'No supported audio codecs.'}
             <//>
+            ${unsupported.length ? html`<${Column} name="Unsupported">${unsupported}<//>` : ''}
         <//>
-    `;
+    <//>`;
 }
