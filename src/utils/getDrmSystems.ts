@@ -1,14 +1,22 @@
-import { isFairPlaySupported, isPlayReadySupported, isWidevineSupported } from "detect-audio-video";
+import {
+    isFairPlaySupported,
+    isPlayReadySupported,
+    isWidevineSupported,
+} from 'detect-audio-video';
+
+let promise: Promise<string[]>;
 
 export function getDrmSystems() {
-    const result: string[] = [];
+    if (promise) {
+        return promise;
+    }
 
-    return Promise.all([
+    promise = Promise.all([
         isWidevineSupported(),
         isPlayReadySupported(),
         isFairPlaySupported(),
-        // isPrimetimeSupported(),
     ]).then(([isWidevine, isPlayReady, isFairPlay]) => {
+        const result: string[] = [];
 
         if (isWidevine) {
             result.push('widevine');
@@ -24,4 +32,6 @@ export function getDrmSystems() {
 
         return result;
     });
+
+    return promise;
 }
