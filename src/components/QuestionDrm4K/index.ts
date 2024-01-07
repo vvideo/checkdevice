@@ -9,11 +9,13 @@ import {
 import { ActiveQuestion } from '../ActiveQuestion';
 import { Result } from '../Result';
 import { Codec } from '../Codec';
+import { getDrmSystems } from '../../utils/getDrmSystems';
 
 export function QuestionDrm4K() {
     const [isVp9, setIsVp9] = useState(false);
     const [isHevc, setIsHevc] = useState(false);
     const [isAv1, setIsAv1] = useState(false);
+    const [drmSystems, setDrmSystems] = useState<string[]>([]);
 
     isWidevineSupported(VP9_CONTENT_TYPE).then(result => {
         setIsVp9(result);
@@ -27,14 +29,24 @@ export function QuestionDrm4K() {
         setIsAv1(result);
     });
 
+    getDrmSystems().then(result => {
+        setDrmSystems(result);
+    });
+
     const anyCodec = Boolean(isVp9 || isHevc || isAv1);
 
-    const head = html`Can I watch 4K video on online services? <${Result} value="${anyCodec}"><//>`;
+    const hasDrm = Boolean(drmSystems.length);
+    const answer = anyCodec && hasDrm;
+
+    const head = html`Can I watch 4K video on online services? <${Result} value="${answer}"><//>`;
 
     return html`  
         <${ActiveQuestion} head="${head}">
             Online services protect content using <a target="_blank" href="https://en.wikipedia.org/wiki/Digital_rights_management">DRM</a>.
             <ul>
+                <li>
+                    DRM support? <${Result} value=${hasDrm}><//><                
+                /li>
                 <li>
                 Support one of the video codecs? <${Result} value=${anyCodec}><//>
                     <ul>

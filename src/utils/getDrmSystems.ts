@@ -1,28 +1,27 @@
 import { isFairPlaySupported, isPlayReadySupported, isWidevineSupported } from "detect-audio-video";
 
 export function getDrmSystems() {
-    const result = {
-        widevine: false,
-        playready: false,
-        fairplay: false,
-    };
+    const result: string[] = [];
 
-    Promise.all([
+    return Promise.all([
         isWidevineSupported(),
         isPlayReadySupported(),
         isFairPlaySupported(),
         // isPrimetimeSupported(),
     ]).then(([isWidevine, isPlayReady, isFairPlay]) => {
+
         if (isWidevine) {
-            result.widevine = true;
+            result.push('widevine');
         }
 
         if (isPlayReady) {
-            result.playready = true;
+            result.push('playready');
         }
 
         if (isFairPlay) {
-            result.fairplay = true;
+            result.push('fairplay');
         }
+
+        return result;
     });
 }

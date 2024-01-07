@@ -1470,10 +1470,33 @@
     }
     var templateObject_1$5, templateObject_2$2;
 
+    function getDrmSystems() {
+        var result = [];
+        return Promise.all([
+            isWidevineSupported(),
+            isPlayReadySupported(),
+            isFairPlaySupported(),
+            // isPrimetimeSupported(),
+        ]).then(function (_a) {
+            var isWidevine = _a[0], isPlayReady = _a[1], isFairPlay = _a[2];
+            if (isWidevine) {
+                result.push('widevine');
+            }
+            if (isPlayReady) {
+                result.push('playready');
+            }
+            if (isFairPlay) {
+                result.push('fairplay');
+            }
+            return result;
+        });
+    }
+
     function QuestionDrm4K() {
         var _a = h(false), isVp9 = _a[0], setIsVp9 = _a[1];
         var _b = h(false), isHevc = _b[0], setIsHevc = _b[1];
         var _c = h(false), isAv1 = _c[0], setIsAv1 = _c[1];
+        var _d = h([]), drmSystems = _d[0], setDrmSystems = _d[1];
         isWidevineSupported(VP9_CONTENT_TYPE).then(function (result) {
             setIsVp9(result);
         });
@@ -1483,9 +1506,14 @@
         isWidevineSupported(AV1_CONTENT_TYPE).then(function (result) {
             setIsAv1(result);
         });
+        getDrmSystems().then(function (result) {
+            setDrmSystems(result);
+        });
         var anyCodec = Boolean(isVp9 || isHevc || isAv1);
-        var head = m$1(templateObject_1$4 || (templateObject_1$4 = __makeTemplateObject(["Can I watch 4K video on online services? <", " value=\"", "\"><//>"], ["Can I watch 4K video on online services? <", " value=\"", "\"><//>"])), Result, anyCodec);
-        return m$1(templateObject_2$1 || (templateObject_2$1 = __makeTemplateObject(["  \n        <", " head=\"", "\">\n            Online services protect content using <a target=\"_blank\" href=\"https://en.wikipedia.org/wiki/Digital_rights_management\">DRM</a>.\n            <ul>\n                <li>\n                Support one of the video codecs? <", " value=", "><//>\n                    <ul>\n                        <li>\n                            <", "\n                                name=\"VP9\"\n                                color=\"green\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"H.265\"\n                                color=\"orange\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"AV1\"\n                                color=\"yellow\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    "], ["  \n        <", " head=\"", "\">\n            Online services protect content using <a target=\"_blank\" href=\"https://en.wikipedia.org/wiki/Digital_rights_management\">DRM</a>.\n            <ul>\n                <li>\n                Support one of the video codecs? <", " value=", "><//>\n                    <ul>\n                        <li>\n                            <", "\n                                name=\"VP9\"\n                                color=\"green\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"H.265\"\n                                color=\"orange\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"AV1\"\n                                color=\"yellow\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    "])), ActiveQuestion, head, Result, anyCodec, Codec, !isVp9, Result, isVp9, Codec, !isHevc, Result, isHevc, Codec, !isAv1, Result, isAv1);
+        var hasDrm = Boolean(drmSystems.length);
+        var answer = anyCodec && hasDrm;
+        var head = m$1(templateObject_1$4 || (templateObject_1$4 = __makeTemplateObject(["Can I watch 4K video on online services? <", " value=\"", "\"><//>"], ["Can I watch 4K video on online services? <", " value=\"", "\"><//>"])), Result, answer);
+        return m$1(templateObject_2$1 || (templateObject_2$1 = __makeTemplateObject(["  \n        <", " head=\"", "\">\n            Online services protect content using <a target=\"_blank\" href=\"https://en.wikipedia.org/wiki/Digital_rights_management\">DRM</a>.\n            <ul>\n                <li>\n                    DRM support? <", " value=", "><//><                \n                /li>\n                <li>\n                Support one of the video codecs? <", " value=", "><//>\n                    <ul>\n                        <li>\n                            <", "\n                                name=\"VP9\"\n                                color=\"green\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"H.265\"\n                                color=\"orange\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"AV1\"\n                                color=\"yellow\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    "], ["  \n        <", " head=\"", "\">\n            Online services protect content using <a target=\"_blank\" href=\"https://en.wikipedia.org/wiki/Digital_rights_management\">DRM</a>.\n            <ul>\n                <li>\n                    DRM support? <", " value=", "><//><                \n                /li>\n                <li>\n                Support one of the video codecs? <", " value=", "><//>\n                    <ul>\n                        <li>\n                            <", "\n                                name=\"VP9\"\n                                color=\"green\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"H.265\"\n                                color=\"orange\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"AV1\"\n                                color=\"yellow\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    "])), ActiveQuestion, head, Result, hasDrm, Result, anyCodec, Codec, !isVp9, Result, isVp9, Codec, !isHevc, Result, isHevc, Codec, !isAv1, Result, isAv1);
     }
     var templateObject_1$4, templateObject_2$1;
 
