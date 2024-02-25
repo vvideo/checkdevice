@@ -312,6 +312,17 @@
     margin: 0 0 0 15px;
 }
 
+.footer {
+    display: flex;
+    margin-top: 40px;
+    padding: 20px 0 10px 0;
+    border-top: 1px solid #333;
+}
+
+.footer__item {
+    margin-right: 20px;
+}
+
 .main-page {
     margin-left: 50px;
     margin-right: 50px;
@@ -329,17 +340,6 @@
         margin-left: 10px;
         margin-right: 30px;
     }
-}
-
-.footer {
-    display: flex;
-    margin-top: 40px;
-    padding: 20px 0 10px 0;
-    border-top: 1px solid #333;
-}
-
-.footer__item {
-    margin-right: 20px;
 }
 
 html, body {

@@ -10,9 +10,10 @@ import { NativeStreaming } from '../NativeStreaming';
 import { Questions } from '../Questions';
 import { HtmlVideoElementFeatures } from '../HtmlVideoElementFeatures';
 import { block } from '../../utils/bem';
+import { Footer } from '../Footer';
+import { ImageFormats } from '../ImageFormats';
 
 import './index.css';
-import { Footer } from '../Footer';
 
 const b = block('main-page');
 
@@ -37,6 +38,8 @@ export function MainPage() {
             <${Row} name="DRM">
                 <${DrmBadges}><//>
             <//>
+
+            <${ImageFormats}><//>
 
             <${Row} name="Native Streaming Support">
                 <${NativeStreaming}><//>
