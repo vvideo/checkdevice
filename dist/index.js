@@ -1696,7 +1696,7 @@
             { supported: images.apng, name: 'APNG', color: 'blue', tooltip: APNG_CONTENT_TYPE },
             { supported: images.svg, name: 'SVG', color: 'red', tooltip: SVG_CONTENT_TYPE },
             { supported: images.webp, name: 'WebP', color: 'green', tooltip: WEBP_CONTENT_TYPE },
-            { supported: images.heif, name: 'HEIF', color: 'yellow', tooltip: HEIF_CONTENT_TYPE },
+            { supported: images.heif, name: 'HEIF', color: 'orange', tooltip: HEIF_CONTENT_TYPE },
             { supported: images.avif, name: 'AVIF', color: 'yellow', tooltip: AVIF_CONTENT_TYPE },
         ].map(function (item) {
             if (item.supported) {
