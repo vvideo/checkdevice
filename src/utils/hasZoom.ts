@@ -1,6 +1,10 @@
-import { getDevicePixelRatio } from 'detect-audio-video';
+import { getDevicePixelRatio, getIsMobile } from 'detect-audio-video';
 
 export function hasZoom() {
+    if (getIsMobile()) {
+        return false;
+    }
+
     const devicePixelRatio = getDevicePixelRatio();
 
     const floorDevicePixelRatio = Math.floor(devicePixelRatio);
