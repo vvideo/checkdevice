@@ -7,6 +7,14 @@ import {
     isPngSupported,
     isSvgSupported,
     isWebpSupported,
+    GIF_CONTENT_TYPE,
+    JPEG_CONTENT_TYPE,
+    PNG_CONTENT_TYPE,
+    APNG_CONTENT_TYPE,
+    SVG_CONTENT_TYPE,
+    WEBP_CONTENT_TYPE,
+    HEIF_CONTENT_TYPE,
+    AVIF_CONTENT_TYPE,
 } from 'detect-audio-video';
 
 import { Codec } from '../Codec';
@@ -16,7 +24,6 @@ import { Row } from '../Row';
 import { VNode } from 'preact';
 import { Column } from '../Column';
 import { Columns } from '../Columns';
-//import { getTooltip } from '../../utils/getTooltip';
 
 function getImageFormatsSupported() {
     const result: Record<string, boolean> = {
@@ -59,28 +66,27 @@ export function ImageFormats() {
 
     const images = ref.current;
     [
-        { supported: images.gif, name: 'GIF', color: 'blue' },
-        { supported: images.jpeg, name: 'JPEG', color: 'blue' },
-        { supported: images.png, name: 'PNG', color: 'blue' },
-        { supported: images.apng, name: 'APNG', color: 'blue' },
-        { supported: images.svg, name: 'SVG', color: 'red' },
-        { supported: images.webp, name: 'WebP', color: 'green' },
-        { supported: images.heif, name: 'HEIF', color: 'yellow' },
-        { supported: images.avif, name: 'AVIF', color: 'yellow' },
+        { supported: images.gif, name: 'GIF', color: 'blue', tooltip: GIF_CONTENT_TYPE },
+        { supported: images.jpeg, name: 'JPEG', color: 'blue', tooltip: JPEG_CONTENT_TYPE },
+        { supported: images.png, name: 'PNG', color: 'blue', tooltip: PNG_CONTENT_TYPE },
+        { supported: images.apng, name: 'APNG', color: 'blue', tooltip: APNG_CONTENT_TYPE },
+        { supported: images.svg, name: 'SVG', color: 'red', tooltip: SVG_CONTENT_TYPE },
+        { supported: images.webp, name: 'WebP', color: 'green', tooltip: WEBP_CONTENT_TYPE },
+        { supported: images.heif, name: 'HEIF', color: 'yellow', tooltip: HEIF_CONTENT_TYPE },
+        { supported: images.avif, name: 'AVIF', color: 'yellow', tooltip: AVIF_CONTENT_TYPE },
     ].map(item => {
-        //const tooltip = getTooltip(item.supported);
         if (item.supported) {
             supported.push(Codec({
                 name: item.name,
                 color: item.color,
-                //tooltip,
+                tooltip: item.tooltip,
             }));
         } else {
             unsupported.push(Codec({
                 name: item.name,
                 color: 'black',
                 disabled: true,
-                //tooltip,
+                tooltip: item.tooltip,
             }));
         }
     });

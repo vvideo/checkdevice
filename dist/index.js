@@ -411,6 +411,7 @@
     const JPEG_CONTENT_TYPE = 'image/jpeg';
     const PNG_CONTENT_TYPE = 'image/png';
     const APNG_CONTENT_TYPE = 'image/apng';
+    const SVG_CONTENT_TYPE = 'image/svg+xml';
     const WEBP_CONTENT_TYPE = 'image/webp';
     const HEIF_CONTENT_TYPE = 'image/heif';
     const AVIF_CONTENT_TYPE = 'image/avif';
@@ -1657,7 +1658,6 @@
     }
     var templateObject_1$2;
 
-    //import { getTooltip } from '../../utils/getTooltip';
     function getImageFormatsSupported() {
         var result = {
             svg: isSvgSupported(),
@@ -1688,22 +1688,22 @@
             setReady(true);
             ref.current = data;
         });
+        var images = ref.current;
         [
-            { supported: ref.current.gif, name: 'GIF', color: 'blue' },
-            { supported: ref.current.jpeg, name: 'JPEG', color: 'blue' },
-            { supported: ref.current.png, name: 'PNG', color: 'blue' },
-            { supported: ref.current.apng, name: 'APNG', color: 'blue' },
-            { supported: ref.current.svg, name: 'SVG', color: 'red' },
-            { supported: ref.current.webp, name: 'WebP', color: 'green' },
-            { supported: ref.current.heif, name: 'HEIF', color: 'yellow' },
-            { supported: ref.current.avif, name: 'AVIF', color: 'yellow' },
+            { supported: images.gif, name: 'GIF', color: 'blue', tooltip: GIF_CONTENT_TYPE },
+            { supported: images.jpeg, name: 'JPEG', color: 'blue', tooltip: JPEG_CONTENT_TYPE },
+            { supported: images.png, name: 'PNG', color: 'blue', tooltip: PNG_CONTENT_TYPE },
+            { supported: images.apng, name: 'APNG', color: 'blue', tooltip: APNG_CONTENT_TYPE },
+            { supported: images.svg, name: 'SVG', color: 'red', tooltip: SVG_CONTENT_TYPE },
+            { supported: images.webp, name: 'WebP', color: 'green', tooltip: WEBP_CONTENT_TYPE },
+            { supported: images.heif, name: 'HEIF', color: 'yellow', tooltip: HEIF_CONTENT_TYPE },
+            { supported: images.avif, name: 'AVIF', color: 'yellow', tooltip: AVIF_CONTENT_TYPE },
         ].map(function (item) {
-            //const tooltip = getTooltip(item.supported);
             if (item.supported) {
                 supported.push(Codec({
                     name: item.name,
                     color: item.color,
-                    //tooltip,
+                    tooltip: item.tooltip,
                 }));
             }
             else {
@@ -1711,7 +1711,7 @@
                     name: item.name,
                     color: 'black',
                     disabled: true,
-                    //tooltip,
+                    tooltip: item.tooltip,
                 }));
             }
         });
