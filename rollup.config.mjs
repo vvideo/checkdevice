@@ -1,6 +1,11 @@
+import path from 'path';
 import typescript from '@rollup/plugin-typescript';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
-import css from 'rollup-plugin-css-only';
+import postcss from 'rollup-plugin-postcss';
+import terser from '@rollup/plugin-terser';
+import cssnano from 'cssnano';
+
+const withMinify = process.env['MINIFY'];
 
 const createConfig = name => ({
     input: `src/${name}.ts`,
@@ -13,9 +18,14 @@ const createConfig = name => ({
     plugins: [
         typescript(),
         nodeResolve(),
-        css({
-            output: `${name}.css`,
+        postcss({
+            config: true,
+            extract: path.resolve('dist/index.css'),
+             plugins: withMinify ? [
+                cssnano,
+            ] : [],
         }),
+        withMinify ? terser() : undefined,
     ]
 });
 
