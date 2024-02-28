@@ -1247,7 +1247,7 @@
 
     var b$d = block('header');
     function Header() {
-        return m$1(templateObject_1$i || (templateObject_1$i = __makeTemplateObject(["\n        <div class=\"", "\">\n            Can I\u00A0Watch Video<span class=\"", "\"><span class=\"", "\">beta</span></span>\n        </div>\n    "], ["\n        <div class=\"", "\">\n            Can I\\u00a0Watch Video<span class=\"", "\"><span class=\"", "\">beta</span></span>\n        </div>\n    "])), b$d(), b$d('beta-container'), b$d('beta'));
+        return m$1(templateObject_1$i || (templateObject_1$i = __makeTemplateObject(["\n        <div class=\"", "\">\n            Can I\u00A0Watch Video\n        </div>\n    "], ["\n        <div class=\"", "\">\n            Can I\\u00a0Watch Video\n        </div>\n    "])), b$d());
     }
     var templateObject_1$i;
 
