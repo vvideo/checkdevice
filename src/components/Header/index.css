@@ -5,15 +5,3 @@
     font-weight: normal;
     line-height: 70px;
 }
-
-.header__beta-container {
-    position: relative;
-}
-
-.header__beta {
-    position: absolute;
-    top: -15px;
-    margin-left: 4px;
-    color: gray;
-    font-size: 12px;   
-}
