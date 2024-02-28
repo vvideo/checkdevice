@@ -1,4 +1,3 @@
-- Minimize code and style
 - Details page with copy to clipboard
 - Paste code to html
 - i18n
