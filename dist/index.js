@@ -1068,6 +1068,26 @@
         'bit': {
             'en-US': 'bit',
             'ru-RU': 'бит'
+        },
+        'Not detected': {
+            'en-US': 'Not detected',
+            'ru-RU': 'Не обнаружено'
+        },
+        'Security level': {
+            'en-US': 'Security level',
+            'ru-RU': 'Уровень безопасности'
+        },
+        'Security levels': {
+            'en-US': 'Security levels',
+            'ru-RU': 'Уровни безопасности'
+        },
+        'KeySystem': {
+            'en-US': 'KeySystem',
+            'ru-RU': 'Система ключей'
+        },
+        'KeySystems': {
+            'en-US': 'KeySystems',
+            'ru-RU': 'Системы ключей'
         }
     };
 
@@ -1330,7 +1350,7 @@
         if (typeof result === 'boolean') {
             return '';
         }
-        return m$1(templateObject_1$l || (templateObject_1$l = __makeTemplateObject(["\n        video.canPlayType(): ", "<br />\n        MediaSource.isTypeSupported(): ", "<br />\n        <hr />\n        ", "\n    "], ["\n        video.canPlayType(): ", "<br />\n        MediaSource.isTypeSupported(): ", "<br />\n        <hr />\n        ", "\n    "])), result.file ? 'Yes' : 'No', result.mediaSource ? 'Yes' : 'No', result.contentType);
+        return m$1(templateObject_1$l || (templateObject_1$l = __makeTemplateObject(["\n        video.canPlayType(): ", "<br />\n        MediaSource.isTypeSupported(): ", "<br />\n        <hr />\n        ", "\n    "], ["\n        video.canPlayType(): ", "<br />\n        MediaSource.isTypeSupported(): ", "<br />\n        <hr />\n        ", "\n    "])), result.file ? i18n('Yes') : i18n('No'), result.mediaSource ? i18n('Yes') : i18n('No'), result.contentType);
     }
     var templateObject_1$l;
 
@@ -1422,19 +1442,19 @@
             return '';
         }
         if (keySystems.length === 1) {
-            return "KeySystem: ".concat(keySystems[0]);
+            return "".concat(i18n('KeySystem'), ": ").concat(keySystems[0]);
         }
-        return "KeySystems: \n" + keySystems.map(function (item) { return "\u2022 ".concat(item); }).join('\n');
+        return "".concat(i18n('KeySystems'), ": \n") + keySystems.map(function (item) { return "\u2022 ".concat(item); }).join('\n');
     }
 
     function getSecurityLevelsText(levels) {
         if (levels.length === 0) {
-            return 'Not detected';
+            return i18n('Not detected');
         }
         if (levels.length === 1) {
-            return "Security level: ".concat(levels[0]);
+            return "".concat(i18n('Security level'), ": ").concat(levels[0]);
         }
-        return "Security levels: ".concat(levels.join(', '));
+        return "".concat(i18n('Security levels'), ": ").concat(levels.join(', '));
     }
 
     var b$c = block('widevine-badge');
@@ -1643,7 +1663,7 @@
             return 1;
         });
         var result = items.map(function (item) {
-            return m$1(templateObject_1$b || (templateObject_1$b = __makeTemplateObject(["<li>", ": ", "</li>"], ["<li>", ": ", "</li>"])), item.label, item.supported ? '✓' : 'No');
+            return m$1(templateObject_1$b || (templateObject_1$b = __makeTemplateObject(["<li>", ": ", "</li>"], ["<li>", ": ", "</li>"])), item.label, item.supported ? '✓' : i18n('No'));
         });
         return m$1(templateObject_2$7 || (templateObject_2$7 = __makeTemplateObject(["\n        <ul class=", ">\n            ", "\n        </ul>\n    "], ["\n        <ul class=", ">\n            ", "\n        </ul>\n    "])), b$6(), result);
     }
@@ -1820,7 +1840,7 @@
             return 1;
         });
         var result = items.map(function (item) {
-            return m$1(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["<li title=\"", "\">", ": ", "</li>"], ["<li title=\"", "\">", ": ", "</li>"])), item.title, item.label, item.supported ? '✓' : 'No');
+            return m$1(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["<li title=\"", "\">", ": ", "</li>"], ["<li title=\"", "\">", ": ", "</li>"])), item.title, item.label, item.supported ? '✓' : i18n('No'));
         });
         return m$1(templateObject_2$1 || (templateObject_2$1 = __makeTemplateObject(["\n        <ul class=", ">\n            ", "\n        </ul>\n    "], ["\n        <ul class=", ">\n            ", "\n        </ul>\n    "])), b$2(), result);
     }
