@@ -2,167 +2,167 @@ import { I18nKeysets } from './i18n';
 
 export const keysets: I18nKeysets = {
     'Can I Watch Video': {
-        'en-US': 'Can I\u00a0Watch Video',
-        'ru-RU': 'Могу ли я\u00a0смотреть видео?'
+        'en': 'Can I\u00a0Watch Video',
+        'ru': 'Могу ли я\u00a0смотреть видео?'
     },
     'Audio Codecs': {
-        'en-US': 'Audio Codecs',
-        'ru-RU': 'Аудиокодеки'
+        'en': 'Audio Codecs',
+        'ru': 'Аудиокодеки'
     },
     'Video Codecs': {
-        'en-US': 'Video Codecs',
-        'ru-RU': 'Видеокодеки'
+        'en': 'Video Codecs',
+        'ru': 'Видеокодеки'
     },
     'Supported': {
-        'en-US': 'Supported',
-        'ru-RU': 'Поддерживаемые'
+        'en': 'Supported',
+        'ru': 'Поддерживаемые'
     },
     'No supported audio codecs.': {
-        'en-US': 'No supported audio codecs.',
-        'ru-RU': 'Нет поддерживаемых аудиокодеков.'
+        'en': 'No supported audio codecs.',
+        'ru': 'Нет поддерживаемых аудиокодеков.'
     },
     'No supported video codecs.': {
-        'en-US': 'No supported video codecs.',
-        'ru-RU': 'Нет поддерживаемых видеокодеков.'
+        'en': 'No supported video codecs.',
+        'ru': 'Нет поддерживаемых видеокодеков.'
     },
     'Unsupported': {
-        'en-US': 'Unsupported',
-        'ru-RU': 'Не поддерживаемые'
+        'en': 'Unsupported',
+        'ru': 'Не поддерживаемые'
     },
     'Size': {
-        'en-US': 'Size',
-        'ru-RU': 'Размер'
+        'en': 'Size',
+        'ru': 'Размер'
     },
     'Color depth': {
-        'en-US': 'Color depth',
-        'ru-RU': 'Глубина цвета'
+        'en': 'Color depth',
+        'ru': 'Глубина цвета'
     },
     'Audio': {
-        'en-US': 'Audio',
-        'ru-RU': 'Аудио'
+        'en': 'Audio',
+        'ru': 'Аудио'
     },
     'Video': {
-        'en-US': 'Video',
-        'ru-RU': 'Видео'
+        'en': 'Video',
+        'ru': 'Видео'
     },
     'Image Formats': {
-        'en-US': 'Image Formats',
-        'ru-RU': 'Форматы картинок'
+        'en': 'Image Formats',
+        'ru': 'Форматы картинок'
     },
     'Native Streaming Support': {
-        'en-US': 'Native Streaming Support',
-        'ru-RU': 'Поддержка нативного стримминга'
+        'en': 'Native Streaming Support',
+        'ru': 'Поддержка нативного стримминга'
     },
     'Yes': {
-        'en-US': 'Yes',
-        'ru-RU': 'Да'
+        'en': 'Yes',
+        'ru': 'Да'
     },
     'No': {
-        'en-US': 'No',
-        'ru-RU': 'Нет'
+        'en': 'No',
+        'ru': 'Нет'
     },
     'Warning': {
-        'en-US': 'Warning',
-        'ru-RU': 'Предупреждение'
+        'en': 'Warning',
+        'ru': 'Предупреждение'
     },
     'Screens': {
-        'en-US': 'Screens',
-        'ru-RU': 'Экраны'
+        'en': 'Screens',
+        'ru': 'Экраны'
     },
     'Screen': {
-        'en-US': 'Screen',
-        'ru-RU': 'Экран'
+        'en': 'Screen',
+        'ru': 'Экран'
     },
     'No supported image formats.': {
-        'en-US': 'No supported image formats.',
-        'ru-RU': 'Нет поддерживаемых форматов картинок.'
+        'en': 'No supported image formats.',
+        'ru': 'Нет поддерживаемых форматов картинок.'
     },
     'Can I listen surround sound?': {
-        'en-US': 'Can I listen surround sound?',
-        'ru-RU': 'Могу ли я услышать многоканальный звук?'
+        'en': 'Can I listen surround sound?',
+        'ru': 'Могу ли я услышать многоканальный звук?'
     },
     'HTMLVideoElement Features': {
-        'en-US': 'HTMLVideoElement Features',
-        'ru-RU': 'Возможности HTMLVideoElement'
+        'en': 'HTMLVideoElement Features',
+        'ru': 'Возможности HTMLVideoElement'
     },
     'Aspect ratio': {
-        'en-US': 'Aspect ratio',
-        'ru-RU': 'Соотн. сторон'
+        'en': 'Aspect ratio',
+        'ru': 'Соотн. сторон'
     },
     'Primary': {
-        'en-US': 'Primary',
-        'ru-RU': 'Основной'
+        'en': 'Primary',
+        'ru': 'Основной'
     },
     'Internal': {
-        'en-US': 'Internal',
-        'ru-RU': 'Внутренний'
+        'en': 'Internal',
+        'ru': 'Внутренний'
     },
     'Please reset zoom in the page': {
-        'en-US': 'Please reset zoom in the page',
-        'ru-RU': 'Необходимо сбросить зум на странице'
+        'en': 'Please reset zoom in the page',
+        'ru': 'Необходимо сбросить зум на странице'
     },
     'Can I watch HDR video?': {
-        'en-US': 'Can I watch HDR video?',
-        'ru-RU': 'Могу ли я смотреть HDR видео?'
+        'en': 'Can I watch HDR video?',
+        'ru': 'Могу ли я смотреть HDR видео?'
     },
     'Support one of the audio codecs?': {
-        'en-US': 'Support one of the audio codecs?',
-        'ru-RU': 'Поддержка одного из аудиокодеков?'
+        'en': 'Support one of the audio codecs?',
+        'ru': 'Поддержка одного из аудиокодеков?'
     },
     'Is this a HDR screen?': {
-        'en-US': 'Is this a HDR screen?',
-        'ru-RU': 'Это HDR экран?'
+        'en': 'Is this a HDR screen?',
+        'ru': 'Это HDR экран?'
     },
     'Support one of the video codecs?': {
-        'en-US': 'Support one of the video codecs?',
-        'ru-RU': 'Поддержка одного из видеокодеков?'
+        'en': 'Support one of the video codecs?',
+        'ru': 'Поддержка одного из видеокодеков?'
     },
     'Can I watch 4K video on online services?': {
-        'en-US': 'Can I watch 4K video on online services?',
-        'ru-RU': 'Могу ли я смотреть 4К видео в онлайн-сервисах?'
+        'en': 'Can I watch 4K video on online services?',
+        'ru': 'Могу ли я смотреть 4К видео в онлайн-сервисах?'
     },
     'Online services protect content using': {
-        'en-US': 'Online services protect content using',
-        'ru-RU': 'Онлайн-сервисы защищают контент с помощью'
+        'en': 'Online services protect content using',
+        'ru': 'Онлайн-сервисы защищают контент с помощью'
     },
     'Has DRM support?': {
-        'en-US': 'Has DRM support?',
-        'ru-RU': 'Есть поддержка DRM?'
+        'en': 'Has DRM support?',
+        'ru': 'Есть поддержка DRM?'
     },
     'Can I watch 4K video?': {
-        'en-US': 'Can I watch 4K video?',
-        'ru-RU': 'Могу ли я смотреть 4К видео?'
+        'en': 'Can I watch 4K video?',
+        'ru': 'Могу ли я смотреть 4К видео?'
     },
     'Is the screen larger than 2K?': {
-        'en-US': 'Is the screen larger than 2K?',
-        'ru-RU': 'Экран больше чем 2К?'
+        'en': 'Is the screen larger than 2K?',
+        'ru': 'Экран больше чем 2К?'
     },
     'link:wiki:drm': {
-        'en-US': 'https://en.wikipedia.org/wiki/Digital_rights_management',
-        'ru-RU': 'https://ru.wikipedia.org/wiki/Digital_rights_management'
+        'en': 'https://en.wikipedia.org/wiki/Digital_rights_management',
+        'ru': 'https://ru.wikipedia.org/wiki/Digital_rights_management'
     },
     'bit': {
-        'en-US': 'bit',
-        'ru-RU': 'бит'
+        'en': 'bit',
+        'ru': 'бит'
     },
     'Not detected': {
-        'en-US': 'Not detected',
-        'ru-RU': 'Не обнаружено'
+        'en': 'Not detected',
+        'ru': 'Не обнаружено'
     },
     'Security level': {
-        'en-US': 'Security level',
-        'ru-RU': 'Уровень безопасности'
+        'en': 'Security level',
+        'ru': 'Уровень безопасности'
     },
     'Security levels': {
-        'en-US': 'Security levels',
-        'ru-RU': 'Уровни безопасности'
+        'en': 'Security levels',
+        'ru': 'Уровни безопасности'
     },
     'KeySystem': {
-        'en-US': 'KeySystem',
-        'ru-RU': 'Система ключей'
+        'en': 'KeySystem',
+        'ru': 'Система ключей'
     },
     'KeySystems': {
-        'en-US': 'KeySystems',
-        'ru-RU': 'Системы ключей'
+        'en': 'KeySystems',
+        'ru': 'Системы ключей'
     }
 };

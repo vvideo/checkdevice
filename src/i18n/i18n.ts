@@ -1,6 +1,6 @@
 import { keysets } from './keysets';
 
-export type I18NKeys = { 'en-US': string, 'ru-RU': string };
+export type I18NKeys = { 'en': string, 'ru': string };
 export type I18nKeysets = Record<string, I18NKeys>;
 export type I18NLanguage = keyof I18NKeys;
 
