@@ -1064,6 +1064,10 @@
         'link:wiki:drm': {
             'en-US': 'https://en.wikipedia.org/wiki/Digital_rights_management',
             'ru-RU': 'https://ru.wikipedia.org/wiki/Digital_rights_management'
+        },
+        'bit': {
+            'en-US': 'bit',
+            'ru-RU': 'бит'
         }
     };
 
@@ -1095,7 +1099,7 @@
         var screenSize = withDevicePixelRatio ?
             [props.width, props.height, props.devicePixelRatio].join('×') :
             [props.width * props.devicePixelRatio, props.height * props.devicePixelRatio].join('×');
-        var screenText = m$1(templateObject_4$2 || (templateObject_4$2 = __makeTemplateObject(["\n        <div>", ": ", "</div>\n        ", "\n        <div>", ": ", " bit</div>\n        <div>", ": ", "</div>\n        ", "\n        ", "\n    "], ["\n        <div>", ": ", "</div>\n        ", "\n        <div>", ": ", " bit</div>\n        <div>", ": ", "</div>\n        ", "\n        ", "\n    "])), i18n('Size'), screenSize, hasZoom() ? m$1(templateObject_1$r || (templateObject_1$r = __makeTemplateObject(["<div>\u26A0 ", "</div>"], ["<div>\u26A0 ", "</div>"])), i18n('Please reset zoom in the page')) : '', i18n('Color depth'), props.colorDepth, i18n('Aspect ratio'), calcAspectRatio(props.width, props.height).value, props.isPrimary ? m$1(templateObject_2$c || (templateObject_2$c = __makeTemplateObject(["<div>", ": ", "</div>"], ["<div>", ": ", "</div>"])), i18n('Primary'), i18n('Yes')) : '', props.isInternal ? m$1(templateObject_3$3 || (templateObject_3$3 = __makeTemplateObject(["<div>", ": ", "</div>"], ["<div>", ": ", "</div>"])), i18n('Internal'), i18n('Yes')) : '');
+        var screenText = m$1(templateObject_4$2 || (templateObject_4$2 = __makeTemplateObject(["\n        <div>", ": ", "</div>\n        ", "\n        <div>", ": ", " ", "</div>\n        <div>", ": ", "</div>\n        ", "\n        ", "\n    "], ["\n        <div>", ": ", "</div>\n        ", "\n        <div>", ": ", " ", "</div>\n        <div>", ": ", "</div>\n        ", "\n        ", "\n    "])), i18n('Size'), screenSize, hasZoom() ? m$1(templateObject_1$r || (templateObject_1$r = __makeTemplateObject(["<div>\u26A0 ", "</div>"], ["<div>\u26A0 ", "</div>"])), i18n('Please reset zoom in the page')) : '', i18n('Color depth'), props.colorDepth, i18n('bit'), i18n('Aspect ratio'), calcAspectRatio(props.width, props.height).value, props.isPrimary ? m$1(templateObject_2$c || (templateObject_2$c = __makeTemplateObject(["<div>", ": ", "</div>"], ["<div>", ": ", "</div>"])), i18n('Primary'), i18n('Yes')) : '', props.isInternal ? m$1(templateObject_3$3 || (templateObject_3$3 = __makeTemplateObject(["<div>", ": ", "</div>"], ["<div>", ": ", "</div>"])), i18n('Internal'), i18n('Yes')) : '');
         var isHDR = props.isScreenDetails ? props.colorDepth > 24 : isHdrScreenSupported();
         return m$1(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n        <div class=\"", "\" onClick=", ">\n            <div class=\"", "\">", "</div>\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\" onClick=", ">\n            <div class=\"", "\">", "</div>\n            ", "\n        </div>\n    "])), b$i(), handleClick, b$i('label'), props.label, Badge({
             text: getResolutionBadge(Math.max(props.width, props.height) * props.devicePixelRatio) || '',
