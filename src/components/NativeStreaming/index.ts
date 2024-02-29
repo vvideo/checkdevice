@@ -3,6 +3,7 @@ import { isNativeHlsSupported, isNativeMpdSupported, isNativeMssSupported } from
 import { block } from '../../utils/bem';
 
 import './index.css';
+import { i18n } from '../../i18n/i18n';
 
 const b = block('native-streaming');
 
@@ -35,7 +36,7 @@ export function NativeStreaming() {
     });
 
     let result = items.map(item => {
-        return html`<li>${item.label}: ${item.supported ? '✓' : 'No' }</li>`;
+        return html`<li>${item.label}: ${item.supported ? '✓' : i18n('No') }</li>`;
     });
 
     return html`

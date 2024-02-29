@@ -144,5 +144,25 @@ export const keysets: I18nKeysets = {
     'bit': {
         'en-US': 'bit',
         'ru-RU': 'бит'
+    },
+    'Not detected': {
+        'en-US': 'Not detected',
+        'ru-RU': 'Не обнаружено'
+    },
+    'Security level': {
+        'en-US': 'Security level',
+        'ru-RU': 'Уровень безопасности'
+    },
+    'Security levels': {
+        'en-US': 'Security levels',
+        'ru-RU': 'Уровни безопасности'
+    },
+    'KeySystem': {
+        'en-US': 'KeySystem',
+        'ru-RU': 'Система ключей'
+    },
+    'KeySystems': {
+        'en-US': 'KeySystems',
+        'ru-RU': 'Системы ключей'
     }
 };

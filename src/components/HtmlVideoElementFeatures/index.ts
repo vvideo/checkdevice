@@ -3,6 +3,7 @@ import { isMseSupported, isEmeSupported, isMmsSupported } from 'detect-audio-vid
 import { block } from '../../utils/bem';
 
 import './index.css';
+import { i18n } from '../../i18n/i18n';
 
 const b = block('html-video-element-features');
 
@@ -38,7 +39,7 @@ export function HtmlVideoElementFeatures() {
     });
 
     let result = items.map(item => {
-        return html`<li title="${item.title}">${item.label}: ${item.supported ? '✓' : 'No' }</li>`;
+        return html`<li title="${item.title}">${item.label}: ${item.supported ? '✓' : i18n('No') }</li>`;
     });
 
     return html`
