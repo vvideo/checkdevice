@@ -164,5 +164,9 @@ export const keysets: I18nKeysets = {
     'KeySystems': {
         'en': 'KeySystems',
         'ru': 'Системы ключей'
+    },
+    'Request': {
+        'en': 'Request',
+        'ru': 'Запрос'
     }
 };
