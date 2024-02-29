@@ -21,6 +21,7 @@ export function QuestionSurroundSound() {
                             <${Codec}
                                 name="Dolby Digital"
                                 color="black"
+                                border="white"
                                 disabled="${!isDolbyDigital}">
                                 <//> <${Result} value="${isDolbyDigital}"><//>
                         </li>
@@ -28,6 +29,7 @@ export function QuestionSurroundSound() {
                             <${Codec}
                                 name="Dolby Digital Plus"
                                 color="black"
+                                border="white"
                                 disabled="${!isDolbyDigitalPlus}">
                                 <//> <${Result} value="${isDolbyDigitalPlus}"><//>
                         </li>
@@ -35,6 +37,7 @@ export function QuestionSurroundSound() {
                             <${Codec}
                                 name="Dolby Atmos"
                                 color="black"
+                                border="white"
                                 disabled="${!isDolbyAtmos}">
                                 <//> <${Result} value="${isDolbyAtmos}"><//>
                         </li>
