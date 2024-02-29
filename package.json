@@ -1,7 +1,7 @@
 {
-    "name": "caniwatch",
+    "name": "caniwatchvideo",
     "version": "1.0.0",
-    "description": "",
+    "description": "Can I Watch Video?",
     "scripts": {
         "build": "rollup -c",
         "dist": "MINIFY=1 rollup -c",
