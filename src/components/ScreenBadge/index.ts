@@ -36,7 +36,7 @@ export function ScreenBadge(props: ScreenBadge) {
     const screenText = html`
         <div>${i18n('Size')}: ${screenSize}</div>
         ${hasZoom() ? html`<div>⚠ ${i18n('Please reset zoom in the page')}</div>` : ''}
-        <div>${i18n('Color depth')}: ${props.colorDepth} bit</div>
+        <div>${i18n('Color depth')}: ${props.colorDepth} ${i18n('bit')}</div>
         <div>${i18n('Aspect ratio')}: ${calcAspectRatio(props.width, props.height).value}</div>
         ${props.isPrimary ? html`<div>${i18n('Primary')}: ${i18n('Yes')}</div>` : ''}
         ${props.isInternal ? html`<div>${i18n('Internal')}: ${i18n('Yes')}</div>` : ''}

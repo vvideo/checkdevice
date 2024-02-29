@@ -5,6 +5,7 @@ import { getGpuRenderer, getGpuVendor } from 'detect-audio-video';
 import { block } from '../../utils/bem';
 
 import './index.css';
+import { i18n } from '../../i18n/i18n';
 
 const b = block('tech-info');
 
@@ -20,30 +21,30 @@ interface Group {
 
 const Tests: (Item | Group)[] = [
     {
-        title: 'Screen',
+        title: i18n('Screen'),
         options: [
             {
-                title: 'Size',
+                title: i18n('Size'),
                 handler: () => {
                     const line = [
                         screen.width,
                         screen.height,
                         window.devicePixelRatio,
                     ].join('×');
-                    
+
                     return html`${line}`;
                 }
             },
             {
-                title: 'Aspect ratio',
+                title: i18n('Aspect ratio'),
                 handler: () => {
                     return html`${calcAspectRatio(screen.width, screen.height).value}`;
                 }
             },
             {
-                title: 'Depth',
+                title: i18n('Color depth'),
                 handler: () => {
-                    return html`${screen.colorDepth} bit`;
+                    return html`${screen.colorDepth} ${i18n('bit')}`;
                 }
             },
         ],

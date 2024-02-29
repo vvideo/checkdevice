@@ -140,5 +140,9 @@ export const keysets: I18nKeysets = {
     'link:wiki:drm': {
         'en-US': 'https://en.wikipedia.org/wiki/Digital_rights_management',
         'ru-RU': 'https://ru.wikipedia.org/wiki/Digital_rights_management'
+    },
+    'bit': {
+        'en-US': 'bit',
+        'ru-RU': 'бит'
     }
 };
