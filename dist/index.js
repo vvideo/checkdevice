@@ -1088,6 +1088,10 @@
         'KeySystems': {
             'en': 'KeySystems',
             'ru': 'Системы ключей'
+        },
+        'Request': {
+            'en': 'Request',
+            'ru': 'Запрос'
         }
     };
 
