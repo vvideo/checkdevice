@@ -7,6 +7,7 @@ import { block } from '../../utils/bem';
 
 import './index.css';
 import { hasZoom } from '../../utils/hasZoom';
+import { i18n } from '../../i18n/i18n';
 
 const b = block('screen-badge');
 
@@ -33,17 +34,17 @@ export function ScreenBadge(props: ScreenBadge) {
         [props.width * props.devicePixelRatio, props.height * props.devicePixelRatio].join('×');
 
     const screenText = html`
-        <div>Size: ${screenSize}</div>
-        ${hasZoom() ? html`<div>⚠ Please reset zoom in the page</div>` : ''}
-        <div>Color depth: ${props.colorDepth} bit</div>
-        <div>Aspect ratio: ${calcAspectRatio(props.width, props.height).value}</div>
-        ${props.isPrimary ? html`<div>Primary: Yes</div>` : ''}
-        ${props.isInternal ? html`<div>Internal: Yes</div>` : ''}
+        <div>${i18n('Size')}: ${screenSize}</div>
+        ${hasZoom() ? html`<div>⚠ ${i18n('Please reset zoom in the page')}</div>` : ''}
+        <div>${i18n('Color depth')}: ${props.colorDepth} bit</div>
+        <div>${i18n('Aspect ratio')}: ${calcAspectRatio(props.width, props.height).value}</div>
+        ${props.isPrimary ? html`<div>${i18n('Primary')}: ${i18n('Yes')}</div>` : ''}
+        ${props.isInternal ? html`<div>${i18n('Internal')}: ${i18n('Yes')}</div>` : ''}
     `;
 
     const isHDR = props.isScreenDetails ? props.colorDepth > 24 : isHdrScreenSupported();
-    
-    return html`        
+
+    return html`
         <div class="${b()}" onClick=${handleClick}>
             <div class="${b('label')}">${props.label}</div>
             ${Badge({

@@ -10,6 +10,7 @@ import { ActiveQuestion } from '../ActiveQuestion';
 import { Result } from '../Result';
 import { Codec } from '../Codec';
 import { getDrmSystems } from '../../utils/getDrmSystems';
+import { i18n } from '../../i18n/i18n';
 
 export function QuestionDrm4K() {
     const [isVp9, setIsVp9] = useState(false);
@@ -21,15 +22,15 @@ export function QuestionDrm4K() {
         isWidevineSupported(VP9_CONTENT_TYPE).then(result => {
             setIsVp9(result);
         });
-    
+
         isWidevineSupported(HEV_MAIN_CONTENT_TYPE).then(result => {
             setIsHevc(result);
         });
-    
+
         isWidevineSupported(AV1_CONTENT_TYPE).then(result => {
             setIsAv1(result);
         });
-    
+
         getDrmSystems().then(result => {
             setDrmSystems(result);
         });
@@ -40,17 +41,18 @@ export function QuestionDrm4K() {
     const hasDrm = Boolean(drmSystems.length);
     const answer = anyCodec && hasDrm;
 
-    const head = html`Can I watch 4K video on online services? <${Result} value="${answer}"><//>`;
+    const head = html`${i18n('Can I watch 4K video on online services?')} <${Result} value="${answer}"><//>`;
 
-    return html`  
+    return html`
         <${ActiveQuestion} head="${head}">
-            Online services protect content using <a target="_blank" href="https://en.wikipedia.org/wiki/Digital_rights_management">DRM</a>.
+            ${i18n('Online services protect content using')}
+            ${'\u00a0'}<a target="_blank" href="${i18n('link:wiki:drm')}">DRM</a>.
             <ul>
                 <li>
-                    DRM support? <${Result} value=${hasDrm}><//>
+                    ${i18n('Has DRM support?')} <${Result} value=${hasDrm}><//>
                 </li>
                 <li>
-                Support one of the video codecs? <${Result} value=${anyCodec}><//>
+                ${i18n('Support one of the video codecs?')} <${Result} value=${anyCodec}><//>
                     <ul>
                         <li>
                             <${Codec}

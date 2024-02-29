@@ -3,6 +3,7 @@ import { isAV1Supported, isHdrScreenSupported, isHevcMainSupported, isVp9Support
 import { ActiveQuestion } from '../ActiveQuestion';
 import { Result } from '../Result';
 import { Codec } from '../Codec';
+import { i18n } from '../../i18n/i18n';
 
 export function QuestionHdr() {
     const isVp9 = isVp9Supported().any;
@@ -10,13 +11,13 @@ export function QuestionHdr() {
     const isAv1 = isAV1Supported().any;
     const isHdr = isHdrScreenSupported();
     const mainAnswer = isHdr && Boolean(isVp9 || isHevc || isAv1);
-    const head = html`Can I watch HDR video? <${Result} value="${mainAnswer}"><//>`;
+    const head = html`${i18n('Can I watch HDR video?')} <${Result} value="${mainAnswer}"><//>`;
 
-    return html`  
+    return html`
         <${ActiveQuestion} head="${head}">
             <ul>
-                <li>Is this an HDR screen? <${Result} value="${isHdr}"><//></li>
-                <li>Support one of the video codecs? <${Result} value="${Boolean(isVp9 || isHevc || isAv1)}"><//>
+                <li>${i18n('Is this a HDR screen?')} <${Result} value="${isHdr}"><//></li>
+                <li>${i18n('Support one of the video codecs?')} <${Result} value="${Boolean(isVp9 || isHevc || isAv1)}"><//>
                     <ul>
                         <li>
                             <${Codec}

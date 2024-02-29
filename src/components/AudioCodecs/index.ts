@@ -21,6 +21,7 @@ import { VNode } from 'preact';
 import { Column } from '../Column';
 import { Columns } from '../Columns';
 import { getTooltip } from '../../utils/getTooltip';
+import { i18n } from '../../i18n/i18n';
 
 export function AudioCodecs() {
     const supported: VNode[] = [];
@@ -60,12 +61,12 @@ export function AudioCodecs() {
         }
     });
 
-    return html`<${Row} name="Audio Codecs">
+    return html`<${Row} name="${i18n('Audio Codecs')}">
         <${Columns}>
-            <${Column} name="Supported">
-                ${supported.length ? supported : 'No supported audio codecs.'}
+            <${Column} name="${i18n('Supported')}">
+                ${supported.length ? supported : i18n('No supported audio codecs.')}
             <//>
-            ${unsupported.length ? html`<${Column} name="Unsupported">${unsupported}<//>` : ''}
+            ${unsupported.length ? html`<${Column} name="${i18n('Unsupported')}">${unsupported}<//>` : ''}
         <//>
     <//>`;
 }

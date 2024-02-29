@@ -2,6 +2,7 @@ import { html } from 'htm/preact';
 import { block } from '../../utils/bem';
 
 import './index.css';
+import { i18n } from '../../i18n/i18n';
 
 const b = block('result');
 
@@ -17,17 +18,17 @@ export function Result(props: ResultProps) {
 
     if (!props.text) {
         if (props.value === true) {
-            text = 'Yes';
+            text = i18n('Yes');
             type = 'yes';
         }
 
         if (props.value === false) {
-            text = 'No';
+            text = i18n('No');
             type = 'no';
         }
 
         if (props.value === undefined) {
-            text = 'Warning';
+            text = i18n('Warning');
             type = 'warning';
         }
     }

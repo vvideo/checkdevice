@@ -17,6 +17,7 @@ import { Codec } from '../Codec';
 import { Column } from '../Column';
 import { Columns } from '../Columns';
 import { getTooltip } from '../../utils/getTooltip';
+import { i18n } from '../../i18n/i18n';
 
 export function VideoCodecs() {
     const supported: VNode[] = [];
@@ -52,11 +53,11 @@ export function VideoCodecs() {
     });
 
     return html`
-        <${Columns} name="Video Codecs">
-            ${supported.length ? html`<${Column} name="Supported">
+        <${Columns} name="${i18n('Video Codecs')}">
+            ${supported.length ? html`<${Column} name="${i18n('Supported')}">
                 ${supported}
-            <//>` : 'No supported video codecs.'}
-            ${unsupported.length ? html`<${Column} name="Unsupported">
+            <//>` : i18n('No supported video codecs.')}
+            ${unsupported.length ? html`<${Column} name="${i18n('Unsupported')}">
                 ${unsupported}
             <//>` : ''}
         <//>

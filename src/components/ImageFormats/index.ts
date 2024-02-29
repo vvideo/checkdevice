@@ -24,6 +24,7 @@ import { Row } from '../Row';
 import { VNode } from 'preact';
 import { Column } from '../Column';
 import { Columns } from '../Columns';
+import { i18n } from '../../i18n/i18n';
 
 function getImageFormatsSupported() {
     const result: Record<string, boolean> = {
@@ -91,12 +92,12 @@ export function ImageFormats() {
         }
     });
 
-    return html`<${Row} name="Image Formats">
+    return html`<${Row} name="${i18n('Image Formats')}">
         <${Columns}>
-            <${Column} name="Supported">
-                ${supported.length ? supported : 'No supported image formats.'}
+            <${Column} name="${i18n('Supported')}">
+                ${supported.length ? supported : i18n('No supported image formats.')}
             <//>
-            ${unsupported.length ? html`<${Column} name="Unsupported">${unsupported}<//>` : ''}
+            ${unsupported.length ? html`<${Column} name="${i18n('Unsupported')}">${unsupported}<//>` : ''}
         <//>
     <//>`;
 }

@@ -14,6 +14,7 @@ import { Footer } from '../Footer';
 import { ImageFormats } from '../ImageFormats';
 
 import './index.css';
+import { i18n } from '../../i18n/i18n';
 
 const b = block('main-page');
 
@@ -25,13 +26,13 @@ export function MainPage() {
             <${Questions}><//>
             <${ScreenBadges}><//>
 
-            <${Row} name="Audio">
+            <${Row} name="${i18n('Audio')}">
                 <${AudioBadges}><//>
             <//>
 
             <${AudioCodecs}><//>
 
-            <${Row} name="Video Codecs">
+            <${Row} name="${i18n('Video Codecs')}">
                 <${VideoCodecs}><//>
             <//>
 
@@ -41,11 +42,11 @@ export function MainPage() {
 
             <${ImageFormats}><//>
 
-            <${Row} name="Native Streaming Support">
+            <${Row} name="${i18n('Native Streaming Support')}">
                 <${NativeStreaming}><//>
             <//>
 
-            <${Row} name="HTMLVideoElement Features">
+            <${Row} name="${i18n('HTMLVideoElement Features')}">
                 <${HtmlVideoElementFeatures}><//>
             <//>
 

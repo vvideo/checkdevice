@@ -3,18 +3,19 @@ import { isDolbyAtmosSupported, isDolbyDigitalPlusSupported, isDolbyDigitalSuppo
 import { ActiveQuestion } from '../ActiveQuestion';
 import { Result } from '../Result';
 import { Codec } from '../Codec';
+import { i18n } from '../../i18n/i18n';
 
 export function QuestionSurroundSound() {
     const isDolbyDigital = isDolbyDigitalSupported().any;
     const isDolbyDigitalPlus = isDolbyDigitalPlusSupported().any;
     const isDolbyAtmos = isDolbyAtmosSupported();
     const mainAnswer = isDolbyDigital || isDolbyDigitalPlus || isDolbyAtmos;
-    const head = html`Can I listen surround sound? <${Result} value="${mainAnswer}"><//>`;
+    const head = html`${i18n('Can I listen surround sound?')} <${Result} value="${mainAnswer}"><//>`;
 
-    return html`  
+    return html`
         <${ActiveQuestion} head="${head}">
             <ul>
-                <li>Support one of the audio codecs? <${Result} value="${mainAnswer}"><//>
+                <li>${i18n('Support one of the audio codecs?')} <${Result} value="${mainAnswer}"><//>
                     <ul>
                         <li>
                             <${Codec}
@@ -41,6 +42,6 @@ export function QuestionSurroundSound() {
                 </li>
             </ul>
         <//>
-    `;    
+    `;
 }
 
