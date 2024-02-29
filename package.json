@@ -11,13 +11,13 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/vvideo/can-i-watch.git"
+        "url": "git+https://github.com/vvideo/caniwatchvideo.git"
     },
     "keywords": [],
     "author": "Denis Seleznev",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/vvideo/can-i-watch/issues"
+        "url": "https://github.com/vvideo/caniwatchvideo/issues"
     },
     "private": true,
     "devDependencies": {
