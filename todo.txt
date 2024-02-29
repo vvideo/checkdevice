@@ -1,4 +1,0 @@
-- Details page with copy to clipboard
-- Paste code to html
-- i18n
-- Supported codecs for Widevine
