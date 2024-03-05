@@ -1081,12 +1081,12 @@
             'en': 'Security levels',
             'ru': 'Уровни безопасности'
         },
-        'KeySystem': {
-            'en': 'KeySystem',
+        'Key system': {
+            'en': 'Key system',
             'ru': 'Система ключей'
         },
-        'KeySystems': {
-            'en': 'KeySystems',
+        'Key systems': {
+            'en': 'Key systems',
             'ru': 'Системы ключей'
         },
         'Request': {
@@ -1446,9 +1446,9 @@
             return '';
         }
         if (keySystems.length === 1) {
-            return "".concat(i18n('KeySystem'), ": ").concat(keySystems[0]);
+            return "".concat(i18n('Key system'), ": ").concat(keySystems[0]);
         }
-        return "".concat(i18n('KeySystems'), ": \n") + keySystems.map(function (item) { return "\u2022 ".concat(item); }).join('\n');
+        return "".concat(i18n('Key systems'), ": \n") + keySystems.map(function (item) { return "\u2022 ".concat(item); }).join('\n');
     }
 
     function getSecurityLevelsText(levels) {
