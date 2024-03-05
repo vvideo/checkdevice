@@ -157,12 +157,12 @@ export const keysets: I18nKeysets = {
         'en': 'Security levels',
         'ru': 'Уровни безопасности'
     },
-    'KeySystem': {
-        'en': 'KeySystem',
+    'Key system': {
+        'en': 'Key system',
         'ru': 'Система ключей'
     },
-    'KeySystems': {
-        'en': 'KeySystems',
+    'Key systems': {
+        'en': 'Key systems',
         'ru': 'Системы ключей'
     },
     'Request': {
