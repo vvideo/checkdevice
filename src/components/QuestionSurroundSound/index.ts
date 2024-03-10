@@ -10,7 +10,7 @@ export function QuestionSurroundSound() {
     const isDolbyDigitalPlus = isDolbyDigitalPlusSupported().any;
     const isDolbyAtmos = isDolbyAtmosSupported();
     const mainAnswer = isDolbyDigital || isDolbyDigitalPlus || isDolbyAtmos;
-    const head = html`${i18n('Can I listen surround sound?')} <${Result} value="${mainAnswer}"><//>`;
+    const head = html`${i18n('Can I listen surround sound on online services?')} <${Result} value="${mainAnswer}"><//>`;
 
     return html`
         <${ActiveQuestion} head="${head}">

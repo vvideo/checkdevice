@@ -77,9 +77,9 @@ export const keysets: I18nKeysets = {
         'en': 'No supported image formats.',
         'ru': 'Нет поддерживаемых форматов картинок.'
     },
-    'Can I listen surround sound?': {
-        'en': 'Can I listen surround sound?',
-        'ru': 'Могу ли я услышать многоканальный звук?'
+    'Can I listen surround sound on online services?': {
+        'en': 'Can I listen surround sound on online services?',
+        'ru': 'Могу ли я услышать многоканальный звук в онлайн-сервисах?'
     },
     'HTMLVideoElement Features': {
         'en': 'HTMLVideoElement Features',
