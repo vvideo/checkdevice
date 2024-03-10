@@ -1001,9 +1001,9 @@
             'en': 'No supported image formats.',
             'ru': 'Нет поддерживаемых форматов картинок.'
         },
-        'Can I listen surround sound?': {
-            'en': 'Can I listen surround sound?',
-            'ru': 'Могу ли я услышать многоканальный звук?'
+        'Can I listen surround sound on online services?': {
+            'en': 'Can I listen surround sound on online services?',
+            'ru': 'Могу ли я услышать многоканальный звук в онлайн-сервисах?'
         },
         'HTMLVideoElement Features': {
             'en': 'HTMLVideoElement Features',
@@ -1751,7 +1751,7 @@
         var isDolbyDigitalPlus = isDolbyDigitalPlusSupported().any;
         var isDolbyAtmos = isDolbyAtmosSupported();
         var mainAnswer = isDolbyDigital || isDolbyDigitalPlus || isDolbyAtmos;
-        var head = m$1(templateObject_1$6 || (templateObject_1$6 = __makeTemplateObject(["", " <", " value=\"", "\"><//>"], ["", " <", " value=\"", "\"><//>"])), i18n('Can I listen surround sound?'), Result, mainAnswer);
+        var head = m$1(templateObject_1$6 || (templateObject_1$6 = __makeTemplateObject(["", " <", " value=\"", "\"><//>"], ["", " <", " value=\"", "\"><//>"])), i18n('Can I listen surround sound on online services?'), Result, mainAnswer);
         return m$1(templateObject_2$3 || (templateObject_2$3 = __makeTemplateObject(["\n        <", " head=\"", "\">\n            <ul>\n                <li>", " <", " value=\"", "\"><//>\n                    <ul>\n                        <li>\n                            <", "\n                                name=\"Dolby Digital\"\n                                color=\"black\"\n                                border=\"white\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"Dolby Digital Plus\"\n                                color=\"black\"\n                                border=\"white\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"Dolby Atmos\"\n                                color=\"black\"\n                                border=\"white\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    "], ["\n        <", " head=\"", "\">\n            <ul>\n                <li>", " <", " value=\"", "\"><//>\n                    <ul>\n                        <li>\n                            <", "\n                                name=\"Dolby Digital\"\n                                color=\"black\"\n                                border=\"white\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"Dolby Digital Plus\"\n                                color=\"black\"\n                                border=\"white\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"Dolby Atmos\"\n                                color=\"black\"\n                                border=\"white\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    "])), ActiveQuestion, head, i18n('Support one of the audio codecs?'), Result, mainAnswer, Codec, !isDolbyDigital, Result, isDolbyDigital, Codec, !isDolbyDigitalPlus, Result, isDolbyDigitalPlus, Codec, !isDolbyAtmos, Result, isDolbyAtmos);
     }
     var templateObject_1$6, templateObject_2$3;
