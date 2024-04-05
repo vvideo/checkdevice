@@ -2,8 +2,9 @@ import { html } from 'htm/preact';
 import { isNativeHlsSupported, isNativeMpdSupported, isNativeMssSupported } from 'detect-audio-video';
 import { block } from '../../utils/bem';
 
-import './index.css';
 import { i18n } from '../../i18n/i18n';
+
+import './index.css';
 
 const b = block('native-streaming');
 

@@ -168,5 +168,17 @@ export const keysets: I18nKeysets = {
     'Request': {
         'en': 'Request',
         'ru': 'Запрос'
+    },
+    'Renderer': {
+        'en': 'Renderer',
+        'ru': 'Вывод'
+    },
+    'Vendor': {
+        'en': 'Vendor',
+        'ru': 'Поставщик'
+    },
+    'GPU': {
+        'en': 'GPU',
+        'ru': 'GPU'
     }
 };
