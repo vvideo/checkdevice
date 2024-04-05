@@ -26,7 +26,6 @@ export function MainPage() {
 
             <${Questions}><//>
             <${ScreenBadges}><//>
-            <${Gpu}><//>
 
             <${Row} name="${i18n('Audio')}">
                 <${AudioBadges}><//>
@@ -43,6 +42,8 @@ export function MainPage() {
             <//>
 
             <${ImageFormats}><//>
+
+            <${Gpu}><//>
 
             <${Row} name="${i18n('Native Streaming Support')}">
                 <${NativeStreaming}><//>
