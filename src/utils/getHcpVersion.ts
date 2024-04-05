@@ -15,5 +15,5 @@ function getMaxHdcpVersion(versions: CheckHdcpVersion[]) {
 export function getHdcpVersion(versions: CheckHdcpVersion[]) {
     const maxVersion = getMaxHdcpVersion(versions);
 
-    return maxVersion ? `${i18n('HDCP')}: ${maxVersion}` : '';
+    return maxVersion ? `${i18n('HDCP version')}: ${maxVersion}` : '';
 }

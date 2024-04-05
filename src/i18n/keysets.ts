@@ -181,8 +181,8 @@ export const keysets: I18nKeysets = {
         'en': 'GPU',
         'ru': 'GPU'
     },
-    'HDCP': {
-        'en': 'HDCP',
-        'ru': 'HDCP'
+    'HDCP version': {
+        'en': 'HDCP version',
+        'ru': 'HDCP версия'
     }
 };
