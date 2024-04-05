@@ -2,7 +2,7 @@ import { useState } from 'preact/hooks';
 import { html } from 'htm/preact';
 import { Badge } from '../Badge';
 import {
-    PLAYREADY_KEY_SYSTEM,
+    PLAYREADY_RECOMMENDATION_KEY_SYSTEM,
     isPlayReadySL150Supported,
     isPlayReadySL2000Supported,
     isPlayReadySL3000Supported,
@@ -52,7 +52,7 @@ export function PlayreadyBadge() {
 
     const text = [
         getSecurityLevelsText(levels),
-        getKeySystemsText([PLAYREADY_KEY_SYSTEM]),
+        getKeySystemsText([PLAYREADY_RECOMMENDATION_KEY_SYSTEM]),
     ].join('\n');
 
     return html`
