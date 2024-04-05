@@ -1,4 +1,5 @@
-import { useState } from 'preact/hooks';
+import { useRef, useState } from 'preact/hooks';
+import { CheckHdcpVersion, checkAllHdcpVersions } from 'hdcp';
 import { html } from 'htm/preact';
 import { Badge } from '../Badge';
 import {
@@ -10,13 +11,42 @@ import {
 import { block } from '../../utils/bem';
 import { getKeySystemsText } from '../../utils/getKeySystemsText';
 import { getSecurityLevelsText } from '../../utils/getSecurityLevelsText';
+import { getHdcpVersion } from '../../utils/getHcpVersion';
 
 const b = block('widevine-badge');
+
+let promiseCheckAllHdcpVersions: Promise<CheckHdcpVersion[]> | null = null;
+
+function cachedCheckAllHdcpVersions() {
+    if (promiseCheckAllHdcpVersions) {
+        return promiseCheckAllHdcpVersions;
+    }
+
+    promiseCheckAllHdcpVersions = checkAllHdcpVersions(WIDEWINE_KEY_SYSTEM).then(result => {
+        promiseCheckAllHdcpVersions = null;
+
+        return result;
+    }).catch(error => {
+        promiseCheckAllHdcpVersions = null;
+
+        throw error;
+    });
+
+    return promiseCheckAllHdcpVersions;
+}
+
 
 export function WidevineBadge() {
     const [hasWidevine, setWidevine] = useState(false);
     const [hasL1, setL1] = useState(false);
     const [hasL3, setL3] = useState(false);
+
+    const ref = useRef<CheckHdcpVersion[]>([]);
+
+    cachedCheckAllHdcpVersions().then(data => {
+        ref.current = data;
+    });
+
     isWidevineSupported().then(result => {
         setWidevine(result);
     });
@@ -42,7 +72,8 @@ export function WidevineBadge() {
     const text = [
         getSecurityLevelsText(levels),
         getKeySystemsText([WIDEWINE_KEY_SYSTEM]),
-    ].join('\n')
+        getHdcpVersion(ref.current),
+    ].filter(Boolean).join('\n')
 
     return html`
         <div class="${b()}">

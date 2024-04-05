@@ -171,7 +171,7 @@ export const keysets: I18nKeysets = {
     },
     'Renderer': {
         'en': 'Renderer',
-        'ru': 'Вывод'
+        'ru': 'Рендерер'
     },
     'Vendor': {
         'en': 'Vendor',
@@ -180,5 +180,9 @@ export const keysets: I18nKeysets = {
     'GPU': {
         'en': 'GPU',
         'ru': 'GPU'
+    },
+    'HDCP': {
+        'en': 'HDCP',
+        'ru': 'HDCP'
     }
 };
