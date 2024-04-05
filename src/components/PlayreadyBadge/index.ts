@@ -61,7 +61,7 @@ export function PlayreadyBadge() {
                 text: 'PlayReady',
                 background: 'white',
                 top: {
-                    text: 'MicroSoft',
+                    text: 'Microsoft',
                 },
                 bottom: {
                     text,
