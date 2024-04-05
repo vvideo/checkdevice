@@ -15,6 +15,7 @@ import { ImageFormats } from '../ImageFormats';
 
 import './index.css';
 import { i18n } from '../../i18n/i18n';
+import { Gpu } from '../Gpu';
 
 const b = block('main-page');
 
@@ -25,6 +26,7 @@ export function MainPage() {
 
             <${Questions}><//>
             <${ScreenBadges}><//>
+            <${Gpu}><//>
 
             <${Row} name="${i18n('Audio')}">
                 <${AudioBadges}><//>
