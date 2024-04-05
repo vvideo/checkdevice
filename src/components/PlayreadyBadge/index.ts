@@ -11,14 +11,42 @@ import {
 import { block } from '../../utils/bem';
 import { getSecurityLevelsText } from '../../utils/getSecurityLevelsText';
 import { getKeySystemsText } from '../../utils/getKeySystemsText';
+import { CheckHdcpVersion, checkAllHdcpVersions } from 'hdcp';
+import { noop } from '../../utils/noop';
+import { getHdcpVersion } from '../../utils/getHcpVersion';
 
 const b = block('playready-badge');
+
+let promiseCheckAllHdcpVersions: Promise<CheckHdcpVersion[]> | null = null;
+
+function cachedCheckAllHdcpVersions() {
+    if (promiseCheckAllHdcpVersions) {
+        return promiseCheckAllHdcpVersions;
+    }
+
+    promiseCheckAllHdcpVersions = checkAllHdcpVersions(PLAYREADY_RECOMMENDATION_KEY_SYSTEM).then(result => {
+        promiseCheckAllHdcpVersions = null;
+
+        return result;
+    }).catch(error => {
+        promiseCheckAllHdcpVersions = null;
+
+        throw error;
+    });
+
+    return promiseCheckAllHdcpVersions;
+}
 
 export function PlayreadyBadge() {
     const [hasPlayready, setPlayready] = useState(false);
     const [hasSL150, setSL150] = useState(false);
     const [hasSL2000, setSL2000] = useState(false);
     const [hasSL3000, setSL3000] = useState(false);
+    const [hdcpVersion, setHdcpVersion] = useState('');
+
+    cachedCheckAllHdcpVersions().then(data => {
+        setHdcpVersion(getHdcpVersion(data));
+    }).catch(noop);
 
     isPlayReadySupported().then(result => {
         setPlayready(result);
@@ -53,7 +81,8 @@ export function PlayreadyBadge() {
     const text = [
         getSecurityLevelsText(levels),
         getKeySystemsText([PLAYREADY_RECOMMENDATION_KEY_SYSTEM]),
-    ].join('\n');
+        hdcpVersion,
+    ].filter(Boolean).join('\n');
 
     return html`
         <div class="${b()}">

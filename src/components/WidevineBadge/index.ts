@@ -1,4 +1,4 @@
-import { useRef, useState } from 'preact/hooks';
+import { useState } from 'preact/hooks';
 import { CheckHdcpVersion, checkAllHdcpVersions } from 'hdcp';
 import { html } from 'htm/preact';
 import { Badge } from '../Badge';
@@ -12,6 +12,7 @@ import { block } from '../../utils/bem';
 import { getKeySystemsText } from '../../utils/getKeySystemsText';
 import { getSecurityLevelsText } from '../../utils/getSecurityLevelsText';
 import { getHdcpVersion } from '../../utils/getHcpVersion';
+import { noop } from '../../utils/noop';
 
 const b = block('widevine-badge');
 
@@ -40,12 +41,11 @@ export function WidevineBadge() {
     const [hasWidevine, setWidevine] = useState(false);
     const [hasL1, setL1] = useState(false);
     const [hasL3, setL3] = useState(false);
-
-    const ref = useRef<CheckHdcpVersion[]>([]);
+    const [hdcpVersion, setHdcpVersion] = useState('');
 
     cachedCheckAllHdcpVersions().then(data => {
-        ref.current = data;
-    });
+        setHdcpVersion(getHdcpVersion(data));
+    }).catch(noop);
 
     isWidevineSupported().then(result => {
         setWidevine(result);
@@ -72,8 +72,8 @@ export function WidevineBadge() {
     const text = [
         getSecurityLevelsText(levels),
         getKeySystemsText([WIDEWINE_KEY_SYSTEM]),
-        getHdcpVersion(ref.current),
-    ].filter(Boolean).join('\n')
+        hdcpVersion,
+    ].filter(Boolean).join('\n');
 
     return html`
         <div class="${b()}">
