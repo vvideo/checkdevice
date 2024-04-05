@@ -4,10 +4,10 @@ import { useCallback, useState } from 'preact/hooks';
 import { Badge } from '../Badge';
 import { getResolutionBadge, isHdrScreenSupported } from 'detect-audio-video';
 import { block } from '../../utils/bem';
-
-import './index.css';
 import { hasZoom } from '../../utils/hasZoom';
 import { i18n } from '../../i18n/i18n';
+
+import './index.css';
 
 const b = block('screen-badge');
 

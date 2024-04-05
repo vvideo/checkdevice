@@ -1,8 +1,8 @@
+import { VNode } from 'preact';
 import { html } from 'htm/preact';
 import { block } from '../../utils/bem';
 
 import './index.css';
-import { VNode } from 'preact';
 
 const b = block('codec');
 
@@ -11,7 +11,7 @@ interface CodecProps {
     tooltip?: string | VNode;
     color?: string;
     disabled?: boolean;
-    border?: string; 
+    border?: string;
 }
 
 export function Codec(props: CodecProps) {

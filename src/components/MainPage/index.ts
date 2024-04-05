@@ -12,10 +12,10 @@ import { HtmlVideoElementFeatures } from '../HtmlVideoElementFeatures';
 import { block } from '../../utils/bem';
 import { Footer } from '../Footer';
 import { ImageFormats } from '../ImageFormats';
-
-import './index.css';
 import { i18n } from '../../i18n/i18n';
 import { Gpu } from '../Gpu';
+
+import './index.css';
 
 const b = block('main-page');
 

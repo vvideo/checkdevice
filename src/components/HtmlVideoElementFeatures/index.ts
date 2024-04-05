@@ -1,9 +1,9 @@
 import { html } from 'htm/preact';
 import { isMseSupported, isEmeSupported, isMmsSupported } from 'detect-audio-video';
 import { block } from '../../utils/bem';
+import { i18n } from '../../i18n/i18n';
 
 import './index.css';
-import { i18n } from '../../i18n/i18n';
 
 const b = block('html-video-element-features');
 
