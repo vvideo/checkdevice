@@ -3,6 +3,8 @@ import { html } from 'htm/preact';
 import {
     isAV1Supported,
     isDolbyVisionSupported,
+    isEvcBaselineSupported,
+    isEvcMainSupported,
     isH264BaselineSupported,
     isH264HighSupported,
     isH264MainSupported,
@@ -11,6 +13,7 @@ import {
     isMpeg2TSupported,
     isVp8Supported,
     isVp9Supported,
+    isVvcMain10Supported,
 } from 'detect-audio-video';
 
 import { Codec } from '../Codec';
@@ -29,10 +32,13 @@ export function VideoCodecs() {
         { supported: isH264HighSupported(), name: 'H.264 High', color: 'blue' },
         { supported: isHevcMainSupported(), name: 'H.265 Main', color: 'orange' },
         { supported: isHevcMain10Supported(), name: 'H.265 Main10', color: 'orange' },
+        { supported: isEvcBaselineSupported(), name: 'EVC Baseline', color: 'blue' },
+        { supported: isEvcMainSupported(), name: 'EVC Main', color: 'blue' },
         { supported: isVp8Supported(), name: 'VP8', color: 'green' },
         { supported: isVp9Supported(), name: 'VP9', color: 'green' },
         { supported: isDolbyVisionSupported(), name: html`<b>Dolby</b> Vision`, color: 'black', border: 'white' },
         { supported: isAV1Supported(), name: 'AV1', color: 'yellow' },
+        { supported: isVvcMain10Supported(), name: 'H.266 Main10', color: 'blue' },
         { supported: isMpeg2TSupported(), name: 'MPEG2-TS', color: 'yellow' },
     ].map(item => {
         const tooltip = getTooltip(item.supported);
