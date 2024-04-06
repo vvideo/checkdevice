@@ -1,1 +1,2142 @@
-!function(n){"function"==typeof define&&define.amd?define(n):n()}((function(){"use strict";var n="undefined"!=typeof document,e="undefined"!=typeof window,t="undefined"!=typeof navigator,i="undefined"!=typeof screen;function o(n,e){return(n||"").slice(0,e)}function r(){return Math.floor(Math.random()*(1<<30))}var a=512;function l(n,e,t){(t||0===t)&&n.push(e+":"+(!0===t?"1":t))}function c(c,u){var s=[];c&&Object.keys(c).forEach((function(n){return l(s,n,c[n])})),l(s,"rn",r()),l(s,"c",!!t&&navigator.cookieEnabled),l(s,"s",i?[screen.width,screen.height,screen.colorDepth].join("x"):""),l(s,"w",e?[window.innerWidth,window.innerHeight].join("x"):""),l(s,"en",n&&"string"==typeof document.charset?document.charset.toLowerCase():"");var d=Math.round(Date.now()/1e3);return l(s,"et",d),l(s,"st",d),l(s,"t",o(u,a)),s.join(":")}var u=1024;function s(n){return o(n,u)}function d(n,e){var t,i="https://mc.yandex.ru/watch/"+n+"?"+(t=e,Object.keys(t).filter((function(n){return t[n]||0===t[n]})).map((function(n){return encodeURIComponent(n)+"="+encodeURIComponent(t[n])})).join("&"));"undefined"!=typeof navigator&&navigator.sendBeacon&&navigator.sendBeacon(i," ")||("undefined"!=typeof fetch?fetch(i,{credentials:"include"}).catch((function(){})):"undefined"!=typeof Image&&((new Image).src=i))}var _=function(n,e){return _=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(n,e){n.__proto__=e}||function(n,e){for(var t in e)Object.prototype.hasOwnProperty.call(e,t)&&(n[t]=e[t])},_(n,e)};var p=function(){return p=Object.assign||function(n){for(var e,t=1,i=arguments.length;t<i;t++)for(var o in e=arguments[t])Object.prototype.hasOwnProperty.call(e,o)&&(n[o]=e[o]);return n},p.apply(this,arguments)};function v(n,e){return Object.defineProperty?Object.defineProperty(n,"raw",{value:e}):n.raw=e,n}"function"==typeof SuppressedError&&SuppressedError;var f,h,m,g,y,b,w,S={},D=[],C=/acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i,k=Array.isArray;function P(n,e){for(var t in e)n[t]=e[t];return n}function x(n){var e=n.parentNode;e&&e.removeChild(n)}function E(n,e,t){var i,o,r,a={};for(r in e)"key"==r?i=e[r]:"ref"==r?o=e[r]:a[r]=e[r];if(arguments.length>2&&(a.children=arguments.length>3?f.call(arguments,2):t),"function"==typeof n&&null!=n.defaultProps)for(r in n.defaultProps)void 0===a[r]&&(a[r]=n.defaultProps[r]);return H(n,a,i,o,null)}function H(n,e,t,i,o){var r={type:n,props:e,key:t,ref:i,__k:null,__:null,__b:0,__e:null,__d:void 0,__c:null,constructor:void 0,__v:null==o?++m:o,__i:-1,__u:0};return null==o&&null!=h.vnode&&h.vnode(r),r}function M(n){return n.children}function T(n,e){this.props=n,this.context=e}function A(n,e){if(null==e)return n.__?A(n.__,n.__i+1):null;for(var t;e<n.__k.length;e++)if(null!=(t=n.__k[e])&&null!=t.__e)return t.__e;return"function"==typeof n.type?A(n):null}function R(n,e,t){var i,o=n.__v,r=o.__e,a=n.__P;if(a)return(i=P({},o)).__v=o.__v+1,h.vnode&&h.vnode(i),G(a,i,o,n.__n,void 0!==a.ownerSVGElement,32&o.__u?[r]:null,e,null==r?A(o):r,!!(32&o.__u),t),i.__v=o.__v,i.__.__k[i.__i]=i,i.__d=void 0,i.__e!=r&&N(i),i}function N(n){var e,t;if(null!=(n=n.__)&&null!=n.__c){for(n.__e=n.__c.base=null,e=0;e<n.__k.length;e++)if(null!=(t=n.__k[e])&&null!=t.__e){n.__e=n.__c.base=t.__e;break}return N(n)}}function V(n){(!n.__d&&(n.__d=!0)&&g.push(n)&&!L.__r++||y!==h.debounceRendering)&&((y=h.debounceRendering)||b)(L)}function L(){var n,e,t,i=[],o=[];for(g.sort(w);n=g.shift();)n.__d&&(t=g.length,e=R(n,i,o)||e,0===t||g.length>t?(q(i,e,o),o.length=i.length=0,e=void 0,g.sort(w)):e&&h.__c&&h.__c(e,D));e&&q(i,e,o),L.__r=0}function I(n,e,t,i,o,r,a,l,c,u,s){var d,_,p,v,f,h=i&&i.__k||D,m=e.length;for(t.__d=c,U(t,e,h),c=t.__d,d=0;d<m;d++)null!=(p=t.__k[d])&&"boolean"!=typeof p&&"function"!=typeof p&&(_=-1===p.__i?S:h[p.__i]||S,p.__i=d,G(n,p,_,o,r,a,l,c,u,s),v=p.__e,p.ref&&_.ref!=p.ref&&(_.ref&&z(_.ref,null,p),s.push(p.ref,p.__c||v,p)),null==f&&null!=v&&(f=v),65536&p.__u||_.__k===p.__k?c=B(p,c,n):"function"==typeof p.type&&void 0!==p.__d?c=p.__d:v&&(c=v.nextSibling),p.__d=void 0,p.__u&=-196609);t.__d=c,t.__e=f}function U(n,e,t){var i,o,r,a,l,c=e.length,u=t.length,s=u,d=0;for(n.__k=[],i=0;i<c;i++)a=i+d,null!=(o=n.__k[i]=null==(o=e[i])||"boolean"==typeof o||"function"==typeof o?null:"string"==typeof o||"number"==typeof o||"bigint"==typeof o||o.constructor==String?H(null,o,null,null,null):k(o)?H(M,{children:o},null,null,null):void 0===o.constructor&&o.__b>0?H(o.type,o.props,o.key,o.ref?o.ref:null,o.__v):o)?(o.__=n,o.__b=n.__b+1,l=O(o,t,a,s),o.__i=l,r=null,-1!==l&&(s--,(r=t[l])&&(r.__u|=131072)),null==r||null===r.__v?(-1==l&&d--,"function"!=typeof o.type&&(o.__u|=65536)):l!==a&&(l===a+1?d++:l>a?s>c-a?d+=l-a:d--:l<a?l==a-1&&(d=l-a):d=0,l!==i+d&&(o.__u|=65536))):(r=t[a])&&null==r.key&&r.__e&&0==(131072&r.__u)&&(r.__e==n.__d&&(n.__d=A(r)),Y(r,r,!1),t[a]=null,s--);if(s)for(i=0;i<u;i++)null!=(r=t[i])&&0==(131072&r.__u)&&(r.__e==n.__d&&(n.__d=A(r)),Y(r,r))}function B(n,e,t){var i,o;if("function"==typeof n.type){for(i=n.__k,o=0;i&&o<i.length;o++)i[o]&&(i[o].__=n,e=B(i[o],e,t));return e}n.__e!=e&&(t.insertBefore(n.__e,e||null),e=n.__e);do{e=e&&e.nextSibling}while(null!=e&&8===e.nodeType);return e}function O(n,e,t,i){var o=n.key,r=n.type,a=t-1,l=t+1,c=e[t];if(null===c||c&&o==c.key&&r===c.type&&0==(131072&c.__u))return t;if(i>(null!=c&&0==(131072&c.__u)?1:0))for(;a>=0||l<e.length;){if(a>=0){if((c=e[a])&&0==(131072&c.__u)&&o==c.key&&r===c.type)return a;a--}if(l<e.length){if((c=e[l])&&0==(131072&c.__u)&&o==c.key&&r===c.type)return l;l++}}return-1}function K(n,e,t){"-"===e[0]?n.setProperty(e,null==t?"":t):n[e]=null==t?"":"number"!=typeof t||C.test(e)?t:t+"px"}function j(n,e,t,i,o){var r;n:if("style"===e)if("string"==typeof t)n.style.cssText=t;else{if("string"==typeof i&&(n.style.cssText=i=""),i)for(e in i)t&&e in t||K(n.style,e,"");if(t)for(e in t)i&&t[e]===i[e]||K(n.style,e,t[e])}else if("o"===e[0]&&"n"===e[1])r=e!==(e=e.replace(/(PointerCapture)$|Capture$/i,"$1")),e=e.toLowerCase()in n?e.toLowerCase().slice(2):e.slice(2),n.l||(n.l={}),n.l[e+r]=t,t?i?t.u=i.u:(t.u=Date.now(),n.addEventListener(e,r?W:F,r)):n.removeEventListener(e,r?W:F,r);else{if(o)e=e.replace(/xlink(H|:h)/,"h").replace(/sName$/,"s");else if("width"!==e&&"height"!==e&&"href"!==e&&"list"!==e&&"form"!==e&&"tabIndex"!==e&&"download"!==e&&"rowSpan"!==e&&"colSpan"!==e&&"role"!==e&&e in n)try{n[e]=null==t?"":t;break n}catch(n){}"function"==typeof t||(null==t||!1===t&&"-"!==e[4]?n.removeAttribute(e):n.setAttribute(e,t))}}function F(n){if(this.l){var e=this.l[n.type+!1];if(n.t){if(n.t<=e.u)return}else n.t=Date.now();return e(h.event?h.event(n):n)}}function W(n){if(this.l)return this.l[n.type+!0](h.event?h.event(n):n)}function G(n,e,t,i,o,r,a,l,c,u){var s,d,_,p,v,f,m,g,y,b,w,S,D,C,x,E=e.type;if(void 0!==e.constructor)return null;128&t.__u&&(c=!!(32&t.__u),r=[l=e.__e=t.__e]),(s=h.__b)&&s(e);n:if("function"==typeof E)try{if(g=e.props,y=(s=E.contextType)&&i[s.__c],b=s?y?y.props.value:s.__:i,t.__c?m=(d=e.__c=t.__c).__=d.__E:("prototype"in E&&E.prototype.render?e.__c=d=new E(g,b):(e.__c=d=new T(g,b),d.constructor=E,d.render=J),y&&y.sub(d),d.props=g,d.state||(d.state={}),d.context=b,d.__n=i,_=d.__d=!0,d.__h=[],d._sb=[]),null==d.__s&&(d.__s=d.state),null!=E.getDerivedStateFromProps&&(d.__s==d.state&&(d.__s=P({},d.__s)),P(d.__s,E.getDerivedStateFromProps(g,d.__s))),p=d.props,v=d.state,d.__v=e,_)null==E.getDerivedStateFromProps&&null!=d.componentWillMount&&d.componentWillMount(),null!=d.componentDidMount&&d.__h.push(d.componentDidMount);else{if(null==E.getDerivedStateFromProps&&g!==p&&null!=d.componentWillReceiveProps&&d.componentWillReceiveProps(g,b),!d.__e&&(null!=d.shouldComponentUpdate&&!1===d.shouldComponentUpdate(g,d.__s,b)||e.__v===t.__v)){for(e.__v!==t.__v&&(d.props=g,d.state=d.__s,d.__d=!1),e.__e=t.__e,e.__k=t.__k,e.__k.forEach((function(n){n&&(n.__=e)})),w=0;w<d._sb.length;w++)d.__h.push(d._sb[w]);d._sb=[],d.__h.length&&a.push(d);break n}null!=d.componentWillUpdate&&d.componentWillUpdate(g,d.__s,b),null!=d.componentDidUpdate&&d.__h.push((function(){d.componentDidUpdate(p,v,f)}))}if(d.context=b,d.props=g,d.__P=n,d.__e=!1,S=h.__r,D=0,"prototype"in E&&E.prototype.render){for(d.state=d.__s,d.__d=!1,S&&S(e),s=d.render(d.props,d.state,d.context),C=0;C<d._sb.length;C++)d.__h.push(d._sb[C]);d._sb=[]}else do{d.__d=!1,S&&S(e),s=d.render(d.props,d.state,d.context),d.state=d.__s}while(d.__d&&++D<25);d.state=d.__s,null!=d.getChildContext&&(i=P(P({},i),d.getChildContext())),_||null==d.getSnapshotBeforeUpdate||(f=d.getSnapshotBeforeUpdate(p,v)),I(n,k(x=null!=s&&s.type===M&&null==s.key?s.props.children:s)?x:[x],e,t,i,o,r,a,l,c,u),d.base=e.__e,e.__u&=-161,d.__h.length&&a.push(d),m&&(d.__E=d.__=null)}catch(n){e.__v=null,c||null!=r?(e.__e=l,e.__u|=c?160:32,r[r.indexOf(l)]=null):(e.__e=t.__e,e.__k=t.__k),h.__e(n,e,t)}else null==r&&e.__v===t.__v?(e.__k=t.__k,e.__e=t.__e):e.__e=$(t.__e,e,t,i,o,r,a,c,u);(s=h.diffed)&&s(e)}function q(n,e,t){for(var i=0;i<t.length;i++)z(t[i],t[++i],t[++i]);h.__c&&h.__c(e,n),n.some((function(e){try{n=e.__h,e.__h=[],n.some((function(n){n.call(e)}))}catch(n){h.__e(n,e.__v)}}))}function $(n,e,t,i,o,r,a,l,c){var u,s,d,_,p,v,h,m=t.props,g=e.props,y=e.type;if("svg"===y&&(o=!0),null!=r)for(u=0;u<r.length;u++)if((p=r[u])&&"setAttribute"in p==!!y&&(y?p.localName===y:3===p.nodeType)){n=p,r[u]=null;break}if(null==n){if(null===y)return document.createTextNode(g);n=o?document.createElementNS("http://www.w3.org/2000/svg",y):document.createElement(y,g.is&&g),r=null,l=!1}if(null===y)m===g||l&&n.data===g||(n.data=g);else{if(r=r&&f.call(n.childNodes),m=t.props||S,!l&&null!=r)for(m={},u=0;u<n.attributes.length;u++)m[(p=n.attributes[u]).name]=p.value;for(u in m)p=m[u],"children"==u||("dangerouslySetInnerHTML"==u?d=p:"key"===u||u in g||j(n,u,null,p,o));for(u in g)p=g[u],"children"==u?_=p:"dangerouslySetInnerHTML"==u?s=p:"value"==u?v=p:"checked"==u?h=p:"key"===u||l&&"function"!=typeof p||m[u]===p||j(n,u,p,m[u],o);if(s)l||d&&(s.__html===d.__html||s.__html===n.innerHTML)||(n.innerHTML=s.__html),e.__k=[];else if(d&&(n.innerHTML=""),I(n,k(_)?_:[_],e,t,i,o&&"foreignObject"!==y,r,a,r?r[0]:t.__k&&A(t,0),l,c),null!=r)for(u=r.length;u--;)null!=r[u]&&x(r[u]);l||(u="value",void 0!==v&&(v!==n[u]||"progress"===y&&!v||"option"===y&&v!==m[u])&&j(n,u,v,m[u],!1),u="checked",void 0!==h&&h!==n[u]&&j(n,u,h,m[u],!1))}return n}function z(n,e,t){try{"function"==typeof n?n(e):n.current=e}catch(n){h.__e(n,t)}}function Y(n,e,t){var i,o;if(h.unmount&&h.unmount(n),(i=n.ref)&&(i.current&&i.current!==n.__e||z(i,null,e)),null!=(i=n.__c)){if(i.componentWillUnmount)try{i.componentWillUnmount()}catch(n){h.__e(n,e)}i.base=i.__P=null,n.__c=void 0}if(i=n.__k)for(o=0;o<i.length;o++)i[o]&&Y(i[o],e,t||"function"!=typeof n.type);t||null==n.__e||x(n.__e),n.__=n.__e=n.__d=void 0}function J(n,e,t){return this.constructor(n,t)}f=D.slice,h={__e:function(n,e,t,i){for(var o,r,a;e=e.__;)if((o=e.__c)&&!o.__)try{if((r=o.constructor)&&null!=r.getDerivedStateFromError&&(o.setState(r.getDerivedStateFromError(n)),a=o.__d),null!=o.componentDidCatch&&(o.componentDidCatch(n,i||{}),a=o.__d),a)return o.__E=o}catch(e){n=e}throw n}},m=0,T.prototype.setState=function(n,e){var t;t=null!=this.__s&&this.__s!==this.state?this.__s:this.__s=P({},this.state),"function"==typeof n&&(n=n(P({},t),this.props)),n&&P(t,n),null!=n&&this.__v&&(e&&this._sb.push(e),V(this))},T.prototype.forceUpdate=function(n){this.__v&&(this.__e=!0,n&&this.__h.push(n),V(this))},T.prototype.render=M,g=[],b="function"==typeof Promise?Promise.prototype.then.bind(Promise.resolve()):setTimeout,w=function(n,e){return n.__v.__b-e.__v.__b},L.__r=0;var Q=function(n,e,t,i){var o;e[0]=0;for(var r=1;r<e.length;r++){var a=e[r++],l=e[r]?(e[0]|=a?1:2,t[e[r++]]):e[++r];3===a?i[0]=l:4===a?i[1]=Object.assign(i[1]||{},l):5===a?(i[1]=i[1]||{})[e[++r]]=l:6===a?i[1][e[++r]]+=l+"":a?(o=n.apply(l,Q(n,l,t,["",null])),i.push(o),l[0]?e[0]|=2:(e[r-2]=0,e[r]=o)):i.push(l)}return i},X=new Map;var Z=function(n){var e=X.get(this);return e||(e=new Map,X.set(this,e)),(e=Q(this,e.get(n)||(e.set(n,e=function(n){for(var e,t,i=1,o="",r="",a=[0],l=function(n){1===i&&(n||(o=o.replace(/^\s*\n\s*|\s*\n\s*$/g,"")))?a.push(0,n,o):3===i&&(n||o)?(a.push(3,n,o),i=2):2===i&&"..."===o&&n?a.push(4,n,0):2===i&&o&&!n?a.push(5,0,!0,o):i>=5&&((o||!n&&5===i)&&(a.push(i,0,o,t),i=6),n&&(a.push(i,n,0,t),i=6)),o=""},c=0;c<n.length;c++){c&&(1===i&&l(),l(c));for(var u=0;u<n[c].length;u++)e=n[c][u],1===i?"<"===e?(l(),a=[a],i=3):o+=e:4===i?"--"===o&&">"===e?(i=1,o=""):o=e+o[0]:r?e===r?r="":o+=e:'"'===e||"'"===e?r=e:">"===e?(l(),i=1):i&&("="===e?(i=5,t=o,o=""):"/"===e&&(i<5||">"===n[c][u+1])?(l(),3===i&&(a=a[0]),i=a,(a=a[0]).push(2,0,i),i=0):" "===e||"\t"===e||"\n"===e||"\r"===e?(l(),i=2):o+=e),3===i&&"!--"===o&&(i=4,a=a[0])}return l(),a}(n)),e),arguments,[])).length>1?e:e[0]}.bind(E);function nn(n){return function(e){var t=n;return"string"==typeof e?"".concat(n,"__").concat(e):(e&&Object.keys(e).forEach((function(i){var o=e[i];!1!==o&&null!=o&&""!==o&&(t+=" "+n+"_",!0===e[i]?t+=i:t+=i+"_"+o)})),t)}}var en,tn,on,rn=nn("badge");function an(n){var e,t;return Z(on||(on=v(['\n        <div class="','">\n            ','\n            <div class="','">',"</div>\n            ","\n        </div>\n    "],['\n        <div class="','">\n            ','\n            <div class="','">',"</div>\n            ","\n        </div>\n    "])),rn({type:n.type,background:n.background,disabled:n.disabled,hidden:n.hidden,size:n.size,click:n.click}),(null===(e=n.top)||void 0===e?void 0:e.text)?Z(en||(en=v(['<div class="','" title="','">',"</div>"],['<div class="','" title="','">',"</div>"])),rn("top-text"),n.top.title,n.top.text):"",rn("body"),n.text,(null===(t=n.bottom)||void 0===t?void 0:t.text)?Z(tn||(tn=v(['<div class="','" title="','">',"</div>"],['<div class="','" title="','">',"</div>"])),rn("bottom-text"),n.bottom.title,n.bottom.text):"")}const ln='audio/mp4; codecs="mp4a.40.2"',cn='audio/mp4; codecs="ac-3"',un='audio/mp4; codecs="ec-3"',sn='audio/mp4; codecs="vorbis"',dn='audio/mp4; codecs="opus"',_n='audio/mp4; codecs="flac"',pn="audio/mpeg",vn="audio/mp4",fn='audio/mp4; codecs="mhm1.0x0D"',hn='audio/mp4; codecs="dtsc"',mn='audio/mp4; codecs="dtsh"',gn='audio/mp4; codecs="dtsx"';let yn;function bn(n){return yn||(yn=document.createElement("video")),yn.canPlayType?yn.canPlayType(n):""}function wn(n){const e=""!==bn(n),t=function(n){if(!window.MediaSource)return!1;let e=!1;try{e=MediaSource.isTypeSupported(n)}catch(n){}return e}(n);return{file:e,mediaSource:t,any:e||t,both:e&&t,contentType:n}}function Sn(){return wn(ln)}function Dn(){return wn(cn)}function Cn(){return wn(un)}function kn(){var n,e,t;const i=window.cast;if(i)return Boolean(null===(t=null===(e=null===(n=i.framework)||void 0===n?void 0:n.system)||void 0===e?void 0:e.DeviceCapabilities)||void 0===t?void 0:t.IS_DOLBY_ATMOS_SUPPORTED);let o=!1;if(window.Hisense_GetSupportForDolbyAtmos)try{o=window.Hisense_GetSupportForDolbyAtmos()}catch(n){}return o}const Pn='video/mp4; codecs="avc1.42E01E"',xn='video/mp4; codecs="avc1.4D401E"',En='video/mp4; codecs="avc1.64001E"',Hn='video/webm; codecs="vp8"',Mn='video/webm; codecs="vp9"',Tn='video/mp4; codecs="av01.0.01M.08"',An='video/mp4; codecs="hev1.1.6.L123.B0"',Rn='video/mp4; codecs="hev1.2.4.L153.B0"',Nn='video/mp4; codecs="hvc1.1.6.L123.B0"',Vn='video/mp4; codecs="hvc1.2.4.L153.B0"',Ln='video/mp4; codecs="dvhe.08.09"',In="video/mp2t",Un="vvc1.1.L67.CQA.O0+3",Bn="vvci.1.L67.CQA.O0+3",On="evc1.vprf0.vlev123",Kn="evc1.vprf1.vlev153";function jn(){return wn(Mn)}function Fn(){return wn(Tn)}function Wn(){const n=wn(An);return n.any?n:wn(Nn)}function Gn(){const n=wn(Rn);return n.any?n:wn(Vn)}function qn(){const n=wn(Un);return n.any?n:wn(Bn)}const $n="image/gif",zn="image/jpeg",Yn="image/png",Jn="image/apng",Qn="image/svg+xml",Xn="image/webp",Zn="image/heif",ne="image/avif";function ee(n){return new Promise((e=>{const t=document.createElement("picture"),i=document.createElement("source");i.srcset="data:,x",i.type=n,t.appendChild(i);const o=document.createElement("img");t.appendChild(o),Promise.resolve().then((()=>{e(Boolean(o.currentSrc))}))}))}const te="application/dash+xml",ie="application/vnd.apple.mpegurl",oe="application/vnd.ms-sstr+xml";function re(){return window.devicePixelRatio||1}function ae(){var n,e,t;if(window.Hisense_GetSupportForHDR)return"not support"!==window.Hisense_GetSupportForHDR();const i=window.cast;if(i)return Boolean(null===(t=null===(e=null===(n=i.framework)||void 0===n?void 0:n.system)||void 0===e?void 0:e.DeviceCapabilities)||void 0===t?void 0:t.IS_HDR_SUPPORTED);try{const n=le("high"),e=le("standard");if(!e)return;return Boolean(e&&n)}catch(n){}}function le(n){return window.matchMedia(`(dynamic-range: ${n})`).matches||window.matchMedia(`(video-dynamic-range: ${n})`).matches}const ce=15360,ue=1e4,se=7680,de=5760,_e=5120,pe=3656,ve=2560,fe=1998,he=1920,me=1280;function ge(n=function(){return screen.width*re()}()){const e=[{badge:"SD",width:0},{width:me,title:"HD"},{width:he,title:"FullHD"},{width:fe,title:"2K"},{width:ve,title:"2.5K"},{width:pe,title:"4K"},{width:_e,title:"5K"},{width:de,title:"6K"},{width:se,title:"8K"},{width:ue,title:"10K"},{width:ce,title:"16K"}];let t=e[0].title;for(const i of e){if(i.width===n){t=i.title;break}if(i.width>n)break;t=`>${i.title}`}return t}const ye="com.apple.fps",be="com.apple.fps.1_0",we="com.apple.fps.2_0",Se="com.apple.fps.3_0",De="com.widevine.alpha",Ce="com.microsoft.playready",ke="com.microsoft.playready.recommendation",Pe="com.adobe.primetime",xe="org.w3.clearkey";function Ee(n,e){return navigator.requestMediaKeySystemAccess?navigator.requestMediaKeySystemAccess(n,e).then((()=>!0)).catch((()=>!1)):Promise.resolve(!1)}function He(){return Ee(ye,[{initDataTypes:["cenc"],videoCapabilities:[{contentType:Pn}]}])}function Me(n=Pn,e=["cenc"]){return Ee(De,[{initDataTypes:e,videoCapabilities:[{contentType:n}]}])}function Te(){return Ee(Ce,[{initDataTypes:["cenc"],videoCapabilities:[{contentType:Pn}]}])}var Ae,Re=nn("audio-badges");function Ne(){var n=[],e=[];Sn().any&&n.push("AAC"),Dn().any&&e.push("Dolby Digital"),Cn().any&&e.push("Dolby Digital Plus"),kn()&&e.push("Dolby Atmos");var t=e.length;return Z(Ae||(Ae=v(['\n        <div class="','">\n            ',"\n        </div>\n    "],['\n        <div class="','">\n            ',"\n        </div>\n    "])),Re(),an({text:t?"5.1":"2.0",background:t?"gold":"transparent",bottom:{text:(t?e:n).join(", ")}}))}const Ve=[[1,1],[3,2],[4,1],[4,3],[5,3],[5,4],[16,9],[16,10],[21,9],[32,9],[12,5],[43,18],[64,27],[16,5],[18,5],[32,9]].map((n=>{const[e,t]=n;return{x:e,y:t,value:`${e}:${t}`,ratio:e/t}})),Le=Ve.map((n=>n.ratio)).sort(),Ie=Ve.reduce(((n,e)=>(n[e.ratio]=e,n)),{}),Ue=.06;function Be(n,e,t={tolerance:Ue}){const i=Math.max(n,e)/Math.min(n,e),o=Ie[i];if(o)return{x:o.x,y:o.y,value:o.value,approximately:!1,nonStandard:!1};const r=function(n,e,t){for(let i=0;i<n.length;i++){if(Math.abs(n[i]-e)<t)return n[i]}return}(Le,i,t.tolerance);if(r){const n=Ie[r];return{x:n.x,y:n.y,value:`≈${n.value}`,approximately:!0,nonStandard:!1}}const a=function(n=0,e=0){for(;e;)[n,e]=[e,n%e];return n}(n,e);let l=n/a,c=e/a;return 1===a&&(l=Math.round(100*i)/100,c=1),{x:l,y:c,value:`${l}:${c}`,approximately:!1,nonStandard:!0}}var Oe,Ke,je,Fe,We=0,Ge=[],qe=[],$e=h,ze=$e.__b,Ye=$e.__r,Je=$e.diffed,Qe=$e.__c,Xe=$e.unmount,Ze=$e.__;function nt(n,e){$e.__h&&$e.__h(Ke,n,We||e),We=0;var t=Ke.__H||(Ke.__H={__:[],__h:[]});return n>=t.__.length&&t.__.push({__V:qe}),t.__[n]}function et(n){return We=1,function(n,e,t){var i=nt(Oe++,2);if(i.t=n,!i.__c&&(i.__=[t?t(e):dt(void 0,e),function(n){var e=i.__N?i.__N[0]:i.__[0],t=i.t(e,n);e!==t&&(i.__N=[t,i.__[1]],i.__c.setState({}))}],i.__c=Ke,!Ke.u)){var o=function(n,e,t){if(!i.__c.__H)return!0;var o=i.__c.__H.__.filter((function(n){return!!n.__c}));if(o.every((function(n){return!n.__N})))return!r||r.call(this,n,e,t);var a=!1;return o.forEach((function(n){if(n.__N){var e=n.__[0];n.__=n.__N,n.__N=void 0,e!==n.__[0]&&(a=!0)}})),!(!a&&i.__c.props===n)&&(!r||r.call(this,n,e,t))};Ke.u=!0;var r=Ke.shouldComponentUpdate,a=Ke.componentWillUpdate;Ke.componentWillUpdate=function(n,e,t){if(this.__e){var i=r;r=void 0,o(n,e,t),r=i}a&&a.call(this,n,e,t)},Ke.shouldComponentUpdate=o}return i.__N||i.__}(dt,n)}function tt(n,e){var t=nt(Oe++,3);!$e.__s&&st(t.__H,e)&&(t.__=n,t.i=e,Ke.__H.__h.push(t))}function it(n,e){var t=nt(Oe++,7);return st(t.__H,e)?(t.__V=n(),t.i=e,t.__h=n,t.__V):t.__}function ot(n,e){return We=8,it((function(){return n}),e)}function rt(){for(var n;n=Ge.shift();)if(n.__P&&n.__H)try{n.__H.__h.forEach(ct),n.__H.__h.forEach(ut),n.__H.__h=[]}catch(e){n.__H.__h=[],$e.__e(e,n.__v)}}$e.__b=function(n){Ke=null,ze&&ze(n)},$e.__=function(n,e){n&&e.__k&&e.__k.__m&&(n.__m=e.__k.__m),Ze&&Ze(n,e)},$e.__r=function(n){Ye&&Ye(n),Oe=0;var e=(Ke=n.__c).__H;e&&(je===Ke?(e.__h=[],Ke.__h=[],e.__.forEach((function(n){n.__N&&(n.__=n.__N),n.__V=qe,n.__N=n.i=void 0}))):(e.__h.forEach(ct),e.__h.forEach(ut),e.__h=[],Oe=0)),je=Ke},$e.diffed=function(n){Je&&Je(n);var e=n.__c;e&&e.__H&&(e.__H.__h.length&&(1!==Ge.push(e)&&Fe===$e.requestAnimationFrame||((Fe=$e.requestAnimationFrame)||lt)(rt)),e.__H.__.forEach((function(n){n.i&&(n.__H=n.i),n.__V!==qe&&(n.__=n.__V),n.i=void 0,n.__V=qe}))),je=Ke=null},$e.__c=function(n,e){e.some((function(n){try{n.__h.forEach(ct),n.__h=n.__h.filter((function(n){return!n.__||ut(n)}))}catch(t){e.some((function(n){n.__h&&(n.__h=[])})),e=[],$e.__e(t,n.__v)}})),Qe&&Qe(n,e)},$e.unmount=function(n){Xe&&Xe(n);var e,t=n.__c;t&&t.__H&&(t.__H.__.forEach((function(n){try{ct(n)}catch(n){e=n}})),t.__H=void 0,e&&$e.__e(e,t.__v))};var at="function"==typeof requestAnimationFrame;function lt(n){var e,t=function(){clearTimeout(i),at&&cancelAnimationFrame(e),setTimeout(n)},i=setTimeout(t,100);at&&(e=requestAnimationFrame(t))}function ct(n){var e=Ke,t=n.__c;"function"==typeof t&&(n.__c=void 0,t()),Ke=e}function ut(n){var e=Ke;n.__c=n.__(),Ke=e}function st(n,e){return!n||n.length!==e.length||e.some((function(e,t){return e!==n[t]}))}function dt(n,e){return"function"==typeof e?e(n):e}function _t(){if(/Mobi|Android/i.test(window.navigator.userAgent))return!1;var n=re(),e=Math.floor(n);return 1.5!==n&&(n!==e||n>4)}var pt,vt={"Can I Watch Video":{en:"Can I Watch Video",ru:"Могу ли я смотреть видео?"},"Audio Codecs":{en:"Audio Codecs",ru:"Аудиокодеки"},"Video Codecs":{en:"Video Codecs",ru:"Видеокодеки"},Supported:{en:"Supported",ru:"Поддерживаемые"},"No supported audio codecs.":{en:"No supported audio codecs.",ru:"Нет поддерживаемых аудиокодеков."},"No supported video codecs.":{en:"No supported video codecs.",ru:"Нет поддерживаемых видеокодеков."},Unsupported:{en:"Unsupported",ru:"Не поддерживаемые"},Size:{en:"Size",ru:"Размер"},"Color depth":{en:"Color depth",ru:"Глубина цвета"},Audio:{en:"Audio",ru:"Аудио"},Video:{en:"Video",ru:"Видео"},"Image Formats":{en:"Image Formats",ru:"Форматы картинок"},"Native Streaming Support":{en:"Native Streaming Support",ru:"Поддержка нативного стримминга"},Yes:{en:"Yes",ru:"Да"},No:{en:"No",ru:"Нет"},Warning:{en:"Warning",ru:"Предупреждение"},Screens:{en:"Screens",ru:"Экраны"},Screen:{en:"Screen",ru:"Экран"},"No supported image formats.":{en:"No supported image formats.",ru:"Нет поддерживаемых форматов картинок."},"Can I listen surround sound on online services?":{en:"Can I listen surround sound on online services?",ru:"Могу ли я услышать многоканальный звук в онлайн-сервисах?"},"HTMLVideoElement Features":{en:"HTMLVideoElement Features",ru:"Возможности HTMLVideoElement"},"Aspect ratio":{en:"Aspect ratio",ru:"Соотн. сторон"},Primary:{en:"Primary",ru:"Основной"},Internal:{en:"Internal",ru:"Внутренний"},"Please reset zoom in the page":{en:"Please reset zoom in the page",ru:"Необходимо сбросить зум на странице"},"Can I watch HDR video?":{en:"Can I watch HDR video?",ru:"Могу ли я смотреть HDR видео?"},"Support one of the audio codecs?":{en:"Support one of the audio codecs?",ru:"Поддержка одного из аудиокодеков?"},"Is this a HDR screen?":{en:"Is this a HDR screen?",ru:"Это HDR экран?"},"Support one of the video codecs?":{en:"Support one of the video codecs?",ru:"Поддержка одного из видеокодеков?"},"Can I watch 4K video on online services?":{en:"Can I watch 4K video on online services?",ru:"Могу ли я смотреть 4К видео в онлайн-сервисах?"},"Online services protect content using":{en:"Online services protect content using",ru:"Онлайн-сервисы защищают контент с помощью"},"Has DRM support?":{en:"Has DRM support?",ru:"Есть поддержка DRM?"},"Can I watch 4K video?":{en:"Can I watch 4K video?",ru:"Могу ли я смотреть 4К видео?"},"Is the screen larger than 2K?":{en:"Is the screen larger than 2K?",ru:"Экран больше чем 2К?"},"link:wiki:drm":{en:"https://en.wikipedia.org/wiki/Digital_rights_management",ru:"https://ru.wikipedia.org/wiki/Digital_rights_management"},bit:{en:"bit",ru:"бит"},"Not detected":{en:"Not detected",ru:"Не обнаружено"},"Security level":{en:"Security level",ru:"Уровень безопасности"},"Security levels":{en:"Security levels",ru:"Уровни безопасности"},"Key system":{en:"Key system",ru:"Система ключей"},"Key systems":{en:"Key systems",ru:"Системы ключей"},Request:{en:"Request",ru:"Запрос"},Renderer:{en:"Renderer",ru:"Рендерер"},Vendor:{en:"Vendor",ru:"Поставщик"},GPU:{en:"GPU",ru:"GPU"},"HDCP version":{en:"HDCP version",ru:"HDCP версия"}};function ft(n){var e=vt[n];if(!e)return console.error('Not found key "'.concat(n,'" in getText().')),"";var t=e[pt];return void 0===t?(console.error('Not found key "'.concat(n,'", lang "').concat(pt,'" in getText().')),""):t}var ht,mt,gt,yt,bt,wt,St=nn("screen-badge");function Dt(n){var e=et(!0),t=e[0],i=e[1],o=ot((function(){i(!t)}),[t]),r=t?[n.width,n.height,n.devicePixelRatio].join("×"):[n.width*n.devicePixelRatio,n.height*n.devicePixelRatio].join("×"),a=Z(yt||(yt=v(["\n        <div>",": ","</div>\n        ","\n        <div>",": "," ","</div>\n        <div>",": ","</div>\n        ","\n        ","\n    "],["\n        <div>",": ","</div>\n        ","\n        <div>",": "," ","</div>\n        <div>",": ","</div>\n        ","\n        ","\n    "])),ft("Size"),r,_t()?Z(ht||(ht=v(["<div>⚠ ","</div>"],["<div>⚠ ","</div>"])),ft("Please reset zoom in the page")):"",ft("Color depth"),n.colorDepth,ft("bit"),ft("Aspect ratio"),Be(n.width,n.height).value,n.isPrimary?Z(mt||(mt=v(["<div>",": ","</div>"],["<div>",": ","</div>"])),ft("Primary"),ft("Yes")):"",n.isInternal?Z(gt||(gt=v(["<div>",": ","</div>"],["<div>",": ","</div>"])),ft("Internal"),ft("Yes")):""),l=n.isScreenDetails?n.colorDepth>24:ae();return Z(wt||(wt=v(['\n        <div class="','" onClick=','>\n            <div class="','">',"</div>\n            ","\n        </div>\n    "],['\n        <div class="','" onClick=','>\n            <div class="','">',"</div>\n            ","\n        </div>\n    "])),St(),o,St("label"),n.label,an({text:ge(Math.max(n.width,n.height)*n.devicePixelRatio)||"",type:"4k",click:!0,background:"gold",top:{text:l?Z(bt||(bt=v(["<b>HDR</b>"],["<b>HDR</b>"]))):""},bottom:{text:a,title:[n.width*n.devicePixelRatio,n.height*n.devicePixelRatio].join("×")}}))}var Ct,kt=nn("row");function Pt(n){return Z(Ct||(Ct=v(['<div class="','">\n        <div class="','">','</div>\n        <div class="','">',"</div>\n    </div>"],['<div class="','">\n        <div class="','">','</div>\n        <div class="','">',"</div>\n    </div>"])),kt(),kt("category"),n.name,kt("body"),n.children)}var xt,Et,Ht,Mt,Tt,At=function(){function n(){var n=this;this.listeners=[],this.devicePixelRatio=re(),this.isScreenDetails=!1,this.screens=[],this.timer=-1,this.needUserActivity=!1,this.handleScreenChange=function(){n.emit()};var e=JSON.stringify(this.getScreen());this.timer=window.setInterval((function(){var t=re();if(n.devicePixelRatio!==t&&(n.devicePixelRatio=t,n.handleScreenChange()),!window.screen.addEventListener){var i=JSON.stringify(n.getScreen());e!==i&&(e=i,n.handleScreenChange())}}),500),this.bindScreenChange(),this.getScreenDetails()}return n.prototype.addListener=function(n){this.listeners.push(n)},n.prototype.removeListener=function(n){this.listeners=this.listeners.filter((function(e){return e!==n}))},n.prototype.getScreenDetails=function(){var n=this;return window.getScreenDetails?window.getScreenDetails().then((function(e){return window.clearInterval(n.timer),n.isScreenDetails=!0,n.needUserActivity=!1,n.screens=e.screens,n.emit(),n.unbindScreenChange(),n.bindScreensChange(e.screens),e.onscreenschange=function(){n.bindScreensChange(e.screens),n.screens=e.screens,n.emit()},e})).catch((function(e){throw navigator.permissions.query({name:"window-management"}).then((function(e){"denied"===e.state?n.needUserActivity=!1:n.needUserActivity=!0,n.emit()})),n.needUserActivity=!0,n.emit(),e})):Promise.resolve()},n.prototype.bindScreensChange=function(n){var e=this;n.forEach((function(n){n.removeEventListener&&n.removeEventListener("change",e.handleScreenChange),n.addEventListener&&n.addEventListener("change",e.handleScreenChange)}))},n.prototype.bindScreenChange=function(){this.unbindScreenChange(),screen.addEventListener&&screen.addEventListener("change",this.handleScreenChange)},n.prototype.unbindScreenChange=function(){screen.removeEventListener&&screen.removeEventListener("change",this.handleScreenChange)},n.prototype.get=function(){return{isScreenDetails:this.isScreenDetails,screens:this.isScreenDetails?this.screens.map((function(n){return{availLeft:n.availLeft,availTop:n.availTop,availWidth:n.availWidth,availHeight:n.availHeight,colorDepth:n.colorDepth,pixelDepth:n.pixelDepth,width:n.width,height:n.height,label:n.label,isInternal:n.isInternal,isPrimary:n.isPrimary,isExtended:n.isExtended,orientation:n.orientation,devicePixelRatio:n.devicePixelRatio}})):[this.getScreen()]}},n.prototype.emit=function(){this.listeners.forEach((function(n){return n()}))},n.prototype.getScreen=function(){var n=window.screen;return{availLeft:n.availLeft,availTop:n.availTop,availWidth:n.availWidth,availHeight:n.availHeight,colorDepth:n.colorDepth,pixelDepth:n.pixelDepth,width:n.width,height:n.height,label:"",isInternal:!1,isPrimary:!1,isExtended:Boolean(n.isExtended),orientation:n.orientation,devicePixelRatio:re()}},n}(),Rt=new At,Nt=function(n){function e(){var e=n.call(this)||this;return e.handleScreenChange=function(){e.setState({screens:Rt.get().screens})},e.handleClick=function(){Rt.getScreenDetails()},Rt.addListener(e.handleScreenChange),e}return function(n,e){if("function"!=typeof e&&null!==e)throw new TypeError("Class extends value "+String(e)+" is not a constructor or null");function t(){this.constructor=n}_(n,e),n.prototype=null===e?Object.create(e):(t.prototype=e.prototype,new t)}(e,n),e.prototype.render=function(){var n=Rt.get(),e=n.screens,t=n.isScreenDetails,i=e.map((function(n){var e=p({isScreenDetails:t},n);return Z(xt||(xt=v(["<"," ...","><//>"],["<"," ...","><//>"])),Dt,e)})),o=e.length>1?ft("Screens"):ft("Screen");return Z(Ht||(Ht=v(["<",' name="','">\n            ',"\n            ","\n        <//>"],["<",' name="','">\n            ',"\n            ","\n        <//>"])),Pt,o,Rt.needUserActivity?Z(Et||(Et=v(['<div><button onClick="','">',"</button></div>"],['<div><button onClick="','">',"</button></div>"])),this.handleClick,ft("Request")):"",i)},e.prototype.componentWillUnmount=function(){Rt.removeListener(this.handleScreenChange)},e}(T),Vt=nn("codec");function Lt(n){var e=n.disabled?"black":n.color||"black",t=n.tooltip?Z(Mt||(Mt=v(['<div class="','">',"</div>"],['<div class="','">',"</div>"])),Vt("tooltip"),n.tooltip):"";return Z(Tt||(Tt=v(['\n        <div class="','">\n            ','\n            <div class="','">',"</div>\n        </div>\n    "],['\n        <div class="','">\n            ','\n            <div class="','">',"</div>\n        </div>\n    "])),Vt({color:e,border:n.border,disabled:n.disabled}),t,Vt("name"),n.name)}var It,Ut=nn("column");function Bt(n){return Z(It||(It=v(['<div class="','">\n        <div class="','">','</div>\n        <div class="','">',"</div>\n    </div>"],['<div class="','">\n        <div class="','">','</div>\n        <div class="','">',"</div>\n    </div>"])),Ut(),Ut("category"),n.name,Ut("body"),n.children)}var Ot,Kt,jt,Ft,Wt,Gt,qt,$t,zt,Yt,Jt,Qt=nn("columns");function Xt(n){return Z(Ot||(Ot=v(['<div class="','">',"</div>"],['<div class="','">',"</div>"])),Qt(),n.children)}function Zt(n){return"boolean"==typeof n?"":Z(Kt||(Kt=v(["\n        video.canPlayType(): ","<br />\n        MediaSource.isTypeSupported(): ","<br />\n        <hr />\n        ","\n    "],["\n        video.canPlayType(): ","<br />\n        MediaSource.isTypeSupported(): ","<br />\n        <hr />\n        ","\n    "])),n.file?ft("Yes"):ft("No"),n.mediaSource?ft("Yes"):ft("No"),n.contentType)}function ni(){var n=[],e=[];return[{supported:wn(pn),name:"MP3",color:"orange"},{supported:wn(vn),name:"MP4",color:"orange"},{supported:Sn(),name:"AAC",color:"orange"},{supported:wn(_n),name:"FLAC",color:"blue"},{supported:wn(sn),name:"Vorbis",color:"orange"},{supported:wn(dn),name:"Opus",color:"green"},{supported:Dn(),name:Z(jt||(jt=v(["<b>Dolby</b> Digital"],["<b>Dolby</b> Digital"]))),color:"black",border:"white"},{supported:Cn(),name:Z(Ft||(Ft=v(["<b>Dolby</b> Digital Plus"],["<b>Dolby</b> Digital Plus"]))),color:"black",border:"white"},{supported:kn(),name:Z(Wt||(Wt=v(["<b>Dolby</b> Atmos"],["<b>Dolby</b> Atmos"]))),color:"black",border:"white"},{supported:wn(hn),name:"DTS",color:"black"},{supported:wn(mn),name:"DTS:HD",color:"black"},{supported:wn(gn),name:"DTS:X",color:"black"},{supported:wn(fn),name:"MPEG-H Audio",color:"blue"}].map((function(t){var i=Zt(t.supported);("boolean"==typeof t.supported?t.supported:t.supported.any)?n.push(Lt({name:t.name,color:t.color,border:t.border,tooltip:i})):e.push(Lt({name:t.name,color:"black",disabled:!0,tooltip:i}))})),Z(qt||(qt=v(["<",' name="','">\n        <',">\n            <",' name="','">\n                ',"\n            <//>\n            ","\n        <//>\n    <//>"],["<",' name="','">\n        <',">\n            <",' name="','">\n                ',"\n            <//>\n            ","\n        <//>\n    <//>"])),Pt,ft("Audio Codecs"),Xt,Bt,ft("Supported"),n.length?n:ft("No supported audio codecs."),e.length?Z(Gt||(Gt=v(["<",' name="','">',"<//>"],["<",' name="','">',"<//>"])),Bt,ft("Unsupported"),e):"")}function ei(){var n=[],e=[];return[{supported:wn(Pn),name:"H.264 Baseline",color:"blue"},{supported:wn(xn),name:"H.264 Main",color:"blue"},{supported:wn(En),name:"H.264 High",color:"blue"},{supported:Wn(),name:"H.265 Main",color:"orange"},{supported:Gn(),name:"H.265 Main10",color:"orange"},{supported:wn(On),name:"EVC Baseline",color:"blue"},{supported:wn(Kn),name:"EVC Main",color:"blue"},{supported:wn(Hn),name:"VP8",color:"green"},{supported:jn(),name:"VP9",color:"green"},{supported:wn(Ln),name:Z($t||($t=v(["<b>Dolby</b> Vision"],["<b>Dolby</b> Vision"]))),color:"black",border:"white"},{supported:Fn(),name:"AV1",color:"yellow"},{supported:qn(),name:"H.266 Main10",color:"blue"},{supported:wn(In),name:"MPEG2-TS",color:"yellow"}].map((function(t){var i=Zt(t.supported);t.supported.any?n.push(Lt({name:t.name,color:t.color,border:t.border,tooltip:i})):e.push(Lt({name:t.name,disabled:!0,tooltip:i}))})),Z(Jt||(Jt=v(["\n        <",' name="','">\n            ',"\n            ","\n        <//>\n"],["\n        <",' name="','">\n            ',"\n            ","\n        <//>\n"])),Xt,ft("Video Codecs"),n.length?Z(zt||(zt=v(["<",' name="','">\n                ',"\n            <//>"],["<",' name="','">\n                ',"\n            <//>"])),Bt,ft("Supported"),n):ft("No supported video codecs."),e.length?Z(Yt||(Yt=v(["<",' name="','">\n                ',"\n            <//>"],["<",' name="','">\n                ',"\n            <//>"])),Bt,ft("Unsupported"),e):"")}var ti,ii=nn("header");function oi(){return Z(ti||(ti=v(['\n        <div class="','">\n            ',"\n        </div>\n    "],['\n        <div class="','">\n            ',"\n        </div>\n    "])),ii(),ft("Can I Watch Video"))}const ri=["1.0","1.1","1.2","1.3","1.4","2.0","2.1","2.2","2.3"],ai=[{videoCapabilities:[{contentType:'video/mp4; codecs="avc1.42E01E"'}]}];function li(n){return navigator.requestMediaKeySystemAccess(n,ai).then((n=>n.createMediaKeys())).then((n=>{if(!("getStatusForPolicy"in n)){const n=Error("Method getStatusForPolicy is not supported");throw n.name="NotSupportedError",n}const e=[];return ri.forEach((t=>{e.push(n.getStatusForPolicy({minHdcpVersion:t}).then((n=>({version:t,status:n}))))})),Promise.all(e)}))}function ci(n){return 0===n.length?"":1===n.length?"".concat(ft("Key system"),": ").concat(n[0]):"".concat(ft("Key systems"),": \n")+n.map((function(n){return"• ".concat(n)})).join("\n")}function ui(n){return 0===n.length?ft("Not detected"):1===n.length?"".concat(ft("Security level"),": ").concat(n[0]):"".concat(ft("Security levels"),": ").concat(n.join(", "))}function si(n){var e=function(n){for(var e=n.length-1;e>=0;e--){var t=n[e];if("usable"===t.status)return t.version}return""}(n);return e?"".concat(ft("HDCP version"),": ").concat(e):""}function di(){}var _i,pi=nn("widevine-badge"),vi=null;function fi(){var n=et(!1),e=n[0],t=n[1],i=et(!1),o=i[0],r=i[1],a=et(!1),l=a[0],c=a[1],u=et(""),s=u[0],d=u[1];(vi||(vi=li(De).then((function(n){return vi=null,n})).catch((function(n){throw vi=null,n})))).then((function(n){d(si(n))})).catch(di),Me().then((function(n){t(n)})),function(n=Pn,e=["cenc"]){return Ee(De,[{initDataTypes:e,videoCapabilities:[{contentType:n,robustness:"HW_SECURE_DECODE"}]}])}().then((function(n){r(n)})),function(n=Pn,e=["cenc"]){return Ee(De,[{initDataTypes:e,videoCapabilities:[{contentType:n,robustness:"SW_SECURE_DECODE"}]}])}().then((function(n){c(n)}));var _=[];o&&_.push("L1"),l&&_.push("L3");var p=[ui(_),ci([De]),s].filter(Boolean).join("\n");return Z(_i||(_i=v(['\n        <div class="','">\n            ',"\n        </div>\n    "],['\n        <div class="','">\n            ',"\n        </div>\n    "])),pi(),e&&an({text:"Widevine",background:"white",top:{text:"Google"},bottom:{text:p}}))}var hi,mi=nn("clearkey-badge");function gi(){var n=et(!1),e=n[0],t=n[1];Ee(xe,[{initDataTypes:["cenc"],videoCapabilities:[{contentType:Pn}]}]).then((function(n){t(n)}));var i=[ci([xe])].join("\n");return Z(hi||(hi=v(['\n        <div class="','">\n            ',"\n        </div>\n    "],['\n        <div class="','">\n            ',"\n        </div>\n    "])),mi(),e&&an({text:"ClearKey",size:"small",background:"white",bottom:{text:i}}))}var yi,bi=nn("fairplay-badge");function wi(){var n=et(!1),e=n[0],t=n[1],i=et(!1),o=i[0],r=i[1],a=et(!1),l=a[0],c=a[1],u=et(!1),s=u[0],d=u[1];He().then((function(n){t(n)})),Ee(be,[{initDataTypes:["cenc"],videoCapabilities:[{contentType:Pn}]}]).then((function(n){r(n)})),Ee(we,[{initDataTypes:["cenc"],videoCapabilities:[{contentType:Pn}]}]).then((function(n){c(n)})),Ee(Se,[{initDataTypes:["cenc"],videoCapabilities:[{contentType:Pn}]}]).then((function(n){d(n)}));var _=[];e&&_.push(ye),o&&_.push(be),l&&_.push(we),s&&_.push(Se);var p=[ci(_)].join("\n");return Z(yi||(yi=v(['\n        <div class="','">\n            ',"\n        </div>\n    "],['\n        <div class="','">\n            ',"\n        </div>\n    "])),bi(),e&&an({text:"FairPlay",background:"white",top:{text:"Apple"},bottom:{text:p}}))}var Si,Di=nn("playready-badge"),Ci=null;function ki(){var n=et(!1),e=n[0],t=n[1],i=et(!1),o=i[0],r=i[1],a=et(!1),l=a[0],c=a[1],u=et(!1),s=u[0],d=u[1],_=et(""),p=_[0],f=_[1];(Ci||(Ci=li(ke).then((function(n){return Ci=null,n})).catch((function(n){throw Ci=null,n})))).then((function(n){f(si(n))})).catch(di),Te().then((function(n){t(n)})),Ee(Ce,[{initDataTypes:["cenc"],videoCapabilities:[{contentType:Pn,robustness:"150"}]}]).then((function(n){r(n)})),Ee(ke,[{initDataTypes:["cenc"],videoCapabilities:[{contentType:Pn,robustness:"2000"}]}]).then((function(n){c(n)})),Ee(ke,[{initDataTypes:["cenc"],videoCapabilities:[{contentType:Pn,robustness:"3000"}]}]).then((function(n){d(n)}));var h=[];o&&h.push("SL150"),l&&h.push("SL2000"),s&&h.push("SL3000");var m=[ui(h),ci([ke]),p].filter(Boolean).join("\n");return Z(Si||(Si=v(['\n        <div class="','">\n            ',"\n        </div>\n    "],['\n        <div class="','">\n            ',"\n        </div>\n    "])),Di(),e&&an({text:"PlayReady",background:"white",top:{text:"Microsoft"},bottom:{text:m}}))}var Pi,xi=nn("primetime-badge");function Ei(){var n=et(!1),e=n[0],t=n[1];Ee(Pe,[{initDataTypes:["cenc"],videoCapabilities:[{contentType:Pn}]}]).then((function(n){t(n)}));var i=[ci([Pe])].join("\n");return Z(Pi||(Pi=v(['\n        <div class="','">\n            ',"\n        </div>\n    "],['\n        <div class="','">\n            ',"\n        </div>\n    "])),xi(),e&&an({text:"Primetime",background:"white",top:{text:"Adobe"},bottom:{text:i}}))}var Hi,Mi=nn("drm-badges");function Ti(){return Z(Hi||(Hi=v(['\n        <div class="','">\n            <',"><//>\n            <","><//>\n            <","><//>\n            <","><//>\n            <","><//>\n        </div>\n    "],['\n        <div class="','">\n            <',"><//>\n            <","><//>\n            <","><//>\n            <","><//>\n            <","><//>\n        </div>\n    "])),Mi(),fi,ki,wi,Ei,gi)}var Ai,Ri,Ni=nn("native-streaming");function Vi(){var n=[{label:"MPEG-DASH",supported:""!==bn(te)},{label:"HTTP Live Streaming",supported:""!==bn(ie)},{label:"Smooth Streaming",supported:""!==bn(oe)}];n.sort((function(n,e){return n.supported===e.supported?0:n.supported?-1:1}));var e=n.map((function(n){return Z(Ai||(Ai=v(["<li>",": ","</li>"],["<li>",": ","</li>"])),n.label,n.supported?"✓":ft("No"))}));return Z(Ri||(Ri=v(["\n        <ul class=",">\n            ","\n        </ul>\n    "],["\n        <ul class=",">\n            ","\n        </ul>\n    "])),Ni(),e)}var Li,Ii,Ui=nn("result");function Bi(n){var e=n.text,t="";return n.text||(!0===n.value&&(e=ft("Yes"),t="yes"),!1===n.value&&(e=ft("No"),t="no"),void 0===n.value&&(e=ft("Warning"),t="warning")),Z(Ii||(Ii=v(['<span class="','">\n        ',"\n        ","\n    </span>"],['<span class="','">\n        ',"\n        ","\n    </span>"])),Ui({type:t}),e,n.details?Z(Li||(Li=v(['<span class="','">',"</span>"],['<span class="','">',"</span>"])),Ui("details"),n.details):"")}var Oi,Ki=nn("active-question");function ji(n){var e=et(!1),t=e[0],i=e[1],o=ot((function(){i(!t)}),[t]);return Z(Oi||(Oi=v(['<div class="','">\n        <div class="','" onClick=','>\n            <div class="','">','</div>\n            <div class="','">','</div>\n        </div>\n        <div class="','">',"</div>\n    </div>"],['<div class="','">\n        <div class="','" onClick=','>\n            <div class="','">','</div>\n            <div class="','">','</div>\n        </div>\n        <div class="','">',"</div>\n    </div>"])),Ki({opened:t}),Ki("head"),o,Ki("plus"),t?"-":"+",Ki("question"),n.head,Ki("body"),n.children)}var Fi,Wi,Gi,qi,$i,zi,Yi,Ji,Qi,Xi=1080,Zi=5;function no(){var n=et(Rt.get().screens),e=n[0],t=n[1];tt((function(){var n=function(){t(Rt.get().screens)};return Rt.addListener(n),function(){Rt.removeListener(n)}}),[e]);var i=e.some((function(n){return Math.min(n.width,n.height)*n.devicePixelRatio>Xi+Zi})),o=jn().any,r=Wn().any,a=Fn().any,l=i&&Boolean(o||r||a),c=Z(Fi||(Fi=v([""," <",' value="','"><//>'],[""," <",' value="','"><//>'])),ft("Can I watch 4K video?"),Bi,l);return Z(Wi||(Wi=v(["\n        <",' head="','">\n            <ul>\n                <li>'," <",' value="','"><//></li>\n                <li>\n                    '," <"," value=","><//>\n                    <ul>\n                        <li>\n                            <",'\n                                name="VP9"\n                                color="green"\n                                disabled="','">\n                                <//> <',' value="','"><//>\n                        </li>\n                        <li>\n                            <','\n                                name="H.265"\n                                color="orange"\n                                disabled="','">\n                                <//> <',' value="','"><//>\n                        </li>\n                        <li>\n                            <','\n                                name="AV1"\n                                color="yellow"\n                                disabled="','">\n                                <//> <',' value="','"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    '],["\n        <",' head="','">\n            <ul>\n                <li>'," <",' value="','"><//></li>\n                <li>\n                    '," <"," value=","><//>\n                    <ul>\n                        <li>\n                            <",'\n                                name="VP9"\n                                color="green"\n                                disabled="','">\n                                <//> <',' value="','"><//>\n                        </li>\n                        <li>\n                            <','\n                                name="H.265"\n                                color="orange"\n                                disabled="','">\n                                <//> <',' value="','"><//>\n                        </li>\n                        <li>\n                            <','\n                                name="AV1"\n                                color="yellow"\n                                disabled="','">\n                                <//> <',' value="','"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    '])),ji,c,ft("Is the screen larger than 2K?"),Bi,i,ft("Support one of the video codecs?"),Bi,!0,Lt,!o,Bi,o,Lt,!r,Bi,r,Lt,!a,Bi,a)}function eo(){var n=jn().any,e=Wn().any,t=Fn().any,i=ae(),o=i&&Boolean(n||e||t),r=Z(Gi||(Gi=v([""," <",' value="','"><//>'],[""," <",' value="','"><//>'])),ft("Can I watch HDR video?"),Bi,o);return Z(qi||(qi=v(["\n        <",' head="','">\n            <ul>\n                <li>'," <",' value="','"><//></li>\n                <li>'," <",' value="','"><//>\n                    <ul>\n                        <li>\n                            <','\n                                name="VP9"\n                                color="green"\n                                disabled="','">\n                                <//> <',' value="','"><//>\n                        </li>\n                        <li>\n                            <','\n                                name="H.265"\n                                color="orange"\n                                disabled="','">\n                                <//> <',' value="','"><//>\n                        </li>\n                        <li>\n                            <','\n                                name="AV1"\n                                color="yellow"\n                                disabled="','">\n                                <//> <',' value="','"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    '],["\n        <",' head="','">\n            <ul>\n                <li>'," <",' value="','"><//></li>\n                <li>'," <",' value="','"><//>\n                    <ul>\n                        <li>\n                            <','\n                                name="VP9"\n                                color="green"\n                                disabled="','">\n                                <//> <',' value="','"><//>\n                        </li>\n                        <li>\n                            <','\n                                name="H.265"\n                                color="orange"\n                                disabled="','">\n                                <//> <',' value="','"><//>\n                        </li>\n                        <li>\n                            <','\n                                name="AV1"\n                                color="yellow"\n                                disabled="','">\n                                <//> <',' value="','"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    '])),ji,r,ft("Is this a HDR screen?"),Bi,i,ft("Support one of the video codecs?"),Bi,Boolean(n||e||t),Lt,!n,Bi,n,Lt,!e,Bi,e,Lt,!t,Bi,t)}function to(){var n=Dn().any,e=Cn().any,t=kn(),i=n||e||t,o=Z($i||($i=v([""," <",' value="','"><//>'],[""," <",' value="','"><//>'])),ft("Can I listen surround sound on online services?"),Bi,i);return Z(zi||(zi=v(["\n        <",' head="','">\n            <ul>\n                <li>'," <",' value="','"><//>\n                    <ul>\n                        <li>\n                            <','\n                                name="Dolby Digital"\n                                color="black"\n                                border="white"\n                                disabled="','">\n                                <//> <',' value="','"><//>\n                        </li>\n                        <li>\n                            <','\n                                name="Dolby Digital Plus"\n                                color="black"\n                                border="white"\n                                disabled="','">\n                                <//> <',' value="','"><//>\n                        </li>\n                        <li>\n                            <','\n                                name="Dolby Atmos"\n                                color="black"\n                                border="white"\n                                disabled="','">\n                                <//> <',' value="','"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    '],["\n        <",' head="','">\n            <ul>\n                <li>'," <",' value="','"><//>\n                    <ul>\n                        <li>\n                            <','\n                                name="Dolby Digital"\n                                color="black"\n                                border="white"\n                                disabled="','">\n                                <//> <',' value="','"><//>\n                        </li>\n                        <li>\n                            <','\n                                name="Dolby Digital Plus"\n                                color="black"\n                                border="white"\n                                disabled="','">\n                                <//> <',' value="','"><//>\n                        </li>\n                        <li>\n                            <','\n                                name="Dolby Atmos"\n                                color="black"\n                                border="white"\n                                disabled="','">\n                                <//> <',' value="','"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    '])),ji,o,ft("Support one of the audio codecs?"),Bi,i,Lt,!n,Bi,n,Lt,!e,Bi,e,Lt,!t,Bi,t)}function io(){var n=et(!1),e=n[0],t=n[1],i=et(!1),o=i[0],r=i[1],a=et(!1),l=a[0],c=a[1],u=et([]),s=u[0],d=u[1];tt((function(){Me(Mn).then((function(n){t(n)})),Me(An).then((function(n){r(n)})),Me(Tn).then((function(n){c(n)})),(Yi||(Yi=Promise.all([Me(),Te(),He()]).then((function(n){var e=n[0],t=n[1],i=n[2],o=[];return e&&o.push("widevine"),t&&o.push("playready"),i&&o.push("fairplay"),o})))).then((function(n){d(n)}))}),[s,e,o,l]);var _=Boolean(e||o||l),p=Boolean(s.length),f=_&&p,h=Z(Ji||(Ji=v([""," <",' value="','"><//>'],[""," <",' value="','"><//>'])),ft("Can I watch 4K video on online services?"),Bi,f);return Z(Qi||(Qi=v(["\n        <",' head="','">\n            ',"\n            ",'<a target="_blank" href="','">DRM</a>.\n            <ul>\n                <li>\n                    '," <"," value=","><//>\n                </li>\n                <li>\n                "," <"," value=","><//>\n                    <ul>\n                        <li>\n                            <",'\n                                name="VP9"\n                                color="green"\n                                disabled="','">\n                            <//> <',' value="','"><//>\n                        </li>\n                        <li>\n                            <','\n                                name="H.265"\n                                color="orange"\n                                disabled="','">\n                            <//> <',' value="','"><//>\n                        </li>\n                        <li>\n                            <','\n                                name="AV1"\n                                color="yellow"\n                                disabled="','">\n                            <//> <',' value="','"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    '],["\n        <",' head="','">\n            ',"\n            ",'<a target="_blank" href="','">DRM</a>.\n            <ul>\n                <li>\n                    '," <"," value=","><//>\n                </li>\n                <li>\n                "," <"," value=","><//>\n                    <ul>\n                        <li>\n                            <",'\n                                name="VP9"\n                                color="green"\n                                disabled="','">\n                            <//> <',' value="','"><//>\n                        </li>\n                        <li>\n                            <','\n                                name="H.265"\n                                color="orange"\n                                disabled="','">\n                            <//> <',' value="','"><//>\n                        </li>\n                        <li>\n                            <','\n                                name="AV1"\n                                color="yellow"\n                                disabled="','">\n                            <//> <',' value="','"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    '])),ji,h,ft("Online services protect content using")," ",ft("link:wiki:drm"),ft("Has DRM support?"),Bi,p,ft("Support one of the video codecs?"),Bi,_,Lt,!e,Bi,e,Lt,!o,Bi,o,Lt,!l,Bi,l)}var oo,ro=nn("questions");function ao(){return Z(oo||(oo=v(["    \n        <div class=",">    \n            <","><//>\n            <","><//>\n            <","><//>\n            <","><//>\n        <//>\n    "],["    \n        <div class=",">    \n            <","><//>\n            <","><//>\n            <","><//>\n            <","><//>\n        <//>\n    "])),ro(),no,eo,to,io)}var lo,co,uo=nn("html-video-element-features");function so(){var n,e,t=[{label:"Media Source Extensions",title:"MSE",supported:Boolean(window.MediaSource&&window.MediaSource.isTypeSupported)},{label:"Managed Media Source",title:"MMS",supported:Boolean(window.ManagedMediaSource&&window.ManagedMediaSource.isTypeSupported)},{label:"Encrypted Media Extensions",title:"EME",supported:Boolean(window.MediaKeys)&&Boolean(null===(n=window.navigator)||void 0===n?void 0:n.requestMediaKeySystemAccess)&&Boolean(null===(e=window.MediaKeySystemAccess)||void 0===e?void 0:e.prototype.getConfiguration)}];t.sort((function(n,e){return n.supported===e.supported?0:n.supported?-1:1}));var i=t.map((function(n){return Z(lo||(lo=v(['<li title="','">',": ","</li>"],['<li title="','">',": ","</li>"])),n.title,n.label,n.supported?"✓":ft("No"))}));return Z(co||(co=v(["\n        <ul class=",">\n            ","\n        </ul>\n    "],["\n        <ul class=",">\n            ","\n        </ul>\n    "])),uo(),i)}var _o,po,vo,fo=nn("footer");function ho(){return Z(_o||(_o=v(['\n        <div class="','">\n            <div class="','">© Vvideo</div>\n            <div class="','"><a target="_blank" href="https://github.com/vvideo/caniwatch">GitHub</a></div>\n        </div>'],['\n        <div class="','">\n            <div class="','">© Vvideo</div>\n            <div class="','"><a target="_blank" href="https://github.com/vvideo/caniwatch">GitHub</a></div>\n        </div>'])),fo(),fo("item"),fo("item"))}function mo(){var n=[],e=[],t=et(!1);t[0];var i,o,r,a=t[1],l=function(n){return We=5,it((function(){return{current:n}}),[])}({});(i={svg:Boolean(document.createElementNS&&document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect)},o={png:ee(Yn),apng:ee(Jn),jpeg:ee(zn),gif:ee($n),avif:ee(ne),webp:ee(Xn),heif:ee(Zn)},r=[],Object.keys(o).forEach((function(n){r.push(o[n].then((function(e){i[n]=e})))})),Promise.all(r).then((function(){return i}))).then((function(n){a(!0),l.current=n}));var c=l.current;return[{supported:c.gif,name:"GIF",color:"blue",tooltip:$n},{supported:c.jpeg,name:"JPEG",color:"blue",tooltip:zn},{supported:c.png,name:"PNG",color:"blue",tooltip:Yn},{supported:c.apng,name:"APNG",color:"blue",tooltip:Jn},{supported:c.svg,name:"SVG",color:"red",tooltip:Qn},{supported:c.webp,name:"WebP",color:"green",tooltip:Xn},{supported:c.heif,name:"HEIF",color:"orange",tooltip:Zn},{supported:c.avif,name:"AVIF",color:"yellow",tooltip:ne}].map((function(t){t.supported?n.push(Lt({name:t.name,color:t.color,tooltip:t.tooltip})):e.push(Lt({name:t.name,color:"black",disabled:!0,tooltip:t.tooltip}))})),Z(vo||(vo=v(["<",' name="','">\n        <',">\n            <",' name="','">\n                ',"\n            <//>\n            ","\n        <//>\n    <//>"],["<",' name="','">\n        <',">\n            <",' name="','">\n                ',"\n            <//>\n            ","\n        <//>\n    <//>"])),Pt,ft("Image Formats"),Xt,Bt,ft("Supported"),n.length?n:ft("No supported image formats."),e.length?Z(po||(po=v(["<",' name="','">',"<//>"],["<",' name="','">',"<//>"])),Bt,ft("Unsupported"),e):"")}var go,yo,bo,wo=nn("gpu");function So(){var n=function(){const n=document.createElement("canvas");try{const e=n.getContext("webgl");if(e)return e.getParameter(e.VENDOR)}catch(n){}try{const e=n.getContext("webgl")||n.getContext("experimental-webgl");if(e){const n=e.getExtension("WEBGL_debug_renderer_info");return e.getParameter(n.UNMASKED_VENDOR_WEBGL)}}catch(n){}return""}(),e=function(){const n=document.createElement("canvas");try{const e=n.getContext("webgl");if(e)return e.getParameter(e.RENDERER)}catch(n){}try{const e=n.getContext("webgl")||n.getContext("experimental-webgl");if(e){const n=e.getExtension("WEBGL_debug_renderer_info");return e.getParameter(n.UNMASKED_RENDERER_WEBGL)}}catch(n){}return""}();return n||e?Z(bo||(bo=v(["<",' name="','">\n        <ul class="','">\n            ',"\n            ","\n        </ul>\n    <//>"],["<",' name="','">\n        <ul class="','">\n            ',"\n            ","\n        </ul>\n    <//>"])),Pt,ft("GPU"),wo(),n?Z(go||(go=v(["<li>",": ","</li>"],["<li>",": ","</li>"])),ft("Vendor"),n):"",e?Z(yo||(yo=v(["<li>",": ","</li>"],["<li>",": ","</li>"])),ft("Renderer"),e):""):""}var Do,Co,ko,Po,xo=nn("main-page");(function(n){var e=n.browserInfo,t=n.counterId,i=n.pageParams,o=n.params,a={"browser-info":c(e,i.title),rn:r(),ut:i.ut};i.url&&(a["page-url"]=s(i.url)),i.referrer&&(a["page-ref"]=s(i.referrer)),o&&(a["site-info"]=JSON.stringify(o)),d(t,a)})({browserInfo:{pv:!0,ar:!0},counterId:"95998062",pageParams:{referrer:Co&&void 0!==Co.referrer?Co.referrer:n?document.referrer:"",title:Co&&void 0!==Co.title?Co.title:n?document.title:"",url:Co&&void 0!==Co.url?Co.url:e&&window.location?window.location.href:""},params:ko}),function(n){pt=n}((Po=function(){for(var n=window.location.search.slice(1).split("&"),e=0;e<n.length;e++){var t=n[e].split("="),i=t[0],o=t[1];if("lang"===i)return o}return""}()||(navigator.language||"").split("-")[0]||"en","en"!==Po&&"ru"!==Po&&(Po="en"),Po)),function(n,e,t){var i,o,r,a;h.__&&h.__(n,e),o=(i="function"==typeof t)?null:t&&t.__k||e.__k,r=[],a=[],G(e,n=(!i&&t||e).__k=E(M,null,[n]),o||S,S,void 0!==e.ownerSVGElement,!i&&t?[t]:o?null:e.firstChild?f.call(e.childNodes):null,r,!i&&t?t:o?o.__e:e.firstChild,i,a),n.__d=void 0,q(r,n,a)}(Z(Do||(Do=v(['\n        <div class="','">\n            <',"><//>\n\n            <","><//>\n            <","><//>\n\n            <",' name="','">\n                <',"><//>\n            <//>\n\n            <","><//>\n\n            <",' name="','">\n                <',"><//>\n            <//>\n\n            <",' name="DRM">\n                <',"><//>\n            <//>\n\n            <","><//>\n\n            <","><//>\n\n            <",' name="','">\n                <',"><//>\n            <//>\n\n            <",' name="','">\n                <',"><//>\n            <//>\n\n            <","><//>\n        </div>"],['\n        <div class="','">\n            <',"><//>\n\n            <","><//>\n            <","><//>\n\n            <",' name="','">\n                <',"><//>\n            <//>\n\n            <","><//>\n\n            <",' name="','">\n                <',"><//>\n            <//>\n\n            <",' name="DRM">\n                <',"><//>\n            <//>\n\n            <","><//>\n\n            <","><//>\n\n            <",' name="','">\n                <',"><//>\n            <//>\n\n            <",' name="','">\n                <',"><//>\n            <//>\n\n            <","><//>\n        </div>"])),xo(),oi,ao,Nt,Pt,ft("Audio"),Ne,ni,Pt,ft("Video Codecs"),ei,Pt,Ti,mo,So,Pt,ft("Native Streaming Support"),Vi,Pt,ft("HTMLVideoElement Features"),so,ho),document.querySelector(".page"))}));
+(function (factory) {
+    typeof define === 'function' && define.amd ? define(factory) :
+    factory();
+})((function () { 'use strict';
+
+    var hasDocument = typeof document !== 'undefined';
+    var hasWindow = typeof window !== 'undefined';
+    var hasNavigator = typeof navigator != 'undefined';
+    var hasScreen = typeof screen != 'undefined';
+    function getCharset() {
+        return hasDocument && typeof document.charset === 'string' ?
+            document.charset.toLowerCase() :
+            '';
+    }
+    function getPageUrl() {
+        return hasWindow && window.location ? window.location.href : '';
+    }
+    function getReferrer() {
+        return hasDocument ? document.referrer : '';
+    }
+    function getTitle() {
+        return hasDocument ? document.title : '';
+    }
+    function cookieEnabled() {
+        return hasNavigator ? navigator.cookieEnabled : false;
+    }
+    function getScreenSize() {
+        return hasScreen ? [
+            screen.width,
+            screen.height,
+            screen.colorDepth
+        ].join('x') : '';
+    }
+    function getClientSize() {
+        return hasWindow ? [
+            window.innerWidth,
+            window.innerHeight
+        ].join('x') : '';
+    }
+
+    function truncate(str, len) {
+        return (str || '').slice(0, len);
+    }
+
+    function getRandom() {
+        return Math.floor(Math.random() * (1 << 31 - 1));
+    }
+
+    function getSeconds() {
+        return Math.round(Date.now() / 1000);
+    }
+
+    var MAX_TITLE_LEN = 512;
+    function addParam(result, name, value) {
+        if (value || value === 0) {
+            result.push(name + ':' + (value === true ? '1' : value));
+        }
+    }
+    function getBrowserInfo(params, title) {
+        var result = [];
+        if (params) {
+            Object.keys(params).forEach(function (key) { return addParam(result, key, params[key]); });
+        }
+        addParam(result, 'rn', getRandom());
+        addParam(result, 'c', cookieEnabled());
+        addParam(result, 's', getScreenSize());
+        addParam(result, 'w', getClientSize());
+        addParam(result, 'en', getCharset());
+        var time = getSeconds();
+        addParam(result, 'et', time);
+        addParam(result, 'st', time);
+        addParam(result, 't', truncate(title, MAX_TITLE_LEN));
+        return result.join(':');
+    }
+
+    function queryStringify(params) {
+        return Object.keys(params)
+            .filter(function (key) { return params[key] || params[key] === 0; })
+            .map(function (key) { return encodeURIComponent(key) + '=' + encodeURIComponent(params[key]); })
+            .join('&');
+    }
+    var MAX_URL_LEN = 1024;
+    function prepareUrl(url) {
+        return truncate(url, MAX_URL_LEN);
+    }
+
+    function sendData(counterId, queryParams) {
+        var url = 'https://mc.yandex.ru/watch/' + counterId + '?' + queryStringify(queryParams);
+        var hasBeacon = typeof navigator !== 'undefined' && navigator.sendBeacon;
+        if (!hasBeacon || !navigator.sendBeacon(url, ' ')) {
+            if (typeof fetch !== 'undefined') {
+                fetch(url, { credentials: 'include' }).catch(function () { });
+            }
+            else if (typeof Image !== 'undefined') {
+                new Image().src = url;
+            }
+        }
+    }
+
+    function hitExt(hitExtParams) {
+        var browserInfo = hitExtParams.browserInfo, counterId = hitExtParams.counterId, pageParams = hitExtParams.pageParams, params = hitExtParams.params;
+        var data = {
+            'browser-info': getBrowserInfo(browserInfo, pageParams.title),
+            rn: getRandom(),
+            ut: pageParams.ut
+        };
+        if (pageParams.url) {
+            data['page-url'] = prepareUrl(pageParams.url);
+        }
+        if (pageParams.referrer) {
+            data['page-ref'] = prepareUrl(pageParams.referrer);
+        }
+        if (params) {
+            data['site-info'] = JSON.stringify(params);
+        }
+        sendData(counterId, data);
+    }
+    /**
+     * Отправка хита.
+     *
+     * @param counterId - Номер счётчика.
+     * @param hitParams -  Параметры страницы.
+     * @param userVars - Параметры визитов.
+     *
+     * @example
+     * hit('123456');
+     *
+     * hit('123456', {
+     *     referer: document.referer,
+     *     title: document.title,
+     *     url: window.location.href
+     * }, {
+     *     myParam: 'value'
+     * });
+     */
+    function hit(counterId, hitParams, params) {
+        var referrer = hitParams && hitParams.referrer !== undefined ?
+            hitParams.referrer :
+            getReferrer();
+        var title = hitParams && hitParams.title !== undefined ?
+            hitParams.title :
+            getTitle();
+        var url = hitParams && hitParams.url !== undefined ?
+            hitParams.url :
+            getPageUrl();
+        hitExt({
+            browserInfo: { pv: true, ar: true },
+            counterId: counterId,
+            pageParams: {
+                referrer: referrer,
+                title: title,
+                url: url
+            },
+            params: params
+        });
+    }
+
+    /******************************************************************************
+    Copyright (c) Microsoft Corporation.
+
+    Permission to use, copy, modify, and/or distribute this software for any
+    purpose with or without fee is hereby granted.
+
+    THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+    REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+    AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+    INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+    LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+    OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+    PERFORMANCE OF THIS SOFTWARE.
+    ***************************************************************************** */
+    /* global Reflect, Promise, SuppressedError, Symbol */
+
+    var extendStatics = function(d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+
+    function __extends(d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    }
+
+    var __assign = function() {
+        __assign = Object.assign || function __assign(t) {
+            for (var s, i = 1, n = arguments.length; i < n; i++) {
+                s = arguments[i];
+                for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+            }
+            return t;
+        };
+        return __assign.apply(this, arguments);
+    };
+
+    function __makeTemplateObject(cooked, raw) {
+        if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
+        return cooked;
+    }
+    typeof SuppressedError === "function" ? SuppressedError : function (error, suppressed, message) {
+        var e = new Error(message);
+        return e.name = "SuppressedError", e.error = error, e.suppressed = suppressed, e;
+    };
+
+    var n$1,l$1,u$1,i$1,o$1,r$1,f$1,c$1={},s$1=[],a$1=/acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i,h$1=Array.isArray;function v$1(n,l){for(var u in l)n[u]=l[u];return n}function p$1(n){var l=n.parentNode;l&&l.removeChild(n);}function y$1(l,u,t){var i,o,r,f={};for(r in u)"key"==r?i=u[r]:"ref"==r?o=u[r]:f[r]=u[r];if(arguments.length>2&&(f.children=arguments.length>3?n$1.call(arguments,2):t),"function"==typeof l&&null!=l.defaultProps)for(r in l.defaultProps)void 0===f[r]&&(f[r]=l.defaultProps[r]);return d$1(l,f,i,o,null)}function d$1(n,t,i,o,r){var f={type:n,props:t,key:i,ref:o,__k:null,__:null,__b:0,__e:null,__d:void 0,__c:null,constructor:void 0,__v:null==r?++u$1:r,__i:-1,__u:0};return null==r&&null!=l$1.vnode&&l$1.vnode(f),f}function g(n){return n.children}function b$m(n,l){this.props=n,this.context=l;}function m$2(n,l){if(null==l)return n.__?m$2(n.__,n.__i+1):null;for(var u;l<n.__k.length;l++)if(null!=(u=n.__k[l])&&null!=u.__e)return u.__e;return "function"==typeof n.type?m$2(n):null}function w$1(n,u,t){var i,o=n.__v,r=o.__e,f=n.__P;if(f)return (i=v$1({},o)).__v=o.__v+1,l$1.vnode&&l$1.vnode(i),M(f,i,o,n.__n,void 0!==f.ownerSVGElement,32&o.__u?[r]:null,u,null==r?m$2(o):r,!!(32&o.__u),t),i.__v=o.__v,i.__.__k[i.__i]=i,i.__d=void 0,i.__e!=r&&k$1(i),i}function k$1(n){var l,u;if(null!=(n=n.__)&&null!=n.__c){for(n.__e=n.__c.base=null,l=0;l<n.__k.length;l++)if(null!=(u=n.__k[l])&&null!=u.__e){n.__e=n.__c.base=u.__e;break}return k$1(n)}}function x$1(n){(!n.__d&&(n.__d=!0)&&i$1.push(n)&&!C$1.__r++||o$1!==l$1.debounceRendering)&&((o$1=l$1.debounceRendering)||r$1)(C$1);}function C$1(){var n,u,t,o=[],r=[];for(i$1.sort(f$1);n=i$1.shift();)n.__d&&(t=i$1.length,u=w$1(n,o,r)||u,0===t||i$1.length>t?(j$1(o,u,r),r.length=o.length=0,u=void 0,i$1.sort(f$1)):u&&l$1.__c&&l$1.__c(u,s$1));u&&j$1(o,u,r),C$1.__r=0;}function P(n,l,u,t,i,o,r,f,e,a,h){var v,p,y,d,_,g=t&&t.__k||s$1,b=l.length;for(u.__d=e,S(u,l,g),e=u.__d,v=0;v<b;v++)null!=(y=u.__k[v])&&"boolean"!=typeof y&&"function"!=typeof y&&(p=-1===y.__i?c$1:g[y.__i]||c$1,y.__i=v,M(n,y,p,i,o,r,f,e,a,h),d=y.__e,y.ref&&p.ref!=y.ref&&(p.ref&&N(p.ref,null,y),h.push(y.ref,y.__c||d,y)),null==_&&null!=d&&(_=d),65536&y.__u||p.__k===y.__k?e=$(y,e,n):"function"==typeof y.type&&void 0!==y.__d?e=y.__d:d&&(e=d.nextSibling),y.__d=void 0,y.__u&=-196609);u.__d=e,u.__e=_;}function S(n,l,u){var t,i,o,r,f,e=l.length,c=u.length,s=c,a=0;for(n.__k=[],t=0;t<e;t++)r=t+a,null!=(i=n.__k[t]=null==(i=l[t])||"boolean"==typeof i||"function"==typeof i?null:"string"==typeof i||"number"==typeof i||"bigint"==typeof i||i.constructor==String?d$1(null,i,null,null,null):h$1(i)?d$1(g,{children:i},null,null,null):void 0===i.constructor&&i.__b>0?d$1(i.type,i.props,i.key,i.ref?i.ref:null,i.__v):i)?(i.__=n,i.__b=n.__b+1,f=I(i,u,r,s),i.__i=f,o=null,-1!==f&&(s--,(o=u[f])&&(o.__u|=131072)),null==o||null===o.__v?(-1==f&&a--,"function"!=typeof i.type&&(i.__u|=65536)):f!==r&&(f===r+1?a++:f>r?s>e-r?a+=f-r:a--:f<r?f==r-1&&(a=f-r):a=0,f!==t+a&&(i.__u|=65536))):(o=u[r])&&null==o.key&&o.__e&&0==(131072&o.__u)&&(o.__e==n.__d&&(n.__d=m$2(o)),O(o,o,!1),u[r]=null,s--);if(s)for(t=0;t<c;t++)null!=(o=u[t])&&0==(131072&o.__u)&&(o.__e==n.__d&&(n.__d=m$2(o)),O(o,o));}function $(n,l,u){var t,i;if("function"==typeof n.type){for(t=n.__k,i=0;t&&i<t.length;i++)t[i]&&(t[i].__=n,l=$(t[i],l,u));return l}n.__e!=l&&(u.insertBefore(n.__e,l||null),l=n.__e);do{l=l&&l.nextSibling;}while(null!=l&&8===l.nodeType);return l}function I(n,l,u,t){var i=n.key,o=n.type,r=u-1,f=u+1,e=l[u];if(null===e||e&&i==e.key&&o===e.type&&0==(131072&e.__u))return u;if(t>(null!=e&&0==(131072&e.__u)?1:0))for(;r>=0||f<l.length;){if(r>=0){if((e=l[r])&&0==(131072&e.__u)&&i==e.key&&o===e.type)return r;r--;}if(f<l.length){if((e=l[f])&&0==(131072&e.__u)&&i==e.key&&o===e.type)return f;f++;}}return -1}function T(n,l,u){"-"===l[0]?n.setProperty(l,null==u?"":u):n[l]=null==u?"":"number"!=typeof u||a$1.test(l)?u:u+"px";}function A(n,l,u,t,i){var o;n:if("style"===l)if("string"==typeof u)n.style.cssText=u;else {if("string"==typeof t&&(n.style.cssText=t=""),t)for(l in t)u&&l in u||T(n.style,l,"");if(u)for(l in u)t&&u[l]===t[l]||T(n.style,l,u[l]);}else if("o"===l[0]&&"n"===l[1])o=l!==(l=l.replace(/(PointerCapture)$|Capture$/i,"$1")),l=l.toLowerCase()in n?l.toLowerCase().slice(2):l.slice(2),n.l||(n.l={}),n.l[l+o]=u,u?t?u.u=t.u:(u.u=Date.now(),n.addEventListener(l,o?L:D$1,o)):n.removeEventListener(l,o?L:D$1,o);else {if(i)l=l.replace(/xlink(H|:h)/,"h").replace(/sName$/,"s");else if("width"!==l&&"height"!==l&&"href"!==l&&"list"!==l&&"form"!==l&&"tabIndex"!==l&&"download"!==l&&"rowSpan"!==l&&"colSpan"!==l&&"role"!==l&&l in n)try{n[l]=null==u?"":u;break n}catch(n){}"function"==typeof u||(null==u||!1===u&&"-"!==l[4]?n.removeAttribute(l):n.setAttribute(l,u));}}function D$1(n){if(this.l){var u=this.l[n.type+!1];if(n.t){if(n.t<=u.u)return}else n.t=Date.now();return u(l$1.event?l$1.event(n):n)}}function L(n){if(this.l)return this.l[n.type+!0](l$1.event?l$1.event(n):n)}function M(n,u,t,i,o,r,f,e,c,s){var a,p,y,d,_,m,w,k,x,C,S,$,H,I,T,A=u.type;if(void 0!==u.constructor)return null;128&t.__u&&(c=!!(32&t.__u),r=[e=u.__e=t.__e]),(a=l$1.__b)&&a(u);n:if("function"==typeof A)try{if(k=u.props,x=(a=A.contextType)&&i[a.__c],C=a?x?x.props.value:a.__:i,t.__c?w=(p=u.__c=t.__c).__=p.__E:("prototype"in A&&A.prototype.render?u.__c=p=new A(k,C):(u.__c=p=new b$m(k,C),p.constructor=A,p.render=q$1),x&&x.sub(p),p.props=k,p.state||(p.state={}),p.context=C,p.__n=i,y=p.__d=!0,p.__h=[],p._sb=[]),null==p.__s&&(p.__s=p.state),null!=A.getDerivedStateFromProps&&(p.__s==p.state&&(p.__s=v$1({},p.__s)),v$1(p.__s,A.getDerivedStateFromProps(k,p.__s))),d=p.props,_=p.state,p.__v=u,y)null==A.getDerivedStateFromProps&&null!=p.componentWillMount&&p.componentWillMount(),null!=p.componentDidMount&&p.__h.push(p.componentDidMount);else {if(null==A.getDerivedStateFromProps&&k!==d&&null!=p.componentWillReceiveProps&&p.componentWillReceiveProps(k,C),!p.__e&&(null!=p.shouldComponentUpdate&&!1===p.shouldComponentUpdate(k,p.__s,C)||u.__v===t.__v)){for(u.__v!==t.__v&&(p.props=k,p.state=p.__s,p.__d=!1),u.__e=t.__e,u.__k=t.__k,u.__k.forEach(function(n){n&&(n.__=u);}),S=0;S<p._sb.length;S++)p.__h.push(p._sb[S]);p._sb=[],p.__h.length&&f.push(p);break n}null!=p.componentWillUpdate&&p.componentWillUpdate(k,p.__s,C),null!=p.componentDidUpdate&&p.__h.push(function(){p.componentDidUpdate(d,_,m);});}if(p.context=C,p.props=k,p.__P=n,p.__e=!1,$=l$1.__r,H=0,"prototype"in A&&A.prototype.render){for(p.state=p.__s,p.__d=!1,$&&$(u),a=p.render(p.props,p.state,p.context),I=0;I<p._sb.length;I++)p.__h.push(p._sb[I]);p._sb=[];}else do{p.__d=!1,$&&$(u),a=p.render(p.props,p.state,p.context),p.state=p.__s;}while(p.__d&&++H<25);p.state=p.__s,null!=p.getChildContext&&(i=v$1(v$1({},i),p.getChildContext())),y||null==p.getSnapshotBeforeUpdate||(m=p.getSnapshotBeforeUpdate(d,_)),P(n,h$1(T=null!=a&&a.type===g&&null==a.key?a.props.children:a)?T:[T],u,t,i,o,r,f,e,c,s),p.base=u.__e,u.__u&=-161,p.__h.length&&f.push(p),w&&(p.__E=p.__=null);}catch(n){u.__v=null,c||null!=r?(u.__e=e,u.__u|=c?160:32,r[r.indexOf(e)]=null):(u.__e=t.__e,u.__k=t.__k),l$1.__e(n,u,t);}else null==r&&u.__v===t.__v?(u.__k=t.__k,u.__e=t.__e):u.__e=z$1(t.__e,u,t,i,o,r,f,c,s);(a=l$1.diffed)&&a(u);}function j$1(n,u,t){for(var i=0;i<t.length;i++)N(t[i],t[++i],t[++i]);l$1.__c&&l$1.__c(u,n),n.some(function(u){try{n=u.__h,u.__h=[],n.some(function(n){n.call(u);});}catch(n){l$1.__e(n,u.__v);}});}function z$1(l,u,t,i,o,r,f,e,s){var a,v,y,d,_,g,b,w=t.props,k=u.props,x=u.type;if("svg"===x&&(o=!0),null!=r)for(a=0;a<r.length;a++)if((_=r[a])&&"setAttribute"in _==!!x&&(x?_.localName===x:3===_.nodeType)){l=_,r[a]=null;break}if(null==l){if(null===x)return document.createTextNode(k);l=o?document.createElementNS("http://www.w3.org/2000/svg",x):document.createElement(x,k.is&&k),r=null,e=!1;}if(null===x)w===k||e&&l.data===k||(l.data=k);else {if(r=r&&n$1.call(l.childNodes),w=t.props||c$1,!e&&null!=r)for(w={},a=0;a<l.attributes.length;a++)w[(_=l.attributes[a]).name]=_.value;for(a in w)_=w[a],"children"==a||("dangerouslySetInnerHTML"==a?y=_:"key"===a||a in k||A(l,a,null,_,o));for(a in k)_=k[a],"children"==a?d=_:"dangerouslySetInnerHTML"==a?v=_:"value"==a?g=_:"checked"==a?b=_:"key"===a||e&&"function"!=typeof _||w[a]===_||A(l,a,_,w[a],o);if(v)e||y&&(v.__html===y.__html||v.__html===l.innerHTML)||(l.innerHTML=v.__html),u.__k=[];else if(y&&(l.innerHTML=""),P(l,h$1(d)?d:[d],u,t,i,o&&"foreignObject"!==x,r,f,r?r[0]:t.__k&&m$2(t,0),e,s),null!=r)for(a=r.length;a--;)null!=r[a]&&p$1(r[a]);e||(a="value",void 0!==g&&(g!==l[a]||"progress"===x&&!g||"option"===x&&g!==w[a])&&A(l,a,g,w[a],!1),a="checked",void 0!==b&&b!==l[a]&&A(l,a,b,w[a],!1));}return l}function N(n,u,t){try{"function"==typeof n?n(u):n.current=u;}catch(n){l$1.__e(n,t);}}function O(n,u,t){var i,o;if(l$1.unmount&&l$1.unmount(n),(i=n.ref)&&(i.current&&i.current!==n.__e||N(i,null,u)),null!=(i=n.__c)){if(i.componentWillUnmount)try{i.componentWillUnmount();}catch(n){l$1.__e(n,u);}i.base=i.__P=null,n.__c=void 0;}if(i=n.__k)for(o=0;o<i.length;o++)i[o]&&O(i[o],u,t||"function"!=typeof n.type);t||null==n.__e||p$1(n.__e),n.__=n.__e=n.__d=void 0;}function q$1(n,l,u){return this.constructor(n,u)}function B$1(u,t,i){var o,r,f,e;l$1.__&&l$1.__(u,t),r=(o="function"==typeof i)?null:i&&i.__k||t.__k,f=[],e=[],M(t,u=(!o&&i||t).__k=y$1(g,null,[u]),r||c$1,c$1,void 0!==t.ownerSVGElement,!o&&i?[i]:r?null:t.firstChild?n$1.call(t.childNodes):null,f,!o&&i?i:r?r.__e:t.firstChild,o,e),u.__d=void 0,j$1(f,u,e);}n$1=s$1.slice,l$1={__e:function(n,l,u,t){for(var i,o,r;l=l.__;)if((i=l.__c)&&!i.__)try{if((o=i.constructor)&&null!=o.getDerivedStateFromError&&(i.setState(o.getDerivedStateFromError(n)),r=i.__d),null!=i.componentDidCatch&&(i.componentDidCatch(n,t||{}),r=i.__d),r)return i.__E=i}catch(l){n=l;}throw n}},u$1=0,b$m.prototype.setState=function(n,l){var u;u=null!=this.__s&&this.__s!==this.state?this.__s:this.__s=v$1({},this.state),"function"==typeof n&&(n=n(v$1({},u),this.props)),n&&v$1(u,n),null!=n&&this.__v&&(l&&this._sb.push(l),x$1(this));},b$m.prototype.forceUpdate=function(n){this.__v&&(this.__e=!0,n&&this.__h.push(n),x$1(this));},b$m.prototype.render=g,i$1=[],r$1="function"==typeof Promise?Promise.prototype.then.bind(Promise.resolve()):setTimeout,f$1=function(n,l){return n.__v.__b-l.__v.__b},C$1.__r=0;
+
+    var n=function(t,s,r,e){var u;s[0]=0;for(var h=1;h<s.length;h++){var p=s[h++],a=s[h]?(s[0]|=p?1:2,r[s[h++]]):s[++h];3===p?e[0]=a:4===p?e[1]=Object.assign(e[1]||{},a):5===p?(e[1]=e[1]||{})[s[++h]]=a:6===p?e[1][s[++h]]+=a+"":p?(u=t.apply(a,n(t,a,r,["",null])),e.push(u),a[0]?s[0]|=2:(s[h-2]=0,s[h]=u)):e.push(a);}return e},t$1=new Map;function e$1(s){var r=t$1.get(this);return r||(r=new Map,t$1.set(this,r)),(r=n(this,r.get(s)||(r.set(s,r=function(n){for(var t,s,r=1,e="",u="",h=[0],p=function(n){1===r&&(n||(e=e.replace(/^\s*\n\s*|\s*\n\s*$/g,"")))?h.push(0,n,e):3===r&&(n||e)?(h.push(3,n,e),r=2):2===r&&"..."===e&&n?h.push(4,n,0):2===r&&e&&!n?h.push(5,0,!0,e):r>=5&&((e||!n&&5===r)&&(h.push(r,0,e,s),r=6),n&&(h.push(r,n,0,s),r=6)),e="";},a=0;a<n.length;a++){a&&(1===r&&p(),p(a));for(var l=0;l<n[a].length;l++)t=n[a][l],1===r?"<"===t?(p(),h=[h],r=3):e+=t:4===r?"--"===e&&">"===t?(r=1,e=""):e=t+e[0]:u?t===u?u="":e+=t:'"'===t||"'"===t?u=t:">"===t?(p(),r=1):r&&("="===t?(r=5,s=e,e=""):"/"===t&&(r<5||">"===n[a][l+1])?(p(),3===r&&(h=h[0]),r=h,(h=h[0]).push(2,0,r),r=0):" "===t||"\t"===t||"\n"===t||"\r"===t?(p(),r=2):e+=t),3===r&&"!--"===e&&(r=4,h=h[0]);}return p(),h}(s)),r),arguments,[])).length>1?r:r[0]}
+
+    var m$1=e$1.bind(y$1);
+
+    function block(name) {
+        return function (mods) {
+            var className = name;
+            if (typeof mods === 'string') {
+                return "".concat(name, "__").concat(mods);
+            }
+            if (mods) {
+                Object.keys(mods).forEach(function (modName) {
+                    var modValue = mods[modName];
+                    if (modValue === false || modValue === null || modValue === undefined || modValue === '') {
+                        return;
+                    }
+                    className += ' ' + name + '_';
+                    if (mods[modName] === true) {
+                        className += modName;
+                    }
+                    else {
+                        className += modName + '_' + modValue;
+                    }
+                });
+            }
+            return className;
+        };
+    }
+
+    var b$l = block('badge');
+    function Badge(props) {
+        var _a, _b;
+        return m$1(templateObject_3$5 || (templateObject_3$5 = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n            <div class=\"", "\">", "</div>\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n            <div class=\"", "\">", "</div>\n            ", "\n        </div>\n    "])), b$l({
+            type: props.type,
+            background: props.background,
+            disabled: props.disabled,
+            hidden: props.hidden,
+            size: props.size,
+            click: props.click,
+        }), ((_a = props.top) === null || _a === void 0 ? void 0 : _a.text) ? m$1(templateObject_1$u || (templateObject_1$u = __makeTemplateObject(["<div class=\"", "\" title=\"", "\">", "</div>"], ["<div class=\"", "\" title=\"", "\">", "</div>"])), b$l('top-text'), props.top.title, props.top.text) : '', b$l('body'), props.text, ((_b = props.bottom) === null || _b === void 0 ? void 0 : _b.text) ? m$1(templateObject_2$e || (templateObject_2$e = __makeTemplateObject(["<div class=\"", "\" title=\"", "\">", "</div>"], ["<div class=\"", "\" title=\"", "\">", "</div>"])), b$l('bottom-text'), props.bottom.title, props.bottom.text) : '');
+    }
+    var templateObject_1$u, templateObject_2$e, templateObject_3$5;
+
+    const AAC_CONTENT_TYPE = 'audio/mp4; codecs="mp4a.40.2"';
+    const DOLBY_AC3_CONTENT_TYPE = 'audio/mp4; codecs="ac-3"';
+    const DOLBY_EC3_CONTENT_TYPE = 'audio/mp4; codecs="ec-3"';
+    const VORBIS_CONTENT_TYPE = 'audio/mp4; codecs="vorbis"';
+    const OPUS_CONTENT_TYPE = 'audio/mp4; codecs="opus"';
+    const FLAC_CONTENT_TYPE = 'audio/mp4; codecs="flac"';
+    const MP3_CONTENT_TYPE = 'audio/mpeg';
+    const MP4_AUDIO_CONTENT_TYPE = 'audio/mp4';
+    const MPEG_H_AUDIO_LC_PROFILE_LEVEL_3_CONTENT_TYPE = 'audio/mp4; codecs="mhm1.0x0D"';
+    const DTS_CORE_CONTENT_TYPE = 'audio/mp4; codecs="dtsc"';
+    const DTS_HD_CORE_PLUS_EXTENSION_CONTENT_TYPE = 'audio/mp4; codecs="dtsh"';
+    const DTS_UHD_PROFILE_2_CONTENT_TYPE = 'audio/mp4; codecs="dtsx"';
+
+    let defaultVideoElement;
+    function canPlayType(type) {
+        if (!defaultVideoElement) {
+            defaultVideoElement = document.createElement('video');
+        }
+        return defaultVideoElement.canPlayType ?
+            defaultVideoElement.canPlayType(type) :
+            '';
+    }
+
+    function isTypeSupported(value) {
+        if (!window.MediaSource) {
+            return false;
+        }
+        let result = false;
+        try {
+            result = MediaSource.isTypeSupported(value);
+        }
+        catch (e) { }
+        return result;
+    }
+
+    function isContentTypeSupported(contentType) {
+        const canPlayTypeResult = canPlayType(contentType) !== '';
+        const isTypeSupportedResult = isTypeSupported(contentType);
+        return {
+            file: canPlayTypeResult,
+            mediaSource: isTypeSupportedResult,
+            any: canPlayTypeResult || isTypeSupportedResult,
+            both: canPlayTypeResult && isTypeSupportedResult,
+            contentType,
+        };
+    }
+
+    function isMp3Supported() {
+        return isContentTypeSupported(MP3_CONTENT_TYPE);
+    }
+    function isMp4AudioSupported() {
+        return isContentTypeSupported(MP4_AUDIO_CONTENT_TYPE);
+    }
+    function isAacSupported() {
+        return isContentTypeSupported(AAC_CONTENT_TYPE);
+    }
+    function isDolbyDigitalSupported() {
+        return isContentTypeSupported(DOLBY_AC3_CONTENT_TYPE);
+    }
+    function isDolbyDigitalPlusSupported() {
+        return isContentTypeSupported(DOLBY_EC3_CONTENT_TYPE);
+    }
+    // audio/mp4; codecs="ec-3"; spatialRendering=true - no support
+    function isDolbyAtmosSupported() {
+        var _a, _b, _c;
+        // @ts-ignore
+        const cast = window.cast;
+        // Chromecast
+        if (cast) {
+            return Boolean((_c = (_b = (_a = cast.framework) === null || _a === void 0 ? void 0 : _a.system) === null || _b === void 0 ? void 0 : _b.DeviceCapabilities) === null || _c === void 0 ? void 0 : _c.IS_DOLBY_ATMOS_SUPPORTED);
+        }
+        let result = false;
+        // Hisense VIDAA
+        if (window.Hisense_GetSupportForDolbyAtmos) {
+            try {
+                result = window.Hisense_GetSupportForDolbyAtmos();
+            }
+            catch (e) { }
+        }
+        return result;
+    }
+    function isMpegHAudioSupported() {
+        return isContentTypeSupported(MPEG_H_AUDIO_LC_PROFILE_LEVEL_3_CONTENT_TYPE);
+    }
+    function isVorbisSupported() {
+        return isContentTypeSupported(VORBIS_CONTENT_TYPE);
+    }
+    function isFlacSupported() {
+        return isContentTypeSupported(FLAC_CONTENT_TYPE);
+    }
+    function isOpusSupported() {
+        return isContentTypeSupported(OPUS_CONTENT_TYPE);
+    }
+    function isDtsSupported() {
+        return isContentTypeSupported(DTS_CORE_CONTENT_TYPE);
+    }
+    function isDtsHdSupported() {
+        return isContentTypeSupported(DTS_HD_CORE_PLUS_EXTENSION_CONTENT_TYPE);
+    }
+    function isDtsXSupported() {
+        return isContentTypeSupported(DTS_UHD_PROFILE_2_CONTENT_TYPE);
+    }
+
+    const H264_BASELINE_CONTENT_TYPE = 'video/mp4; codecs="avc1.42E01E"';
+    const H264_MAIN_CONTENT_TYPE = 'video/mp4; codecs="avc1.4D401E"';
+    const H264_HIGH_CONTENT_TYPE = 'video/mp4; codecs="avc1.64001E"';
+    const VP8_CONTENT_TYPE = 'video/webm; codecs="vp8"';
+    const VP9_CONTENT_TYPE = 'video/webm; codecs="vp9"';
+    const AV1_CONTENT_TYPE = 'video/mp4; codecs="av01.0.01M.08"';
+    const HEV_MAIN_CONTENT_TYPE = 'video/mp4; codecs="hev1.1.6.L123.B0"';
+    const HEV_MAIN10_CONTENT_TYPE = 'video/mp4; codecs="hev1.2.4.L153.B0"';
+    // For iOS
+    const HVC_MAIN_CONTENT_TYPE = 'video/mp4; codecs="hvc1.1.6.L123.B0"';
+    const HVC_MAIN10_CONTENT_TYPE = 'video/mp4; codecs="hvc1.2.4.L153.B0"';
+    const DOLBY_VISION_CONTENT_TYPE = 'video/mp4; codecs="dvhe.08.09"';
+    const MPEG2T_CONTENT_TYPE = 'video/mp2t';
+    const VVC1_MAIN10_CONTENT_TYPE = 'vvc1.1.L67.CQA.O0+3';
+    const VVCI_MAIN10_CONTENT_TYPE = 'vvci.1.L67.CQA.O0+3';
+    const EVC_BASELINE_CONTENT_TYPE = 'evc1.vprf0.vlev123';
+    const EVC_MAIN_CONTENT_TYPE = 'evc1.vprf1.vlev153';
+
+    function isVp8Supported() {
+        return isContentTypeSupported(VP8_CONTENT_TYPE);
+    }
+    function isVp9Supported() {
+        return isContentTypeSupported(VP9_CONTENT_TYPE);
+    }
+    function isH264BaselineSupported() {
+        return isContentTypeSupported(H264_BASELINE_CONTENT_TYPE);
+    }
+    function isH264MainSupported() {
+        return isContentTypeSupported(H264_MAIN_CONTENT_TYPE);
+    }
+    function isH264HighSupported() {
+        return isContentTypeSupported(H264_HIGH_CONTENT_TYPE);
+    }
+    function isAV1Supported() {
+        return isContentTypeSupported(AV1_CONTENT_TYPE);
+    }
+    function isHevcMainSupported() {
+        const result = isContentTypeSupported(HEV_MAIN_CONTENT_TYPE);
+        if (result.any) {
+            return result;
+        }
+        return isContentTypeSupported(HVC_MAIN_CONTENT_TYPE);
+    }
+    function isHevcMain10Supported() {
+        const resultHev = isContentTypeSupported(HEV_MAIN10_CONTENT_TYPE);
+        if (resultHev.any) {
+            return resultHev;
+        }
+        return isContentTypeSupported(HVC_MAIN10_CONTENT_TYPE);
+    }
+    function isDolbyVisionSupported() {
+        return isContentTypeSupported(DOLBY_VISION_CONTENT_TYPE);
+    }
+    function isMpeg2TSupported() {
+        return isContentTypeSupported(MPEG2T_CONTENT_TYPE);
+    }
+    function isVvcMain10Supported() {
+        const result = isContentTypeSupported(VVC1_MAIN10_CONTENT_TYPE);
+        if (result.any) {
+            return result;
+        }
+        return isContentTypeSupported(VVCI_MAIN10_CONTENT_TYPE);
+    }
+    function isEvcBaselineSupported() {
+        return isContentTypeSupported(EVC_BASELINE_CONTENT_TYPE);
+    }
+    function isEvcMainSupported() {
+        return isContentTypeSupported(EVC_MAIN_CONTENT_TYPE);
+    }
+
+    const GIF_CONTENT_TYPE = 'image/gif';
+    const JPEG_CONTENT_TYPE = 'image/jpeg';
+    const PNG_CONTENT_TYPE = 'image/png';
+    const APNG_CONTENT_TYPE = 'image/apng';
+    const SVG_CONTENT_TYPE = 'image/svg+xml';
+    const WEBP_CONTENT_TYPE = 'image/webp';
+    const HEIF_CONTENT_TYPE = 'image/heif';
+    const AVIF_CONTENT_TYPE = 'image/avif';
+
+    function isGifSupported() {
+        return isImageSupported(GIF_CONTENT_TYPE);
+    }
+    function isJpegSupported() {
+        return isImageSupported(JPEG_CONTENT_TYPE);
+    }
+    function isPngSupported() {
+        return isImageSupported(PNG_CONTENT_TYPE);
+    }
+    function isAPngSupported() {
+        return isImageSupported(APNG_CONTENT_TYPE);
+    }
+    function isSvgSupported() {
+        return Boolean(document.createElementNS &&
+            document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect);
+    }
+    function isWebpSupported() {
+        return isImageSupported(WEBP_CONTENT_TYPE);
+    }
+    function isHeifSupported() {
+        return isImageSupported(HEIF_CONTENT_TYPE);
+    }
+    function isAvifSupported() {
+        return isImageSupported(AVIF_CONTENT_TYPE);
+    }
+    function isImageSupported(type) {
+        return new Promise((resolve) => {
+            const picture = document.createElement('picture');
+            const source = document.createElement('source');
+            source.srcset = 'data:,x';
+            source.type = type;
+            picture.appendChild(source);
+            const img = document.createElement('img');
+            picture.appendChild(img);
+            Promise.resolve().then(() => {
+                resolve(Boolean(img.currentSrc));
+            });
+        });
+    }
+
+    // https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent#Mobile_Tablet_or_Desktop
+    function getIsMobile() {
+        return /Mobi|Android/i.test(window.navigator.userAgent);
+    }
+
+    const MPD_CONTENT_TYPE = 'application/dash+xml';
+    const HLS_CONTENT_TYPE = 'application/vnd.apple.mpegurl';
+    const MSS_CONTENT_TYPE = 'application/vnd.ms-sstr+xml';
+
+    function isNativeHlsSupported() {
+        return canPlayType(HLS_CONTENT_TYPE) !== '';
+    }
+    function isNativeMpdSupported() {
+        return canPlayType(MPD_CONTENT_TYPE) !== '';
+    }
+    function isNativeMssSupported() {
+        return canPlayType(MSS_CONTENT_TYPE) !== '';
+    }
+
+    function isMseSupported() {
+        return Boolean(window.MediaSource && window.MediaSource.isTypeSupported);
+    }
+    function isEmeSupported() {
+        var _a, _b;
+        return Boolean(window.MediaKeys) &&
+            Boolean((_a = window.navigator) === null || _a === void 0 ? void 0 : _a.requestMediaKeySystemAccess) &&
+            Boolean((_b = window.MediaKeySystemAccess) === null || _b === void 0 ? void 0 : _b.prototype.getConfiguration);
+    }
+    function isMmsSupported() {
+        return Boolean(window.ManagedMediaSource &&
+            window.ManagedMediaSource.isTypeSupported);
+    }
+
+    function getDevicePixelRatio() {
+        return window.devicePixelRatio || 1;
+    }
+    function getScreenWidth() {
+        return screen.width * getDevicePixelRatio();
+    }
+    function isHdrScreenSupported() {
+        var _a, _b, _c;
+        if (window.Hisense_GetSupportForHDR) {
+            return window.Hisense_GetSupportForHDR() !== 'not support';
+        }
+        // @ts-ignore
+        const cast = window.cast;
+        // Chromecast
+        if (cast) {
+            return Boolean((_c = (_b = (_a = cast.framework) === null || _a === void 0 ? void 0 : _a.system) === null || _b === void 0 ? void 0 : _b.DeviceCapabilities) === null || _c === void 0 ? void 0 : _c.IS_HDR_SUPPORTED);
+        }
+        try {
+            const isHighSupported = checkDynamicRange('high');
+            const isStandardSupported = checkDynamicRange('standard');
+            if (!isStandardSupported) {
+                return undefined;
+            }
+            return Boolean(isStandardSupported && isHighSupported);
+        }
+        catch (e) { }
+        return undefined;
+    }
+    function checkDynamicRange(type) {
+        return window.matchMedia(`(dynamic-range: ${type})`).matches ||
+            // https://developer.mozilla.org/en-US/docs/Web/CSS/@media/video-dynamic-range
+            // For Firefox users on macOS 11+ (with HDR-compatible screens)
+            window.matchMedia(`(video-dynamic-range: ${type})`).matches;
+    }
+    // 15360×8640
+    const SCREEN_WIDTH_16K = 15360;
+    // 7680×4320, 8192×4320, 10000×3600, 10240×4320, 10240×5760
+    const SCREEN_WIDTH_10K = 10000;
+    // 7680×2160, 7680×4320, 8192×1024, 8192×1638, 8192×4320, 8192×5120
+    // 8192×5464, 8192×6144, 8192×8192, 8400×3600
+    const SCREEN_WIDTH_8K = 7680;
+    // 5760 × 3240, 6016×3200, 6016×3384, 6144×3240, 6144×3456, 6400×4096
+    const SCREEN_WIDTH_6K = 5760;
+    // 5120×1440, 5120×2160, 5120×2700, 5120×2880, 5120×3840, 5280×2160
+    const SCREEN_WIDTH_5K = 5120;
+    // 3656×2664, 3840×2160, 3996×2160, 4096×1716, 4096×2160, 4096×3072
+    const SCREEN_WIDTH_4K = 3656;
+    // 2560×1440
+    const SCREEN_WIDTH_2d5K = 2560;
+    // 2048×1080, 1998×1080, 2048×858
+    const SCREEN_WIDTH_2K = 1998;
+    // 1920×1080
+    const SCREEN_WIDTH_FULLHD = 1920;
+    // 1280×720
+    const SCREEN_WIDTH_HD = 1280;
+    function getResolutionBadge(width = getScreenWidth()) {
+        const sizes = [
+            {
+                badge: 'SD',
+                width: 0,
+            },
+            {
+                width: SCREEN_WIDTH_HD,
+                title: 'HD'
+            },
+            {
+                width: SCREEN_WIDTH_FULLHD,
+                title: 'FullHD'
+            },
+            {
+                width: SCREEN_WIDTH_2K,
+                title: '2K'
+            },
+            {
+                width: SCREEN_WIDTH_2d5K,
+                title: '2.5K'
+            },
+            {
+                width: SCREEN_WIDTH_4K,
+                title: '4K'
+            },
+            {
+                width: SCREEN_WIDTH_5K,
+                title: '5K'
+            },
+            {
+                width: SCREEN_WIDTH_6K,
+                title: '6K'
+            },
+            {
+                width: SCREEN_WIDTH_8K,
+                title: '8K'
+            },
+            {
+                width: SCREEN_WIDTH_10K,
+                title: '10K'
+            },
+            {
+                width: SCREEN_WIDTH_16K,
+                title: '16K'
+            },
+        ];
+        let supportedSize = sizes[0].title;
+        for (const item of sizes) {
+            if (item.width === width) {
+                supportedSize = item.title;
+                break;
+            }
+            if (item.width > width) {
+                break;
+            }
+            else {
+                supportedSize = `>${item.title}`;
+            }
+        }
+        return supportedSize;
+    }
+
+    function getGpuVendor() {
+        const canvas = document.createElement('canvas');
+        try {
+            const gl = canvas.getContext('webgl');
+            if (gl) {
+                return gl.getParameter(gl.VENDOR);
+            }
+        }
+        catch (e) { }
+        try {
+            const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+            if (gl) {
+                // @ts-ignore
+                const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+                // @ts-ignore
+                return gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL);
+            }
+        }
+        catch (e) { }
+        return '';
+    }
+    function getGpuRenderer() {
+        const canvas = document.createElement('canvas');
+        try {
+            const gl = canvas.getContext('webgl');
+            if (gl) {
+                return gl.getParameter(gl.RENDERER);
+            }
+        }
+        catch (e) { }
+        try {
+            const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+            if (gl) {
+                // @ts-ignore
+                const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+                // @ts-ignore
+                return gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+            }
+        }
+        catch (e) { }
+        return '';
+    }
+
+    const FAIRPLAY_KEY_SYSTEM = 'com.apple.fps';
+    const FAIRPLAY_V1_KEY_SYSTEM = 'com.apple.fps.1_0';
+    const FAIRPLAY_V2_KEY_SYSTEM = 'com.apple.fps.2_0';
+    const FAIRPLAY_V3_KEY_SYSTEM = 'com.apple.fps.3_0';
+    const WIDEWINE_KEY_SYSTEM = 'com.widevine.alpha';
+    // https://github.com/shaka-project/shaka-player/blob/main/docs/tutorials/drm-config.md
+    const PLAYREADY_KEY_SYSTEM = 'com.microsoft.playready';
+    const PLAYREADY_RECOMMENDATION_KEY_SYSTEM = 'com.microsoft.playready.recommendation';
+    const PRIMETIME_KEY_SYSTEM = 'com.adobe.primetime';
+    const CLEAR_KEY_SYSTEM = 'org.w3.clearkey';
+
+    function requestMediaKeySystemAccess(keySystem, supportedConfigurations) {
+        if (!navigator.requestMediaKeySystemAccess) {
+            return Promise.resolve(false);
+        }
+        return navigator.requestMediaKeySystemAccess(keySystem, supportedConfigurations).then(() => true).catch(() => false);
+    }
+
+    function isFairPlaySupported(contentType = H264_BASELINE_CONTENT_TYPE, initDataTypes = ['cenc']) {
+        return requestMediaKeySystemAccess(FAIRPLAY_KEY_SYSTEM, [
+            {
+                initDataTypes,
+                videoCapabilities: [
+                    {
+                        contentType,
+                    },
+                ],
+            },
+        ]);
+    }
+    function isFairPlayV1Supported(contentType = H264_BASELINE_CONTENT_TYPE, initDataTypes = ['cenc']) {
+        return requestMediaKeySystemAccess(FAIRPLAY_V1_KEY_SYSTEM, [
+            {
+                initDataTypes,
+                videoCapabilities: [
+                    {
+                        contentType,
+                    },
+                ],
+            },
+        ]);
+    }
+    function isFairPlayV2Supported(contentType = H264_BASELINE_CONTENT_TYPE, initDataTypes = ['cenc']) {
+        return requestMediaKeySystemAccess(FAIRPLAY_V2_KEY_SYSTEM, [
+            {
+                initDataTypes,
+                videoCapabilities: [
+                    {
+                        contentType,
+                    },
+                ],
+            },
+        ]);
+    }
+    function isFairPlayV3Supported(contentType = H264_BASELINE_CONTENT_TYPE, initDataTypes = ['cenc']) {
+        return requestMediaKeySystemAccess(FAIRPLAY_V3_KEY_SYSTEM, [
+            {
+                initDataTypes,
+                videoCapabilities: [
+                    {
+                        contentType,
+                    },
+                ],
+            },
+        ]);
+    }
+
+    function isWidevineSupported(contentType = H264_BASELINE_CONTENT_TYPE, initDataTypes = ['cenc']) {
+        return requestMediaKeySystemAccess(WIDEWINE_KEY_SYSTEM, [
+            {
+                initDataTypes,
+                videoCapabilities: [
+                    {
+                        contentType,
+                    },
+                ],
+            },
+        ]);
+    }
+    function isWidevineL1Supported(contentType = H264_BASELINE_CONTENT_TYPE, initDataTypes = ['cenc']) {
+        return requestMediaKeySystemAccess(WIDEWINE_KEY_SYSTEM, [
+            {
+                initDataTypes,
+                videoCapabilities: [
+                    {
+                        contentType,
+                        robustness: 'HW_SECURE_DECODE',
+                    },
+                ],
+            },
+        ]);
+    }
+    function isWidevineL3Supported(contentType = H264_BASELINE_CONTENT_TYPE, initDataTypes = ['cenc']) {
+        return requestMediaKeySystemAccess(WIDEWINE_KEY_SYSTEM, [
+            {
+                initDataTypes,
+                videoCapabilities: [
+                    {
+                        contentType,
+                        robustness: 'SW_SECURE_DECODE',
+                    },
+                ],
+            },
+        ]);
+    }
+
+    function isPlayReadySupported(contentType = H264_BASELINE_CONTENT_TYPE, initDataTypes = ['cenc']) {
+        return requestMediaKeySystemAccess(PLAYREADY_KEY_SYSTEM, [
+            {
+                initDataTypes,
+                videoCapabilities: [
+                    {
+                        contentType,
+                    },
+                ],
+            },
+        ]);
+    }
+    function isPlayReadySL150Supported(contentType = H264_BASELINE_CONTENT_TYPE, initDataTypes = ['cenc']) {
+        return requestMediaKeySystemAccess(PLAYREADY_KEY_SYSTEM, [
+            {
+                initDataTypes,
+                videoCapabilities: [
+                    {
+                        contentType,
+                        robustness: '150',
+                    },
+                ],
+            },
+        ]);
+    }
+    function isPlayReadySL2000Supported(contentType = H264_BASELINE_CONTENT_TYPE, initDataTypes = ['cenc']) {
+        return requestMediaKeySystemAccess(PLAYREADY_RECOMMENDATION_KEY_SYSTEM, [
+            {
+                initDataTypes,
+                videoCapabilities: [
+                    {
+                        contentType,
+                        robustness: '2000',
+                    },
+                ],
+            },
+        ]);
+    }
+    function isPlayReadySL3000Supported(contentType = H264_BASELINE_CONTENT_TYPE, initDataTypes = ['cenc']) {
+        return requestMediaKeySystemAccess(PLAYREADY_RECOMMENDATION_KEY_SYSTEM, [
+            {
+                initDataTypes,
+                videoCapabilities: [
+                    {
+                        contentType,
+                        robustness: '3000',
+                    },
+                ],
+            },
+        ]);
+    }
+
+    function isPrimetimeSupported() {
+        return requestMediaKeySystemAccess(PRIMETIME_KEY_SYSTEM, [
+            {
+                initDataTypes: ['cenc'],
+                videoCapabilities: [
+                    {
+                        contentType: H264_BASELINE_CONTENT_TYPE,
+                    },
+                ],
+            },
+        ]);
+    }
+
+    function isClearKeySupported() {
+        return requestMediaKeySystemAccess(CLEAR_KEY_SYSTEM, [
+            {
+                initDataTypes: ['cenc'],
+                videoCapabilities: [
+                    {
+                        contentType: H264_BASELINE_CONTENT_TYPE,
+                    },
+                ],
+            },
+        ]);
+    }
+
+    function isPipSupported() {
+        const video = document.createElement('video');
+        return 'pictureInPictureEnabled' in document || 'webkitPresentationMode' in video;
+    }
+
+    var b$k = block('audio-badges');
+    function AudioBadges() {
+        var audioCodecs20 = [];
+        var audioCodecs51 = [];
+        if (isAacSupported().any) {
+            audioCodecs20.push('AAC');
+        }
+        if (isDolbyDigitalSupported().any) {
+            audioCodecs51.push('Dolby Digital');
+        }
+        if (isDolbyDigitalPlusSupported().any) {
+            audioCodecs51.push('Dolby Digital Plus');
+        }
+        if (isDolbyAtmosSupported()) {
+            audioCodecs51.push('Dolby Atmos');
+        }
+        var has51 = audioCodecs51.length;
+        return m$1(templateObject_1$t || (templateObject_1$t = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "])), b$k(), Badge({
+            text: has51 ? '5.1' : '2.0',
+            background: has51 ? 'gold' : 'transparent',
+            bottom: {
+                text: (has51 ? audioCodecs51 : audioCodecs20).join(', '),
+            },
+        }));
+    }
+    var templateObject_1$t;
+
+    const standardAspectRatio = [
+        [1, 1],
+        [3, 2],
+        [4, 1],
+        [4, 3],
+        [5, 3],
+        [5, 4],
+        [16, 9],
+        [16, 10],
+        [21, 9],
+        [32, 9],
+        // Ultra Wide
+        [12, 5],
+        [43, 18],
+        [64, 27],
+        // Super Wide
+        [16, 5],
+        [18, 5],
+        [32, 9],
+    ].map(item => {
+        const [x, y] = item;
+        return ({
+            x,
+            y,
+            value: `${x}:${y}`,
+            ratio: x / y,
+        });
+    });
+    const ratios = standardAspectRatio.map(item => item.ratio).sort();
+    const hashStandardRatios = standardAspectRatio.reduce((previous, currentValue) => {
+        previous[currentValue.ratio] = currentValue;
+        return previous;
+    }, {});
+    const DEFAULT_TOLERANCE = 0.06;
+    function calcAspectRatio(width, height, options = { tolerance: DEFAULT_TOLERANCE }) {
+        const ratio = Math.max(width, height) / Math.min(width, height);
+        const standardRatio = hashStandardRatios[ratio];
+        if (standardRatio) {
+            return {
+                x: standardRatio.x,
+                y: standardRatio.y,
+                value: standardRatio.value,
+                approximately: false,
+                nonStandard: false,
+            };
+        }
+        const element = findElement(ratios, ratio, options.tolerance);
+        if (element) {
+            const result = hashStandardRatios[element];
+            return {
+                x: result.x,
+                y: result.y,
+                value: `≈${result.value}`,
+                approximately: true,
+                nonStandard: false,
+            };
+        }
+        const divisor = gcd(width, height);
+        let x = width / divisor;
+        let y = height / divisor;
+        if (divisor === 1) {
+            x = Math.round(ratio * 100) / 100;
+            y = 1;
+        }
+        return {
+            x,
+            y,
+            value: `${x}:${y}`,
+            approximately: false,
+            nonStandard: true,
+        };
+    }
+    function findElement(elems, value, tolerance) {
+        for (let i = 0; i < elems.length; i++) {
+            const diff = Math.abs(elems[i] - value);
+            if (diff < tolerance) {
+                return elems[i];
+            }
+        }
+        return undefined;
+    }
+    function gcd(a = 0, b = 0) {
+        while (b) {
+            [a, b] = [b, a % b];
+        }
+        return a;
+    }
+
+    var t,r,u,i,o=0,f=[],c=[],e=l$1,a=e.__b,v=e.__r,l=e.diffed,m=e.__c,s=e.unmount,d=e.__;function h(n,t){e.__h&&e.__h(r,n,o||t),o=0;var u=r.__H||(r.__H={__:[],__h:[]});return n>=u.__.length&&u.__.push({__V:c}),u.__[n]}function p(n){return o=1,y(D,n)}function y(n,u,i){var o=h(t++,2);if(o.t=n,!o.__c&&(o.__=[i?i(u):D(void 0,u),function(n){var t=o.__N?o.__N[0]:o.__[0],r=o.t(t,n);t!==r&&(o.__N=[r,o.__[1]],o.__c.setState({}));}],o.__c=r,!r.u)){var f=function(n,t,r){if(!o.__c.__H)return !0;var u=o.__c.__H.__.filter(function(n){return !!n.__c});if(u.every(function(n){return !n.__N}))return !c||c.call(this,n,t,r);var i=!1;return u.forEach(function(n){if(n.__N){var t=n.__[0];n.__=n.__N,n.__N=void 0,t!==n.__[0]&&(i=!0);}}),!(!i&&o.__c.props===n)&&(!c||c.call(this,n,t,r))};r.u=!0;var c=r.shouldComponentUpdate,e=r.componentWillUpdate;r.componentWillUpdate=function(n,t,r){if(this.__e){var u=c;c=void 0,f(n,t,r),c=u;}e&&e.call(this,n,t,r);},r.shouldComponentUpdate=f;}return o.__N||o.__}function _(n,u){var i=h(t++,3);!e.__s&&C(i.__H,u)&&(i.__=n,i.i=u,r.__H.__h.push(i));}function F(n){return o=5,q(function(){return {current:n}},[])}function q(n,r){var u=h(t++,7);return C(u.__H,r)?(u.__V=n(),u.i=r,u.__h=n,u.__V):u.__}function x(n,t){return o=8,q(function(){return n},t)}function j(){for(var n;n=f.shift();)if(n.__P&&n.__H)try{n.__H.__h.forEach(z),n.__H.__h.forEach(B),n.__H.__h=[];}catch(t){n.__H.__h=[],e.__e(t,n.__v);}}e.__b=function(n){r=null,a&&a(n);},e.__=function(n,t){n&&t.__k&&t.__k.__m&&(n.__m=t.__k.__m),d&&d(n,t);},e.__r=function(n){v&&v(n),t=0;var i=(r=n.__c).__H;i&&(u===r?(i.__h=[],r.__h=[],i.__.forEach(function(n){n.__N&&(n.__=n.__N),n.__V=c,n.__N=n.i=void 0;})):(i.__h.forEach(z),i.__h.forEach(B),i.__h=[],t=0)),u=r;},e.diffed=function(n){l&&l(n);var t=n.__c;t&&t.__H&&(t.__H.__h.length&&(1!==f.push(t)&&i===e.requestAnimationFrame||((i=e.requestAnimationFrame)||w)(j)),t.__H.__.forEach(function(n){n.i&&(n.__H=n.i),n.__V!==c&&(n.__=n.__V),n.i=void 0,n.__V=c;})),u=r=null;},e.__c=function(n,t){t.some(function(n){try{n.__h.forEach(z),n.__h=n.__h.filter(function(n){return !n.__||B(n)});}catch(r){t.some(function(n){n.__h&&(n.__h=[]);}),t=[],e.__e(r,n.__v);}}),m&&m(n,t);},e.unmount=function(n){s&&s(n);var t,r=n.__c;r&&r.__H&&(r.__H.__.forEach(function(n){try{z(n);}catch(n){t=n;}}),r.__H=void 0,t&&e.__e(t,r.__v));};var k="function"==typeof requestAnimationFrame;function w(n){var t,r=function(){clearTimeout(u),k&&cancelAnimationFrame(t),setTimeout(n);},u=setTimeout(r,100);k&&(t=requestAnimationFrame(r));}function z(n){var t=r,u=n.__c;"function"==typeof u&&(n.__c=void 0,u()),r=t;}function B(n){var t=r;n.__c=n.__(),r=t;}function C(n,t){return !n||n.length!==t.length||t.some(function(t,r){return t!==n[r]})}function D(n,t){return "function"==typeof t?t(n):t}
+
+    function hasZoom() {
+        if (getIsMobile()) {
+            return false;
+        }
+        var devicePixelRatio = getDevicePixelRatio();
+        var floorDevicePixelRatio = Math.floor(devicePixelRatio);
+        if (devicePixelRatio === 1.5) {
+            return false;
+        }
+        if (devicePixelRatio !== floorDevicePixelRatio) {
+            return true;
+        }
+        if (devicePixelRatio > 4) {
+            return true;
+        }
+        return false;
+    }
+
+    var keysets = {
+        'Can I Watch Video': {
+            'en': 'Can I\u00a0Watch Video',
+            'ru': 'Могу ли я\u00a0смотреть видео?'
+        },
+        'Audio Codecs': {
+            'en': 'Audio Codecs',
+            'ru': 'Аудиокодеки'
+        },
+        'Video Codecs': {
+            'en': 'Video Codecs',
+            'ru': 'Видеокодеки'
+        },
+        'Supported': {
+            'en': 'Supported',
+            'ru': 'Поддерживаемые'
+        },
+        'No supported audio codecs.': {
+            'en': 'No supported audio codecs.',
+            'ru': 'Нет поддерживаемых аудиокодеков.'
+        },
+        'No supported video codecs.': {
+            'en': 'No supported video codecs.',
+            'ru': 'Нет поддерживаемых видеокодеков.'
+        },
+        'Unsupported': {
+            'en': 'Unsupported',
+            'ru': 'Не поддерживаемые'
+        },
+        'Size': {
+            'en': 'Size',
+            'ru': 'Размер'
+        },
+        'Color depth': {
+            'en': 'Color depth',
+            'ru': 'Глубина цвета'
+        },
+        'Audio': {
+            'en': 'Audio',
+            'ru': 'Аудио'
+        },
+        'Video': {
+            'en': 'Video',
+            'ru': 'Видео'
+        },
+        'Image Formats': {
+            'en': 'Image Formats',
+            'ru': 'Форматы картинок'
+        },
+        'Native Streaming Support': {
+            'en': 'Native Streaming Support',
+            'ru': 'Поддержка нативного стримминга'
+        },
+        'Yes': {
+            'en': 'Yes',
+            'ru': 'Да'
+        },
+        'No': {
+            'en': 'No',
+            'ru': 'Нет'
+        },
+        'Warning': {
+            'en': 'Warning',
+            'ru': 'Предупреждение'
+        },
+        'Screens': {
+            'en': 'Screens',
+            'ru': 'Экраны'
+        },
+        'Screen': {
+            'en': 'Screen',
+            'ru': 'Экран'
+        },
+        'No supported image formats.': {
+            'en': 'No supported image formats.',
+            'ru': 'Нет поддерживаемых форматов картинок.'
+        },
+        'Can I listen surround sound on online services?': {
+            'en': 'Can I listen surround sound on online services?',
+            'ru': 'Могу ли я услышать многоканальный звук в онлайн-сервисах?'
+        },
+        'HTMLVideoElement Features': {
+            'en': 'HTMLVideoElement Features',
+            'ru': 'Возможности HTMLVideoElement'
+        },
+        'Aspect ratio': {
+            'en': 'Aspect ratio',
+            'ru': 'Соотн. сторон'
+        },
+        'Primary': {
+            'en': 'Primary',
+            'ru': 'Основной'
+        },
+        'Internal': {
+            'en': 'Internal',
+            'ru': 'Внутренний'
+        },
+        'Please reset zoom in the page': {
+            'en': 'Please reset zoom in the page',
+            'ru': 'Необходимо сбросить зум на странице'
+        },
+        'Can I watch HDR video?': {
+            'en': 'Can I watch HDR video?',
+            'ru': 'Могу ли я смотреть HDR видео?'
+        },
+        'Has support one of the audio codecs?': {
+            'en': 'Has support one of the audio codecs?',
+            'ru': 'Поддержка одного из аудиокодеков?'
+        },
+        'Is this a HDR screen?': {
+            'en': 'Is this a HDR screen?',
+            'ru': 'Это HDR экран?'
+        },
+        'Has support one of the video codecs?': {
+            'en': 'Has support one of the video codecs?',
+            'ru': 'Поддержка одного из видеокодеков?'
+        },
+        'Has support one of the video codecs and DRM with high security level?': {
+            'en': 'Has support one of the video codecs and DRM with high security level?',
+            'ru': 'Поддержка одного из видеокодеков и DRM с высоким уровнем безопасности?'
+        },
+        'Can I watch 4K video on online services?': {
+            'en': 'Can I watch 4K video on online services?',
+            'ru': 'Могу ли я смотреть 4К видео в онлайн-сервисах?'
+        },
+        'Online services protect content using': {
+            'en': 'Online services protect content using',
+            'ru': 'Онлайн-сервисы защищают контент с помощью'
+        },
+        'Has DRM support?': {
+            'en': 'Has DRM support?',
+            'ru': 'Есть поддержка DRM?'
+        },
+        'Can I watch 4K video?': {
+            'en': 'Can I watch 4K video?',
+            'ru': 'Могу ли я смотреть 4К видео?'
+        },
+        'Is the screen larger than 2K?': {
+            'en': 'Is the screen larger than 2K?',
+            'ru': 'Экран больше чем 2К?'
+        },
+        'link:wiki:drm': {
+            'en': 'https://en.wikipedia.org/wiki/Digital_rights_management',
+            'ru': 'https://ru.wikipedia.org/wiki/Digital_rights_management'
+        },
+        'bit': {
+            'en': 'bit',
+            'ru': 'бит'
+        },
+        'Not detected': {
+            'en': 'Not detected',
+            'ru': 'Не обнаружено'
+        },
+        'Security level': {
+            'en': 'Security level',
+            'ru': 'Уровень безопасности'
+        },
+        'Security levels': {
+            'en': 'Security levels',
+            'ru': 'Уровни безопасности'
+        },
+        'Key system': {
+            'en': 'Key system',
+            'ru': 'Система ключей'
+        },
+        'Key systems': {
+            'en': 'Key systems',
+            'ru': 'Системы ключей'
+        },
+        'Request': {
+            'en': 'Request',
+            'ru': 'Запрос'
+        },
+        'Renderer': {
+            'en': 'Renderer',
+            'ru': 'Рендерер'
+        },
+        'Vendor': {
+            'en': 'Vendor',
+            'ru': 'Поставщик'
+        },
+        'GPU': {
+            'en': 'GPU',
+            'ru': 'GPU'
+        },
+        'HDCP version': {
+            'en': 'HDCP version',
+            'ru': 'HDCP версия'
+        }
+    };
+
+    var i18nKeysets = keysets;
+    var i18nLang;
+    function i18n(id) {
+        var key = i18nKeysets[id];
+        if (!key) {
+            console.error("Not found key \"".concat(id, "\" in getText()."));
+            return '';
+        }
+        var value = key[i18nLang];
+        if (typeof value === 'undefined') {
+            console.error("Not found key \"".concat(id, "\", lang \"").concat(i18nLang, "\" in getText()."));
+            return '';
+        }
+        return value;
+    }
+    function setI18nLang(lang) {
+        i18nLang = lang;
+    }
+
+    var b$j = block('screen-badge');
+    function ScreenBadge(props) {
+        var _a = p(true), withDevicePixelRatio = _a[0], setWithDevicePixelRatio = _a[1];
+        var handleClick = x(function () {
+            setWithDevicePixelRatio(!withDevicePixelRatio);
+        }, [withDevicePixelRatio]);
+        var screenSize = withDevicePixelRatio ?
+            [props.width, props.height, props.devicePixelRatio].join('×') :
+            [props.width * props.devicePixelRatio, props.height * props.devicePixelRatio].join('×');
+        var screenText = m$1(templateObject_4$2 || (templateObject_4$2 = __makeTemplateObject(["\n        <div>", ": ", "</div>\n        ", "\n        <div>", ": ", " ", "</div>\n        <div>", ": ", "</div>\n        ", "\n        ", "\n    "], ["\n        <div>", ": ", "</div>\n        ", "\n        <div>", ": ", " ", "</div>\n        <div>", ": ", "</div>\n        ", "\n        ", "\n    "])), i18n('Size'), screenSize, hasZoom() ? m$1(templateObject_1$s || (templateObject_1$s = __makeTemplateObject(["<div>\u26A0 ", "</div>"], ["<div>\u26A0 ", "</div>"])), i18n('Please reset zoom in the page')) : '', i18n('Color depth'), props.colorDepth, i18n('bit'), i18n('Aspect ratio'), calcAspectRatio(props.width, props.height).value, props.isPrimary ? m$1(templateObject_2$d || (templateObject_2$d = __makeTemplateObject(["<div>", ": ", "</div>"], ["<div>", ": ", "</div>"])), i18n('Primary'), i18n('Yes')) : '', props.isInternal ? m$1(templateObject_3$4 || (templateObject_3$4 = __makeTemplateObject(["<div>", ": ", "</div>"], ["<div>", ": ", "</div>"])), i18n('Internal'), i18n('Yes')) : '');
+        var isHDR = props.isScreenDetails ? props.colorDepth > 24 : isHdrScreenSupported();
+        return m$1(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n        <div class=\"", "\" onClick=", ">\n            <div class=\"", "\">", "</div>\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\" onClick=", ">\n            <div class=\"", "\">", "</div>\n            ", "\n        </div>\n    "])), b$j(), handleClick, b$j('label'), props.label, Badge({
+            text: getResolutionBadge(Math.max(props.width, props.height) * props.devicePixelRatio) || '',
+            type: '4k',
+            click: true,
+            background: 'gold',
+            top: {
+                text: isHDR ? m$1(templateObject_5$1 || (templateObject_5$1 = __makeTemplateObject(["<b>HDR</b>"], ["<b>HDR</b>"]))) : '',
+            },
+            bottom: {
+                text: screenText,
+                title: [props.width * props.devicePixelRatio, props.height * props.devicePixelRatio].join('×'),
+            },
+        }));
+    }
+    var templateObject_1$s, templateObject_2$d, templateObject_3$4, templateObject_4$2, templateObject_5$1, templateObject_6;
+
+    var b$i = block('row');
+    function Row(props) {
+        return m$1(templateObject_1$r || (templateObject_1$r = __makeTemplateObject(["<div class=\"", "\">\n        <div class=\"", "\">", "</div>\n        <div class=\"", "\">", "</div>\n    </div>"], ["<div class=\"", "\">\n        <div class=\"", "\">", "</div>\n        <div class=\"", "\">", "</div>\n    </div>"])), b$i(), b$i('category'), props.name, b$i('body'), props.children);
+    }
+    var templateObject_1$r;
+
+    var ScreenInfo = /** @class */ (function () {
+        function ScreenInfo() {
+            var _this = this;
+            this.listeners = [];
+            this.devicePixelRatio = getDevicePixelRatio();
+            this.isScreenDetails = false;
+            this.screens = [];
+            this.timer = -1;
+            this.needUserActivity = false;
+            this.handleScreenChange = function () {
+                _this.emit();
+            };
+            var screenJson = JSON.stringify(this.getScreen());
+            this.timer = window.setInterval(function () {
+                var currentDevicePixelRation = getDevicePixelRatio();
+                if (_this.devicePixelRatio !== currentDevicePixelRation) {
+                    _this.devicePixelRatio = currentDevicePixelRation;
+                    _this.handleScreenChange();
+                }
+                if (window.screen.addEventListener) {
+                    return;
+                }
+                var currentScreenJson = JSON.stringify(_this.getScreen());
+                if (screenJson !== currentScreenJson) {
+                    screenJson = currentScreenJson;
+                    _this.handleScreenChange();
+                }
+            }, 500);
+            this.bindScreenChange();
+            this.getScreenDetails();
+        }
+        ScreenInfo.prototype.addListener = function (callback) {
+            this.listeners.push(callback);
+        };
+        ScreenInfo.prototype.removeListener = function (callback) {
+            this.listeners = this.listeners.filter(function (item) {
+                return item !== callback;
+            });
+        };
+        ScreenInfo.prototype.getScreenDetails = function () {
+            var _this = this;
+            if (!window.getScreenDetails) {
+                return Promise.resolve();
+            }
+            return window.getScreenDetails().then(function (result) {
+                window.clearInterval(_this.timer);
+                _this.isScreenDetails = true;
+                _this.needUserActivity = false;
+                _this.screens = result.screens;
+                _this.emit();
+                _this.unbindScreenChange();
+                _this.bindScreensChange(result.screens);
+                result.onscreenschange = function () {
+                    _this.bindScreensChange(result.screens);
+                    _this.screens = result.screens;
+                    _this.emit();
+                };
+                return result;
+            }).catch(function (e) {
+                // @ts-ignore
+                navigator.permissions.query({ name: 'window-management' }).then(function (result) {
+                    if (result.state === 'denied') {
+                        _this.needUserActivity = false;
+                    }
+                    else {
+                        _this.needUserActivity = true;
+                    }
+                    _this.emit();
+                });
+                _this.needUserActivity = true;
+                _this.emit();
+                throw e;
+            });
+        };
+        ScreenInfo.prototype.bindScreensChange = function (screens) {
+            var _this = this;
+            screens.forEach(function (screen) {
+                if (screen.removeEventListener) {
+                    screen.removeEventListener('change', _this.handleScreenChange);
+                }
+                if (screen.addEventListener) {
+                    screen.addEventListener('change', _this.handleScreenChange);
+                }
+            });
+        };
+        ScreenInfo.prototype.bindScreenChange = function () {
+            this.unbindScreenChange();
+            if (screen.addEventListener) {
+                screen.addEventListener('change', this.handleScreenChange);
+            }
+        };
+        ScreenInfo.prototype.unbindScreenChange = function () {
+            if (screen.removeEventListener) {
+                screen.removeEventListener('change', this.handleScreenChange);
+            }
+        };
+        ScreenInfo.prototype.get = function () {
+            var result = {
+                isScreenDetails: this.isScreenDetails,
+                screens: this.isScreenDetails ?
+                    this.screens.map(function (item) {
+                        return {
+                            availLeft: item.availLeft,
+                            availTop: item.availTop,
+                            availWidth: item.availWidth,
+                            availHeight: item.availHeight,
+                            colorDepth: item.colorDepth,
+                            pixelDepth: item.pixelDepth,
+                            width: item.width,
+                            height: item.height,
+                            label: item.label,
+                            isInternal: item.isInternal,
+                            isPrimary: item.isPrimary,
+                            isExtended: item.isExtended,
+                            orientation: item.orientation,
+                            devicePixelRatio: item.devicePixelRatio,
+                        };
+                    }) :
+                    [this.getScreen()],
+            };
+            return result;
+        };
+        ScreenInfo.prototype.emit = function () {
+            this.listeners.forEach(function (item) { return item(); });
+        };
+        ScreenInfo.prototype.getScreen = function () {
+            var screen = window.screen;
+            return {
+                availLeft: screen.availLeft,
+                availTop: screen.availTop,
+                availWidth: screen.availWidth,
+                availHeight: screen.availHeight,
+                colorDepth: screen.colorDepth,
+                pixelDepth: screen.pixelDepth,
+                width: screen.width,
+                height: screen.height,
+                label: '',
+                isInternal: false,
+                isPrimary: false,
+                isExtended: Boolean(screen.isExtended),
+                orientation: screen.orientation,
+                devicePixelRatio: getDevicePixelRatio(),
+            };
+        };
+        return ScreenInfo;
+    }());
+    var screenInfo = new ScreenInfo();
+
+    var ScreenBadges = /** @class */ (function (_super) {
+        __extends(ScreenBadges, _super);
+        function ScreenBadges() {
+            var _this = _super.call(this) || this;
+            _this.handleScreenChange = function () {
+                _this.setState({
+                    screens: screenInfo.get().screens,
+                });
+            };
+            _this.handleClick = function () {
+                screenInfo.getScreenDetails();
+            };
+            screenInfo.addListener(_this.handleScreenChange);
+            return _this;
+        }
+        ScreenBadges.prototype.render = function () {
+            var _a = screenInfo.get(), screens = _a.screens, isScreenDetails = _a.isScreenDetails;
+            var content = screens.map(function (item) {
+                var props = __assign({ isScreenDetails: isScreenDetails }, item);
+                return m$1(templateObject_1$q || (templateObject_1$q = __makeTemplateObject(["<", " ...", "><//>"], ["<", " ...", "><//>"])), ScreenBadge, props);
+            });
+            var name = screens.length > 1 ? i18n('Screens') : i18n('Screen');
+            return m$1(templateObject_3$3 || (templateObject_3$3 = __makeTemplateObject(["<", " name=\"", "\">\n            ", "\n            ", "\n        <//>"], ["<", " name=\"", "\">\n            ", "\n            ", "\n        <//>"])), Row, name, screenInfo.needUserActivity ? m$1(templateObject_2$c || (templateObject_2$c = __makeTemplateObject(["<div><button onClick=\"", "\">", "</button></div>"], ["<div><button onClick=\"", "\">", "</button></div>"])), this.handleClick, i18n('Request')) : '', content);
+        };
+        ScreenBadges.prototype.componentWillUnmount = function () {
+            screenInfo.removeListener(this.handleScreenChange);
+        };
+        return ScreenBadges;
+    }(b$m));
+    var templateObject_1$q, templateObject_2$c, templateObject_3$3;
+
+    var b$h = block('codec');
+    function Codec(props) {
+        var color = props.disabled ? 'black' : (props.color || 'black');
+        var tooltip = props.tooltip ? m$1(templateObject_1$p || (templateObject_1$p = __makeTemplateObject(["<div class=\"", "\">", "</div>"], ["<div class=\"", "\">", "</div>"])), b$h('tooltip'), props.tooltip) : '';
+        return m$1(templateObject_2$b || (templateObject_2$b = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n            <div class=\"", "\">", "</div>\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n            <div class=\"", "\">", "</div>\n        </div>\n    "])), b$h({
+            color: color,
+            border: props.border,
+            disabled: props.disabled,
+        }), tooltip, b$h('name'), props.name);
+    }
+    var templateObject_1$p, templateObject_2$b;
+
+    var b$g = block('column');
+    function Column(props) {
+        return m$1(templateObject_1$o || (templateObject_1$o = __makeTemplateObject(["<div class=\"", "\">\n        <div class=\"", "\">", "</div>\n        <div class=\"", "\">", "</div>\n    </div>"], ["<div class=\"", "\">\n        <div class=\"", "\">", "</div>\n        <div class=\"", "\">", "</div>\n    </div>"])), b$g(), b$g('category'), props.name, b$g('body'), props.children);
+    }
+    var templateObject_1$o;
+
+    var b$f = block('columns');
+    function Columns(props) {
+        return m$1(templateObject_1$n || (templateObject_1$n = __makeTemplateObject(["<div class=\"", "\">", "</div>"], ["<div class=\"", "\">", "</div>"])), b$f(), props.children);
+    }
+    var templateObject_1$n;
+
+    function getTooltip(result) {
+        if (typeof result === 'boolean') {
+            return '';
+        }
+        return m$1(templateObject_1$m || (templateObject_1$m = __makeTemplateObject(["\n        video.canPlayType(): ", "<br />\n        MediaSource.isTypeSupported(): ", "<br />\n        <hr />\n        ", "\n    "], ["\n        video.canPlayType(): ", "<br />\n        MediaSource.isTypeSupported(): ", "<br />\n        <hr />\n        ", "\n    "])), result.file ? i18n('Yes') : i18n('No'), result.mediaSource ? i18n('Yes') : i18n('No'), result.contentType);
+    }
+    var templateObject_1$m;
+
+    function AudioCodecs() {
+        var supported = [];
+        var unsupported = [];
+        [
+            { supported: isMp3Supported(), name: 'MP3', color: 'orange' },
+            { supported: isMp4AudioSupported(), name: 'MP4', color: 'orange' },
+            { supported: isAacSupported(), name: 'AAC', color: 'orange' },
+            { supported: isFlacSupported(), name: 'FLAC', color: 'blue' },
+            { supported: isVorbisSupported(), name: 'Vorbis', color: 'orange' },
+            { supported: isOpusSupported(), name: 'Opus', color: 'green' },
+            { supported: isDolbyDigitalSupported(), name: m$1(templateObject_1$l || (templateObject_1$l = __makeTemplateObject(["<b>Dolby</b> Digital"], ["<b>Dolby</b> Digital"]))), color: 'black', border: 'white' },
+            { supported: isDolbyDigitalPlusSupported(), name: m$1(templateObject_2$a || (templateObject_2$a = __makeTemplateObject(["<b>Dolby</b> Digital Plus"], ["<b>Dolby</b> Digital Plus"]))), color: 'black', border: 'white' },
+            { supported: isDolbyAtmosSupported(), name: m$1(templateObject_3$2 || (templateObject_3$2 = __makeTemplateObject(["<b>Dolby</b> Atmos"], ["<b>Dolby</b> Atmos"]))), color: 'black', border: 'white' },
+            { supported: isDtsSupported(), name: 'DTS', color: 'black' },
+            { supported: isDtsHdSupported(), name: 'DTS:HD', color: 'black' },
+            { supported: isDtsXSupported(), name: 'DTS:X', color: 'black' },
+            { supported: isMpegHAudioSupported(), name: 'MPEG-H Audio', color: 'blue' },
+        ].map(function (item) {
+            var tooltip = getTooltip(item.supported);
+            var isSupported = typeof item.supported === 'boolean' ? item.supported : item.supported.any;
+            if (isSupported) {
+                supported.push(Codec({
+                    name: item.name,
+                    color: item.color,
+                    border: item.border,
+                    tooltip: tooltip,
+                }));
+            }
+            else {
+                unsupported.push(Codec({
+                    name: item.name,
+                    color: 'black',
+                    disabled: true,
+                    tooltip: tooltip,
+                }));
+            }
+        });
+        return m$1(templateObject_5 || (templateObject_5 = __makeTemplateObject(["<", " name=\"", "\">\n        <", ">\n            <", " name=\"", "\">\n                ", "\n            <//>\n            ", "\n        <//>\n    <//>"], ["<", " name=\"", "\">\n        <", ">\n            <", " name=\"", "\">\n                ", "\n            <//>\n            ", "\n        <//>\n    <//>"])), Row, i18n('Audio Codecs'), Columns, Column, i18n('Supported'), supported.length ? supported : i18n('No supported audio codecs.'), unsupported.length ? m$1(templateObject_4$1 || (templateObject_4$1 = __makeTemplateObject(["<", " name=\"", "\">", "<//>"], ["<", " name=\"", "\">", "<//>"])), Column, i18n('Unsupported'), unsupported) : '');
+    }
+    var templateObject_1$l, templateObject_2$a, templateObject_3$2, templateObject_4$1, templateObject_5;
+
+    function VideoCodecs() {
+        var supported = [];
+        var unsupported = [];
+        [
+            { supported: isH264BaselineSupported(), name: 'H.264 Baseline', color: 'blue' },
+            { supported: isH264MainSupported(), name: 'H.264 Main', color: 'blue' },
+            { supported: isH264HighSupported(), name: 'H.264 High', color: 'blue' },
+            { supported: isHevcMainSupported(), name: 'H.265 Main', color: 'orange' },
+            { supported: isHevcMain10Supported(), name: 'H.265 Main10', color: 'orange' },
+            { supported: isEvcBaselineSupported(), name: 'EVC Baseline', color: 'blue' },
+            { supported: isEvcMainSupported(), name: 'EVC Main', color: 'blue' },
+            { supported: isVp8Supported(), name: 'VP8', color: 'green' },
+            { supported: isVp9Supported(), name: 'VP9', color: 'green' },
+            { supported: isDolbyVisionSupported(), name: m$1(templateObject_1$k || (templateObject_1$k = __makeTemplateObject(["<b>Dolby</b> Vision"], ["<b>Dolby</b> Vision"]))), color: 'black', border: 'white' },
+            { supported: isAV1Supported(), name: 'AV1', color: 'yellow' },
+            { supported: isVvcMain10Supported(), name: 'H.266 Main10', color: 'blue' },
+            { supported: isMpeg2TSupported(), name: 'MPEG2-TS', color: 'yellow' },
+        ].map(function (item) {
+            var tooltip = getTooltip(item.supported);
+            if (item.supported.any) {
+                supported.push(Codec({
+                    name: item.name,
+                    color: item.color,
+                    border: item.border,
+                    tooltip: tooltip,
+                }));
+            }
+            else {
+                unsupported.push(Codec({
+                    name: item.name,
+                    disabled: true,
+                    tooltip: tooltip,
+                }));
+            }
+        });
+        return m$1(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n        <", " name=\"", "\">\n            ", "\n            ", "\n        <//>\n"], ["\n        <", " name=\"", "\">\n            ", "\n            ", "\n        <//>\n"])), Columns, i18n('Video Codecs'), supported.length ? m$1(templateObject_2$9 || (templateObject_2$9 = __makeTemplateObject(["<", " name=\"", "\">\n                ", "\n            <//>"], ["<", " name=\"", "\">\n                ", "\n            <//>"])), Column, i18n('Supported'), supported) : i18n('No supported video codecs.'), unsupported.length ? m$1(templateObject_3$1 || (templateObject_3$1 = __makeTemplateObject(["<", " name=\"", "\">\n                ", "\n            <//>"], ["<", " name=\"", "\">\n                ", "\n            <//>"])), Column, i18n('Unsupported'), unsupported) : '');
+    }
+    var templateObject_1$k, templateObject_2$9, templateObject_3$1, templateObject_4;
+
+    var b$e = block('header');
+    function Header() {
+        return m$1(templateObject_1$j || (templateObject_1$j = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "])), b$e(), i18n('Can I Watch Video'));
+    }
+    var templateObject_1$j;
+
+    // https://wicg.github.io/hdcp-detection/
+    const hdcpVersions = [
+        '1.0',
+        '1.1',
+        '1.2',
+        '1.3',
+        '1.4',
+        '2.0',
+        '2.1',
+        '2.2', // Ultra HD 4K
+        '2.3',
+    ];
+    const defaultConfig = [{
+            videoCapabilities: [{
+                    contentType: 'video/mp4; codecs="avc1.42E01E"',
+                }],
+        }];
+    function checkAllHdcpVersions(keySystem) {
+        return navigator.requestMediaKeySystemAccess(keySystem, defaultConfig)
+            .then(mediaKeySystemAccess => mediaKeySystemAccess.createMediaKeys())
+            .then(mediaKeys => {
+            if (!('getStatusForPolicy' in mediaKeys)) {
+                const error = Error('Method getStatusForPolicy is not supported');
+                error.name = 'NotSupportedError';
+                throw error;
+            }
+            const promises = [];
+            hdcpVersions.forEach(minHdcpVersion => {
+                promises.push(
+                // @ts-ignore
+                mediaKeys.getStatusForPolicy({ minHdcpVersion }).then(status => ({
+                    version: minHdcpVersion,
+                    status,
+                })));
+            });
+            return Promise.all(promises);
+        });
+    }
+
+    function getKeySystemsText(keySystems) {
+        if (keySystems.length === 0) {
+            return '';
+        }
+        if (keySystems.length === 1) {
+            return "".concat(i18n('Key system'), ": ").concat(keySystems[0]);
+        }
+        return "".concat(i18n('Key systems'), ": \n") + keySystems.map(function (item) { return "\u2022 ".concat(item); }).join('\n');
+    }
+
+    function getSecurityLevelsText(levels) {
+        if (levels.length === 0) {
+            return i18n('Not detected');
+        }
+        if (levels.length === 1) {
+            return "".concat(i18n('Security level'), ": ").concat(levels[0]);
+        }
+        return "".concat(i18n('Security levels'), ": ").concat(levels.join(', '));
+    }
+
+    function getMaxHdcpVersion(versions) {
+        for (var i = versions.length - 1; i >= 0; i--) {
+            var item = versions[i];
+            if (item.status === 'usable') {
+                return item.version;
+            }
+        }
+        return '';
+    }
+    function getHdcpVersion(versions) {
+        var maxVersion = getMaxHdcpVersion(versions);
+        return maxVersion ? "".concat(i18n('HDCP version'), ": ").concat(maxVersion) : '';
+    }
+
+    function noop() { }
+
+    var b$d = block('widevine-badge');
+    var promiseCheckAllHdcpVersions$1 = null;
+    function cachedCheckAllHdcpVersions$1() {
+        if (promiseCheckAllHdcpVersions$1) {
+            return promiseCheckAllHdcpVersions$1;
+        }
+        promiseCheckAllHdcpVersions$1 = checkAllHdcpVersions(WIDEWINE_KEY_SYSTEM).then(function (result) {
+            promiseCheckAllHdcpVersions$1 = null;
+            return result;
+        }).catch(function (error) {
+            promiseCheckAllHdcpVersions$1 = null;
+            throw error;
+        });
+        return promiseCheckAllHdcpVersions$1;
+    }
+    function WidevineBadge() {
+        var _a = p(false), hasWidevine = _a[0], setWidevine = _a[1];
+        var _b = p(false), hasL1 = _b[0], setL1 = _b[1];
+        var _c = p(false), hasL3 = _c[0], setL3 = _c[1];
+        var _d = p(''), hdcpVersion = _d[0], setHdcpVersion = _d[1];
+        cachedCheckAllHdcpVersions$1().then(function (data) {
+            setHdcpVersion(getHdcpVersion(data));
+        }).catch(noop);
+        isWidevineSupported().then(function (result) {
+            setWidevine(result);
+        });
+        isWidevineL1Supported().then(function (result) {
+            setL1(result);
+        });
+        isWidevineL3Supported().then(function (result) {
+            setL3(result);
+        });
+        var levels = [];
+        if (hasL1) {
+            levels.push('L1');
+        }
+        if (hasL3) {
+            levels.push('L3');
+        }
+        var text = [
+            getSecurityLevelsText(levels),
+            getKeySystemsText([WIDEWINE_KEY_SYSTEM]),
+            hdcpVersion,
+        ].filter(Boolean).join('\n');
+        return m$1(templateObject_1$i || (templateObject_1$i = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "])), b$d(), hasWidevine && Badge({
+            text: 'Widevine',
+            background: 'white',
+            top: {
+                text: 'Google',
+            },
+            bottom: {
+                text: text,
+            },
+        }));
+    }
+    var templateObject_1$i;
+
+    var b$c = block('clearkey-badge');
+    function ClearkeyBadge() {
+        var _a = p(false), hasClearkey = _a[0], setClearkey = _a[1];
+        isClearKeySupported().then(function (result) {
+            setClearkey(result);
+        });
+        var text = [
+            getKeySystemsText([CLEAR_KEY_SYSTEM]),
+        ].join('\n');
+        return m$1(templateObject_1$h || (templateObject_1$h = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "])), b$c(), hasClearkey && Badge({
+            text: 'ClearKey',
+            size: 'small',
+            background: 'white',
+            bottom: {
+                text: text,
+            },
+        }));
+    }
+    var templateObject_1$h;
+
+    var b$b = block('fairplay-badge');
+    function FairplayBadge() {
+        var _a = p(false), hasFairplay = _a[0], setFairplay = _a[1];
+        var _b = p(false), hasFairplay1 = _b[0], setFairplay1 = _b[1];
+        var _c = p(false), hasFairplay2 = _c[0], setFairplay2 = _c[1];
+        var _d = p(false), hasFairplay3 = _d[0], setFairplay3 = _d[1];
+        isFairPlaySupported().then(function (result) {
+            setFairplay(result);
+        });
+        isFairPlayV1Supported().then(function (result) {
+            setFairplay1(result);
+        });
+        isFairPlayV2Supported().then(function (result) {
+            setFairplay2(result);
+        });
+        isFairPlayV3Supported().then(function (result) {
+            setFairplay3(result);
+        });
+        var keySystems = [];
+        if (hasFairplay) {
+            keySystems.push(FAIRPLAY_KEY_SYSTEM);
+        }
+        if (hasFairplay1) {
+            keySystems.push(FAIRPLAY_V1_KEY_SYSTEM);
+        }
+        if (hasFairplay2) {
+            keySystems.push(FAIRPLAY_V2_KEY_SYSTEM);
+        }
+        if (hasFairplay3) {
+            keySystems.push(FAIRPLAY_V3_KEY_SYSTEM);
+        }
+        var text = [
+            getKeySystemsText(keySystems),
+        ].join('\n');
+        return m$1(templateObject_1$g || (templateObject_1$g = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "])), b$b(), hasFairplay && Badge({
+            text: 'FairPlay',
+            background: 'white',
+            top: {
+                text: 'Apple',
+            },
+            bottom: {
+                text: text,
+            },
+        }));
+    }
+    var templateObject_1$g;
+
+    var b$a = block('playready-badge');
+    var promiseCheckAllHdcpVersions = null;
+    function cachedCheckAllHdcpVersions() {
+        if (promiseCheckAllHdcpVersions) {
+            return promiseCheckAllHdcpVersions;
+        }
+        promiseCheckAllHdcpVersions = checkAllHdcpVersions(PLAYREADY_RECOMMENDATION_KEY_SYSTEM).then(function (result) {
+            promiseCheckAllHdcpVersions = null;
+            return result;
+        }).catch(function (error) {
+            promiseCheckAllHdcpVersions = null;
+            throw error;
+        });
+        return promiseCheckAllHdcpVersions;
+    }
+    function PlayreadyBadge() {
+        var _a = p(false), hasPlayready = _a[0], setPlayready = _a[1];
+        var _b = p(false), hasSL150 = _b[0], setSL150 = _b[1];
+        var _c = p(false), hasSL2000 = _c[0], setSL2000 = _c[1];
+        var _d = p(false), hasSL3000 = _d[0], setSL3000 = _d[1];
+        var _e = p(''), hdcpVersion = _e[0], setHdcpVersion = _e[1];
+        cachedCheckAllHdcpVersions().then(function (data) {
+            setHdcpVersion(getHdcpVersion(data));
+        }).catch(noop);
+        isPlayReadySupported().then(function (result) {
+            setPlayready(result);
+        });
+        isPlayReadySL150Supported().then(function (result) {
+            setSL150(result);
+        });
+        isPlayReadySL2000Supported().then(function (result) {
+            setSL2000(result);
+        });
+        isPlayReadySL3000Supported().then(function (result) {
+            setSL3000(result);
+        });
+        var levels = [];
+        if (hasSL150) {
+            levels.push('SL150');
+        }
+        if (hasSL2000) {
+            levels.push('SL2000');
+        }
+        if (hasSL3000) {
+            levels.push('SL3000');
+        }
+        var text = [
+            getSecurityLevelsText(levels),
+            getKeySystemsText([PLAYREADY_RECOMMENDATION_KEY_SYSTEM]),
+            hdcpVersion,
+        ].filter(Boolean).join('\n');
+        return m$1(templateObject_1$f || (templateObject_1$f = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "])), b$a(), hasPlayready && Badge({
+            text: 'PlayReady',
+            background: 'white',
+            top: {
+                text: 'Microsoft',
+            },
+            bottom: {
+                text: text,
+            },
+        }));
+    }
+    var templateObject_1$f;
+
+    var b$9 = block('primetime-badge');
+    function PrimetimeBadge() {
+        var _a = p(false), hasPrimetime = _a[0], setPrimetime = _a[1];
+        isPrimetimeSupported().then(function (result) {
+            setPrimetime(result);
+        });
+        var text = [
+            getKeySystemsText([
+                PRIMETIME_KEY_SYSTEM,
+            ]),
+        ].join('\n');
+        return m$1(templateObject_1$e || (templateObject_1$e = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "])), b$9(), hasPrimetime && Badge({
+            text: 'Primetime',
+            background: 'white',
+            top: {
+                text: 'Adobe',
+            },
+            bottom: {
+                text: text,
+            },
+        }));
+    }
+    var templateObject_1$e;
+
+    var b$8 = block('drm-badges');
+    function DrmBadges() {
+        return m$1(templateObject_1$d || (templateObject_1$d = __makeTemplateObject(["\n        <div class=\"", "\">\n            <", "><//>\n            <", "><//>\n            <", "><//>\n            <", "><//>\n            <", "><//>\n        </div>\n    "], ["\n        <div class=\"", "\">\n            <", "><//>\n            <", "><//>\n            <", "><//>\n            <", "><//>\n            <", "><//>\n        </div>\n    "])), b$8(), WidevineBadge, PlayreadyBadge, FairplayBadge, PrimetimeBadge, ClearkeyBadge);
+    }
+    var templateObject_1$d;
+
+    var b$7 = block('native-streaming');
+    function NativeStreaming() {
+        var items = [
+            {
+                label: 'MPEG-DASH',
+                supported: isNativeMpdSupported(),
+            },
+            {
+                label: 'HTTP Live Streaming',
+                supported: isNativeHlsSupported(),
+            },
+            {
+                label: 'Smooth Streaming',
+                supported: isNativeMssSupported(),
+            },
+        ];
+        items.sort(function (a, b) {
+            if (a.supported === b.supported) {
+                return 0;
+            }
+            if (a.supported) {
+                return -1;
+            }
+            return 1;
+        });
+        var result = items.map(function (item) {
+            return m$1(templateObject_1$c || (templateObject_1$c = __makeTemplateObject(["<li>", ": ", "</li>"], ["<li>", ": ", "</li>"])), item.label, item.supported ? '✓' : i18n('No'));
+        });
+        return m$1(templateObject_2$8 || (templateObject_2$8 = __makeTemplateObject(["\n        <ul class=", ">\n            ", "\n        </ul>\n    "], ["\n        <ul class=", ">\n            ", "\n        </ul>\n    "])), b$7(), result);
+    }
+    var templateObject_1$c, templateObject_2$8;
+
+    var b$6 = block('result');
+    function Result(props) {
+        var text = props.text;
+        var type = '';
+        if (!props.text) {
+            if (props.value === true) {
+                text = i18n('Yes');
+                type = 'yes';
+            }
+            if (props.value === false) {
+                text = i18n('No');
+                type = 'no';
+            }
+            if (props.value === undefined) {
+                text = i18n('Warning');
+                type = 'warning';
+            }
+        }
+        return m$1(templateObject_2$7 || (templateObject_2$7 = __makeTemplateObject(["<span class=\"", "\">\n        ", "\n        ", "\n    </span>"], ["<span class=\"", "\">\n        ", "\n        ", "\n    </span>"])), b$6({
+            type: type,
+        }), text, props.details ? m$1(templateObject_1$b || (templateObject_1$b = __makeTemplateObject(["<span class=\"", "\">", "</span>"], ["<span class=\"", "\">", "</span>"])), b$6('details'), props.details) : '');
+    }
+    var templateObject_1$b, templateObject_2$7;
+
+    var b$5 = block('active-question');
+    function ActiveQuestion(props) {
+        var _a = p(false), opened = _a[0], setOpened = _a[1];
+        var callback = x(function () {
+            setOpened(!opened);
+        }, [opened]);
+        return m$1(templateObject_1$a || (templateObject_1$a = __makeTemplateObject(["<div class=\"", "\">\n        <div class=\"", "\" onClick=", ">\n            <div class=\"", "\">", "</div>\n            <div class=\"", "\">", "</div>\n        </div>\n        <div class=\"", "\">", "</div>\n    </div>"], ["<div class=\"", "\">\n        <div class=\"", "\" onClick=", ">\n            <div class=\"", "\">", "</div>\n            <div class=\"", "\">", "</div>\n        </div>\n        <div class=\"", "\">", "</div>\n    </div>"])), b$5({ opened: opened }), b$5('head'), callback, b$5('plus'), opened ? '-' : '+', b$5('question'), props.head, b$5('body'), props.children);
+    }
+    var templateObject_1$a;
+
+    var FULL_HD_HEIGHT = 1080;
+    var HEIGHT_PADDING = 5;
+    function isLargerFullHd(height) {
+        return height > FULL_HD_HEIGHT + HEIGHT_PADDING;
+    }
+    function Question4K() {
+        var _a = p(screenInfo.get().screens), screens = _a[0], setScreens = _a[1];
+        _(function () {
+            var handler = function () {
+                setScreens(screenInfo.get().screens);
+            };
+            screenInfo.addListener(handler);
+            return function () {
+                screenInfo.removeListener(handler);
+            };
+        }, [screens]);
+        var screensLargerThan2K = screens.some(function (screen) {
+            return isLargerFullHd(Math.min(screen.width, screen.height) * screen.devicePixelRatio);
+        });
+        var isVp9 = isVp9Supported().any;
+        var isHevc = isHevcMainSupported().any;
+        var isAv1 = isAV1Supported().any;
+        var mainAnswer = screensLargerThan2K && Boolean(isVp9 || isHevc || isAv1);
+        var head = m$1(templateObject_1$9 || (templateObject_1$9 = __makeTemplateObject(["", " <", " value=\"", "\"><//>"], ["", " <", " value=\"", "\"><//>"])), i18n('Can I watch 4K video?'), Result, mainAnswer);
+        return m$1(templateObject_2$6 || (templateObject_2$6 = __makeTemplateObject(["\n        <", " head=\"", "\">\n            <ul>\n                <li>", " <", " value=\"", "\"><//></li>\n                <li>\n                    ", " <", " value=", "><//>\n                    <ul>\n                        <li>\n                            <", "\n                                name=\"VP9\"\n                                color=\"green\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"H.265\"\n                                color=\"orange\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"AV1\"\n                                color=\"yellow\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    "], ["\n        <", " head=\"", "\">\n            <ul>\n                <li>", " <", " value=\"", "\"><//></li>\n                <li>\n                    ", " <", " value=", "><//>\n                    <ul>\n                        <li>\n                            <", "\n                                name=\"VP9\"\n                                color=\"green\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"H.265\"\n                                color=\"orange\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"AV1\"\n                                color=\"yellow\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    "])), ActiveQuestion, head, i18n('Is the screen larger than 2K?'), Result, screensLargerThan2K, i18n('Has support one of the video codecs?'), Result, true, Codec, !isVp9, Result, isVp9, Codec, !isHevc, Result, isHevc, Codec, !isAv1, Result, isAv1);
+    }
+    var templateObject_1$9, templateObject_2$6;
+
+    function QuestionHdr() {
+        var isVp9 = isVp9Supported().any;
+        var isHevc = isHevcMainSupported().any;
+        var isAv1 = isAV1Supported().any;
+        var isHdr = isHdrScreenSupported();
+        var mainAnswer = isHdr && Boolean(isVp9 || isHevc || isAv1);
+        var head = m$1(templateObject_1$8 || (templateObject_1$8 = __makeTemplateObject(["", " <", " value=\"", "\"><//>"], ["", " <", " value=\"", "\"><//>"])), i18n('Can I watch HDR video?'), Result, mainAnswer);
+        return m$1(templateObject_2$5 || (templateObject_2$5 = __makeTemplateObject(["\n        <", " head=\"", "\">\n            <ul>\n                <li>", " <", " value=\"", "\"><//></li>\n                <li>", " <", " value=\"", "\"><//>\n                    <ul>\n                        <li>\n                            <", "\n                                name=\"VP9\"\n                                color=\"green\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"H.265\"\n                                color=\"orange\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"AV1\"\n                                color=\"yellow\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    "], ["\n        <", " head=\"", "\">\n            <ul>\n                <li>", " <", " value=\"", "\"><//></li>\n                <li>", " <", " value=\"", "\"><//>\n                    <ul>\n                        <li>\n                            <", "\n                                name=\"VP9\"\n                                color=\"green\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"H.265\"\n                                color=\"orange\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"AV1\"\n                                color=\"yellow\"\n                                disabled=\"", "\">\n                                <//> <", " value=\"", "\"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    "])), ActiveQuestion, head, i18n('Is this a HDR screen?'), Result, isHdr, i18n('Has support one of the video codecs?'), Result, Boolean(isVp9 || isHevc || isAv1), Codec, !isVp9, Result, isVp9, Codec, !isHevc, Result, isHevc, Codec, !isAv1, Result, isAv1);
+    }
+    var templateObject_1$8, templateObject_2$5;
+
+    function QuestionSurroundSound() {
+        var isDolbyDigital = isDolbyDigitalSupported().any;
+        var isDolbyDigitalPlus = isDolbyDigitalPlusSupported().any;
+        var isDolbyAtmos = isDolbyAtmosSupported();
+        var mainAnswer = isDolbyDigital || isDolbyDigitalPlus || isDolbyAtmos;
+        var head = m$1(templateObject_1$7 || (templateObject_1$7 = __makeTemplateObject(["", " <", " value=\"", "\"><//>"], ["", " <", " value=\"", "\"><//>"])), i18n('Can I listen surround sound on online services?'), Result, mainAnswer);
+        return m$1(templateObject_2$4 || (templateObject_2$4 = __makeTemplateObject(["\n        <", " head=\"", "\">\n            ", " <", " value=\"", "\"><//>\n            <ul>\n                <li>\n                    <", "\n                        name=\"Dolby Digital\"\n                        color=\"black\"\n                        border=\"white\"\n                        disabled=\"", "\">\n                        <//> <", " value=\"", "\"><//>\n                </li>\n                <li>\n                    <", "\n                        name=\"Dolby Digital Plus\"\n                        color=\"black\"\n                        border=\"white\"\n                        disabled=\"", "\">\n                        <//> <", " value=\"", "\"><//>\n                </li>\n                <li>\n                    <", "\n                        name=\"Dolby Atmos\"\n                        color=\"black\"\n                        border=\"white\"\n                        disabled=\"", "\">\n                        <//> <", " value=\"", "\"><//>\n                </li>\n            </ul>\n        <//>\n    "], ["\n        <", " head=\"", "\">\n            ", " <", " value=\"", "\"><//>\n            <ul>\n                <li>\n                    <", "\n                        name=\"Dolby Digital\"\n                        color=\"black\"\n                        border=\"white\"\n                        disabled=\"", "\">\n                        <//> <", " value=\"", "\"><//>\n                </li>\n                <li>\n                    <", "\n                        name=\"Dolby Digital Plus\"\n                        color=\"black\"\n                        border=\"white\"\n                        disabled=\"", "\">\n                        <//> <", " value=\"", "\"><//>\n                </li>\n                <li>\n                    <", "\n                        name=\"Dolby Atmos\"\n                        color=\"black\"\n                        border=\"white\"\n                        disabled=\"", "\">\n                        <//> <", " value=\"", "\"><//>\n                </li>\n            </ul>\n        <//>\n    "])), ActiveQuestion, head, i18n('Has support one of the audio codecs?'), Result, mainAnswer, Codec, !isDolbyDigital, Result, isDolbyDigital, Codec, !isDolbyDigitalPlus, Result, isDolbyDigitalPlus, Codec, !isDolbyAtmos, Result, isDolbyAtmos);
+    }
+    var templateObject_1$7, templateObject_2$4;
+
+    function QuestionDrm4K() {
+        var _a = p(false), isWidevineL1Vp9 = _a[0], setIsWidevineL1Vp9 = _a[1];
+        var _b = p(false), isWidevineL1Hevc = _b[0], setIsWidevineL1Hevc = _b[1];
+        var _c = p(false), isWidevineL1Av1 = _c[0], setIsWidevineL1Av1 = _c[1];
+        var _d = p(false), isPlayReadySL3000Vp9 = _d[0], setIsPlayReadySL3000Vp9 = _d[1];
+        var _e = p(false), isPlayReadySL3000Hevc = _e[0], setIsPlayReadySL3000Hevc = _e[1];
+        var _f = p(false), isPlayReadySL3000Av1 = _f[0], setIsPlayReadySL3000Av1 = _f[1];
+        var _g = p(false), isFairplayVp9 = _g[0], setIsFairplayVp9 = _g[1];
+        var _h = p(false), isFairplayHevc = _h[0], setIsFairplayHevc = _h[1];
+        var _j = p(false), isFairplayAv1 = _j[0], setIsFairplayAv1 = _j[1];
+        _(function () {
+            isWidevineL1Supported(VP9_CONTENT_TYPE).then(function (result) {
+                setIsWidevineL1Vp9(result);
+            });
+            isWidevineL1Supported(HEV_MAIN_CONTENT_TYPE).then(function (result) {
+                setIsWidevineL1Hevc(result);
+            });
+            isWidevineL1Supported(AV1_CONTENT_TYPE).then(function (result) {
+                setIsWidevineL1Av1(result);
+            });
+            isPlayReadySL3000Supported(VP9_CONTENT_TYPE).then(function (result) {
+                setIsPlayReadySL3000Vp9(result);
+            });
+            isPlayReadySL3000Supported(HEV_MAIN_CONTENT_TYPE).then(function (result) {
+                setIsPlayReadySL3000Hevc(result);
+            });
+            isPlayReadySL3000Supported(AV1_CONTENT_TYPE).then(function (result) {
+                setIsPlayReadySL3000Av1(result);
+            });
+            isFairPlaySupported().then(function (result) {
+                setIsFairplayVp9(result && isVp9Supported().any);
+                setIsFairplayHevc(result && isHevcMainSupported().any);
+                setIsFairplayAv1(result && isAV1Supported().any);
+            });
+        }, [
+            isWidevineL1Vp9, isWidevineL1Hevc, isWidevineL1Av1,
+            isPlayReadySL3000Vp9, isPlayReadySL3000Hevc, isPlayReadySL3000Av1,
+            isFairplayVp9, isFairplayHevc, isFairplayAv1,
+        ]);
+        var anyCodecWithDrm = Boolean(isWidevineL1Vp9 || isWidevineL1Hevc || isWidevineL1Av1 ||
+            isPlayReadySL3000Vp9 || isPlayReadySL3000Hevc || isPlayReadySL3000Av1 ||
+            isFairplayVp9 || isFairplayHevc || isFairplayAv1);
+        var answer = anyCodecWithDrm;
+        var head = m$1(templateObject_1$6 || (templateObject_1$6 = __makeTemplateObject(["", " <", " value=\"", "\"><//>"], ["", " <", " value=\"", "\"><//>"])), i18n('Can I watch 4K video on online services?'), Result, answer);
+        return m$1(templateObject_2$3 || (templateObject_2$3 = __makeTemplateObject(["\n        <", " head=\"", "\">\n            <div>", "\n            ", "<a target=\"_blank\" href=\"", "\">DRM</a>.</div>\n            ", " <", " value=", "><//>\n            <ul>\n                <li>\n                    Widevine L1 + <", "\n                        name=\"VP9\"\n                        color=\"green\"\n                        disabled=\"", "\">\n                    <//> <", " value=\"", "\"><//>\n                </li>\n                <li>\n                    Widevine L1 + <", "\n                        name=\"H.265\"\n                        color=\"orange\"\n                        disabled=\"", "\">\n                    <//> <", " value=\"", "\"><//>\n                </li>\n                <li>\n                    Widevine L1 + <", "\n                        name=\"AV1\"\n                        color=\"yellow\"\n                        disabled=\"", "\">\n                    <//> <", " value=\"", "\"><//>\n                </li>\n\n                <li>\n                    PlayReady SL3000 + <", "\n                        name=\"VP9\"\n                        color=\"green\"\n                        disabled=\"", "\">\n                    <//> <", " value=\"", "\"><//>\n                </li>\n                <li>\n                    PlayReady SL3000 + <", "\n                        name=\"H.265\"\n                        color=\"orange\"\n                        disabled=\"", "\">\n                    <//> <", " value=\"", "\"><//>\n                </li>\n                <li>\n                    PlayReady SL3000 + <", "\n                        name=\"AV1\"\n                        color=\"yellow\"\n                        disabled=\"", "\">\n                    <//> <", " value=\"", "\"><//>\n                </li>\n\n                <li>\n                    FairPlay + <", "\n                        name=\"VP9\"\n                        color=\"green\"\n                        disabled=\"", "\">\n                    <//> <", " value=\"", "\"><//>\n                </li>\n                <li>\n                    FairPlay + <", "\n                        name=\"H.265\"\n                        color=\"orange\"\n                        disabled=\"", "\">\n                    <//> <", " value=\"", "\"><//>\n                </li>\n                <li>\n                    FairPlay + <", "\n                        name=\"AV1\"\n                        color=\"yellow\"\n                        disabled=\"", "\">\n                    <//> <", " value=\"", "\"><//>\n                </li>\n            </ul>\n        <//>\n    "], ["\n        <", " head=\"", "\">\n            <div>", "\n            ", "<a target=\"_blank\" href=\"", "\">DRM</a>.</div>\n            ", " <", " value=", "><//>\n            <ul>\n                <li>\n                    Widevine L1 + <", "\n                        name=\"VP9\"\n                        color=\"green\"\n                        disabled=\"", "\">\n                    <//> <", " value=\"", "\"><//>\n                </li>\n                <li>\n                    Widevine L1 + <", "\n                        name=\"H.265\"\n                        color=\"orange\"\n                        disabled=\"", "\">\n                    <//> <", " value=\"", "\"><//>\n                </li>\n                <li>\n                    Widevine L1 + <", "\n                        name=\"AV1\"\n                        color=\"yellow\"\n                        disabled=\"", "\">\n                    <//> <", " value=\"", "\"><//>\n                </li>\n\n                <li>\n                    PlayReady SL3000 + <", "\n                        name=\"VP9\"\n                        color=\"green\"\n                        disabled=\"", "\">\n                    <//> <", " value=\"", "\"><//>\n                </li>\n                <li>\n                    PlayReady SL3000 + <", "\n                        name=\"H.265\"\n                        color=\"orange\"\n                        disabled=\"", "\">\n                    <//> <", " value=\"", "\"><//>\n                </li>\n                <li>\n                    PlayReady SL3000 + <", "\n                        name=\"AV1\"\n                        color=\"yellow\"\n                        disabled=\"", "\">\n                    <//> <", " value=\"", "\"><//>\n                </li>\n\n                <li>\n                    FairPlay + <", "\n                        name=\"VP9\"\n                        color=\"green\"\n                        disabled=\"", "\">\n                    <//> <", " value=\"", "\"><//>\n                </li>\n                <li>\n                    FairPlay + <", "\n                        name=\"H.265\"\n                        color=\"orange\"\n                        disabled=\"", "\">\n                    <//> <", " value=\"", "\"><//>\n                </li>\n                <li>\n                    FairPlay + <", "\n                        name=\"AV1\"\n                        color=\"yellow\"\n                        disabled=\"", "\">\n                    <//> <", " value=\"", "\"><//>\n                </li>\n            </ul>\n        <//>\n    "])), ActiveQuestion, head, i18n('Online services protect content using'), '\u00a0', i18n('link:wiki:drm'), i18n('Has support one of the video codecs and DRM with high security level?'), Result, anyCodecWithDrm, Codec, !isWidevineL1Vp9, Result, isWidevineL1Vp9, Codec, !isWidevineL1Hevc, Result, isWidevineL1Hevc, Codec, !isWidevineL1Av1, Result, isWidevineL1Av1, Codec, !isPlayReadySL3000Vp9, Result, isPlayReadySL3000Vp9, Codec, !isPlayReadySL3000Hevc, Result, isPlayReadySL3000Hevc, Codec, !isPlayReadySL3000Av1, Result, isPlayReadySL3000Av1, Codec, !isFairplayVp9, Result, isFairplayVp9, Codec, !isFairplayHevc, Result, isFairplayHevc, Codec, !isFairplayAv1, Result, isFairplayAv1);
+    }
+    var templateObject_1$6, templateObject_2$3;
+
+    var b$4 = block('questions');
+    function Questions( /*props: Question4KProps*/) {
+        return m$1(templateObject_1$5 || (templateObject_1$5 = __makeTemplateObject(["    \n        <div class=", ">    \n            <", "><//>\n            <", "><//>\n            <", "><//>\n            <", "><//>\n        <//>\n    "], ["    \n        <div class=", ">    \n            <", "><//>\n            <", "><//>\n            <", "><//>\n            <", "><//>\n        <//>\n    "])), b$4(), Question4K, QuestionHdr, QuestionSurroundSound, QuestionDrm4K);
+    }
+    var templateObject_1$5;
+
+    var b$3 = block('html-video-element-features');
+    function HtmlVideoElementFeatures() {
+        var items = [
+            {
+                label: 'Media Source Extensions',
+                title: 'MSE',
+                supported: isMseSupported(),
+            },
+            {
+                label: 'Managed Media Source',
+                title: 'MMS',
+                supported: isMmsSupported(),
+            },
+            {
+                label: 'Encrypted Media Extensions',
+                title: 'EME',
+                supported: isEmeSupported(),
+            },
+            {
+                label: 'Picture-in-picture',
+                title: 'Pip',
+                supported: isPipSupported(),
+            }
+        ];
+        items.sort(function (a, b) {
+            if (a.supported === b.supported) {
+                return 0;
+            }
+            if (a.supported) {
+                return -1;
+            }
+            return 1;
+        });
+        var result = items.map(function (item) {
+            return m$1(templateObject_1$4 || (templateObject_1$4 = __makeTemplateObject(["<li title=\"", "\">", ": ", "</li>"], ["<li title=\"", "\">", ": ", "</li>"])), item.title, item.label, item.supported ? '✓' : i18n('No'));
+        });
+        return m$1(templateObject_2$2 || (templateObject_2$2 = __makeTemplateObject(["\n        <ul class=", ">\n            ", "\n        </ul>\n    "], ["\n        <ul class=", ">\n            ", "\n        </ul>\n    "])), b$3(), result);
+    }
+    var templateObject_1$4, templateObject_2$2;
+
+    var b$2 = block('footer');
+    function Footer() {
+        return m$1(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n        <div class=\"", "\">\n            <div class=\"", "\">\u00A9 Vvideo</div>\n            <div class=\"", "\"><a target=\"_blank\" href=\"https://github.com/vvideo/caniwatch\">GitHub</a></div>\n        </div>"], ["\n        <div class=\"", "\">\n            <div class=\"", "\">\u00A9 Vvideo</div>\n            <div class=\"", "\"><a target=\"_blank\" href=\"https://github.com/vvideo/caniwatch\">GitHub</a></div>\n        </div>"])), b$2(), b$2('item'), b$2('item'));
+    }
+    var templateObject_1$3;
+
+    function getImageFormatsSupported() {
+        var result = {
+            svg: isSvgSupported(),
+        };
+        var formats = {
+            png: isPngSupported(),
+            apng: isAPngSupported(),
+            jpeg: isJpegSupported(),
+            gif: isGifSupported(),
+            avif: isAvifSupported(),
+            webp: isWebpSupported(),
+            heif: isHeifSupported(),
+        };
+        var promises = [];
+        Object.keys(formats).forEach(function (key) {
+            promises.push(formats[key].then(function (isSupported) {
+                result[key] = isSupported;
+            }));
+        });
+        return Promise.all(promises).then(function () { return result; });
+    }
+    function ImageFormats() {
+        var supported = [];
+        var unsupported = [];
+        var _a = p(false); _a[0]; var setReady = _a[1];
+        var ref = F({});
+        getImageFormatsSupported().then(function (data) {
+            setReady(true);
+            ref.current = data;
+        });
+        var images = ref.current;
+        [
+            { supported: images.gif, name: 'GIF', color: 'blue', tooltip: GIF_CONTENT_TYPE },
+            { supported: images.jpeg, name: 'JPEG', color: 'blue', tooltip: JPEG_CONTENT_TYPE },
+            { supported: images.png, name: 'PNG', color: 'blue', tooltip: PNG_CONTENT_TYPE },
+            { supported: images.apng, name: 'APNG', color: 'blue', tooltip: APNG_CONTENT_TYPE },
+            { supported: images.svg, name: 'SVG', color: 'red', tooltip: SVG_CONTENT_TYPE },
+            { supported: images.webp, name: 'WebP', color: 'green', tooltip: WEBP_CONTENT_TYPE },
+            { supported: images.heif, name: 'HEIF', color: 'orange', tooltip: HEIF_CONTENT_TYPE },
+            { supported: images.avif, name: 'AVIF', color: 'yellow', tooltip: AVIF_CONTENT_TYPE },
+        ].map(function (item) {
+            if (item.supported) {
+                supported.push(Codec({
+                    name: item.name,
+                    color: item.color,
+                    tooltip: item.tooltip,
+                }));
+            }
+            else {
+                unsupported.push(Codec({
+                    name: item.name,
+                    color: 'black',
+                    disabled: true,
+                    tooltip: item.tooltip,
+                }));
+            }
+        });
+        return m$1(templateObject_2$1 || (templateObject_2$1 = __makeTemplateObject(["<", " name=\"", "\">\n        <", ">\n            <", " name=\"", "\">\n                ", "\n            <//>\n            ", "\n        <//>\n    <//>"], ["<", " name=\"", "\">\n        <", ">\n            <", " name=\"", "\">\n                ", "\n            <//>\n            ", "\n        <//>\n    <//>"])), Row, i18n('Image Formats'), Columns, Column, i18n('Supported'), supported.length ? supported : i18n('No supported image formats.'), unsupported.length ? m$1(templateObject_1$2 || (templateObject_1$2 = __makeTemplateObject(["<", " name=\"", "\">", "<//>"], ["<", " name=\"", "\">", "<//>"])), Column, i18n('Unsupported'), unsupported) : '');
+    }
+    var templateObject_1$2, templateObject_2$1;
+
+    var b$1 = block('gpu');
+    function Gpu() {
+        var vendor = getGpuVendor();
+        var renderer = getGpuRenderer();
+        return (vendor || renderer) ? m$1(templateObject_3 || (templateObject_3 = __makeTemplateObject(["<", " name=\"", "\">\n        <ul class=\"", "\">\n            ", "\n            ", "\n        </ul>\n    <//>"], ["<", " name=\"", "\">\n        <ul class=\"", "\">\n            ", "\n            ", "\n        </ul>\n    <//>"])), Row, i18n('GPU'), b$1(), vendor ? m$1(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["<li>", ": ", "</li>"], ["<li>", ": ", "</li>"])), i18n('Vendor'), vendor) : '', renderer ? m$1(templateObject_2 || (templateObject_2 = __makeTemplateObject(["<li>", ": ", "</li>"], ["<li>", ": ", "</li>"])), i18n('Renderer'), renderer) : '') : '';
+    }
+    var templateObject_1$1, templateObject_2, templateObject_3;
+
+    var b = block('main-page');
+    function MainPage() {
+        return m$1(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n        <div class=\"", "\">\n            <", "><//>\n\n            <", "><//>\n            <", "><//>\n\n            <", " name=\"", "\">\n                <", "><//>\n            <//>\n\n            <", "><//>\n\n            <", " name=\"", "\">\n                <", "><//>\n            <//>\n\n            <", " name=\"DRM\">\n                <", "><//>\n            <//>\n\n            <", "><//>\n\n            <", "><//>\n\n            <", " name=\"", "\">\n                <", "><//>\n            <//>\n\n            <", " name=\"", "\">\n                <", "><//>\n            <//>\n\n            <", "><//>\n        </div>"], ["\n        <div class=\"", "\">\n            <", "><//>\n\n            <", "><//>\n            <", "><//>\n\n            <", " name=\"", "\">\n                <", "><//>\n            <//>\n\n            <", "><//>\n\n            <", " name=\"", "\">\n                <", "><//>\n            <//>\n\n            <", " name=\"DRM\">\n                <", "><//>\n            <//>\n\n            <", "><//>\n\n            <", "><//>\n\n            <", " name=\"", "\">\n                <", "><//>\n            <//>\n\n            <", " name=\"", "\">\n                <", "><//>\n            <//>\n\n            <", "><//>\n        </div>"])), b(), Header, Questions, ScreenBadges, Row, i18n('Audio'), AudioBadges, AudioCodecs, Row, i18n('Video Codecs'), VideoCodecs, Row, DrmBadges, ImageFormats, Gpu, Row, i18n('Native Streaming Support'), NativeStreaming, Row, i18n('HTMLVideoElement Features'), HtmlVideoElementFeatures, Footer);
+    }
+    var templateObject_1;
+
+    function getLang() {
+        var lang = getLangFromUrl() || getLangFromNavigator();
+        if (lang !== 'en' && lang !== 'ru') {
+            lang = 'en';
+        }
+        return lang;
+    }
+    function getLangFromNavigator() {
+        return ((navigator.language || '').split('-')[0] || 'en');
+    }
+    function getLangFromUrl() {
+        var params = window.location.search.slice(1).split('&');
+        for (var i = 0; i < params.length; i++) {
+            var _a = params[i].split('='), name_1 = _a[0], value = _a[1];
+            if (name_1 === 'lang') {
+                return value;
+            }
+        }
+        return '';
+    }
+
+    hit('95998062');
+    setI18nLang(getLang());
+    B$1(MainPage(), document.querySelector('.page'));
+
+}));
