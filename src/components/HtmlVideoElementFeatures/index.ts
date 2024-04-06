@@ -1,5 +1,5 @@
 import { html } from 'htm/preact';
-import { isMseSupported, isEmeSupported, isMmsSupported } from 'detect-audio-video';
+import { isMseSupported, isEmeSupported, isMmsSupported, isPipSupported } from 'detect-audio-video';
 import { block } from '../../utils/bem';
 import { i18n } from '../../i18n/i18n';
 
@@ -24,6 +24,11 @@ export function HtmlVideoElementFeatures() {
             title: 'EME',
             supported: isEmeSupported(),
         },
+        {
+            label: 'Picture-in-picture',
+            title: 'Pip',
+            supported: isPipSupported(),
+        }
     ];
 
     items.sort((a, b) => {
