@@ -44,7 +44,7 @@ export function Question4K() {
             <ul>
                 <li>${i18n('Is the screen larger than 2K?')} <${Result} value="${screensLargerThan2K}"><//></li>
                 <li>
-                    ${i18n('Support one of the video codecs?')} <${Result} value=${true}><//>
+                    ${i18n('Has support one of the video codecs?')} <${Result} value=${true}><//>
                     <ul>
                         <li>
                             <${Codec}

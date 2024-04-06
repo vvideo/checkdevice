@@ -17,7 +17,7 @@ export function QuestionHdr() {
         <${ActiveQuestion} head="${head}">
             <ul>
                 <li>${i18n('Is this a HDR screen?')} <${Result} value="${isHdr}"><//></li>
-                <li>${i18n('Support one of the video codecs?')} <${Result} value="${Boolean(isVp9 || isHevc || isAv1)}"><//>
+                <li>${i18n('Has support one of the video codecs?')} <${Result} value="${Boolean(isVp9 || isHevc || isAv1)}"><//>
                     <ul>
                         <li>
                             <${Codec}

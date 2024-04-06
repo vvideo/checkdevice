@@ -14,34 +14,31 @@ export function QuestionSurroundSound() {
 
     return html`
         <${ActiveQuestion} head="${head}">
+            ${i18n('Has support one of the audio codecs?')} <${Result} value="${mainAnswer}"><//>
             <ul>
-                <li>${i18n('Support one of the audio codecs?')} <${Result} value="${mainAnswer}"><//>
-                    <ul>
-                        <li>
-                            <${Codec}
-                                name="Dolby Digital"
-                                color="black"
-                                border="white"
-                                disabled="${!isDolbyDigital}">
-                                <//> <${Result} value="${isDolbyDigital}"><//>
-                        </li>
-                        <li>
-                            <${Codec}
-                                name="Dolby Digital Plus"
-                                color="black"
-                                border="white"
-                                disabled="${!isDolbyDigitalPlus}">
-                                <//> <${Result} value="${isDolbyDigitalPlus}"><//>
-                        </li>
-                        <li>
-                            <${Codec}
-                                name="Dolby Atmos"
-                                color="black"
-                                border="white"
-                                disabled="${!isDolbyAtmos}">
-                                <//> <${Result} value="${isDolbyAtmos}"><//>
-                        </li>
-                    </ul>
+                <li>
+                    <${Codec}
+                        name="Dolby Digital"
+                        color="black"
+                        border="white"
+                        disabled="${!isDolbyDigital}">
+                        <//> <${Result} value="${isDolbyDigital}"><//>
+                </li>
+                <li>
+                    <${Codec}
+                        name="Dolby Digital Plus"
+                        color="black"
+                        border="white"
+                        disabled="${!isDolbyDigitalPlus}">
+                        <//> <${Result} value="${isDolbyDigitalPlus}"><//>
+                </li>
+                <li>
+                    <${Codec}
+                        name="Dolby Atmos"
+                        color="black"
+                        border="white"
+                        disabled="${!isDolbyAtmos}">
+                        <//> <${Result} value="${isDolbyAtmos}"><//>
                 </li>
             </ul>
         <//>
