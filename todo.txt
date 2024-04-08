@@ -1,2 +1,3 @@
 - hdcp for drm question
 - external link for hdcp details
+- Main10 for HDR
