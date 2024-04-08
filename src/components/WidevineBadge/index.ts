@@ -11,8 +11,8 @@ import {
 import { block } from '../../utils/bem';
 import { getKeySystemsText } from '../../utils/getKeySystemsText';
 import { getSecurityLevelsText } from '../../utils/getSecurityLevelsText';
-import { getHdcpVersion } from '../../utils/getHcpVersion';
-import { noop } from '../../utils/noop';
+import { getHdcpNotDetected, getHdcpVersion } from '../../utils/getHcpVersion';
+import { HdcpDetailsLink } from '../HdcpDetailsLink';
 
 const b = block('widevine-badge');
 
@@ -45,7 +45,9 @@ export function WidevineBadge() {
 
     cachedCheckAllHdcpVersions().then(data => {
         setHdcpVersion(getHdcpVersion(data));
-    }).catch(noop);
+    }).catch(() => {
+        setHdcpVersion(getHdcpNotDetected());
+    });
 
     isWidevineSupported().then(result => {
         setWidevine(result);
@@ -70,10 +72,10 @@ export function WidevineBadge() {
     }
 
     const text = [
-        getSecurityLevelsText(levels),
-        getKeySystemsText([WIDEWINE_KEY_SYSTEM]),
-        hdcpVersion,
-    ].filter(Boolean).join('\n');
+        html`<div>${getSecurityLevelsText(levels)}</div>`,
+        html`<div>${getKeySystemsText([WIDEWINE_KEY_SYSTEM])}</div>`,
+        html`<div>${hdcpVersion}\u00A0<${HdcpDetailsLink} //></div>`,
+    ];
 
     return html`
         <div class="${b()}">

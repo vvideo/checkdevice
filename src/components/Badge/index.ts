@@ -19,7 +19,7 @@ interface BadgeProps {
         title?: string;
     };
     bottom?: {
-        text: string | VNode;
+        text: string | VNode | VNode[];
         title?: string;
     };
 }

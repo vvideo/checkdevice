@@ -12,8 +12,8 @@ import { block } from '../../utils/bem';
 import { getSecurityLevelsText } from '../../utils/getSecurityLevelsText';
 import { getKeySystemsText } from '../../utils/getKeySystemsText';
 import { CheckHdcpVersion, checkAllHdcpVersions } from 'hdcp';
-import { noop } from '../../utils/noop';
-import { getHdcpVersion } from '../../utils/getHcpVersion';
+import { getHdcpNotDetected, getHdcpVersion } from '../../utils/getHcpVersion';
+import { HdcpDetailsLink } from '../HdcpDetailsLink';
 
 const b = block('playready-badge');
 
@@ -46,7 +46,9 @@ export function PlayreadyBadge() {
 
     cachedCheckAllHdcpVersions().then(data => {
         setHdcpVersion(getHdcpVersion(data));
-    }).catch(noop);
+    }).catch(() => {
+        setHdcpVersion(getHdcpNotDetected());
+    });
 
     isPlayReadySupported().then(result => {
         setPlayready(result);
@@ -79,10 +81,10 @@ export function PlayreadyBadge() {
     }
 
     const text = [
-        getSecurityLevelsText(levels),
-        getKeySystemsText([PLAYREADY_RECOMMENDATION_KEY_SYSTEM]),
-        hdcpVersion,
-    ].filter(Boolean).join('\n');
+        html`<div>${getSecurityLevelsText(levels)}</div>`,
+        html`<div>${getKeySystemsText([PLAYREADY_RECOMMENDATION_KEY_SYSTEM])}</div>`,
+        html`<div>${hdcpVersion}\u00A0<${HdcpDetailsLink} //></div>`,
+    ];
 
     return html`
         <div class="${b()}">

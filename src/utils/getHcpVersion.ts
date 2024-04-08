@@ -12,8 +12,15 @@ function getMaxHdcpVersion(versions: CheckHdcpVersion[]) {
     return '';
 }
 
+export function getHdcpNotDetected() {
+    return `HDCP: ${i18n('Not detected')}`;
+}
+
 export function getHdcpVersion(versions: CheckHdcpVersion[]) {
     const maxVersion = getMaxHdcpVersion(versions);
+    const lastVersion = versions[versions.length - 1];
 
-    return maxVersion ? `${i18n('HDCP version')}: ${maxVersion}` : '';
+    const result = maxVersion || lastVersion?.status;
+
+    return `HDCP: ${result}`;
 }
