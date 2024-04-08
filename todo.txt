@@ -1,2 +1,2 @@
-- high security level
-- hdcp
+- hdcp for drm question
+- external link for hdcp details
