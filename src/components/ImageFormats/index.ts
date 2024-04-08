@@ -2,7 +2,6 @@ import {
     isAPngSupported,
     isAvifSupported,
     isGifSupported,
-    isHeifSupported,
     isJpegSupported,
     isPngSupported,
     isSvgSupported,
@@ -13,8 +12,11 @@ import {
     APNG_CONTENT_TYPE,
     SVG_CONTENT_TYPE,
     WEBP_CONTENT_TYPE,
-    HEIF_CONTENT_TYPE,
+    HEIC_CONTENT_TYPE,
     AVIF_CONTENT_TYPE,
+    isHeicSupported,
+    isJpegXlSupported,
+    JPEG_XL_CONTENT_TYPE,
 } from 'detect-audio-video';
 
 import { Codec } from '../Codec';
@@ -35,10 +37,11 @@ function getImageFormatsSupported() {
         png: isPngSupported(),
         apng: isAPngSupported(),
         jpeg: isJpegSupported(),
+        jpegXl: isJpegXlSupported(),
         gif: isGifSupported(),
         avif: isAvifSupported(),
         webp: isWebpSupported(),
-        heif: isHeifSupported(),
+        heic: isHeicSupported(),
     };
 
     const promises: Promise<void>[] = [];
@@ -69,11 +72,12 @@ export function ImageFormats() {
     [
         { supported: images.gif, name: 'GIF', color: 'blue', tooltip: GIF_CONTENT_TYPE },
         { supported: images.jpeg, name: 'JPEG', color: 'blue', tooltip: JPEG_CONTENT_TYPE },
+        { supported: images.jpeg, name: 'JPEG XL', color: 'blue', tooltip: JPEG_XL_CONTENT_TYPE },
         { supported: images.png, name: 'PNG', color: 'blue', tooltip: PNG_CONTENT_TYPE },
         { supported: images.apng, name: 'APNG', color: 'blue', tooltip: APNG_CONTENT_TYPE },
         { supported: images.svg, name: 'SVG', color: 'red', tooltip: SVG_CONTENT_TYPE },
         { supported: images.webp, name: 'WebP', color: 'green', tooltip: WEBP_CONTENT_TYPE },
-        { supported: images.heif, name: 'HEIF', color: 'orange', tooltip: HEIF_CONTENT_TYPE },
+        { supported: images.heif, name: 'HEIC', color: 'orange', tooltip: HEIC_CONTENT_TYPE },
         { supported: images.avif, name: 'AVIF', color: 'yellow', tooltip: AVIF_CONTENT_TYPE },
     ].map(item => {
         if (item.supported) {
