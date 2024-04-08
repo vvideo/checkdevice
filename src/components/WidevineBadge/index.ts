@@ -1,5 +1,4 @@
 import { useState } from 'preact/hooks';
-import { CheckHdcpVersion, checkAllHdcpVersions } from 'hdcp';
 import { html } from 'htm/preact';
 import { Badge } from '../Badge';
 import {
@@ -13,29 +12,9 @@ import { getKeySystemsText } from '../../utils/getKeySystemsText';
 import { getSecurityLevelsText } from '../../utils/getSecurityLevelsText';
 import { getHdcpNotDetected, getHdcpVersion } from '../../utils/getHcpVersion';
 import { HdcpDetailsLink } from '../HdcpDetailsLink';
+import { getCachedCheckAllHdcpVersions } from '../../utils/getCachedCheckAllHdcpVersions';
 
 const b = block('widevine-badge');
-
-let promiseCheckAllHdcpVersions: Promise<CheckHdcpVersion[]> | null = null;
-
-function cachedCheckAllHdcpVersions() {
-    if (promiseCheckAllHdcpVersions) {
-        return promiseCheckAllHdcpVersions;
-    }
-
-    promiseCheckAllHdcpVersions = checkAllHdcpVersions(WIDEWINE_KEY_SYSTEM).then(result => {
-        promiseCheckAllHdcpVersions = null;
-
-        return result;
-    }).catch(error => {
-        promiseCheckAllHdcpVersions = null;
-
-        throw error;
-    });
-
-    return promiseCheckAllHdcpVersions;
-}
-
 
 export function WidevineBadge() {
     const [hasWidevine, setWidevine] = useState(false);
@@ -43,7 +22,7 @@ export function WidevineBadge() {
     const [hasL3, setL3] = useState(false);
     const [hdcpVersion, setHdcpVersion] = useState('');
 
-    cachedCheckAllHdcpVersions().then(data => {
+    getCachedCheckAllHdcpVersions(WIDEWINE_KEY_SYSTEM).then(data => {
         setHdcpVersion(getHdcpVersion(data));
     }).catch(() => {
         setHdcpVersion(getHdcpNotDetected());
