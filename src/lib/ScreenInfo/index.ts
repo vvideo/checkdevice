@@ -101,7 +101,7 @@ class ScreenInfo {
             // @ts-ignore
             navigator.permissions.query({ name: 'window-management' }).then((result) => {
                 if (result.state === 'denied') {
-                    this.needUserActivity = false; 
+                    this.needUserActivity = false;
                 } else {
                     this.needUserActivity = true;
                 }
@@ -202,3 +202,17 @@ class ScreenInfo {
 }
 
 export const screenInfo = new ScreenInfo();
+
+export function isScreensLargerThan2K(screens: ScreenDetailed[]) {
+    return screens.some(screen => {
+        return isLargerFullHd(Math.min(screen.width, screen.height) * screen.devicePixelRatio);
+    });
+}
+
+export const FULL_HD_HEIGHT = 1080;
+export const HEIGHT_PADDING = 5;
+
+export function isLargerFullHd(height: number) {
+    return height > FULL_HD_HEIGHT + HEIGHT_PADDING;
+}
+

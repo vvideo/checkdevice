@@ -15,6 +15,7 @@ import { ActiveQuestion } from '../ActiveQuestion';
 import { Result } from '../Result';
 import { Codec } from '../Codec';
 import { i18n } from '../../i18n/i18n';
+import { isScreensLargerThan2K, screenInfo } from '../../lib/ScreenInfo';
 
 export function QuestionDrm4K() {
     const [isWidevineL1Vp9, setIsWidevineL1Vp9] = useState(false);
@@ -28,6 +29,20 @@ export function QuestionDrm4K() {
     const [isFairplayVp9, setIsFairplayVp9] = useState(false);
     const [isFairplayHevc, setIsFairplayHevc] = useState(false);
     const [isFairplayAv1, setIsFairplayAv1] = useState(false);
+
+    const [screens, setScreens] = useState(screenInfo.get().screens);
+
+    useEffect(() => {
+        const handler = () => {
+            setScreens(screenInfo.get().screens);
+        };
+
+        screenInfo.addListener(handler);
+
+        return () => {
+            screenInfo.removeListener(handler);
+        };
+    }, [screens]);
 
     useEffect(() => {
         isWidevineL1Supported(VP9_CONTENT_TYPE).then(result => {
@@ -71,7 +86,8 @@ export function QuestionDrm4K() {
         isFairplayVp9 || isFairplayHevc || isFairplayAv1
     );
 
-    const answer = anyCodecWithDrm;
+    const largeThan2K = isScreensLargerThan2K(screens);
+    const answer = anyCodecWithDrm && largeThan2K;
 
     const head = html`${i18n('Can I watch 4K video on online services?')} <${Result} value="${answer}"><//>`;
 
@@ -79,72 +95,77 @@ export function QuestionDrm4K() {
         <${ActiveQuestion} head="${head}">
             <div>${i18n('Online services protect content using')}
             ${'\u00a0'}<a target="_blank" href="${i18n('link:wiki:drm')}">DRM</a>.</div>
-            ${i18n('Has support one of the video codecs and DRM with high security level?')} <${Result} value=${anyCodecWithDrm}><//>
             <ul>
+                <li>${i18n('Is the screen larger than 2K?')} <${Result} value="${largeThan2K}"><//></li>
                 <li>
-                    Widevine L1 + <${Codec}
-                        name="VP9"
-                        color="green"
-                        disabled="${!isWidevineL1Vp9}">
-                    <//> <${Result} value="${isWidevineL1Vp9}"><//>
-                </li>
-                <li>
-                    Widevine L1 + <${Codec}
-                        name="H.265"
-                        color="orange"
-                        disabled="${!isWidevineL1Hevc}">
-                    <//> <${Result} value="${isWidevineL1Hevc}"><//>
-                </li>
-                <li>
-                    Widevine L1 + <${Codec}
-                        name="AV1"
-                        color="yellow"
-                        disabled="${!isWidevineL1Av1}">
-                    <//> <${Result} value="${isWidevineL1Av1}"><//>
-                </li>
+                    ${i18n('Has support one of the video codecs and DRM with high security level?')} <${Result} value=${anyCodecWithDrm}><//>
+                    <ul>
+                        <li>
+                            Widevine L1 + <${Codec}
+                                name="VP9"
+                                color="green"
+                                disabled="${!isWidevineL1Vp9}">
+                            <//> <${Result} value="${isWidevineL1Vp9}"><//>
+                        </li>
+                        <li>
+                            Widevine L1 + <${Codec}
+                                name="H.265"
+                                color="orange"
+                                disabled="${!isWidevineL1Hevc}">
+                            <//> <${Result} value="${isWidevineL1Hevc}"><//>
+                        </li>
+                        <li>
+                            Widevine L1 + <${Codec}
+                                name="AV1"
+                                color="yellow"
+                                disabled="${!isWidevineL1Av1}">
+                            <//> <${Result} value="${isWidevineL1Av1}"><//>
+                        </li>
 
-                <li>
-                    PlayReady SL3000 + <${Codec}
-                        name="VP9"
-                        color="green"
-                        disabled="${!isPlayReadySL3000Vp9}">
-                    <//> <${Result} value="${isPlayReadySL3000Vp9}"><//>
-                </li>
-                <li>
-                    PlayReady SL3000 + <${Codec}
-                        name="H.265"
-                        color="orange"
-                        disabled="${!isPlayReadySL3000Hevc}">
-                    <//> <${Result} value="${isPlayReadySL3000Hevc}"><//>
-                </li>
-                <li>
-                    PlayReady SL3000 + <${Codec}
-                        name="AV1"
-                        color="yellow"
-                        disabled="${!isPlayReadySL3000Av1}">
-                    <//> <${Result} value="${isPlayReadySL3000Av1}"><//>
-                </li>
+                        <li>
+                            PlayReady SL3000 + <${Codec}
+                                name="VP9"
+                                color="green"
+                                disabled="${!isPlayReadySL3000Vp9}">
+                            <//> <${Result} value="${isPlayReadySL3000Vp9}"><//>
+                        </li>
+                        <li>
+                            PlayReady SL3000 + <${Codec}
+                                name="H.265"
+                                color="orange"
+                                disabled="${!isPlayReadySL3000Hevc}">
+                            <//> <${Result} value="${isPlayReadySL3000Hevc}"><//>
+                        </li>
+                        <li>
+                            PlayReady SL3000 + <${Codec}
+                                name="AV1"
+                                color="yellow"
+                                disabled="${!isPlayReadySL3000Av1}">
+                            <//> <${Result} value="${isPlayReadySL3000Av1}"><//>
+                        </li>
 
-                <li>
-                    FairPlay + <${Codec}
-                        name="VP9"
-                        color="green"
-                        disabled="${!isFairplayVp9}">
-                    <//> <${Result} value="${isFairplayVp9}"><//>
-                </li>
-                <li>
-                    FairPlay + <${Codec}
-                        name="H.265"
-                        color="orange"
-                        disabled="${!isFairplayHevc}">
-                    <//> <${Result} value="${isFairplayHevc}"><//>
-                </li>
-                <li>
-                    FairPlay + <${Codec}
-                        name="AV1"
-                        color="yellow"
-                        disabled="${!isFairplayAv1}">
-                    <//> <${Result} value="${isFairplayAv1}"><//>
+                        <li>
+                            FairPlay + <${Codec}
+                                name="VP9"
+                                color="green"
+                                disabled="${!isFairplayVp9}">
+                            <//> <${Result} value="${isFairplayVp9}"><//>
+                        </li>
+                        <li>
+                            FairPlay + <${Codec}
+                                name="H.265"
+                                color="orange"
+                                disabled="${!isFairplayHevc}">
+                            <//> <${Result} value="${isFairplayHevc}"><//>
+                        </li>
+                        <li>
+                            FairPlay + <${Codec}
+                                name="AV1"
+                                color="yellow"
+                                disabled="${!isFairplayAv1}">
+                            <//> <${Result} value="${isFairplayAv1}"><//>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         <//>

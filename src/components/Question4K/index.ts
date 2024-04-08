@@ -4,15 +4,8 @@ import { isAV1Supported, isHevcMainSupported, isVp9Supported } from 'detect-audi
 import { Result } from '../Result';
 import { ActiveQuestion } from '../ActiveQuestion';
 import { Codec } from '../Codec';
-import { screenInfo } from '../../lib/ScreenInfo';
+import { isScreensLargerThan2K, screenInfo } from '../../lib/ScreenInfo';
 import { i18n } from '../../i18n/i18n';
-
-const FULL_HD_HEIGHT = 1080;
-const HEIGHT_PADDING = 5;
-
-function isLargerFullHd(height: number) {
-    return height > FULL_HD_HEIGHT + HEIGHT_PADDING;
-}
 
 export function Question4K() {
     const [screens, setScreens] = useState(screenInfo.get().screens);
@@ -29,20 +22,17 @@ export function Question4K() {
         };
     }, [screens]);
 
-    const screensLargerThan2K = screens.some(screen => {
-        return isLargerFullHd(Math.min(screen.width, screen.height) * screen.devicePixelRatio);
-    });
-
     const isVp9 = isVp9Supported().any;
     const isHevc = isHevcMainSupported().any;
     const isAv1 = isAV1Supported().any;
-    const mainAnswer = screensLargerThan2K && Boolean(isVp9 || isHevc || isAv1);
+    const largeThan2K = isScreensLargerThan2K(screens);
+    const mainAnswer = largeThan2K && Boolean(isVp9 || isHevc || isAv1);
     const head = html`${i18n('Can I watch 4K video?')} <${Result} value="${mainAnswer}"><//>`;
 
     return html`
         <${ActiveQuestion} head="${head}">
             <ul>
-                <li>${i18n('Is the screen larger than 2K?')} <${Result} value="${screensLargerThan2K}"><//></li>
+                <li>${i18n('Is the screen larger than 2K?')} <${Result} value="${largeThan2K}"><//></li>
                 <li>
                     ${i18n('Has support one of the video codecs?')} <${Result} value=${true}><//>
                     <ul>
