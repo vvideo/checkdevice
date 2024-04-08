@@ -26,7 +26,7 @@ export function QuestionHdr() {
                     <ul>
                         <li>
                             <${Codec}
-                                name="VP9 Profile2 Level 1 10 bits"
+                                name="VP9 Profile 2 Level 1 10 bits"
                                 color="green"
                                 disabled="${!isVp910Bit}">
                                 <//> <${Result} value="${isVp910Bit}"><//>
