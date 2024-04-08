@@ -93,11 +93,9 @@ export function QuestionDrm4K() {
 
     return html`
         <${ActiveQuestion} head="${head}">
-            <div>${i18n('Online services protect content using')}
-            ${'\u00a0'}<a target="_blank" href="${i18n('link:wiki:drm')}">DRM</a>.</div>
             <ul>
                 <li>${i18n('Is the screen larger than 2K?')} <${Result} value="${largeThan2K}"><//></li>
-                <li>
+                <li>${i18n('Online services protect content using')}${'\u00a0'}<a target="_blank" href="${i18n('link:wiki:drm')}">DRM</a>.<br/>
                     ${i18n('Has support one of the video codecs and DRM with high security level?')} <${Result} value=${anyCodecWithDrm}><//>
                     <ul>
                         <li>
@@ -166,6 +164,9 @@ export function QuestionDrm4K() {
                             <//> <${Result} value="${isFairplayAv1}"><//>
                         </li>
                     </ul>
+                </li>
+                <li>
+                    ⚠️ Make sure that monitors, graphical cards and cables are plugged into an HDMI port that supports HDCP 2.2 or later (usually the HDMI 1 port).
                 </li>
             </ul>
         <//>
