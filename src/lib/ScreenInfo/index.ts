@@ -154,6 +154,7 @@ class ScreenInfo {
             );
 
             if (win) {
+                // @ts-ignore
                 result = isHdrScreenSupported(win);
                 win.close();
             }
