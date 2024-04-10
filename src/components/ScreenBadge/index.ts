@@ -59,12 +59,12 @@ export function ScreenBadge(props: ScreenBadge) {
 
     const screenText = html`
         <div>${i18n('Size')}: ${screenSize}</div>
+        <div>${i18n('Aspect ratio')}: ${calcAspectRatio(props.width, props.height).value}</div>
         ${hasZoom() ? html`<div>⚠ ${i18n('Please reset zoom in the page')}</div>` : ''}
         <div>${i18n('Color depth')}: ${props.colorDepth} ${i18n('bit')}</div>
-        <div>${i18n('Aspect ratio')}: ${calcAspectRatio(props.width, props.height).value}</div>
+        <div>${props.colorSpaces && props.colorSpaces.length ? getColorSpaces(props.colorSpaces) : ''}</div>
         ${props.isPrimary ? html`<div>${i18n('Primary')}: ${i18n('Yes')}</div>` : ''}
         ${props.isInternal ? html`<div>${i18n('Internal')}: ${i18n('Yes')}</div>` : ''}
-        <div>${props.colorSpaces && props.colorSpaces.length ? getColorSpaces(props.colorSpaces) : ''}</div>
     `;
 
     return html`
@@ -86,4 +86,3 @@ export function ScreenBadge(props: ScreenBadge) {
         </div>
     `;
 }
-
