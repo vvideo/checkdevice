@@ -1,5 +1,6 @@
 .screen-badge {
     display: inline-block;
+    vertical-align: top;
 }
 
 .screen-badge__label {
