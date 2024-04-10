@@ -2,7 +2,7 @@ import { calcAspectRatio } from 'calc-aspect-ratio';
 import { html } from 'htm/preact';
 import { useCallback, useState } from 'preact/hooks';
 import { Badge } from '../Badge';
-import { getResolutionBadge, isHdrScreenSupported } from 'detect-audio-video';
+import { getResolutionBadge } from 'detect-audio-video';
 import { block } from '../../utils/bem';
 import { hasZoom } from '../../utils/hasZoom';
 import { i18n } from '../../i18n/i18n';

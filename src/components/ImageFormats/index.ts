@@ -67,14 +67,13 @@ export function ImageFormats() {
         ref.current = data;
     });
 
-
     const images = ref.current;
     [
-        { supported: images.gif, name: 'GIF', color: 'blue', tooltip: GIF_CONTENT_TYPE },
+        { supported: images.gif, name: 'GIF', color: 'orange', tooltip: GIF_CONTENT_TYPE },
+        { supported: images.png, name: 'PNG', color: 'orange', tooltip: PNG_CONTENT_TYPE },
+        { supported: images.apng, name: 'APNG', color: 'orange', tooltip: APNG_CONTENT_TYPE },
         { supported: images.jpeg, name: 'JPEG', color: 'blue', tooltip: JPEG_CONTENT_TYPE },
         { supported: images.jpeg, name: 'JPEG XL', color: 'blue', tooltip: JPEG_XL_CONTENT_TYPE },
-        { supported: images.png, name: 'PNG', color: 'blue', tooltip: PNG_CONTENT_TYPE },
-        { supported: images.apng, name: 'APNG', color: 'blue', tooltip: APNG_CONTENT_TYPE },
         { supported: images.svg, name: 'SVG', color: 'red', tooltip: SVG_CONTENT_TYPE },
         { supported: images.webp, name: 'WebP', color: 'green', tooltip: WEBP_CONTENT_TYPE },
         { supported: images.heif, name: 'HEIC', color: 'orange', tooltip: HEIC_CONTENT_TYPE },
