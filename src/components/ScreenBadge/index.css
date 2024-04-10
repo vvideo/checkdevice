@@ -1,5 +1,8 @@
-.screen-badge__label {
+.screen-badge {
     display: inline-block;
+}
+
+.screen-badge__label {
     margin: 5px 0;
     color: white;
     font-size: 16px;
