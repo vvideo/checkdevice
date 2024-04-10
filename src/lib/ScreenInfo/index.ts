@@ -143,6 +143,27 @@ class ScreenInfo {
         }
     }
 
+    private checkHdrForScreen(screen: ScreenDetailed): boolean | undefined {
+        let result: boolean | undefined = false;
+
+        try {
+            const win = window.open(
+                'about:blank',
+                'caniwatchvideo',
+                `popup=yes,left=${screen.availLeft},top=${screen.availTop},width=100,height=100`,
+            );
+
+            if (win) {
+                result = isHdrScreenSupported(win);
+                win.close();
+            }
+        } catch(e) {
+            console.error(e);
+        }
+
+        return result;
+    }
+
     public get() {
         const result = {
             isScreenDetails: this.isScreenDetails,
@@ -160,8 +181,7 @@ class ScreenInfo {
                         label: item.label,
                         isInternal: item.isInternal,
                         isPrimary: item.isPrimary,
-                        // TODO
-                        isHDR: item.isPrimary ? isHdrScreenSupported() : false,
+                        isHDR: item.isPrimary ? isHdrScreenSupported() : this.checkHdrForScreen(item),
                         isExtended: item.isExtended,
                         orientation: item.orientation,
                         devicePixelRatio: item.devicePixelRatio,
