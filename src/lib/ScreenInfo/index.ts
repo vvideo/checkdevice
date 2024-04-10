@@ -1,4 +1,4 @@
-import { getDevicePixelRatio } from 'detect-audio-video';
+import { getDevicePixelRatio, isHdrScreenSupported } from 'detect-audio-video';
 
 export interface ScreenDetailed extends Screen {
     label: string;
@@ -160,6 +160,8 @@ class ScreenInfo {
                         label: item.label,
                         isInternal: item.isInternal,
                         isPrimary: item.isPrimary,
+                        // TODO
+                        isHDR: item.isPrimary ? isHdrScreenSupported() : false,
                         isExtended: item.isExtended,
                         orientation: item.orientation,
                         devicePixelRatio: item.devicePixelRatio,
@@ -197,6 +199,7 @@ class ScreenInfo {
             isExtended: Boolean(screen.isExtended),
             orientation: screen.orientation,
             devicePixelRatio: getDevicePixelRatio(),
+            isHDR: isHdrScreenSupported(),
         };
     }
 }

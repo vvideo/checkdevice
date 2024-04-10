@@ -42,8 +42,6 @@ export function ScreenBadge(props: ScreenBadge) {
         ${props.isInternal ? html`<div>${i18n('Internal')}: ${i18n('Yes')}</div>` : ''}
     `;
 
-    const isHDR = props.isScreenDetails ? props.colorDepth > 24 : isHdrScreenSupported();
-
     return html`
         <div class="${b()}" onClick=${handleClick}>
             <div class="${b('label')}">${props.label}</div>
@@ -53,7 +51,7 @@ export function ScreenBadge(props: ScreenBadge) {
                 click: true,
                 background: 'gold',
                 top: {
-                    text: isHDR ? html`<b>HDR</b>` : '',
+                    text: props.isHDR ? html`<b>HDR</b>` : '',
                 },
                 bottom: {
                     text: screenText,
