@@ -8,10 +8,10 @@ const b = block('codec');
 
 interface CodecProps {
     name: string | VNode;
-    tooltip?: string | VNode;
+    border?: string;
     color?: string;
     disabled?: boolean;
-    border?: string;
+    tooltip?: string | VNode;
 }
 
 export function Codec(props: CodecProps) {
