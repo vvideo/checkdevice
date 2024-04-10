@@ -99,21 +99,21 @@ export function QuestionDrm4K() {
                     ${i18n('Has support one of the video codecs and DRM with high security level?')} <${Result} value=${anyCodecWithDrm}><//>
                     <ul>
                         <li>
-                            Widevine L1 + <${Codec}
+                            Google Widevine L1 + <${Codec}
                                 name="VP9"
                                 color="green"
                                 disabled="${!isWidevineL1Vp9}">
                             <//> <${Result} value="${isWidevineL1Vp9}"><//>
                         </li>
                         <li>
-                            Widevine L1 + <${Codec}
+                            Google Widevine L1 + <${Codec}
                                 name="H.265"
                                 color="orange"
                                 disabled="${!isWidevineL1Hevc}">
                             <//> <${Result} value="${isWidevineL1Hevc}"><//>
                         </li>
                         <li>
-                            Widevine L1 + <${Codec}
+                            Google Widevine L1 + <${Codec}
                                 name="AV1"
                                 color="yellow"
                                 disabled="${!isWidevineL1Av1}">
@@ -121,21 +121,21 @@ export function QuestionDrm4K() {
                         </li>
 
                         <li>
-                            PlayReady SL3000 + <${Codec}
+                            Microsoft PlayReady SL3000 + <${Codec}
                                 name="VP9"
                                 color="green"
                                 disabled="${!isPlayReadySL3000Vp9}">
                             <//> <${Result} value="${isPlayReadySL3000Vp9}"><//>
                         </li>
                         <li>
-                            PlayReady SL3000 + <${Codec}
+                            Microsoft PlayReady SL3000 + <${Codec}
                                 name="H.265"
                                 color="orange"
                                 disabled="${!isPlayReadySL3000Hevc}">
                             <//> <${Result} value="${isPlayReadySL3000Hevc}"><//>
                         </li>
                         <li>
-                            PlayReady SL3000 + <${Codec}
+                            Microsoft PlayReady SL3000 + <${Codec}
                                 name="AV1"
                                 color="yellow"
                                 disabled="${!isPlayReadySL3000Av1}">
@@ -143,21 +143,21 @@ export function QuestionDrm4K() {
                         </li>
 
                         <li>
-                            FairPlay + <${Codec}
+                            Apple FairPlay + <${Codec}
                                 name="VP9"
                                 color="green"
                                 disabled="${!isFairplayVp9}">
                             <//> <${Result} value="${isFairplayVp9}"><//>
                         </li>
                         <li>
-                            FairPlay + <${Codec}
+                            Apple FairPlay + <${Codec}
                                 name="H.265"
                                 color="orange"
                                 disabled="${!isFairplayHevc}">
                             <//> <${Result} value="${isFairplayHevc}"><//>
                         </li>
                         <li>
-                            FairPlay + <${Codec}
+                            Apple FairPlay + <${Codec}
                                 name="AV1"
                                 color="yellow"
                                 disabled="${!isFairplayAv1}">
