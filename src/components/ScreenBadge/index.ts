@@ -17,10 +17,34 @@ interface ScreenBadge {
     height: number;
     devicePixelRatio: number;
     colorDepth: number;
-    isHDR?: boolean;
+    isHdr?: boolean;
+    colorSpaces?: string[];
     isInternal?: boolean;
     isPrimary?: boolean;
     label?: string;
+}
+
+function getColorSpaces(spaces?: string[]) {
+    if (!spaces) {
+        return '';
+    }
+
+    return [
+        'srgb',
+        'p3',
+        'rec2020',
+    ].map(item => {
+        const title = getColorSpaceTitle(item);
+        return `${spaces.indexOf(item) > -1 ? '✓' : '✗'} ${title}`;
+    }).join(',\u00A0');
+}
+
+function getColorSpaceTitle(name: string) {
+    return {
+        srgb: 'sRGB',
+        p3: 'DCI-P3',
+        rec2020: 'Rec.2020',
+    }[name] || name;
 }
 
 export function ScreenBadge(props: ScreenBadge) {
@@ -40,6 +64,7 @@ export function ScreenBadge(props: ScreenBadge) {
         <div>${i18n('Aspect ratio')}: ${calcAspectRatio(props.width, props.height).value}</div>
         ${props.isPrimary ? html`<div>${i18n('Primary')}: ${i18n('Yes')}</div>` : ''}
         ${props.isInternal ? html`<div>${i18n('Internal')}: ${i18n('Yes')}</div>` : ''}
+        <div>${props.colorSpaces && props.colorSpaces.length ? getColorSpaces(props.colorSpaces) : ''}</div>
     `;
 
     return html`
@@ -51,7 +76,7 @@ export function ScreenBadge(props: ScreenBadge) {
                 click: true,
                 background: 'gold',
                 top: {
-                    text: props.isHDR ? html`<b>HDR</b>` : '',
+                    text: props.isHdr ? html`<b>HDR</b>` : '',
                 },
                 bottom: {
                     text: screenText,

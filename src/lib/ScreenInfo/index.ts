@@ -1,4 +1,4 @@
-import { getDevicePixelRatio, isHdrScreenSupported } from 'detect-audio-video';
+import { getDevicePixelRatio, isHdrScreenSupported, isP3Supported, isRec2020Supported, isSrgbSupported } from 'detect-audio-video';
 
 export interface ScreenDetailed extends Screen {
     label: string;
@@ -143,8 +143,11 @@ class ScreenInfo {
         }
     }
 
-    private checkHdrForScreen(screen: ScreenDetailed): boolean | undefined {
-        let result: boolean | undefined = false;
+    private getAdditionalPropsForScreen(screen: ScreenDetailed) {
+        const result: { isHdr: boolean, colorSpaces: string[]; } = {
+            isHdr: false,
+            colorSpaces: [],
+        };
 
         try {
             const win = window.open(
@@ -155,7 +158,9 @@ class ScreenInfo {
 
             if (win) {
                 // @ts-ignore
-                result = isHdrScreenSupported(win);
+                result.isHdrSupported = isHdrScreenSupported(win);
+                // @ts-ignore
+                result.colorSpaces = this.getColorSpaces(win);
                 win.close();
             }
         } catch(e) {
@@ -165,11 +170,40 @@ class ScreenInfo {
         return result;
     }
 
+    private getColorSpaces(win = window) {
+        const result: string[] = [];
+
+        if (isSrgbSupported(win)) {
+            result.push('srgb');
+        }
+
+        if (isP3Supported(win)) {
+            result.push('p3');
+        }
+
+        if (isRec2020Supported(win)) {
+            result.push('rec2020');
+        }
+        
+        return result;
+    }
+
+    private getAdditionalProps() {
+        return {
+            isHdr: isHdrScreenSupported(),
+            colorSpaces: this.getColorSpaces(),
+        };
+    }
+
     public get() {
         const result = {
             isScreenDetails: this.isScreenDetails,
             screens: this.isScreenDetails ?
                 this.screens.map(item => {
+                    const additionalProps = item.isPrimary ?
+                        this.getAdditionalProps() :
+                        this.getAdditionalPropsForScreen(item);
+
                     return {
                         availLeft: item.availLeft,
                         availTop: item.availTop,
@@ -182,7 +216,8 @@ class ScreenInfo {
                         label: item.label,
                         isInternal: item.isInternal,
                         isPrimary: item.isPrimary,
-                        isHDR: item.isPrimary ? isHdrScreenSupported() : this.checkHdrForScreen(item),
+                        isHdr: additionalProps.isHdr,
+                        colorSpaces: additionalProps.colorSpaces,
                         isExtended: item.isExtended,
                         orientation: item.orientation,
                         devicePixelRatio: item.devicePixelRatio,
@@ -205,6 +240,8 @@ class ScreenInfo {
     private getScreen() {
         const screen = window.screen;
 
+        const additionalProps = this.getAdditionalProps();
+
         return {
             availLeft: screen.availLeft,
             availTop: screen.availTop,
@@ -220,7 +257,8 @@ class ScreenInfo {
             isExtended: Boolean(screen.isExtended),
             orientation: screen.orientation,
             devicePixelRatio: getDevicePixelRatio(),
-            isHDR: isHdrScreenSupported(),
+            isHdr: additionalProps.isHdr,
+            colorSpaces: additionalProps.colorSpaces,
         };
     }
 }
