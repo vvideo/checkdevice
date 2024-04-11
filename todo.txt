@@ -1,3 +1,4 @@
 - hdcp for drm question
 - Warning: Apple T2 Security chip for Safari
 - Firefox: video-dynamic-range
+- screen.isExtended
