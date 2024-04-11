@@ -188,5 +188,17 @@ export const keysets: I18nKeysets = {
     'Details': {
         'en': 'Details',
         'ru': 'Подробности'
+    },
+    'Battery': {
+        'en': 'Battery',
+        'ru': 'Батарея'
+    },
+    'Platform': {
+        'en': 'Platform',
+        'ru': 'Платформа'
+    },
+    'Connection': {
+        'en': 'Connection',
+        'ru': 'Связь'
     }
 };

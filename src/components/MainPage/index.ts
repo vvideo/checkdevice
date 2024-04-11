@@ -16,6 +16,9 @@ import { i18n } from '../../i18n/i18n';
 import { Gpu } from '../Gpu';
 
 import './index.css';
+import { Platform } from '../Platform';
+import { Battery } from '../ Battery';
+import { Connection } from '../Connection';
 
 const b = block('main-page');
 
@@ -43,8 +46,6 @@ export function MainPage() {
 
             <${ImageFormats}><//>
 
-            <${Gpu}><//>
-
             <${Row} name="${i18n('Native Streaming Support')}">
                 <${NativeStreaming}><//>
             <//>
@@ -52,6 +53,14 @@ export function MainPage() {
             <${Row} name="${i18n('HTMLVideoElement Features')}">
                 <${HtmlVideoElementFeatures}><//>
             <//>
+
+            <${Platform}><//>
+
+            <${Gpu}><//>
+
+            <${Connection}><//>
+
+            <${Battery}><//>
 
             <${Footer}><//>
         </div>`;
