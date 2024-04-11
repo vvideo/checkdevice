@@ -11,14 +11,14 @@ export function i18n(id: string) {
     const key = i18nKeysets[id];
     if (!key) {
         console.error(`Not found key "${id}" in getText().`);
-        return '';
+        return id;
     }
 
     const value = key[i18nLang];
 
     if (typeof value === 'undefined') {
         console.error(`Not found key "${id}", lang "${i18nLang}" in getText().`);
-        return '';
+        return id;
     }
 
     return value;
