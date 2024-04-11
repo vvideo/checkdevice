@@ -1,9 +1,9 @@
 import { I18nKeysets } from './i18n';
 
 export const keysets: I18nKeysets = {
-    'Can I Watch Video': {
-        'en': 'Can I\u00a0Watch Video',
-        'ru': 'Могу ли я\u00a0смотреть видео?'
+    'Can I watch video in this browser': {
+        'en': 'Can I\u00a0watch video in\u00a0this browser?',
+        'ru': 'Могу ли я\u00a0смотреть видео в\u00a0этом браузере?'
     },
     'Audio Codecs': {
         'en': 'Audio Codecs',

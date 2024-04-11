@@ -9,7 +9,7 @@ const b = block('header');
 export function Header() {
     return html`
         <div class="${b()}">
-            ${i18n('Can I Watch Video')}
+            ${i18n('Can I watch video in this browser?')}
         </div>
     `;
 }
