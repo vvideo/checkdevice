@@ -79,7 +79,7 @@ export function ScreenBadge(props: ScreenBadge) {
                 click: true,
                 background: 'gold',
                 top: {
-                    text: props.isHdr ? html`<b>HDR</b>` : '<b>\u00A0</b>',
+                    text: html`<b>${props.isHdr ? 'HDR' :'\u00A0'}</b>`,
                 },
                 bottom: {
                     text: screenText,
