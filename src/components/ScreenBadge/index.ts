@@ -71,7 +71,10 @@ export function ScreenBadge(props: ScreenBadge) {
         <div class="${b()}" onClick=${handleClick}>
             <div class="${b('label')}">${props.label}</div>
             ${Badge({
-                text: getResolutionBadge(Math.max(props.width, props.height) * props.devicePixelRatio) || '',
+                text: getResolutionBadge(
+                        Math.max(props.width, props.height) * props.devicePixelRatio,
+                        Math.min(props.width, props.height) * props.devicePixelRatio,
+                ) || '',
                 type: '4k',
                 click: true,
                 background: 'gold',
