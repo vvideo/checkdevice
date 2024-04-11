@@ -1,4 +1,10 @@
-import { getDevicePixelRatio, isHdrScreenSupported, isP3Supported, isRec2020Supported, isSrgbSupported } from 'detect-audio-video';
+import {
+    getDevicePixelRatio,
+    isHighDynamicRangeSupported,
+    isP3Supported,
+    isRec2020Supported,
+    isSrgbSupported,
+} from 'detect-audio-video';
 
 export interface ScreenDetailed extends Screen {
     label: string;
@@ -158,7 +164,7 @@ class ScreenInfo {
 
             if (win) {
                 // @ts-ignore
-                result.isHdrSupported = isHdrScreenSupported(win);
+                result.isHdrSupported = isHighDynamicRangeSupported(win);
                 // @ts-ignore
                 result.colorSpaces = this.getColorSpaces(win);
                 win.close();
@@ -190,7 +196,7 @@ class ScreenInfo {
 
     private getAdditionalProps() {
         return {
-            isHdr: isHdrScreenSupported(),
+            isHdr: isHighDynamicRangeSupported(),
             colorSpaces: this.getColorSpaces(),
         };
     }

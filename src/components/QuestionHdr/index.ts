@@ -3,7 +3,7 @@ import {
     isVp9Profile2Level110BitSupported,
     isHevcMain10Supported,
     isAV1Main10Supported,
-    isHdrScreenSupported,
+    isHighDynamicRangeSupported,
 } from 'detect-audio-video';
 import { ActiveQuestion } from '../ActiveQuestion';
 import { Result } from '../Result';
@@ -14,7 +14,7 @@ export function QuestionHdr() {
     const isVp910Bit = isVp9Profile2Level110BitSupported().any;
     const isHevcMain10 = isHevcMain10Supported().any;
     const isAv1Main10 = isAV1Main10Supported().any;
-    const isHdr = isHdrScreenSupported();
+    const isHdr = isHighDynamicRangeSupported();
     const mainAnswer = isHdr && Boolean(isVp910Bit || isHevcMain10 || isAv1Main10);
     const head = html`${i18n('Can I watch HDR video?')} <${Result} value="${mainAnswer}"><//>`;
 
