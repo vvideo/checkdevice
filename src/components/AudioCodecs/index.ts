@@ -20,8 +20,8 @@ import { Row } from '../Row';
 import { VNode } from 'preact';
 import { Column } from '../Column';
 import { Columns } from '../Columns';
-import { getTooltip } from '../../utils/getTooltip';
 import { i18n } from '../../i18n/i18n';
+import { CodecDetails } from '../CodecDetails';
 
 export function AudioCodecs() {
     const supported: VNode[] = [];
@@ -42,21 +42,20 @@ export function AudioCodecs() {
         { supported: isDtsXSupported(), name: 'DTS:X', color: 'black' },
         { supported: isMpegHAudioSupported(), name: 'MPEG-H Audio', color: 'blue' },
     ].map(item => {
-        const tooltip = getTooltip(item.supported);
         const isSupported = typeof item.supported === 'boolean' ? item.supported : item.supported.any;
         if (isSupported) {
             supported.push(Codec({
                 name: item.name,
                 color: item.color,
                 border: item.border,
-                tooltip,
+                tooltip: `<${CodecDetails} ...${item.supported} //>`,
             }));
         } else {
             unsupported.push(Codec({
                 name: item.name,
                 color: 'black',
                 disabled: true,
-                tooltip,
+                tooltip: `<${CodecDetails} ...${item.supported} //>`,
             }));
         }
     });

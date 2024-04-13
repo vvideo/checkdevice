@@ -19,8 +19,8 @@ import {
 import { Codec } from '../Codec';
 import { Column } from '../Column';
 import { Columns } from '../Columns';
-import { getTooltip } from '../../utils/getTooltip';
 import { i18n } from '../../i18n/i18n';
+import { CodecDetails } from '../CodecDetails';
 
 export function VideoCodecs() {
     const supported: VNode[] = [];
@@ -41,19 +41,18 @@ export function VideoCodecs() {
         { supported: isVvcMain10Supported(), name: 'H.266 Main10', color: 'blue' },
         { supported: isMpeg2TSupported(), name: 'MPEG2-TS', color: 'yellow' },
     ].map(item => {
-        const tooltip = getTooltip(item.supported);
         if (item.supported.any) {
             supported.push(Codec({
                 name: item.name,
                 color: item.color,
                 border: item.border,
-                tooltip,
+                tooltip: `<${CodecDetails} ...${item.supported} //>`,
             }));
         } else {
             unsupported.push(Codec({
                 name: item.name,
                 disabled: true,
-                tooltip,
+                tooltip: `<${CodecDetails} ...${item.supported} //>`,
             }));
         }
     });
