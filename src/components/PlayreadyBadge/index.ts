@@ -1,6 +1,5 @@
 import { useState } from 'preact/hooks';
 import { html } from 'htm/preact';
-import { Badge } from '../Badge';
 import {
     PLAYREADY_RECOMMENDATION_KEY_SYSTEM,
     isPlayReadySL150Supported,
@@ -8,14 +7,17 @@ import {
     isPlayReadySL3000Supported,
     isPlayReadySupported,
 } from 'detect-audio-video';
-import { block } from '../../utils/bem';
-import { getSecurityLevelsText } from '../../utils/getSecurityLevelsText';
-import { getKeySystemsText } from '../../utils/getKeySystemsText';
-import { getHdcpNotDetected, getHdcpVersion } from '../../utils/getHcpVersion';
+import { Badge } from '../Badge';
 import { HdcpDetailsLink } from '../HdcpDetailsLink';
+import { KeySystems } from '../KeySystems';
+import { SecurityLevels } from '../SecurityLevels';
+import { block } from '../../utils/bem';
+import { getHdcpNotDetected, getHdcpVersion } from '../../utils/getHcpVersion';
 import { getCachedCheckAllHdcpVersions } from '../../utils/getCachedCheckAllHdcpVersions';
 
 const b = block('playready-badge');
+
+const keySystemsItems = [PLAYREADY_RECOMMENDATION_KEY_SYSTEM];
 
 export function PlayreadyBadge() {
     const [hasPlayready, setPlayready] = useState(false);
@@ -61,8 +63,8 @@ export function PlayreadyBadge() {
     }
 
     const text = [
-        html`<div>${getSecurityLevelsText(levels)}</div>`,
-        html`<div>${getKeySystemsText([PLAYREADY_RECOMMENDATION_KEY_SYSTEM])}</div>`,
+        html`<div><${SecurityLevels} items="${levels}" //></div>`,
+        html`<div><${KeySystems} items="${keySystemsItems}" //></div>`,
         html`<div>${hdcpVersion}\u00A0<${HdcpDetailsLink} //></div>`,
     ];
 

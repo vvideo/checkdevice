@@ -1,12 +1,12 @@
 import { useState } from 'preact/hooks';
 import { html } from 'htm/preact';
-import { Badge } from '../Badge';
 import {
     PRIMETIME_KEY_SYSTEM,
     isPrimetimeSupported,
 } from 'detect-audio-video';
+import { Badge } from '../Badge';
+import { KeySystems } from '../KeySystems';
 import { block } from '../../utils/bem';
-import { getKeySystemsText } from '../../utils/getKeySystemsText';
 
 const b = block('primetime-badge');
 
@@ -15,12 +15,6 @@ export function PrimetimeBadge() {
     isPrimetimeSupported().then(result => {
         setPrimetime(result);
     });
-
-    const text = [
-        getKeySystemsText([
-            PRIMETIME_KEY_SYSTEM,
-        ]),
-    ].join('\n')
 
     return html`
         <div class="${b()}">
@@ -31,7 +25,7 @@ export function PrimetimeBadge() {
                     text: 'Adobe',
                 },
                 bottom: {
-                    text,
+                    text: KeySystems({ items: [PRIMETIME_KEY_SYSTEM] }),
                 },
             })}
         </div>

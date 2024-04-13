@@ -1,12 +1,12 @@
-import { useState } from 'preact/hooks';
-import { html } from 'htm/preact';
-import { Badge } from '../Badge';
 import {
     CLEAR_KEY_SYSTEM,
     isClearKeySupported,
 } from 'detect-audio-video';
+import { useState } from 'preact/hooks';
+import { html } from 'htm/preact';
+import { Badge } from '../Badge';
+import { KeySystems } from '../KeySystems';
 import { block } from '../../utils/bem';
-import { getKeySystemsText } from '../../utils/getKeySystemsText';
 
 const b = block('clearkey-badge');
 
@@ -16,10 +16,6 @@ export function ClearkeyBadge() {
         setClearkey(result);
     });
 
-    const text = [
-        getKeySystemsText([CLEAR_KEY_SYSTEM]),
-    ].join('\n');
-
     return html`
         <div class="${b()}">
             ${hasClearkey && Badge({
@@ -27,7 +23,7 @@ export function ClearkeyBadge() {
                 size: 'small',
                 background: 'white',
                 bottom: {
-                    text,
+                    text: KeySystems({ items: [CLEAR_KEY_SYSTEM] }),
                 },
             })}
         </div>

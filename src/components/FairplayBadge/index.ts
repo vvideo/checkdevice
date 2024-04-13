@@ -1,6 +1,5 @@
 import { useState } from 'preact/hooks';
 import { html } from 'htm/preact';
-import { Badge } from '../Badge';
 import {
     FAIRPLAY_KEY_SYSTEM,
     FAIRPLAY_V1_KEY_SYSTEM,
@@ -11,8 +10,9 @@ import {
     isFairPlayV2Supported,
     isFairPlayV3Supported,
 } from 'detect-audio-video';
+import { Badge } from '../Badge';
+import { KeySystems } from '../KeySystems';
 import { block } from '../../utils/bem';
-import { getKeySystemsText } from '../../utils/getKeySystemsText';
 
 const b = block('fairplay-badge');
 
@@ -57,10 +57,6 @@ export function FairplayBadge() {
         keySystems.push(FAIRPLAY_V3_KEY_SYSTEM);
     }
 
-    const text = [
-        getKeySystemsText(keySystems),
-    ].join('\n')
-
     return html`
         <div class="${b()}">
             ${hasFairplay && Badge({
@@ -70,7 +66,7 @@ export function FairplayBadge() {
                     text: 'Apple',
                 },
                 bottom: {
-                    text,
+                    text: KeySystems({ items: keySystems }),
                 },
             })}
         </div>
