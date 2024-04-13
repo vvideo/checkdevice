@@ -1,0 +1,11 @@
+.info-link {
+    margin-left: 3px;
+}
+
+.info-link:link,
+.info-link:visited,
+.info-link:hover,
+.info-link:active {
+    text-decoration: none;
+    color: white;
+}

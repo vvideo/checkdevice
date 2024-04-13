@@ -1,3 +1,2 @@
 - hdcp for drm question
 - Warning: Apple T2 Security chip for Safari
-- Info for detect HDR
