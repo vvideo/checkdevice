@@ -50,12 +50,6 @@ export function WidevineBadge() {
         levels.push('L3');
     }
 
-    const text = [
-        html`<div><${SecurityLevels} items="${levels} //></div>`,
-        html`<div><${KeySystems} items="${[WIDEWINE_KEY_SYSTEM]}" //></div>`,
-        html`<div>${hdcpVersion}\u00A0<${HdcpDetailsLink} //></div>`,
-    ];
-
     return html`
         <div class="${b()}">
             ${hasWidevine && Badge({
@@ -65,7 +59,11 @@ export function WidevineBadge() {
                     text: 'Google',
                 },
                 bottom: {
-                    text,
+                    text: [
+                        html`<div><${SecurityLevels} items="${levels}" //></div>`,
+                        html`<div><${KeySystems} items="${[WIDEWINE_KEY_SYSTEM]}" //></div>`,
+                        html`<div>${hdcpVersion}\u00A0<${HdcpDetailsLink} //></div>`,
+                    ],
                 },
             })}
         </div>

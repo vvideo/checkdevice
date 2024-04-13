@@ -62,12 +62,6 @@ export function PlayreadyBadge() {
         levels.push('SL3000');
     }
 
-    const text = [
-        html`<div><${SecurityLevels} items="${levels}" //></div>`,
-        html`<div><${KeySystems} items="${keySystemsItems}" //></div>`,
-        html`<div>${hdcpVersion}\u00A0<${HdcpDetailsLink} //></div>`,
-    ];
-
     return html`
         <div class="${b()}">
             ${hasPlayready && Badge({
@@ -77,7 +71,11 @@ export function PlayreadyBadge() {
                     text: 'Microsoft',
                 },
                 bottom: {
-                    text,
+                    text: [
+                        html`<div><${SecurityLevels} items="${levels}" //></div>`,
+                        html`<div><${KeySystems} items="${keySystemsItems}" //></div>`,
+                        html`<div>${hdcpVersion}\u00A0<${HdcpDetailsLink} //></div>`,
+                    ],
                 },
             })}
         </div>
