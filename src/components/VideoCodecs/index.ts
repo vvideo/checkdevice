@@ -46,13 +46,13 @@ export function VideoCodecs() {
                 name: item.name,
                 color: item.color,
                 border: item.border,
-                tooltip: html`<${CodecDetails} ...${item.supported} //>`,
+                tooltip: CodecDetails(item.supported),
             }));
         } else {
             unsupported.push(Codec({
                 name: item.name,
                 disabled: true,
-                tooltip: html`<${CodecDetails} ...${item.supported} //>`,
+                tooltip: CodecDetails(item.supported),
             }));
         }
     });

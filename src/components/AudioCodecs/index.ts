@@ -48,14 +48,14 @@ export function AudioCodecs() {
                 name: item.name,
                 color: item.color,
                 border: item.border,
-                tooltip: html`<${CodecDetails} ...${item.supported} //>`,
+                tooltip: CodecDetails(item.supported),
             }));
         } else {
             unsupported.push(Codec({
                 name: item.name,
                 color: 'black',
                 disabled: true,
-                tooltip: html`<${CodecDetails} ...${item.supported} //>`,
+                tooltip: CodecDetails(item.supported),
             }));
         }
     });
