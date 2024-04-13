@@ -21,10 +21,8 @@ export function Platform() {
         'wow64',
     ]).then((data: any) => {
         const result: [string, any][] = [
-            ['platform', data.platform],
-            ['platformVersion', data.platformVersion],
-            ['architecture', data.architecture],
-            ['bitness', data.bitness],
+            ['platform', `${data.platform} ${(data.platformVersion || '')}`],
+            ['architecture', `${data.architecture} ${(data.bitness || '')}`],
             ['formFactor', data.formFactor],
             ['model', data.model],
         ]; 
