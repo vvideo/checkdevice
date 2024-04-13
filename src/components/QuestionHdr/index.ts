@@ -4,24 +4,27 @@ import {
     isHevcMain10Supported,
     isAV1Main10Supported,
     isHighDynamicRangeSupported,
+    isHighVideoDynamicRangeSupported,
 } from 'detect-audio-video';
 import { ActiveQuestion } from '../ActiveQuestion';
 import { Result } from '../Result';
 import { Codec } from '../Codec';
 import { i18n } from '../../i18n/i18n';
+import { Hdr } from '../Hdr';
 
 export function QuestionHdr() {
     const isVp910Bit = isVp9Profile2Level110BitSupported().any;
     const isHevcMain10 = isHevcMain10Supported().any;
     const isAv1Main10 = isAV1Main10Supported().any;
     const isHdr = isHighDynamicRangeSupported();
+    const isVideoHdr = isHighVideoDynamicRangeSupported();
     const mainAnswer = isHdr && Boolean(isVp910Bit || isHevcMain10 || isAv1Main10);
     const head = html`${i18n('Can I watch HDR video?')} <${Result} value="${mainAnswer}"><//>`;
 
     return html`
         <${ActiveQuestion} head="${head}">
             <ul>
-                <li>${i18n('Is this a HDR screen?')} <${Result} value="${isHdr}"><//></li>
+                <li><${Hdr} isHdr="${isHdr}" isVideoHdr="${isVideoHdr}}" //></li>
                 <li>${i18n('Has support one of the video codecs?')} <${Result} value="${Boolean(isVp910Bit || isHevcMain10 || isAv1Main10)}"><//>
                     <ul>
                         <li>
@@ -51,4 +54,3 @@ export function QuestionHdr() {
         <//>
     `;
 }
-

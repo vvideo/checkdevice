@@ -109,9 +109,9 @@ export const keysets: I18nKeysets = {
         'en': 'Has support one of the audio codecs?',
         'ru': 'Есть поддержка одного из аудиокодеков?'
     },
-    'Is this a HDR screen?': {
-        'en': 'Is this a HDR screen?',
-        'ru': 'Это HDR экран?'
+    'Is this a HDR-compatible screen?': {
+        'en': 'Is this a HDR-compatible screen?',
+        'ru': 'Это HDR-совместимый экран?'
     },
     'Has support one of the video codecs?': {
         'en': 'Has support one of the video codecs?',
@@ -173,18 +173,6 @@ export const keysets: I18nKeysets = {
         'en': 'Request',
         'ru': 'Запрос'
     },
-    'Renderer': {
-        'en': 'Renderer',
-        'ru': 'Рендерер'
-    },
-    'Vendor': {
-        'en': 'Vendor',
-        'ru': 'Поставщик'
-    },
-    'GPU': {
-        'en': 'GPU',
-        'ru': 'GPU'
-    },
     'Details': {
         'en': 'Details',
         'ru': 'Подробности'
@@ -200,5 +188,9 @@ export const keysets: I18nKeysets = {
     'Connection': {
         'en': 'Connection',
         'ru': 'Связь'
+    },
+    'Has HDR support for video?': {
+        'en': 'Has HDR support for video?',
+        'ru': 'Есть поддержка HDR для видео?'
     }
 };
