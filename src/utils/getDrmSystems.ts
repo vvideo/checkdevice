@@ -4,14 +4,18 @@ import {
     isWidevineSupported,
 } from 'detect-audio-video';
 
-let promise: Promise<string[]>;
+let cachedPromise: Promise<string[]> | undefined;
+
+export function resetCachedPromise() {
+    cachedPromise = undefined;    
+}
 
 export function getDrmSystems() {
-    if (promise) {
-        return promise;
+    if (cachedPromise) {
+        return cachedPromise;
     }
 
-    promise = Promise.all([
+    cachedPromise = Promise.all([
         isWidevineSupported(),
         isPlayReadySupported(),
         isFairPlaySupported(),
@@ -33,5 +37,5 @@ export function getDrmSystems() {
         return result;
     });
 
-    return promise;
+    return cachedPromise;
 }
