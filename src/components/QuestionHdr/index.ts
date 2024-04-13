@@ -18,13 +18,13 @@ export function QuestionHdr() {
     const isAv1Main10 = isAV1Main10Supported().any;
     const isHdr = isHighDynamicRangeSupported();
     const isVideoHdr = isHighVideoDynamicRangeSupported();
-    const mainAnswer = isHdr && Boolean(isVp910Bit || isHevcMain10 || isAv1Main10);
+    const mainAnswer = (isHdr || isVideoHdr) && Boolean(isVp910Bit || isHevcMain10 || isAv1Main10);
     const head = html`${i18n('Can I watch HDR video?')} <${Result} value="${mainAnswer}"><//>`;
 
     return html`
         <${ActiveQuestion} head="${head}">
             <ul>
-                <li><${Hdr} isHdr="${isHdr}" isVideoHdr="${isVideoHdr}}" //></li>
+                <li><${Hdr} isHdr="${isHdr}" isVideoHdr="${isVideoHdr}" //></li>
                 <li>${i18n('Has support one of the video codecs?')} <${Result} value="${Boolean(isVp910Bit || isHevcMain10 || isAv1Main10)}"><//>
                     <ul>
                         <li>
