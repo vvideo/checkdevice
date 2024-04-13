@@ -5,9 +5,14 @@ import { Row } from '../Row';
 import { ScreenDetailed, screenInfo } from '../../lib/ScreenInfo';
 import { i18n } from '../../i18n/i18n';
 
+import './index.css';
+import { block } from '../../utils/bem';
+
 interface ScreenBadgesState {
     screens: ScreenDetailed[];
 }
+
+const b = block('screen-badges');
 
 export class ScreenBadges extends Component<{}, ScreenBadgesState> {
     constructor() {
@@ -42,6 +47,7 @@ export class ScreenBadges extends Component<{}, ScreenBadgesState> {
         return html`<${Row} name="${name}">
             ${screenInfo.needUserActivity ? html`<div><button onClick="${this.handleClick}">${i18n('Request')}</button></div>` : ''}
             ${content}
+            ${!isScreenDetails && screen.isExtended === true ? html`<div class="${b('additional')}">⚠️ ${i18n('Additional monitor detected')}</div>` : ''}
         <//>`;
     }
 

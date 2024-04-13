@@ -192,5 +192,9 @@ export const keysets: I18nKeysets = {
     'Has HDR support for video?': {
         'en': 'Has HDR support for video?',
         'ru': 'Есть поддержка HDR для видео?'
+    },
+    'Additional monitor detected': {
+        'en': 'Additional monitor detected',
+        'ru': 'Обнаружен дополнительный монитор'
     }
 };
