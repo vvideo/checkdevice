@@ -1,3 +1,4 @@
+import { html } from 'htm/preact';
 import { hit } from 'lyam';
 import { MainPage } from './components/MainPage';
 import { render } from 'preact';
@@ -10,4 +11,4 @@ hit('95998062');
 
 setI18nLang(getLang() as I18NLanguage);
 
-render(MainPage(), document.querySelector('.page') as HTMLDivElement);
+render(html`<${MainPage} //>`, document.querySelector('.page') as HTMLDivElement);

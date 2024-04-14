@@ -1,4 +1,5 @@
 import { html } from 'htm/preact';
+import { useEffect, useState } from 'preact/hooks';
 import { AudioBadges } from '../AudioBadges';
 import { ScreenBadges } from '../ScreenBadges';
 import { AudioCodecs } from '../AudioCodecs';
@@ -14,15 +15,29 @@ import { Footer } from '../Footer';
 import { ImageFormats } from '../ImageFormats';
 import { i18n } from '../../i18n/i18n';
 import { Gpu } from '../Gpu';
+import { Platform } from '../Platform';
+import { Battery } from '../Battery';
+import { Connection } from '../Connection';
 
 import './index.css';
-import { Platform } from '../Platform';
-import { Battery } from '../ Battery';
-import { Connection } from '../Connection';
 
 const b = block('main-page');
 
 export function MainPage() {
+    const [forceRender, setForceRender] = useState(0);
+
+    useEffect(() => {
+        function onVisibilityСhange() {
+            setForceRender(forceRender + 1);
+        }
+
+        document.addEventListener('visibilitychange', onVisibilityСhange);
+
+        return () => {
+            document.removeEventListener('visibilitychange', onVisibilityСhange);
+        };
+    }, [forceRender]);
+
     return html`
         <div class="${b()}">
             <${Header}><//>
@@ -34,7 +49,9 @@ export function MainPage() {
                 <${AudioBadges}><//>
             <//>
 
-            <${AudioCodecs}><//>
+            <${Row} name="${i18n('Audio Codecs')}">
+                <${AudioCodecs}><//>
+            <//>
 
             <${Row} name="${i18n('Video Codecs')}">
                 <${VideoCodecs}><//>
@@ -44,7 +61,9 @@ export function MainPage() {
                 <${DrmBadges}><//>
             <//>
 
-            <${ImageFormats}><//>
+            <${Row} name="${i18n('Image Formats')}">
+                <${ImageFormats}><//>
+            <//>
 
             <${Row} name="${i18n('Native Streaming Support')}">
                 <${NativeStreaming}><//>
