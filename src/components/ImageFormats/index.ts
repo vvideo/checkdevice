@@ -18,17 +18,16 @@ import {
     isJpegXlSupported,
     JPEG_XL_CONTENT_TYPE,
 } from 'detect-audio-video';
-
-import { Codec } from '../Codec';
 import { html } from 'htm/preact';
 import { useState, useRef } from 'preact/hooks';
-import { Row } from '../Row';
 import { VNode } from 'preact';
+
+import { Codec } from '../Codec';
 import { Column } from '../Column';
 import { Columns } from '../Columns';
 import { i18n } from '../../i18n/i18n';
 
-function getImageFormatsSupported() {
+function getSupportedImageFormats() {
     const result: Record<string, boolean> = {
         svg: isSvgSupported(),
     };
@@ -62,7 +61,7 @@ export function ImageFormats() {
     const [_, setReady] = useState(false);
     const ref = useRef<Record<string, boolean>>({});
 
-    getImageFormatsSupported().then(data => {
+    getSupportedImageFormats().then(data => {
         setReady(true);
         ref.current = data;
     });
@@ -95,12 +94,10 @@ export function ImageFormats() {
         }
     });
 
-    return html`<${Row} name="${i18n('Image Formats')}">
-        <${Columns}>
-            <${Column} name="${i18n('Supported')}">
-                ${supported.length ? supported : i18n('No supported image formats.')}
-            <//>
-            ${unsupported.length ? html`<${Column} name="${i18n('Unsupported')}">${unsupported}<//>` : ''}
+    return html`<${Columns}>
+        <${Column} name="${i18n('Supported')}">
+            ${supported.length ? supported : i18n('No supported image formats.')}
         <//>
+        ${unsupported.length ? html`<${Column} name="${i18n('Unsupported')}">${unsupported}<//>` : ''}
     <//>`;
 }

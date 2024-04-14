@@ -16,7 +16,6 @@ import {
 
 import { Codec } from '../Codec';
 import { html } from 'htm/preact';
-import { Row } from '../Row';
 import { VNode } from 'preact';
 import { Column } from '../Column';
 import { Columns } from '../Columns';
@@ -60,12 +59,10 @@ export function AudioCodecs() {
         }
     });
 
-    return html`<${Row} name="${i18n('Audio Codecs')}">
-        <${Columns}>
-            <${Column} name="${i18n('Supported')}">
-                ${supported.length ? supported : i18n('No supported audio codecs.')}
-            <//>
-            ${unsupported.length ? html`<${Column} name="${i18n('Unsupported')}">${unsupported}<//>` : ''}
+    return html`<${Columns}>
+        <${Column} name="${i18n('Supported')}">
+            ${supported.length ? supported : i18n('No supported audio codecs.')}
         <//>
+        ${unsupported.length ? html`<${Column} name="${i18n('Unsupported')}">${unsupported}<//>` : ''}
     <//>`;
 }

@@ -4,14 +4,12 @@ import { i18n } from '../../i18n/i18n';
 import { List } from '../List';
 import { noop } from '../../utils/noop';
 
-let cachedPromise: Promise<any> | undefined;
-
 export function Platform() {
     const ref = useRef<[string, any][]>([]);
     const [_, setUserData] = useState(false);
 
     // @ts-ignore
-    cachedPromise = cachedPromise || navigator.userAgentData?.getHighEntropyValues?.([
+    navigator.userAgentData?.getHighEntropyValues?.([
         'architecture',
         'bitness',
         'formFactor',
