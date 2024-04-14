@@ -16,6 +16,7 @@ import { Result } from '../Result';
 import { Codec } from '../Codec';
 import { i18n } from '../../i18n/i18n';
 import { isScreensLargerThan2K, screenInfo } from '../../lib/ScreenInfo';
+import { isDesktopSafari } from '../../utils/isDesktopSafari';
 
 export function QuestionDrm4K() {
     const [isWidevineL1Vp9, setIsWidevineL1Vp9] = useState(false);
@@ -91,6 +92,7 @@ export function QuestionDrm4K() {
 
     const head = html`${i18n('Can I watch 4K video on online services?')} <${Result} value="${answer}"><//>`;
 
+    console.log('isDesktopSafari', isDesktopSafari());
     return html`
         <${ActiveQuestion} head="${head}">
             <ul>
@@ -168,6 +170,9 @@ export function QuestionDrm4K() {
                 <li>
                     ⚠️ Make sure that monitors, graphical cards and cables are plugged into an HDMI port that supports HDCP 2.2 or later (usually the HDMI 1 port).
                 </li>
+                ${isDesktopSafari() ? html`<li>
+                    ⚠️ ${i18n('Select 2018 or later Mac computer with an')} <a href="${i18n('link:apple:t2')}" target="_blank">Apple T2 Security Chip</a>.
+                </li>` : ''}
             </ul>
         <//>
     `;

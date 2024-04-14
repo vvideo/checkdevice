@@ -196,5 +196,13 @@ export const keysets: I18nKeysets = {
     'Additional monitor detected': {
         'en': 'Additional monitor detected',
         'ru': 'Обнаружен дополнительный монитор'
+    },
+    'link:apple:t2': {
+        'en': 'https://support.apple.com/en-us/103265',
+        'ru': 'https://support.apple.com/ru-ru/103265'
+    },
+    'Select 2018 or later Mac computer with an': {
+        'en': 'Select 2018 or later Mac computer with an',
+        'ru': 'Компьютер Мак (начиная с 2018 или новее) с',
     }
 };
