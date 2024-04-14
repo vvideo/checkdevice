@@ -7,8 +7,8 @@ import {
     isWidevineL3Supported,
     isWidevineSupported,
 } from 'detect-audio-video';
+import { HdcpLink } from '../HdcpLink';
 import { getHdcpNotDetected, getHdcpVersion } from '../../utils/getHcpVersion';
-import { HdcpDetailsLink } from '../HdcpDetailsLink';
 import { KeySystems } from '../KeySystems';
 import { SecurityLevels } from '../SecurityLevels';
 import { block } from '../../utils/bem';
@@ -62,7 +62,7 @@ export function WidevineBadge() {
                     text: [
                         html`<div><${SecurityLevels} items="${levels}" //></div>`,
                         html`<div><${KeySystems} items="${[WIDEWINE_KEY_SYSTEM]}" //></div>`,
-                        html`<div>${hdcpVersion}\u00A0<${HdcpDetailsLink} //></div>`,
+                        html`<div><${HdcpLink} version="${hdcpVersion}" //></div>`,
                     ],
                 },
             })}

@@ -8,7 +8,7 @@ import {
     isPlayReadySupported,
 } from 'detect-audio-video';
 import { Badge } from '../Badge';
-import { HdcpDetailsLink } from '../HdcpDetailsLink';
+import { HdcpLink } from '../HdcpLink';
 import { KeySystems } from '../KeySystems';
 import { SecurityLevels } from '../SecurityLevels';
 import { block } from '../../utils/bem';
@@ -74,7 +74,7 @@ export function PlayreadyBadge() {
                     text: [
                         html`<div><${SecurityLevels} items="${levels}" //></div>`,
                         html`<div><${KeySystems} items="${keySystemsItems}" //></div>`,
-                        html`<div>${hdcpVersion}\u00A0<${HdcpDetailsLink} //></div>`,
+                        html`<div>$<${HdcpLink} version="${hdcpVersion}" //></div>`,
                     ],
                 },
             })}
