@@ -157,7 +157,7 @@ export function QuestionDrm4K() {
 
                         ${DrmItem({
                             name: 'Apple Fairplay',
-                            hasNeededHdcp: false,
+                            hasNeededHdcp: null,
                             isSupported: isFairplay,
                             isVp9Supported: isFairplayVp9,
                             isHevcSupported: isFairplayHevc,
