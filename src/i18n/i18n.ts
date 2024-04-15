@@ -27,3 +27,7 @@ export function i18n(id: string) {
 export function setI18nLang(lang: I18NLanguage) {
     i18nLang = lang;
 }
+
+export function getI18nLang() {
+    return i18nLang;
+}

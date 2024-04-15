@@ -20,6 +20,7 @@ import { Battery } from '../Battery';
 import { Connection } from '../Connection';
 
 import './index.css';
+import { NetworkSpeed } from '../NetworkSpeed';
 
 const b = block('main-page');
 
@@ -71,6 +72,10 @@ export function MainPage() {
 
             <${Row} name="${i18n('HTMLVideoElement Features')}">
                 <${HtmlVideoElementFeatures}><//>
+            <//>
+
+            <${Row} name="${i18n('Network Speed')}">
+                <${NetworkSpeed}><//>
             <//>
 
             <${Platform}><//>

@@ -204,5 +204,9 @@ export const keysets: I18nKeysets = {
     'Select 2018 or later Mac computer with an': {
         'en': 'Select 2018 or later Mac computer with an',
         'ru': 'Компьютер Мак (начиная с 2018 или новее) с',
+    },
+    'Network Speed': {
+        'en': 'Network Speed',
+        'ru': 'Скорость сети'
     }
 };
