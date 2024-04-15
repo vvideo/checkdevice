@@ -59,11 +59,9 @@ export function WidevineBadge() {
                     text: 'Google',
                 },
                 bottom: {
-                    text: [
-                        html`<div><${SecurityLevels} items="${levels}" //></div>`,
-                        html`<div><${KeySystems} items="${[WIDEWINE_KEY_SYSTEM]}" //></div>`,
-                        html`<div><${HdcpLink} version="${hdcpVersion}" //></div>`,
-                    ],
+                    text: html`<div><${SecurityLevels} items="${levels}" //></div>
+                        <div><${KeySystems} items="${[WIDEWINE_KEY_SYSTEM]}" //></div>
+                        <div><${HdcpLink} version="${hdcpVersion}" //></div>`,
                 },
             })}
         </div>

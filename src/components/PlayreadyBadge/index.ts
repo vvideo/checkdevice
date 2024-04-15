@@ -71,11 +71,9 @@ export function PlayreadyBadge() {
                     text: 'Microsoft',
                 },
                 bottom: {
-                    text: [
-                        html`<div><${SecurityLevels} items="${levels}" //></div>`,
-                        html`<div><${KeySystems} items="${keySystemsItems}" //></div>`,
-                        html`<div>$<${HdcpLink} version="${hdcpVersion}" //></div>`,
-                    ],
+                    text: html`<div><${SecurityLevels} items="${levels}" //></div>
+                        <div><${KeySystems} items="${keySystemsItems}" //></div>
+                        <div><${HdcpLink} version="${hdcpVersion}" //></div>`
                 },
             })}
         </div>
