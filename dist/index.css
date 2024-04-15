@@ -7,8 +7,8 @@
 .columns{display:flex}
 .header{font-size:35px;font-weight:400;line-height:42px;margin:20px 0;position:relative}
 .native-streaming{font-size:16px;line-height:26px;margin:0 0 0 15px;padding:0}
-.result_type_yes{color:green}.result_type_no{color:red}.result_type_undefined{color:#ff0}.result__details{margin-left:1em}
-.active-question__head{cursor:pointer;display:flex}.active-question__body{display:none;margin:0 20px 20px 30px}.active-question_opened .active-question__body{display:block}.active-question__plus{align-self:center;border:1px dotted #fff;border-radius:5px;height:1em;line-height:1em;margin-right:10px;text-align:center;vertical-align:middle;width:1em}.active-question ul{margin:0 0 0 20px;padding:0}
+.result_type_yes{color:green}.result_type_no{color:red}.result_type_warning{color:#ff0}.result__details{margin-left:1em}
+.active-question__head{cursor:pointer;display:flex}.active-question__body{display:none;margin:0 20px 20px 30px}.active-question_opened .active-question__body{display:block}.active-question__plus{border:1px dotted #fff;border-radius:5px;height:1em;line-height:1em;margin:3px 10px 0 0;text-align:center;width:1em}.active-question ul{margin:0 0 0 20px;padding:0}
 .info-link{margin-left:3px}.info-link:active,.info-link:hover,.info-link:link,.info-link:visited{color:#fff;text-decoration:none}
 .questions{font-size:20px;line-height:32px;margin-bottom:20px}
 .html-video-element-features{font-size:16px;line-height:26px;margin:0 0 0 15px;padding:0}
