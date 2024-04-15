@@ -4,13 +4,14 @@ import { ActiveQuestion } from '../ActiveQuestion';
 import { Result } from '../Result';
 import { Codec } from '../Codec';
 import { i18n } from '../../i18n/i18n';
+import { CodecDetails } from '../CodecDetails';
 
 export function QuestionSurroundSound() {
-    const isDolbyDigital = isDolbyDigitalSupported().any;
-    const isDolbyDigitalPlus = isDolbyDigitalPlusSupported().any;
+    const isDolbyDigital = isDolbyDigitalSupported();
+    const isDolbyDigitalPlus = isDolbyDigitalPlusSupported();
     const isDolbyAtmos = isDolbyAtmosSupported();
-    const mainAnswer = isDolbyDigital || isDolbyDigitalPlus || isDolbyAtmos;
-    const head = html`${i18n('Can I listen surround sound on online services?')} <${Result} value="${mainAnswer}"><//>`;
+    const mainAnswer = isDolbyDigital.any || isDolbyDigitalPlus.any || isDolbyAtmos;
+    const head = html`${i18n('Can I listen surround sound on online services?')}\u00a0<${Result} value="${mainAnswer}"><//>`;
 
     return html`
         <${ActiveQuestion} head="${head}">
@@ -21,16 +22,18 @@ export function QuestionSurroundSound() {
                         name="Dolby Digital"
                         color="black"
                         border="white"
-                        disabled="${!isDolbyDigital}">
-                        <//>\u00a0<${Result} value="${isDolbyDigital}"><//>
+                        disabled="${!isDolbyDigital.any}"
+                        tooltip="${CodecDetails(isDolbyDigital)}">
+                        <//>\u00a0<${Result} value="${isDolbyDigital.any}"><//>
                 </li>
                 <li>
                     <${Codec}
                         name="Dolby Digital Plus"
                         color="black"
                         border="white"
-                        disabled="${!isDolbyDigitalPlus}">
-                        <//>\u00a0<${Result} value="${isDolbyDigitalPlus}"><//>
+                        disabled="${!isDolbyDigitalPlus.any}"
+                        tooltip="${CodecDetails(isDolbyDigitalPlus)}">
+                        <//>\u00a0<${Result} value="${isDolbyDigitalPlus.any}"><//>
                 </li>
                 <li>
                     <${Codec}
