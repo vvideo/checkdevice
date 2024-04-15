@@ -9,10 +9,12 @@ interface HdrProps {
 }
 
 export function Hdr(props: HdrProps) {
+    const isHdr = Boolean(props.isHdr);
+    const isVideoHdr = Boolean(props.isVideoHdr);
     // For Firefox on MacOS
-    if (!props.isHdr && props.isVideoHdr) {
-        return html`${i18n('Has HDR support for video?')}<${InfoLink} href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/video-dynamic-range" //> <${Result} value="${props.isVideoHdr}"><//>`;
+    if (!isHdr && isVideoHdr) {
+        return html`${i18n('Has HDR support for video?')}<${InfoLink} href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/video-dynamic-range" //>\u00a0<${Result} value="${isVideoHdr}"><//>`;
     }
 
-    return html`${i18n('Is this a HDR-compatible screen?')}<${InfoLink} href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/dynamic-range" //> <${Result} value="${props.isHdr}"><//>`;
+    return html`${i18n('Is this a HDR-compatible screen?')}<${InfoLink} href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/dynamic-range" //>\u00a0<${Result} value="${isHdr}"><//>`;
 }
