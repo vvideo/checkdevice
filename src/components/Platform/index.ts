@@ -3,6 +3,7 @@ import { useState, useRef } from 'preact/hooks';
 import { i18n } from '../../i18n/i18n';
 import { List } from '../List';
 import { noop } from '../../utils/noop';
+import { isStandalone } from 'detect-audio-video';
 
 export function Platform() {
     const ref = useRef<[string, any][]>([]);
@@ -20,7 +21,7 @@ export function Platform() {
     ]).then((data: any) => {
         const result: [string, any][] = [
             ['platform', `${data.platform} ${(data.platformVersion || '')}`],
-            ['architecture', `${data.architecture} ${(data.bitness || '')}`],
+            ['architecture', data.architecture ? `${data.architecture} ${(data.bitness || '')}` : ''],
             ['formFactor', data.formFactor],
             ['model', data.model],
         ]; 
@@ -33,6 +34,7 @@ export function Platform() {
     let items: [string, any][] = [
         ['hardwareConcurrency', navigator.hardwareConcurrency],
         ['deviceMemory', navigator.deviceMemory],
+        ['standalone', isStandalone()],
         ['userAgent', navigator.userAgent],
     ];
 

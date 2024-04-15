@@ -1,5 +1,12 @@
 import { html } from 'htm/preact';
-import { isMseSupported, isEmeSupported, isMmsSupported, isPipSupported } from 'detect-audio-video';
+import {
+    isMseSupported,
+    isEmeSupported,
+    isMmsSupported,
+    isPipSupported,
+    isCastToAirPlaySupported,
+} from 'detect-audio-video';
+
 import { block } from '../../utils/bem';
 import { i18n } from '../../i18n/i18n';
 
@@ -28,6 +35,11 @@ export function HtmlVideoElementFeatures() {
             label: 'Picture-in-picture',
             title: 'Pip',
             supported: isPipSupported(),
+        },
+        {
+            label: 'Cast to AirPlay',
+            title: 'AirPlay',
+            supported: isCastToAirPlaySupported(),
         }
     ];
 
@@ -36,20 +48,13 @@ export function HtmlVideoElementFeatures() {
             return 0;
         }
 
-        if (a.supported) {
-            return -1;
-        }
-
-        return 1;
+        return a.supported ? -1 : 1;
     });
 
-    let result = items.map(item => {
-        return html`<li title="${item.title}">${item.label}: ${item.supported ? '✓' : i18n('No') }</li>`;
+    const content = items.map(item => {
+        const supported = item.supported ? '✓' : i18n('No');
+        return html`<li title="${item.title}">${item.label}: ${supported}</li>`;
     });
 
-    return html`
-        <ul class=${b()}>
-            ${result}
-        </ul>
-    `;
+    return html`<ul class=${b()}>${content}</ul>`;
 }
