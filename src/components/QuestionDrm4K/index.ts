@@ -92,7 +92,6 @@ export function QuestionDrm4K() {
 
     const head = html`${i18n('Can I watch 4K video on online services?')} <${Result} value="${answer}"><//>`;
 
-    console.log('isDesktopSafari', isDesktopSafari());
     return html`
         <${ActiveQuestion} head="${head}">
             <ul>
