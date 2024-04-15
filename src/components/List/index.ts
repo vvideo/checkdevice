@@ -13,7 +13,7 @@ const b = block('list');
 
 export function List(props: ListProps) {
     const filteredItems = props.items
-        .filter(item => typeof item[1] !== 'undefined')
+        .filter(item => typeof item[1] !== 'undefined' && item[1] !== '')
         .map(item => {
             return [
                 item[0],
