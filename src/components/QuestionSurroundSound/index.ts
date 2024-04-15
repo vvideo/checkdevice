@@ -14,7 +14,7 @@ export function QuestionSurroundSound() {
 
     return html`
         <${ActiveQuestion} head="${head}">
-            ${i18n('Has support one of the audio codecs?')} <${Result} value="${mainAnswer}"><//>
+            ${i18n('Has support one of the audio codecs?')}\u00a0<${Result} value="${mainAnswer}"><//>
             <ul>
                 <li>
                     <${Codec}
@@ -22,7 +22,7 @@ export function QuestionSurroundSound() {
                         color="black"
                         border="white"
                         disabled="${!isDolbyDigital}">
-                        <//> <${Result} value="${isDolbyDigital}"><//>
+                        <//>\u00a0<${Result} value="${isDolbyDigital}"><//>
                 </li>
                 <li>
                     <${Codec}
@@ -30,7 +30,7 @@ export function QuestionSurroundSound() {
                         color="black"
                         border="white"
                         disabled="${!isDolbyDigitalPlus}">
-                        <//> <${Result} value="${isDolbyDigitalPlus}"><//>
+                        <//>\u00a0<${Result} value="${isDolbyDigitalPlus}"><//>
                 </li>
                 <li>
                     <${Codec}
@@ -38,7 +38,7 @@ export function QuestionSurroundSound() {
                         color="black"
                         border="white"
                         disabled="${!isDolbyAtmos}">
-                        <//> <${Result} value="${isDolbyAtmos}"><//>
+                        <//>\u00a0<${Result} value="${isDolbyAtmos}"><//>
                 </li>
             </ul>
         <//>

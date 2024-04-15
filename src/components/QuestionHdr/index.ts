@@ -25,28 +25,28 @@ export function QuestionHdr() {
         <${ActiveQuestion} head="${head}">
             <ul>
                 <li><${Hdr} isHdr="${isHdr}" isVideoHdr="${isVideoHdr}" //></li>
-                <li>${i18n('Has support one of the video codecs?')} <${Result} value="${Boolean(isVp910Bit || isHevcMain10 || isAv1Main10)}"><//>
+                <li>${i18n('Has support one of the video codecs?')}\u00a0<${Result} value="${Boolean(isVp910Bit || isHevcMain10 || isAv1Main10)}"><//>
                     <ul>
                         <li>
                             <${Codec}
                                 name="VP9 Profile 2 Level 1 10 bits"
                                 color="green"
                                 disabled="${!isVp910Bit}">
-                                <//> <${Result} value="${isVp910Bit}"><//>
+                                <//>\u00a0<${Result} value="${isVp910Bit}"><//>
                         </li>
                         <li>
                             <${Codec}
                                 name="H.265 Main 10"
                                 color="orange"
                                 disabled="${!isHevcMain10}">
-                                <//> <${Result} value="${isHevcMain10}"><//>
+                                <//>\u00a0<${Result} value="${isHevcMain10}"><//>
                         </li>
                         <li>
                             <${Codec}
                                 name="AV1 Main 10"
                                 color="yellow"
                                 disabled="${!isAv1Main10}">
-                                <//> <${Result} value="${isAv1Main10}"><//>
+                                <//>\u00a0<${Result} value="${isAv1Main10}"><//>
                         </li>
                     </ul>
                 </li>

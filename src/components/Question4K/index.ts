@@ -32,30 +32,30 @@ export function Question4K() {
     return html`
         <${ActiveQuestion} head="${head}">
             <ul>
-                <li>${i18n('Is the screen larger than 2K?')} <${Result} value="${largeThan2K}"><//></li>
+                <li>${i18n('Is the screen larger than 2K?')}\u00a0<${Result} value="${largeThan2K}"><//></li>
                 <li>
-                    ${i18n('Has support one of the video codecs?')} <${Result} value=${true}><//>
+                    ${i18n('Has support one of the video codecs?')}\u00a0<${Result} value=${true}><//>
                     <ul>
                         <li>
                             <${Codec}
                                 name="VP9"
                                 color="green"
                                 disabled="${!isVp9}">
-                                <//> <${Result} value="${isVp9}"><//>
+                                <//>\u00a0<${Result} value="${isVp9}"><//>
                         </li>
                         <li>
                             <${Codec}
                                 name="H.265"
                                 color="orange"
                                 disabled="${!isHevc}">
-                                <//> <${Result} value="${isHevc}"><//>
+                                <//>\u00a0<${Result} value="${isHevc}"><//>
                         </li>
                         <li>
                             <${Codec}
                                 name="AV1"
                                 color="yellow"
                                 disabled="${!isAv1}">
-                                <//> <${Result} value="${isAv1}"><//>
+                                <//>\u00a0<${Result} value="${isAv1}"><//>
                         </li>
                     </ul>
                 </li>
