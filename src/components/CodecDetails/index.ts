@@ -4,7 +4,7 @@ interface CodecDetailsProps {
     canPlayType: string;
     isTypeSupported: boolean;
     contentType: string;
-    mediaElementType: 'audio' | 'video';
+    mediaElementType: string;
 }
 
 function getIsTypeSupportedProps(isTypeSupported: boolean) {
