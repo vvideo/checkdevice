@@ -1,9 +1,10 @@
 import { html } from 'htm/preact';
 
-interface TooltipProps {
+interface CodecDetailsProps {
     canPlayType: string;
     isTypeSupported: boolean;
     contentType: string;
+    mediaElementType: 'audio' | 'video';
 }
 
 function getIsTypeSupportedProps(isTypeSupported: boolean) {
@@ -38,7 +39,7 @@ function getCanPlayTypeProps(canPlayType: string) {
 }
 
 
-export function CodecDetails(props: TooltipProps | boolean) {
+export function CodecDetails(props: CodecDetailsProps | boolean) {
     if (typeof props === 'boolean') {
         return '';
     }
@@ -47,7 +48,7 @@ export function CodecDetails(props: TooltipProps | boolean) {
     const isTypeSupportedResult = getIsTypeSupportedProps(props.isTypeSupported);
 
     return html`
-        video.canPlayType(): <span style="color:${canPlayTypeResult.color}">${canPlayTypeResult.value}</span><br />
+        ${[props.mediaElementType]}.canPlayType(): <span style="color:${canPlayTypeResult.color}">${canPlayTypeResult.value}</span><br />
         MediaSource.isTypeSupported(): <span style="color:${isTypeSupportedResult.color}">${isTypeSupportedResult.value}</span><br />
         <hr />
         ${props.contentType}
