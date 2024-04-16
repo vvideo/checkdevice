@@ -31,7 +31,7 @@ export function AudioCodecs() {
         { supported: isMp4AudioSupported(), name: 'MP4', color: 'orange' },
         { supported: isAacSupported(), name: 'AAC', color: 'orange' },
         { supported: isFlacSupported(), name: 'FLAC', color: 'blue' },
-        { supported: isVorbisSupported(), name: 'Vorbis', color: 'orange' },
+        { supported: isVorbisSupported(), name: 'Vorbis', color: 'green' },
         { supported: isOpusSupported(), name: 'Opus', color: 'green' },
         { supported: isDolbyDigitalSupported(), name: html`<b>Dolby</b> Digital`, color: 'black', border: 'white' },
         { supported: isDolbyDigitalPlusSupported(), name: html`<b>Dolby</b> Digital Plus`, color: 'black', border: 'white' },
