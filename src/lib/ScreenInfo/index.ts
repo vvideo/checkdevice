@@ -118,7 +118,6 @@ class ScreenInfo {
             this.needUserActivity = true;
             this.emit();
 
-
             throw e;
         });
     }

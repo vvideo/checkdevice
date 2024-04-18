@@ -7,6 +7,7 @@ import { i18n } from '../../i18n/i18n';
 
 import './index.css';
 import { block } from '../../utils/bem';
+import { noop } from '../../utils/noop';
 
 interface ScreenBadgesState {
     screens: ScreenDetailed[];
@@ -28,7 +29,7 @@ export class ScreenBadges extends Component<{}, ScreenBadgesState> {
     }
 
     private handleClick = () => {
-        screenInfo.getScreenDetails();
+        screenInfo.getScreenDetails().catch(noop);
     }
 
     render() {
