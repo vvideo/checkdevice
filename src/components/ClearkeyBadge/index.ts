@@ -16,16 +16,16 @@ export function ClearkeyBadge() {
         setClearkey(result);
     });
 
-    return html`
+    return hasClearkey ? html`
         <div class="${b()}">
-            ${hasClearkey && Badge({
-                text: 'ClearKey',
-                size: 'small',
-                background: 'white',
-                bottom: {
+            <${Badge}
+                text="ClearKey"
+                size="small"
+                background="white"
+                bottom="${{
                     text: KeySystems({ items: [CLEAR_KEY_SYSTEM] }),
-                },
-            })}
+                }}"
+            ><//>
         </div>
-    `;
+    ` : '';
 }
