@@ -8,4 +8,4 @@ This service answers the questions:
 + Can I listen surround sound on online services?
 + Can I watch 4K video on online services?
 
-Powered by `detect-audio-video`.
+Powered by [detect-audio-video](https://github.com/vvideo/detect-audio-video).
