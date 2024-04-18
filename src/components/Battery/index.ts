@@ -2,6 +2,7 @@ import { html } from 'htm/preact';
 import { useState, useRef } from 'preact/hooks';
 import { i18n } from '../../i18n/i18n';
 import { List } from '../List';
+import { noop } from '../../utils/noop';
 
 export function Battery() {
     const [_, setReady] = useState(false);
@@ -17,7 +18,7 @@ export function Battery() {
         ];
 
         setReady(true);
-    }).catch();
+    }).catch(noop);
     
     return html`<${List} title="${i18n('Battery')}" items="${ref.current}"><//>`;
 }
