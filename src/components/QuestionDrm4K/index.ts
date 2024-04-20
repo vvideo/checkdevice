@@ -23,7 +23,7 @@ import { isScreensLargerThan2K, screenInfo } from '../../lib/ScreenInfo';
 import { isDesktopSafari } from '../../utils/isDesktopSafari';
 import { getCachedCheckAllHdcpVersions } from '../../utils/getCachedCheckAllHdcpVersions';
 import { noop } from '../../utils/noop';
-import { is4kHdcpSupported } from '../../utils/getHcpVersion';
+import { isUhdHdcpSupported } from 'hdcp';
 
 export function QuestionDrm4K() {
     const [isWidevine, setIsWidevine] = useState(false);
@@ -60,12 +60,12 @@ export function QuestionDrm4K() {
 
     useEffect(() => {
         getCachedCheckAllHdcpVersions(WIDEWINE_KEY_SYSTEM).then((data) => {
-            const result = is4kHdcpSupported(data);
+            const result = isUhdHdcpSupported(data);
             setWidevineNeededHdcp(result);
         }).catch(noop);
 
         getCachedCheckAllHdcpVersions(PLAYREADY_RECOMMENDATION_KEY_SYSTEM).then((data) => {
-            const result = is4kHdcpSupported(data);
+            const result = isUhdHdcpSupported(data);
             setPlayReadyNeededHdcp(result);
         }).catch(noop);
 
