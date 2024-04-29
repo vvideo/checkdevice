@@ -18,9 +18,9 @@ import { Gpu } from '../Gpu';
 import { Platform } from '../Platform';
 import { Battery } from '../Battery';
 import { Connection } from '../Connection';
+import { NetworkSpeed } from '../NetworkSpeed';
 
 import './index.css';
-import { NetworkSpeed } from '../NetworkSpeed';
 
 const b = block('main-page');
 

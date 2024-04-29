@@ -1,8 +1,8 @@
 import { html } from 'htm/preact';
 import { block } from '../../utils/bem';
+import { getI18nLang } from '../../i18n/i18n';
 
 import './index.css';
-import { getI18nLang } from '../../i18n/i18n';
 
 const b = block('network-speed');
 
