@@ -282,4 +282,3 @@ export const HEIGHT_PADDING = 5;
 export function isLargerFullHd(height: number) {
     return height > FULL_HD_HEIGHT + HEIGHT_PADDING;
 }
-

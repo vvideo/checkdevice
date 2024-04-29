@@ -9,7 +9,7 @@ import './index.css';
 
 const b = block('questions');
 
-export function Questions(/*props: Question4KProps*/) {
+export function Questions() {
     return html`    
         <div class=${b()}>    
             <${Question4K}><//>
