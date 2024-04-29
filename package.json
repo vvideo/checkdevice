@@ -24,16 +24,16 @@
         "@rollup/plugin-node-resolve": "^15.2.3",
         "@rollup/plugin-terser": "0.4.4",
         "@rollup/plugin-typescript": "^11.1.6",
-        "rollup": "^4.9.0",
+        "rollup": "^4.17.1",
         "rollup-plugin-postcss": "^4.0.2",
-        "cssnano": "^6.0.1",
+        "cssnano": "^7.0.1",
         "calc-aspect-ratio": "1.3.0",
         "detect-audio-video": "^1.1.0",
         "htm": "^3.1.1",
-        "lyam": "^3.0.1",
-        "preact": "^10.19.6",
+        "lyam": "^3.1.0",
+        "preact": "^10.20.2",
         "tslib": "^2.6.2",
-        "typescript": "^5.3.3",
+        "typescript": "^5.4.5",
         "hdcp": "^1.1.0"
     }
 }
