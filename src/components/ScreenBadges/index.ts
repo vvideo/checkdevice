@@ -14,15 +14,15 @@ const b = block('screen-badges');
 export function ScreenBadges() {
     let [forceRender, setForceRender] = useState(0);
 
-    const handleScreenChange = useCallback(() => {
-        setForceRender(forceRender++);
-    }, []);
-
     const handleClick = useCallback(() => {
         screenInfo.getScreenDetails().catch(noop);
     }, []);
 
-    useEffect(() => {
+    useEffect(() => {                
+        const handleScreenChange = () => {
+            setForceRender(forceRender++);
+        };
+    
         screenInfo.addListener(handleScreenChange);
 
         return () => {
