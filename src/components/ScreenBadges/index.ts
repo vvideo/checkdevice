@@ -1,58 +1,50 @@
 import { html } from 'htm/preact';
-import { Component } from 'preact';
+import { useCallback, useState, useEffect } from 'preact/hooks';
 import { ScreenBadge } from '../ScreenBadge';
 import { Row } from '../Row';
-import { ScreenDetailed, screenInfo } from '../../lib/ScreenInfo';
+import { screenInfo } from '../../lib/ScreenInfo';
 import { i18n } from '../../i18n/i18n';
-
-import './index.css';
 import { block } from '../../utils/bem';
 import { noop } from '../../utils/noop';
 
-interface ScreenBadgesState {
-    screens: ScreenDetailed[];
-}
+import './index.css';
 
 const b = block('screen-badges');
 
-export class ScreenBadges extends Component<{}, ScreenBadgesState> {
-    constructor() {
-        super();
+export function ScreenBadges() {
+    let [forceRender, setForceRender] = useState(0);
 
-        screenInfo.addListener(this.handleScreenChange);
-    }
+    const handleScreenChange = useCallback(() => {
+        setForceRender(forceRender++);
+    }, []);
 
-    private handleScreenChange = () => {
-        this.setState({
-            screens: screenInfo.get().screens,
-        });
-    }
-
-    private handleClick = () => {
+    const handleClick = useCallback(() => {
         screenInfo.getScreenDetails().catch(noop);
-    }
+    }, []);
 
-    render() {
-        const { screens, isScreenDetails } = screenInfo.get();
-        const content = screens.map(item => {
-            const props = {
-                isScreenDetails,
-                ...item,
-            };
+    useEffect(() => {
+        screenInfo.addListener(handleScreenChange);
 
-            return html`<${ScreenBadge} ...${props}><//>`;
-        });
+        return () => {
+            screenInfo.removeListener(handleScreenChange);
+        };
+    }, []);
 
-        const name = screens.length > 1 ? i18n('Screens') : i18n('Screen');
+    const { screens, isScreenDetails } = screenInfo.get();
+    const content = screens.map(item => {
+        const props = {
+            isScreenDetails,
+            ...item,
+        };
 
-        return html`<${Row} name="${name}">
-            ${screenInfo.needUserActivity ? html`<div><button onClick="${this.handleClick}">${i18n('Request')}</button></div>` : ''}
-            ${content}
-            ${!isScreenDetails && screen.isExtended === true ? html`<div class="${b('additional')}">⚠️ ${i18n('Additional monitor detected')}</div>` : ''}
-        <//>`;
-    }
+        return html`<${ScreenBadge} ...${props}><//>`;
+    });
 
-    componentWillUnmount(): void {
-        screenInfo.removeListener(this.handleScreenChange);
-    }
+    const name = screens.length > 1 ? i18n('Screens') : i18n('Screen');
+
+    return html`<${Row} name="${name}">
+        ${screenInfo.needUserActivity ? html`<div><button onClick="${handleClick}">${i18n('Request')}</button></div>` : ''}
+        ${content}
+        ${!isScreenDetails && screen.isExtended === true ? html`<div class="${b('additional')}">⚠️ ${i18n('Additional monitor detected')}</div>` : ''}
+    <//>`;
 }
