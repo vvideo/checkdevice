@@ -191,7 +191,7 @@ function DrmItem(props: DrmItemProps) {
     return isSupported ? html`<li>${name}
         <ul>
             ${hasNeededHdcp === null ? '' :
-                html`<li>HDCP 2.2 or later <${Result} value="${hasNeededHdcp}" //></li>`
+                html`<li>${i18n('HDCP 2.2 or later')} <${Result} value="${hasNeededHdcp}" //></li>`
             }
             <li>
                 <${Codec}

@@ -208,5 +208,9 @@ export const keysets: I18nKeysets = {
     'Network Speed': {
         'en': 'Network Speed',
         'ru': 'Скорость сети'
+    },
+    'HDCP 2.2 or later': {
+        'en': 'HDCP 2.2 or later',
+        'ru': 'HDCP 2.2 или выше'
     }
 };
