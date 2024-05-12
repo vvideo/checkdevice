@@ -6,6 +6,7 @@ import { getResolutionBadge } from 'detect-audio-video';
 import { block } from '../../utils/bem';
 import { hasZoom } from '../../utils/hasZoom';
 import { i18n } from '../../i18n/i18n';
+import { isLargerFullHd } from '../../lib/ScreenInfo';
 
 import './index.css';
 
@@ -67,9 +68,13 @@ export function ScreenBadge(props: ScreenBadge) {
         ${props.isInternal ? html`<div>${i18n('Internal')}: ${i18n('Yes')}</div>` : ''}
     `;
 
+    const labelContent = props.label ? html`<div class="${b('label')}">${props.label}</div>` : '';
+
+    const background = isLargerFullHd(Math.min(props.width, props.height) * props.devicePixelRatio) ? 'gold' : 'white';
+
     return html`
         <div class="${b()}" onClick=${handleClick}>
-            <div class="${b('label')}">${props.label}</div>
+            ${labelContent}
             ${Badge({
                 text: getResolutionBadge(
                         Math.max(props.width, props.height) * props.devicePixelRatio,
@@ -77,7 +82,7 @@ export function ScreenBadge(props: ScreenBadge) {
                 ) || '',
                 type: '4k',
                 click: true,
-                background: 'gold',
+                background,
                 top: {
                     text: html`<b>${props.isHdr ? 'HDR' :'\u00A0'}</b>`,
                 },

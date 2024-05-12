@@ -78,9 +78,7 @@
 }
 
 .badge_background_white .badge__bottom-text {
-    background-color: black;
-    color: white;
-    padding: 5px;
+    padding-bottom: 5px;
 }
 
 .badge_background_transparent .badge__bottom-text {
