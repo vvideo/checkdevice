@@ -18,7 +18,7 @@ import { Gpu } from '../Gpu';
 import { Platform } from '../Platform';
 import { Battery } from '../Battery';
 import { Connection } from '../Connection';
-import { NetworkSpeed } from '../NetworkSpeed';
+import { InternetSpeed } from '../InternetSpeed';
 
 import './index.css';
 
@@ -74,8 +74,8 @@ export function MainPage() {
                 <${HtmlVideoElementFeatures}><//>
             <//>
 
-            <${Row} name="${i18n('Network Speed')}">
-                <${NetworkSpeed}><//>
+            <${Row} name="${i18n('Internet Speed')}">
+                <${InternetSpeed}><//>
             <//>
 
             <${Platform}><//>
