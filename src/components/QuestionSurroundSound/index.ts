@@ -1,5 +1,5 @@
 import { html } from 'htm/preact';
-import { isDolbyAtmosSupported, isDolbyDigitalPlusSupported, isDolbyDigitalSupported } from 'detect-audio-video';
+import { isDolbyAtmosSupported, isDolbyDigitalPlusSupported, isDolbyDigitalSupported, isDtsHdSupported, isDtsSupported, isDtsXSupported } from 'detect-audio-video';
 import { ActiveQuestion } from '../ActiveQuestion';
 import { Result } from '../Result';
 import { Codec } from '../Codec';
@@ -10,6 +10,9 @@ export function QuestionSurroundSound() {
     const isDolbyDigital = isDolbyDigitalSupported();
     const isDolbyDigitalPlus = isDolbyDigitalPlusSupported();
     const isDolbyAtmos = isDolbyAtmosSupported();
+    const isDts = isDtsSupported();
+    const isDtsHd = isDtsHdSupported();
+    const isDtsX = isDtsXSupported();
     const mainAnswer = isDolbyDigital.any || isDolbyDigitalPlus.any || isDolbyAtmos;
     const head = html`${i18n('Can I listen surround sound on online services?')}\u00a0<${Result} value="${mainAnswer}"><//>`;
 
@@ -42,6 +45,33 @@ export function QuestionSurroundSound() {
                         border="white"
                         disabled="${!isDolbyAtmos}">
                         <//>\u00a0<${Result} value="${isDolbyAtmos}"><//>
+                </li>
+                <li>
+                    <${Codec}
+                        name="DTS"
+                        color="black"
+                        border="white"
+                        disabled="${!isDts.any}"
+                        tooltip="${CodecDetails(isDts)}">
+                        <//>\u00a0<${Result} value="${isDts.any}"><//>
+                </li>
+                <li>
+                    <${Codec}
+                        name="DTS:HD"
+                        color="black"
+                        border="white"
+                        disabled="${!isDtsHd.any}"
+                        tooltip="${CodecDetails(isDtsHd)}">
+                        <//>\u00a0<${Result} value="${isDtsHd.any}"><//>
+                </li>
+                <li>
+                    <${Codec}
+                        name="DTS:X"
+                        color="black"
+                        border="white"
+                        disabled="${!isDtsX.any}"
+                        tooltip="${CodecDetails(isDtsX)}">
+                        <//>\u00a0<${Result} value="${isDtsX.any}"><//>
                 </li>
             </ul>
         <//>
