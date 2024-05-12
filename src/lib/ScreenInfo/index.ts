@@ -276,9 +276,23 @@ export function isScreensLargerThan2K(screens: ScreenDetailed[]) {
     });
 }
 
-export const FULL_HD_HEIGHT = 1080;
-export const HEIGHT_PADDING = 5;
+const FULL_HD_HEIGHT = 1080;
+const HEIGHT_PADDING = 5;
 
 export function isLargerFullHd(height: number) {
     return height > FULL_HD_HEIGHT + HEIGHT_PADDING;
+}
+
+export function needHdcpWarning() {
+    const info = screenInfo.get();
+    
+    if (
+        info.isScreenDetails &&
+        info.screens.length === 1 &&
+        info.screens[0].isInternal
+    ) {
+        return false;
+    }
+
+    return true;
 }

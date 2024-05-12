@@ -153,6 +153,10 @@ export const keysets: I18nKeysets = {
         'en': 'Not detected',
         'ru': 'Не обнаружено'
     },
+    'HDCP not detected': {
+        'en': 'Could not be determined',
+        'ru': 'Не удалось определить'
+    },
     'Security level': {
         'en': 'Security level',
         'ru': 'Уровень безопасности'
@@ -205,12 +209,17 @@ export const keysets: I18nKeysets = {
         'en': 'Select 2018 or later Mac computer with an',
         'ru': 'Компьютер Мак (начиная с 2018 или новее) с',
     },
-    'Network Speed': {
-        'en': 'Network Speed',
-        'ru': 'Скорость сети'
+    'Internet Speed': {
+        'en': 'Internet Speed',
+        'ru': 'Скорость интернета'
     },
     'HDCP 2.2 or later': {
         'en': 'HDCP 2.2 or later',
         'ru': 'HDCP 2.2 или выше'
+    },
+    'Make sure that monitors, video cards and cables supports HDCP 2.2 or later.': {
+        'en': 'Make sure that monitors, video cards and cables supports HDCP 2.2 or later.',
+        'ru': 'Монитор, видеокарта и кабель должны поддерживать HDCP 2.2 и выше'
     }
+    
 };

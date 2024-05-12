@@ -19,7 +19,7 @@ import { ActiveQuestion } from '../ActiveQuestion';
 import { Result } from '../Result';
 import { Codec } from '../Codec';
 import { i18n } from '../../i18n/i18n';
-import { isScreensLargerThan2K, screenInfo } from '../../lib/ScreenInfo';
+import { isScreensLargerThan2K, needHdcpWarning, screenInfo } from '../../lib/ScreenInfo';
 import { isDesktopSafari } from '../../utils/isDesktopSafari';
 import { getCachedCheckAllHdcpVersions } from '../../utils/getCachedCheckAllHdcpVersions';
 import { noop } from '../../utils/noop';
@@ -165,9 +165,9 @@ export function QuestionDrm4K() {
                         })}
                     </ul>
                 </li>
-                <!--<li>
-                    ⚠️ Make sure that monitors, graphical cards and cables are plugged into an HDMI port that supports HDCP 2.2 or later (usually the HDMI 1 port).
-                </li>-->
+                ${needHdcpWarning() ? html`<li>
+                    ⚠️ ${i18n('Make sure that monitors, video cards and cables supports HDCP 2.2 or later.')}
+                </li>` : ''}
                 ${isSafari ? html`<li>
                     ⚠️ ${i18n('Select 2018 or later Mac computer with an')} <a href="${i18n('link:apple:t2')}" target="_blank">Apple T2 Security Chip</a>.
                 </li>` : ''}
