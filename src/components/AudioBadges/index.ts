@@ -5,6 +5,9 @@ import {
     isDolbyAtmosSupported,
     isDolbyDigitalPlusSupported,
     isDolbyDigitalSupported,
+    isDtsHdSupported,
+    isDtsSupported,
+    isDtsXSupported,
 } from 'detect-audio-video';
 import { block } from '../../utils/bem';
 
@@ -27,6 +30,18 @@ export function AudioBadges() {
 
     if (isDolbyAtmosSupported()) {
         audioCodecs51.push('Dolby Atmos');
+    }
+
+    if (isDtsSupported().any) {
+        audioCodecs51.push('DTS');
+    }
+
+    if (isDtsHdSupported().any) {
+        audioCodecs51.push('DTS:HD');
+    }
+
+    if (isDtsXSupported().any) {
+        audioCodecs51.push('DTS:X');
     }
 
     const has51 = audioCodecs51.length;
