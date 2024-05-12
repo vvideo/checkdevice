@@ -13,7 +13,14 @@ export function QuestionSurroundSound() {
     const isDts = isDtsSupported();
     const isDtsHd = isDtsHdSupported();
     const isDtsX = isDtsXSupported();
-    const mainAnswer = isDolbyDigital.any || isDolbyDigitalPlus.any || isDolbyAtmos;
+    
+    const mainAnswer = isDolbyDigital.any ||
+        isDolbyDigitalPlus.any ||
+        isDolbyAtmos ||
+        isDts.any ||
+        isDtsHd.any ||
+        isDtsX.any;
+
     const head = html`${i18n('Can I listen surround sound on online services?')}\u00a0<${Result} value="${mainAnswer}"><//>`;
 
     return html`
