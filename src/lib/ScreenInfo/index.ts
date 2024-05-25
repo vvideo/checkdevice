@@ -5,6 +5,7 @@ import {
     isRec2020Supported,
     isSrgbSupported,
 } from 'detect-audio-video';
+import { noop } from '../../utils/noop';
 
 export interface ScreenDetailed extends Screen {
     label: string;
@@ -37,11 +38,12 @@ declare global {
 class ScreenInfo {
     private listeners: (() => void)[] = [];
     private devicePixelRatio = getDevicePixelRatio();
-    private isScreenDetails = false;
     private screens: ScreenDetailed[] = [];
     private timer = -1;
 
+    public isScreenDetails = false;
     public needUserActivity = false;
+    public isDenied = false;
 
     constructor() {
         let screenJson = JSON.stringify(this.getScreen());
@@ -66,7 +68,7 @@ class ScreenInfo {
 
         this.bindScreenChange();
 
-        this.getScreenDetails();
+        this.getScreenDetails().catch(noop);
     }
 
     public addListener(callback: () => void) {
@@ -91,7 +93,6 @@ class ScreenInfo {
             this.needUserActivity = false;
 
             this.screens = result.screens;
-            this.emit();
 
             this.unbindScreenChange();
             this.bindScreensChange(result.screens);
@@ -104,19 +105,22 @@ class ScreenInfo {
 
             return result;
         }).catch(e => {
+            this.needUserActivity = true;
+            this.emit();
+
             // @ts-ignore
             navigator.permissions.query({ name: 'window-management' }).then((result) => {
+                console.log('result', result);
                 if (result.state === 'denied') {
+                    this.isDenied = true;
                     this.needUserActivity = false;
                 } else {
+                    this.isDenied = false;
                     this.needUserActivity = true;
                 }
 
                 this.emit();
             });
-
-            this.needUserActivity = true;
-            this.emit();
 
             throw e;
         });
@@ -202,7 +206,6 @@ class ScreenInfo {
 
     public get() {
         const result = {
-            isScreenDetails: this.isScreenDetails,
             screens: this.isScreenDetails ?
                 this.screens.map(item => {
                     const additionalProps = item.isPrimary ?
@@ -235,6 +238,7 @@ class ScreenInfo {
     }
 
     private emit() {
+        console.log('ScreenInfo: emit');
         this.listeners.forEach(item => item());
     }
 
@@ -284,12 +288,12 @@ export function isLargerFullHd(height: number) {
 }
 
 export function needHdcpWarning() {
-    const info = screenInfo.get();
+    const screens = screenInfo.get().screens;
     
     if (
-        info.isScreenDetails &&
-        info.screens.length === 1 &&
-        info.screens[0].isInternal
+        screenInfo.isScreenDetails &&
+        screens.length === 1 &&
+        screens[0].isInternal
     ) {
         return false;
     }

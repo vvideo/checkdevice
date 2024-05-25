@@ -1,5 +1,5 @@
 import { html } from 'htm/preact';
-import { useEffect, useState } from 'preact/hooks';
+import { useEffect } from 'preact/hooks';
 import { AudioBadges } from '../AudioBadges';
 import { ScreenBadges } from '../ScreenBadges';
 import { AudioCodecs } from '../AudioCodecs';
@@ -21,15 +21,17 @@ import { Connection } from '../Connection';
 import { InternetSpeed } from '../InternetSpeed';
 
 import './index.css';
+import { useForceUpdate } from '../../hooks/useForceUpdate';
 
 const b = block('main-page');
 
 export function MainPage() {
-    const [forceRender, setForceRender] = useState(0);
+    const forceUpdate = useForceUpdate();
 
     useEffect(() => {
         function onVisibilityСhange() {
-            setForceRender(forceRender + 1);
+            console.log('onVisibilityСhange');
+            forceUpdate();
         }
 
         document.addEventListener('visibilitychange', onVisibilityСhange);
@@ -37,10 +39,10 @@ export function MainPage() {
         return () => {
             document.removeEventListener('visibilitychange', onVisibilityСhange);
         };
-    }, [forceRender]);
+    }, []);
 
     return html`
-        <div class="${b()}">
+        <div class="${b()}">            
             <${Header}><//>
 
             <${Questions}><//>
