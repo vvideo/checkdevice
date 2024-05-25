@@ -26,7 +26,7 @@ export function QuestionHdr() {
         <${ActiveQuestion} head="${head}">
             <ul>
                 <li><${Hdr} isHdr="${isHdr}" isVideoHdr="${isVideoHdr}" //></li>
-                <li>${i18n('Has support one of the video codecs?')}\u00a0<${Result} value="${Boolean(isVp910Bit || isHevcMain10 || isAv1Main10)}"><//>
+                <li>${i18n('Supports one of the video codecs?')}\u00a0<${Result} value="${Boolean(isVp910Bit || isHevcMain10 || isAv1Main10)}"><//>
                     <ul>
                         <li>
                             <${Codec}

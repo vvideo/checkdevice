@@ -77,8 +77,8 @@ export const keysets: I18nKeysets = {
         'en': 'No supported image formats.',
         'ru': 'Нет поддерживаемых форматов картинок.'
     },
-    'Can I listen surround sound on online services?': {
-        'en': 'Can I listen surround sound on online services?',
+    'Can I listen to surround sound on online services?': {
+        'en': 'Can I listen to surround sound on online services?',
         'ru': 'Могу ли я услышать многоканальный звук в онлайн-сервисах?'
     },
     'HTMLVideoElement Features': {
@@ -109,12 +109,12 @@ export const keysets: I18nKeysets = {
         'en': 'Has support one of the audio codecs?',
         'ru': 'Есть поддержка одного из аудиокодеков?'
     },
-    'Is this a HDR-compatible screen?': {
-        'en': 'Is this a HDR-compatible screen?',
+    'Is this an HDR-compatible screen?': {
+        'en': 'Is this an HDR-compatible screen?',
         'ru': 'Это HDR-совместимый экран?'
     },
-    'Has support one of the video codecs?': {
-        'en': 'Has support one of the video codecs?',
+    'Supports one of the video codecs?': {
+        'en': 'Supports one of the video codecs?',
         'ru': 'Есть поддержка одного из видеокодеков?'
     },
     'Has support one of the video codecs and DRM with high security level?': {
@@ -221,5 +221,5 @@ export const keysets: I18nKeysets = {
         'en': 'Make sure that monitors, video cards and cables supports HDCP 2.2 or later.',
         'ru': 'Монитор, видеокарта и кабель должны поддерживать HDCP 2.2 и выше'
     }
-    
+
 };

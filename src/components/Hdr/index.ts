@@ -16,5 +16,5 @@ export function Hdr(props: HdrProps) {
         return html`${i18n('Has HDR support for video?')}<${InfoLink} href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/video-dynamic-range" //>\u00a0<${Result} value="${isVideoHdr}"><//>`;
     }
 
-    return html`${i18n('Is this a HDR-compatible screen?')}<${InfoLink} href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/dynamic-range" //>\u00a0<${Result} value="${isHdr}"><//>`;
+    return html`${i18n('Is this an HDR-compatible screen?')}<${InfoLink} href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/dynamic-range" //>\u00a0<${Result} value="${isHdr}"><//>`;
 }
