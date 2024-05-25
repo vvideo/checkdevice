@@ -135,7 +135,7 @@ export function QuestionDrm4K() {
             <ul>
                 <li>${i18n('Is the screen larger than 2K?')}\u00a0<${Result} value="${largeThan2K}"><//></li>
                 <li>${i18n('Online services protect content using')}${'\u00a0'}<a target="_blank" href="${i18n('link:wiki:drm')}">DRM</a>.<br/>
-                    ${i18n('Has support one of the video codecs and DRM with high security level?')} <${Result} value=${anyCodecWithDrm}><//>
+                    ${i18n('Supports one of the video codecs and DRM with high security level?')} <${Result} value=${anyCodecWithDrm}><//>
                     <ul>
                         ${DrmItem({
                             name: 'Google Widevine L1',

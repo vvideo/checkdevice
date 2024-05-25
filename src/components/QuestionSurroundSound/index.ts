@@ -25,7 +25,7 @@ export function QuestionSurroundSound() {
 
     return html`
         <${ActiveQuestion} head="${head}">
-            ${i18n('Has support one of the audio codecs?')}\u00a0<${Result} value="${mainAnswer}"><//>
+            ${i18n('Supports one of the audio codecs?')}\u00a0<${Result} value="${mainAnswer}"><//>
             <ul>
                 <li>
                     <${Codec}

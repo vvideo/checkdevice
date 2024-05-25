@@ -105,8 +105,8 @@ export const keysets: I18nKeysets = {
         'en': 'Can I watch HDR video?',
         'ru': 'Могу ли я смотреть HDR видео?'
     },
-    'Has support one of the audio codecs?': {
-        'en': 'Has support one of the audio codecs?',
+    'Supports one of the audio codecs?': {
+        'en': 'Supports one of the audio codecs?',
         'ru': 'Есть поддержка одного из аудиокодеков?'
     },
     'Is this an HDR-compatible screen?': {
@@ -117,8 +117,8 @@ export const keysets: I18nKeysets = {
         'en': 'Supports one of the video codecs?',
         'ru': 'Есть поддержка одного из видеокодеков?'
     },
-    'Has support one of the video codecs and DRM with high security level?': {
-        'en': 'Has support one of the video codecs and DRM with high security level?',
+    'Supports one of the video codecs and DRM with high security level?': {
+        'en': 'Supports one of the video codecs and DRM with high security level?',
         'ru': 'Есть поддержка одного из видеокодеков и DRM с высоким уровнем безопасности?'
     },
     'Can I watch 4K video on online services?': {
