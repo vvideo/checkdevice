@@ -4,6 +4,8 @@ import { i18n } from '../../i18n/i18n';
 import { List } from '../List';
 import { noop } from '../../utils/noop';
 import { isStandalone } from 'detect-audio-video';
+import { VNode } from 'preact';
+import { InfoLink } from '../InfoLink';
 
 export function Platform() {
     const ref = useRef<[string, any][]>([]);
@@ -24,16 +26,16 @@ export function Platform() {
             ['architecture', data.architecture ? `${data.architecture} ${(data.bitness || '')}` : ''],
             ['formFactor', data.formFactor],
             ['model', data.model],
-        ]; 
+        ];
 
         ref.current = result.filter(item => item[1]);
 
         setUserData(true);
     }).catch(noop);
 
-    let items: [string, any][] = [
+    let items: [VNode | string, any][] = [
         ['hardwareConcurrency', navigator.hardwareConcurrency],
-        ['deviceMemory', navigator.deviceMemory],
+        [html`deviceMemory <${InfoLink} title="MDN" href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/deviceMemory" //>`, navigator.deviceMemory ? `${navigator.deviceMemory} ${i18n('GB')}` : undefined],
         ['standalone', isStandalone()],
         ['userAgent', navigator.userAgent],
     ];
@@ -46,6 +48,6 @@ export function Platform() {
             ...items,
         ];
     }
-    
+
     return html`<${List} title="${i18n('Platform')}" items="${items}" //>`;
 }

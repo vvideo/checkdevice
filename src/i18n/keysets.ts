@@ -220,6 +220,9 @@ export const keysets: I18nKeysets = {
     'Make sure that monitors, video cards, and cables support HDCP 2.2 or later.': {
         'en': 'Make sure that monitors, video cards, and cables support HDCP 2.2 or later.',
         'ru': 'Монитор, видеокарта и кабель должны поддерживать HDCP 2.2 и выше'
+    },
+    'GB': {
+        'en': 'GB',
+        'ru': 'ГБ'
     }
-
 };
