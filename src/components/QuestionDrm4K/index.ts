@@ -119,7 +119,7 @@ export function QuestionDrm4K() {
 
     const anyCodecWithDrm = Boolean(
         anyCodecWithWidevine ||
-        anyCodecWithPlayReady || 
+        anyCodecWithPlayReady ||
         anyCodecWithFairplay
     );
 
@@ -166,7 +166,7 @@ export function QuestionDrm4K() {
                     </ul>
                 </li>
                 ${needHdcpWarning() ? html`<li>
-                    ⚠️ ${i18n('Make sure that monitors, video cards and cables supports HDCP 2.2 or later.')}
+                    ⚠️ ${i18n('Make sure that monitors, video cards, and cables support HDCP 2.2 or later.')}
                 </li>` : ''}
                 ${isSafari ? html`<li>
                     ⚠️ ${i18n('Select 2018 or later Mac computer with an')} <a href="${i18n('link:apple:t2')}" target="_blank">Apple T2 Security Chip</a>.
