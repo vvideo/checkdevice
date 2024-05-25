@@ -30,7 +30,6 @@ export function MainPage() {
 
     useEffect(() => {
         function onVisibilityСhange() {
-            console.log('onVisibilityСhange');
             forceUpdate();
         }
 
