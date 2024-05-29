@@ -2,7 +2,7 @@ import { calcAspectRatio } from 'calc-aspect-ratio';
 import { html } from 'htm/preact';
 import { useCallback, useState } from 'preact/hooks';
 import { Badge } from '../Badge';
-import { getResolutionBadge } from 'detect-audio-video';
+import { getResolutionBadge, isMobile } from 'detect-audio-video';
 import { block } from '../../utils/bem';
 import { hasZoom } from '../../utils/hasZoom';
 import { i18n } from '../../i18n/i18n';
@@ -76,7 +76,8 @@ export function ScreenBadge(props: ScreenBadge) {
         <div class="${b()}" onClick=${handleClick}>
             ${labelContent}
             ${Badge({
-                text: getResolutionBadge(
+                // TODO: Temporarily hide badge for mobile devices
+                text: isMobile() ? '' : getResolutionBadge(
                         Math.max(props.width, props.height) * props.devicePixelRatio,
                         Math.min(props.width, props.height) * props.devicePixelRatio,
                 ) || '',
