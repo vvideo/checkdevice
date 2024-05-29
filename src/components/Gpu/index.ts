@@ -4,8 +4,8 @@ import { List } from '../List';
 
 export function Gpu() {
     const items = [
-        ['vendor', getGpuVendor()],
-        ['renderer', getGpuRenderer()],
+        ['Vendor', getGpuVendor()],
+        ['Renderer', getGpuRenderer()],
     ].filter(item => Boolean(item[1]));
 
     return html`<${List} title="GPU" items="${items}" //>`;

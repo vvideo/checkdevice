@@ -7,6 +7,7 @@ import { isStandalone, hasHardwareAcceleration } from 'detect-audio-video';
 import { VNode } from 'preact';
 import { InfoLink } from '../InfoLink';
 import { getAutoplayPolicy } from '../../utils/getAutoplayPolicy';
+import { getChecked } from '../../utils/getChecked';
 
 export function Platform() {
     const ref = useRef<[string, any][]>([]);
@@ -28,10 +29,10 @@ export function Platform() {
         'wow64',
     ]).then((data: any) => {
         const result: [string, any][] = [
-            ['platform', `${data.platform} ${(data.platformVersion || '')}`],
-            ['architecture', data.architecture ? `${data.architecture} ${(data.bitness || '')}` : ''],
-            ['formFactor', data.formFactor],
-            ['model', data.model],
+            [i18n('Platform'), `${data.platform} ${(data.platformVersion || '')}`],
+            [i18n('Architecture'), data.architecture ? `${data.architecture} ${(data.bitness || '')}` : ''],
+            [i18n('Form factor'), data.formFactor],
+            [i18n('Model'), data.model],
         ];
 
         ref.current = result.filter(item => item[1]);
@@ -43,7 +44,7 @@ export function Platform() {
         ['Hardware concurrency', navigator.hardwareConcurrency],
         [html`Device memory <${InfoLink} title="MDN" href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/deviceMemory" //>`, navigator.deviceMemory ? `${navigator.deviceMemory} ${i18n('GB')}` : undefined],
         ['Standalone', isStandalone()],
-        ['UserAgent', navigator.userAgent],
+        ['User agent', navigator.userAgent],
     ];
 
     const autoplayPolicy = getAutoplayPolicy();
@@ -52,14 +53,14 @@ export function Platform() {
     }
 
     if (hardwareAcceleration !== undefined) {
-        items.push([i18n('Hardware acceleration'), hardwareAcceleration]);
+        items.push([i18n('Hardware acceleration'), getChecked(hardwareAcceleration)]);
     }
 
     if (ref.current.length) {
         items = [...ref.current, ...items];
     } else {
         items = [
-            ['platform', navigator.platform],
+            [i18n('Platform'), navigator.platform],
             ...items,
         ];
     }

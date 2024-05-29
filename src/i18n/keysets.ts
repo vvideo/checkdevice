@@ -228,5 +228,17 @@ export const keysets: I18nKeysets = {
     'Hardware acceleration': {
         'en': 'Hardware acceleration',
         'ru': 'Аппаратное ускорение'
+    },
+    'Model': {
+        'en': 'Model',
+        'ru': 'Модель'
+    },
+    'Architecture': {
+        'en': 'Architecture',
+        'ru': 'Архитектура'
+    },
+    'Form factor': {
+        'en': 'Form factor',
+        'ru': 'Форм-фактор'
     }
 };

@@ -1,8 +1,7 @@
 import { html } from 'htm/preact';
 import { isNativeHlsSupported, isNativeMpdSupported, isNativeMssSupported } from 'detect-audio-video';
 import { block } from '../../utils/bem';
-
-import { i18n } from '../../i18n/i18n';
+import { getChecked } from '../../utils/getChecked';
 
 import './index.css';
 
@@ -37,7 +36,7 @@ export function NativeStreaming() {
     });
 
     let result = items.map(item => {
-        return html`<li>${item.label}: ${item.supported ? '✓' : i18n('No') }</li>`;
+        return html`<li>${item.label}: ${getChecked(item.supported)}</li>`;
     });
 
     return html`
