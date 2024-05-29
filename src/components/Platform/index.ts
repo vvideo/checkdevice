@@ -3,13 +3,19 @@ import { useState, useRef } from 'preact/hooks';
 import { i18n } from '../../i18n/i18n';
 import { List } from '../List';
 import { noop } from '../../utils/noop';
-import { isStandalone } from 'detect-audio-video';
+import { isStandalone, hasHardwareAcceleration } from 'detect-audio-video';
 import { VNode } from 'preact';
 import { InfoLink } from '../InfoLink';
+import { getAutoplayPolicy } from '../../utils/getAutoplayPolicy';
 
 export function Platform() {
     const ref = useRef<[string, any][]>([]);
     const [_, setUserData] = useState(false);
+    const [hardwareAcceleration, setHardwareAcceleration] = useState<boolean | undefined>(undefined);
+
+    hasHardwareAcceleration().then(result => {
+        setHardwareAcceleration(result);
+    });
 
     // @ts-ignore
     navigator.userAgentData?.getHighEntropyValues?.([
@@ -34,11 +40,20 @@ export function Platform() {
     }).catch(noop);
 
     let items: [VNode | string, any][] = [
-        ['hardwareConcurrency', navigator.hardwareConcurrency],
-        [html`deviceMemory <${InfoLink} title="MDN" href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/deviceMemory" //>`, navigator.deviceMemory ? `${navigator.deviceMemory} ${i18n('GB')}` : undefined],
-        ['standalone', isStandalone()],
-        ['userAgent', navigator.userAgent],
+        ['Hardware concurrency', navigator.hardwareConcurrency],
+        [html`Device memory <${InfoLink} title="MDN" href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/deviceMemory" //>`, navigator.deviceMemory ? `${navigator.deviceMemory} ${i18n('GB')}` : undefined],
+        ['Standalone', isStandalone()],
+        ['UserAgent', navigator.userAgent],
     ];
+
+    const autoplayPolicy = getAutoplayPolicy();
+    if (autoplayPolicy) {
+        items.push(['Autoplay Policy', autoplayPolicy]);
+    }
+
+    if (hardwareAcceleration !== undefined) {
+        items.push([i18n('Hardware acceleration'), hardwareAcceleration]);
+    }
 
     if (ref.current.length) {
         items = [...ref.current, ...items];

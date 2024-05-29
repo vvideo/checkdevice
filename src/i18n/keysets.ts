@@ -224,5 +224,9 @@ export const keysets: I18nKeysets = {
     'GB': {
         'en': 'GB',
         'ru': 'ГБ'
+    },
+    'Hardware acceleration': {
+        'en': 'Hardware acceleration',
+        'ru': 'Аппаратное ускорение'
     }
 };
