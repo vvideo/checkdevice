@@ -240,5 +240,13 @@ export const keysets: I18nKeysets = {
     'Form factor': {
         'en': 'Form factor',
         'ru': 'Форм-фактор'
+    },
+    'unsupported': {
+        'en': 'unsupported',
+        'ru': 'не поддерживается'
+    },
+    'Name': {
+        'en': 'Name',
+        'ru': 'Название'
     }
 };

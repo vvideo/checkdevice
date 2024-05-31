@@ -1,4 +1,5 @@
 import { html } from 'htm/preact';
+import { i18n } from '../../i18n/i18n';
 
 interface CodecDetailsProps {
     canPlayType: string;
@@ -10,9 +11,9 @@ interface CodecDetailsProps {
 function getIsTypeSupportedProps(isTypeSupported: boolean) {
     return window.MediaSource ? {
         value: String(isTypeSupported),
-        color: isTypeSupported ? 'green' : 'red',      
+        color: isTypeSupported ? 'green' : 'red',
     } : {
-        value: html`<b>unsupported</b>`,
+        value: html`<b>${i18n('unsupported')}</b>`,
         color: 'red',
     };
 }

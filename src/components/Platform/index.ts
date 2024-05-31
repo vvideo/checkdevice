@@ -29,7 +29,7 @@ export function Platform() {
         'wow64',
     ]).then((data: any) => {
         const result: [string, any][] = [
-            [i18n('Platform'), `${data.platform} ${(data.platformVersion || '')}`],
+            [i18n('Name'), `${data.platform} ${(data.platformVersion || '')}`],
             [i18n('Architecture'), data.architecture ? `${data.architecture} ${(data.bitness || '')}` : ''],
             [i18n('Form factor'), data.formFactor],
             [i18n('Model'), data.model],
