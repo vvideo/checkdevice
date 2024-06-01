@@ -1,6 +1,5 @@
 import fs from 'fs';
 import { createMD5 } from './md5.mjs';
-import { pageIds } from '../rollup.config.mjs';
 
 export function updateTemplate(pageId) {
     const fileName = `./${pageId}.html`;
