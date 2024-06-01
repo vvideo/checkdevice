@@ -1,10 +1,11 @@
 import { html } from 'htm/preact';
 import { block } from '../../utils/bem';
+import { VNode } from 'preact';
 
 import './index.css';
 
 interface HeaderProps {
-    text: string;
+    children: VNode | string;
 }
 
 const b = block('header');
@@ -12,7 +13,7 @@ const b = block('header');
 export function Header(props: HeaderProps) {
     return html`
         <div class="${b()}">
-            ${props.text}
+            ${props.children}
         </div>
     `;
 }
