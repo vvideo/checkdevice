@@ -248,5 +248,21 @@ export const keysets: I18nKeysets = {
     'Name': {
         'en': 'Name',
         'ru': 'Название'
+    },
+    'Can I use WebGPU?': {
+        'en': 'Can I use WebGPU?',
+        'ru': 'Могу ли я использовать WebGPU?'
+    },
+    'WebGPU is not supported.': {
+        'en': 'WebGPU is not supported.',
+        'ru': 'WebGPU не поддерживается.'
+    },
+    'GPU Adapter is not found.': {
+        'en': 'GPU Adapter is not found.',
+        'ru': 'GPU адаптер не найден.'
+    },
+    'Video & audio': {
+        'en': 'Video & audio',
+        'ru': 'Видео и аудио'
     }
 };
