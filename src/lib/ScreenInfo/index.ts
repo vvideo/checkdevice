@@ -110,7 +110,6 @@ class ScreenInfo {
 
             // @ts-ignore
             navigator.permissions.query({ name: 'window-management' }).then((result) => {
-                console.log('result', result);
                 if (result.state === 'denied') {
                     this.isDenied = true;
                     this.needUserActivity = false;
@@ -193,7 +192,7 @@ class ScreenInfo {
         if (isRec2020Supported(win)) {
             result.push('rec2020');
         }
-        
+
         return result;
     }
 
@@ -289,7 +288,7 @@ export function isLargerFullHd(height: number) {
 
 export function needHdcpWarning() {
     const screens = screenInfo.get().screens;
-    
+
     if (
         screenInfo.isScreenDetails &&
         screens.length === 1 &&

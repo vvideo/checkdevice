@@ -31,14 +31,10 @@ export function GpuNavigator() {
     const refAdapterInfo = useRef<GPUAdapterInfo | null>();
 
     const onSelect = useCallback((value: GPUPowerPreference) => {
-        console.log('onSelect')
         setPowerPreference(value);
     }, []);
 
-    console.log('render');
-
     useEffect(() => {
-        console.log('useEffect');
         if (!navigator.gpu) {
             return;
         }
