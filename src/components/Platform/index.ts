@@ -29,10 +29,22 @@ export function Platform() {
         'wow64',
     ]).then((data: any) => {
         const result: [string, any][] = [
-            [i18n('Name'), `${data.platform} ${(data.platformVersion || '')}`],
-            [i18n('Architecture'), data.architecture ? `${data.architecture} ${(data.bitness || '')}` : ''],
-            [i18n('Form factor'), data.formFactor],
-            [i18n('Model'), data.model],
+            [
+                i18n('Name'),
+                `${data.platform} ${(data.platformVersion || '')}`
+            ],
+            [
+                i18n('Architecture'),
+                data.architecture ? `${data.architecture} ${(data.bitness || '')}` : ''
+            ],
+            [
+                i18n('Form factor'),
+                data.formFactor
+            ],
+            [
+                i18n('Model'),
+                data.model
+            ],
         ];
 
         ref.current = result.filter(item => item[1]);
@@ -41,26 +53,47 @@ export function Platform() {
     }).catch(noop);
 
     let items: [VNode | string, any][] = [
-        ['Hardware concurrency', navigator.hardwareConcurrency],
-        [html`Device memory <${InfoLink} title="MDN" href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/deviceMemory" //>`, navigator.deviceMemory ? `${navigator.deviceMemory} ${i18n('GB')}` : undefined],
-        ['Standalone', isStandalone()],
-        ['User agent', navigator.userAgent],
+        [
+            html`Hardware concurrency <${InfoLink} title="MDN" href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/hardwareConcurrency"><//>`,
+            navigator.hardwareConcurrency
+        ],
+        [
+            html`Device memory <${InfoLink} title="MDN" href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/deviceMemory"><//>`,
+            navigator.deviceMemory ? `${navigator.deviceMemory} ${i18n('GB')}` : undefined
+        ],
+        [
+            'Standalone',
+            isStandalone()
+        ],
+        [
+            'User agent',
+            navigator.userAgent
+        ],
     ];
 
     const autoplayPolicy = getAutoplayPolicy();
     if (autoplayPolicy) {
-        items.push(['Autoplay Policy', autoplayPolicy]);
+        items.push([
+            'Autoplay Policy',
+            autoplayPolicy
+        ]);
     }
 
     if (hardwareAcceleration !== undefined) {
-        items.push([i18n('Hardware acceleration'), getChecked(hardwareAcceleration)]);
+        items.push([
+            i18n('Hardware acceleration'),
+            getChecked(hardwareAcceleration)
+        ]);
     }
 
     if (ref.current.length) {
         items = [...ref.current, ...items];
     } else {
         items = [
-            [i18n('Platform'), navigator.platform],
+            [
+                i18n('Name'),
+                navigator.platform
+            ],
             ...items,
         ];
     }

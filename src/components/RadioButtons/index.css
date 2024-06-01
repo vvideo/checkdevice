@@ -1,0 +1,10 @@
+.radio-buttons {
+    display: inline-block;
+    width: auto;
+    white-space: nowrap;
+    position: relative;
+}
+
+.radio-buttons__label {
+    margin-bottom: 5px;
+}

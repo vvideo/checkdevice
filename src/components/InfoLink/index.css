@@ -1,11 +1,17 @@
 .info-link {
+    position: relative;
+    top: -.5em;
     margin-left: 3px;
 }
 
-.info-link:link,
-.info-link:visited,
-.info-link:hover,
-.info-link:active {
+.info-link__link {
+    font-size: 12px;
+}
+
+.info-link__link:link,
+.info-link__link:visited,
+.info-link__link:hover,
+.info-link__link:active {
     text-decoration: none;
     color: white;
 }

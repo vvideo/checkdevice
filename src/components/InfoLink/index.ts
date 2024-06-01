@@ -11,5 +11,7 @@ interface InfoLinkProps {
 const b = block('info-link');
 
 export function InfoLink(props: InfoLinkProps) {
-    return html`<sup><a class="${b()}" href="${props.href}" title="${props.title}" target="_blank">ⓘ</a></sup>`;
+    return html`<span class="${b()}">
+        <a class="${b('link')}" href="${props.href}" title="${props.title}" target="_blank">ⓘ</a>
+    </span>`;
 }

@@ -6,19 +6,28 @@ import './index.css';
 
 interface ListProps {
     title: string;
-    items: [string, any][];
+    items: Array<[string, any] | [string]>;
 }
 
 const b = block('list');
 
 export function List(props: ListProps) {
     const filteredItems = props.items
-        .filter(item => typeof item[1] !== 'undefined' && item[1] !== '')
+        .filter(item => {
+            if (item.length === 1) {
+                return true;
+            }
+
+            const [_, value] = item;
+
+            return typeof value !== 'undefined' && value !== '';
+        })
         .map(item => {
-            return [
-                item[0],
-                typeof item[1] === 'boolean' ? String(item[1]) : item[1],
-            ];
+            const [name, value] = item;
+
+            return item.length === 1 ?
+                [name] :
+                [name, typeof value === 'boolean' ? String(value) : value];
         });
 
     return filteredItems.length ? html`<${Row} name="${props.title}">
@@ -26,6 +35,11 @@ export function List(props: ListProps) {
         ${
             filteredItems.map(item => {
                 const [name, value] = item;
+
+                if (item.length === 1) {
+                    return html`<li>${name}</li>`;
+                }
+
                 return html`<li>${name}: ${value}</li>`;
             })
         }

@@ -42,7 +42,9 @@ export function MainPage() {
 
     return html`
         <div class="${b()}">
-            <${Header} text="${i18n('Can I watch video in this browser?')}"><//>
+            <${Header}>
+                ${i18n('Can I watch video in this browser?')}
+            <//>
 
             <${Questions}><//>
             <${ScreenBadges}><//>
