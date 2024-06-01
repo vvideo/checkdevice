@@ -14,6 +14,6 @@ declare global {
             effectiveType: string;
             rtt: number;
             saveData: boolean;
-        };        
+        };
     }
 }

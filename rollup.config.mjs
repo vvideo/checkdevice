@@ -8,7 +8,7 @@ import cssnano from 'cssnano';
 const withMinify = process.env['MINIFY'];
 
 const createConfig = name => ({
-    input: `src/${name}.ts`,
+    input: `src/entries/${name}.ts`,
     output: [
         {
             file: `dist/${name}.js`,
@@ -20,7 +20,7 @@ const createConfig = name => ({
         nodeResolve(),
         postcss({
             config: true,
-            extract: path.resolve('dist/index.css'),
+            extract: path.resolve(`dist/${name}.css`),
              plugins: withMinify ? [
                 cssnano,
             ] : [],
@@ -29,8 +29,9 @@ const createConfig = name => ({
     ]
 });
 
-const configs = [
+export const pageIds = [
     'index',
-].map(name => createConfig(name));
+    'gpu',
+];
 
-export default configs;
+export default pageIds.map(name => createConfig(name));

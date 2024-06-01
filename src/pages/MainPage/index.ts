@@ -1,26 +1,26 @@
+import '../common';
+
 import { html } from 'htm/preact';
 import { useEffect } from 'preact/hooks';
-import { AudioBadges } from '../AudioBadges';
-import { ScreenBadges } from '../ScreenBadges';
-import { AudioCodecs } from '../AudioCodecs';
-import { VideoCodecs } from '../VideoCodecs';
-import { Header } from '../Header';
-import { DrmBadges } from '../DrmBadges';
-import { Row } from '../Row';
-import { NativeStreaming } from '../NativeStreaming';
-import { Questions } from '../Questions';
-import { HtmlVideoElementFeatures } from '../HtmlVideoElementFeatures';
+import { AudioBadges } from '../../components/AudioBadges';
+import { ScreenBadges } from '../../components/ScreenBadges';
+import { AudioCodecs } from '../../components/AudioCodecs';
+import { VideoCodecs } from '../../components/VideoCodecs';
+import { Header } from '../../components/Header';
+import { DrmBadges } from '../../components/DrmBadges';
+import { Row } from '../../components/Row';
+import { NativeStreaming } from '../../components/NativeStreaming';
+import { Questions } from '../../components/Questions';
+import { HtmlVideoElementFeatures } from '../../components/HtmlVideoElementFeatures';
 import { block } from '../../utils/bem';
-import { Footer } from '../Footer';
-import { ImageFormats } from '../ImageFormats';
+import { Footer } from '../../components/Footer';
+import { ImageFormats } from '../../components/ImageFormats';
 import { i18n } from '../../i18n/i18n';
-import { Gpu } from '../Gpu';
-import { Platform } from '../Platform';
-import { Battery } from '../Battery';
-import { Connection } from '../Connection';
-import { InternetSpeed } from '../InternetSpeed';
-
-import './index.css';
+import { Gpu } from '../../components/Gpu';
+import { Platform } from '../../components/Platform';
+import { Battery } from '../../components/Battery';
+import { Connection } from '../../components/Connection';
+import { InternetSpeed } from '../../components/InternetSpeed';
 import { useForceUpdate } from '../../hooks/useForceUpdate';
 
 const b = block('main-page');
@@ -41,8 +41,8 @@ export function MainPage() {
     }, []);
 
     return html`
-        <div class="${b()}">            
-            <${Header}><//>
+        <div class="${b()}">
+            <${Header} text="${i18n('Can I watch video in this browser?')}"><//>
 
             <${Questions}><//>
             <${ScreenBadges}><//>

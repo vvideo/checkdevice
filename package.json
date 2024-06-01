@@ -4,7 +4,7 @@
     "description": "Can I Watch Video?",
     "scripts": {
         "build": "rollup -c",
-        "dist": "MINIFY=1 rollup -c && node ./tools/updateTemplate.mjs",
+        "dist": "MINIFY=1 rollup -c && node ./tools/update.mjs",
         "watch": "npm run build -- --watch",
         "typecheck": "tsc --noEmit",
         "test": "npm run typecheck"
