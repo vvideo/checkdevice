@@ -1,12 +1,13 @@
 import { html } from 'htm/preact';
 import { useCallback, useEffect, useRef, useState } from 'preact/hooks';
-import { List } from '../List';
 import { RadioButtons, RadioButtonsProps } from '../RadioButtons';
 import { prepareAdapterFeatures, prepareAdapterInfo, prepareAdapterLimits } from './utils';
 import { WarningMessage } from '../WarningMessage';
 import { block } from '../../utils/bem';
+import { TreeList } from '../TreeList';
 
 import './index.css';
+import { i18n } from '../../i18n/i18n';
 
 const buttons: RadioButtonsProps['buttons'] = [
     {
@@ -65,33 +66,32 @@ export function GpuNavigator() {
         });
     }, [powerPreference]);
 
-    const limitsItems = prepareAdapterLimits(refAdapter.current && refAdapter.current.limits);
-    const featuresItems = prepareAdapterFeatures(refAdapter.current && refAdapter.current.features);
-    const adapterInfoItems = prepareAdapterInfo(refAdapterInfo.current);
+    const data = {
+        info: prepareAdapterInfo(refAdapterInfo.current),
+        isFallbackAdapter: refAdapter.current && refAdapter.current.isFallbackAdapter,
+        limits: prepareAdapterLimits(refAdapter.current && refAdapter.current.limits),
+        features: prepareAdapterFeatures(refAdapter.current && refAdapter.current.features),
+    };
 
     if (!navigator.gpu) {
-        return html`<${WarningMessage}>WebGPU is not supported.<//>`;
+        return html`<${WarningMessage}>${i18n('WebGPU is not supported.')}<//>`;
     }
 
     if (hasAdapter === null) {
-        return html`<${WarningMessage}>GPU Adapter is not found.<//>`;
+        return html`<${WarningMessage}>${i18n('GPU Adapter is not found.')}<//>`;
     }
 
     return hasAdapter ? html`
         <div>
             <div class="${b('controls')}">
                 <${RadioButtons}
-                    label="Power preference: "
+                    label="Power preference:"
                     buttons="${buttons}"
                     onSelect="${onSelect}"
                 ><//>
             </div>
 
-            <div>isFallbackAdapter: ${String(refAdapter.current && refAdapter.current.isFallbackAdapter)}</div>
-
-            <${List} title="Adapter Info" items="${adapterInfoItems}"></>
-            <${List} title="Features" items="${featuresItems}"></>
-            <${List} title="Limits" items="${limitsItems}"></>
+            <${TreeList} title="Adapter" data=${data}><//>
         </div>
     ` : '...';
 }
