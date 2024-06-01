@@ -22,6 +22,7 @@ import { Battery } from '../../components/Battery';
 import { Connection } from '../../components/Connection';
 import { InternetSpeed } from '../../components/InternetSpeed';
 import { useForceUpdate } from '../../hooks/useForceUpdate';
+import { MainMenu } from '../../components/MainMenu';
 
 const b = block('main-page');
 
@@ -42,6 +43,8 @@ export function MainPage() {
 
     return html`
         <div class="${b()}">
+            <${MainMenu}><//>
+
             <${Header}>
                 ${i18n('Can I watch video in this browser?')}
             <//>

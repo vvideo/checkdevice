@@ -7,12 +7,15 @@ import { Footer } from '../../components/Footer';
 import { i18n } from '../../i18n/i18n';
 import { GpuNavigator } from '../../components/GpuNavigator';
 import { InfoLink } from '../../components/InfoLink';
+import { MainMenu } from '../../components/MainMenu';
 
 const b = block('gpu-page');
 
 export function GpuPage() {
     return html`
         <div class="${b()}">
+            <${MainMenu}><//>
+
             <${Header}>
                 ${i18n('Can I use WebGPU?')}<${InfoLink} href="https://developer.mozilla.org/en-US/docs/Web/API/GPU"><//>
             <//>
