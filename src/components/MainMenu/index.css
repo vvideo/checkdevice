@@ -1,0 +1,25 @@
+.main-menu {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 16px;
+}
+
+.main-menu__item {
+    margin-right: 20px;
+    cursor: pointer;
+    padding-bottom: 2px;
+    border-bottom: 2px solid #333;
+    white-space: nowrap;
+}
+
+.main-menu__item:link,
+.main-menu__item:visited,
+.main-menu__item:hover,
+.main-menu__item:active {
+    color: white;
+    text-decoration: none;
+}
+
+.main-menu__item_active {
+    border-bottom: 2px solid white;
+}
