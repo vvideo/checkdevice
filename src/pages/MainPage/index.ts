@@ -18,7 +18,6 @@ import { ImageFormats } from '../../components/ImageFormats';
 import { i18n } from '../../i18n/i18n';
 import { Gpu } from '../../components/Gpu';
 import { Platform } from '../../components/Platform';
-import { Battery } from '../../components/Battery';
 import { Connection } from '../../components/Connection';
 import { InternetSpeed } from '../../components/InternetSpeed';
 import { useForceUpdate } from '../../hooks/useForceUpdate';
@@ -89,8 +88,6 @@ export function MainPage() {
             <${Gpu}><//>
 
             <${Connection}><//>
-
-            <${Battery}><//>
 
             <${Footer}><//>
         </div>`;

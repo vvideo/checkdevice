@@ -32,6 +32,8 @@ const createConfig = name => ({
 export const pageIds = [
     'index',
     'gpu',
+    // 'network',
+    'battery'
 ];
 
 export default pageIds.map(name => createConfig(name));

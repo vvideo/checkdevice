@@ -23,6 +23,16 @@ const mainMenuItems: MainMenuItem[] = [
         id: 'gpu',
         url: './gpu.html',
     },
+    {
+        title: i18n('Network'),
+        id: 'network',
+        url: './network.html'
+    },
+    {
+        title: i18n('Battery'),
+        id: 'battery',
+        url: './battery.html'
+    },
 ];
 
 const b = block('main-menu');

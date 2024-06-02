@@ -1,0 +1,61 @@
+.battery-badge {
+    position: relative;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+    width: 200px;
+    height: 60px;
+    padding: 5px;
+
+    border: 5px solid white;
+    border-radius: 10px;
+
+    color: white;
+}
+
+.battery-badge__charge {
+    background-color: green;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+}
+
+.battery-badge_low .battery-badge__charge {
+    background-color: red;
+}
+
+.battery-badge__contact {
+    position: absolute;
+    right: -10px;
+    top: 20px;
+    width: 5px;
+    height: 30px;
+    background-color: white;
+}
+
+.battery-badge__contact {
+    position: absolute;
+    right: -10px;
+    top: 20px;
+    width: 5px;
+    height: 30px;
+    background-color: white;
+}
+
+.battery-badge__charging {
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.battery-badge__level {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    font-weight: bold;
+}

@@ -5,9 +5,9 @@ import { prepareAdapterFeatures, prepareAdapterInfo, prepareAdapterLimits } from
 import { WarningMessage } from '../WarningMessage';
 import { block } from '../../utils/bem';
 import { TreeList } from '../TreeList';
+import { i18n } from '../../i18n/i18n';
 
 import './index.css';
-import { i18n } from '../../i18n/i18n';
 
 const buttons: RadioButtonsProps['buttons'] = [
     {
@@ -82,7 +82,7 @@ export function GpuNavigator() {
     }
 
     return hasAdapter ? html`
-        <div>
+        <div class="${b()}">
             <div class="${b('controls')}">
                 <${RadioButtons}
                     label="Power preference:"
