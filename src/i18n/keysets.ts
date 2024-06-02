@@ -264,5 +264,13 @@ export const keysets: I18nKeysets = {
     'Video & audio': {
         'en': 'Video & audio',
         'ru': 'Видео и аудио'
+    },
+    'Can I use Battery Status API?': {
+        'en': 'Can I use Battery Status API?',
+        'ru': 'Могу ли я использовать Battery Status API?'
+    },
+    'Battery Status API is not supported.': {
+        'en': 'Battery Status API is not supported.',
+        'ru': 'Battery Status API не поддерживается.'
     }
 };
