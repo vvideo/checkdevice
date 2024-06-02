@@ -4,7 +4,7 @@ export type I18NKeys = { 'en': string, 'ru': string };
 export type I18nKeysets = Record<string, I18NKeys>;
 export type I18NLanguage = keyof I18NKeys;
 
-let i18nKeysets = keysets;
+const i18nKeysets = keysets;
 let i18nLang: I18NLanguage;
 
 export function i18n(id: string) {

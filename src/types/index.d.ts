@@ -17,5 +17,7 @@ declare global {
             rtt: number;
             saveData: boolean;
         };
+
+        getAutoplayPolicy?: (type: 'mediaelement' | 'audiocontext' |  AudioContext | HTMLMediaElement) => 'allowed' | 'allowed-muted' | 'disallowed';
     }
 }

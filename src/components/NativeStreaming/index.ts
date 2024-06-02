@@ -35,7 +35,7 @@ export function NativeStreaming() {
         return 1;
     });
 
-    let result = items.map(item => {
+    const result = items.map(item => {
         return html`<li>${item.label}: ${getChecked(item.supported)}</li>`;
     });
 

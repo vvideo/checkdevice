@@ -15,11 +15,11 @@ export function buildData(data: any): VNode {
         return html`<span class="${b('boolean')}">${String(data)}</span>`;
     }
 
-    if (typeof data === undefined) {
+    if (data === undefined) {
         return html`<span class="${b('undefined')}">undefined</span>`;
     }
 
-    if (typeof data === null) {
+    if (data === null) {
         return html`<span class="${b('null')}">null</span>`;
     }
 
@@ -29,7 +29,7 @@ export function buildData(data: any): VNode {
 
     if (Array.isArray(data)) {
         return html`<ul>
-            ${data.map((item: any) => {
+            ${data.map(item => {
                 return html`<li>${buildData(item)}</li>`;
             })}
         </ul>`;

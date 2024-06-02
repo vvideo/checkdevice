@@ -7,7 +7,8 @@
         "dist": "MINIFY=1 rollup -c && node ./tools/update.mjs",
         "watch": "npm run build -- --watch",
         "typecheck": "tsc --noEmit",
-        "test": "npm run typecheck"
+        "eslint": "eslint .",
+        "test": "npm run typecheck && npm run eslint"
     },
     "repository": {
         "type": "git",
@@ -21,6 +22,7 @@
     },
     "private": true,
     "devDependencies": {
+        "@eslint/js": "9.4.0",
         "@rollup/plugin-node-resolve": "^15.2.3",
         "@rollup/plugin-terser": "0.4.4",
         "@rollup/plugin-typescript": "^11.1.6",
@@ -28,6 +30,8 @@
         "calc-aspect-ratio": "1.3.0",
         "cssnano": "^7.0.1",
         "detect-audio-video": "^1.2.1",
+        "eslint": "9.4.0",
+        "globals": "15.3.0",
         "hdcp": "^1.1.0",
         "htm": "^3.1.1",
         "lyam": "^3.1.0",
@@ -35,6 +39,7 @@
         "rollup": "^4.18.0",
         "rollup-plugin-postcss": "^4.0.2",
         "tslib": "^2.6.2",
-        "typescript": "^5.4.5"
+        "typescript": "^5.4.5",
+        "typescript-eslint": "7.11.0"
     }
 }
