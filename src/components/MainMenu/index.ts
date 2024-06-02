@@ -16,12 +16,12 @@ const mainMenuItems: MainMenuItem[] = [
     {
         title: i18n('Video & audio'),
         id: 'index',
-        url: '/',
+        url: './',
     },
     {
         title: 'GPU',
         id: 'gpu',
-        url: '/gpu.html',
+        url: './gpu.html',
     },
 ];
 
