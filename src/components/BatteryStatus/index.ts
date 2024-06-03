@@ -7,8 +7,6 @@ import { i18n } from '../../i18n/i18n';
 import { BatteryBadge } from '../BatteryBadge';
 import { useForceUpdate } from '../../hooks/useForceUpdate';
 
-import './index.css';
-
 const b = block('battery-status');
 
 export function BatteryStatus() {

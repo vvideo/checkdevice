@@ -10,6 +10,7 @@ interface MainMenuItem {
     id: string;
     url: string;
     selected?: boolean;
+    hidden?: boolean;
 }
 
 const mainMenuItems: MainMenuItem[] = [
@@ -23,11 +24,11 @@ const mainMenuItems: MainMenuItem[] = [
         id: 'gpu',
         url: './gpu.html',
     },
-    // {
-    //     title: i18n('Network'),
-    //     id: 'network',
-    //     url: './network.html'
-    // },
+    {
+        title: i18n('Network'),
+        id: 'network',
+        url: './network.html'
+    },
     {
         title: i18n('Battery'),
         id: 'battery',
@@ -42,7 +43,7 @@ export function MainMenu() {
 
     return html`
         <div class="${b()}">
-            ${mainMenuItems.map(item => {
+            ${mainMenuItems.filter(item => !item.hidden).map(item => {
                 return html`<a class="${b('item', { active: item.id === id })}" href="${item.url}">${item.title}</a>`;
             })}
         </div>

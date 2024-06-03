@@ -12,7 +12,7 @@ interface TreeListProps {
 
 export function TreeList(props: TreeListProps) {
     return html`
-        <${Row} title="${props.title}">
+        <${Row} name="${props.title}">
             <div class="${b()}">
                 ${buildData(props.data)}
             </div>

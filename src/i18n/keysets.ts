@@ -272,5 +272,17 @@ export const keysets: I18nKeysets = {
     'Battery Status API is not supported.': {
         'en': 'Battery Status API is not supported.',
         'ru': 'Battery Status API не поддерживается.'
-    }
+    },
+    'Can I use Network Information API?': {
+        'en': 'Can I use Network Information API?',
+        'ru': 'Могу ли я использовать Network Information API?'
+    },
+    'Network Information API is not supported.': {
+        'en': 'Network Information API is not supported.',
+        'ru': 'Network Information API не поддерживается.'
+    },
+    'Network': {
+        'en': 'Network',
+        'ru': 'Сеть'
+    },
 };

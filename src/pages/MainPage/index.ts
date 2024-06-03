@@ -18,8 +18,6 @@ import { ImageFormats } from '../../components/ImageFormats';
 import { i18n } from '../../i18n/i18n';
 import { Gpu } from '../../components/Gpu';
 import { Platform } from '../../components/Platform';
-import { Connection } from '../../components/Connection';
-import { InternetSpeed } from '../../components/InternetSpeed';
 import { useForceUpdate } from '../../hooks/useForceUpdate';
 import { MainMenu } from '../../components/MainMenu';
 
@@ -79,15 +77,9 @@ export function MainPage() {
                 <${HtmlVideoElementFeatures}><//>
             <//>
 
-            <${Row} name="${i18n('Internet Speed')}">
-                <${InternetSpeed}><//>
-            <//>
-
             <${Platform}><//>
 
             <${Gpu}><//>
-
-            <${Connection}><//>
 
             <${Footer}><//>
         </div>`;

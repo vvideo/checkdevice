@@ -32,7 +32,7 @@ const createConfig = name => ({
 export const pageIds = [
     'index',
     'gpu',
-    // 'network',
+    'network',
     'battery'
 ];
 

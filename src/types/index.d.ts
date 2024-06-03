@@ -16,6 +16,8 @@ declare global {
             effectiveType: string;
             rtt: number;
             saveData: boolean;
+            type?: string;
+            downlinkMax?: number;
         };
 
         getAutoplayPolicy?: (type: 'mediaelement' | 'audiocontext' |  AudioContext | HTMLMediaElement) => 'allowed' | 'allowed-muted' | 'disallowed';
