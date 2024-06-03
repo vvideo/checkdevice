@@ -11,20 +11,28 @@ export function buildData(data: any): VNode {
         return html`<span class="${b('number')}">${data}</span>`;
     }
 
+    if (typeof data === 'bigint') {
+        return html`<span class="${b('bigint')}">${data}n</span>`;
+    }
+
     if (typeof data === 'boolean') {
         return html`<span class="${b('boolean')}">${String(data)}</span>`;
     }
 
-    if (data === undefined) {
+    if (typeof data === 'function') {
+        return html`<span class="${b('function')}">function</span>`;
+    }
+
+    if (typeof data === 'symbol') {
+        return html`<span class="${b('symbol')}">${data}</span>`;
+    }
+
+    if (typeof data === 'undefined') {
         return html`<span class="${b('undefined')}">undefined</span>`;
     }
 
     if (data === null) {
         return html`<span class="${b('null')}">null</span>`;
-    }
-
-    if (typeof data === 'function') {
-        return html`<span class="${b('function')}">function</span>`;
     }
 
     if (Array.isArray(data)) {
