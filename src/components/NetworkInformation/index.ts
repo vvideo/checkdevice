@@ -5,11 +5,16 @@ import { TreeList } from '../TreeList';
 import { i18n } from '../../i18n/i18n';
 import { InfoLink } from '../InfoLink';
 
+import './index.css';
+
 const b = block('network-information');
 
 export function NetworkInformation() {
     if (!navigator.connection) {
-        return html`<${WarningMessage}>${i18n('Network Information API is not supported.')}<//>`;
+        return html`
+            <div class="${b()}">
+                 <${WarningMessage}>${i18n('Network Information API is not supported.')}<//>
+            </div>`;
     }
 
     const { connection } = navigator;
@@ -29,7 +34,7 @@ export function NetworkInformation() {
         data.downlinkMax = connection.downlinkMax;
     }
 
-    const title = html`navigator.connection<${InfoLink} href="https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation"><//>:`;
+    const title = html`navigator.connection<${InfoLink} href="https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation"><//>`;
 
     return html`
         <div class="${b()}">
