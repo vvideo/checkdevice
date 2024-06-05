@@ -27,14 +27,20 @@ export function GamepadList() {
         };
     }, []);
 
-    // Filter for MacOS with USB C
     const gamepads = navigator.getGamepads().filter(item => Boolean(item));
 
     return gamepads.length ? html`
         <div class="${b()}">
             ${
                 gamepads.map((item, i) => {
-                    return html`<${TreeList} name="${i}" items="${item}"><//>`;
+                    const data = {
+                        id: item?.id,
+                        connected: item?.connected,
+                        index: item?.index,
+                        mapping: item?.mapping,
+                    };
+
+                    return html`<${TreeList} name="${i}" items="${data}"><//>`;
                 })
             }
         </div>
