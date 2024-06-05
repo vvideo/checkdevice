@@ -35,14 +35,14 @@ export function GamepadList() {
         <div class="${b()}">
             ${
                 gamepads.map((item, i) => {
-                    const data = {
-                        id: item?.id,
-                        connected: item?.connected,
-                        index: item?.index,
-                        mapping: item?.mapping,
-                    };
+                    // const data = {
+                    //     id: item?.id,
+                    //     connected: item?.connected,
+                    //     index: item?.index,
+                    //     mapping: item?.mapping,
+                    // };
 
-                    return html`<${TreeList} name="${i}" items="${data}"><//>`;
+                    return html`<${TreeList} name="${i}" data="${item}"><//>`;
                 })
             }
         </div>
