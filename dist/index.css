@@ -13,6 +13,6 @@ body,html{background:#000;color:#fff;font-family:Arial,Helvetica,sans-serif;font
 .info-link{margin-left:3px;position:relative;top:-.5em}.info-link__link{font-size:12px}.info-link__link:active,.info-link__link:hover,.info-link__link:link,.info-link__link:visited{color:#fff;text-decoration:none}
 .questions{font-size:20px;line-height:32px;margin-bottom:20px}
 .html-video-element-features{font-size:16px;line-height:26px;margin:0 0 0 15px;padding:0}
-.footer{border-top:1px solid #222;display:flex;font-size:16px;margin-top:40px;padding:20px 0 10px}.footer__item{margin-right:20px}
+.footer{border-top:1px solid #222;display:flex;font-size:16px;margin-top:40px;padding:20px 0 10px}.footer__item{margin-right:20px}.footer__item:hover span{opacity:1;transition:opacity .5s ease}.footer__l1{opacity:.95}.footer__l2{opacity:.9}.footer__l3{opacity:.85}.footer__l4{opacity:.8}.footer__l5{opacity:.75}.footer__l6{opacity:.7}.footer__item_g{transition:transform .5s ease}.footer__item_g:hover{transform:rotate(180deg)}
 .list{font-size:16px;line-height:26px;margin:0 0 0 15px;padding:0}
 .main-menu{font-size:16px;padding-bottom:10px;padding-top:10px}.main-menu__item{border-bottom:2px solid #333;cursor:pointer;margin-right:20px;padding-bottom:2px;white-space:nowrap}.main-menu__item:active,.main-menu__item:hover,.main-menu__item:link,.main-menu__item:visited{color:#fff;text-decoration:none}.main-menu__item_active{border-bottom:2px solid #fff}
