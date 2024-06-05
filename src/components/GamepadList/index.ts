@@ -10,7 +10,7 @@ const b = block('gamepad-list');
 
 export function GamepadList() {
     if (!navigator.getGamepads) {
-        return html`<${WarningMessage}>${i18n('Gamepad API is not supported.')}<//>`;
+        return html`<${WarningMessage}>${i18n('🎮 Gamepad API is not supported.')}<//>`;
     }
 
     const forceUpdate = useForceUpdate();
@@ -46,5 +46,5 @@ export function GamepadList() {
                 })
             }
         </div>
-    ` : html`<${WarningMessage}>${i18n('Press any key on the gamepad.')}<//>`;
+    ` : html`<${WarningMessage}>${i18n('Press any key on the 🎮 gamepad.')}<//>`;
 }

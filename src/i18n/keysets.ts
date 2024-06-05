@@ -285,4 +285,20 @@ export const keysets: I18nKeysets = {
         'en': 'Network',
         'ru': 'Сеть'
     },
+    'Can I use 🎮 Gamepad API?': {
+        'en': 'Can I use 🎮 Gamepad API?',
+        'ru': 'Могу ли я использовать 🎮 Gamepad API?'
+    },
+    '🎮 Gamepad API is not supported.': {
+        'en': '🎮 Gamepad API is not supported.',
+        'ru': '🎮 Gamepad API не поддерживается.'
+    },
+    'Press any key on the 🎮 gamepad.': {
+        'en': 'Press any key on the 🎮 gamepad.',
+        'ru': 'Нажмите любую кнопку на 🎮 джойстике.'
+    },
+    'Gamepad': {
+        'en': 'Gamepad',
+        'ru': 'Джойстик'
+    }
 };

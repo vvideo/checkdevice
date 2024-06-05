@@ -13,9 +13,8 @@ export const items: MainMenuItem[] = [
         url: './gpu.html',
     },
     {
-        title: 'Gamepad',
+        title: i18n('Gamepad'),
         id: 'gamepad',
-        hidden: true,
         url: './gamepad.html',
     },
     {

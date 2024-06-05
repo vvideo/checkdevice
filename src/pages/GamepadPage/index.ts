@@ -17,7 +17,7 @@ export function GamepadPage() {
             <${MainMenu}><//>
 
             <${Header}>
-                ${i18n('Can I use Gamepad API?')}<${InfoLink} href="https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API"><//>
+                ${i18n('Can I use 🎮 Gamepad API?')}<${InfoLink} href="https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API"><//>
             <//>
 
             <${GamepadList}><//>
