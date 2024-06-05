@@ -13,17 +13,19 @@ export function GamepadList() {
         return html`<${WarningMessage}>${i18n('Gamepad API is not supported.')}<//>`;
     }
 
+    const forceUpdate = useForceUpdate();
+
     useEffect(() => {
-        const handleGamepadconnected = () => {
-            useForceUpdate();
+        const handleGamepad = () => {
+            forceUpdate();
         };
 
-        window.addEventListener('gamepadconnected', handleGamepadconnected);
-        window.addEventListener('gamepaddisconnected', handleGamepadconnected);
+        window.addEventListener('gamepadconnected', handleGamepad);
+        window.addEventListener('gamepaddisconnected', handleGamepad);
 
         return () => {
-            window.removeEventListener('gamepadconnected', handleGamepadconnected);
-            window.removeEventListener('gamepaddisconnected', handleGamepadconnected);
+            window.removeEventListener('gamepadconnected', handleGamepad);
+            window.removeEventListener('gamepaddisconnected', handleGamepad);
         };
     }, []);
 
