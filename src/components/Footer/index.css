@@ -9,3 +9,43 @@
 .footer__item {
     margin-right: 20px;
 }
+
+.footer__item:hover span {
+    transition: opacity .5s ease;
+}
+
+.footer__item:hover span {
+    opacity: 1;
+}
+
+.footer__l1 {
+    opacity: .95;
+}
+
+.footer__l2 {
+    opacity: .9;
+}
+
+.footer__l3 {
+    opacity: .85;
+}
+
+.footer__l4 {
+    opacity: .8;
+}
+
+.footer__l5 {
+    opacity: .75;
+}
+
+.footer__l6 {
+    opacity: .7;
+}
+
+.footer__item_g {
+    transition: transform .5s ease;
+}
+
+.footer__item_g:hover {
+    transform: rotate(180deg);
+}
