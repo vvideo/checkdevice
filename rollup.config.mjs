@@ -35,6 +35,8 @@ export const pageIds = [
     'network',
     'battery',
     'gamepad',
+    'screen',
+    'storage',
 ];
 
 export default pageIds.map(name => createConfig(name));

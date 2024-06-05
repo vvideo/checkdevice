@@ -8,6 +8,12 @@ export const items: MainMenuItem[] = [
         url: './',
     },
     {
+        title: i18n('Screen'),
+        id: 'screen',
+        url: './screen.html',
+        hidden: true,
+    },
+    {
         title: 'GPU',
         id: 'gpu',
         url: './gpu.html',
@@ -16,6 +22,12 @@ export const items: MainMenuItem[] = [
         title: i18n('Gamepad'),
         id: 'gamepad',
         url: './gamepad.html',
+    },
+    {
+        title: i18n('Storage'),
+        id: 'storage',
+        url: './storage.html',
+        hidden: true,
     },
     {
         title: i18n('Network'),
