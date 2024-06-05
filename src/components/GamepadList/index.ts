@@ -29,22 +29,22 @@ export function GamepadList() {
         };
     }, []);
 
-    const gamepads = navigator.getGamepads().filter(item => Boolean(item));
+    const gamepads = navigator.getGamepads().filter(item => item !== null);
 
     return gamepads.length ? html`
         <div class="${b()}">
             ${
                 gamepads.map((item, i) => {
-                    // const data = {
-                    //     id: item?.id,
-                    //     connected: item?.connected,
-                    //     index: item?.index,
-                    //     mapping: item?.mapping,
-                    // };
+                    const data = {
+                        id: item?.id,
+                        connected: item?.connected,
+                        index: item?.index,
+                        mapping: item?.mapping,
+                    };
 
-                    return html`<${TreeList} name="${i}" data="${item}"><//>`;
+                    return html`<${TreeList} name="${i}" data="${data}"><//>`;
                 })
             }
         </div>
-    ` : html`<${WarningMessage}>${i18n('Gamepad is not detected.')}<//>`;
+    ` : html`<${WarningMessage}>${i18n('Press any key on the gamepad.')}<//>`;
 }
