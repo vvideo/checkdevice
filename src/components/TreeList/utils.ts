@@ -2,7 +2,30 @@ import { html } from 'htm/preact';
 import { VNode } from 'preact';
 import { b } from './className';
 
-export function buildData(data: any): VNode {
+const simpleTypes = {
+    string: true,
+    number: true,
+    bigint: true,
+    boolean: true,
+    symbol: true,
+    undefined: true,
+    function: true,
+    object: false,
+};
+
+function isArrayWithSimpleTypes(arr: any[]) {
+    return arr.every(item => {
+        return item === null || simpleTypes[typeof item];
+    });
+}
+
+export interface BuildDataOptions {
+    compactObject?: boolean;
+    compactArrayWithSimpleTypes?: boolean;
+    showArrayIndex?: boolean;
+}
+
+export function buildData(data: any, options: BuildDataOptions = {}, level = 0): VNode {
     if (typeof data === 'string') {
         return html`<span class="${b('string')}">'${data}'</span>`;
     }
@@ -36,16 +59,33 @@ export function buildData(data: any): VNode {
     }
 
     if (Array.isArray(data)) {
-        return html`<ul>
-            ${data.map(item => {
-                return html`<li>${buildData(item)}</li>`;
-            })}
-        </ul>`;
+        if (options.compactArrayWithSimpleTypes && isArrayWithSimpleTypes(data)) {
+            return html`[${' '}
+                ${data.map((item, i) => {
+                    return html`${i ? ', ' : ''}${buildData(item, options, level + 1)}`;
+                })}
+            ${' '}]`;
+        } else {
+            return html`[<ul>
+                ${data.map((item, i) => {
+                    const arrayIndex = options.showArrayIndex ? html` <span class="${b('index')}">${i}: </span>` : '';
+                    return html`<li>${arrayIndex}${buildData(item, options, level + 1)}${i === data.length - 1 ? '' : ','}</li>`;
+                })}
+            </ul>]`;
+        }
     }
 
-    return html`<ul>
-        ${Object.keys(data).map((key: string) => {
-            return html`<li><span class="${b('property')}">${key}: </span>${buildData(data[key])}</div>`;
+    if (options.compactObject && level > 0) {
+        return html`{${' '}
+            ${Object.keys(data).map((key: string, i: number, items) => {
+                return html`<span class="${b('property')}">${key}: </span>${buildData(data[key], options, level + 1)}${i === items.length - 1 ? '' : ', '}`;
+            })}
+        ${' '}}`;
+    }
+
+    return html`{<ul>
+        ${Object.keys(data).map((key: string, i: number, items) => {
+            return html`<li><span class="${b('property')}">${key}: </span>${buildData(data[key], options, level + 1)}${i === items.length - 1 ? '' : ','}</li>`;
         })}
-    </ul>`;
+    </ul>}`;
 }

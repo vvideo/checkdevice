@@ -3,9 +3,12 @@
 }
 
 .tree-list ul {
-    margin-top: 0;
-    margin-left: 0;
-    padding-left: 20px;
+    margin: 0;
+    padding: 0 0 0 1em;
+}
+
+.tree-list li {
+    list-style-type: none;
 }
 
 .tree-list__number,
@@ -21,6 +24,10 @@
     color: lightblue;
 }
 
+.tree-list__index {
+    color: gray;
+}
+
 .tree-list__boolean {
     color: violet;
 }
@@ -33,6 +40,7 @@
     color: gray;
 }
 
-.tree-list__property {
+.tree-list__property,
+.tree-list__index {
     color: lightblue;
 }
