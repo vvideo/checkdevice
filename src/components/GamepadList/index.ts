@@ -6,6 +6,8 @@ import { TreeList } from '../TreeList';
 import { i18n } from '../../i18n/i18n';
 import { useForceUpdate } from '../../hooks/useForceUpdate';
 
+import './index.css';
+
 const b = block('gamepad-list');
 
 export function GamepadList() {
@@ -16,6 +18,10 @@ export function GamepadList() {
     const forceUpdate = useForceUpdate();
 
     useEffect(() => {
+        const timer = window.setInterval(() => {
+            forceUpdate();
+        }, 20);
+
         const handleGamepad = () => {
             forceUpdate();
         };
@@ -26,6 +32,7 @@ export function GamepadList() {
         return () => {
             window.removeEventListener('gamepadconnected', handleGamepad);
             window.removeEventListener('gamepaddisconnected', handleGamepad);
+            window.clearInterval(timer);
         };
     }, []);
 
@@ -34,17 +41,41 @@ export function GamepadList() {
     return gamepads.length ? html`
         <div class="${b()}">
             ${
-                gamepads.map((item, i) => {
+                gamepads.map((rawItem, i) => {
+                    const item = rawItem!;
                     const data = {
-                        id: item?.id,
-                        connected: item?.connected,
-                        index: item?.index,
-                        mapping: item?.mapping,
+                        index: item.index,
+                        mapping: item.mapping,
+                        connected: item.connected,
+                        timestamp: item.timestamp,
+                        axes: item.axes,
+                        buttons: item.buttons.map(button => {
+                            return {
+                                value: button.value,
+                                pressed: button.pressed,
+                                touched: button.touched,
+                            };
+                        }),
                     };
 
-                    return html`<${TreeList} name="${i}" data="${data}"><//>`;
+                    if (typeof item.hand !== 'undefined') {
+                        // @ts-ignore
+                        data.hand = item.hand;
+                    }
+
+                    const options = {
+                        compactObject: true,
+                        compactArrayWithSimpleTypes: true,
+                        showArrayIndex: true,
+                    };
+
+                    return html`
+                        <div class="${b('item')}">
+                            <div class="${b('title')}">${item.id}</div>
+                            <${TreeList} name="${i}" data="${data}" options="${options}"><//>
+                        </div>`;
                 })
             }
         </div>
-    ` : html`<${WarningMessage}>${i18n('Press any key on the 🎮 gamepad.')}<//>`;
+    ` : html`<${WarningMessage}>${i18n('Connect and press any button on the gamepad.')}<//>`;
 }

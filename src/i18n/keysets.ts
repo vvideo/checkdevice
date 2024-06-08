@@ -293,9 +293,9 @@ export const keysets: I18nKeysets = {
         'en': '🎮 Gamepad API is not supported.',
         'ru': '🎮 Gamepad API не поддерживается.'
     },
-    'Press any key on the 🎮 gamepad.': {
-        'en': 'Press any key on the 🎮 gamepad.',
-        'ru': 'Нажмите любую кнопку на 🎮 джойстике.'
+    'Connect and press any button on the gamepad.': {
+        'en': 'Connect and press any button on the gamepad.',
+        'ru': 'Подключите и нажмите любую кнопку на джойстике.'
     },
     'Gamepad': {
         'en': 'Gamepad',

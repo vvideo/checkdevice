@@ -8,6 +8,10 @@ declare global {
         level: number;
     }
 
+    interface Gamepad {
+        hand?: 'left' | 'right' | '';
+    }
+
     interface Navigator {
         deviceMemory?: number;
         getBattery?(): Promise<BatteryManager>;

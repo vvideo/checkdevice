@@ -1,0 +1,9 @@
+.gamepad-list__item {
+    margin-bottom: 20px;
+}
+
+.gamepad-list__title {
+    font-size: 25px;
+    line-height: 1.6em;
+    margin-bottom: 10px;
+}
