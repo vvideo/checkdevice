@@ -2,9 +2,9 @@ import { calcAspectRatio } from 'calc-aspect-ratio';
 import { html } from 'htm/preact';
 import { hasZoom } from '../../utils/hasZoom';
 import { i18n } from '../../i18n/i18n';
-import { getColorSpaces } from './utils';
+import { getColorSpaces } from '../../utils/getColorSpaces';
 
-interface ScreenDetailsProps {
+interface ScreenBadgeDetailsProps {
     width: number;
     height: number;
     colorDepth: number;
@@ -15,7 +15,7 @@ interface ScreenDetailsProps {
     isInternal?: boolean;
 }
 
-export function ScreenDetails(props: ScreenDetailsProps) {
+export function ScreenBadgeDetails(props: ScreenBadgeDetailsProps) {
     const screenSize = props.withDevicePixelRatio ?
         [props.width, props.height, props.devicePixelRatio] :
         [props.width * props.devicePixelRatio, props.height * props.devicePixelRatio];

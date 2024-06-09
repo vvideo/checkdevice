@@ -4,9 +4,9 @@ import { Badge } from '../Badge';
 import { getResolutionBadge, isMobile } from 'detect-audio-video';
 import { block } from '../../utils/bem';
 import { isLargerFullHd } from '../../lib/ScreenInfo';
+import { ScreenBadgeDetails } from '../ScreenBadgeDetails';
 
 import './index.css';
-import { ScreenDetails } from '../ScreenDetails';
 
 const b = block('screen-badge');
 
@@ -48,7 +48,7 @@ export function ScreenBadge(props: ScreenBadge) {
                     text: html`<b>${props.isHdr ? 'HDR' :'\u00A0'}</b>`,
                 },
                 bottom: {
-                    text: ScreenDetails({
+                    text: ScreenBadgeDetails({
                         width: props.width,
                         height: props.height,
                         colorDepth: props.colorDepth,
