@@ -1,6 +1,6 @@
 # [Can I Watch Video](https://vvideo.github.io/caniwatchvideo)
 
-<img align="right" width="200" src="./icons/logo.png" />
+<img align="right" width="200" src="./static/images/logo.png" />
 
 This service answers the questions:
 + Can I watch 4K video?
