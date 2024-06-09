@@ -6,6 +6,5 @@ body,html{background:#000;color:#fff;font-family:Arial,Helvetica,sans-serif;font
 .row{margin-bottom:20px}.row__category{color:gray;font-size:14px;margin-bottom:5px}
 .tree-list{font-size:16px}.tree-list ul{margin:0;padding:0 0 0 1em}.tree-list li{list-style-type:none}.tree-list__bigint,.tree-list__number{color:violet}.tree-list__string{color:#90ee90}.tree-list__symbol{color:#add8e6}.tree-list__index{color:gray}.tree-list__boolean,.tree-list__null{color:violet}.tree-list__undefined{color:gray}.tree-list__index,.tree-list__property{color:#add8e6}
 .gpu-navigator__controls{margin-bottom:30px}
-.info-link{margin-left:3px;position:relative;top:-.5em}.info-link__link{font-size:12px}.info-link__link:active,.info-link__link:hover,.info-link__link:link,.info-link__link:visited{color:#fff;text-decoration:none}
 .main-menu{font-size:16px;padding-bottom:10px;padding-top:10px}.main-menu__item{border-bottom:2px solid #111;cursor:pointer;margin-right:20px;padding-bottom:2px;white-space:nowrap}.main-menu__item:active,.main-menu__item:hover,.main-menu__item:link,.main-menu__item:visited{color:#fff;text-decoration:none}.main-menu__item_selected{border-bottom:2px solid #fff}
 .list{font-size:16px;line-height:26px;margin:0 0 0 15px;padding:0}
