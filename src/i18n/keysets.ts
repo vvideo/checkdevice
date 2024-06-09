@@ -325,4 +325,20 @@ export const keysets: I18nKeysets = {
         'en': 'Storage quota for origin',
         'ru': 'Квота хранилища на домен'
     },
+    'Color spaces': {
+        'en': 'Color spaces',
+        'ru': 'Цветовые пространства'
+    },
+    'HDR support': {
+        'en': 'HDR support',
+        'ru': 'Поддержка HDR'
+    },
+    'Current screen': {
+        'en': 'Current screen',
+        'ru': 'Текущий экран'
+    },
+    'Orientation': {
+        'en': 'Orientation',
+        'ru': 'Ориентация'
+    }
 };

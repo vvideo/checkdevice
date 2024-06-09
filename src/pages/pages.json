@@ -9,14 +9,13 @@
         "url": "./"
     },
     {
-        "header": "My Screen",
+        "header": "Screen",
         "menuTitle": {
             "en": "Screen",
             "ru": "Экран"
         },
         "id": "screen",
-        "url": "./screen.html",
-        "hidden": true
+        "url": "./screen.html"
     },
     {
         "header": "GPU",
