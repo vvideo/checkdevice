@@ -3,8 +3,8 @@
     "version": "1.0.0",
     "description": "Can I Watch Video?",
     "scripts": {
-        "build": "rollup -c",
-        "dist": "MINIFY=1 rollup -c && node ./tools/update.mjs",
+        "build": "node ./tools/createMenu.mjs && rollup -c && node ./tools/updatePages.mjs",
+        "dist": "MINIFY=1 npm run build",
         "watch": "npm run build -- --watch",
         "typecheck": "tsc --noEmit",
         "eslint": "eslint .",

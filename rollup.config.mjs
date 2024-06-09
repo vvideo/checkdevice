@@ -1,9 +1,12 @@
 import path from 'path';
+import fs from 'fs';
 import typescript from '@rollup/plugin-typescript';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import postcss from 'rollup-plugin-postcss';
 import terser from '@rollup/plugin-terser';
 import cssnano from 'cssnano';
+
+const pages = JSON.parse(fs.readFileSync('./src/pages/pages.json', 'utf-8'));
 
 const withMinify = process.env['MINIFY'];
 
@@ -29,14 +32,4 @@ const createConfig = name => ({
     ]
 });
 
-export const pageIds = [
-    'index',
-    'gpu',
-    'network',
-    'battery',
-    'gamepad',
-    'screen',
-    'storage',
-];
-
-export default pageIds.map(name => createConfig(name));
+export default pages.map(item => createConfig(item.id));

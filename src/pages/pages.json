@@ -1,0 +1,67 @@
+[
+    {
+        "header": "Can I use video",
+        "menuTitle": {
+            "en": "Video & audio",
+            "ru": "Видео и аудио"
+        },
+        "id": "index",
+        "url": "./"
+    },
+    {
+        "header": "My Screen",
+        "menuTitle": {
+            "en": "Screen",
+            "ru": "Экран"
+        },
+        "id": "screen",
+        "url": "./screen.html",
+        "hidden": true
+    },
+    {
+        "header": "GPU",
+        "menuTitle": {
+            "en": "GPU",
+            "ru": "GPU"
+        },
+        "id": "gpu",
+        "url": "./gpu.html"
+    },
+    {
+        "header": "My Gamepads",
+        "menuTitle": {
+            "en": "Gamepad",
+            "ru": "Джойстик"
+        },
+        "id": "gamepad",
+        "url": "./gamepad.html"
+    },
+    {
+        "header": "Storages",
+        "menuTitle": {
+            "en": "Storage",
+            "ru": "Хранилище"
+        },
+        "id": "storage",
+        "url": "./storage.html",
+        "hidden": true
+    },
+    {
+        "header": "Network",
+        "menuTitle": {
+            "en": "Network",
+            "ru": "Сеть"
+        },
+        "id": "network",
+        "url": "./network.html"
+    },
+    {
+        "header": "Battery",
+        "menuTitle": {
+            "en": "Battery",
+            "ru": "Батарея"
+        },
+        "id": "battery",
+        "url": "./battery.html"
+    }
+]

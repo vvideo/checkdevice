@@ -19,7 +19,7 @@ import { i18n } from '../../i18n/i18n';
 import { Gpu } from '../../components/Gpu';
 import { Platform } from '../../components/Platform';
 import { useForceUpdate } from '../../hooks/useForceUpdate';
-import { MainMenu } from '../../components/MainMenu';
+import { Menu } from '../Menu';
 
 const b = block('main-page');
 
@@ -40,7 +40,7 @@ export function MainPage() {
 
     return html`
         <div class="${b()}">
-            <${MainMenu}><//>
+            <${Menu}><//>
 
             <${Header}>
                 ${i18n('Can I watch video in this browser?')}

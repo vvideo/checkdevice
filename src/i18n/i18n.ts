@@ -24,6 +24,10 @@ export function i18n(id: string) {
     return value;
 }
 
+export function i18nWithKeyset(keyset: I18NKeys) {
+    return keyset[i18nLang];
+}
+
 export function setI18nLang(lang: I18NLanguage) {
     i18nLang = lang;
 }

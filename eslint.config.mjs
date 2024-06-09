@@ -12,6 +12,7 @@ export default [
   ...tseslint.configs.recommended,
   {
     ignores: [
+      'src/pages/pages.ts',
       'dist/**',
       'rollup.config.mjs'
     ],

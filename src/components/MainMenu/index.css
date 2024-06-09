@@ -8,7 +8,7 @@
     margin-right: 20px;
     cursor: pointer;
     padding-bottom: 2px;
-    border-bottom: 2px solid #333;
+    border-bottom: 2px solid #111;
     white-space: nowrap;
 }
 
@@ -20,6 +20,6 @@
     text-decoration: none;
 }
 
-.main-menu__item_active {
+.main-menu__item_selected {
     border-bottom: 2px solid white;
 }

@@ -1,11 +1,11 @@
-export function buildPage(id, title) {
+export function createPage({ id, header }) {
     return `<!DOCTYPE html>
 <html>
 <head>
-    <title>Can I Watch Video${title ? `:${title}` : ''}</title>
+    <title>${header}</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <link rel="shortcut icon" href="./icons/favicon.png"/>
+    <link rel="shortcut icon" href="./icons/favicon.png" />
     <link rel="stylesheet" href="./dist/${id}.css?md5=" />
     <!--<script src="https://unpkg.com/show-js-error/dist/show-js-error.js"></script>-->
 </head>

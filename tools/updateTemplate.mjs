@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { createMD5 } from './md5.mjs';
+import { createMD5 } from './utils/createMd5.mjs';
 
 export function updateTemplate(pageId) {
     const fileName = `./${pageId}.html`;
