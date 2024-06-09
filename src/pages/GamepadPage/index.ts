@@ -5,7 +5,6 @@ import { Header } from '../../components/Header';
 import { block } from '../../utils/bem';
 import { Footer } from '../../components/Footer';
 import { i18n } from '../../i18n/i18n';
-import { InfoLink } from '../../components/InfoLink';
 import { GamepadList } from '../../components/GamepadList';
 import { Menu } from '../Menu';
 
@@ -17,7 +16,7 @@ export function GamepadPage() {
             <${Menu}><//>
 
             <${Header}>
-                ${i18n('Can I use 🎮 Gamepad API?')}<${InfoLink} href="https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API"><//>
+                ${i18n('Gamepad')}
             <//>
 
             <${GamepadList}><//>

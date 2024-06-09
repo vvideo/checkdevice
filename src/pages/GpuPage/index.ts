@@ -6,7 +6,6 @@ import { block } from '../../utils/bem';
 import { Footer } from '../../components/Footer';
 import { i18n } from '../../i18n/i18n';
 import { GpuNavigator } from '../../components/GpuNavigator';
-import { InfoLink } from '../../components/InfoLink';
 import { Menu } from '../Menu';
 import { WebGLContext } from '../../components/WebGLContext';
 
@@ -18,7 +17,7 @@ export function GpuPage() {
             <${Menu}><//>
 
             <${Header}>
-                ${i18n('Can I use WebGPU?')}<${InfoLink} href="https://developer.mozilla.org/en-US/docs/Web/API/GPU"><//>
+                ${i18n('WebGPU')}
             <//>
 
             <${WebGLContext}><//>

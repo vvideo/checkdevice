@@ -16,7 +16,7 @@ export function StoragePage() {
             <${Menu}><//>
 
             <${Header}>
-                ${i18n('Can I use web storages?')}
+                ${i18n('Storages')}
             <//>
 
             <${Storages}><//>

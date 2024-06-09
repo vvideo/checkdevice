@@ -3,10 +3,9 @@ import { List } from '../List';
 import { getChecked } from '../../utils/getChecked';
 import { StorageFeatures } from '../StorageFeatures';
 import { block } from '../../utils/bem';
+import { ExtLink } from '../ExtLink';
 
 import './index.css';
-import { ExtLink } from '../ExtLink';
-import { i18n } from '../../i18n/i18n';
 
 const mdnLinks = {
     cookies: 'https://developer.mozilla.org/en-US/docs/Web/API/Navigator/cookieEnabled',
@@ -45,7 +44,7 @@ export function Storages() {
 
     return html`
         <div class="${b()}">
-            <${List} title="${i18n('Storages')}" items="${items}" />
+            <${List} items="${items}" />
 
             <div class="${b('features')}">
                 <${StorageFeatures}><//>
