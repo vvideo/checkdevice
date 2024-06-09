@@ -8,3 +8,4 @@ body,html{background:#000;color:#fff;font-family:Arial,Helvetica,sans-serif;font
 .gpu-navigator__controls{margin-bottom:30px}
 .info-link{margin-left:3px;position:relative;top:-.5em}.info-link__link{font-size:12px}.info-link__link:active,.info-link__link:hover,.info-link__link:link,.info-link__link:visited{color:#fff;text-decoration:none}
 .main-menu{font-size:16px;padding-bottom:10px;padding-top:10px}.main-menu__item{border-bottom:2px solid #111;cursor:pointer;margin-right:20px;padding-bottom:2px;white-space:nowrap}.main-menu__item:active,.main-menu__item:hover,.main-menu__item:link,.main-menu__item:visited{color:#fff;text-decoration:none}.main-menu__item_selected{border-bottom:2px solid #fff}
+.list{font-size:16px;line-height:26px;margin:0 0 0 15px;padding:0}
