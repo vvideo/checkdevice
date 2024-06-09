@@ -30,7 +30,7 @@ export function StorageFeatures() {
     ];
 
     if (typeof quota === 'number') {
-        features.unshift([
+        features.push([
             html`<${ExtLink} theme="white" href="https://developer.mozilla.org/ru/docs/Web/API/StorageManager/estimate">${i18n('Storage quota for origin')}<//>`,
             formatBytesToGB(quota)
         ]);
