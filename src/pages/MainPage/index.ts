@@ -1,5 +1,3 @@
-import '../common';
-
 import { html } from 'htm/preact';
 import { useEffect } from 'preact/hooks';
 import { AudioBadges } from '../../components/AudioBadges';
@@ -12,15 +10,11 @@ import { Row } from '../../components/Row';
 import { NativeStreaming } from '../../components/NativeStreaming';
 import { Questions } from '../../components/Questions';
 import { HtmlVideoElementFeatures } from '../../components/HtmlVideoElementFeatures';
-import { block } from '../../utils/bem';
-import { Footer } from '../../components/Footer';
 import { ImageFormats } from '../../components/ImageFormats';
 import { i18n } from '../../i18n/i18n';
 import { Platform } from '../../components/Platform';
 import { useForceUpdate } from '../../hooks/useForceUpdate';
-import { Menu } from '../Menu';
-
-const b = block('main-page');
+import { Page } from '../Page';
 
 export function MainPage() {
     const forceUpdate = useForceUpdate();
@@ -38,9 +32,7 @@ export function MainPage() {
     }, []);
 
     return html`
-        <div class="${b()}">
-            <${Menu}><//>
-
+        <${Page}>
             <${Header}>
                 ${i18n('Can I watch video in this browser?')}
             <//>
@@ -77,7 +69,5 @@ export function MainPage() {
             <//>
 
             <${Platform}><//>
-
-            <${Footer}><//>
-        </div>`;
+        <//>`;
 }

@@ -18,6 +18,16 @@
         "url": "./screen.html"
     },
     {
+        "header": "Camera",
+        "menuTitle": {
+            "en": "Camera",
+            "ru": "Камера"
+        },
+        "id": "camera",
+        "url": "./camera.html",
+        "hidden": true
+    },
+    {
         "header": "GPU",
         "menuTitle": {
             "en": "GPU",

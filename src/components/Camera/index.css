@@ -1,0 +1,29 @@
+.camera__controls {
+    margin-bottom: 10px;
+}
+
+.camera__container {
+    position: relative;
+    width: 100%;
+    height: 0;
+}
+
+.camera__container_played {
+    height: 50vh;
+    min-height: 100px;
+}
+
+.camera__video {
+    width: 100%;
+    height: 100%;
+}
+
+.camera__params {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, .8);
+    padding: 5px 10px;
+    color: white;
+    font-size: 14px;
+}

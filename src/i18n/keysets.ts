@@ -340,5 +340,13 @@ export const keysets: I18nKeysets = {
     'Orientation': {
         'en': 'Orientation',
         'ru': 'Ориентация'
+    },
+    'Camera': {
+        'en': 'Camera',
+        'ru': 'Камера'
+    },
+    'Stop': {
+        'en': 'Stop',
+        'ru': 'Стоп'
     }
 };
