@@ -1,0 +1,4 @@
+User-agent: *
+
+Host: https://caniwatchvideo.online
+Sitemap: https://caniwatchvideo.online/sitemap.xml
