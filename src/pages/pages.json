@@ -1,6 +1,6 @@
 [
     {
-        "header": "Can I use video",
+        "header": "Can I watch video",
         "menuTitle": {
             "en": "Video & audio",
             "ru": "Видео и аудио"
@@ -27,7 +27,7 @@
         "url": "./gpu.html"
     },
     {
-        "header": "My Gamepads",
+        "header": "Gamepad",
         "menuTitle": {
             "en": "Gamepad",
             "ru": "Джойстик"
