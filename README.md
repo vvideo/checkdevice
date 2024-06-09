@@ -8,4 +8,12 @@ This service answers the questions:
 + Can I listen surround sound on online services?
 + Can I watch 4K video on online services?
 
+Also info about:
++ Web GPU
++ Screens
++ Gamepads
++ Web storages
++ Network
++ Battery
+
 Powered by [detect-audio-video](https://github.com/vvideo/detect-audio-video).
