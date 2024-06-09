@@ -36,7 +36,8 @@ export function GamepadList() {
         };
     }, []);
 
-    const gamepads = navigator.getGamepads().filter(item => item !== null);
+    const result = navigator.getGamepads();
+    const gamepads = Array.isArray(result) ? result.filter(item => item !== null) : [];
 
     return gamepads.length ? html`
         <div class="${b()}">
