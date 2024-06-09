@@ -1,14 +1,14 @@
 import { html } from 'htm/preact';
 import { useEffect, useState } from 'preact/hooks';
+import { VNode } from 'preact';
 import { formatBytesToGB } from '../../utils/formatBytesToGB';
 import { ExtLink } from '../ExtLink';
 import { getChecked } from '../../utils/getChecked';
 import { i18n } from '../../i18n/i18n';
-import { VNode } from 'preact';
 import { List } from '../List';
 
 export function StorageFeatures() {
-    const [quota, setQuota] = useState<null | number>(null);
+    const [quota, setQuota] = useState<undefined | number>(undefined);
 
     if (typeof navigator.storage?.estimate !== 'function') {
         return '';
@@ -16,26 +16,25 @@ export function StorageFeatures() {
 
     useEffect(() => {
         navigator.storage.estimate().then(data => {
-            if (data.quota) {
+            if (typeof data.quota !== 'undefined') {
                 setQuota(data.quota);
             }
         });
     }, []);
 
-    const features: Array<[VNode | string, string]> = [];
-    if (quota) {
-        features.push([
+    const features: Array<[VNode | string, string]> = [
+        [
+            html`<${ExtLink} theme="white" href="https://developer.mozilla.org/en-US/docs/Web/API/StorageManager/persist">${i18n('Support of persistent storage')}<//>`,
+            getChecked(Boolean(typeof navigator.storage?.persist === 'function'))
+        ],
+    ];
+
+    if (typeof quota === 'number') {
+        features.unshift([
             html`<${ExtLink} theme="white" href="https://developer.mozilla.org/ru/docs/Web/API/StorageManager/estimate">${i18n('Storage quota for origin')}<//>`,
             formatBytesToGB(quota)
         ]);
     }
 
-    features.push([
-        html`<${ExtLink} theme="white" href="https://developer.mozilla.org/en-US/docs/Web/API/StorageManager/persist">${i18n('Support of persistent storage')}<//>`,
-        getChecked(Boolean(typeof navigator.storage?.persist === 'function'))
-    ]);
-
-    return html`
-        <${List} title="${i18n('Features')}" items="${features}"><//>
-    `;
+    return html`<${List} title="${i18n('Features')}" items="${features}"><//>`;
 }
