@@ -16,7 +16,6 @@ import { block } from '../../utils/bem';
 import { Footer } from '../../components/Footer';
 import { ImageFormats } from '../../components/ImageFormats';
 import { i18n } from '../../i18n/i18n';
-import { Gpu } from '../../components/Gpu';
 import { Platform } from '../../components/Platform';
 import { useForceUpdate } from '../../hooks/useForceUpdate';
 import { Menu } from '../Menu';
@@ -78,8 +77,6 @@ export function MainPage() {
             <//>
 
             <${Platform}><//>
-
-            <${Gpu}><//>
 
             <${Footer}><//>
         </div>`;
