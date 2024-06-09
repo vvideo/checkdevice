@@ -6,7 +6,7 @@ import { block } from '../../utils/bem';
 import { Footer } from '../../components/Footer';
 import { i18n } from '../../i18n/i18n';
 import { Menu } from '../Menu';
-//import { StorageList } from '../../components/StorageList';
+import { Storages } from '../../components/Storages';
 
 const b = block('storage-page');
 
@@ -16,8 +16,10 @@ export function StoragePage() {
             <${Menu}><//>
 
             <${Header}>
-                ${i18n('Can I use storages?')}
+                ${i18n('Can I use web storages?')}
             <//>
+
+            <${Storages}><//>
 
             <${Footer}><//>
         </div>`;

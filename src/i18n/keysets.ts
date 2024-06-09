@@ -300,5 +300,29 @@ export const keysets: I18nKeysets = {
     'Gamepad': {
         'en': 'Gamepad',
         'ru': 'Джойстик'
-    }
+    },
+    'Storage': {
+        'en': 'Storage',
+        'ru': 'Хранилище'
+    },
+    'Storages': {
+        'en': 'Storages',
+        'ru': 'Хранилища'
+    },
+    'Features': {
+        'en': 'Features',
+        'ru': 'Возможности'
+    },
+    'Can I use web storages?': {
+        'en': 'Can I use web storages?',
+        'ru': 'Могу ли я использовать веб-хранилища?'
+    },
+    'Support of persistent storage': {
+        'en': 'Support of persistent storage',
+        'ru': 'Поддержка постоянного хранилища'
+    },
+    'Storage quota for origin': {
+        'en': 'Storage quota for origin',
+        'ru': 'Квота хранилища на домен'
+    },
 };

@@ -37,14 +37,13 @@
         "url": "./gamepad.html"
     },
     {
-        "header": "Storages",
+        "header": "Storage",
         "menuTitle": {
             "en": "Storage",
             "ru": "Хранилище"
         },
         "id": "storage",
-        "url": "./storage.html",
-        "hidden": true
+        "url": "./storage.html"
     },
     {
         "header": "Network",

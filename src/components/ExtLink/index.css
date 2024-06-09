@@ -1,0 +1,13 @@
+.ext-link_theme_white:link,
+.ext-link_theme_white:visited,
+.ext-link_theme_white:hover,
+.ext-link_theme_white:active {
+    color: white;
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, .2);
+    transition: text-decoration-color .3s ease;
+}
+
+.ext-link_theme_white:hover {
+    text-decoration-color: rgba(255, 255, 255, 1);
+}
