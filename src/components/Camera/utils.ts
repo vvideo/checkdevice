@@ -4,47 +4,36 @@ export function stopCamera(stream: MediaStream, video: HTMLVideoElement) {
     }));
 
     video.pause();
-    video.removeAttribute('src');
     video.srcObject = null;
 }
 
-// @ts-ignore
-const getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-
-export function requestCamera(video: HTMLVideoElement) {
-    return new Promise<MediaStream>((resolve, reject) => {
-        getUserMedia.call(navigator, {
-            video: {
-                width: { ideal: 4096 },
-                height: { ideal: 2160 },
-            },
-            audio: true,
-        // @ts-ignore
-        }, mediaStream => {
-            // Firefox
-            if (!('readyState' in mediaStream)) {
-                mediaStream.readyState = 'live';
-            }
-
-            const stream = new MediaStream(mediaStream);
-
-            if (window.HTMLMediaElement) {
-                // Safari 11 doesn't allow use of createObjectURL for MediaStream
-                video.srcObject = stream;
-            } else {
-                // @ts-ignore
-                video.src = URL.createObjectURL(stream);
-            }
-
-            // Required by Safari on iOS 11. See https://webkit.org/blog/6784
-            video.setAttribute('playsinline', '');
-            video.muted = true;
-            video.controls = true;
-            video.play();
-
-            resolve(mediaStream);
-        }, (error: Error) => {
-            reject(error);
-        });
+export function requestCamera(video: HTMLVideoElement, constraints: MediaStreamConstraints) {
+    return navigator.mediaDevices.getUserMedia(constraints).then(mediaStream => {
+        video.srcObject = mediaStream;
+        video.setAttribute('playsinline', '');
+        video.muted = true;
+        video.controls = true;
+        video.play();
+        
+        return mediaStream;
     });
+}
+
+export function getStreamParams(stream: MediaStream) {
+    const video = stream.getVideoTracks()[0];
+    const audio = stream.getAudioTracks()[0];
+
+    const videoSettings = video?.getSettings();
+
+    return {
+        video: {
+            width: videoSettings?.width,
+            height: videoSettings?.height,
+            label: video?.label,
+            frameRate: videoSettings?.frameRate,
+        },
+        audio: {
+            label: audio?.label,
+        },
+    };
 }

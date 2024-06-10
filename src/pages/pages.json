@@ -24,8 +24,7 @@
             "ru": "Камера"
         },
         "id": "camera",
-        "url": "./camera.html",
-        "hidden": true
+        "url": "./camera.html"
     },
     {
         "header": "GPU",

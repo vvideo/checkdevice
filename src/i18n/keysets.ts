@@ -345,8 +345,32 @@ export const keysets: I18nKeysets = {
         'en': 'Camera',
         'ru': 'Камера'
     },
+    'Select camera': {
+        'en': 'Select camera',
+        'ru': 'Выбрать камеру'
+    },
     'Stop': {
         'en': 'Stop',
         'ru': 'Стоп'
-    }
+    },
+    'Resolution': {
+        'en': 'Resolution',
+        'ru': 'Рвзрешение'
+    },
+    'Low resolution': {
+        'en': 'Low resolution',
+        'ru': 'Низ. разрешение'
+    },
+    'High resolution': {
+        'en': 'High resolution',
+        'ru': 'Выс. разрешение'
+    },
+    'High frame rate': {
+        'en': 'High frame rate',
+        'ru': 'Выс. частота кадров'
+    },
+    'Frame rate': {
+        'en': 'Frame rate',
+        'ru': 'Частота кадров'
+    },
 };

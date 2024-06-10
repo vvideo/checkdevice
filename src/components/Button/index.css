@@ -1,0 +1,21 @@
+.button {
+    background: white;
+    color: black;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 5px 7px;
+    border: none;
+}
+
+.button_theme_active {
+    background: gold;
+}
+
+.button_theme_red {
+    background: red;
+    color: white;
+}
+
+.button_size_s {
+    font-size: 12px;
+}
