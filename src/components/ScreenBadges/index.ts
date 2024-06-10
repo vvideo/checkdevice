@@ -50,7 +50,7 @@ export function ScreenBadges() {
     const name = screenInfoData.screens.length > 1 ? i18n('Screens') : i18n('Screen');
 
     return html`<${Row} name="${name}">
-        ${!screenInfo.isDenied && screenInfo.needUserActivity ? html`<div><${Button} size="s" theme="active" onClick="${handleClick}">${i18n('Request')}<//></div>` : ''}
+        ${!screenInfo.isDenied && screenInfo.needUserActivity ? html`<div class="${b('specify')}"><${Button} size="s" theme="red" onClick="${handleClick}">${i18n('Specify')}<//></div>` : ''}
         ${content}
         ${!screenInfo.isScreenDetails && screen.isExtended === true ? html`<div class="${b('additional')}">⚠️ ${i18n('Additional monitor detected')}</div>` : ''}
     <//>`;

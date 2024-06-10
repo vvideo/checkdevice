@@ -373,4 +373,8 @@ export const keysets: I18nKeysets = {
         'en': 'Frame rate',
         'ru': 'Частота кадров'
     },
+    'Specify': {
+        'en': 'Specify',
+        'ru': 'Уточнить'
+    }
 };

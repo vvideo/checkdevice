@@ -2,3 +2,8 @@
     color: gray;
     font-size: 14px;
 }
+
+.screen-badges__specify {
+    margin-top: 3px;
+    margin-bottom: 8px;
+}
