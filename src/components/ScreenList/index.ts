@@ -1,40 +1,55 @@
 import { html } from 'htm/preact';
+import { useCallback, useEffect } from 'preact/hooks';
 import { block } from '../../utils/bem';
-import { ScreenSimpleProps, ScreenSimple } from '../ScreenSimple';
-import { getDevicePixelRatio } from 'detect-audio-video';
-import { getColorSpaces } from '../../utils/getColorSpaces';
+import { ScreenItemProps, ScreenItem } from '../ScreenItem';
 import { Header } from '../Header';
 import { i18n } from '../../i18n/i18n';
+import { useForceUpdate } from '../../hooks/useForceUpdate';
+import { screenInfo } from '../../lib/ScreenInfo';
 
 export interface ScreenList {
-    items: ScreenSimpleProps[];
+    items: ScreenItemProps[];
 }
 
 const b = block('screen-list');
 
 export function ScreenList() {
-    const items: ScreenSimpleProps[] = [
-        {
-            index: 0,
-            label: '',
-            width: screen.width,
-            height: screen.height,
-            colorDepth: screen.colorDepth,
-            devicePixelRatio: getDevicePixelRatio(),
-            colorSpaces: getColorSpaces(),
-            orientation: screen.orientation?.type,
-            isExtended: screen.isExtended,
-        },
-    ]
+    const forceUpdate = useForceUpdate();
+
+    const handleScreenChange = useCallback(() => {
+        forceUpdate();
+    }, []);
+
+    const handleClick = useCallback(() => {
+        screenInfo.getScreenDetails()
+            .then(handleScreenChange)
+            .catch(handleScreenChange); 
+    }, []);
+
+    useEffect(() => {          
+        screenInfo.addListener(handleScreenChange);
+
+        !screenInfo.isDenied && screenInfo.getScreenDetails()
+            .then(handleScreenChange)
+            .catch(handleScreenChange);        
+
+        return () => {
+            screenInfo.removeListener(handleScreenChange);
+        };
+    }, []);
+
+    const screenInfoData = screenInfo.get();
 
     return html`<div class="${b()}">
         <${Header}>
-            ${items.length === 1 ? i18n('Screen') : i18n('Screens')}
+            ${screenInfoData.screens.length === 1 ? i18n('Screen') : i18n('Screens')}
         <//>
 
+        ${!screenInfo.isDenied && screenInfo.needUserActivity ? html`<div><button onClick="${handleClick}">${i18n('Request')}</button></div>` : ''}
+
         ${
-            items.map(item => {
-                return html`<${ScreenSimple} ...${item}><//>`;
+            screenInfoData.screens.map(item => {
+                return html`<${ScreenItem} ...${item}><//>`;
             })
         }
     </div>`;

@@ -1,7 +1,7 @@
-.screen-simple {
+.screen-item {
     font-size: 16px;
 }
 
-.screen-simple__label {
+.screen-item__label {
     font-size: 25px;
 }

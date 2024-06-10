@@ -3,6 +3,7 @@ import { html } from 'htm/preact';
 import { hasZoom } from '../../utils/hasZoom';
 import { i18n } from '../../i18n/i18n';
 import { prepareColorSpaces } from '../../utils/getColorSpaces';
+import { getChecked } from '../../utils/getChecked';
 
 interface ScreenBadgeDetailsProps {
     width: number;
@@ -27,8 +28,8 @@ export function ScreenBadgeDetails(props: ScreenBadgeDetailsProps) {
             ${hasZoom() ? html`<div>⚠ ${i18n('Please reset zoom in the page')}</div>` : ''}
             <div>${i18n('Color depth')}: ${props.colorDepth} ${i18n('bit')}</div>
             <div>${props.colorSpaces && props.colorSpaces.length ? prepareColorSpaces(props.colorSpaces) : ''}</div>
-            ${props.isPrimary ? html`<div>${i18n('Primary')}: ${i18n('Yes')}</div>` : ''}
-            ${props.isInternal ? html`<div>${i18n('Internal')}: ${i18n('Yes')}</div>` : ''}
+            ${typeof props.isPrimary === 'undefined' ? '' : html`<div>${i18n('Primary')}: ${getChecked(props.isPrimary)}</div>`}
+            ${typeof props.isInternal === 'undefined' ? '' : html`<div>${i18n('Internal')}: ${getChecked(props.isInternal)}</div>`}
         </div>
     `;
 }

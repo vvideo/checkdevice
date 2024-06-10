@@ -9,7 +9,7 @@ import { WarningMessage } from '../WarningMessage';
 
 import './index.css';
 
-export interface ScreenSimpleProps {
+export interface ScreenItemProps {
     index: number;
     width: number;
     height: number;
@@ -17,16 +17,16 @@ export interface ScreenSimpleProps {
     colorDepth: number;
     isHdr?: boolean;
     colorSpaces?: string[];
-    orientation?: ScreenOrientation['type'];
+    orientation?: ScreenOrientation;
     isInternal?: boolean;
     isPrimary?: boolean;
     label?: string;
     isExtended?: boolean;
 }
 
-const b = block('screen-simple');
+const b = block('screen-item');
 
-export function ScreenSimple(props: ScreenSimpleProps) {
+export function ScreenItem(props: ScreenItemProps) {
     const {
         width,
         height,
@@ -45,12 +45,12 @@ export function ScreenSimple(props: ScreenSimpleProps) {
     const items = [
         [i18n('Size'), `${realSize.join('×')} (${logicalSize.join('×')})`],
         [i18n('Aspect ratio'), calcAspectRatio(Math.max(width, height), Math.min(width, height)).value],
-        props.orientation ? [i18n('Orientation'), props.orientation] : '',
+        props.orientation ? [i18n('Orientation'), props.orientation?.type] : '',
         [i18n('Color depth'), `${colorDepth} ${i18n('bit')}`],
         [i18n('HDR support'), getChecked(Boolean(isHdr))],
         [i18n('Color spaces'), prepareColorSpaces(colorSpaces)],
         typeof isPrimary === 'undefined' ? '' : [i18n('Primary'), getChecked(Boolean(isPrimary))],
-        typeof isInternal === 'undefined' ? '' : [i18n('Primary'), getChecked(Boolean(isInternal))],
+        typeof isInternal === 'undefined' ? '' : [i18n('Internal'), getChecked(Boolean(isInternal))],
     ].filter(Boolean);
 
     return html`
