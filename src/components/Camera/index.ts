@@ -104,7 +104,13 @@ export function Camera() {
     </div>`;
 }
 
-function CameraError(error: Error) {
+interface CameraErrorProps {
+    error: Error;
+}
+
+function CameraError(props: CameraErrorProps) {
+    const { error } = props;
+
     if (!error) {
         return '';
     }
@@ -113,5 +119,5 @@ function CameraError(error: Error) {
         return html`<${WarningMessage}>${i18n('Camera not found.')}<//>`;
     }
 
-    return html`<${WarningMessage}>${error}<//>`;
+    return html`<${WarningMessage}>${error.message}<//>`;
 }
