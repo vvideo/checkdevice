@@ -52,7 +52,7 @@ export function Camera() {
             setStream(stream);
             setError(null);
         }).catch(error => {
-            setError(error.name);
+            setError(error);
             console.log(error);
         });
     }, [stream, quality]);
@@ -69,7 +69,7 @@ export function Camera() {
                 setStream(stream);
                 setError(null);
             }).catch(error => {
-                setError(error.name);
+                setError(error);
                 console.log(error);
             });            
         }
