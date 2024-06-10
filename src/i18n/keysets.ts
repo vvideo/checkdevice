@@ -376,5 +376,9 @@ export const keysets: I18nKeysets = {
     'Specify': {
         'en': 'Specify',
         'ru': 'Уточнить'
-    }
+    },
+    'Camera not found.': {
+        'en': 'Camera not found.',
+        'ru': 'Камера не найдена.'
+    },
 };

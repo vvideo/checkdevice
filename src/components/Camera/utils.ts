@@ -37,3 +37,32 @@ export function getStreamParams(stream: MediaStream) {
         },
     };
 }
+
+export function getConstraints(value: number): MediaStreamConstraints | undefined {
+    return {
+        0: {
+            video: {
+                width: {
+                    ideal: 0,
+                },
+            },
+            audio: true,
+        },
+        1: {
+            video: {
+                width: {
+                    ideal: 19200,
+                }
+            },
+            audio: true,
+        },
+        2: {
+            video: {
+                frameRate: {
+                    ideal: 200,
+                }
+            },
+            audio: true,
+        },
+    }[value];
+}

@@ -2,7 +2,7 @@ import { html } from 'htm/preact';
 import { useCallback, useRef, useState } from 'preact/hooks';
 import { block } from '../../utils/bem';
 import { i18n } from '../../i18n/i18n';
-import { getStreamParams, requestCamera, stopCamera } from './utils';
+import { getConstraints, getStreamParams, requestCamera, stopCamera } from './utils';
 import { Button } from '../Button';
 import { RadioButtons } from '../RadioButtons';
 import { RadioButtonProps } from '../RadioButton';
@@ -17,6 +17,7 @@ export function Camera() {
     const refVideo = useRef<HTMLVideoElement>(null);
     const [stream, setStream] = useState<MediaStream | null>(null);
     const [quality, setQuality] = useState(1);
+    const [error, setError] = useState<Error | null>(null);
 
     const buttons: RadioButtonProps[] = [
         {
@@ -47,22 +48,28 @@ export function Camera() {
             return;
         }
 
-        requestCamera(video, getConstraints(quality)).then(stream => {
+        requestCamera(video, getConstraints(quality)!).then(stream => {
             setStream(stream);
+            setError(null);
         }).catch(error => {
+            setError(error.name);
             console.log(error);
         });
     }, [stream, quality]);
 
     const handleSelect = useCallback((value: number) => {
+        const video = refVideo.current;
+
         setQuality(value);
 
-        if (stream && refVideo.current) {
-            stopCamera(stream, refVideo.current);
+        if (stream && video) {
+            stopCamera(stream, video);
             setStream(null);    
-            requestCamera(refVideo.current, getConstraints(quality)).then(stream => {
+            requestCamera(video, getConstraints(quality)!).then(stream => {
                 setStream(stream);
+                setError(null);
             }).catch(error => {
+                setError(error.name);
                 console.log(error);
             });            
         }
@@ -75,6 +82,7 @@ export function Camera() {
     }
 
     const showStop = Boolean(stream);
+    const played = Boolean(stream);
 
     return html`<div class="${b()}">
         <div class="${b('select')}">
@@ -83,7 +91,10 @@ export function Camera() {
         <div class="${b('controls')}">
             <${RadioButtons} onSelect="${handleSelect}" buttons="${buttons}"><//>
         </div>
-        <div class="${b('container', { played: Boolean(stream)})}">
+
+        <${CameraError} error="${error}" //>
+
+        <div class="${b('container', { played })}">
             <video ref="${refVideo}" class="${b('video')}" />
         </div>
 
@@ -93,31 +104,14 @@ export function Camera() {
     </div>`;
 }
 
-function getConstraints(value: number): any {
-    return {
-        0: {
-            video: {
-                width: {
-                    ideal: 0,
-                },
-            },
-            audio: true,
-        },
-        1: {
-            video: {
-                width: {
-                    ideal: 19200,
-                }
-            },
-            audio: true,
-        },
-        2: {
-            video: {
-                frameRate: {
-                    ideal: 200,
-                }
-            },
-            audio: true,
-        },
-    }[value];
+function CameraError(error: Error) {
+    if (!error) {
+        return '';
+    }
+    
+    if (error.name === 'NotFoundError') {
+        return html`<${WarningMessage}>${i18n('Camera not found.')}<//>`;
+    }
+
+    return html`<${WarningMessage}>${error}<//>`;
 }
