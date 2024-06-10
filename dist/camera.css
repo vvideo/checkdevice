@@ -1,5 +1,5 @@
 .header{font-size:35px;font-weight:400;line-height:42px;margin:20px 0;position:relative}
-.button{background:#fff;border:none;border-radius:5px;color:#000;font-size:16px;padding:5px 7px}.button_theme_active{background:gold}.button_theme_red{background:red;color:#fff}.button_size_s{font-size:12px}
+.button{background:#fff;border:none;border-radius:5px;color:#000;cursor:pointer;font-size:16px;padding:5px 7px}.button_theme_active{background:gold}.button_theme_red{background:red;color:#fff}.button_size_s{font-size:12px}
 .radio-button{background-color:#333;border-radius:3px;cursor:pointer;padding:5px 7px;user-select:none}.radio-button_selected{background-color:#fff;color:#000}
 .radio-buttons{display:inline-block;font-size:16px;position:relative;white-space:nowrap;width:auto}.radio-buttons__label{margin-bottom:5px}
 .row{margin-bottom:20px}.row__category{color:gray;font-size:14px;margin-bottom:5px}
