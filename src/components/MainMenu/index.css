@@ -5,6 +5,7 @@
 }
 
 .main-menu__item {
+    display: inline-block;
     margin-right: 20px;
     cursor: pointer;
     padding-bottom: 2px;
