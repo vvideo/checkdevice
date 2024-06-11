@@ -355,7 +355,7 @@ export const keysets: I18nKeysets = {
     },
     'Resolution': {
         'en': 'Resolution',
-        'ru': 'Рвзрешение'
+        'ru': 'Разрешение'
     },
     'Low resolution': {
         'en': 'Low resolution',
