@@ -26,10 +26,8 @@ export function ConnectionNavigator() {
         data.downlinkMax = connection.downlinkMax;
     }
 
-    const options = { hideCurlyBracesAtRootLevel: true };
-
     return html`
         <div class="${b()}">
-            <${TreeList} options="${options}" title="navigator.connection" data="${data}"><//>
+            <${TreeList} title="navigator.connection" data="${data}"><//>
         </div>`;
 }

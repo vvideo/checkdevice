@@ -6,6 +6,7 @@ import { i18n } from '../../i18n/i18n';
 import { block } from '../../utils/bem';
 import { prepareColorSpaces } from '../../utils/getColorSpaces';
 import { WarningMessage } from '../WarningMessage';
+import { HdrLabel } from '../HdrLabel';
 
 import './index.css';
 
@@ -47,7 +48,7 @@ export function ScreenItem(props: ScreenItemProps) {
         [i18n('Aspect ratio'), calcAspectRatio(Math.max(width, height), Math.min(width, height)).value],
         props.orientation ? [i18n('Orientation'), props.orientation?.type] : '',
         [i18n('Color depth'), `${colorDepth} ${i18n('bit')}`],
-        [i18n('HDR support'), getChecked(Boolean(isHdr))],
+        [html`<${HdrLabel} enabled="${isHdr}" //>`, getChecked(Boolean(isHdr))],
         [i18n('Color spaces'), prepareColorSpaces(colorSpaces)],
         typeof isPrimary === 'undefined' ? '' : [i18n('Primary'), getChecked(Boolean(isPrimary))],
         typeof isInternal === 'undefined' ? '' : [i18n('Internal'), getChecked(Boolean(isInternal))],

@@ -23,7 +23,7 @@ export interface BuildDataOptions {
     compactObject?: boolean;
     compactArrayWithSimpleTypes?: boolean;
     showArrayIndex?: boolean;
-    hideCurlyBracesAtRootLevel?: boolean;
+    showCurlyBracesAtRootLevel?: boolean;
 }
 
 export function buildData(data: any, options: BuildDataOptions = {}, level = 0): VNode {
@@ -84,10 +84,10 @@ export function buildData(data: any, options: BuildDataOptions = {}, level = 0):
         ${' '}}`;
     }
 
-    const padding = options.hideCurlyBracesAtRootLevel ? 'no' : 'yes';
-    return html`${options.hideCurlyBracesAtRootLevel ? '' : '{'}<ul class="${b('ul', { padding })}">
+    let hasBraces = Boolean(options.showCurlyBracesAtRootLevel || level);
+    return html`${hasBraces ? '{' : ''}<ul class="${b('ul', { padding: hasBraces ? 'yes' : 'no' })}">
         ${Object.keys(data).map((key: string, i: number, items) => {
             return html`<li><span class="${b('property')}">${key}: </span>${buildData(data[key], options, level + 1)}${i === items.length - 1 ? '' : ','}</li>`;
         })}
-    </ul>${options.hideCurlyBracesAtRootLevel ? '' : '}'}`;
+    </ul>${hasBraces ? '}' : ''}`;
 }

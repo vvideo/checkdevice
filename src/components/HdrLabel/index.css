@@ -1,0 +1,9 @@
+.hdr-label {
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+.hdr-label_enabled {
+    background-color: gold;
+    color: black;
+}
