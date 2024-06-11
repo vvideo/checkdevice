@@ -1,5 +1,6 @@
 .row{margin-bottom:20px}.row__category{color:gray;font-size:14px;margin-bottom:5px}
 .list{font-size:16px;line-height:26px;margin:0 0 0 15px;padding:0}
+.hdr-label{border-radius:3px;padding:2px 4px}.hdr-label_enabled{background-color:gold;color:#000}
 .screen-item{font-size:16px}.screen-item__label{font-size:25px}
 .button{background:#fff;border:none;border-radius:5px;color:#000;cursor:pointer;font-size:16px;padding:5px 7px}.button_theme_active{background:gold}.button_theme_red{background:red;color:#fff}.button_size_s{font-size:12px}
 .header{font-size:35px;font-weight:400;line-height:42px;margin:20px 0;position:relative}
