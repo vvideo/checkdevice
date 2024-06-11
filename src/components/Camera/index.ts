@@ -16,7 +16,7 @@ const b = block('camera');
 export function Camera() {
     const refVideo = useRef<HTMLVideoElement>(null);
     const [stream, setStream] = useState<MediaStream | null>(null);
-    const [quality, setQuality] = useState(1);
+    const [quality, setQuality] = useState(0);
     const [error, setError] = useState<Error | null>(null);
 
     const buttons: RadioButtonProps[] = [
@@ -64,8 +64,9 @@ export function Camera() {
 
         if (stream && video) {
             stopCamera(stream, video);
-            setStream(null);    
-            requestCamera(video, getConstraints(quality)!).then(stream => {
+            setStream(null);
+
+            requestCamera(video, getConstraints(value)!).then(stream => {
                 setStream(stream);
                 setError(null);
             }).catch(error => {
@@ -117,6 +118,10 @@ function CameraError(props: CameraErrorProps) {
     
     if (error.name === 'NotFoundError') {
         return html`<${WarningMessage}>${i18n('Camera not found.')}<//>`;
+    }
+
+    if (error.name === 'NotAllowedError') {
+        return html`<${WarningMessage}>${i18n('Camera is blocked.')}<//>`;
     }
 
     return html`<${WarningMessage}>${error.message}<//>`;

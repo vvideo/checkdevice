@@ -43,16 +43,16 @@ export function getConstraints(value: number): MediaStreamConstraints | undefine
         0: {
             video: {
                 width: {
-                    ideal: 0,
-                },
+                    ideal: 19200,
+                }
             },
             audio: true,
         },
         1: {
             video: {
                 width: {
-                    ideal: 19200,
-                }
+                    ideal: 0,
+                },
             },
             audio: true,
         },

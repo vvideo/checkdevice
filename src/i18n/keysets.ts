@@ -381,4 +381,8 @@ export const keysets: I18nKeysets = {
         'en': 'Camera not found.',
         'ru': 'Камера не найдена.'
     },
+    'Camera is blocked.': {
+        'en': 'Camera is blocked.',
+        'ru': 'Камера заблокирована.'
+    }
 };
