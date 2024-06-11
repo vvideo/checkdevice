@@ -7,6 +7,10 @@
     padding: 0 0 0 1em;
 }
 
+.tree-list .tree-list__ul_padding_no {
+    padding-left: 0;
+}
+
 .tree-list li {
     list-style-type: none;
 }

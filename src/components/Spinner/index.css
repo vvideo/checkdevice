@@ -1,0 +1,25 @@
+.spinner {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    border: 5px gold solid;
+    border-top: none;
+    animation: spinner 1s linear infinite;
+    box-sizing: border-box;
+    border-radius: 100%;
+}
+
+.spinner_size_s {
+    width: 10px;
+    height: 10px;
+    border-width: 2px;
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
