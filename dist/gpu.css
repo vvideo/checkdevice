@@ -2,7 +2,7 @@
 .radio-button{background-color:#333;border-radius:3px;cursor:pointer;padding:5px 7px;user-select:none}.radio-button_selected{background-color:#fff;color:#000}
 .radio-buttons{display:inline-block;font-size:16px;position:relative;white-space:nowrap;width:auto}.radio-buttons__label{margin-bottom:5px}
 .row{margin-bottom:20px}.row__category{color:gray;font-size:14px;margin-bottom:5px}
-.tree-list{font-size:16px}.tree-list ul{margin:0;padding:0 0 0 1em}.tree-list li{list-style-type:none}.tree-list__bigint,.tree-list__number{color:violet}.tree-list__string{color:#90ee90}.tree-list__symbol{color:#add8e6}.tree-list__index{color:gray}.tree-list__boolean,.tree-list__null{color:violet}.tree-list__undefined{color:gray}.tree-list__index,.tree-list__property{color:#add8e6}
+.tree-list{font-size:16px}.tree-list ul{margin:0;padding:0 0 0 1em}.tree-list .tree-list__ul_padding_no{padding-left:0}.tree-list li{list-style-type:none}.tree-list__bigint,.tree-list__number{color:violet}.tree-list__string{color:#90ee90}.tree-list__symbol{color:#add8e6}.tree-list__index{color:gray}.tree-list__boolean,.tree-list__null{color:violet}.tree-list__undefined{color:gray}.tree-list__index,.tree-list__property{color:#add8e6}
 .gpu-navigator__controls{margin-bottom:30px}
 .list{font-size:16px;line-height:26px;margin:0 0 0 15px;padding:0}
 body,html{background:#000;color:#fff;font-family:Arial,Helvetica,sans-serif;font-size:20px;line-height:24px;margin:0;padding:0}a:active,a:link,a:visited{color:#009cf4}a:hover{color:#30acf4}.page{margin-left:50px;margin-right:50px}@media only screen and (max-width:1024px){.page{margin-left:30px;margin-right:30px}}@media only screen and (max-width:800px){.page{margin-left:10px;margin-right:30px}}
