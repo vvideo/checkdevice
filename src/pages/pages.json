@@ -1,6 +1,9 @@
 [
     {
-        "header": "Can I watch video",
+        "header": {
+            "en": "Can I watch video?",
+            "ru": "Могу ли я смотреть видео?"
+        },
         "menuTitle": {
             "en": "Video & audio",
             "ru": "Видео и аудио"
@@ -9,7 +12,6 @@
         "url": "./"
     },
     {
-        "header": "Screen",
         "menuTitle": {
             "en": "Screen",
             "ru": "Экран"
@@ -18,7 +20,6 @@
         "url": "./screen.html"
     },
     {
-        "header": "Camera",
         "menuTitle": {
             "en": "Camera",
             "ru": "Камера"
@@ -27,7 +28,6 @@
         "url": "./camera.html"
     },
     {
-        "header": "GPU",
         "menuTitle": {
             "en": "GPU",
             "ru": "GPU"
@@ -36,7 +36,6 @@
         "url": "./gpu.html"
     },
     {
-        "header": "Gamepad",
         "menuTitle": {
             "en": "Gamepad",
             "ru": "Джойстик"
@@ -45,7 +44,6 @@
         "url": "./gamepad.html"
     },
     {
-        "header": "Storage",
         "menuTitle": {
             "en": "Storage",
             "ru": "Хранилище"
@@ -54,7 +52,6 @@
         "url": "./storage.html"
     },
     {
-        "header": "Network",
         "menuTitle": {
             "en": "Network",
             "ru": "Сеть"
@@ -63,7 +60,6 @@
         "url": "./network.html"
     },
     {
-        "header": "Battery",
         "menuTitle": {
             "en": "Battery",
             "ru": "Батарея"

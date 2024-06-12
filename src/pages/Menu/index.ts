@@ -15,10 +15,15 @@ export function getIdFromLocation() {
 export function Menu() {
     const id = getIdFromLocation();
     const items: MainMenuItem[] = pages.map(item => {
+        const selected = item.id === id;
+        if (selected) {
+            document.title = i18nWithKeyset(item.header || item.menuTitle)
+        }
+
         return {
             ...item,
             title: i18nWithKeyset(item.menuTitle),
-            selected: item.id === id,
+            selected,
         };
     });
 
