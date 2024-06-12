@@ -9,10 +9,11 @@ This service answers the questions:
 + Can I watch 4K video on online services?
 
 Also info about:
-+ Web GPU
-+ Screens
-+ Gamepads
-+ Web storages
++ Screen
++ Camera
++ Gamepad
++ GPU
++ Storage
 + Network
 + Battery
 
