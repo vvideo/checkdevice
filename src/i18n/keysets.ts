@@ -87,7 +87,7 @@ export const keysets: I18nKeysets = {
     },
     'Aspect ratio': {
         'en': 'Aspect ratio',
-        'ru': 'Соотн. сторон'
+        'ru': 'Соотношение сторон'
     },
     'Primary': {
         'en': 'Primary',
