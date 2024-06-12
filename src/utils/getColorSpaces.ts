@@ -1,6 +1,6 @@
 import { isP3Supported, isRec2020Supported, isSrgbSupported } from "detect-audio-video";
 
-function getColorSpaceTitle(name: string) {
+export function getColorSpaceTitle(name: string) {
     return {
         srgb: 'sRGB',
         p3: 'DCI-P3',
@@ -8,16 +8,18 @@ function getColorSpaceTitle(name: string) {
     }[name] || name;
 }
 
+export const colorSpaceTypes = [
+    'srgb',
+    'p3',
+    'rec2020',
+];
+
 export function prepareColorSpaces(spaces?: string[]) {
     if (!spaces) {
         return '';
     }
 
-    return [
-        'srgb',
-        'p3',
-        'rec2020',
-    ].map(item => {
+    return colorSpaceTypes.map(item => {
         const title = getColorSpaceTitle(item);
         return `${spaces.indexOf(item) > -1 ? '✓' : '✗'} ${title}`;
     }).join(',\u00A0');

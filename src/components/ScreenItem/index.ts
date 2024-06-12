@@ -4,9 +4,9 @@ import { List } from '../List';
 import { getChecked } from '../../utils/getChecked';
 import { i18n } from '../../i18n/i18n';
 import { block } from '../../utils/bem';
-import { prepareColorSpaces } from '../../utils/getColorSpaces';
 import { WarningMessage } from '../WarningMessage';
 import { HdrLabel } from '../HdrLabel';
+import { ColorSpaceList } from '../ColorSpaceList';
 
 import './index.css';
 
@@ -49,7 +49,7 @@ export function ScreenItem(props: ScreenItemProps) {
         props.orientation ? [i18n('Orientation'), props.orientation?.type] : '',
         [i18n('Color depth'), `${colorDepth} ${i18n('bit')}`],
         [html`<${HdrLabel} enabled="${isHdr}" //>`, getChecked(Boolean(isHdr))],
-        [i18n('Color spaces'), prepareColorSpaces(colorSpaces)],
+        [i18n('Color spaces'), html`<${ColorSpaceList} items="${colorSpaces}" //>`],
         typeof isPrimary === 'undefined' ? '' : [i18n('Primary'), getChecked(Boolean(isPrimary))],
         typeof isInternal === 'undefined' ? '' : [i18n('Internal'), getChecked(Boolean(isInternal))],
     ].filter(Boolean);

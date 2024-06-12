@@ -1,0 +1,40 @@
+.color-space-item {
+    color: #666;
+    margin-right: 8px;
+    white-space: nowrap;
+}
+
+.color-space-item_supported .color-space-item__checked {
+    color: white;
+    font-weight: normal;
+}
+
+.color-space-item_supported {
+    font-weight: bold;
+}
+
+.color-space-item__color {
+    display: inline-block;
+}
+
+.color-space-item_type_srgb.color-space-item_supported .color-space-item__color {
+    background: linear-gradient(90deg, rgb(255, 50, 100) 30%, rgb(100, 255, 100) 60%, rgb(100, 100, 255) 80%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.color-space-item_type_p3.color-space-item_supported .color-space-item__color {
+    background: linear-gradient(90deg, rgb(255, 100, 100) 15%, rgb(255, 255, 100) 30%, rgb(100, 255, 100) 45%, rgb(100, 255, 255) 60%, rgb(100, 100, 255) 75%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.color-space-item_type_re2020.color-space-item_supported {
+    background: linear-gradient(90deg, rgb(255, 100, 100) 15%, rgb(255, 255, 100) 30%, rgb(100, 255, 100) 45%, rgb(100, 255, 255) 60%, rgb(100, 100, 255) 75%);
+    display: inline-block;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
