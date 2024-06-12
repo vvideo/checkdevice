@@ -1,6 +1,7 @@
 .row{margin-bottom:20px}.row__category{color:gray;font-size:14px;margin-bottom:5px}
 .list{font-size:16px;line-height:26px;margin:0 0 0 15px;padding:0}
 .hdr-label_enabled{background-color:gold;border-radius:3px;color:#000;padding:2px 4px}
+.color-space-item{color:#666;margin-right:8px;white-space:nowrap}.color-space-item_supported .color-space-item__checked{color:#fff;font-weight:400}.color-space-item_supported{font-weight:700}.color-space-item__color{display:inline-block}.color-space-item_type_srgb.color-space-item_supported .color-space-item__color{background:linear-gradient(90deg,#ff3264 30%,#64ff64 60%,#6464ff 80%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}.color-space-item_type_p3.color-space-item_supported .color-space-item__color,.color-space-item_type_re2020.color-space-item_supported{background:linear-gradient(90deg,#ff6464 15%,#ffff64 30%,#64ff64 45%,#64ffff 60%,#6464ff 75%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}.color-space-item_type_re2020.color-space-item_supported{display:inline-block}
 .screen-item{font-size:16px}.screen-item__label{font-size:25px}
 .button{background:#fff;border:none;border-radius:5px;color:#000;cursor:pointer;font-size:16px;padding:5px 7px}.button_theme_active{background:gold}.button_theme_red{background:red;color:#fff}.button_size_s{font-size:12px}
 .header{font-size:35px;font-weight:400;line-height:42px;margin:20px 0;position:relative}
