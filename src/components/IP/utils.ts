@@ -1,6 +1,6 @@
 export function getCfIp(text: string) {
     if (!text) {
-        return '';
+        return '-';
     }
 
     const result = text.match(/^ip=([\w\d:]+?)$/m);
@@ -8,5 +8,5 @@ export function getCfIp(text: string) {
         return result[1];
     }
 
-    return '';
+    return '-';
 }
