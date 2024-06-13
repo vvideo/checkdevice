@@ -4,6 +4,7 @@
     height: 48px;
     border: 5px gold solid;
     border-top: none;
+    border-left: none;
     animation: spinner 1s linear infinite;
     box-sizing: border-box;
     border-radius: 100%;
@@ -13,6 +14,12 @@
     width: 10px;
     height: 10px;
     border-width: 2px;
+}
+
+.spinner_size_m {
+    width: 16px;
+    height: 16px;
+    border-width: 3px;
 }
 
 @keyframes spinner {
