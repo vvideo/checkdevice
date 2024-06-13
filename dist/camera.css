@@ -1,7 +1,7 @@
 .header{font-size:35px;font-weight:400;line-height:42px;margin:20px 0;position:relative}
 .button{background:#fff;border:none;border-radius:5px;color:#000;cursor:pointer;font-size:16px;padding:5px 7px}.button_theme_active{background:gold}.button_theme_red{background:red;color:#fff}.button_size_s{font-size:12px}
-.radio-button{background-color:#333;border-radius:3px;cursor:pointer;padding:5px 7px;user-select:none}.radio-button_selected{background-color:#fff;color:#000}
-.radio-buttons{display:inline-block;font-size:16px;position:relative;white-space:nowrap;width:auto}.radio-buttons__label{margin-bottom:5px}
+.radio-button{background-color:#333;cursor:pointer;padding:5px 7px;user-select:none}.radio-button_selected{background-color:#fff;color:#000}
+.radio-buttons{display:inline-block;font-size:16px;position:relative;white-space:nowrap;width:auto}.radio-buttons__label{margin-bottom:5px}.radio-buttons__item:first-child{border-radius:5px 0 0 5px}.radio-buttons__item:last-child{border-radius:0 5px 5px 0}@media (max-width:700px){.radio-buttons__item{display:block}.radio-buttons__item:first-child{border-radius:5px 5px 0 0}.radio-buttons__item:last-child{border-radius:0 0 5px 5px}}
 .row{margin-bottom:20px}.row__category{color:gray;font-size:14px;margin-bottom:5px}
 .list{font-size:16px;line-height:26px;margin:0 0 0 15px;padding:0}
 .camera__controls{margin-bottom:15px}.camera__container{border-radius:5px;height:0;height:50vh;min-height:100px;position:relative;width:100%}.camera__container_played{border:1px solid #222}.camera__video{height:100%;visibility:hidden;width:100%}.camera__container_played .camera__video{visibility:visible}.camera__select{margin:20px 0}.camera__params{margin-top:20px}
