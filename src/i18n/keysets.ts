@@ -359,15 +359,15 @@ export const keysets: I18nKeysets = {
     },
     'Low resolution': {
         'en': 'Low resolution',
-        'ru': 'Низ. разрешение'
+        'ru': 'Низкое разрешение'
     },
     'High resolution': {
         'en': 'High resolution',
-        'ru': 'Выс. разрешение'
+        'ru': 'Высокое разрешение'
     },
     'High frame rate': {
         'en': 'High frame rate',
-        'ru': 'Выс. частота кадров'
+        'ru': 'Высокая частота кадров'
     },
     'Frame rate': {
         'en': 'Frame rate',

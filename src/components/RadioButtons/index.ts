@@ -32,16 +32,20 @@ export function RadioButtons(props: RadioButtonsProps) {
     return html`
         <div class="${b()}">
             <div class="${b('label')}">${label}</div>
-            ${
-                buttons.map(item => {
-                    return html`<${RadioButton}
-                        selected="${item.value === selectedValue}"
-                        text="${item.text}"
-                        value="${item.value}"
-                        onClick="${handleSelect}"
-                    ><//>`;
-                })
-            }
+            <div class="${b('items')}">
+                ${
+                    buttons.map(item => {
+                        return html`<${RadioButton}
+                            key="${item.value}"
+                            class="${b('item')}"
+                            selected="${item.value === selectedValue}"
+                            text="${item.text}"
+                            value="${item.value}"
+                            onClick="${handleSelect}"
+                        ><//>`;
+                    })
+                }
+            </div>
         </div>
     `;
 }
