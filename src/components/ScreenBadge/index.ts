@@ -45,7 +45,7 @@ export function ScreenBadge(props: ScreenBadge) {
                 click: true,
                 background,
                 top: {
-                    text: html`<b>${props.isHdr ? 'HDR' :'\u00A0'}</b>`,
+                    text: isMobile() ? '' : html`<b>${props.isHdr ? 'HDR' :'\u00A0'}</b>`,
                 },
                 bottom: {
                     text: ScreenBadgeDetails({
