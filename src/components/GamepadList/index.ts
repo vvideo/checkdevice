@@ -7,6 +7,7 @@ import { i18n } from '../../i18n/i18n';
 import { useForceUpdate } from '../../hooks/useForceUpdate';
 
 import './index.css';
+import { Spinner } from '../Spinner';
 
 const b = block('gamepad-list');
 
@@ -78,5 +79,5 @@ export function GamepadList() {
                 })
             }
         </div>
-    ` : html`<${WarningMessage}>${i18n('Connect and press any button on the gamepad.')}<//>`;
+    ` : html`<${Spinner} size="m" //> ${i18n('Connect and press any button on the gamepad.')}`;
 }
