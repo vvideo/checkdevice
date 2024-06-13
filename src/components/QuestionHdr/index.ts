@@ -10,8 +10,8 @@ import { ActiveQuestion } from '../ActiveQuestion';
 import { Result } from '../Result';
 import { Codec } from '../Codec';
 import { i18n } from '../../i18n/i18n';
-import { Hdr } from '../Hdr';
 import { CodecDetails } from '../CodecDetails';
+import { InfoLink } from '../InfoLink';
 
 export function QuestionHdr() {
     const isVp910Bit = isVp9Profile2Level110BitSupported();
@@ -25,7 +25,7 @@ export function QuestionHdr() {
     return html`
         <${ActiveQuestion} head="${head}">
             <ul>
-                <li><${Hdr} isHdr="${isHdr}" isVideoHdr="${isVideoHdr}" //></li>
+                <li><${QuestionHdrHead} isHdr="${isHdr}" isVideoHdr="${isVideoHdr}" //></li>
                 <li>${i18n('Supports one of the video codecs?')}\u00a0<${Result} value="${Boolean(isVp910Bit || isHevcMain10 || isAv1Main10)}"><//>
                     <ul>
                         <li>
@@ -57,4 +57,20 @@ export function QuestionHdr() {
             </ul>
         <//>
     `;
+}
+
+interface QuestionHdrHeadProps {
+    isHdr: boolean;
+    isVideoHdr: boolean;
+}
+
+export function QuestionHdrHead(props: QuestionHdrHeadProps) {
+    const isHdr = Boolean(props.isHdr);
+    const isVideoHdr = Boolean(props.isVideoHdr);
+    // For Firefox on MacOS
+    if (!isHdr && isVideoHdr) {
+        return html`${i18n('Has HDR support for video?')}<${InfoLink} href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/video-dynamic-range" //>\u00a0<${Result} value="${isVideoHdr}"><//>`;
+    }
+
+    return html`${i18n('Is this an HDR-compatible screen?')}<${InfoLink} href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/dynamic-range" //>\u00a0<${Result} value="${isHdr}"><//>`;
 }
