@@ -1,6 +1,10 @@
 export {}
 
 declare global {
+    interface Window {
+        documentPictureInPicture?: unknown;
+    }
+
     interface BatteryManager {
         charging: boolean;
         chargingTime: number;

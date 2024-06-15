@@ -11,6 +11,7 @@ import { block } from '../../utils/bem';
 import { i18n } from '../../i18n/i18n';
 
 import './index.css';
+import { isDocumentPipSupported } from './utils';
 
 const b = block('html-video-element-features');
 
@@ -35,6 +36,11 @@ export function HtmlVideoElementFeatures() {
             label: 'Picture-in-picture',
             title: 'Pip',
             supported: isPipSupported(),
+        },
+        {
+            label: 'Document Picture-in-picture',
+            title: 'Document Pip',
+            supported: isDocumentPipSupported(),
         },
         {
             label: 'Cast to AirPlay',
