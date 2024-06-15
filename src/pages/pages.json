@@ -53,8 +53,8 @@
     },
     {
         "menuTitle": {
-            "en": "Network",
-            "ru": "Сеть"
+            "en": "Network & geo",
+            "ru": "Сеть и гео"
         },
         "id": "network",
         "url": "./network.html"

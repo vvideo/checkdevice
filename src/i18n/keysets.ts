@@ -281,9 +281,13 @@ export const keysets: I18nKeysets = {
         'en': 'Network Information API is not supported.',
         'ru': 'Network Information API не поддерживается.'
     },
-    'Network': {
-        'en': 'Network',
-        'ru': 'Сеть'
+    'Network & geo': {
+        'en': 'Network & geo',
+        'ru': 'Сеть и гео'
+    },
+    'Request geo location': {
+        'en': 'Request geo location',
+        'ru': 'Запросить местоположение'
     },
     'Can I use 🎮 Gamepad API?': {
         'en': 'Can I use 🎮 Gamepad API?',
