@@ -1,6 +1,5 @@
 .header{font-size:35px;font-weight:400;line-height:42px;margin:20px 0;position:relative}
 .row{margin-bottom:20px}.row__category{color:gray;font-size:14px;margin-bottom:5px}
-.internet-speed{font-size:16px;line-height:26px;margin:0 0 0 15px;padding:0}
 .tree-list{font-size:16px}.tree-list ul{margin:0;padding:0 0 0 1em}.tree-list .tree-list__ul_padding_no{padding-left:0}.tree-list li{list-style-type:none}.tree-list__bigint,.tree-list__number{color:violet}.tree-list__string{color:#90ee90}.tree-list__symbol{color:#add8e6}.tree-list__index{color:gray}.tree-list__boolean,.tree-list__null{color:violet}.tree-list__undefined{color:gray}.tree-list__index,.tree-list__property{color:#add8e6}
 .list{font-size:16px;line-height:26px;margin:0 0 0 15px;padding:0}
 .spinner{animation:spinner 1s linear infinite;border:5px solid gold;border-left:none;border-radius:100%;border-top:none;box-sizing:border-box;display:inline-block;height:48px;width:48px}.spinner_size_s{border-width:2px;height:10px;width:10px}.spinner_size_m{border-width:3px;height:16px;width:16px}@keyframes spinner{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}
