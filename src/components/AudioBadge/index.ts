@@ -13,7 +13,7 @@ import { block } from '../../utils/bem';
 
 const b = block('audio-badges');
 
-export function AudioBadges() {
+export function AudioBadge() {
     const audioCodecs20 = [];
     const audioCodecs51 = [];
     if (isAacSupported().any) {

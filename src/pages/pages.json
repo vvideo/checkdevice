@@ -5,11 +5,19 @@
             "ru": "Могу ли я смотреть видео?"
         },
         "menuTitle": {
-            "en": "Video & audio",
-            "ru": "Видео и аудио"
+            "en": "Video",
+            "ru": "Видео"
         },
         "id": "index",
         "url": "./"
+    },
+    {
+        "menuTitle": {
+            "en": "Audio",
+            "ru": "Аудио"
+        },
+        "id": "audio",
+        "url": "./audio.html"
     },
     {
         "menuTitle": {
