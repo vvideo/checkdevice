@@ -5,6 +5,8 @@ export function createPage({ id, header }) {
     <title>${header}</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="theme-color" content="#FFd700" />
+    <link rel="manifest" href="./manifest.json" />
     <link rel="shortcut icon" href="./static/favicons/favicon.png" />
     <link rel="stylesheet" href="./dist/${id}.css?md5=" />
     <!--<script src="https://unpkg.com/show-js-error/dist/show-js-error.js"></script>-->
