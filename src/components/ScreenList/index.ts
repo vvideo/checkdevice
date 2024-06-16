@@ -7,6 +7,10 @@ import { Header } from '../Header';
 import { i18n } from '../../i18n/i18n';
 import { useForceUpdate } from '../../hooks/useForceUpdate';
 import { screenInfo } from '../../lib/ScreenInfo';
+import { List } from '../List';
+import { hasTouchScreen } from '../../utils/hasTouchScreen';
+import { getChecked } from '../../utils/getChecked';
+import { getMaxTouchPoints } from '../../utils/getMaxTouchPoints';
 
 import './index.css';
 
@@ -26,20 +30,25 @@ export function ScreenList() {
     const handleClick = useCallback(() => {
         screenInfo.getScreenDetails()
             .then(handleScreenChange)
-            .catch(handleScreenChange); 
+            .catch(handleScreenChange);
     }, []);
 
-    useEffect(() => {          
+    useEffect(() => {
         screenInfo.addListener(handleScreenChange);
 
         !screenInfo.isDenied && screenInfo.getScreenDetails()
             .then(handleScreenChange)
-            .catch(handleScreenChange);        
+            .catch(handleScreenChange);
 
         return () => {
             screenInfo.removeListener(handleScreenChange);
         };
     }, []);
+
+    const additionalItems = [
+        [i18n('Has touch screen'), getChecked(hasTouchScreen())],
+        [i18n('Max touch points'), getMaxTouchPoints()],
+    ];
 
     const screenInfoData = screenInfo.get();
 
@@ -55,5 +64,7 @@ export function ScreenList() {
                 return html`<${ScreenItem} ...${item}><//>`;
             })
         }
+
+        <${List} title="${i18n('Additionally')}" items="${additionalItems}" //>
     </div>`;
 }

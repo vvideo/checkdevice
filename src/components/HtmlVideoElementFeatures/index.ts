@@ -9,9 +9,9 @@ import {
 
 import { block } from '../../utils/bem';
 import { i18n } from '../../i18n/i18n';
+import { isDocumentPipSupported } from './utils';
 
 import './index.css';
-import { isDocumentPipSupported } from './utils';
 
 const b = block('html-video-element-features');
 

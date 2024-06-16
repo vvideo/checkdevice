@@ -388,5 +388,13 @@ export const keysets: I18nKeysets = {
     'Camera is blocked.': {
         'en': 'Camera is blocked.',
         'ru': 'Камера заблокирована.'
+    },
+    'Has touch screen': {
+        'en': 'Has touch screen',
+        'ru': 'Сенсорный экран'
+    },
+    'Additionally': {
+        'en': 'Additionally',
+        'ru': 'Дополнительно'
     }
 };

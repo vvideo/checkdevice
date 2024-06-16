@@ -246,7 +246,7 @@ class ScreenInfo {
     }
 
     private getScreen() {
-        const screen = window.screen;
+        const { screen } = window;
 
         const additionalProps = this.getAdditionalProps();
 

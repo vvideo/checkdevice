@@ -28,6 +28,8 @@ declare global {
             downlinkMax?: number;
         };
 
+        msMaxTouchPoints?: number;
+
         getAutoplayPolicy?: (type: 'mediaelement' | 'audiocontext' |  AudioContext | HTMLMediaElement) => 'allowed' | 'allowed-muted' | 'disallowed';
     }
 }

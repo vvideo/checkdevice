@@ -23,6 +23,7 @@ export interface ScreenItemProps {
     isPrimary?: boolean;
     label?: string;
     isExtended?: boolean;
+    maxTouchPoints?: number;
 }
 
 const b = block('screen-item');
@@ -38,6 +39,7 @@ export function ScreenItem(props: ScreenItemProps) {
         isInternal,
         isPrimary,
         label,
+        maxTouchPoints,
     } = props;
 
     const logicalSize = [width, height, devicePixelRatio];
@@ -52,6 +54,7 @@ export function ScreenItem(props: ScreenItemProps) {
         [i18n('Color spaces'), html`<${ColorSpaceList} items="${colorSpaces}" //>`],
         typeof isPrimary === 'undefined' ? '' : [i18n('Primary'), getChecked(Boolean(isPrimary))],
         typeof isInternal === 'undefined' ? '' : [i18n('Internal'), getChecked(Boolean(isInternal))],
+        typeof maxTouchPoints === 'undefined' ? '' : [i18n('Max touch points'), maxTouchPoints],
     ].filter(Boolean);
 
     return html`
