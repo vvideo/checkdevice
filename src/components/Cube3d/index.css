@@ -1,6 +1,5 @@
 .cube-3d {
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin: 50px 0 50px 20px;
 }
 
 .cube-3d__side,

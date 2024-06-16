@@ -4,6 +4,9 @@ import { hasZoom } from '../../utils/hasZoom';
 import { i18n } from '../../i18n/i18n';
 import { prepareColorSpaces } from '../../utils/getColorSpaces';
 import { getChecked } from '../../utils/getChecked';
+import { block } from '../../utils/bem';
+
+import './index.css';
 
 interface ScreenBadgeDetailsProps {
     width: number;
@@ -16,13 +19,15 @@ interface ScreenBadgeDetailsProps {
     isInternal?: boolean;
 }
 
+const b = block('screen-badge-details');
+
 export function ScreenBadgeDetails(props: ScreenBadgeDetailsProps) {
     const screenSize = props.withDevicePixelRatio ?
         [props.width, props.height, props.devicePixelRatio] :
         [props.width * props.devicePixelRatio, props.height * props.devicePixelRatio];
 
     return html`
-        <div>
+        <div class="${b()}">
             <div>${i18n('Size')}: ${screenSize.join('×')}</div>
             <div>${i18n('Aspect ratio')}: ${calcAspectRatio(Math.floor(props.width), Math.floor(props.height)).value}</div>
             ${hasZoom() ? html`<div>⚠ ${i18n('Please reset zoom in the page')}</div>` : ''}
