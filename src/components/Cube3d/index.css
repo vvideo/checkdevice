@@ -10,7 +10,6 @@
 }
 
 .cube-3d__container {
-    border: 2px dotted black;
     transform-style: preserve-3d;
     animation: cube-3d-rotate 10s infinite linear;
 }
