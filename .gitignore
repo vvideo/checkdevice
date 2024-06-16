@@ -1,2 +1,3 @@
 node_modules/
 src/pages/pages.ts
+.DS_Store
