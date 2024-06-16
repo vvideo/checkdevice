@@ -69,6 +69,14 @@
     },
     {
         "menuTitle": {
+            "en": "Platform",
+            "ru": "Платформа"
+        },
+        "id": "platform",
+        "url": "./platform.html"
+    },
+    {
+        "menuTitle": {
             "en": "Battery",
             "ru": "Батарея"
         },

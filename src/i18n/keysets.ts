@@ -396,5 +396,9 @@ export const keysets: I18nKeysets = {
     'Additionally': {
         'en': 'Additionally',
         'ru': 'Дополнительно'
+    },
+    'Standalone application': {
+        'en': 'Standalone application',
+        'ru': 'Автономное приложение'
     }
 };

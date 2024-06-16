@@ -10,7 +10,6 @@ import { VideoQuestions } from '../../components/VideoQuestions';
 import { HtmlVideoElementFeatures } from '../../components/HtmlVideoElementFeatures';
 import { ImageFormats } from '../../components/ImageFormats';
 import { i18n } from '../../i18n/i18n';
-import { Platform } from '../../components/Platform';
 import { useForceUpdate } from '../../hooks/useForceUpdate';
 import { Page } from '../Page';
 
@@ -57,7 +56,5 @@ export function VideoPage() {
             <${Row} name="${i18n('HTMLVideoElement Features')}">
                 <${HtmlVideoElementFeatures}><//>
             <//>
-
-            <${Platform}><//>
         <//>`;
 }

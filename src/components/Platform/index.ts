@@ -6,7 +6,6 @@ import { noop } from '../../utils/noop';
 import { isStandalone, hasHardwareAcceleration } from 'detect-audio-video';
 import { VNode } from 'preact';
 import { InfoLink } from '../InfoLink';
-import { getAutoplayPolicy } from '../../utils/getAutoplayPolicy';
 import { getChecked } from '../../utils/getChecked';
 
 export function Platform() {
@@ -62,22 +61,14 @@ export function Platform() {
             navigator.deviceMemory ? `${navigator.deviceMemory} ${i18n('GB')}` : undefined
         ],
         [
-            'Standalone',
-            isStandalone()
+            i18n('Standalone application'),
+            getChecked(isStandalone())
         ],
         [
             'User agent',
             navigator.userAgent
         ],
     ];
-
-    const autoplayPolicy = getAutoplayPolicy();
-    if (autoplayPolicy) {
-        items.push([
-            'Autoplay Policy',
-            autoplayPolicy
-        ]);
-    }
 
     if (hardwareAcceleration !== undefined) {
         items.push([
@@ -98,5 +89,5 @@ export function Platform() {
         ];
     }
 
-    return html`<${List} title="${i18n('Platform')}" items="${items}" //>`;
+    return html`<${List} items="${items}" //>`;
 }

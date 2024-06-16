@@ -12,6 +12,7 @@ import { i18n } from '../../i18n/i18n';
 import { isDocumentPipSupported } from './utils';
 
 import './index.css';
+import { getAutoplayPolicy } from '../../utils/getAutoplayPolicy';
 
 const b = block('html-video-element-features');
 
@@ -57,10 +58,16 @@ export function HtmlVideoElementFeatures() {
         return a.supported ? -1 : 1;
     });
 
+
     const content = items.map(item => {
         const supported = item.supported ? '✓' : i18n('No');
         return html`<li title="${item.title}">${item.label}: ${supported}</li>`;
     });
+
+    const autoplayPolicy = getAutoplayPolicy();
+    if (autoplayPolicy) {
+        content.push(html`<li>Autoplay Policy: ${autoplayPolicy}</li>`);
+    }
 
     return html`<ul class=${b()}>${content}</ul>`;
 }
