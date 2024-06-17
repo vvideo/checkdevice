@@ -14,7 +14,8 @@ Also info about:
 + Gamepad
 + GPU
 + Storage
-+ Network
++ Network and geo
++ Platform
 + Battery
 
 Powered by [detect-audio-video](https://github.com/vvideo/detect-audio-video).
