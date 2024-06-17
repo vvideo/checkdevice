@@ -8,8 +8,15 @@ export function createPage({ id, header }) {
     <meta name="theme-color" content="#FFd700" />
     <link rel="manifest" href="./manifest.json" />
     <link rel="shortcut icon" href="./static/favicons/favicon.png" />
+    <link rel="apple-touch-icon" href="./static/favicons/touch.png" />
     <link rel="stylesheet" href="./dist/${id}.css?md5=" />
-    <!--<script src="https://unpkg.com/show-js-error/dist/show-js-error.js"></script>-->
+    <script>
+    <!--
+        if (location.href.search(/show_error/) !== -1) {
+            document.write('<script src="https://unpkg.com/show-js-error/dist/show-js-error.js"></script>');
+        }
+    //-->
+    </script>
 </head>
 <body>
     <div class="page"></div>
