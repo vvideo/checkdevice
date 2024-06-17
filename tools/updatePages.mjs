@@ -7,7 +7,11 @@ import { loadJson } from './utils/loadJson.mjs';
 const pages = loadJson('./src/pages/pages.json');
 
 pages.forEach(item => {
-    const html = createPage(item);
+    const html = createPage({
+        id: item.id,
+        header: item.header ? item.header.en : item.menuTitle.en,
+    });
+
     fs.writeFileSync(`${item.id}.html`, html, 'utf-8');
 });
 
