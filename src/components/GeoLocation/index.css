@@ -2,3 +2,10 @@
 .geo-location__map {
     margin-top: 10px;
 }
+
+.geo-location__error {
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+    color: #f77;
+}
