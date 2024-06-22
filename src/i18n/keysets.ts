@@ -400,5 +400,17 @@ export const keysets: I18nKeysets = {
     'Standalone application': {
         'en': 'Standalone application',
         'ru': 'Автономное приложение'
+    },
+    'Page not found.': {
+        'en': 'Page not found.',
+        'ru': 'Страница не найдена.'
+    },
+    'Go to main page': {
+        'en': 'Go to main page',
+        'ru': 'Перейти на главную'
+    },
+    'Permissions': {
+        'en': 'Permissions',
+        'ru': 'Разрешения'
     }
 };

@@ -82,5 +82,14 @@
         },
         "id": "battery",
         "url": "./battery.html"
+    },
+    {
+        "menuTitle": {
+            "en": "404",
+            "ru": "404"
+        },
+        "id": "error404",
+        "url": "./error404.html",
+        "hidden": true
     }
 ]
