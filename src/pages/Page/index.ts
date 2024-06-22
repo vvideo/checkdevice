@@ -5,6 +5,8 @@ import { Footer } from '../../components/Footer';
 import { Menu } from '../Menu';
 import { VNode } from 'preact';
 
+import './index.css';
+
 interface PageProps {
     children: VNode;
 }
