@@ -91,5 +91,14 @@
         "id": "error404",
         "url": "./error404.html",
         "hidden": true
+    },
+    {
+        "menuTitle": {
+            "en": "Test dead pixels",
+            "ru": "Тестирование битых пикселей"
+        },
+        "id": "test-dead-pixels",
+        "url": "./test-dead-pixels.html",
+        "hidden": true
     }
 ]

@@ -1,0 +1,36 @@
+.monitor {
+    width: 210px;
+    height: 122px;
+    position: relative;
+    margin-bottom: 70px;
+}
+
+.monitor__content {
+    position: relative;
+    border: 5px solid gray;
+    width: 200px;
+    height: 112px;
+    border-radius: 5px;
+}
+
+.monitor__rack {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: gray;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+}
+
+.monitor__foot {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    margin-top: 20px;
+    width: 100px;
+    height: 10px;
+    background-color: gray;
+    border-radius: 3px 3px 0 0;
+}

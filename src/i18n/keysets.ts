@@ -412,5 +412,17 @@ export const keysets: I18nKeysets = {
     'Permissions': {
         'en': 'Permissions',
         'ru': 'Разрешения'
+    },
+    'Start test': {
+        'en': 'Start test',
+        'ru': 'Начать тест'
+    },
+    'Test dead pixels': {
+        'en': 'Test dead pixels',
+        'ru': 'Тест битых пикселей'
+    },
+    'Tests': {
+        'en': 'Tests',
+        'ru': 'Тесты'
     }
 };
