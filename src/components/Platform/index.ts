@@ -57,8 +57,8 @@ export function Platform() {
             navigator.hardwareConcurrency
         ],
         [
-            html`Device memory <${InfoLink} title="MDN" href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/deviceMemory"><//>`,
-            navigator.deviceMemory ? `${navigator.deviceMemory} ${i18n('GB')}` : undefined
+            html`${i18n('RAM')} <${InfoLink} title="MDN" href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/deviceMemory"><//>`,
+            navigator.deviceMemory ? `≈${navigator.deviceMemory} ${i18n('GB')}` : '?'
         ],
         [
             i18n('Standalone application'),

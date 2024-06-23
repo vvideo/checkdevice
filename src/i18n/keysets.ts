@@ -424,5 +424,9 @@ export const keysets: I18nKeysets = {
     'Tests': {
         'en': 'Tests',
         'ru': 'Тесты'
+    },
+    'RAM': {
+        'en': 'RAM',
+        'ru': 'ОЗУ'
     }
 };
