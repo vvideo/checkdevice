@@ -19,12 +19,9 @@ export function TestDeadPixels() {
     const handleButtonClick = useCallback(() => {
         setStep(0);
         setFullScreen(true);
-        if (document.activeElement) {
-            (document.activeElement as HTMLElement).blur();
-        }
 
-        if (ref.current && ref.current.requestFullscreen) {
-            ref.current.requestFullscreen();
+        if (ref.current) {
+            ref.current.requestFullscreen?.();
         }
     }, []);
 
@@ -39,14 +36,10 @@ export function TestDeadPixels() {
 
     useEffect(() => {
         const handleKeypress = (event: KeyboardEvent) => {
-            if (!isFullScreen) {
-                return;
-            }
-
             if (event.keyCode === VK_ESC || event.keyCode === VK_BACKSPACE) {
                 setFullScreen(false);
-                if (ref.current && document.exitFullscreen) {
-                    document.exitFullscreen();
+                if (ref.current && document.fullscreenElement) {
+                    document.exitFullscreen?.();
                 }
             } else {
                 nextColor();
