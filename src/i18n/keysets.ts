@@ -428,5 +428,13 @@ export const keysets: I18nKeysets = {
     'RAM': {
         'en': 'RAM',
         'ru': 'ОЗУ'
+    },
+    'Hz': {
+        'en': 'Hz',
+        'ru': 'Гц'
+    },
+    'Refresh rate': {
+        'en': 'Refresh rate',
+        'ru': 'Частота обновления'
     }
 };

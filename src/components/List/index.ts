@@ -14,6 +14,10 @@ const b = block('list');
 export function List(props: ListProps) {
     const filteredItems = props.items
         .filter(item => {
+            if (!item) {
+                return false;
+            }
+
             if (item.length === 1) {
                 return true;
             }
