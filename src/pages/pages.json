@@ -45,6 +45,14 @@
     },
     {
         "menuTitle": {
+            "en": "Input",
+            "ru": "Ввод"
+        },
+        "id": "input",
+        "url": "./input.html"
+    },
+    {
+        "menuTitle": {
             "en": "Gamepad",
             "ru": "Джойстик"
         },
