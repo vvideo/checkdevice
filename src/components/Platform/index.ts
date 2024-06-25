@@ -58,7 +58,7 @@ export function Platform() {
         ],
         [
             html`${i18n('RAM')} <${InfoLink} title="MDN" href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/deviceMemory"><//>`,
-            navigator.deviceMemory ? `≈${navigator.deviceMemory} ${i18n('GB')}` : '?'
+            navigator.deviceMemory ? `≈\u202F${navigator.deviceMemory} ${i18n('GB')}` : '?'
         ],
         [
             i18n('Standalone application'),
