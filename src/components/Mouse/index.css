@@ -58,6 +58,35 @@
     border-radius: 5px;
 }
 
+.mouse__wheel {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 5px;
+    background: linear-gradient(
+        white 0px 2px,
+        black 2px 4px,
+        white 4px 6px,
+        black 6px 8px,
+        white 8px 10px,
+        black 10px 12px,
+        white 12px 14px,
+        black 14px 20px
+    );
+
+    transition: background-position .2s ease;
+}
+
+.mouse__wheel_direction_down {
+    animation: moveGradientDown 15s linear infinite;
+}
+
+.mouse__wheel_direction_up {
+    animation: moveGradientUp 15s linear infinite;
+}
+
 .mouse__left-button,
 .mouse__right-button,
 .mouse__middle-button,

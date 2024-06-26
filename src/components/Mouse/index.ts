@@ -13,6 +13,7 @@ const MAX_Y = 100;
 export function Mouse() {
     const [x, setX] = useState(0);
     const [y, setY] = useState(0);
+    const [wheelY, setWheelY] = useState(0);
 
     const forceUpdate = useForceUpdate();
 
@@ -51,6 +52,19 @@ export function Mouse() {
         };
     }, []);
 
+    useEffect(() => {
+        const handleWheel = (e: WheelEvent) => {
+            e.preventDefault();
+            setWheelY(wheelY - e.deltaY);
+        };
+
+        document.addEventListener('wheel', handleWheel);
+
+        return () => {
+            document.removeEventListener('wheel', handleWheel);
+        };
+    }, [wheelY]);
+
     const style = `transform:translate(${x}px,${y}px)`;
 
     return html`
@@ -58,7 +72,9 @@ export function Mouse() {
             <div class="${b('pad')}"></div>
             <div class="${b('body')}" style="${style}">
                 <div class="${b('left-button', { pressed: buttons.current[0] })}"></div>
-                <div class="${b('middle-button', { pressed: buttons.current[1] })}"></div>
+                <div class="${b('middle-button', { pressed: buttons.current[1] })}">
+                    <div class="${b('wheel')}" style="background-position-y:${wheelY}px"></div>
+                </div>
                 <div class="${b('right-button', { pressed: buttons.current[2] })}"></div>
                 <div class="${b('4-button', { pressed: buttons.current[3] })}"></div>
                 <div class="${b('5-button', { pressed: buttons.current[4] })}"></div>
