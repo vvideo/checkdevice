@@ -49,8 +49,7 @@
             "ru": "Ввод"
         },
         "id": "input",
-        "url": "./input.html",
-        "hidden": true
+        "url": "./input.html"
     },
     {
         "menuTitle": {

@@ -436,5 +436,13 @@ export const keysets: I18nKeysets = {
     'Refresh rate': {
         'en': 'Refresh rate',
         'ru': 'Частота обновления'
+    },
+    'Input': {
+        'en': 'Input',
+        'ru': 'Ввод'
+    },
+    'Mouse': {
+        'en': 'Mouse',
+        'ru': 'Мышь'
     }
 };

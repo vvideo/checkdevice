@@ -1,0 +1,127 @@
+.mouse {
+    position: relative;
+    height: 400px;
+}
+
+.mouse__body {
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: 1px solid rgba(255, 255, 255, .3);
+    width: 150px;
+    height: 300px;
+    border-radius: 50px;
+    background: black;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.mouse__body::before {
+    content: '';
+    position: absolute;
+    z-index: -2;
+    left: -125px;
+    top: -50px;
+    width: 400px;
+    height: 400px;
+    background-repeat: no-repeat;
+    background-image: conic-gradient(
+        red,
+        orange,
+        yellow,
+        green,
+        blue,
+        purple,
+        red
+    );
+    animation: rotate 5s linear infinite;
+}
+
+.mouse__body::after {
+    content: '';
+    position: absolute;
+    left: 3px;
+    right: 3px;
+    top: 3px;
+    bottom: 3px;
+    background-color: black;
+    border-radius: 50px;
+}
+
+.mouse__pad {
+    position: relative;
+    width: 600px;
+    height: 300px;
+    animation: 4s linear 0s infinite alternate pad-border;
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.mouse__left-button,
+.mouse__right-button,
+.mouse__middle-button,
+.mouse__4-button,
+.mouse__5-button {
+    position: absolute;
+    background: black;
+    border: 2px solid white;
+    z-index: 10;
+}
+
+.mouse__left-button {
+    left: 10px;
+    top: 10px;
+    width: 60px;
+    height: 100px;
+    border-top-left-radius: 40px;
+}
+
+.mouse__middle-button {
+    left: 63px;
+    top: 40px;
+    width: 20px;
+    height: 40px;
+    border-radius: 20px;
+    z-index: 15;
+}
+
+.mouse__right-button {
+    right: 10px;
+    top: 10px;
+    width: 60px;
+    height: 100px;
+    border-top-right-radius: 40px;
+}
+
+.mouse__4-button {
+    left: 10px;
+    top: 130px;
+    width: 5px;
+    height: 20px;
+    border-radius: 5px 0 0 5px;
+    border-right: none;
+}
+
+.mouse__5-button {
+    left: 10px;
+    top: 160px;
+    width: 5px;
+    height: 20px;
+    border-radius: 5px 0 0 5px;
+    border-right: none;
+}
+
+.mouse__left-button_pressed,
+.mouse__right-button_pressed,
+.mouse__middle-button_pressed,
+.mouse__4-button_pressed,
+.mouse__5-button_pressed {
+    background: white;
+}
+
+@keyframes rotate {
+	100% {
+		transform: rotate(1turn);
+	}
+}
