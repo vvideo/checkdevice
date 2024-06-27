@@ -6,7 +6,7 @@
         "build": "npm run menu && rollup -c && node ./tools/updatePages.mjs",
         "menu": "node ./tools/createMenu.mjs",
         "dist": "MINIFY=1 npm run build",
-        "watch": "npm run build -- --watch",
+        "watch": "npm run menu && rollup -c --watch",
         "typecheck": "tsc --noEmit",
         "eslint": "eslint .",
         "test": "npm run menu && npm run typecheck && npm run eslint"
