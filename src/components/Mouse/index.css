@@ -1,6 +1,6 @@
 .mouse {
     position: relative;
-    height: 400px;
+    height: 350px;
 }
 
 .mouse__body {
@@ -46,16 +46,6 @@
     bottom: 3px;
     background-color: black;
     border-radius: 50px;
-}
-
-.mouse__pad {
-    position: relative;
-    width: 600px;
-    height: 300px;
-    animation: 4s linear 0s infinite alternate pad-border;
-    z-index: 1;
-    overflow: hidden;
-    border-radius: 5px;
 }
 
 .mouse__wheel {

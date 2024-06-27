@@ -4,28 +4,20 @@ import { block } from '../../utils/bem';
 import { useForceUpdate } from '../../hooks/useForceUpdate';
 
 import './index.css';
+import { passiveSupported } from '../../utils/passiveSupported';
 
 const b = block('mouse');
 
-const MAX_X = 200;
-const MAX_Y = 100;
-
 export function Mouse() {
-    const [x, setX] = useState(0);
-    const [y, setY] = useState(0);
     const [wheelY, setWheelY] = useState(0);
 
     const forceUpdate = useForceUpdate();
 
     const buttons = useRef<Record<string, boolean>>({});
+    const refRoot = useRef<HTMLDivElement>();
 
     useEffect(() => {
-        const handleMouseMove = (e: MouseEvent) => {
-            setX(e.pageX / screen.width * MAX_X);
-            setY(e.pageY / screen.height * MAX_Y);
-        };
-
-        const handleContextMenu = (e: Event) => {
+        const handleScroll = (e: Event) => {
             e.preventDefault();
         };
 
@@ -39,14 +31,15 @@ export function Mouse() {
             forceUpdate();
         };
 
-        document.addEventListener('mousemove', handleMouseMove);
-        document.addEventListener('contextmenu', handleContextMenu);
+        document.addEventListener('contextmenu', handleScroll);
+        document.addEventListener('scroll', handleScroll);
+
         document.addEventListener('mousedown', handleMouseDown);
         document.addEventListener('mouseup', handleMouseUp);
 
         return () => {
-            document.removeEventListener('mousemove', handleMouseMove);
-            document.removeEventListener('contextmenu', handleContextMenu);
+            document.removeEventListener('contextmenu', handleScroll);
+            document.removeEventListener('scroll', handleScroll);
             document.removeEventListener('mousedown', handleMouseDown);
             document.removeEventListener('mouseup', handleMouseUp);
         };
@@ -58,19 +51,16 @@ export function Mouse() {
             setWheelY(wheelY - e.deltaY);
         };
 
-        document.addEventListener('wheel', handleWheel);
+        refRoot.current?.addEventListener('wheel', handleWheel, passiveSupported ? { passive: false } : false);
 
         return () => {
-            document.removeEventListener('wheel', handleWheel);
+            refRoot.current?.removeEventListener('wheel', handleWheel);
         };
     }, [wheelY]);
 
-    const style = `transform:translate(${x}px,${y}px)`;
-
     return html`
-        <div class="${b()}">
-            <div class="${b('pad')}"></div>
-            <div class="${b('body')}" style="${style}">
+        <div ref="${refRoot}" class="${b()}">
+            <div class="${b('body')}">
                 <div class="${b('left-button', { pressed: buttons.current[0] })}"></div>
                 <div class="${b('middle-button', { pressed: buttons.current[1] })}">
                     <div class="${b('wheel')}" style="background-position-y:${wheelY}px"></div>
