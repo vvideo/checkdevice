@@ -2,9 +2,9 @@ import { html } from 'htm/preact';
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { block } from '../../utils/bem';
 import { useForceUpdate } from '../../hooks/useForceUpdate';
+import { passiveSupported } from '../../utils/passiveSupported';
 
 import './index.css';
-import { passiveSupported } from '../../utils/passiveSupported';
 
 const b = block('mouse');
 
