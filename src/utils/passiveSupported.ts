@@ -12,8 +12,7 @@ try {
     };
 
     window.addEventListener('test', noop, options);
-    // @ts-ignore
-    window.removeEventListener('test', noop, options);
+    window.removeEventListener('test', noop, {});
 } catch (e) {
     passiveSupported = false;
 }
