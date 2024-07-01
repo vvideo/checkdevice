@@ -11,12 +11,16 @@ import './index.css';
 
 const b = block('keyboard');
 
-type RefKeys = Record<string, { name: string; pressed: boolean; wasPressed: boolean; }>;
+type RefKeys = Record<string, { name: string; pressed: boolean; wasPressed: boolean; led: boolean; }>;
 
 function getKey(keys: RefKeys, keyData: Key) {
     const data = keys[keyData.code] || {};
 
-    return html`<div class="${b('key', { code: keyData.code, pressed: data.pressed, wasPressed: data.wasPressed })}" key="${keyData.code}">${keyData.name}</div>`;
+    return html`
+        <div class="${b('key', { code: keyData.code, pressed: data.pressed, wasPressed: data.wasPressed })}" key="${keyData.code}">
+            ${keyData.name}
+            ${typeof keyData.led === 'boolean' ? html`<div class="${b('led', { on: data.led })}"></div>` : ''}
+        </div>`;
 }
 
 function getRowWithKeys(keys: RowOfKeys, refKeys: MutableRef<RefKeys>) {
@@ -62,6 +66,11 @@ export function Keyboard() {
             }
 
             data.wasPressed = true;
+
+            if (event.getModifierState) {
+                refKeys.current['CapsLock'] = refKeys.current['CapsLock'] || {};
+                refKeys.current['CapsLock'].led = event.getModifierState('CapsLock');
+            }
 
             forceRender();
 

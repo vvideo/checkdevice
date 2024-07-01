@@ -182,7 +182,8 @@ const row2: RowOfKeys = [
 const row3: RowOfKeys = [
     {
         code: 'CapsLock',
-        name: '⇪'
+        name: '⇪',
+        led: true
     },
     {
         code: 'KeyA',
