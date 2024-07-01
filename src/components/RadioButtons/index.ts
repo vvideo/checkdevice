@@ -4,8 +4,10 @@ import { block } from '../../utils/bem';
 import { RadioButtonProps, RadioButton } from '../RadioButton';
 
 import './index.css';
+import { classname } from '../../utils/classname';
 
 export interface RadioButtonsProps {
+    className?: string;
     label: string;
     buttons: RadioButtonProps[];
     onSelect(value: string): void;
@@ -20,7 +22,7 @@ function getSelectedButton(buttons: RadioButtonProps[]) {
 }
 
 export function RadioButtons(props: RadioButtonsProps) {
-    const { buttons, label, onSelect } = props;
+    const { className, buttons, label, onSelect } = props;
     const selectedButton = getSelectedButton(buttons);
     const [selectedValue, setSelectedValue] = useState<string | undefined>(selectedButton ? selectedButton.value : undefined);
 
@@ -30,7 +32,7 @@ export function RadioButtons(props: RadioButtonsProps) {
     }, [onSelect]);
 
     return html`
-        <div class="${b()}">
+        <div class="${classname(b(), className)}">
             <div class="${b('label')}">${label}</div>
             <div class="${b('items')}">
                 ${

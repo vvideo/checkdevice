@@ -444,5 +444,17 @@ export const keysets: I18nKeysets = {
     'Mouse': {
         'en': 'Mouse',
         'ru': 'Мышь'
+    },
+    'Reset': {
+        'en': 'Reset',
+        'ru': 'Сброс'
+    },
+    'Mouse and keyboard': {
+        'en': 'Mouse and keyboard',
+        'ru': 'Мышь и клавиатура'
+    },
+    'Keyboard': {
+        'en': 'Keyboard',
+        'ru': 'Клавиатура'
     }
 };

@@ -1,0 +1,241 @@
+.keyboard__layout_type_mac {
+    border: 2px solid #333;
+    width: 940px;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.keyboard__layout_type_mac .keyboard__row {
+    position: relative;
+    display: flex;
+    margin-bottom: 5px;
+    width: 1000px;
+}
+
+.keyboard__layout_type_mac .keyboard__key {
+    position: relative;
+    cursor: default;
+    padding: 5px;
+    margin-right: 5px;
+
+    width: 60px;
+    height: 60px;
+
+    align-content: center;
+    font-size: 16px;
+    line-height: 1em;
+    text-align: center;
+
+    color: white;
+    background: black;
+    border: 1px solid white;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.keyboard__layout_type_mac .keyboard__key_wasPressed {
+    background: white;
+    color: black;
+}
+
+.keyboard__layout_type_mac .keyboard__key_pressed {
+    background: gold;
+    border-color: gold;
+    color: black;
+}
+
+.keyboard__layout_type_mac .keyboard__row_num_0 .keyboard__key {
+    text-align: center;
+    width: 65px;
+    height: 30px;
+    font-size: 12px;
+    align-content: center;
+    padding: 0 5px;
+}
+
+.keyboard__layout_type_mac .keyboard__row_num_5 {
+    margin-bottom: 0;
+}
+
+.keyboard__layout_type_mac .keyboard__row_num_0 .keyboard__key_code_Escape {
+    text-align: left;
+}
+
+.keyboard__layout_type_mac .keyboard__row_num_0 .keyboard__key_code_PowerOff {
+    width: 30px;
+    height: 30px;
+}
+
+.keyboard__layout_type_mac .keyboard__key_code_Tab {
+    width: 95px;
+    text-align: left;
+    align-content: end;
+}
+
+.keyboard__layout_type_mac .keyboard__key_code_ShiftLeft {
+    width: 70px;
+    text-align: left;
+}
+
+.keyboard__layout_type_mac .keyboard__key_code_Enter {
+    border-radius: 5px 5px 0 5px;
+}
+
+.keyboard__layout_type_mac .keyboard__key_code_Enter::after {
+    position: absolute;
+    content: '';
+    right: -1px;
+    top: 58px;
+    width: 35px;
+    height: 65px;
+    border: 1px solid inherit;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    background-color: inherit;
+}
+
+.keyboard__layout_type_mac .keyboard__key_code_ShiftRight {
+    width: 150px;
+    text-align: right;
+}
+
+.keyboard__layout_type_mac .keyboard__key_code_ShiftLeft,
+.keyboard__layout_type_mac .keyboard__key_code_ShiftRight {
+    font-size: 12px;
+    align-content: end;
+}
+
+.keyboard__layout_type_mac .keyboard__key_code_Backspace {
+    width: 95px;
+    text-align: right;
+    align-content: end;
+}
+
+.keyboard__layout_type_mac .keyboard__key_code_CapsLock {
+    width: 115px;
+    text-align: left;
+    align-content: end;
+}
+
+.keyboard__layout_type_mac .keyboard__key_code_MetaLeft,
+.keyboard__layout_type_mac .keyboard__key_code_MetaRight {
+    width: 70px;
+}
+
+.keyboard__layout_type_mac .keyboard__key_code_Fn,
+.keyboard__layout_type_mac .keyboard__key_code_MetaLeft,
+.keyboard__layout_type_mac .keyboard__key_code_MetaRight,
+.keyboard__layout_type_mac .keyboard__key_code_AltLeft,
+.keyboard__layout_type_mac .keyboard__key_code_AltRight,
+.keyboard__layout_type_mac .keyboard__key_code_ControlLeft,
+.keyboard__layout_type_mac .keyboard__key_code_ControlRight {
+    font-size: 12px;
+    align-content: end;
+}
+
+.keyboard__layout_type_mac .keyboard__key_code_Space {
+    width: 335px;
+}
+
+.keyboard__layout_type_mac .keyboard__key_code_ArrowLeft,
+.keyboard__layout_type_mac .keyboard__key_code_ArrowRight,
+.keyboard__layout_type_mac .keyboard__key_code_ArrowUp,
+.keyboard__layout_type_mac .keyboard__key_code_ArrowDown {
+    height: 30px;
+    align-self: end;
+}
+
+.keyboard__layout_type_mac .keyboard__key_code_ArrowDown::after {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -2px;
+    margin-left: -5px;
+    width: 0;
+    height: 0;
+    content: '';
+    border-top: 5px solid white;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+}
+
+.keyboard__layout_type_mac .keyboard__key_pressed.keyboard__key_code_ArrowDown::after {
+    border-top-color: black;
+}
+
+.keyboard__layout_type_mac .keyboard__key_wasPressed.keyboard__key_code_ArrowDown::after {
+    border-top-color: black;
+}
+
+.keyboard__layout_type_mac .keyboard__key_code_ArrowUp::after {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -2px;
+    margin-left: -5px;
+    width: 0;
+    height: 0;
+    content: '';
+    border-bottom: 5px solid white;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+}
+
+.keyboard__layout_type_mac .keyboard__key_pressed.keyboard__key_code_ArrowUp::after {
+    border-bottom-color: black;
+}
+
+.keyboard__layout_type_mac .keyboard__key_wasPressed.keyboard__key_code_ArrowUp::after {
+    border-bottom-color: black;
+}
+
+.keyboard__layout_type_mac .keyboard__key_code_ArrowRight::after {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -4px;
+    margin-left: -2px;
+    width: 0;
+    height: 0;
+    content: '';
+    border-left: 5px solid white;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+}
+
+.keyboard__layout_type_mac .keyboard__key_pressed.keyboard__key_code_ArrowRight::after {
+    border-left-color: black;
+}
+
+.keyboard__layout_type_mac .keyboard__key_wasPressed.keyboard__key_code_ArrowRight::after {
+    border-left-color: black;
+}
+
+.keyboard__layout_type_mac .keyboard__key_code_ArrowLeft::after {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -4px;
+    margin-left: -5px;
+    width: 0;
+    height: 0;
+    content: '';
+    border-right: 5px solid white;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+}
+
+.keyboard__layout_type_mac .keyboard__key_pressed.keyboard__key_code_ArrowLeft::after {
+    border-right-color: black;
+}
+
+.keyboard__layout_type_mac .keyboard__key_wasPressed.keyboard__key_code_ArrowLeft::after {
+    border-right-color: black;
+}
+
+
+.keyboard__layout_type_mac .keyboard__key_code_ArrowUp {
+    position: absolute;
+    right: 120px;
+    align-self: start;
+}
