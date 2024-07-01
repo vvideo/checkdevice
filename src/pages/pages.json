@@ -45,11 +45,19 @@
     },
     {
         "menuTitle": {
-            "en": "Input",
-            "ru": "Ввод"
+            "en": "Mouse",
+            "ru": "Мышь"
         },
-        "id": "input",
-        "url": "./input.html"
+        "id": "mouse",
+        "url": "./mouse.html"
+    },
+    {
+        "menuTitle": {
+            "en": "Keyboard",
+            "ru": "Клавиатура"
+        },
+        "id": "keyboard",
+        "url": "./keyboard.html"
     },
     {
         "menuTitle": {

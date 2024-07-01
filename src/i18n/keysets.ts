@@ -456,5 +456,13 @@ export const keysets: I18nKeysets = {
     'Keyboard': {
         'en': 'Keyboard',
         'ru': 'Клавиатура'
+    },
+    'Testing keyboard': {
+        'en': 'Testing keyboard',
+        'ru': 'Тестирование клавиатуры'
+    },
+    'Testing mouse': {
+        'en': 'Testing mouse',
+        'ru': 'Тестирование мышки'
     }
 };
