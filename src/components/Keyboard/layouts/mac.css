@@ -251,9 +251,9 @@
     border-right-color: black;
 }
 
-
 .keyboard__layout_type_mac .keyboard__key_code_ArrowUp {
     position: absolute;
+    left: auto;
     right: 120px;
     align-self: start;
 }
