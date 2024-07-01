@@ -41,6 +41,8 @@
 .keyboard__layout_type_mac .keyboard__key_pressed {
     background: gold;
     border-color: gold;
+    top: 1px;
+    left: 1px;
     color: black;
 }
 
