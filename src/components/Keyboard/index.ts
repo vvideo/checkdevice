@@ -14,6 +14,29 @@ export const b = block('keyboard');
 
 export type KeysState = Record<string, KeyState>;
 
+function preparedKeyboardCode(code: string, key: string) {
+    if (code === 'IntlBackslash' && (key === '`' || key === '~')) {
+        return 'Backquote';
+    } else if (code === 'Backquote' && (key === '§' || key === '±')) {
+        return 'IntlBackslash';
+    }
+
+    return code;
+}
+
+function updateCapslock(event: KeyboardEvent, keysState: KeysState) {
+    if (event.getModifierState) {
+        keysState['CapsLock'] = keysState['CapsLock'] || {};
+        keysState['CapsLock'].led = event.getModifierState('CapsLock');
+    }
+}
+
+function clearPressedStatus(keysState: KeysState) {
+    Object.keys(keysState).forEach(key => {
+        keysState[key].pressed = false;
+    });
+}
+
 export function Keyboard() {
     const refKeysState = useRef<KeysState>({});
 
@@ -28,7 +51,7 @@ export function Keyboard() {
         const handleKeydown = (event: KeyboardEvent) => {
             event.preventDefault();
 
-            const { code } = event;
+            const code = preparedKeyboardCode(event.code, event.key);
 
             refKeysState.current[code] = refKeysState.current[code] || {};
 
@@ -40,10 +63,7 @@ export function Keyboard() {
 
             data.wasPressed = true;
 
-            if (event.getModifierState) {
-                refKeysState.current['CapsLock'] = refKeysState.current['CapsLock'] || {};
-                refKeysState.current['CapsLock'].led = event.getModifierState('CapsLock');
-            }
+            updateCapslock(event, refKeysState.current);
 
             forceRender();
 
@@ -53,13 +73,19 @@ export function Keyboard() {
         const handleKeyup = (event: KeyboardEvent) => {
             event.preventDefault();
 
-            const { code } = event;
+            const code = preparedKeyboardCode(event.code, event.key);
 
             refKeysState.current[code] = refKeysState.current[code] || {};
 
             const data = refKeysState.current[code];
             data.pressed = false;
             data.wasPressed = true;
+
+            if (code === 'MetaLeft' || code === 'MetaRight') {
+                clearPressedStatus(refKeysState.current);
+            }
+
+            updateCapslock(event, refKeysState.current);
 
             forceRender();
 

@@ -5,335 +5,362 @@ import './mac.css';
 const row0: KeyData[] = [
     {
         code: 'Escape',
-        name: 'esc'
+        text: 'esc',
+        align: 'left'
     },
     {
         code: 'F1',
-        name: 'F1'
+        text: 'F1'
     },
     {
         code: 'F2',
-        name: 'F2'
+        text: 'F2'
     },
     {
         code: 'F3',
-        name: 'F3'
+        text: 'F3'
     },
     {
         code: 'F4',
-        name: 'F4'
+        text: 'F4'
     },
     {
         code: 'F5',
-        name: 'F5'
+        text: 'F5'
     },
     {
         code: 'F6',
-        name: 'F6'
+        text: 'F6'
     },
     {
         code: 'F7',
-        name: 'F7'
+        text: 'F7'
     },
     {
         code: 'F8',
-        name: 'F8'
+        text: 'F8'
     },
     {
         code: 'F9',
-        name: 'F9'
+        text: 'F9'
     },
     {
         code: 'F10',
-        name: 'F10'
+        text: 'F10'
     },
     {
         code: 'F11',
-        name: 'F11'
+        text: 'F11'
     },
     {
         code: 'F12',
-        name: 'F12'
+        text: 'F12'
     },
     {
         code: 'PowerOff',
-        name: ''
     }
 ];
 
 const row1: KeyData[] = [
     {
-        code: 'Backquote',
-        name: '§'
+        code: 'IntlBackslash',
+        topLeftSymbol: '±',
+        topRightSymbol: '<',
+        bottomLeftSymbol: '§',
+        bottomRightSymbol: '>',
     },
     {
         code: 'Digit1',
-        name: '1'
+        topSymbol: '!',
+        bottomSymbol: '1'
     },
     {
         code: 'Digit2',
-        name: '2'
+        topSymbol: '@',
+        bottomSymbol: '2'
     },
     {
         code: 'Digit3',
-        name: '3'
+        topSymbol: '#',
+        bottomSymbol: '3'
     },
     {
         code: 'Digit4',
-        name: '4'
+        topSymbol: '$',
+        bottomSymbol: '4'
     },
     {
         code: 'Digit5',
-        name: '5'
+        topSymbol: '%',
+        bottomSymbol: '5'
     },
     {
         code: 'Digit6',
-        name: '6'
+        topSymbol: '^',
+        bottomSymbol: '6'
     },
     {
         code: 'Digit7',
-        name: '7'
+        topSymbol: '&',
+        bottomSymbol: '7'
     },
     {
         code: 'Digit8',
-        name: '8'
+        topSymbol: '*',
+        bottomSymbol: '8'
     },
     {
         code: 'Digit9',
-        name: '9'
+        topSymbol: '(',
+        bottomSymbol: '9'
     },
     {
         code: 'Digit0',
-        name: '0'
+        topSymbol: ')',
+        bottomSymbol: '0'
     },
     {
         code: 'Minus',
-        name: '-'
+        topSymbol: '_',
+        bottomSymbol: '-'
     },
     {
         code: 'Equal',
-        name: '='
+        topSymbol: '+',
+        bottomSymbol: '='
     },
     {
         code: 'Backspace',
-        name: '⌫'
+        bottomRightSymbol: '⌫'
     },
 ];
 
 const row2: KeyData[] = [
     {
         code: 'Tab',
-        name: '⇥'
+        bottomLeftSymbol: '⇥'
     },
     {
         code: 'KeyQ',
-        name: 'Q'
+        text: 'Q'
     },
     {
         code: 'KeyW',
-        name: 'W'
+        text: 'W'
     },
     {
         code: 'KeyE',
-        name: 'E'
+        text: 'E'
     },
     {
         code: 'KeyR',
-        name: 'R'
+        text: 'R'
     },
     {
         code: 'KeyT',
-        name: 'T'
+        text: 'T'
     },
     {
         code: 'KeyY',
-        name: 'Y'
+        text: 'Y'
     },
     {
         code: 'KeyU',
-        name: 'U'
+        text: 'U'
     },
     {
         code: 'KeyI',
-        name: 'I'
+        text: 'I'
     },
     {
         code: 'KeyO',
-        name: 'O'
+        text: 'O'
     },
     {
         code: 'KeyP',
-        name: 'P'
+        text: 'P'
     },
     {
         code: 'BracketLeft',
-        name: '['
+        topSymbol: '{',
+        bottomSymbol: '['
     },
     {
         code: 'BracketRight',
-        name: ']'
+        topSymbol: '}',
+        bottomSymbol: ']'
     },
     {
         code: 'Enter',
-        name: '⏎'
+        text: '⏎'
     },
 ];
 
 const row3: KeyData[] = [
     {
         code: 'CapsLock',
-        name: '⇪',
+        bottomLeftSymbol: '⇪',
         led: true
     },
     {
         code: 'KeyA',
-        name: 'A'
+        text: 'A'
     },
     {
         code: 'KeyS',
-        name: 'S'
+        text: 'S'
     },
     {
         code: 'KeyD',
-        name: 'D'
+        text: 'D'
     },
     {
         code: 'KeyF',
-        name: 'F'
+        text: 'F'
     },
     {
         code: 'KeyG',
-        name: 'G'
+        text: 'G'
     },
     {
         code: 'KeyH',
-        name: 'H'
+        text: 'H'
     },
     {
         code: 'KeyJ',
-        name: 'J'
+        text: 'J'
     },
     {
         code: 'KeyK',
-        name: 'K'
+        text: 'K'
     },
     {
         code: 'KeyL',
-        name: 'L'
+        text: 'L'
     },
     {
         code: 'Semicolon',
-        name: ';'
+        topSymbol: ':',
+        bottomSymbol: ';'
     },
     {
         code: 'Quote',
-        name: '\''
+        topSymbol: '"',
+        bottomSymbol: '\''
     },
     {
         code: 'Backslash',
-        name: '\\'
+        topSymbol: '|',
+        bottomSymbol: '\\'
     },
 ];
 
 const row4: KeyData[] = [
     {
         code: 'ShiftLeft',
-        name: 'shift'
+        bottomText: 'shift',
+        align: 'left'
     },
     {
-        code: 'IntlBackslash',
-        name: '`'
+        code: 'Backquote',
+        topSymbol: '~',
+        bottomSymbol: '`'
     },
     {
         code: 'KeyZ',
-        name: 'Z'
+        text: 'Z'
     },
     {
         code: 'KeyX',
-        name: 'X'
+        text: 'X'
     },
     {
         code: 'KeyC',
-        name: 'C'
+        text: 'C'
     },
     {
         code: 'KeyV',
-        name: 'V'
+        text: 'V'
     },
     {
         code: 'KeyB',
-        name: 'B'
+        text: 'B'
     },
     {
         code: 'KeyN',
-        name: 'N'
+        text: 'N'
     },
     {
         code: 'KeyM',
-        name: 'M'
+        text: 'M'
     },
     {
         code: 'Comma',
-        name: ','
+        topSymbol: '<',
+        bottomSymbol: ','
     },
     {
         code: 'Period',
-        name: '.'
+        topSymbol: '>',
+        bottomSymbol: '.'
     },
     {
         code: 'Slash',
-        name: '/'
+        topSymbol: '?',
+        bottomSymbol: '/'
     },
     {
         code: 'ShiftRight',
-        name: 'shift'
+        bottomText: 'shift',
+        align: 'right'
     },
 ];
 
 const row5: KeyData[] = [
     {
         code: 'Fn',
-        name: 'fn'
+        topRightSymbol: 'fn',
+        bottomLeftSymbol: '🌐'
     },
     {
         code: 'ControlLeft',
-        name: 'control'
+        topRightSymbol: '^',
+        bottomText: 'control'
     },
     {
         code: 'AltLeft',
-        name: 'option'
+        topRightSymbol: '⌥',
+        bottomText: 'option'
     },
     {
         code: 'MetaLeft',
-        name: 'command'
+        topRightSymbol: '⌘',
+        bottomText: 'command'
     },
     {
-        code: 'Space',
-        name: ''
+        code: 'Space'
     },
     {
         code: 'MetaRight',
-        name: 'command' // ⌘
+        topLeftSymbol: '⌘',
+        bottomText: 'command'
     },
     {
         code: 'AltRight',
-        name: 'option'
+        topLeftSymbol: '⌥',
+        bottomText: 'option'
     },
     {
-        code: 'ArrowLeft',
-        name: ''
+        code: 'ArrowLeft'
     },
     {
-        code: 'ArrowDown',
-        name: ''
+        code: 'ArrowDown'
     },
     {
-        code: 'ArrowUp',
-        name: ''
+        code: 'ArrowUp'
     },
     {
-        code: 'ArrowRight',
-        name: ''
+        code: 'ArrowRight'
     },
 ];
 
