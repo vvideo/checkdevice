@@ -1,8 +1,8 @@
-import { KeyboardLayout, RowOfKeys } from '.';
+import { KeyData } from '../../KeyboardKey';
 
 import './mac.css';
 
-const row0: RowOfKeys = [
+const row0: KeyData[] = [
     {
         code: 'Escape',
         name: 'esc'
@@ -61,7 +61,7 @@ const row0: RowOfKeys = [
     }
 ];
 
-const row1: RowOfKeys = [
+const row1: KeyData[] = [
     {
         code: 'Backquote',
         name: '§'
@@ -120,7 +120,7 @@ const row1: RowOfKeys = [
     },
 ];
 
-const row2: RowOfKeys = [
+const row2: KeyData[] = [
     {
         code: 'Tab',
         name: '⇥'
@@ -179,7 +179,7 @@ const row2: RowOfKeys = [
     },
 ];
 
-const row3: RowOfKeys = [
+const row3: KeyData[] = [
     {
         code: 'CapsLock',
         name: '⇪',
@@ -235,7 +235,7 @@ const row3: RowOfKeys = [
     },
 ];
 
-const row4: RowOfKeys = [
+const row4: KeyData[] = [
     {
         code: 'ShiftLeft',
         name: 'shift'
@@ -290,7 +290,7 @@ const row4: RowOfKeys = [
     },
 ];
 
-const row5: RowOfKeys = [
+const row5: KeyData[] = [
     {
         code: 'Fn',
         name: 'fn'
@@ -337,7 +337,7 @@ const row5: RowOfKeys = [
     },
 ];
 
-export const macKeyboardLayout: KeyboardLayout = [
+export const macKeyboardLayout: KeyData[][] = [
     row0,
     row1,
     row2,

@@ -1,53 +1,26 @@
 import { html  } from 'htm/preact';
-import { MutableRef, useCallback, useEffect, useRef } from 'preact/hooks';
+import { useCallback, useEffect, useRef } from 'preact/hooks';
 import { block } from '../../utils/bem';
 import { useForceUpdate } from '../../hooks/useForceUpdate';
 import { i18n } from '../../i18n/i18n';
 import { Button } from '../Button';
-import { Key, KeyboardLayout, RowOfKeys } from './layouts';
-import { macKeyboardLayout } from './layouts/mac';
+import { KeyState } from '../KeyboardKey';
+import { KeyboardLayout } from '../KeyboardLayout';
+import { macKeyboardLayout } from '../KeyboardLayout/type/mac';
 
 import './index.css';
 
-const b = block('keyboard');
+export const b = block('keyboard');
 
-type RefKeys = Record<string, { name: string; pressed: boolean; wasPressed: boolean; led: boolean; }>;
-
-function getKey(keys: RefKeys, keyData: Key) {
-    const data = keys[keyData.code] || {};
-
-    return html`
-        <div class="${b('key', { code: keyData.code, pressed: data.pressed, wasPressed: data.wasPressed })}" key="${keyData.code}">
-            ${keyData.name}
-            ${typeof keyData.led === 'boolean' ? html`<div class="${b('led', { on: data.led })}"></div>` : ''}
-        </div>`;
-}
-
-function getRowWithKeys(keys: RowOfKeys, refKeys: MutableRef<RefKeys>) {
-    return keys.map(item => {
-        return getKey(refKeys.current, item);
-    });
-}
-
-function getLayout(layout: KeyboardLayout, refKeys: MutableRef<RefKeys>) {
-    return layout.map((item, num) => {
-        return html`
-            <div key="${num}" class="${b('row', { num } )}">
-                ${getRowWithKeys(item, refKeys)}
-            </div>
-        `;
-    });
-}
+export type KeysState = Record<string, KeyState>;
 
 export function Keyboard() {
-    const refKeys = useRef<RefKeys>({});
+    const refKeysState = useRef<KeysState>({});
 
     const forceRender = useForceUpdate();
 
-    const layoutContent = getLayout(macKeyboardLayout, refKeys);
-
     const handleReset = useCallback(() => {
-        refKeys.current = {};
+        refKeysState.current = {};
         forceRender();
     }, []);
 
@@ -57,9 +30,9 @@ export function Keyboard() {
 
             const { code } = event;
 
-            refKeys.current[code] = refKeys.current[code] || {};
+            refKeysState.current[code] = refKeysState.current[code] || {};
 
-            const data = refKeys.current[code];
+            const data = refKeysState.current[code];
 
             if (event.code !== 'CapsLock') {
                 data.pressed = true;
@@ -68,8 +41,8 @@ export function Keyboard() {
             data.wasPressed = true;
 
             if (event.getModifierState) {
-                refKeys.current['CapsLock'] = refKeys.current['CapsLock'] || {};
-                refKeys.current['CapsLock'].led = event.getModifierState('CapsLock');
+                refKeysState.current['CapsLock'] = refKeysState.current['CapsLock'] || {};
+                refKeysState.current['CapsLock'].led = event.getModifierState('CapsLock');
             }
 
             forceRender();
@@ -82,13 +55,11 @@ export function Keyboard() {
 
             const { code } = event;
 
-            refKeys.current[code] = refKeys.current[code] || {};
+            refKeysState.current[code] = refKeysState.current[code] || {};
 
-            const data = refKeys.current[code];
+            const data = refKeysState.current[code];
             data.pressed = false;
             data.wasPressed = true;
-
-            refKeys.current[code]
 
             forceRender();
 
@@ -106,9 +77,7 @@ export function Keyboard() {
 
     return html`
         <div class="${b()}">
-            <div class="${b('layout', { type: 'mac' })}">
-                ${layoutContent}
-            </div>
+            <${KeyboardLayout} layout="${macKeyboardLayout}" type="mac" keysState="${refKeysState.current}" //>
 
             <div class="${b('controls')}">
                 <${Button} size="m" onClick="${handleReset}">${i18n('Reset')}<//>

@@ -1,18 +1,18 @@
-.keyboard__layout_type_mac {
+.keyboard-layout_type_mac {
     border: 2px solid #333;
     width: 940px;
     padding: 20px;
     border-radius: 5px;
 }
 
-.keyboard__layout_type_mac .keyboard__row {
+.keyboard-layout_type_mac .keyboard-layout__row {
     position: relative;
     display: flex;
     margin-bottom: 5px;
     width: 1000px;
 }
 
-.keyboard__layout_type_mac .keyboard__key {
+.keyboard-layout_type_mac .keyboard-key {
     position: relative;
     cursor: default;
     padding: 5px;
@@ -33,12 +33,12 @@
     box-sizing: border-box;
 }
 
-.keyboard__layout_type_mac .keyboard__key_wasPressed {
+.keyboard-layout_type_mac .keyboard-key_wasPressed {
     background: white;
     color: black;
 }
 
-.keyboard__layout_type_mac .keyboard__key_pressed {
+.keyboard-layout_type_mac .keyboard-key_pressed {
     background: gold;
     border-color: gold;
     top: 1px;
@@ -46,7 +46,7 @@
     color: black;
 }
 
-.keyboard__layout_type_mac .keyboard__row_num_0 .keyboard__key {
+.keyboard-layout_type_mac .keyboard-layout__row_num_0 .keyboard-key {
     text-align: center;
     width: 65px;
     height: 30px;
@@ -55,35 +55,35 @@
     padding: 0 5px;
 }
 
-.keyboard__layout_type_mac .keyboard__row_num_5 {
+.keyboard-layout_type_mac .keyboard-layout__row_num_5 {
     margin-bottom: 0;
 }
 
-.keyboard__layout_type_mac .keyboard__row_num_0 .keyboard__key_code_Escape {
+.keyboard-layout_type_mac .keyboard-layout__row_num_0 .keyboard-key_code_Escape {
     text-align: left;
 }
 
-.keyboard__layout_type_mac .keyboard__row_num_0 .keyboard__key_code_PowerOff {
+.keyboard-layout_type_mac .keyboard-layout__row_num_0 .keyboard-key_code_PowerOff {
     width: 30px;
     height: 30px;
 }
 
-.keyboard__layout_type_mac .keyboard__key_code_Tab {
+.keyboard-layout_type_mac .keyboard-key_code_Tab {
     width: 95px;
     text-align: left;
     align-content: end;
 }
 
-.keyboard__layout_type_mac .keyboard__key_code_ShiftLeft {
+.keyboard-layout_type_mac .keyboard-key_code_ShiftLeft {
     width: 70px;
     text-align: left;
 }
 
-.keyboard__layout_type_mac .keyboard__key_code_Enter {
+.keyboard-layout_type_mac .keyboard-key_code_Enter {
     border-radius: 5px 5px 0 5px;
 }
 
-.keyboard__layout_type_mac .keyboard__key_code_Enter::after {
+.keyboard-layout_type_mac .keyboard-key_code_Enter::after {
     position: absolute;
     content: '';
     right: -1px;
@@ -96,30 +96,30 @@
     background-color: inherit;
 }
 
-.keyboard__layout_type_mac .keyboard__key_code_ShiftRight {
+.keyboard-layout_type_mac .keyboard-key_code_ShiftRight {
     width: 150px;
     text-align: right;
 }
 
-.keyboard__layout_type_mac .keyboard__key_code_ShiftLeft,
-.keyboard__layout_type_mac .keyboard__key_code_ShiftRight {
+.keyboard-layout_type_mac .keyboard-key_code_ShiftLeft,
+.keyboard-layout_type_mac .keyboard-key_code_ShiftRight {
     font-size: 12px;
     align-content: end;
 }
 
-.keyboard__layout_type_mac .keyboard__key_code_Backspace {
+.keyboard-layout_type_mac .keyboard-key_code_Backspace {
     width: 95px;
     text-align: right;
     align-content: end;
 }
 
-.keyboard__layout_type_mac .keyboard__key_code_CapsLock {
+.keyboard-layout_type_mac .keyboard-key_code_CapsLock {
     width: 115px;
     text-align: left;
     align-content: end;
 }
 
-.keyboard__layout_type_mac .keyboard__key_code_CapsLock .keyboard__led {
+.keyboard-layout_type_mac .keyboard-key_code_CapsLock .keyboard-key__led {
     position: absolute;
     left: 8px;
     top: 8px;
@@ -130,40 +130,40 @@
     border: 1px solid transparent;
 }
 
-.keyboard__layout_type_mac .keyboard__key_code_CapsLock .keyboard__led_on {
+.keyboard-layout_type_mac .keyboard-key_code_CapsLock .keyboard-key__led_on {
     background-color: YellowGreen;
     border-color: rgba(0, 0, 0, .5);
 }
 
-.keyboard__layout_type_mac .keyboard__key_code_MetaLeft,
-.keyboard__layout_type_mac .keyboard__key_code_MetaRight {
+.keyboard-layout_type_mac .keyboard-key_code_MetaLeft,
+.keyboard-layout_type_mac .keyboard-key_code_MetaRight {
     width: 70px;
 }
 
-.keyboard__layout_type_mac .keyboard__key_code_Fn,
-.keyboard__layout_type_mac .keyboard__key_code_MetaLeft,
-.keyboard__layout_type_mac .keyboard__key_code_MetaRight,
-.keyboard__layout_type_mac .keyboard__key_code_AltLeft,
-.keyboard__layout_type_mac .keyboard__key_code_AltRight,
-.keyboard__layout_type_mac .keyboard__key_code_ControlLeft,
-.keyboard__layout_type_mac .keyboard__key_code_ControlRight {
+.keyboard-layout_type_mac .keyboard-key_code_Fn,
+.keyboard-layout_type_mac .keyboard-key_code_MetaLeft,
+.keyboard-layout_type_mac .keyboard-key_code_MetaRight,
+.keyboard-layout_type_mac .keyboard-key_code_AltLeft,
+.keyboard-layout_type_mac .keyboard-key_code_AltRight,
+.keyboard-layout_type_mac .keyboard-key_code_ControlLeft,
+.keyboard-layout_type_mac .keyboard-key_code_ControlRight {
     font-size: 12px;
     align-content: end;
 }
 
-.keyboard__layout_type_mac .keyboard__key_code_Space {
+.keyboard-layout_type_mac .keyboard-key_code_Space {
     width: 335px;
 }
 
-.keyboard__layout_type_mac .keyboard__key_code_ArrowLeft,
-.keyboard__layout_type_mac .keyboard__key_code_ArrowRight,
-.keyboard__layout_type_mac .keyboard__key_code_ArrowUp,
-.keyboard__layout_type_mac .keyboard__key_code_ArrowDown {
+.keyboard-layout_type_mac .keyboard-key_code_ArrowLeft,
+.keyboard-layout_type_mac .keyboard-key_code_ArrowRight,
+.keyboard-layout_type_mac .keyboard-key_code_ArrowUp,
+.keyboard-layout_type_mac .keyboard-key_code_ArrowDown {
     height: 30px;
     align-self: end;
 }
 
-.keyboard__layout_type_mac .keyboard__key_code_ArrowDown::after {
+.keyboard-layout_type_mac .keyboard-key_code_ArrowDown::after {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -177,15 +177,15 @@
     border-right: 5px solid transparent;
 }
 
-.keyboard__layout_type_mac .keyboard__key_pressed.keyboard__key_code_ArrowDown::after {
+.keyboard-layout_type_mac .keyboard-key_pressed.keyboard-key_code_ArrowDown::after {
     border-top-color: black;
 }
 
-.keyboard__layout_type_mac .keyboard__key_wasPressed.keyboard__key_code_ArrowDown::after {
+.keyboard-layout_type_mac .keyboard-key_wasPressed.keyboard-key_code_ArrowDown::after {
     border-top-color: black;
 }
 
-.keyboard__layout_type_mac .keyboard__key_code_ArrowUp::after {
+.keyboard-layout_type_mac .keyboard-key_code_ArrowUp::after {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -199,15 +199,15 @@
     border-right: 5px solid transparent;
 }
 
-.keyboard__layout_type_mac .keyboard__key_pressed.keyboard__key_code_ArrowUp::after {
+.keyboard-layout_type_mac .keyboard-key_pressed.keyboard-key_code_ArrowUp::after {
     border-bottom-color: black;
 }
 
-.keyboard__layout_type_mac .keyboard__key_wasPressed.keyboard__key_code_ArrowUp::after {
+.keyboard-layout_type_mac .keyboard-key_wasPressed.keyboard-key_code_ArrowUp::after {
     border-bottom-color: black;
 }
 
-.keyboard__layout_type_mac .keyboard__key_code_ArrowRight::after {
+.keyboard-layout_type_mac .keyboard-key_code_ArrowRight::after {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -221,15 +221,15 @@
     border-bottom: 5px solid transparent;
 }
 
-.keyboard__layout_type_mac .keyboard__key_pressed.keyboard__key_code_ArrowRight::after {
+.keyboard-layout_type_mac .keyboard-key_pressed.keyboard-key_code_ArrowRight::after {
     border-left-color: black;
 }
 
-.keyboard__layout_type_mac .keyboard__key_wasPressed.keyboard__key_code_ArrowRight::after {
+.keyboard-layout_type_mac .keyboard-key_wasPressed.keyboard-key_code_ArrowRight::after {
     border-left-color: black;
 }
 
-.keyboard__layout_type_mac .keyboard__key_code_ArrowLeft::after {
+.keyboard-layout_type_mac .keyboard-key_code_ArrowLeft::after {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -243,15 +243,15 @@
     border-bottom: 5px solid transparent;
 }
 
-.keyboard__layout_type_mac .keyboard__key_pressed.keyboard__key_code_ArrowLeft::after {
+.keyboard-layout_type_mac .keyboard-key_pressed.keyboard-key_code_ArrowLeft::after {
     border-right-color: black;
 }
 
-.keyboard__layout_type_mac .keyboard__key_wasPressed.keyboard__key_code_ArrowLeft::after {
+.keyboard-layout_type_mac .keyboard-key_wasPressed.keyboard-key_code_ArrowLeft::after {
     border-right-color: black;
 }
 
-.keyboard__layout_type_mac .keyboard__key_code_ArrowUp {
+.keyboard-layout_type_mac .keyboard-key_code_ArrowUp {
     position: absolute;
     left: auto;
     right: 120px;
