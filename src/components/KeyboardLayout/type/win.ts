@@ -1,12 +1,15 @@
 import { KeyboardLayoutData, KeyboardRowData } from '..';
 
-import './mac.css';
+import './win.css';
 
 const row0: KeyboardRowData = [
     {
         code: 'Escape',
-        text: 'esc',
-        align: 'left'
+        text: 'ESC'
+    },
+    {
+        type: 'spacer',
+        name: 'between-func'
     },
     {
         code: 'F1',
@@ -25,6 +28,10 @@ const row0: KeyboardRowData = [
         text: 'F4'
     },
     {
+        type: 'spacer',
+        name: 'between-func'
+    },
+    {
         code: 'F5',
         text: 'F5'
     },
@@ -39,6 +46,10 @@ const row0: KeyboardRowData = [
     {
         code: 'F8',
         text: 'F8'
+    },
+    {
+        type: 'spacer',
+        name: 'between-func'
     },
     {
         code: 'F9',
@@ -57,7 +68,44 @@ const row0: KeyboardRowData = [
         text: 'F12'
     },
     {
-        code: 'PowerOff',
+        type: 'spacer',
+        name: 'before-sys'
+    },
+    {
+        code: 'PrintScreen',
+        text: 'PRINT SCRN'
+    },
+    {
+        code: 'ScrollLock',
+        text: 'SCROLL LOCK'
+    },
+    {
+        code: 'PauseBreak',
+        text: 'PAUSE BREAK'
+    },
+    {
+        type: 'spacer',
+        name: 'before-num-pad'
+    },
+    {
+        code: 'MediaPlayPause',
+        text: '⏯',
+        view: 'circle'
+    },
+    {
+        code: 'MediaStop',
+        text: '⏹',
+        view: 'circle'
+    },
+    {
+        code: 'MediaTrackPrevious',
+        text: '⏮',
+        view: 'circle'
+    },
+    {
+        code: 'MediaTrackNext',
+        text: '⏭',
+        view: 'circle'
     }
 ];
 
@@ -131,14 +179,46 @@ const row1: KeyboardRowData = [
     },
     {
         code: 'Backspace',
-        bottomRightSymbol: '⌫'
+        text: '←'
     },
+    {
+        code: 'Insert',
+        text: 'INSERT'
+    },
+    {
+        code: 'Home',
+        text: 'HOME'
+    },
+    {
+        code: 'PageUp',
+        text: 'PAGE UP'
+    },
+    {
+        type: 'spacer',
+        name: 'before-numpad'
+    },
+    {
+        code: 'NumLock',
+        text: 'NUM LOCK'
+    },
+    {
+        code: 'NumpadDivide',
+        text: '/'
+    },
+    {
+        code: 'NumpadMultiply',
+        text: '*'
+    },
+    {
+        code: 'NumpadSubtract',
+        text: '-'
+    }
 ];
 
 const row2: KeyboardRowData = [
     {
         code: 'Tab',
-        bottomLeftSymbol: '⇥'
+        text: 'TAB ⇥'
     },
     {
         code: 'KeyQ',
@@ -194,13 +274,44 @@ const row2: KeyboardRowData = [
         code: 'Enter',
         text: '⏎'
     },
+    {
+        code: 'Delete',
+        text: 'DELETE'
+    },
+    {
+        code: 'End',
+        text: 'END'
+    },
+    {
+        code: 'PageDown',
+        text: 'PAGE DOWN'
+    },
+    {
+        type: 'spacer',
+        name: 'before-numpad'
+    },
+    {
+        code: 'Numpad7',
+        text: '7'
+    },
+    {
+        code: 'Numpad8',
+        text: '8'
+    },
+    {
+        code: 'Numpad9',
+        text: '9'
+    },
+    {
+        code: 'NumpadAdd',
+        text: '+'
+    }
 ];
 
 const row3: KeyboardRowData = [
     {
         code: 'CapsLock',
-        bottomLeftSymbol: '⇪',
-        led: true
+        text: 'CAPS LOCK'
     },
     {
         code: 'KeyA',
@@ -253,13 +364,28 @@ const row3: KeyboardRowData = [
         topSymbol: '|',
         bottomSymbol: '\\'
     },
+    {
+        type: 'spacer',
+        name: 'before-numpad'
+    },
+    {
+        code: 'Numpad4',
+        text: '4'
+    },
+    {
+        code: 'Numpad5',
+        text: '5'
+    },
+    {
+        code: 'Numpad6',
+        text: '6'
+    }
 ];
 
 const row4: KeyboardRowData = [
     {
         code: 'ShiftLeft',
-        bottomText: 'shift',
-        align: 'left'
+        text: 'SHIFT'
     },
     {
         code: 'Backquote',
@@ -311,61 +437,115 @@ const row4: KeyboardRowData = [
     },
     {
         code: 'ShiftRight',
-        bottomText: 'shift',
-        align: 'right'
+        text: 'SHIFT'
+    },
+    {
+        type: 'spacer',
+        name: 'before-arrow-up'
+    },
+    {
+        code: 'ArrowUp',
+        text: '↑'
+    },
+    {
+        type: 'spacer',
+        name: 'after-arrow-up'
+    },
+    {
+        code: 'Numpad1',
+        text: '1'
+    },
+    {
+        code: 'Numpad2',
+        text: '2'
+    },
+    {
+        code: 'Numpad3',
+        text: '3'
+    },
+    {
+        code: 'NumpadEnter',
+        text: 'Enter'
     },
 ];
 
 const row5: KeyboardRowData = [
     {
-        code: 'Fn',
-        topRightSymbol: 'fn',
-        bottomLeftSymbol: '🌐'
+        code: 'ControlLeft',
+        text: 'CTRL'
     },
     {
-        code: 'ControlLeft',
-        topRightSymbol: '^',
-        bottomText: 'control'
+        code: 'MetaLeft'
     },
     {
         code: 'AltLeft',
-        topRightSymbol: '⌥',
-        bottomText: 'option'
-    },
-    {
-        code: 'MetaLeft',
-        topRightSymbol: '⌘',
-        bottomText: 'command'
+        text: 'ALT'
     },
     {
         code: 'Space'
     },
     {
-        code: 'MetaRight',
-        topLeftSymbol: '⌘',
-        bottomText: 'command'
-    },
-    {
         code: 'AltRight',
-        topLeftSymbol: '⌥',
-        bottomText: 'option'
+        text: 'ALTGR'
     },
     {
-        code: 'ArrowLeft'
+        code: 'MetaRight'
     },
     {
-        code: 'ArrowDown'
+        code: 'ContextMenu',
+        text: '□',
     },
     {
-        code: 'ArrowUp'
+        code: 'ControlRight',
+        text: 'CTRL'
     },
     {
-        code: 'ArrowRight'
+        type: 'spacer',
+        name: 'before-arrows'
     },
+    {
+        code: 'ArrowLeft',
+        text: '←'
+    },
+    {
+        code: 'ArrowDown',
+        text: '↓'
+    },
+    {
+        code: 'ArrowRight',
+        text: '→'
+    },
+    {
+        type: 'spacer',
+        name: 'after-arrows'
+    },
+    {
+        code: 'Numpad0',
+        text: '0'
+    },
+    {
+        code: 'NumpadDecimal',
+        text: '.'
+    }
 ];
 
-export const macKeyboardLayout: KeyboardLayoutData = {
-    type: 'mac',
+const row6: KeyboardRowData = [
+    {
+        type: 'led',
+        code: 'CapsLock'
+    },
+    {
+        type: 'led',
+        code: 'ScrollLock'
+    },
+    {
+        type: 'led',
+        code: 'NumLock'
+    }
+];
+
+export const winKeyboardLayout: KeyboardLayoutData = {
+    type: 'win',
     rows: [
         row0,
         row1,
@@ -373,5 +553,6 @@ export const macKeyboardLayout: KeyboardLayoutData = {
         row3,
         row4,
         row5,
+        row6,
     ]
 };

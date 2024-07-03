@@ -8,33 +8,33 @@ export class KeyboardLedController {
     public numLock = false;
 
     public on() {
-        this.bindMouse();
-        this.bindKeyboard();
+        this.bindMouseEvents();
+        this.bindKeyboardEvents();
     }
 
     public off() {
-        this.unbindMouse();
-        this.unbindKeyboard();
+        this.unbindMouseEvents();
+        this.unbindKeyboardEvents();
     }
 
-    private bindMouse() {
+    public bindMouseEvents() {
         document.addEventListener('mousemove', this.handleMouse);
         document.addEventListener('mousedown', this.handleMouse);
         document.addEventListener('mouseup', this.handleMouse);
     }
 
-    private bindKeyboard() {
+    public bindKeyboardEvents() {
         document.addEventListener('keydown', this.handleKey);
         document.addEventListener('keyup', this.handleKey);
     }
 
-    private unbindMouse() {
+    public unbindMouseEvents() {
         document.removeEventListener('mousemove', this.handleMouse);
         document.removeEventListener('mousedown', this.handleMouse);
         document.removeEventListener('mouseup', this.handleMouse);
     }
 
-    private unbindKeyboard() {
+    public unbindKeyboardEvents() {
         document.removeEventListener('keydown', this.handleKey);
         document.removeEventListener('keyup', this.handleKey);
     }

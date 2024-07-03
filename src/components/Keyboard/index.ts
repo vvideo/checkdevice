@@ -6,7 +6,7 @@ import { i18n } from '../../i18n/i18n';
 import { Button } from '../Button';
 import { KeyState } from '../KeyboardKey';
 import { KeyboardLayout } from '../KeyboardLayout';
-import { macKeyboardLayout } from '../KeyboardLayout/type/mac';
+import { winKeyboardLayout } from '../KeyboardLayout/type/win';
 import { clearPressedStatus, prepareKeyboardCode } from './utils';
 import { keyboardLedController } from '../../lib/KeyboardLedController';
 
@@ -89,7 +89,7 @@ export function Keyboard() {
 
     return html`
         <div class="${b()}">
-            <${KeyboardLayout} layout="${macKeyboardLayout}" type="mac" keysState="${refKeysState.current}" //>
+            <${KeyboardLayout} layout="${winKeyboardLayout}" keysState="${refKeysState.current}" //>
 
             <div class="${b('controls')}">
                 <${Button} size="m" onClick="${handleReset}">${i18n('Reset')}<//>

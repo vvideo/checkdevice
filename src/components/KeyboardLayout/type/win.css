@@ -1,0 +1,248 @@
+.keyboard-layout_type_win {
+    position: relative;
+    border: 2px solid #333;
+    width: 1200px;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.keyboard-layout_type_win .keyboard-layout__row {
+    position: relative;
+    display: flex;
+    margin-bottom: 5px;
+    width: 1180px;
+}
+
+.keyboard-layout_type_win .keyboard-key__top-left-symbol {
+    position: absolute;
+    font-size: 16px;
+    left: 8px;
+    top: 8px;
+}
+
+.keyboard-layout_type_win .keyboard-key__top-right-symbol {
+    position: absolute;
+    font-size: 16px;
+    right: 8px;
+    top: 8px;
+}
+
+.keyboard-layout_type_win .keyboard-key__top-symbol {
+    position: absolute;
+    font-size: 16px;
+    left: 8px;
+    right: 8px;
+    top: 8px;
+}
+
+.keyboard-layout_type_win .keyboard-key__bottom-symbol {
+    position: absolute;
+    font-size: 16px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+}
+
+.keyboard-layout_type_win .keyboard-key__bottom-right-symbol {
+    position: absolute;
+    font-size: 16px;
+    right: 8px;
+    bottom: 8px;
+}
+
+.keyboard-layout_type_win .keyboard-key__bottom-left-symbol {
+    position: absolute;
+    font-size: 16px;
+    left: 8px;
+    bottom: 8px;
+}
+
+.keyboard-layout_type_win .keyboard-key__bottom-text {
+    position: absolute;
+    font-size: 12px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+}
+
+.keyboard-layout_type_win .keyboard-key {
+    display: flex;
+    position: relative;
+    cursor: default;
+    margin-right: 5px;
+
+    flex-wrap: wrap;
+    width: 50px;
+    height: 50px;
+
+    align-content: center;
+    justify-content: center;
+    font-size: 16px;
+    text-align: center;
+    line-height: 1em;
+
+    color: white;
+    background: black;
+    border: 1px solid white;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.keyboard-layout_type_win .keyboard-key_view_circle {
+    border-radius: 100% 100%;
+}
+
+.keyboard-layout_type_win .keyboard-key_align_left {
+    text-align: left;
+    justify-content: left;
+}
+
+.keyboard-layout_type_win .keyboard-key_align_right {
+    text-align: right;
+    justify-content: right;
+}
+
+.keyboard-layout_type_win .keyboard-key_wasPressed {
+    background: white;
+    color: black;
+}
+
+.keyboard-layout_type_win .keyboard-key_pressed {
+    background: gold;
+    border-color: gold;
+    top: 1px;
+    left: 1px;
+    color: black;
+}
+
+.keyboard-layout_type_win .keyboard-layout__row_num_0 {
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.keyboard-layout_type_win .keyboard-layout__row_num_5 {
+    margin-bottom: 0;
+}
+
+.keyboard-layout_type_win .keyboard-layout__row_num_6 {
+    position: absolute;
+    left: 630px;
+    top: 10px;
+}
+
+.keyboard-layout_type_win .keyboard-key_code_Tab {
+    width: 95px;
+}
+
+.keyboard-layout_type_win .keyboard-key_code_ShiftLeft,
+.keyboard-layout_type_win .keyboard-key_code_ShiftRight {
+    width: 100px;
+}
+
+.keyboard-layout_type_win .keyboard-key_code_Enter {
+    border-radius: 5px 5px 0 5px;
+}
+
+.keyboard-layout_type_win .keyboard-key_code_Enter::after {
+    position: absolute;
+    content: '';
+    right: -1px;
+    top: 58px;
+    width: 38px;
+    height: 65px;
+    border: 1px solid inherit;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    background-color: inherit;
+}
+
+.keyboard-layout_type_win .keyboard-key_code_Backspace {
+    width: 95px;
+}
+
+.keyboard-layout_type_win .keyboard-key_code_CapsLock {
+    width: 115px;
+}
+
+.keyboard-layout_type_win .keyboard-key_code_CapsLock .keyboard-key__led {
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    background-color: #333;
+    border-radius: 100%;
+    border: 1px solid transparent;
+}
+
+.keyboard-layout_type_win .keyboard-key_code_CapsLock .keyboard-key__led_on {
+    background-color: YellowGreen;
+    border-color: rgba(0, 0, 0, .5);
+}
+
+.keyboard-layout_type_win .keyboard-key_code_MetaLeft,
+.keyboard-layout_type_win .keyboard-key_code_MetaRight {
+    width: 70px;
+}
+
+
+.keyboard-layout_type_win .keyboard-key_code_PrintScreen,
+.keyboard-layout_type_win .keyboard-key_code_ScrollLock,
+.keyboard-layout_type_win .keyboard-key_code_PauseBreak,
+.keyboard-layout_type_win .keyboard-key_code_CapsLock,
+.keyboard-layout_type_win .keyboard-key_code_ShiftLeft,
+.keyboard-layout_type_win .keyboard-key_code_ShiftRight,
+.keyboard-layout_type_win .keyboard-key_code_Tab,
+.keyboard-layout_type_win .keyboard-key_code_MetaLeft,
+.keyboard-layout_type_win .keyboard-key_code_MetaRight,
+.keyboard-layout_type_win .keyboard-key_code_AltLeft,
+.keyboard-layout_type_win .keyboard-key_code_AltRight,
+.keyboard-layout_type_win .keyboard-key_code_Insert,
+.keyboard-layout_type_win .keyboard-key_code_Home,
+.keyboard-layout_type_win .keyboard-key_code_PageUp,
+.keyboard-layout_type_win .keyboard-key_code_PageDown,
+.keyboard-layout_type_win .keyboard-key_code_ControlLeft,
+.keyboard-layout_type_win .keyboard-key_code_ControlRight,
+.keyboard-layout_type_win .keyboard-key_code_Delete,
+.keyboard-layout_type_win .keyboard-key_code_NumpadEnter,
+.keyboard-layout_type_win .keyboard-key_code_NumLock,
+.keyboard-layout_type_win .keyboard-key_code_End {
+    font-size: 11px;
+    line-height: 15px;
+}
+
+.keyboard-layout_type_win .keyboard-key_code_ControlLeft,
+.keyboard-layout_type_win .keyboard-key_code_ControlRight {
+    width: 80px;
+}
+
+.keyboard-layout_type_win .keyboard-key_code_AltLeft,
+.keyboard-layout_type_win .keyboard-key_code_AltRight {
+    width: 60px;
+}
+
+.keyboard-layout_type_win .keyboard-key_code_Space {
+    width: 335px;
+}
+
+.keyboard-layout_type_win .keyboard-key_code_ArrowLeft,
+.keyboard-layout_type_win .keyboard-key_code_ArrowRight,
+.keyboard-layout_type_win .keyboard-key_code_ArrowUp,
+.keyboard-layout_type_win .keyboard-key_code_ArrowDown {
+    font-weight: bold;
+}
+
+.keyboard-layout_type_win .keyboard-spacer_name_between-func {
+    width: 50px;
+}
+
+.keyboard-layout_type_win .keyboard-led {
+    width: 10px;
+    height: 20px;
+    margin: 10px 15px;
+    background-color: #444;
+}
+
+.keyboard-layout_type_win .keyboard-led_on {
+    background-color: yellowgreen;
+}

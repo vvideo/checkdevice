@@ -2,6 +2,7 @@ import { html } from 'htm/preact';
 import { block } from '../../utils/bem';
 
 export interface KeyData {
+    type?: 'key';
     code: string;
     view?: 'square' | 'circle';
     topSymbol?: string;
@@ -14,6 +15,16 @@ export interface KeyData {
     text?: string;
     align?: 'left' | 'right' | 'center';
     led?: boolean;
+}
+
+export interface LedData {
+    type: 'led';
+    code: string;
+}
+
+export interface SpacerData {
+    type: 'spacer';
+    name: string;
 }
 
 export interface KeyState {
@@ -33,7 +44,7 @@ export function KeyboardKey(props: KeyboardKeyProps) {
     const { state, keyData } = props;
 
     return html`
-        <div class="${b({ align: keyData.align, code: keyData.code, pressed: state.pressed, wasPressed: state.wasPressed })}">
+        <div class="${b({ align: keyData.align, code: keyData.code, pressed: state.pressed, wasPressed: state.wasPressed, view: keyData.view })}">
             ${keyData.text || ''}
             ${keyData.topSymbol ? html`<div class="${b('top-symbol')}">${keyData.topSymbol}</div>` : ''}
             ${keyData.topLeftSymbol ? html`<div class="${b('top-left-symbol')}">${keyData.topLeftSymbol}</div>` : ''}
