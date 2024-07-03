@@ -7,35 +7,14 @@ import { Button } from '../Button';
 import { KeyState } from '../KeyboardKey';
 import { KeyboardLayout } from '../KeyboardLayout';
 import { macKeyboardLayout } from '../KeyboardLayout/type/mac';
+import { clearPressedStatus, prepareKeyboardCode } from './utils';
+import { keyboardLedController } from '../../lib/KeyboardLedController';
 
 import './index.css';
 
 export const b = block('keyboard');
 
 export type KeysState = Record<string, KeyState>;
-
-function preparedKeyboardCode(code: string, key: string) {
-    if (code === 'IntlBackslash' && (key === '`' || key === '~')) {
-        return 'Backquote';
-    } else if (code === 'Backquote' && (key === '§' || key === '±')) {
-        return 'IntlBackslash';
-    }
-
-    return code;
-}
-
-function updateCapslock(event: KeyboardEvent, keysState: KeysState) {
-    if (event.getModifierState) {
-        keysState['CapsLock'] = keysState['CapsLock'] || {};
-        keysState['CapsLock'].led = event.getModifierState('CapsLock');
-    }
-}
-
-function clearPressedStatus(keysState: KeysState) {
-    Object.keys(keysState).forEach(key => {
-        keysState[key].pressed = false;
-    });
-}
 
 export function Keyboard() {
     const refKeysState = useRef<KeysState>({});
@@ -48,10 +27,19 @@ export function Keyboard() {
     }, []);
 
     useEffect(() => {
+        const handleLed = () => {
+            refKeysState.current['CapsLock'] = refKeysState.current['CapsLock'] || {};
+            refKeysState.current['CapsLock'].led = keyboardLedController.capsLock;
+
+            forceRender();
+        };
+
+        keyboardLedController.addListener(handleLed);
+
         const handleKeydown = (event: KeyboardEvent) => {
             event.preventDefault();
 
-            const code = preparedKeyboardCode(event.code, event.key);
+            const code = prepareKeyboardCode(event.code, event.key);
 
             refKeysState.current[code] = refKeysState.current[code] || {};
 
@@ -63,8 +51,6 @@ export function Keyboard() {
 
             data.wasPressed = true;
 
-            updateCapslock(event, refKeysState.current);
-
             forceRender();
 
             console.log('keydown code', code);
@@ -73,7 +59,7 @@ export function Keyboard() {
         const handleKeyup = (event: KeyboardEvent) => {
             event.preventDefault();
 
-            const code = preparedKeyboardCode(event.code, event.key);
+            const code = prepareKeyboardCode(event.code, event.key);
 
             refKeysState.current[code] = refKeysState.current[code] || {};
 
@@ -84,8 +70,6 @@ export function Keyboard() {
             if (code === 'MetaLeft' || code === 'MetaRight') {
                 clearPressedStatus(refKeysState.current);
             }
-
-            updateCapslock(event, refKeysState.current);
 
             forceRender();
 
@@ -98,6 +82,8 @@ export function Keyboard() {
         return () => {
             document.removeEventListener('keydown', handleKeydown);
             document.removeEventListener('keyup', handleKeyup);
+
+            keyboardLedController.removeListener(handleLed);
         };
     }, []);
 
