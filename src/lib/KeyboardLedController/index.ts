@@ -1,9 +1,11 @@
 import { Signal } from '../Signal';
 
 export class KeyboardLedController {
-    private signal = new Signal();
+    private signal = new Signal<'CapsLock' | 'ScrollLock' | 'NumLock'>();
 
     public capsLock = false;
+    public scrollLock = false;
+    public numLock = false;
 
     public on() {
         this.bindMouse();
@@ -47,10 +49,22 @@ export class KeyboardLedController {
 
     private update(event: KeyboardEvent | MouseEvent) {
         if (event.getModifierState) {
-            const status = event.getModifierState('CapsLock');
-            if (this.capsLock !== status) {
-                this.capsLock = status;
-                this.signal.trigger();
+            const statusCapsLock = event.getModifierState('CapsLock');
+            if (this.capsLock !== statusCapsLock) {
+                this.capsLock = statusCapsLock;
+                this.signal.trigger('CapsLock');
+            }
+
+            const statusScrollLock = event.getModifierState('ScrollLock');
+            if (this.scrollLock !== statusScrollLock) {
+                this.scrollLock = statusScrollLock;
+                this.signal.trigger('ScrollLock');
+            }
+
+            const statusNumLock = event.getModifierState('NumLock');
+            if (this.numLock !== statusNumLock) {
+                this.numLock = statusNumLock;
+                this.signal.trigger('NumLock');
             }
         }
     }
