@@ -1,7 +1,7 @@
 .keyboard-layout_type_win {
     position: relative;
     border: 2px solid #333;
-    width: 1200px;
+    width: 1140px;
     padding: 20px;
     border-radius: 5px;
 }
@@ -10,29 +10,29 @@
     position: relative;
     display: flex;
     margin-bottom: 5px;
-    width: 1180px;
+    width: 1140px;
 }
 
 .keyboard-layout_type_win .keyboard-key__top-left-symbol {
     position: absolute;
     font-size: 16px;
     left: 8px;
-    top: 8px;
+    top: 5px;
 }
 
 .keyboard-layout_type_win .keyboard-key__top-right-symbol {
     position: absolute;
     font-size: 16px;
     right: 8px;
-    top: 8px;
+    top: 5px;
 }
 
 .keyboard-layout_type_win .keyboard-key__top-symbol {
     position: absolute;
-    font-size: 16px;
+    font-size: 14px;
     left: 8px;
     right: 8px;
-    top: 8px;
+    top: 5px;
 }
 
 .keyboard-layout_type_win .keyboard-key__bottom-symbol {
@@ -40,21 +40,21 @@
     font-size: 16px;
     left: 8px;
     right: 8px;
-    bottom: 8px;
+    bottom: 5px;
 }
 
 .keyboard-layout_type_win .keyboard-key__bottom-right-symbol {
     position: absolute;
     font-size: 16px;
     right: 8px;
-    bottom: 8px;
+    bottom: 5px;
 }
 
 .keyboard-layout_type_win .keyboard-key__bottom-left-symbol {
     position: absolute;
     font-size: 16px;
     left: 8px;
-    bottom: 8px;
+    bottom: 5px;
 }
 
 .keyboard-layout_type_win .keyboard-key__bottom-text {
@@ -62,7 +62,7 @@
     font-size: 12px;
     left: 8px;
     right: 8px;
-    bottom: 8px;
+    bottom: 5px;
 }
 
 .keyboard-layout_type_win .keyboard-key {
@@ -72,12 +72,12 @@
     margin-right: 5px;
 
     flex-wrap: wrap;
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
 
     align-content: center;
     justify-content: center;
-    font-size: 16px;
+    font-size: 14px;
     text-align: center;
     line-height: 1em;
 
@@ -116,8 +116,8 @@
 }
 
 .keyboard-layout_type_win .keyboard-layout__row_num_0 {
-    margin-top: 50px;
-    margin-bottom: 30px;
+    margin-top: 40px;
+    margin-bottom: 10px;
 }
 
 .keyboard-layout_type_win .keyboard-layout__row_num_5 {
@@ -126,31 +126,36 @@
 
 .keyboard-layout_type_win .keyboard-layout__row_num_6 {
     position: absolute;
-    left: 630px;
+    left: 570px;
     top: 10px;
+    width: 150px;
 }
 
 .keyboard-layout_type_win .keyboard-key_code_Tab {
-    width: 95px;
+    width: 65px;
 }
 
 .keyboard-layout_type_win .keyboard-key_code_ShiftLeft,
 .keyboard-layout_type_win .keyboard-key_code_ShiftRight {
-    width: 100px;
+    width: 95px;
 }
 
 .keyboard-layout_type_win .keyboard-key_code_Enter {
+    width: 75px;
     border-radius: 5px 5px 0 5px;
+    align-content: end;
 }
 
 .keyboard-layout_type_win .keyboard-key_code_Enter::after {
     position: absolute;
     content: '';
     right: -1px;
-    top: 58px;
-    width: 38px;
-    height: 65px;
-    border: 1px solid inherit;
+    top: 43px;
+    width: 60px;
+    height: 50px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: inherit;
     border-top: none;
     border-radius: 0 0 5px 5px;
     background-color: inherit;
@@ -161,7 +166,7 @@
 }
 
 .keyboard-layout_type_win .keyboard-key_code_CapsLock {
-    width: 115px;
+    width: 80px;
 }
 
 .keyboard-layout_type_win .keyboard-key_code_CapsLock .keyboard-key__led {
@@ -180,49 +185,26 @@
     border-color: rgba(0, 0, 0, .5);
 }
 
-.keyboard-layout_type_win .keyboard-key_code_MetaLeft,
-.keyboard-layout_type_win .keyboard-key_code_MetaRight {
-    width: 70px;
+.keyboard-layout_type_win .keyboard-key_fontSize_small {
+    font-size: 10px;
+    line-height: 14px;
 }
 
-
-.keyboard-layout_type_win .keyboard-key_code_PrintScreen,
-.keyboard-layout_type_win .keyboard-key_code_ScrollLock,
-.keyboard-layout_type_win .keyboard-key_code_PauseBreak,
-.keyboard-layout_type_win .keyboard-key_code_CapsLock,
-.keyboard-layout_type_win .keyboard-key_code_ShiftLeft,
-.keyboard-layout_type_win .keyboard-key_code_ShiftRight,
-.keyboard-layout_type_win .keyboard-key_code_Tab,
-.keyboard-layout_type_win .keyboard-key_code_MetaLeft,
-.keyboard-layout_type_win .keyboard-key_code_MetaRight,
 .keyboard-layout_type_win .keyboard-key_code_AltLeft,
 .keyboard-layout_type_win .keyboard-key_code_AltRight,
-.keyboard-layout_type_win .keyboard-key_code_Insert,
-.keyboard-layout_type_win .keyboard-key_code_Home,
-.keyboard-layout_type_win .keyboard-key_code_PageUp,
-.keyboard-layout_type_win .keyboard-key_code_PageDown,
-.keyboard-layout_type_win .keyboard-key_code_ControlLeft,
-.keyboard-layout_type_win .keyboard-key_code_ControlRight,
-.keyboard-layout_type_win .keyboard-key_code_Delete,
-.keyboard-layout_type_win .keyboard-key_code_NumpadEnter,
-.keyboard-layout_type_win .keyboard-key_code_NumLock,
-.keyboard-layout_type_win .keyboard-key_code_End {
-    font-size: 11px;
-    line-height: 15px;
+.keyboard-layout_type_win .keyboard-key_code_ContextMenu,
+.keyboard-layout_type_win .keyboard-key_code_MetaLeft,
+.keyboard-layout_type_win .keyboard-key_code_MetaRight {
+    width: 50px;
 }
 
 .keyboard-layout_type_win .keyboard-key_code_ControlLeft,
 .keyboard-layout_type_win .keyboard-key_code_ControlRight {
-    width: 80px;
-}
-
-.keyboard-layout_type_win .keyboard-key_code_AltLeft,
-.keyboard-layout_type_win .keyboard-key_code_AltRight {
     width: 60px;
 }
 
 .keyboard-layout_type_win .keyboard-key_code_Space {
-    width: 335px;
+    width: 340px;
 }
 
 .keyboard-layout_type_win .keyboard-key_code_ArrowLeft,
@@ -232,8 +214,62 @@
     font-weight: bold;
 }
 
+.keyboard-layout_type_win .keyboard-key_code_NumpadAdd,
+.keyboard-layout_type_win .keyboard-key_code_NumpadEnter {
+    align-content: end;
+}
+
+.keyboard-layout_type_win .keyboard-key_code_NumpadAdd::after,
+.keyboard-layout_type_win .keyboard-key_code_NumpadEnter::after {
+    position: absolute;
+    content: '';
+    left: -1px;
+    top: 40px;
+    width: 43px;
+    height: 53px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: inherit;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    background-color: inherit;
+}
+
+
+.keyboard-layout_type_win .keyboard-key_code_Numpad0 {
+    width: 95px;
+}
+
 .keyboard-layout_type_win .keyboard-spacer_name_between-func {
-    width: 50px;
+    width: 33px;
+}
+
+.keyboard-layout_type_win .keyboard-spacer_name_before-sys {
+    width: 20px;
+}
+
+.keyboard-layout_type_win .keyboard-spacer_name_before-numpad {
+    width: 20px;
+}
+
+.keyboard-layout_type_win .keyboard-spacer_name_before-numpad-long {
+    width: 255px;
+}
+
+.keyboard-layout_type_win .keyboard-spacer_name_before-arrow-up {
+    width: 70px;
+}
+
+.keyboard-layout_type_win .keyboard-spacer_name_after-arrow-up {
+    width: 70px;
+}
+
+.keyboard-layout_type_win .keyboard-spacer_name_before-arrows {
+    width: 20px;
+}
+
+.keyboard-layout_type_win .keyboard-spacer_name_after-arrows {
+    width: 20px;
 }
 
 .keyboard-layout_type_win .keyboard-led {
@@ -245,4 +281,54 @@
 
 .keyboard-layout_type_win .keyboard-led_on {
     background-color: yellowgreen;
+}
+
+.keyboard-layout_type_win .keyboard-key_code_MetaLeft .keyboard-key__top-left-symbol,
+.keyboard-layout_type_win .keyboard-key_code_MetaLeft .keyboard-key__top-right-symbol,
+.keyboard-layout_type_win .keyboard-key_code_MetaLeft .keyboard-key__bottom-left-symbol,
+.keyboard-layout_type_win .keyboard-key_code_MetaLeft .keyboard-key__bottom-right-symbol,
+.keyboard-layout_type_win .keyboard-key_code_MetaRight .keyboard-key__top-left-symbol,
+.keyboard-layout_type_win .keyboard-key_code_MetaRight .keyboard-key__top-right-symbol,
+.keyboard-layout_type_win .keyboard-key_code_MetaRight .keyboard-key__bottom-left-symbol,
+.keyboard-layout_type_win .keyboard-key_code_MetaRight .keyboard-key__bottom-right-symbol {
+    position: absolute;
+    display: block;
+    width: 7px;
+    height: 7px;
+    background-color: white;
+}
+
+.keyboard-layout_type_win .keyboard-key_code_MetaLeft.keyboard-key_wasPressed .keyboard-key__top-left-symbol,
+.keyboard-layout_type_win .keyboard-key_code_MetaLeft.keyboard-key_wasPressed .keyboard-key__top-right-symbol,
+.keyboard-layout_type_win .keyboard-key_code_MetaLeft.keyboard-key_wasPressed .keyboard-key__bottom-left-symbol,
+.keyboard-layout_type_win .keyboard-key_code_MetaLeft.keyboard-key_wasPressed .keyboard-key__bottom-right-symbol,
+.keyboard-layout_type_win .keyboard-key_code_MetaRight.keyboard-key_wasPressed .keyboard-key__top-left-symbol,
+.keyboard-layout_type_win .keyboard-key_code_MetaRight.keyboard-key_wasPressed .keyboard-key__top-right-symbol,
+.keyboard-layout_type_win .keyboard-key_code_MetaRight.keyboard-key_wasPressed .keyboard-key__bottom-left-symbol,
+.keyboard-layout_type_win .keyboard-key_code_MetaRight.keyboard-key_wasPressed .keyboard-key__bottom-right-symbol {
+    background-color: black;
+}
+
+.keyboard-layout_type_win .keyboard-key_code_MetaLeft .keyboard-key__top-left-symbol,
+.keyboard-layout_type_win .keyboard-key_code_MetaRight .keyboard-key__top-left-symbol {
+    left: 17px;
+    top: 14px;
+}
+
+.keyboard-layout_type_win .keyboard-key_code_MetaLeft .keyboard-key__top-right-symbol,
+.keyboard-layout_type_win .keyboard-key_code_MetaRight .keyboard-key__top-right-symbol {
+    left: 26px;
+    top: 14px;
+}
+
+.keyboard-layout_type_win .keyboard-key_code_MetaLeft .keyboard-key__bottom-left-symbol,
+.keyboard-layout_type_win .keyboard-key_code_MetaRight .keyboard-key__bottom-left-symbol {
+    left: 26px;
+    top: 23px;
+}
+
+.keyboard-layout_type_win .keyboard-key_code_MetaLeft .keyboard-key__bottom-right-symbol,
+.keyboard-layout_type_win .keyboard-key_code_MetaRight .keyboard-key__bottom-right-symbol {
+    left: 17px;
+    top: 23px;
 }

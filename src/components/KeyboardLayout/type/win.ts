@@ -73,19 +73,22 @@ const row0: KeyboardRowData = [
     },
     {
         code: 'PrintScreen',
-        text: 'PRINT SCRN'
+        text: 'PRINT SCRN',
+        fontSize: 'small'
     },
     {
         code: 'ScrollLock',
-        text: 'SCROLL LOCK'
+        text: 'SCROLL LOCK',
+        fontSize: 'small'
     },
     {
         code: 'PauseBreak',
-        text: 'PAUSE BREAK'
+        text: 'PAUSE BREAK',
+        fontSize: 'small'
     },
     {
         type: 'spacer',
-        name: 'before-num-pad'
+        name: 'before-numpad'
     },
     {
         code: 'MediaPlayPause',
@@ -182,16 +185,23 @@ const row1: KeyboardRowData = [
         text: '←'
     },
     {
+        type: 'spacer',
+        name: 'before-sys'
+    },
+    {
         code: 'Insert',
-        text: 'INSERT'
+        text: 'INSERT',
+        fontSize: 'small'
     },
     {
         code: 'Home',
-        text: 'HOME'
+        text: 'HOME',
+        fontSize: 'small'
     },
     {
         code: 'PageUp',
-        text: 'PAGE UP'
+        text: 'PAGE UP',
+        fontSize: 'small'
     },
     {
         type: 'spacer',
@@ -199,7 +209,8 @@ const row1: KeyboardRowData = [
     },
     {
         code: 'NumLock',
-        text: 'NUM LOCK'
+        text: 'NUM LOCK',
+        fontSize: 'small'
     },
     {
         code: 'NumpadDivide',
@@ -218,7 +229,8 @@ const row1: KeyboardRowData = [
 const row2: KeyboardRowData = [
     {
         code: 'Tab',
-        text: 'TAB ⇥'
+        text: 'TAB ⇥',
+        fontSize: 'small'
     },
     {
         code: 'KeyQ',
@@ -275,16 +287,23 @@ const row2: KeyboardRowData = [
         text: '⏎'
     },
     {
+        type: 'spacer',
+        name: 'before-sys'
+    },
+    {
         code: 'Delete',
-        text: 'DELETE'
+        text: 'DELETE',
+        fontSize: 'small'
     },
     {
         code: 'End',
-        text: 'END'
+        text: 'END',
+        fontSize: 'small'
     },
     {
         code: 'PageDown',
-        text: 'PAGE DOWN'
+        text: 'PAGE DOWN',
+        fontSize: 'small'
     },
     {
         type: 'spacer',
@@ -311,7 +330,8 @@ const row2: KeyboardRowData = [
 const row3: KeyboardRowData = [
     {
         code: 'CapsLock',
-        text: 'CAPS LOCK'
+        text: 'CAPS LOCK',
+        fontSize: 'small'
     },
     {
         code: 'KeyA',
@@ -366,7 +386,7 @@ const row3: KeyboardRowData = [
     },
     {
         type: 'spacer',
-        name: 'before-numpad'
+        name: 'before-numpad-long'
     },
     {
         code: 'Numpad4',
@@ -385,7 +405,8 @@ const row3: KeyboardRowData = [
 const row4: KeyboardRowData = [
     {
         code: 'ShiftLeft',
-        text: 'SHIFT'
+        text: 'SHIFT',
+        fontSize: 'small'
     },
     {
         code: 'Backquote',
@@ -437,7 +458,8 @@ const row4: KeyboardRowData = [
     },
     {
         code: 'ShiftRight',
-        text: 'SHIFT'
+        text: 'SHIFT',
+        fontSize: 'small'
     },
     {
         type: 'spacer',
@@ -465,31 +487,43 @@ const row4: KeyboardRowData = [
     },
     {
         code: 'NumpadEnter',
-        text: 'Enter'
+        text: 'ENTER',
+        fontSize: 'small'
     },
 ];
 
 const row5: KeyboardRowData = [
     {
         code: 'ControlLeft',
-        text: 'CTRL'
+        text: 'CTRL',
+        fontSize: 'small'
     },
     {
-        code: 'MetaLeft'
+        code: 'MetaLeft',
+        topLeftSymbol: ' ',
+        topRightSymbol: ' ',
+        bottomLeftSymbol: ' ',
+        bottomRightSymbol: ' '
     },
     {
         code: 'AltLeft',
-        text: 'ALT'
+        text: 'ALT',
+        fontSize: 'small'
     },
     {
         code: 'Space'
     },
     {
         code: 'AltRight',
-        text: 'ALTGR'
+        text: 'ALTGR',
+        fontSize: 'small'
     },
     {
-        code: 'MetaRight'
+        code: 'MetaRight',
+        topLeftSymbol: ' ',
+        topRightSymbol: ' ',
+        bottomLeftSymbol: ' ',
+        bottomRightSymbol: ' '
     },
     {
         code: 'ContextMenu',
@@ -497,7 +531,8 @@ const row5: KeyboardRowData = [
     },
     {
         code: 'ControlRight',
-        text: 'CTRL'
+        text: 'CTRL',
+        fontSize: 'small'
     },
     {
         type: 'spacer',

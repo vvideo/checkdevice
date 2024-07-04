@@ -2,9 +2,9 @@ import { html } from 'htm/preact';
 import { useCallback, useState } from 'preact/hooks';
 import { block } from '../../utils/bem';
 import { RadioButtonProps, RadioButton } from '../RadioButton';
+import { classname } from '../../utils/classname';
 
 import './index.css';
-import { classname } from '../../utils/classname';
 
 export interface RadioButtonsProps {
     className?: string;
@@ -15,10 +15,10 @@ export interface RadioButtonsProps {
 
 const b = block('radio-buttons');
 
-function getSelectedButton(buttons: RadioButtonProps[]) {
-    const selectedButton = buttons.find(item => item.selected);
+export function getSelectedButton(buttons: RadioButtonProps[]) {
+    const selectedButtons = buttons.filter(item => item.selected);
 
-    return selectedButton ?? buttons[0];
+    return selectedButtons[0];
 }
 
 export function RadioButtons(props: RadioButtonsProps) {

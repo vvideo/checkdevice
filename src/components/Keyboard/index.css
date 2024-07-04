@@ -1,7 +1,7 @@
-.keyboard {
-
+.keyboard__top-controls {
+    margin: 20px 0;
 }
 
-.keyboard__controls {
+.keyboard__bottom-controls {
     margin: 20px 0;
 }

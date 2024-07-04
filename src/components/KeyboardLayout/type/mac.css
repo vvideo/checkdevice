@@ -147,7 +147,9 @@
     top: 58px;
     width: 38px;
     height: 65px;
-    border: 1px solid inherit;
+    border-width: 1px;
+    border-style: solid;
+    border-color: inherit;
     border-top: none;
     border-radius: 0 0 5px 5px;
     background-color: inherit;

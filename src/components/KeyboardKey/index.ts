@@ -13,6 +13,7 @@ export interface KeyData {
     bottomLeftSymbol?: string;
     bottomRightSymbol?: string;
     text?: string;
+    fontSize?: 'small';
     align?: 'left' | 'right' | 'center';
     led?: boolean;
 }
@@ -44,7 +45,7 @@ export function KeyboardKey(props: KeyboardKeyProps) {
     const { state, keyData } = props;
 
     return html`
-        <div class="${b({ align: keyData.align, code: keyData.code, pressed: state.pressed, wasPressed: state.wasPressed, view: keyData.view })}">
+        <div class="${b({ align: keyData.align, code: keyData.code, pressed: state.pressed, wasPressed: state.wasPressed, view: keyData.view, fontSize: keyData.fontSize })}">
             ${keyData.text || ''}
             ${keyData.topSymbol ? html`<div class="${b('top-symbol')}">${keyData.topSymbol}</div>` : ''}
             ${keyData.topLeftSymbol ? html`<div class="${b('top-left-symbol')}">${keyData.topLeftSymbol}</div>` : ''}
