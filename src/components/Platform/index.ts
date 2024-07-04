@@ -57,10 +57,6 @@ export function Platform() {
             navigator.hardwareConcurrency
         ],
         [
-            html`${i18n('RAM')} <${InfoLink} title="MDN" href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/deviceMemory"><//>`,
-            navigator.deviceMemory ? `≈\u202F${navigator.deviceMemory} ${i18n('GB')}` : '?'
-        ],
-        [
             i18n('Standalone application'),
             getChecked(isStandalone())
         ],
@@ -69,6 +65,13 @@ export function Platform() {
             navigator.userAgent
         ],
     ];
+
+    if (navigator.deviceMemory) {
+        items.unshift([
+            html`${i18n('RAM')} <${InfoLink} title="MDN" href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/deviceMemory"><//>`,
+            `≈\u202F${navigator.deviceMemory} ${i18n('GB')}`
+        ]);
+    }
 
     if (hardwareAcceleration !== undefined) {
         items.push([
