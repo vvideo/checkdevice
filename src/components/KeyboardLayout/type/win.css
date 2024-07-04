@@ -135,9 +135,12 @@
     width: 65px;
 }
 
-.keyboard-layout_type_win .keyboard-key_code_ShiftLeft,
+.keyboard-layout_type_win .keyboard-key_code_ShiftLeft {
+    width: 115px;
+}
+
 .keyboard-layout_type_win .keyboard-key_code_ShiftRight {
-    width: 95px;
+    width: 125px;
 }
 
 .keyboard-layout_type_win .keyboard-key_code_Enter {
