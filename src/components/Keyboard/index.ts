@@ -55,6 +55,12 @@ export function Keyboard() {
             refKeysState.current['CapsLock'] = refKeysState.current['CapsLock'] || {};
             refKeysState.current['CapsLock'].led = keyboardLedController.capsLock;
 
+            refKeysState.current['NumLock'] = refKeysState.current['NumLock'] || {};
+            refKeysState.current['NumLock'].led = keyboardLedController.numLock;
+
+            refKeysState.current['ScrollLock'] = refKeysState.current['ScrollLock'] || {};
+            refKeysState.current['ScrollLock'].led = keyboardLedController.scrollLock;
+
             forceRender();
         };
 
