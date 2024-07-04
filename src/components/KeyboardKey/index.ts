@@ -54,7 +54,7 @@ export function KeyboardKey(props: KeyboardKeyProps) {
         return () => {
             keyboardStateController.removeListener(handler);
         };
-    }, []);
+    }, [keyData.code]);
 
     const state = keyboardStateController.getKeyState(keyData.code);
 

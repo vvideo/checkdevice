@@ -24,8 +24,8 @@ export class KeyboardLedController {
     }
 
     public bindKeyboardEvents() {
-        document.addEventListener('keydown', this.handleKey);
-        document.addEventListener('keyup', this.handleKey);
+        document.addEventListener('keydown', this.handleKey, true);
+        document.addEventListener('keyup', this.handleKey, true);
     }
 
     public unbindMouseEvents() {
@@ -35,8 +35,8 @@ export class KeyboardLedController {
     }
 
     public unbindKeyboardEvents() {
-        document.removeEventListener('keydown', this.handleKey);
-        document.removeEventListener('keyup', this.handleKey);
+        document.removeEventListener('keydown', this.handleKey, true);
+        document.removeEventListener('keyup', this.handleKey, true);
     }
 
     private handleMouse = (event: MouseEvent) => {
