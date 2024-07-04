@@ -1,7 +1,9 @@
+import { isFirefox } from 'detect-audio-video';
 import { Signal } from '../Signal';
 
 export class KeyboardLedController {
     private signal = new Signal<'CapsLock' | 'ScrollLock' | 'NumLock'>();
+    private isFirefox = isFirefox();
 
     public capsLock = false;
     public scrollLock = false;
@@ -44,6 +46,10 @@ export class KeyboardLedController {
     }
 
     private handleKey = (event: KeyboardEvent) => {
+        if (this.isFirefox && event.code && event.code.indexOf('Arrow') !== -1) {
+            return;
+        }
+
         this.update(event);
     }
 
