@@ -8,6 +8,7 @@ import { useForceUpdate } from '../../hooks/useForceUpdate';
 
 import './index.css';
 import { Spinner } from '../Spinner';
+import { XboxButtons } from '../XboxButtons';
 
 const b = block('gamepad-list');
 
@@ -79,5 +80,9 @@ export function GamepadList() {
                 })
             }
         </div>
-    ` : html`<${Spinner} size="m" //> ${i18n('Connect and press any button on the gamepad.')}`;
+    ` : html`<${GamepadWait} //>`;
+}
+
+function GamepadWait() {
+    return html`<${Spinner} size="m" //> ${i18n('Connect and press any button on the gamepad.')} <${XboxButtons} //>`;
 }

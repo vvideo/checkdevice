@@ -1,0 +1,45 @@
+.xbox-buttons {
+    display: flex;
+    margin: 20px 0;
+    font-size: 30px;
+    line-height: 50px;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.xbox-buttons__x {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #444;
+    color: #079cdf;
+    margin-right: 20px;
+    border-radius: 100% 100%;
+}
+
+.xbox-buttons__y {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #444;
+    color: #dbc30f;
+    margin-right: 20px;
+    border-radius: 100% 100%;
+}
+
+.xbox-buttons__a {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #444;
+    color: #07c134;
+    margin-right: 20px;
+    border-radius: 100% 100%;
+}
+
+.xbox-buttons__b {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #444;
+    color: #ee302d;
+    margin-right: 20px;
+    border-radius: 100% 100%;
+}
