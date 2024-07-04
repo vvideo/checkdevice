@@ -1,7 +1,13 @@
 .header {
     position: relative;
     margin: 20px 0 20px 0;
-    font-size: 35px;
+    font-size: 24px;
     font-weight: normal;
-    line-height: 42px;
+    line-height: 1.5em;
+}
+
+@media (max-width: 700px) {
+    .header {
+        font-size: 20px;
+    }
 }

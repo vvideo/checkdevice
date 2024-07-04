@@ -464,5 +464,14 @@ export const keysets: I18nKeysets = {
     'Testing mouse': {
         'en': 'Testing mouse',
         'ru': 'Тестирование мышки'
+    },
+    'Check device online': {
+        'en': 'Check device online',
+        'ru': 'Проверь устройство онлайн'
+    },
+    'Report a bug': {
+        'en': 'Report a bug',
+        'ru': 'Сообщить об ошибке'
     }
+
 };
