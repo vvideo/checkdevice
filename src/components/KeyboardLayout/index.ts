@@ -1,6 +1,5 @@
 import { html } from 'htm/preact';
 import { block } from '../../utils/bem';
-import { KeysState } from '../Keyboard';
 import { KeyData, LedData, SpacerData } from '../KeyboardKey';
 import { KeyboardRow } from '../KeyboardRow';
 
@@ -15,16 +14,15 @@ export interface KeyboardLayoutData {
 
 export interface KeyboardLayoutProps {
     layout: KeyboardLayoutData;
-    keysState: KeysState;
 }
 
 export function KeyboardLayout(props: KeyboardLayoutProps) {
-    const { keysState, layout } = props;
+    const { layout } = props;
 
     const items = layout.rows.map((rowData, num) => {
         return html`
             <div key="${num}" class="${b('row', { num } )}">
-                <${KeyboardRow} rowData="${rowData}" keysState="${keysState}" //>
+                <${KeyboardRow} rowData="${rowData}" //>
             </div>
         `;
     });

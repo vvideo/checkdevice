@@ -1,5 +1,8 @@
 import { html } from 'htm/preact';
+import { useEffect } from 'preact/hooks';
 import { block } from '../../utils/bem';
+import { keyboardStateController } from '../../lib/KeyboardStateController';
+import { useForceUpdate } from '../../hooks/useForceUpdate';
 
 export interface KeyData {
     type?: 'key';
@@ -28,21 +31,32 @@ export interface SpacerData {
     name: string;
 }
 
-export interface KeyState {
-    pressed: boolean;
-    wasPressed: boolean;
-    led: boolean;
-}
-
 interface KeyboardKeyProps {
-    state: KeyState;
     keyData: KeyData;
 }
 
 const b = block('keyboard-key');
 
 export function KeyboardKey(props: KeyboardKeyProps) {
-    const { state, keyData } = props;
+    const { keyData } = props;
+
+    const forceUpdate = useForceUpdate();
+
+    useEffect(() => {
+        const handler = (code: string) => {
+            if (keyData.code === code) {
+                forceUpdate();
+            }
+        };
+
+        keyboardStateController.addListener(handler);
+
+        return () => {
+            keyboardStateController.removeListener(handler);
+        };
+    }, []);
+
+    const state = keyboardStateController.getKeyState(keyData.code);
 
     return html`
         <div class="${b({ align: keyData.align, code: keyData.code, pressed: state.pressed, wasPressed: state.wasPressed, view: keyData.view, fontSize: keyData.fontSize })}">
