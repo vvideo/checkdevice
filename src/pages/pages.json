@@ -29,8 +29,8 @@
     },
     {
         "menuTitle": {
-            "en": "Camera",
-            "ru": "Камера"
+            "en": "Webcamera",
+            "ru": "Веб-камера"
         },
         "id": "camera",
         "url": "./camera.html"

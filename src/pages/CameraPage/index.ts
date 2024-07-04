@@ -7,7 +7,7 @@ import { Page } from '../Page';
 export function CameraPage() {
     return html`
         <${Page}>
-            <${Header}>${i18n('Camera')}<//>
+            <${Header}>${i18n('Webcamera')}<//>
             <${Camera}><//>
         <//>`;
 }
