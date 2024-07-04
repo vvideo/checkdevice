@@ -82,7 +82,7 @@ const row0: KeyboardRowData = [
         fontSize: 'small'
     },
     {
-        code: 'PauseBreak',
+        code: 'Pause',
         text: 'PAUSE BREAK',
         fontSize: 'small'
     },
@@ -114,11 +114,9 @@ const row0: KeyboardRowData = [
 
 const row1: KeyboardRowData = [
     {
-        code: 'IntlBackslash',
-        topLeftSymbol: '±',
-        topRightSymbol: '<',
-        bottomLeftSymbol: '§',
-        bottomRightSymbol: '>',
+        code: 'Backquote',
+        topSymbol: '~',
+        bottomSymbol: '`'
     },
     {
         code: 'Digit1',
@@ -407,11 +405,6 @@ const row4: KeyboardRowData = [
         code: 'ShiftLeft',
         text: 'SHIFT',
         fontSize: 'small'
-    },
-    {
-        code: 'Backquote',
-        topSymbol: '~',
-        bottomSymbol: '`'
     },
     {
         code: 'KeyZ',
