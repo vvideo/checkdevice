@@ -13,26 +13,26 @@ import './index.css';
 
 const b = block('camera');
 
+const buttons: RadioButtonProps[] = [
+    {
+        text: i18n('High resolution'),
+        value: '0',
+    },
+    {
+        text: i18n('Low resolution'),
+        value: '1',
+    },
+    {
+        text: i18n('High frame rate'),
+        value: '2',
+    }
+];
+
 export function Camera() {
     const refVideo = useRef<HTMLVideoElement>(null);
     const [stream, setStream] = useState<MediaStream | null>(null);
     const [quality, setQuality] = useState(0);
     const [error, setError] = useState<Error | null>(null);
-
-    const buttons: RadioButtonProps[] = [
-        {
-            text: i18n('High resolution'),
-            value: '0',
-        },
-        {
-            text: i18n('Low resolution'),
-            value: '1',
-        },
-        {
-            text: i18n('High frame rate'),
-            value: '2',
-        }
-    ];    
 
     const handleClick = useCallback(() => {
         const video = refVideo.current;
@@ -72,7 +72,7 @@ export function Camera() {
             }).catch(error => {
                 setError(error);
                 console.log(error);
-            });            
+            });
         }
     }, [quality, stream]);
 
@@ -115,7 +115,7 @@ function CameraError(props: CameraErrorProps) {
     if (!error) {
         return '';
     }
-    
+
     if (error.name === 'NotFoundError') {
         return html`<${WarningMessage}>${i18n('Camera not found.')}<//>`;
     }
