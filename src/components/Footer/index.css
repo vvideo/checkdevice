@@ -43,10 +43,5 @@
 }
 
 .footer__item_g {
-    transition: transform .5s ease;
     opacity: .5;
-}
-
-.footer__item_g:hover {
-    transform: rotate(180deg);
 }
