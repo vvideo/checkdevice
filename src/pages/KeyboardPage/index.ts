@@ -4,10 +4,11 @@ import { i18n } from '../../i18n/i18n';
 import { Page } from '../Page';
 import { Keyboard } from '../../components/Keyboard';
 import { List } from '../../components/List';
+import { Link } from '../../components/Link';
 
 export function KeyboardPage() {
     const items = [
-        [html`<a href="./keycodes.html">${i18n('Displaying key codes')}</a>`]
+        [html`<${Link} href="./keycodes.html">${i18n('Displaying key codes')}<//>`]
     ];
 
     return html`
