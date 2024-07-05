@@ -8,23 +8,25 @@ import { winKeyboardLayout } from '../KeyboardLayout/type/win';
 import { RadioButtonProps } from '../RadioButton';
 import { RadioButtons, getSelectedButton } from '../RadioButtons';
 import { macKeyboardLayout } from '../KeyboardLayout/type/mac';
-import { isMacintosh, isWindows } from '../../utils/platform';
+import { isMacintosh } from '../../utils/platform';
 import { keyboardStateController } from '../../lib/KeyboardStateController';
 
 import './index.css';
 
 export const b = block('keyboard');
 
+const selectedPlatform = isMacintosh() ? 'mac' : 'win';
+
 const buttons: RadioButtonProps[] = [
     {
         text: 'Win',
         value: 'win',
-        selected: isWindows()
+        selected: selectedPlatform === 'win'
     },
     {
         text: 'Mac',
         value: 'mac',
-        selected: isMacintosh()
+        selected: selectedPlatform === 'mac'
     }
 ];
 
