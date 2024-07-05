@@ -40,15 +40,18 @@ export function ScreenItem(props: ScreenItemProps) {
         isPrimary,
         label,
         maxTouchPoints,
+        isExtended,
+        orientation,
     } = props;
 
     const logicalSize = [width, height, devicePixelRatio];
-    const realSize = [props.width * props.devicePixelRatio, props.height * props.devicePixelRatio];
+    const realSize = [width * devicePixelRatio, height * devicePixelRatio];
 
     const items = [
         [i18n('Size'), `${realSize.join('×')} (${logicalSize.join('×')})`],
+        ['devicePixelRatio', devicePixelRatio],
         [i18n('Aspect ratio'), calcAspectRatio(Math.max(width, height), Math.min(width, height)).value],
-        props.orientation ? [i18n('Orientation'), props.orientation?.type] : '',
+        orientation ? [i18n('Orientation'), orientation.type] : '',
         [i18n('Color depth'), `${colorDepth} ${i18n('bit')}`],
         [html`<${HdrLabel} enabled="${isHdr}" //>`, getChecked(Boolean(isHdr))],
         [i18n('Color spaces'), html`<${ColorSpaceList} items="${colorSpaces}" //>`],
@@ -62,7 +65,7 @@ export function ScreenItem(props: ScreenItemProps) {
             ${label ? html`<div class="${b('label')}">${label}</div>` : ''}
             <${List} items="${items}"><//>
 
-            ${props.isExtended === true ? html`<${WarningMessage}>${i18n('Additional monitor detected')}<//>` : ''}
+            ${isExtended === true ? html`<${WarningMessage}>${i18n('Additional monitor detected')}<//>` : ''}
         </div>
     `;
 }
