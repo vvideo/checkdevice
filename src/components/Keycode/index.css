@@ -26,11 +26,6 @@
     top: 2px;
 }
 
-.keycode__keydown,
-.keycode__keyup {
-    margin: 15px 15px 0 0;
-}
-
-.keycode__events {
-    display: flex;
+.keycode__keydown {
+    margin-top: 15px;
 }
