@@ -1,0 +1,37 @@
+.keycode {
+    margin: 20px 0;
+}
+
+.keycode__description {
+    margin: 1em 0;
+}
+
+.keycode__key {
+    position: relative;
+    width: 200px;
+    height: 100px;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 100px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.keycode__key_pressed {
+    background-color: white;
+    color: black;
+    left: 2px;
+    top: 2px;
+}
+
+.keycode__keydown,
+.keycode__keyup {
+    margin: 15px 15px 0 0;
+}
+
+.keycode__events {
+    display: flex;
+}

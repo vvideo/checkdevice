@@ -476,6 +476,13 @@ export const keysets: I18nKeysets = {
     'Report a bug': {
         'en': 'Report a bug',
         'ru': 'Сообщить об ошибке'
+    },
+    'Press a key to display its code.': {
+        'en': 'Press a key to display its code.',
+        'ru': 'Нажмите клавишу, чтобы увидеть её код.'
+    },
+    'Displaying key codes': {
+        'en': 'Displaying key codes',
+        'ru': 'Отображение кодов клавиш'
     }
-
 };

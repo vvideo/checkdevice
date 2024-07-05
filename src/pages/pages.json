@@ -61,6 +61,15 @@
     },
     {
         "menuTitle": {
+            "en": "Key codes",
+            "ru": "Коды клавиш"
+        },
+        "id": "keycodes",
+        "url": "./keycodes.html",
+        "hidden": true
+    },
+    {
+        "menuTitle": {
             "en": "Gamepad",
             "ru": "Джойстик"
         },
