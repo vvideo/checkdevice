@@ -1,7 +1,21 @@
-a:link, a:visited, a:active {
+.link:link, .link:visited, .link:active {
     color: #009cf4;
 }
 
-a:hover {
+.link:hover {
     color: #30Acf4;
+}
+
+.link_theme_white:link,
+.link_theme_white:visited,
+.link_theme_white:hover,
+.link_theme_white:active {
+    color: white;
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, .2);
+    transition: text-decoration-color .3s ease;
+}
+
+.link_theme_white:hover {
+    text-decoration-color: rgba(255, 255, 255, 1);
 }

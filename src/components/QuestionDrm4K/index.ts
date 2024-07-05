@@ -24,6 +24,7 @@ import { isDesktopSafari } from '../../utils/isDesktopSafari';
 import { getCachedCheckAllHdcpVersions } from '../../utils/getCachedCheckAllHdcpVersions';
 import { noop } from '../../utils/noop';
 import { isUhdHdcpSupported } from 'hdcp';
+import { Link } from '../Link';
 
 export function QuestionDrm4K() {
     const [isWidevine, setIsWidevine] = useState(false);
@@ -134,7 +135,7 @@ export function QuestionDrm4K() {
         <${ActiveQuestion} head="${head}">
             <ul>
                 <li>${i18n('Is the screen larger than 2K?')}\u00a0<${Result} value="${largeThan2K}"><//></li>
-                <li>${i18n('Online services protect content using')}${'\u00a0'}<a target="_blank" href="${i18n('link:wiki:drm')}">DRM</a>.<br/>
+                <li>${i18n('Online services protect content using')}${'\u00a0'}<${Link} target="_blank" href="${i18n('link:wiki:drm')}">DRM<//>.<br/>
                     ${i18n('Supports one of the video codecs and DRM with high security level?')} <${Result} value=${anyCodecWithDrm}><//>
                     <ul>
                         ${DrmItem({
@@ -169,7 +170,7 @@ export function QuestionDrm4K() {
                     ⚠️ ${i18n('Make sure that monitors, video cards, and cables support HDCP 2.2 or later.')}
                 </li>` : ''}
                 ${isSafari ? html`<li>
-                    ⚠️ ${i18n('Select 2018 or later Mac computer with an')} <a href="${i18n('link:apple:t2')}" target="_blank">Apple T2 Security Chip</a>.
+                    ⚠️ ${i18n('Select 2018 or later Mac computer with an')} <${Link} href="${i18n('link:apple:t2')}" target="_blank">Apple T2 Security Chip<//>.
                 </li>` : ''}
             </ul>
         <//>
