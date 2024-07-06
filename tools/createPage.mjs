@@ -10,6 +10,8 @@ export function createPage({ id, header }) {
     <link rel="shortcut icon" href="./static/favicons/favicon.png" />
     <link rel="apple-touch-icon" href="./static/favicons/touch.png" />
     <link rel="stylesheet" href="./dist/${id}.css?md5=" />
+    <meta name="google-site-verification" content="BUV1qxuhIx696cS8GU9knQcJcZaGugHSDV2kAkEG73I" />
+    <meta name="yandex-verification" content="985312253f7c8a44" />
     <script>
     <!--
         if (location.href.search(/show_error/) !== -1) {
