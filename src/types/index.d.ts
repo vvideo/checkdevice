@@ -1,8 +1,16 @@
 export {}
 
 declare global {
+    interface FontData {
+        family: string;
+        fullName: string;
+        postscriptName: string;
+        style: string;
+    }
+
     interface Window {
         documentPictureInPicture?: unknown;
+        queryLocalFonts?: () => Promise<FontData[]>;
     }
 
     interface BatteryManager {

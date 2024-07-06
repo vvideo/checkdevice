@@ -6,7 +6,7 @@ import { classname } from '../../utils/classname';
 import './index.css';
 
 interface InputProps {
-    className?: string;
+    class?: string;
     value?: string;
     placeholder?: string;
     onChange?: (value: string) => void;
@@ -15,7 +15,7 @@ interface InputProps {
 const b = block('input');
 
 export function Input(props: InputProps) {
-    const className = classname(b(), props.className);
+    const className = classname(b(), props.class);
     const [value, setValue] = useState<string>(props.value || '');
 
     const ref = useRef<HTMLInputElement>();

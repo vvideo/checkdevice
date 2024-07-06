@@ -177,6 +177,10 @@ export const keysets: I18nKeysets = {
         'en': 'Request',
         'ru': 'Запрос'
     },
+    'Request fonts': {
+        'en': 'Request fonts',
+        'ru': 'Запросить шрифты'
+    },
     'Details': {
         'en': 'Details',
         'ru': 'Подробности'
@@ -500,5 +504,21 @@ export const keysets: I18nKeysets = {
     'Filter': {
         'en': 'Filter',
         'ru': 'Фильтр'
+    },
+    'Family': {
+        'en': 'Family',
+        'ru': 'Семейство'
+    },
+    'Style': {
+        'en': 'Style',
+        'ru': 'Стиль'
+    },
+    'Local Font Access API is not supported.': {
+        'en': 'Local Font Access API is not supported.',
+        'ru': 'Local Font Access API не поддерживается.'
+    },
+    'Group by family': {
+        'en': 'Group by family',
+        'ru': 'Группировать по семейству'
     }
 };

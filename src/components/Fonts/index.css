@@ -1,3 +1,16 @@
-.fonts {
+.fonts__filter {
+    width: 15em;
+    max-width: 90%;
+}
 
+.fonts__list-item-num {
+    margin-right: .5em;
+}
+
+.fonts__controls {
+    margin-bottom: 1em;
+}
+
+.fonts__group-by-family {
+    margin: 5px 0;
 }

@@ -1,0 +1,21 @@
+.font-family-item {
+    display: flex;
+}
+
+.font-family-item__switcher {
+    cursor: pointer;
+}
+
+.font-family-item__items {
+    margin-left: 1em;
+}
+
+.font-family-item__switcher::before {
+    display: inline-block;
+    width: 1em;
+    content: '▸';
+}
+
+.font-family-item_opened .font-family-item__switcher::before {
+    content: '▾';
+}

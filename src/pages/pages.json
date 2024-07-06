@@ -114,8 +114,7 @@
             "ru": "Шрифты"
         },
         "id": "fonts",
-        "url": "./fonts.html",
-        "hidden": true
+        "url": "./fonts.html"
     },
     {
         "menuTitle": {

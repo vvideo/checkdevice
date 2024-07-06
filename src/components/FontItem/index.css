@@ -1,0 +1,23 @@
+.font-item {
+    display: flex;
+}
+
+.font-item__switcher {
+    cursor: pointer;
+}
+
+.font-item__content {
+    margin-left: 1em;
+    margin-bottom: 5px;
+    color: #aaa;
+}
+
+.font-item__switcher::before {
+    display: inline-block;
+    width: 1em;
+    content: '▸';
+}
+
+.font-item_opened .font-item__switcher::before {
+    content: '▾';
+}
