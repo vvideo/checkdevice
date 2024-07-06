@@ -18,7 +18,11 @@
 .camera__video {
     visibility: hidden;
     width: 100%;
-    height: 100%;    
+    height: 100%;
+}
+
+.camera__select-camera {
+    margin-right: 20px;
 }
 
 .camera__container_played .camera__video{

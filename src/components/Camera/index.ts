@@ -4,25 +4,23 @@ import { block } from '../../utils/bem';
 import { i18n } from '../../i18n/i18n';
 import { getConstraints, getStreamParams, requestCamera, stopCamera } from './utils';
 import { Button } from '../Button';
-import { RadioButtons } from '../RadioButtons';
+import { getSelectedButton, RadioButtons } from '../RadioButtons';
 import { RadioButtonProps } from '../RadioButton';
 import { WarningMessage } from '../WarningMessage';
 import { CameraInfo } from '../CameraInfo';
+import { Checkbox } from '../Checkbox';
+import { CameraError } from '../CameraError';
 
 import './index.css';
 
 const b = block('camera');
 
 export function Camera() {
-    const refVideo = useRef<HTMLVideoElement>(null);
-    const [stream, setStream] = useState<MediaStream | null>(null);
-    const [quality, setQuality] = useState(0);
-    const [error, setError] = useState<Error | null>(null);
-
     const buttons: RadioButtonProps[] = [
         {
             text: i18n('High resolution'),
             value: '0',
+            selected: true,
         },
         {
             text: i18n('Low resolution'),
@@ -33,6 +31,12 @@ export function Camera() {
             value: '2',
         }
     ];
+
+    const refVideo = useRef<HTMLVideoElement>(null);
+    const [stream, setStream] = useState<MediaStream | null>(null);
+    const [quality, setQuality] = useState(getSelectedButton(buttons).value);
+    const [withMic, setWithMic] = useState(false);
+    const [error, setError] = useState<Error | null>(null);
 
     const handleClick = useCallback(() => {
         const video = refVideo.current;
@@ -48,16 +52,16 @@ export function Camera() {
             return;
         }
 
-        requestCamera(video, getConstraints(quality)!).then(stream => {
+        requestCamera(video, getConstraints(quality, withMic)!).then(stream => {
             setStream(stream);
             setError(null);
         }).catch(error => {
             setError(error);
             console.log(error);
         });
-    }, [stream, quality]);
+    }, [stream, quality, withMic]);
 
-    const handleSelect = useCallback((value: number) => {
+    const handleSelect = useCallback((value: string) => {
         const video = refVideo.current;
 
         setQuality(value);
@@ -66,7 +70,7 @@ export function Camera() {
             stopCamera(stream, video);
             setStream(null);
 
-            requestCamera(video, getConstraints(value)!).then(stream => {
+            requestCamera(video, getConstraints(value, withMic)!).then(stream => {
                 setStream(stream);
                 setError(null);
             }).catch(error => {
@@ -74,7 +78,11 @@ export function Camera() {
                 console.log(error);
             });
         }
-    }, [quality, stream]);
+    }, [quality, stream, withMic]);
+
+    const handleMic = useCallback((checked: boolean) => {
+        setWithMic(checked);
+    }, []);
 
     const params = stream ? getStreamParams(stream) : undefined;
 
@@ -87,7 +95,8 @@ export function Camera() {
 
     return html`<div class="${b()}">
         <div class="${b('select')}">
-            <${Button} theme="${showStop ? 'red' : 'active'}" onClick="${handleClick}">${stream ? i18n('Stop') : i18n('Select camera')}<//>
+            <${Button} class="${b('select-camera')}" theme="${showStop ? 'red' : 'active'}" onClick="${handleClick}">${stream ? i18n('Stop') : i18n('Select camera')}<//>
+            <${Checkbox} label="${i18n('Mic')}" checked="${withMic}" onClick="${handleMic}" //>
         </div>
         <div class="${b('controls')}">
             <${RadioButtons} onSelect="${handleSelect}" buttons="${buttons}"><//>
@@ -103,26 +112,4 @@ export function Camera() {
             ${params ? html`<${CameraInfo} ...${params} //>` : ''}
         </div>
     </div>`;
-}
-
-interface CameraErrorProps {
-    error: Error;
-}
-
-function CameraError(props: CameraErrorProps) {
-    const { error } = props;
-
-    if (!error) {
-        return '';
-    }
-
-    if (error.name === 'NotFoundError') {
-        return html`<${WarningMessage}>${i18n('Camera not found.')}<//>`;
-    }
-
-    if (error.name === 'NotAllowedError') {
-        return html`<${WarningMessage}>${i18n('Camera is blocked.')}<//>`;
-    }
-
-    return html`<${WarningMessage}>${error.message}<//>`;
 }

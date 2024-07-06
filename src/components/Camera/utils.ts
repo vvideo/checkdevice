@@ -11,10 +11,9 @@ export function requestCamera(video: HTMLVideoElement, constraints: MediaStreamC
     return navigator.mediaDevices.getUserMedia(constraints).then(mediaStream => {
         video.srcObject = mediaStream;
         video.setAttribute('playsinline', '');
-        video.muted = true;
         video.controls = true;
         video.play();
-        
+
         return mediaStream;
     });
 }
@@ -38,7 +37,7 @@ export function getStreamParams(stream: MediaStream) {
     };
 }
 
-export function getConstraints(value: number): MediaStreamConstraints | undefined {
+export function getConstraints(value: string, audio: boolean): MediaStreamConstraints | undefined {
     return {
         0: {
             video: {
@@ -46,7 +45,7 @@ export function getConstraints(value: number): MediaStreamConstraints | undefine
                     ideal: 19200,
                 }
             },
-            audio: true,
+            audio,
         },
         1: {
             video: {
@@ -54,7 +53,7 @@ export function getConstraints(value: number): MediaStreamConstraints | undefine
                     ideal: 0,
                 },
             },
-            audio: true,
+            audio,
         },
         2: {
             video: {
@@ -62,7 +61,7 @@ export function getConstraints(value: number): MediaStreamConstraints | undefine
                     ideal: 200,
                 }
             },
-            audio: true,
+            audio,
         },
     }[value];
 }

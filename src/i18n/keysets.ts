@@ -484,5 +484,9 @@ export const keysets: I18nKeysets = {
     'Displaying key codes': {
         'en': 'Displaying key codes',
         'ru': 'Отображение кодов клавиш'
+    },
+    'Mic': {
+        'en': 'Mic',
+        'ru': 'Микрофон'
     }
 };
