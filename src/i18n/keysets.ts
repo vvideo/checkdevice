@@ -488,5 +488,9 @@ export const keysets: I18nKeysets = {
     'Mic': {
         'en': 'Mic',
         'ru': 'Микрофон'
+    },
+    'Fonts': {
+        'en': 'Fonts',
+        'ru': 'Шрифты'
     }
 };

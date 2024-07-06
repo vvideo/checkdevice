@@ -110,6 +110,15 @@
     },
     {
         "menuTitle": {
+            "en": "Fonts",
+            "ru": "Шрифты"
+        },
+        "id": "fonts",
+        "url": "./fonts.html",
+        "hidden": true
+    },
+    {
+        "menuTitle": {
             "en": "404",
             "ru": "404"
         },
