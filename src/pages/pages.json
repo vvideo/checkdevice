@@ -37,6 +37,15 @@
     },
     {
         "menuTitle": {
+            "en": "Mic",
+            "ru": "Микрофон"
+        },
+        "id": "mic",
+        "url": "./mic.html",
+        "hidden": true
+    },
+    {
+        "menuTitle": {
             "en": "GPU",
             "ru": "GPU"
         },
