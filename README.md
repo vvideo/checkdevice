@@ -10,12 +10,15 @@ This service answers the questions:
 
 Also info about:
 + Screen
-+ Camera
++ Webcamera
 + Gamepad
++ Keyboard
++ Mouse
 + GPU
 + Storage
 + Network and geo
 + Platform
 + Battery
++ Local fonts
 
 Powered by [detect-audio-video](https://github.com/vvideo/detect-audio-video).
