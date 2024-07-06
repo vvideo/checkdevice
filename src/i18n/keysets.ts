@@ -492,5 +492,13 @@ export const keysets: I18nKeysets = {
     'Fonts': {
         'en': 'Fonts',
         'ru': 'Шрифты'
+    },
+    'Local fonts': {
+        'en': 'Local fonts',
+        'ru': 'Локальные шрифты'
+    },
+    'Filter': {
+        'en': 'Filter',
+        'ru': 'Фильтр'
     }
 };

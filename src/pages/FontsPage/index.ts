@@ -7,7 +7,7 @@ import { Page } from '../Page';
 export function FontsPage() {
     return html`
         <${Page}>
-            <${Header}>${i18n('Fonts')}<//>
+            <${Header}>${i18n('Local fonts')}<//>
             <${Fonts}><//>
         <//>`;
 }
