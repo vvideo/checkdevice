@@ -1,11 +1,372 @@
-body,html{background:#000;color:#fff;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:24px;margin:0;padding:0}button,input,select,textarea{font:inherit}
-.footer{border-top:1px solid #222;display:flex;font-size:16px;margin-top:40px;padding:20px 0 10px}.footer__item{margin-right:20px}.footer__item:hover span{opacity:1;transition:opacity .5s ease}.footer__l1{opacity:.95}.footer__l2{opacity:.9}.footer__l3{opacity:.85}.footer__l4{opacity:.8}.footer__l5{opacity:.75}.footer__l6{opacity:.7}.footer__item_g{opacity:.5}
-.link:active,.link:link,.link:visited{color:#009cf4}.link:hover{color:#30acf4}.link_theme_white:active,.link_theme_white:hover,.link_theme_white:link,.link_theme_white:visited{color:#fff;text-decoration:underline;text-decoration-color:hsla(0,0%,100%,.2);transition:text-decoration-color .3s ease}.link_theme_white:hover{text-decoration-color:#fff}
-.main-menu{font-size:16px;padding-bottom:10px;padding-top:10px}.main-menu__item{border-bottom:2px solid #111;cursor:pointer;display:inline-block;margin-right:20px;padding-bottom:2px;white-space:nowrap}.main-menu__item:active,.main-menu__item:hover,.main-menu__item:link,.main-menu__item:visited{color:#fff;text-decoration:none}.main-menu__item_selected{border-bottom:2px solid #fff}
-.head{color:#fff;font-size:30px;line-height:1.5em;margin:20px 0}.head__logo{background-color:gold;border-radius:5px;display:inline-block;height:24px;margin-right:10px;width:24px}@media (max-width:700px){.head{font-size:22px}.head__logo{height:18px;width:18px}}
-.page{margin-left:50px;margin-right:50px}@media only screen and (max-width:1024px){.page{margin-left:30px;margin-right:30px}}@media only screen and (max-width:800px){.page{margin-left:10px;margin-right:30px}}
-.header{font-size:24px;font-weight:400;line-height:1.5em;margin:20px 0;position:relative}@media (max-width:700px){.header{font-size:20px}}
-.monitor{height:122px;margin-bottom:70px;position:relative;width:210px}.monitor__content{border:5px solid gray;border-radius:5px;height:112px;position:relative;width:200px}.monitor__rack{height:20px;width:20px}.monitor__foot,.monitor__rack{background-color:gray;left:50%;position:absolute;top:100%;transform:translateX(-50%)}.monitor__foot{border-radius:3px 3px 0 0;height:10px;margin-top:20px;width:100px}
-.screen-dead-pixels-example{background-color:#000;height:100%;position:relative;width:100%}.screen-dead-pixels-example__content{animation:dpixels 10s ease 0s infinite;background-color:#fff;height:100%;position:relative;width:100%}.screen-dead-pixels-example__dpixel1,.screen-dead-pixels-example__dpixel2,.screen-dead-pixels-example__dpixel3{height:4px;position:absolute;width:4px;z-index:1}.screen-dead-pixels-example__dpixel1{background-color:#000;left:50%;top:50%}.screen-dead-pixels-example__dpixel2{background-color:#000;left:10%;top:10%}.screen-dead-pixels-example__dpixel3{background-color:#fff;left:70%;top:70%}@keyframes dpixels{0{background-color:#fff}19.9%{background-color:#fff}20%{background-color:#000}39.9%{background-color:#000}40%{background-color:red}59.9%{background-color:red}60%{background-color:green}79.9%{background-color:green}80%{background-color:blue}99.9%{background-color:blue}to{background-color:#fff}}
-.button{background:#fff;border:none;border-radius:5px;color:#000;cursor:pointer;font-size:16px;line-height:1.5em;padding:5px 7px}.button:active{transform:scale(.98)}.button:hover{background:#eee}.button_theme_active{background:gold}.button_theme_active:hover{background:#efc700}.button_theme_red{background:red;color:#fff}.button_theme_red:hover{background:#ef0000}.button_size_s{font-size:12px;padding:2px 4px}
-.test-dead-pixels__content{background-color:#fff;height:0;left:0;position:relative;top:0;width:0}.test-dead-pixels_fullscreen .test-dead-pixels__content{height:100%;position:fixed;width:100%;z-index:1000}.test-dead-pixels__content_step_0{background-color:#fff}.test-dead-pixels__content_step_1{background-color:#000}.test-dead-pixels__content_step_2{background-color:red}.test-dead-pixels__content_step_3{background-color:green}.test-dead-pixels__content_step_4{background-color:blue}
+html, body {
+    background: black;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+.footer {
+    display: flex;
+    margin-top: 40px;
+    padding: 20px 0 10px 0;
+    font-size: 16px;
+    border-top: 1px solid #222;
+}
+
+.footer__item {
+    margin-right: 20px;
+}
+
+.footer__item:hover span {
+    transition: opacity .5s ease;
+}
+
+.footer__item:hover span {
+    opacity: 1;
+}
+
+.footer__l1 {
+    opacity: .95;
+}
+
+.footer__l2 {
+    opacity: .9;
+}
+
+.footer__l3 {
+    opacity: .85;
+}
+
+.footer__l4 {
+    opacity: .8;
+}
+
+.footer__l5 {
+    opacity: .75;
+}
+
+.footer__l6 {
+    opacity: .7;
+}
+
+.footer__item_g {
+    opacity: .5;
+}
+
+.link:link, .link:visited, .link:active {
+    color: #009cf4;
+}
+
+.link:hover {
+    color: #30Acf4;
+}
+
+.link_theme_white:link,
+.link_theme_white:visited,
+.link_theme_white:hover,
+.link_theme_white:active {
+    color: white;
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, .2);
+    transition: text-decoration-color .3s ease;
+}
+
+.link_theme_white:hover {
+    text-decoration-color: rgba(255, 255, 255, 1);
+}
+
+.main-menu {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 16px;
+}
+
+.main-menu__item {
+    display: inline-block;
+    margin-right: 20px;
+    cursor: pointer;
+    padding-bottom: 2px;
+    border-bottom: 2px solid #111;
+    white-space: nowrap;
+}
+
+.main-menu__item:link,
+.main-menu__item:visited,
+.main-menu__item:hover,
+.main-menu__item:active {
+    color: white;
+    text-decoration: none;
+}
+
+.main-menu__item_selected {
+    border-bottom: 2px solid white;
+}
+
+.head {
+    margin: 20px 0;
+    font-size: 30px;
+    line-height: 1.5em;
+    color: white;
+}
+
+.head__logo {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-color: gold;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+@media (max-width: 700px) {
+    .head {
+        font-size: 22px;
+    }
+
+    .head__logo {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+.page {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+@media only screen and (max-width: 1024px) {
+    .page {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .page {
+        margin-left: 10px;
+        margin-right: 30px;
+    }
+}
+
+.header {
+    position: relative;
+    margin: 20px 0 20px 0;
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 1.5em;
+}
+
+@media (max-width: 700px) {
+    .header {
+        font-size: 20px;
+    }
+}
+
+.monitor {
+    width: 210px;
+    height: 122px;
+    position: relative;
+    margin-bottom: 70px;
+}
+
+.monitor__content {
+    position: relative;
+    border: 5px solid gray;
+    width: 200px;
+    height: 112px;
+    border-radius: 5px;
+}
+
+.monitor__rack {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: gray;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+}
+
+.monitor__foot {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    margin-top: 20px;
+    width: 100px;
+    height: 10px;
+    background-color: gray;
+    border-radius: 3px 3px 0 0;
+}
+
+.screen-dead-pixels-example {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+.screen-dead-pixels-example__content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    animation: 10s ease dpixels 0s infinite;
+    background-color: white;
+}
+
+.screen-dead-pixels-example__dpixel1,
+.screen-dead-pixels-example__dpixel2,
+.screen-dead-pixels-example__dpixel3 {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    z-index: 1;
+}
+
+.screen-dead-pixels-example__dpixel1 {
+    left: 50%;
+    top: 50%;
+    background-color: black;
+}
+
+.screen-dead-pixels-example__dpixel2 {
+    left: 10%;
+    top: 10%;
+    background-color: black;
+}
+
+.screen-dead-pixels-example__dpixel3 {
+    left: 70%;
+    top: 70%;
+    background-color: white;
+}
+
+@keyframes dpixels {
+    0 {
+        background-color: white;
+    }
+
+    19.9% {
+        background-color: white;
+    }
+
+    20% {
+        background-color: black;
+    }
+
+    39.9% {
+        background-color: black;
+    }
+
+    40% {
+        background-color: red;
+    }
+
+    59.9% {
+        background-color: red;
+    }
+
+    60% {
+        background-color: green;
+    }
+
+    79.9% {
+        background-color: green;
+    }
+
+    80% {
+        background-color: blue;
+    }
+
+    99.9% {
+        background-color: blue;
+    }
+
+    100% {
+        background-color: white;
+    }
+}
+
+.button {
+    background: white;
+    color: black;
+    font-size: 16px;
+    line-height: 1.5em;
+    border-radius: 5px;
+    padding: 5px 7px;
+    border: none;
+    cursor: pointer;
+}
+
+.button:active {
+    transform: scale(0.98);
+}
+
+.button:hover {
+    background: #eee;
+}
+
+.button_theme_active {
+    background: #ffd700;
+}
+
+.button_theme_active:hover {
+    background: #efc700;
+}
+
+.button_theme_red {
+    background: red;
+    color: white;
+}
+
+.button_theme_red:hover {
+    background: #ef0000;
+}
+
+.button_size_s {
+    font-size: 12px;
+    padding: 2px 4px;
+}
+
+.test-dead-pixels__content {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    background-color: white;
+}
+
+.test-dead-pixels_fullscreen .test-dead-pixels__content {
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+}
+
+.test-dead-pixels__content_step_0 {
+    background-color: white;
+}
+
+.test-dead-pixels__content_step_1 {
+    background-color: black;
+}
+
+.test-dead-pixels__content_step_2 {
+    background-color: red;
+}
+
+.test-dead-pixels__content_step_3 {
+    background-color: green;
+}
+
+.test-dead-pixels__content_step_4 {
+    background-color: blue;
+}

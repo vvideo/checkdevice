@@ -12,153 +12,45 @@
     }
 }
 
-.row {
-    margin-bottom: 20px;
-}
-
-.row__category {
-    color: gray;
-    font-size: 14px;
-    margin-bottom: 5px;
-}
-
-.tree-list {
+.button {
+    background: white;
+    color: black;
     font-size: 16px;
+    line-height: 1.5em;
+    border-radius: 5px;
+    padding: 5px 7px;
+    border: none;
+    cursor: pointer;
 }
 
-.tree-list ul {
-    margin: 0;
-    padding: 0 0 0 1em;
+.button:active {
+    transform: scale(0.98);
 }
 
-.tree-list .tree-list__ul_padding_no {
-    padding-left: 0;
+.button:hover {
+    background: #eee;
 }
 
-.tree-list li {
-    list-style-type: none;
+.button_theme_active {
+    background: #ffd700;
 }
 
-.tree-list__number,
-.tree-list__bigint {
-    color: violet;
+.button_theme_active:hover {
+    background: #efc700;
 }
 
-.tree-list__string {
-    color: lightgreen;
+.button_theme_red {
+    background: red;
+    color: white;
 }
 
-.tree-list__symbol {
-    color: lightblue;
+.button_theme_red:hover {
+    background: #ef0000;
 }
 
-.tree-list__index {
-    color: gray;
-}
-
-.tree-list__boolean {
-    color: violet;
-}
-
-.tree-list__null {
-    color: violet;
-}
-
-.tree-list__undefined {
-    color: gray;
-}
-
-.tree-list__property,
-.tree-list__index {
-    color: lightblue;
-}
-
-.gamepad-list__item {
-    margin-bottom: 20px;
-}
-
-.gamepad-list__title {
-    font-size: 25px;
-    line-height: 1.6em;
-    margin-bottom: 10px;
-}
-
-.spinner {
-    display: inline-block;
-    width: 48px;
-    height: 48px;
-    border: 5px solid gold;
-    border-left-color: transparent;
-    animation: spinner 1s linear infinite;
-    box-sizing: border-box;
-    border-radius: 100%;
-}
-
-.spinner_size_s {
-    width: 10px;
-    height: 10px;
-    border-width: 2px;
-}
-
-.spinner_size_m {
-    width: 16px;
-    height: 16px;
-    border-width: 3px;
-}
-
-@keyframes spinner {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-.xbox-buttons {
-    display: flex;
-    margin: 20px 0;
-    font-size: 30px;
-    line-height: 50px;
-    font-weight: bold;
-    text-align: center;
-    vertical-align: middle;
-}
-
-.xbox-buttons__x {
-    width: 50px;
-    height: 50px;
-    border: 1px solid #444;
-    color: #079cdf;
-    margin-right: 20px;
-    border-radius: 100% 100%;
-}
-
-.xbox-buttons__y {
-    width: 50px;
-    height: 50px;
-    border: 1px solid #444;
-    color: #dbc30f;
-    margin-right: 20px;
-    border-radius: 100% 100%;
-}
-
-.xbox-buttons__a {
-    width: 50px;
-    height: 50px;
-    border: 1px solid #444;
-    color: #07c134;
-    margin-right: 20px;
-    border-radius: 100% 100%;
-}
-
-.xbox-buttons__b {
-    width: 50px;
-    height: 50px;
-    border: 1px solid #444;
-    color: #ee302d;
-    margin-right: 20px;
-    border-radius: 100% 100%;
+.button_size_s {
+    font-size: 12px;
+    padding: 2px 4px;
 }
 
 html, body {

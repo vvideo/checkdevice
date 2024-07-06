@@ -1,1 +1,1058 @@
-!function(e){"function"==typeof define&&define.amd?define(e):e()}((function(){"use strict";var e=function(){return e=Object.assign||function(e){for(var n,t=1,r=arguments.length;t<r;t++)for(var o in n=arguments[t])Object.prototype.hasOwnProperty.call(n,o)&&(e[o]=n[o]);return e},e.apply(this,arguments)};function n(e,n){return Object.defineProperty?Object.defineProperty(e,"raw",{value:n}):e.raw=n,e}"function"==typeof SuppressedError&&SuppressedError;var t,r,o,u,i,s,a,_,l,c,d={},p=[],f=/acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i,h=Array.isArray;function v(e,n){for(var t in n)e[t]=n[t];return e}function m(e){var n=e.parentNode;n&&n.removeChild(e)}function g(e,n,r){var o,u,i,s={};for(i in n)"key"==i?o=n[i]:"ref"==i?u=n[i]:s[i]=n[i];if(arguments.length>2&&(s.children=arguments.length>3?t.call(arguments,2):r),"function"==typeof e&&null!=e.defaultProps)for(i in e.defaultProps)void 0===s[i]&&(s[i]=e.defaultProps[i]);return y(e,s,o,u,null)}function y(e,n,t,u,i){var s={type:e,props:n,key:t,ref:u,__k:null,__:null,__b:0,__e:null,__d:void 0,__c:null,constructor:void 0,__v:null==i?++o:i,__i:-1,__u:0};return null==i&&null!=r.vnode&&r.vnode(s),s}function w(e){return e.children}function b(e,n){this.props=e,this.context=n}function k(e,n){if(null==n)return e.__?k(e.__,e.__i+1):null;for(var t;n<e.__k.length;n++)if(null!=(t=e.__k[n])&&null!=t.__e)return t.__e;return"function"==typeof e.type?k(e):null}function P(e){var n,t;if(null!=(e=e.__)&&null!=e.__c){for(e.__e=e.__c.base=null,n=0;n<e.__k.length;n++)if(null!=(t=e.__k[n])&&null!=t.__e){e.__e=e.__c.base=t.__e;break}return P(e)}}function S(e){(!e.__d&&(e.__d=!0)&&u.push(e)&&!C.__r++||i!==r.debounceRendering)&&((i=r.debounceRendering)||s)(C)}function C(){var e,n,t,o,i,s,_,l;for(u.sort(a);e=u.shift();)e.__d&&(n=u.length,o=void 0,s=(i=(t=e).__v).__e,_=[],l=[],t.__P&&((o=v({},i)).__v=i.__v+1,r.vnode&&r.vnode(o),M(t.__P,o,i,t.__n,t.__P.namespaceURI,32&i.__u?[s]:null,_,null==s?k(i):s,!!(32&i.__u),l),o.__v=i.__v,o.__.__k[o.__i]=o,E(_,o,l),o.__e!=s&&P(o)),u.length>n&&u.sort(a));C.__r=0}function I(e,n,t,r,o,u,i,s,a,_,l){var c,f,h,v,m,g=r&&r.__k||p,y=n.length;for(t.__d=a,H(t,n,g),a=t.__d,c=0;c<y;c++)null!=(h=t.__k[c])&&"boolean"!=typeof h&&"function"!=typeof h&&(f=-1===h.__i?d:g[h.__i]||d,h.__i=c,M(e,h,f,o,u,i,s,a,_,l),v=h.__e,h.ref&&f.ref!=h.ref&&(f.ref&&U(f.ref,null,h),l.push(h.ref,h.__c||v,h)),null==m&&null!=v&&(m=v),65536&h.__u||f.__k===h.__k?(a&&"string"==typeof h.type&&!e.contains(a)&&(a=k(f)),a=D(h,a,e)):"function"==typeof h.type&&void 0!==h.__d?a=h.__d:v&&(a=v.nextSibling),h.__d=void 0,h.__u&=-196609);t.__d=a,t.__e=m}function H(e,n,t){var r,o,u,i,s,a=n.length,_=t.length,l=_,c=0;for(e.__k=[],r=0;r<a;r++)i=r+c,null!=(o=e.__k[r]=null==(o=n[r])||"boolean"==typeof o||"function"==typeof o?null:"string"==typeof o||"number"==typeof o||"bigint"==typeof o||o.constructor==String?y(null,o,null,null,null):h(o)?y(w,{children:o},null,null,null):void 0===o.constructor&&o.__b>0?y(o.type,o.props,o.key,o.ref?o.ref:null,o.__v):o)?(o.__=e,o.__b=e.__b+1,s=T(o,t,i,l),o.__i=s,u=null,-1!==s&&(l--,(u=t[s])&&(u.__u|=131072)),null==u||null===u.__v?(-1==s&&c--,"function"!=typeof o.type&&(o.__u|=65536)):s!==i&&(s==i-1?c=s-i:s==i+1?c++:s>i?l>a-i?c+=s-i:c--:s<i&&c++,s!==r+c&&(o.__u|=65536))):(u=t[i])&&null==u.key&&u.__e&&!(131072&u.__u)&&(u.__e==e.__d&&(e.__d=k(u)),L(u,u,!1),t[i]=null,l--);if(l)for(r=0;r<_;r++)null!=(u=t[r])&&!(131072&u.__u)&&(u.__e==e.__d&&(e.__d=k(u)),L(u,u))}function D(e,n,t){var r,o;if("function"==typeof e.type){for(r=e.__k,o=0;r&&o<r.length;o++)r[o]&&(r[o].__=e,n=D(r[o],n,t));return n}e.__e!=n&&(t.insertBefore(e.__e,n||null),n=e.__e);do{n=n&&n.nextSibling}while(null!=n&&8===n.nodeType);return n}function T(e,n,t,r){var o=e.key,u=e.type,i=t-1,s=t+1,a=n[t];if(null===a||a&&o==a.key&&u===a.type&&!(131072&a.__u))return t;if(r>(null==a||131072&a.__u?0:1))for(;i>=0||s<n.length;){if(i>=0){if((a=n[i])&&!(131072&a.__u)&&o==a.key&&u===a.type)return i;i--}if(s<n.length){if((a=n[s])&&!(131072&a.__u)&&o==a.key&&u===a.type)return s;s++}}return-1}function A(e,n,t){"-"===n[0]?e.setProperty(n,null==t?"":t):e[n]=null==t?"":"number"!=typeof t||f.test(n)?t:t+"px"}function N(e,n,t,r,o){var u;e:if("style"===n)if("string"==typeof t)e.style.cssText=t;else{if("string"==typeof r&&(e.style.cssText=r=""),r)for(n in r)t&&n in t||A(e.style,n,"");if(t)for(n in t)r&&t[n]===r[n]||A(e.style,n,t[n])}else if("o"===n[0]&&"n"===n[1])u=n!==(n=n.replace(/(PointerCapture)$|Capture$/i,"$1")),n=n.toLowerCase()in e||"onFocusOut"===n||"onFocusIn"===n?n.toLowerCase().slice(2):n.slice(2),e.l||(e.l={}),e.l[n+u]=t,t?r?t.u=r.u:(t.u=_,e.addEventListener(n,u?c:l,u)):e.removeEventListener(n,u?c:l,u);else{if("http://www.w3.org/2000/svg"==o)n=n.replace(/xlink(H|:h)/,"h").replace(/sName$/,"s");else if("width"!=n&&"height"!=n&&"href"!=n&&"list"!=n&&"form"!=n&&"tabIndex"!=n&&"download"!=n&&"rowSpan"!=n&&"colSpan"!=n&&"role"!=n&&"popover"!=n&&n in e)try{e[n]=null==t?"":t;break e}catch(e){}"function"==typeof t||(null==t||!1===t&&"-"!==n[4]?e.removeAttribute(n):e.setAttribute(n,"popover"==n&&1==t?"":t))}}function R(e){return function(n){if(this.l){var t=this.l[n.type+e];if(null==n.t)n.t=_++;else if(n.t<t.u)return;return t(r.event?r.event(n):n)}}}function M(e,n,t,o,u,i,s,a,_,l){var c,d,p,f,m,g,y,k,P,S,C,H,D,T,A,N,R=n.type;if(void 0!==n.constructor)return null;128&t.__u&&(_=!!(32&t.__u),i=[a=n.__e=t.__e]),(c=r.__b)&&c(n);e:if("function"==typeof R)try{if(k=n.props,P="prototype"in R&&R.prototype.render,S=(c=R.contextType)&&o[c.__c],C=c?S?S.props.value:c.__:o,t.__c?y=(d=n.__c=t.__c).__=d.__E:(P?n.__c=d=new R(k,C):(n.__c=d=new b(k,C),d.constructor=R,d.render=G),S&&S.sub(d),d.props=k,d.state||(d.state={}),d.context=C,d.__n=o,p=d.__d=!0,d.__h=[],d._sb=[]),P&&null==d.__s&&(d.__s=d.state),P&&null!=R.getDerivedStateFromProps&&(d.__s==d.state&&(d.__s=v({},d.__s)),v(d.__s,R.getDerivedStateFromProps(k,d.__s))),f=d.props,m=d.state,d.__v=n,p)P&&null==R.getDerivedStateFromProps&&null!=d.componentWillMount&&d.componentWillMount(),P&&null!=d.componentDidMount&&d.__h.push(d.componentDidMount);else{if(P&&null==R.getDerivedStateFromProps&&k!==f&&null!=d.componentWillReceiveProps&&d.componentWillReceiveProps(k,C),!d.__e&&(null!=d.shouldComponentUpdate&&!1===d.shouldComponentUpdate(k,d.__s,C)||n.__v===t.__v)){for(n.__v!==t.__v&&(d.props=k,d.state=d.__s,d.__d=!1),n.__e=t.__e,n.__k=t.__k,n.__k.forEach((function(e){e&&(e.__=n)})),H=0;H<d._sb.length;H++)d.__h.push(d._sb[H]);d._sb=[],d.__h.length&&s.push(d);break e}null!=d.componentWillUpdate&&d.componentWillUpdate(k,d.__s,C),P&&null!=d.componentDidUpdate&&d.__h.push((function(){d.componentDidUpdate(f,m,g)}))}if(d.context=C,d.props=k,d.__P=e,d.__e=!1,D=r.__r,T=0,P){for(d.state=d.__s,d.__d=!1,D&&D(n),c=d.render(d.props,d.state,d.context),A=0;A<d._sb.length;A++)d.__h.push(d._sb[A]);d._sb=[]}else do{d.__d=!1,D&&D(n),c=d.render(d.props,d.state,d.context),d.state=d.__s}while(d.__d&&++T<25);d.state=d.__s,null!=d.getChildContext&&(o=v(v({},o),d.getChildContext())),P&&!p&&null!=d.getSnapshotBeforeUpdate&&(g=d.getSnapshotBeforeUpdate(f,m)),I(e,h(N=null!=c&&c.type===w&&null==c.key?c.props.children:c)?N:[N],n,t,o,u,i,s,a,_,l),d.base=n.__e,n.__u&=-161,d.__h.length&&s.push(d),y&&(d.__E=d.__=null)}catch(e){n.__v=null,_||null!=i?(n.__e=a,n.__u|=_?160:32,i[i.indexOf(a)]=null):(n.__e=t.__e,n.__k=t.__k),r.__e(e,n,t)}else null==i&&n.__v===t.__v?(n.__k=t.__k,n.__e=t.__e):n.__e=x(t.__e,n,t,o,u,i,s,_,l);(c=r.diffed)&&c(n)}function E(e,n,t){n.__d=void 0;for(var o=0;o<t.length;o++)U(t[o],t[++o],t[++o]);r.__c&&r.__c(n,e),e.some((function(n){try{e=n.__h,n.__h=[],e.some((function(e){e.call(n)}))}catch(e){r.__e(e,n.__v)}}))}function x(e,n,r,o,u,i,s,a,_){var l,c,p,f,v,g,y,w=r.props,b=n.props,P=n.type;if("svg"===P?u="http://www.w3.org/2000/svg":"math"===P?u="http://www.w3.org/1998/Math/MathML":u||(u="http://www.w3.org/1999/xhtml"),null!=i)for(l=0;l<i.length;l++)if((v=i[l])&&"setAttribute"in v==!!P&&(P?v.localName===P:3===v.nodeType)){e=v,i[l]=null;break}if(null==e){if(null===P)return document.createTextNode(b);e=document.createElementNS(u,P,b.is&&b),i=null,a=!1}if(null===P)w===b||a&&e.data===b||(e.data=b);else{if(i=i&&t.call(e.childNodes),w=r.props||d,!a&&null!=i)for(w={},l=0;l<e.attributes.length;l++)w[(v=e.attributes[l]).name]=v.value;for(l in w)if(v=w[l],"children"==l);else if("dangerouslySetInnerHTML"==l)p=v;else if("key"!==l&&!(l in b)){if("value"==l&&"defaultValue"in b||"checked"==l&&"defaultChecked"in b)continue;N(e,l,null,v,u)}for(l in b)v=b[l],"children"==l?f=v:"dangerouslySetInnerHTML"==l?c=v:"value"==l?g=v:"checked"==l?y=v:"key"===l||a&&"function"!=typeof v||w[l]===v||N(e,l,v,w[l],u);if(c)a||p&&(c.__html===p.__html||c.__html===e.innerHTML)||(e.innerHTML=c.__html),n.__k=[];else if(p&&(e.innerHTML=""),I(e,h(f)?f:[f],n,r,o,"foreignObject"===P?"http://www.w3.org/1999/xhtml":u,i,s,i?i[0]:r.__k&&k(r,0),a,_),null!=i)for(l=i.length;l--;)null!=i[l]&&m(i[l]);a||(l="value",void 0!==g&&(g!==e[l]||"progress"===P&&!g||"option"===P&&g!==w[l])&&N(e,l,g,w[l],u),l="checked",void 0!==y&&y!==e[l]&&N(e,l,y,w[l],u))}return e}function U(e,n,t){try{"function"==typeof e?e(n):e.current=n}catch(e){r.__e(e,t)}}function L(e,n,t){var o,u;if(r.unmount&&r.unmount(e),(o=e.ref)&&(o.current&&o.current!==e.__e||U(o,null,n)),null!=(o=e.__c)){if(o.componentWillUnmount)try{o.componentWillUnmount()}catch(e){r.__e(e,n)}o.base=o.__P=null}if(o=e.__k)for(u=0;u<o.length;u++)o[u]&&L(o[u],n,t||"function"!=typeof e.type);t||null==e.__e||m(e.__e),e.__c=e.__=e.__e=e.__d=void 0}function G(e,n,t){return this.constructor(e,t)}t=p.slice,r={__e:function(e,n,t,r){for(var o,u,i;n=n.__;)if((o=n.__c)&&!o.__)try{if((u=o.constructor)&&null!=u.getDerivedStateFromError&&(o.setState(u.getDerivedStateFromError(e)),i=o.__d),null!=o.componentDidCatch&&(o.componentDidCatch(e,r||{}),i=o.__d),i)return o.__E=o}catch(n){e=n}throw e}},o=0,b.prototype.setState=function(e,n){var t;t=null!=this.__s&&this.__s!==this.state?this.__s:this.__s=v({},this.state),"function"==typeof e&&(e=e(v({},t),this.props)),e&&v(t,e),null!=e&&this.__v&&(n&&this._sb.push(n),S(this))},b.prototype.forceUpdate=function(e){this.__v&&(this.__e=!0,e&&this.__h.push(e),S(this))},b.prototype.render=w,u=[],s="function"==typeof Promise?Promise.prototype.then.bind(Promise.resolve()):setTimeout,a=function(e,n){return e.__v.__b-n.__v.__b},C.__r=0,_=0,l=R(!1),c=R(!0);var F=function(e,n,t,r){var o;n[0]=0;for(var u=1;u<n.length;u++){var i=n[u++],s=n[u]?(n[0]|=i?1:2,t[n[u++]]):n[++u];3===i?r[0]=s:4===i?r[1]=Object.assign(r[1]||{},s):5===i?(r[1]=r[1]||{})[n[++u]]=s:6===i?r[1][n[++u]]+=s+"":i?(o=e.apply(s,F(e,s,t,["",null])),r.push(o),s[0]?n[0]|=2:(n[u-2]=0,n[u]=o)):r.push(s)}return r},W=new Map;var B=function(e){var n=W.get(this);return n||(n=new Map,W.set(this,n)),(n=F(this,n.get(e)||(n.set(e,n=function(e){for(var n,t,r=1,o="",u="",i=[0],s=function(e){1===r&&(e||(o=o.replace(/^\s*\n\s*|\s*\n\s*$/g,"")))?i.push(0,e,o):3===r&&(e||o)?(i.push(3,e,o),r=2):2===r&&"..."===o&&e?i.push(4,e,0):2===r&&o&&!e?i.push(5,0,!0,o):r>=5&&((o||!e&&5===r)&&(i.push(r,0,o,t),r=6),e&&(i.push(r,e,0,t),r=6)),o=""},a=0;a<e.length;a++){a&&(1===r&&s(),s(a));for(var _=0;_<e[a].length;_++)n=e[a][_],1===r?"<"===n?(s(),i=[i],r=3):o+=n:4===r?"--"===o&&">"===n?(r=1,o=""):o=n+o[0]:u?n===u?u="":o+=n:'"'===n||"'"===n?u=n:">"===n?(s(),r=1):r&&("="===n?(r=5,t=o,o=""):"/"===n&&(r<5||">"===e[a][_+1])?(s(),3===r&&(i=i[0]),r=i,(i=i[0]).push(2,0,r),r=0):" "===n||"\t"===n||"\n"===n||"\r"===n?(s(),r=2):o+=n),3===r&&"!--"===o&&(r=4,i=i[0])}return s(),i}(e)),n),arguments,[])).length>1?n:n[0]}.bind(g);function O(e){return function(n,t){if(!n)return e;var r=e;return"string"==typeof n?(r=e+"__"+n,t&&(r=K(r,t)),r):(n&&(r=K(r,n)),r)}}function K(e,n){var t=e;return Object.keys(n).forEach((function(r){var o=n[r];!1!==o&&null!=o&&""!==o&&(t+=" "+e+"_",!0===n[r]?t+=r:t+=r+"_"+o)})),t}var j,V=O("header");function q(e){return B(j||(j=n(['\n        <div class="','">\n            ',"\n        </div>\n    "],['\n        <div class="','">\n            ',"\n        </div>\n    "])),V(),e.children)}var z,$={"Can I watch video in this browser?":{en:"Can I watch video in this browser?",ru:"Могу ли я смотреть видео в этом браузере?"},"Audio Codecs":{en:"Audio Codecs",ru:"Аудиокодеки"},"Video Codecs":{en:"Video Codecs",ru:"Видеокодеки"},Supported:{en:"Supported",ru:"Поддерживаемые"},"No supported audio codecs.":{en:"No supported audio codecs.",ru:"Нет поддерживаемых аудиокодеков."},"No supported video codecs.":{en:"No supported video codecs.",ru:"Нет поддерживаемых видеокодеков."},Unsupported:{en:"Unsupported",ru:"Не поддерживаемые"},Size:{en:"Size",ru:"Размер"},"Color depth":{en:"Color depth",ru:"Глубина цвета"},Audio:{en:"Audio",ru:"Аудио"},Video:{en:"Video",ru:"Видео"},"Image Formats":{en:"Image Formats",ru:"Форматы картинок"},"Native Streaming Support":{en:"Native Streaming Support",ru:"Поддержка нативного стримминга"},Yes:{en:"Yes",ru:"Да"},No:{en:"No",ru:"Нет"},Warning:{en:"Warning",ru:"Предупреждение"},Screens:{en:"Screens",ru:"Экраны"},Screen:{en:"Screen",ru:"Экран"},"No supported image formats.":{en:"No supported image formats.",ru:"Нет поддерживаемых форматов картинок."},"Can I listen to surround sound on online services?":{en:"Can I listen to surround sound on online services?",ru:"Могу ли я услышать многоканальный звук в онлайн-сервисах?"},"HTMLVideoElement Features":{en:"HTMLVideoElement Features",ru:"Возможности HTMLVideoElement"},"Aspect ratio":{en:"Aspect ratio",ru:"Соотношение сторон"},Primary:{en:"Primary",ru:"Основной"},Internal:{en:"Internal",ru:"Внутренний"},"Please reset zoom in the page":{en:"Please reset zoom in the page",ru:"Необходимо сбросить зум на странице"},"Can I watch HDR video?":{en:"Can I watch HDR video?",ru:"Могу ли я смотреть HDR видео?"},"Supports one of the audio codecs?":{en:"Supports one of the audio codecs?",ru:"Есть поддержка одного из аудиокодеков?"},"Is this an HDR-compatible screen?":{en:"Is this an HDR-compatible screen?",ru:"Это HDR-совместимый экран?"},"Supports one of the video codecs?":{en:"Supports one of the video codecs?",ru:"Есть поддержка одного из видеокодеков?"},"Supports one of the video codecs and DRM with high security level?":{en:"Supports one of the video codecs and DRM with high security level?",ru:"Есть поддержка одного из видеокодеков и DRM с высоким уровнем безопасности?"},"Can I watch 4K video on online services?":{en:"Can I watch 4K video on online services?",ru:"Могу ли я смотреть 4К видео в онлайн-сервисах?"},"Online services protect content using":{en:"Online services protect content using",ru:"Онлайн-сервисы защищают контент с помощью"},"Has DRM support?":{en:"Has DRM support?",ru:"Есть поддержка DRM?"},"Can I watch 4K video?":{en:"Can I watch 4K video?",ru:"Могу ли я смотреть 4К видео?"},"Is the screen larger than 2K?":{en:"Is the screen larger than 2K?",ru:"Экран больше чем 2К?"},"link:wiki:drm":{en:"https://en.wikipedia.org/wiki/Digital_rights_management",ru:"https://ru.wikipedia.org/wiki/Digital_rights_management"},bit:{en:"bit",ru:"бит"},"Not detected":{en:"Not detected",ru:"Не обнаружено"},"HDCP not detected":{en:"Could not be determined",ru:"Не удалось определить"},"Security level":{en:"Security level",ru:"Уровень безопасности"},"Security levels":{en:"Security levels",ru:"Уровни безопасности"},"Key system":{en:"Key system",ru:"Система ключей"},"Key systems":{en:"Key systems",ru:"Системы ключей"},Request:{en:"Request",ru:"Запрос"},Details:{en:"Details",ru:"Подробности"},Battery:{en:"Battery",ru:"Батарея"},Platform:{en:"Platform",ru:"Платформа"},Connection:{en:"Connection",ru:"Связь"},"Has HDR support for video?":{en:"Has HDR support for video?",ru:"Есть поддержка HDR для видео?"},"Additional monitor detected":{en:"Additional monitor detected",ru:"Обнаружен дополнительный монитор"},"link:apple:t2":{en:"https://support.apple.com/en-us/103265",ru:"https://support.apple.com/ru-ru/103265"},"Select 2018 or later Mac computer with an":{en:"Select 2018 or later Mac computer with an",ru:"Компьютер Мак (начиная с 2018 или новее) с"},"Internet Speed":{en:"Internet Speed",ru:"Скорость интернета"},"HDCP 2.2 or later":{en:"HDCP 2.2 or later",ru:"HDCP 2.2 или выше"},"Make sure that monitors, video cards, and cables support HDCP 2.2 or later.":{en:"Make sure that monitors, video cards, and cables support HDCP 2.2 or later.",ru:"Монитор, видеокарта и кабель должны поддерживать HDCP 2.2 и выше"},GB:{en:"GB",ru:"ГБ"},"Hardware acceleration":{en:"Hardware acceleration",ru:"Аппаратное ускорение"},Model:{en:"Model",ru:"Модель"},Architecture:{en:"Architecture",ru:"Архитектура"},"Form factor":{en:"Form factor",ru:"Форм-фактор"},unsupported:{en:"unsupported",ru:"не поддерживается"},Name:{en:"Name",ru:"Название"},"Can I use WebGPU?":{en:"Can I use WebGPU?",ru:"Могу ли я использовать WebGPU?"},"WebGPU is not supported.":{en:"WebGPU is not supported.",ru:"WebGPU не поддерживается."},"GPU Adapter is not found.":{en:"GPU Adapter is not found.",ru:"GPU адаптер не найден."},"Video & audio":{en:"Video & audio",ru:"Видео и аудио"},"Can I use Battery Status API?":{en:"Can I use Battery Status API?",ru:"Могу ли я использовать Battery Status API?"},"Battery Status API is not supported.":{en:"Battery Status API is not supported.",ru:"Battery Status API не поддерживается."},"Can I use Network Information API?":{en:"Can I use Network Information API?",ru:"Могу ли я использовать Network Information API?"},"Network Information API is not supported.":{en:"Network Information API is not supported.",ru:"Network Information API не поддерживается."},"Network & geo":{en:"Network & geo",ru:"Сеть и гео"},"Request geo location":{en:"Request geo location",ru:"Запросить местоположение"},"Can I use 🎮 Gamepad API?":{en:"Can I use 🎮 Gamepad API?",ru:"Могу ли я использовать 🎮 Gamepad API?"},"🎮 Gamepad API is not supported.":{en:"🎮 Gamepad API is not supported.",ru:"🎮 Gamepad API не поддерживается."},"Connect and press any button on the gamepad.":{en:"Connect and press any button on the gamepad.",ru:"Подключите и нажмите любую кнопку на джойстике."},Gamepad:{en:"Gamepad",ru:"Джойстик"},Storage:{en:"Storage",ru:"Хранилище"},Storages:{en:"Storages",ru:"Хранилища"},Features:{en:"Features",ru:"Возможности"},"Can I use web storages?":{en:"Can I use web storages?",ru:"Могу ли я использовать веб-хранилища?"},"Support of persistent storage":{en:"Support of persistent storage",ru:"Поддержка постоянного хранилища"},"Storage quota for origin":{en:"Storage quota for origin",ru:"Квота хранилища на домен"},"Color spaces":{en:"Color spaces",ru:"Цветовые пространства"},"HDR support":{en:"HDR support",ru:"Поддержка HDR"},"Current screen":{en:"Current screen",ru:"Текущий экран"},Orientation:{en:"Orientation",ru:"Ориентация"},Camera:{en:"Camera",ru:"Камера"},Webcamera:{en:"Webcamera",ru:"Веб-камера"},"Select camera":{en:"Select camera",ru:"Выбрать камеру"},Stop:{en:"Stop",ru:"Стоп"},Resolution:{en:"Resolution",ru:"Разрешение"},"Low resolution":{en:"Low resolution",ru:"Низкое разрешение"},"High resolution":{en:"High resolution",ru:"Высокое разрешение"},"High frame rate":{en:"High frame rate",ru:"Высокая частота кадров"},"Frame rate":{en:"Frame rate",ru:"Частота кадров"},Specify:{en:"Specify",ru:"Уточнить"},"Camera not found.":{en:"Camera not found.",ru:"Камера не найдена."},"Camera is blocked.":{en:"Camera is blocked.",ru:"Камера заблокирована."},"Has touch screen":{en:"Has touch screen",ru:"Сенсорный экран"},Additionally:{en:"Additionally",ru:"Дополнительно"},"Standalone application":{en:"Standalone application",ru:"Автономное приложение"},"Page not found.":{en:"Page not found.",ru:"Страница не найдена."},"Go to main page":{en:"Go to main page",ru:"Перейти на главную"},Permissions:{en:"Permissions",ru:"Разрешения"},"Start test":{en:"Start test",ru:"Начать тест"},"Test dead pixels":{en:"Test dead pixels",ru:"Тест битых пикселей"},Tests:{en:"Tests",ru:"Тесты"},RAM:{en:"RAM",ru:"ОЗУ"},Hz:{en:"Hz",ru:"Гц"},"Refresh rate":{en:"Refresh rate",ru:"Частота обновления"},Input:{en:"Input",ru:"Ввод"},Mouse:{en:"Mouse",ru:"Мышь"},Reset:{en:"Reset",ru:"Сброс"},"Mouse and keyboard":{en:"Mouse and keyboard",ru:"Мышь и клавиатура"},Keyboard:{en:"Keyboard",ru:"Клавиатура"},"Testing keyboard":{en:"Testing keyboard",ru:"Тестирование клавиатуры"},"Testing mouse":{en:"Testing mouse",ru:"Тестирование мышки"},"Check device online":{en:"Check device online",ru:"Проверь устройство онлайн"},"Report a bug":{en:"Report a bug",ru:"Сообщить об ошибке"},"Press a key to display its code.":{en:"Press a key to display its code.",ru:"Нажмите клавишу, чтобы увидеть её код."},"Displaying key codes":{en:"Displaying key codes",ru:"Отображение кодов клавиш"},Mic:{en:"Mic",ru:"Микрофон"}};function Y(e){var n=$[e];if(!n)return console.error('Not found key "'.concat(e,'" in getText().')),e;var t=n[z];return void 0===t?(console.error('Not found key "'.concat(e,'", lang "').concat(z,'" in getText().')),e):t}function J(e){return e[z]}var Q="undefined"!=typeof document,X="undefined"!=typeof window,Z="undefined"!=typeof navigator,ee="undefined"!=typeof screen;var ne=1;function te(e,n){return(e||"").slice(0,n)}function re(){return Math.floor(Math.random()*(1<<30))}var oe=512;function ue(e,n,t){(t||0===t)&&e.push(n+":"+(!0===t?"1":t))}function ie(e,n){var t=[];e&&Object.keys(e).forEach((function(n){return ue(t,n,e[n])})),ue(t,"rn",re()),ue(t,"c",!!Z&&navigator.cookieEnabled),ue(t,"s",ee?[screen.width,screen.height,screen.colorDepth].join("x"):""),ue(t,"sk",X&&window.devicePixelRatio||ne),ue(t,"w",X?[window.innerWidth,window.innerHeight].join("x"):""),ue(t,"en",Q&&"string"==typeof document.charset?document.charset.toLowerCase():"");var r=Math.round(Date.now()/1e3);return ue(t,"et",r),ue(t,"st",r),ue(t,"t",te(n,oe)),t.join(":")}var se,ae=1024;function _e(e){return te(e,ae)}function le(e,n){var t,r="https://mc.yandex.ru/watch/"+e+"?"+(t=n,Object.keys(t).filter((function(e){return t[e]||0===t[e]})).map((function(e){return encodeURIComponent(e)+"="+encodeURIComponent(t[e])})).join("&"));"undefined"!=typeof navigator&&navigator.sendBeacon&&navigator.sendBeacon(r," ")||("undefined"!=typeof fetch?fetch(r,{credentials:"include"}).catch((function(){})):"undefined"!=typeof Image&&((new Image).src=r))}!function(e,n,t){!function(e){var n=e.browserInfo,t=e.counterId,r=e.pageParams,o={"browser-info":ie(n,r.title),rn:re(),ut:r.ut};r.url&&(o["page-url"]=_e(r.url)),r.referrer&&(o["page-ref"]=_e(r.referrer)),le(t,o)}({browserInfo:{pv:!0,ar:!0},counterId:e,pageParams:{referrer:Q?document.referrer:"",title:Q?document.title:"",url:X&&window.location?window.location.href:""},params:t})}("caniwatchvideo.online"===window.location.host?"95998062":"97747983"),function(e){z=e}((se=function(){for(var e=window.location.search.slice(1).split("&"),n=0;n<e.length;n++){var t=e[n].split("="),r=t[0],o=t[1];if("lang"===r)return o}return""}()||(navigator.language||"").split("-")[0]||"en","en"!==se&&"ru"!==se&&(se="en"),se)),window.addEventListener("beforeinstallprompt",(function(e){}));var ce,de=O("link");function pe(e){return B(ce||(ce=n(['<a class="','" href="','">',"</a>"],['<a class="','" href="','">',"</a>"])),de({theme:e.theme}),e.href,e.children)}var fe,he=O("footer");function ve(){return B(fe||(fe=n(['<div class="','">\n        <div class="','">© <span class="','">V</span><span class="','">v</span><span class="','">i</span><span class="','">d</span><span class="','">e</span><span class="','">o</span></div>\n        <div class="','"><',' target="_blank" href="https://github.com/vvideo/caniwatchvideo/issues">',"<//></div>\n    </div>"],['<div class="','">\n        <div class="','">© <span class="','">V</span><span class="','">v</span><span class="','">i</span><span class="','">d</span><span class="','">e</span><span class="','">o</span></div>\n        <div class="','"><',' target="_blank" href="https://github.com/vvideo/caniwatchvideo/issues">',"<//></div>\n    </div>"])),he(),he("item"),he("l1"),he("l2"),he("l3"),he("l4"),he("l5"),he("l6"),he("item",{g:!0}),pe,Y("Report a bug"))}var me,ge,ye=O("main-menu");function we(e){return B(ge||(ge=n(['\n        <div class="','">\n            ',"\n        </div>\n    "],['\n        <div class="','">\n            ',"\n        </div>\n    "])),ye(),e.items.filter((function(e){return!e.hidden})).map((function(e){return B(me||(me=n(['<a class="','" href="','">',"</a>"],['<a class="','" href="','">',"</a>"])),ye("item",{selected:e.selected}),e.url,e.title)})))}var be,ke=[{header:{en:"Can I watch video?",ru:"Могу ли я смотреть видео?"},menuTitle:{en:"Video",ru:"Видео"},id:"index",url:"./"},{menuTitle:{en:"Audio",ru:"Аудио"},id:"audio",url:"./audio.html"},{menuTitle:{en:"Screen",ru:"Экран"},id:"screen",url:"./screen.html"},{menuTitle:{en:"Webcamera",ru:"Веб-камера"},id:"camera",url:"./camera.html"},{menuTitle:{en:"GPU",ru:"GPU"},id:"gpu",url:"./gpu.html"},{menuTitle:{en:"Mouse",ru:"Мышь"},id:"mouse",url:"./mouse.html"},{menuTitle:{en:"Keyboard",ru:"Клавиатура"},id:"keyboard",url:"./keyboard.html"},{menuTitle:{en:"Key codes",ru:"Коды клавиш"},id:"keycodes",url:"./keycodes.html",hidden:!0},{menuTitle:{en:"Gamepad",ru:"Джойстик"},id:"gamepad",url:"./gamepad.html"},{menuTitle:{en:"Storage",ru:"Хранилище"},id:"storage",url:"./storage.html"},{menuTitle:{en:"Network & geo",ru:"Сеть и гео"},id:"network",url:"./network.html"},{menuTitle:{en:"Platform",ru:"Платформа"},id:"platform",url:"./platform.html"},{menuTitle:{en:"Battery",ru:"Батарея"},id:"battery",url:"./battery.html"},{menuTitle:{en:"404",ru:"404"},id:"error404",url:"./error404.html",hidden:!0},{menuTitle:{en:"Test dead pixels",ru:"Тестирование битых пикселей"},id:"test-dead-pixels",url:"./test-dead-pixels.html",hidden:!0}];function Pe(){var t=function(){var e=window.location.pathname.replace(/^\/caniwatchvideo/,"").split(/[?./]/)[1];return e||"index"}(),r=ke.map((function(n){var r=n.id===t;return r&&(document.title=J(n.header||n.menuTitle)),e(e({},n),{title:J(n.menuTitle),selected:r})}));return B(be||(be=n(["<",' items="','"><//>'],["<",' items="','"><//>'])),we,r)}var Se,Ce,Ie=O("head");function He(){return B(Se||(Se=n(['\n        <div class="','">\n            <span class="','"></span>',"\n        </div>\n    "],['\n        <div class="','">\n            <span class="','"></span>',"\n        </div>\n    "])),Ie(),Ie("logo"),Y("Check device online"))}function De(e){return B(Ce||(Ce=n(["\n        <div>\n            <"," //>\n            <","><//>\n\n            ","\n\n            <","><//>\n        </div>"],["\n        <div>\n            <"," //>\n            <","><//>\n\n            ","\n\n            <","><//>\n        </div>"])),He,Pe,e.children,ve)}var Te,Ae,Ne,Re,Me=0,Ee=[],xe=r,Ue=xe.__b,Le=xe.__r,Ge=xe.diffed,Fe=xe.__c,We=xe.unmount,Be=xe.__;function Oe(e,n){xe.__h&&xe.__h(Ae,e,Me||n),Me=0;var t=Ae.__H||(Ae.__H={__:[],__h:[]});return e>=t.__.length&&t.__.push({}),t.__[e]}function Ke(e){return Me=1,function(e,n,t){var r=Oe(Te++,2);if(r.t=e,!r.__c&&(r.__=[Ze(void 0,n),function(e){var n=r.__N?r.__N[0]:r.__[0],t=r.t(n,e);n!==t&&(r.__N=[t,r.__[1]],r.__c.setState({}))}],r.__c=Ae,!Ae.u)){var o=function(e,n,t){if(!r.__c.__H)return!0;var o=r.__c.__H.__.filter((function(e){return!!e.__c}));if(o.every((function(e){return!e.__N})))return!u||u.call(this,e,n,t);var i=!1;return o.forEach((function(e){if(e.__N){var n=e.__[0];e.__=e.__N,e.__N=void 0,n!==e.__[0]&&(i=!0)}})),!(!i&&r.__c.props===e)&&(!u||u.call(this,e,n,t))};Ae.u=!0;var u=Ae.shouldComponentUpdate,i=Ae.componentWillUpdate;Ae.componentWillUpdate=function(e,n,t){if(this.__e){var r=u;u=void 0,o(e,n,t),u=r}i&&i.call(this,e,n,t)},Ae.shouldComponentUpdate=o}return r.__N||r.__}(Ze,e)}function je(e,n){var t=Oe(Te++,3);!xe.__s&&Xe(t.__H,n)&&(t.__=e,t.i=n,Ae.__H.__h.push(t))}function Ve(e){return Me=5,qe((function(){return{current:e}}),[])}function qe(e,n){var t=Oe(Te++,7);return Xe(t.__H,n)&&(t.__=e(),t.__H=n,t.__h=e),t.__}function ze(){for(var e;e=Ee.shift();)if(e.__P&&e.__H)try{e.__H.__h.forEach(Je),e.__H.__h.forEach(Qe),e.__H.__h=[]}catch(n){e.__H.__h=[],xe.__e(n,e.__v)}}xe.__b=function(e){Ae=null,Ue&&Ue(e)},xe.__=function(e,n){e&&n.__k&&n.__k.__m&&(e.__m=n.__k.__m),Be&&Be(e,n)},xe.__r=function(e){Le&&Le(e),Te=0;var n=(Ae=e.__c).__H;n&&(Ne===Ae?(n.__h=[],Ae.__h=[],n.__.forEach((function(e){e.__N&&(e.__=e.__N),e.i=e.__N=void 0}))):(n.__h.forEach(Je),n.__h.forEach(Qe),n.__h=[],Te=0)),Ne=Ae},xe.diffed=function(e){Ge&&Ge(e);var n=e.__c;n&&n.__H&&(n.__H.__h.length&&(1!==Ee.push(n)&&Re===xe.requestAnimationFrame||((Re=xe.requestAnimationFrame)||Ye)(ze)),n.__H.__.forEach((function(e){e.i&&(e.__H=e.i),e.i=void 0}))),Ne=Ae=null},xe.__c=function(e,n){n.some((function(e){try{e.__h.forEach(Je),e.__h=e.__h.filter((function(e){return!e.__||Qe(e)}))}catch(t){n.some((function(e){e.__h&&(e.__h=[])})),n=[],xe.__e(t,e.__v)}})),Fe&&Fe(e,n)},xe.unmount=function(e){We&&We(e);var n,t=e.__c;t&&t.__H&&(t.__H.__.forEach((function(e){try{Je(e)}catch(e){n=e}})),t.__H=void 0,n&&xe.__e(n,t.__v))};var $e="function"==typeof requestAnimationFrame;function Ye(e){var n,t=function(){clearTimeout(r),$e&&cancelAnimationFrame(n),setTimeout(e)},r=setTimeout(t,100);$e&&(n=requestAnimationFrame(t))}function Je(e){var n=Ae,t=e.__c;"function"==typeof t&&(e.__c=void 0,t()),Ae=n}function Qe(e){var n=Ae;e.__c=e.__(),Ae=n}function Xe(e,n){return!e||e.length!==n.length||n.some((function(n,t){return n!==e[t]}))}function Ze(e,n){return"function"==typeof n?n(e):n}var en=function(){var e=Ke({})[1];return function(e,n){return Me=8,qe((function(){return e}),n)}((function(){return e({})}),[])};function nn(){}var tn=!1;try{var rn={get passive(){return tn=!0,!1}};window.addEventListener("test",nn,rn),window.removeEventListener("test",nn,{})}catch(Ue){tn=!1}var on,un,sn,an=O("mouse");function _n(){var e=Ke(0),t=e[0],r=e[1],o=en(),u=Ve({}),i=Ve();return je((function(){var e=function(e){e.preventDefault()},n=function(e){u.current[e.button]=!0,o()},t=function(e){u.current[e.button]=!1,o()};return document.addEventListener("contextmenu",e),document.addEventListener("scroll",e),document.addEventListener("mousedown",n),document.addEventListener("mouseup",t),function(){document.removeEventListener("contextmenu",e),document.removeEventListener("scroll",e),document.removeEventListener("mousedown",n),document.removeEventListener("mouseup",t)}}),[]),je((function(){var e,n=function(e){e.preventDefault(),r(t-e.deltaY)};return null===(e=i.current)||void 0===e||e.addEventListener("wheel",n,!!tn&&{passive:!1}),function(){var e;null===(e=i.current)||void 0===e||e.removeEventListener("wheel",n)}}),[t]),B(on||(on=n(['\n        <div ref="','" class="','">\n            <div class="','">\n                <div class="','"></div>\n                <div class="','">\n                    <div class="','" style="background-position-y:','px"></div>\n                </div>\n                <div class="','"></div>\n                <div class="','"></div>\n                <div class="','"></div>\n            </div>\n        </div>\n    '],['\n        <div ref="','" class="','">\n            <div class="','">\n                <div class="','"></div>\n                <div class="','">\n                    <div class="','" style="background-position-y:','px"></div>\n                </div>\n                <div class="','"></div>\n                <div class="','"></div>\n                <div class="','"></div>\n            </div>\n        </div>\n    '])),i,an(),an("body"),an("left-button",{pressed:u.current[0]}),an("middle-button",{pressed:u.current[1]}),an("wheel"),t,an("right-button",{pressed:u.current[2]}),an("4-button",{pressed:u.current[3]}),an("5-button",{pressed:u.current[4]}))}!function(e,n,o){var u,i,s,a;r.__&&r.__(e,n),i=(u="function"==typeof o)?null:n.__k,s=[],a=[],M(n,e=(!u&&o||n).__k=g(w,null,[e]),i||d,d,n.namespaceURI,!u&&o?[o]:i?null:n.firstChild?t.call(n.childNodes):null,s,!u&&o?o:i?i.__e:n.firstChild,u,a),E(s,e,a)}(B(sn||(sn=n(["<"," //>"],["<"," //>"])),(function(){return B(un||(un=n(["\n        <",">\n            <",">\n                ","\n            <//>\n\n            <"," //>\n        <//>"],["\n        <",">\n            <",">\n                ","\n            <//>\n\n            <"," //>\n        <//>"])),De,q,Y("Testing mouse"),_n)})),document.querySelector(".page"))}));
+(function (factory) {
+    typeof define === 'function' && define.amd ? define(factory) :
+    factory();
+})((function () { 'use strict';
+
+    /******************************************************************************
+    Copyright (c) Microsoft Corporation.
+
+    Permission to use, copy, modify, and/or distribute this software for any
+    purpose with or without fee is hereby granted.
+
+    THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+    REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+    AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+    INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+    LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+    OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+    PERFORMANCE OF THIS SOFTWARE.
+    ***************************************************************************** */
+    /* global Reflect, Promise, SuppressedError, Symbol */
+
+
+    var __assign = function() {
+        __assign = Object.assign || function __assign(t) {
+            for (var s, i = 1, n = arguments.length; i < n; i++) {
+                s = arguments[i];
+                for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+            }
+            return t;
+        };
+        return __assign.apply(this, arguments);
+    };
+
+    function __makeTemplateObject(cooked, raw) {
+        if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
+        return cooked;
+    }
+    typeof SuppressedError === "function" ? SuppressedError : function (error, suppressed, message) {
+        var e = new Error(message);
+        return e.name = "SuppressedError", e.error = error, e.suppressed = suppressed, e;
+    };
+
+    var n$1,l$1,u$1,i$1,o$1,r$1,f$1,e$2,c$1,s$1,h$1={},p$1=[],v$1=/acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i,y$1=Array.isArray;function d$1(n,l){for(var u in l)n[u]=l[u];return n}function w$1(n){var l=n.parentNode;l&&l.removeChild(n);}function _(l,u,t){var i,o,r,f={};for(r in u)"key"==r?i=u[r]:"ref"==r?o=u[r]:f[r]=u[r];if(arguments.length>2&&(f.children=arguments.length>3?n$1.call(arguments,2):t),"function"==typeof l&&null!=l.defaultProps)for(r in l.defaultProps)void 0===f[r]&&(f[r]=l.defaultProps[r]);return g(l,f,i,o,null)}function g(n,t,i,o,r){var f={type:n,props:t,key:i,ref:o,__k:null,__:null,__b:0,__e:null,__d:void 0,__c:null,constructor:void 0,__v:null==r?++u$1:r,__i:-1,__u:0};return null==r&&null!=l$1.vnode&&l$1.vnode(f),f}function k$1(n){return n.children}function b$6(n,l){this.props=n,this.context=l;}function x(n,l){if(null==l)return n.__?x(n.__,n.__i+1):null;for(var u;l<n.__k.length;l++)if(null!=(u=n.__k[l])&&null!=u.__e)return u.__e;return "function"==typeof n.type?x(n):null}function C$1(n){var l,u;if(null!=(n=n.__)&&null!=n.__c){for(n.__e=n.__c.base=null,l=0;l<n.__k.length;l++)if(null!=(u=n.__k[l])&&null!=u.__e){n.__e=n.__c.base=u.__e;break}return C$1(n)}}function M(n){(!n.__d&&(n.__d=!0)&&i$1.push(n)&&!P.__r++||o$1!==l$1.debounceRendering)&&((o$1=l$1.debounceRendering)||r$1)(P);}function P(){var n,u,t,o,r,e,c,s;for(i$1.sort(f$1);n=i$1.shift();)n.__d&&(u=i$1.length,o=void 0,e=(r=(t=n).__v).__e,c=[],s=[],t.__P&&((o=d$1({},r)).__v=r.__v+1,l$1.vnode&&l$1.vnode(o),O(t.__P,o,r,t.__n,t.__P.namespaceURI,32&r.__u?[e]:null,c,null==e?x(r):e,!!(32&r.__u),s),o.__v=r.__v,o.__.__k[o.__i]=o,j$1(c,o,s),o.__e!=e&&C$1(o)),i$1.length>u&&i$1.sort(f$1));P.__r=0;}function S(n,l,u,t,i,o,r,f,e,c,s){var a,v,y,d,w,_=t&&t.__k||p$1,g=l.length;for(u.__d=e,$(u,l,_),e=u.__d,a=0;a<g;a++)null!=(y=u.__k[a])&&"boolean"!=typeof y&&"function"!=typeof y&&(v=-1===y.__i?h$1:_[y.__i]||h$1,y.__i=a,O(n,y,v,i,o,r,f,e,c,s),d=y.__e,y.ref&&v.ref!=y.ref&&(v.ref&&N(v.ref,null,y),s.push(y.ref,y.__c||d,y)),null==w&&null!=d&&(w=d),65536&y.__u||v.__k===y.__k?(e&&"string"==typeof y.type&&!n.contains(e)&&(e=x(v)),e=I(y,e,n)):"function"==typeof y.type&&void 0!==y.__d?e=y.__d:d&&(e=d.nextSibling),y.__d=void 0,y.__u&=-196609);u.__d=e,u.__e=w;}function $(n,l,u){var t,i,o,r,f,e=l.length,c=u.length,s=c,a=0;for(n.__k=[],t=0;t<e;t++)r=t+a,null!=(i=n.__k[t]=null==(i=l[t])||"boolean"==typeof i||"function"==typeof i?null:"string"==typeof i||"number"==typeof i||"bigint"==typeof i||i.constructor==String?g(null,i,null,null,null):y$1(i)?g(k$1,{children:i},null,null,null):void 0===i.constructor&&i.__b>0?g(i.type,i.props,i.key,i.ref?i.ref:null,i.__v):i)?(i.__=n,i.__b=n.__b+1,f=L(i,u,r,s),i.__i=f,o=null,-1!==f&&(s--,(o=u[f])&&(o.__u|=131072)),null==o||null===o.__v?(-1==f&&a--,"function"!=typeof i.type&&(i.__u|=65536)):f!==r&&(f==r-1?a=f-r:f==r+1?a++:f>r?s>e-r?a+=f-r:a--:f<r&&a++,f!==t+a&&(i.__u|=65536))):(o=u[r])&&null==o.key&&o.__e&&0==(131072&o.__u)&&(o.__e==n.__d&&(n.__d=x(o)),V(o,o,!1),u[r]=null,s--);if(s)for(t=0;t<c;t++)null!=(o=u[t])&&0==(131072&o.__u)&&(o.__e==n.__d&&(n.__d=x(o)),V(o,o));}function I(n,l,u){var t,i;if("function"==typeof n.type){for(t=n.__k,i=0;t&&i<t.length;i++)t[i]&&(t[i].__=n,l=I(t[i],l,u));return l}n.__e!=l&&(u.insertBefore(n.__e,l||null),l=n.__e);do{l=l&&l.nextSibling;}while(null!=l&&8===l.nodeType);return l}function L(n,l,u,t){var i=n.key,o=n.type,r=u-1,f=u+1,e=l[u];if(null===e||e&&i==e.key&&o===e.type&&0==(131072&e.__u))return u;if(t>(null!=e&&0==(131072&e.__u)?1:0))for(;r>=0||f<l.length;){if(r>=0){if((e=l[r])&&0==(131072&e.__u)&&i==e.key&&o===e.type)return r;r--;}if(f<l.length){if((e=l[f])&&0==(131072&e.__u)&&i==e.key&&o===e.type)return f;f++;}}return -1}function T$1(n,l,u){"-"===l[0]?n.setProperty(l,null==u?"":u):n[l]=null==u?"":"number"!=typeof u||v$1.test(l)?u:u+"px";}function A$1(n,l,u,t,i){var o;n:if("style"===l)if("string"==typeof u)n.style.cssText=u;else {if("string"==typeof t&&(n.style.cssText=t=""),t)for(l in t)u&&l in u||T$1(n.style,l,"");if(u)for(l in u)t&&u[l]===t[l]||T$1(n.style,l,u[l]);}else if("o"===l[0]&&"n"===l[1])o=l!==(l=l.replace(/(PointerCapture)$|Capture$/i,"$1")),l=l.toLowerCase()in n||"onFocusOut"===l||"onFocusIn"===l?l.toLowerCase().slice(2):l.slice(2),n.l||(n.l={}),n.l[l+o]=u,u?t?u.u=t.u:(u.u=e$2,n.addEventListener(l,o?s$1:c$1,o)):n.removeEventListener(l,o?s$1:c$1,o);else {if("http://www.w3.org/2000/svg"==i)l=l.replace(/xlink(H|:h)/,"h").replace(/sName$/,"s");else if("width"!=l&&"height"!=l&&"href"!=l&&"list"!=l&&"form"!=l&&"tabIndex"!=l&&"download"!=l&&"rowSpan"!=l&&"colSpan"!=l&&"role"!=l&&"popover"!=l&&l in n)try{n[l]=null==u?"":u;break n}catch(n){}"function"==typeof u||(null==u||!1===u&&"-"!==l[4]?n.removeAttribute(l):n.setAttribute(l,"popover"==l&&1==u?"":u));}}function F(n){return function(u){if(this.l){var t=this.l[u.type+n];if(null==u.t)u.t=e$2++;else if(u.t<t.u)return;return t(l$1.event?l$1.event(u):u)}}}function O(n,u,t,i,o,r,f,e,c,s){var a,h,p,v,w,_,g,m,x,C,M,P,$,I,H,L,T=u.type;if(void 0!==u.constructor)return null;128&t.__u&&(c=!!(32&t.__u),r=[e=u.__e=t.__e]),(a=l$1.__b)&&a(u);n:if("function"==typeof T)try{if(m=u.props,x="prototype"in T&&T.prototype.render,C=(a=T.contextType)&&i[a.__c],M=a?C?C.props.value:a.__:i,t.__c?g=(h=u.__c=t.__c).__=h.__E:(x?u.__c=h=new T(m,M):(u.__c=h=new b$6(m,M),h.constructor=T,h.render=q$1),C&&C.sub(h),h.props=m,h.state||(h.state={}),h.context=M,h.__n=i,p=h.__d=!0,h.__h=[],h._sb=[]),x&&null==h.__s&&(h.__s=h.state),x&&null!=T.getDerivedStateFromProps&&(h.__s==h.state&&(h.__s=d$1({},h.__s)),d$1(h.__s,T.getDerivedStateFromProps(m,h.__s))),v=h.props,w=h.state,h.__v=u,p)x&&null==T.getDerivedStateFromProps&&null!=h.componentWillMount&&h.componentWillMount(),x&&null!=h.componentDidMount&&h.__h.push(h.componentDidMount);else {if(x&&null==T.getDerivedStateFromProps&&m!==v&&null!=h.componentWillReceiveProps&&h.componentWillReceiveProps(m,M),!h.__e&&(null!=h.shouldComponentUpdate&&!1===h.shouldComponentUpdate(m,h.__s,M)||u.__v===t.__v)){for(u.__v!==t.__v&&(h.props=m,h.state=h.__s,h.__d=!1),u.__e=t.__e,u.__k=t.__k,u.__k.forEach(function(n){n&&(n.__=u);}),P=0;P<h._sb.length;P++)h.__h.push(h._sb[P]);h._sb=[],h.__h.length&&f.push(h);break n}null!=h.componentWillUpdate&&h.componentWillUpdate(m,h.__s,M),x&&null!=h.componentDidUpdate&&h.__h.push(function(){h.componentDidUpdate(v,w,_);});}if(h.context=M,h.props=m,h.__P=n,h.__e=!1,$=l$1.__r,I=0,x){for(h.state=h.__s,h.__d=!1,$&&$(u),a=h.render(h.props,h.state,h.context),H=0;H<h._sb.length;H++)h.__h.push(h._sb[H]);h._sb=[];}else do{h.__d=!1,$&&$(u),a=h.render(h.props,h.state,h.context),h.state=h.__s;}while(h.__d&&++I<25);h.state=h.__s,null!=h.getChildContext&&(i=d$1(d$1({},i),h.getChildContext())),x&&!p&&null!=h.getSnapshotBeforeUpdate&&(_=h.getSnapshotBeforeUpdate(v,w)),S(n,y$1(L=null!=a&&a.type===k$1&&null==a.key?a.props.children:a)?L:[L],u,t,i,o,r,f,e,c,s),h.base=u.__e,u.__u&=-161,h.__h.length&&f.push(h),g&&(h.__E=h.__=null);}catch(n){u.__v=null,c||null!=r?(u.__e=e,u.__u|=c?160:32,r[r.indexOf(e)]=null):(u.__e=t.__e,u.__k=t.__k),l$1.__e(n,u,t);}else null==r&&u.__v===t.__v?(u.__k=t.__k,u.__e=t.__e):u.__e=z$1(t.__e,u,t,i,o,r,f,c,s);(a=l$1.diffed)&&a(u);}function j$1(n,u,t){u.__d=void 0;for(var i=0;i<t.length;i++)N(t[i],t[++i],t[++i]);l$1.__c&&l$1.__c(u,n),n.some(function(u){try{n=u.__h,u.__h=[],n.some(function(n){n.call(u);});}catch(n){l$1.__e(n,u.__v);}});}function z$1(l,u,t,i,o,r,f,e,c){var s,a,p,v,d,_,g,m=t.props,k=u.props,b=u.type;if("svg"===b?o="http://www.w3.org/2000/svg":"math"===b?o="http://www.w3.org/1998/Math/MathML":o||(o="http://www.w3.org/1999/xhtml"),null!=r)for(s=0;s<r.length;s++)if((d=r[s])&&"setAttribute"in d==!!b&&(b?d.localName===b:3===d.nodeType)){l=d,r[s]=null;break}if(null==l){if(null===b)return document.createTextNode(k);l=document.createElementNS(o,b,k.is&&k),r=null,e=!1;}if(null===b)m===k||e&&l.data===k||(l.data=k);else {if(r=r&&n$1.call(l.childNodes),m=t.props||h$1,!e&&null!=r)for(m={},s=0;s<l.attributes.length;s++)m[(d=l.attributes[s]).name]=d.value;for(s in m)if(d=m[s],"children"==s);else if("dangerouslySetInnerHTML"==s)p=d;else if("key"!==s&&!(s in k)){if("value"==s&&"defaultValue"in k||"checked"==s&&"defaultChecked"in k)continue;A$1(l,s,null,d,o);}for(s in k)d=k[s],"children"==s?v=d:"dangerouslySetInnerHTML"==s?a=d:"value"==s?_=d:"checked"==s?g=d:"key"===s||e&&"function"!=typeof d||m[s]===d||A$1(l,s,d,m[s],o);if(a)e||p&&(a.__html===p.__html||a.__html===l.innerHTML)||(l.innerHTML=a.__html),u.__k=[];else if(p&&(l.innerHTML=""),S(l,y$1(v)?v:[v],u,t,i,"foreignObject"===b?"http://www.w3.org/1999/xhtml":o,r,f,r?r[0]:t.__k&&x(t,0),e,c),null!=r)for(s=r.length;s--;)null!=r[s]&&w$1(r[s]);e||(s="value",void 0!==_&&(_!==l[s]||"progress"===b&&!_||"option"===b&&_!==m[s])&&A$1(l,s,_,m[s],o),s="checked",void 0!==g&&g!==l[s]&&A$1(l,s,g,m[s],o));}return l}function N(n,u,t){try{"function"==typeof n?n(u):n.current=u;}catch(n){l$1.__e(n,t);}}function V(n,u,t){var i,o;if(l$1.unmount&&l$1.unmount(n),(i=n.ref)&&(i.current&&i.current!==n.__e||N(i,null,u)),null!=(i=n.__c)){if(i.componentWillUnmount)try{i.componentWillUnmount();}catch(n){l$1.__e(n,u);}i.base=i.__P=null;}if(i=n.__k)for(o=0;o<i.length;o++)i[o]&&V(i[o],u,t||"function"!=typeof n.type);t||null==n.__e||w$1(n.__e),n.__c=n.__=n.__e=n.__d=void 0;}function q$1(n,l,u){return this.constructor(n,u)}function B$1(u,t,i){var o,r,f,e;l$1.__&&l$1.__(u,t),r=(o="function"==typeof i)?null:t.__k,f=[],e=[],O(t,u=(!o&&i||t).__k=_(k$1,null,[u]),r||h$1,h$1,t.namespaceURI,!o&&i?[i]:r?null:t.firstChild?n$1.call(t.childNodes):null,f,!o&&i?i:r?r.__e:t.firstChild,o,e),j$1(f,u,e);}n$1=p$1.slice,l$1={__e:function(n,l,u,t){for(var i,o,r;l=l.__;)if((i=l.__c)&&!i.__)try{if((o=i.constructor)&&null!=o.getDerivedStateFromError&&(i.setState(o.getDerivedStateFromError(n)),r=i.__d),null!=i.componentDidCatch&&(i.componentDidCatch(n,t||{}),r=i.__d),r)return i.__E=i}catch(l){n=l;}throw n}},u$1=0,b$6.prototype.setState=function(n,l){var u;u=null!=this.__s&&this.__s!==this.state?this.__s:this.__s=d$1({},this.state),"function"==typeof n&&(n=n(d$1({},u),this.props)),n&&d$1(u,n),null!=n&&this.__v&&(l&&this._sb.push(l),M(this));},b$6.prototype.forceUpdate=function(n){this.__v&&(this.__e=!0,n&&this.__h.push(n),M(this));},b$6.prototype.render=k$1,i$1=[],r$1="function"==typeof Promise?Promise.prototype.then.bind(Promise.resolve()):setTimeout,f$1=function(n,l){return n.__v.__b-l.__v.__b},P.__r=0,e$2=0,c$1=F(!1),s$1=F(!0);
+
+    var n=function(t,s,r,e){var u;s[0]=0;for(var h=1;h<s.length;h++){var p=s[h++],a=s[h]?(s[0]|=p?1:2,r[s[h++]]):s[++h];3===p?e[0]=a:4===p?e[1]=Object.assign(e[1]||{},a):5===p?(e[1]=e[1]||{})[s[++h]]=a:6===p?e[1][s[++h]]+=a+"":p?(u=t.apply(a,n(t,a,r,["",null])),e.push(u),a[0]?s[0]|=2:(s[h-2]=0,s[h]=u)):e.push(a);}return e},t$1=new Map;function e$1(s){var r=t$1.get(this);return r||(r=new Map,t$1.set(this,r)),(r=n(this,r.get(s)||(r.set(s,r=function(n){for(var t,s,r=1,e="",u="",h=[0],p=function(n){1===r&&(n||(e=e.replace(/^\s*\n\s*|\s*\n\s*$/g,"")))?h.push(0,n,e):3===r&&(n||e)?(h.push(3,n,e),r=2):2===r&&"..."===e&&n?h.push(4,n,0):2===r&&e&&!n?h.push(5,0,!0,e):r>=5&&((e||!n&&5===r)&&(h.push(r,0,e,s),r=6),n&&(h.push(r,n,0,s),r=6)),e="";},a=0;a<n.length;a++){a&&(1===r&&p(),p(a));for(var l=0;l<n[a].length;l++)t=n[a][l],1===r?"<"===t?(p(),h=[h],r=3):e+=t:4===r?"--"===e&&">"===t?(r=1,e=""):e=t+e[0]:u?t===u?u="":e+=t:'"'===t||"'"===t?u=t:">"===t?(p(),r=1):r&&("="===t?(r=5,s=e,e=""):"/"===t&&(r<5||">"===n[a][l+1])?(p(),3===r&&(h=h[0]),r=h,(h=h[0]).push(2,0,r),r=0):" "===t||"\t"===t||"\n"===t||"\r"===t?(p(),r=2):e+=t),3===r&&"!--"===e&&(r=4,h=h[0]);}return p(),h}(s)),r),arguments,[])).length>1?r:r[0]}
+
+    var m$1=e$1.bind(_);
+
+    function block(name) {
+        return function (elem, mods) {
+            if (!elem) {
+                return name;
+            }
+            var className = name;
+            if (typeof elem === 'string') {
+                className = name + '__' + elem;
+                if (mods) {
+                    className = buildMods(className, mods);
+                }
+                return className;
+            }
+            if (elem) {
+                className = buildMods(className, elem);
+            }
+            return className;
+        };
+    }
+    function buildMods(className, mods) {
+        var result = className;
+        Object.keys(mods).forEach(function (modName) {
+            var modValue = mods[modName];
+            if (modValue === false || modValue === null || modValue === undefined || modValue === '') {
+                return;
+            }
+            result += ' ' + className + '_';
+            if (mods[modName] === true) {
+                result += modName;
+            }
+            else {
+                result += modName + '_' + modValue;
+            }
+        });
+        return result;
+    }
+
+    var b$5 = block('header');
+    function Header(props) {
+        return m$1(templateObject_1$9 || (templateObject_1$9 = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "])), b$5(), props.children);
+    }
+    var templateObject_1$9;
+
+    var keysets = {
+        'Can I watch video in this browser?': {
+            'en': 'Can I\u00a0watch video in\u00a0this browser?',
+            'ru': 'Могу ли я\u00a0смотреть видео в\u00a0этом браузере?'
+        },
+        'Audio Codecs': {
+            'en': 'Audio Codecs',
+            'ru': 'Аудиокодеки'
+        },
+        'Video Codecs': {
+            'en': 'Video Codecs',
+            'ru': 'Видеокодеки'
+        },
+        'Supported': {
+            'en': 'Supported',
+            'ru': 'Поддерживаемые'
+        },
+        'No supported audio codecs.': {
+            'en': 'No supported audio codecs.',
+            'ru': 'Нет поддерживаемых аудиокодеков.'
+        },
+        'No supported video codecs.': {
+            'en': 'No supported video codecs.',
+            'ru': 'Нет поддерживаемых видеокодеков.'
+        },
+        'Unsupported': {
+            'en': 'Unsupported',
+            'ru': 'Не поддерживаемые'
+        },
+        'Size': {
+            'en': 'Size',
+            'ru': 'Размер'
+        },
+        'Color depth': {
+            'en': 'Color depth',
+            'ru': 'Глубина цвета'
+        },
+        'Audio': {
+            'en': 'Audio',
+            'ru': 'Аудио'
+        },
+        'Video': {
+            'en': 'Video',
+            'ru': 'Видео'
+        },
+        'Image Formats': {
+            'en': 'Image Formats',
+            'ru': 'Форматы картинок'
+        },
+        'Native Streaming Support': {
+            'en': 'Native Streaming Support',
+            'ru': 'Поддержка нативного стримминга'
+        },
+        'Yes': {
+            'en': 'Yes',
+            'ru': 'Да'
+        },
+        'No': {
+            'en': 'No',
+            'ru': 'Нет'
+        },
+        'Warning': {
+            'en': 'Warning',
+            'ru': 'Предупреждение'
+        },
+        'Screens': {
+            'en': 'Screens',
+            'ru': 'Экраны'
+        },
+        'Screen': {
+            'en': 'Screen',
+            'ru': 'Экран'
+        },
+        'No supported image formats.': {
+            'en': 'No supported image formats.',
+            'ru': 'Нет поддерживаемых форматов картинок.'
+        },
+        'Can I listen to surround sound on online services?': {
+            'en': 'Can I listen to surround sound on online services?',
+            'ru': 'Могу ли я услышать многоканальный звук в онлайн-сервисах?'
+        },
+        'HTMLVideoElement Features': {
+            'en': 'HTMLVideoElement Features',
+            'ru': 'Возможности HTMLVideoElement'
+        },
+        'Aspect ratio': {
+            'en': 'Aspect ratio',
+            'ru': 'Соотношение сторон'
+        },
+        'Primary': {
+            'en': 'Primary',
+            'ru': 'Основной'
+        },
+        'Internal': {
+            'en': 'Internal',
+            'ru': 'Внутренний'
+        },
+        'Please reset zoom in the page': {
+            'en': 'Please reset zoom in the page',
+            'ru': 'Необходимо сбросить зум на странице'
+        },
+        'Can I watch HDR video?': {
+            'en': 'Can I watch HDR video?',
+            'ru': 'Могу ли я смотреть HDR видео?'
+        },
+        'Supports one of the audio codecs?': {
+            'en': 'Supports one of the audio codecs?',
+            'ru': 'Есть поддержка одного из аудиокодеков?'
+        },
+        'Is this an HDR-compatible screen?': {
+            'en': 'Is this an HDR-compatible screen?',
+            'ru': 'Это HDR-совместимый экран?'
+        },
+        'Supports one of the video codecs?': {
+            'en': 'Supports one of the video codecs?',
+            'ru': 'Есть поддержка одного из видеокодеков?'
+        },
+        'Supports one of the video codecs and DRM with high security level?': {
+            'en': 'Supports one of the video codecs and DRM with high security level?',
+            'ru': 'Есть поддержка одного из видеокодеков и DRM с высоким уровнем безопасности?'
+        },
+        'Can I watch 4K video on online services?': {
+            'en': 'Can I watch 4K video on online services?',
+            'ru': 'Могу ли я смотреть 4К видео в онлайн-сервисах?'
+        },
+        'Online services protect content using': {
+            'en': 'Online services protect content using',
+            'ru': 'Онлайн-сервисы защищают контент с помощью'
+        },
+        'Has DRM support?': {
+            'en': 'Has DRM support?',
+            'ru': 'Есть поддержка DRM?'
+        },
+        'Can I watch 4K video?': {
+            'en': 'Can I watch 4K video?',
+            'ru': 'Могу ли я смотреть 4К видео?'
+        },
+        'Is the screen larger than 2K?': {
+            'en': 'Is the screen larger than 2K?',
+            'ru': 'Экран больше чем 2К?'
+        },
+        'link:wiki:drm': {
+            'en': 'https://en.wikipedia.org/wiki/Digital_rights_management',
+            'ru': 'https://ru.wikipedia.org/wiki/Digital_rights_management'
+        },
+        'bit': {
+            'en': 'bit',
+            'ru': 'бит'
+        },
+        'Not detected': {
+            'en': 'Not detected',
+            'ru': 'Не обнаружено'
+        },
+        'HDCP not detected': {
+            'en': 'Could not be determined',
+            'ru': 'Не удалось определить'
+        },
+        'Security level': {
+            'en': 'Security level',
+            'ru': 'Уровень безопасности'
+        },
+        'Security levels': {
+            'en': 'Security levels',
+            'ru': 'Уровни безопасности'
+        },
+        'Key system': {
+            'en': 'Key system',
+            'ru': 'Система ключей'
+        },
+        'Key systems': {
+            'en': 'Key systems',
+            'ru': 'Системы ключей'
+        },
+        'Request': {
+            'en': 'Request',
+            'ru': 'Запрос'
+        },
+        'Details': {
+            'en': 'Details',
+            'ru': 'Подробности'
+        },
+        'Battery': {
+            'en': 'Battery',
+            'ru': 'Батарея'
+        },
+        'Platform': {
+            'en': 'Platform',
+            'ru': 'Платформа'
+        },
+        'Connection': {
+            'en': 'Connection',
+            'ru': 'Связь'
+        },
+        'Has HDR support for video?': {
+            'en': 'Has HDR support for video?',
+            'ru': 'Есть поддержка HDR для видео?'
+        },
+        'Additional monitor detected': {
+            'en': 'Additional monitor detected',
+            'ru': 'Обнаружен дополнительный монитор'
+        },
+        'link:apple:t2': {
+            'en': 'https://support.apple.com/en-us/103265',
+            'ru': 'https://support.apple.com/ru-ru/103265'
+        },
+        'Select 2018 or later Mac computer with an': {
+            'en': 'Select 2018 or later Mac computer with an',
+            'ru': 'Компьютер Мак (начиная с 2018 или новее) с',
+        },
+        'Internet Speed': {
+            'en': 'Internet Speed',
+            'ru': 'Скорость интернета'
+        },
+        'HDCP 2.2 or later': {
+            'en': 'HDCP 2.2 or later',
+            'ru': 'HDCP 2.2 или выше'
+        },
+        'Make sure that monitors, video cards, and cables support HDCP 2.2 or later.': {
+            'en': 'Make sure that monitors, video cards, and cables support HDCP 2.2 or later.',
+            'ru': 'Монитор, видеокарта и кабель должны поддерживать HDCP 2.2 и выше'
+        },
+        'GB': {
+            'en': 'GB',
+            'ru': 'ГБ'
+        },
+        'Hardware acceleration': {
+            'en': 'Hardware acceleration',
+            'ru': 'Аппаратное ускорение'
+        },
+        'Model': {
+            'en': 'Model',
+            'ru': 'Модель'
+        },
+        'Architecture': {
+            'en': 'Architecture',
+            'ru': 'Архитектура'
+        },
+        'Form factor': {
+            'en': 'Form factor',
+            'ru': 'Форм-фактор'
+        },
+        'unsupported': {
+            'en': 'unsupported',
+            'ru': 'не поддерживается'
+        },
+        'Name': {
+            'en': 'Name',
+            'ru': 'Название'
+        },
+        'Can I use WebGPU?': {
+            'en': 'Can I use WebGPU?',
+            'ru': 'Могу ли я использовать WebGPU?'
+        },
+        'WebGPU is not supported.': {
+            'en': 'WebGPU is not supported.',
+            'ru': 'WebGPU не поддерживается.'
+        },
+        'GPU Adapter is not found.': {
+            'en': 'GPU Adapter is not found.',
+            'ru': 'GPU адаптер не найден.'
+        },
+        'Video & audio': {
+            'en': 'Video & audio',
+            'ru': 'Видео и аудио'
+        },
+        'Can I use Battery Status API?': {
+            'en': 'Can I use Battery Status API?',
+            'ru': 'Могу ли я использовать Battery Status API?'
+        },
+        'Battery Status API is not supported.': {
+            'en': 'Battery Status API is not supported.',
+            'ru': 'Battery Status API не поддерживается.'
+        },
+        'Can I use Network Information API?': {
+            'en': 'Can I use Network Information API?',
+            'ru': 'Могу ли я использовать Network Information API?'
+        },
+        'Network Information API is not supported.': {
+            'en': 'Network Information API is not supported.',
+            'ru': 'Network Information API не поддерживается.'
+        },
+        'Network & geo': {
+            'en': 'Network & geo',
+            'ru': 'Сеть и гео'
+        },
+        'Request geo location': {
+            'en': 'Request geo location',
+            'ru': 'Запросить местоположение'
+        },
+        'Can I use 🎮 Gamepad API?': {
+            'en': 'Can I use 🎮 Gamepad API?',
+            'ru': 'Могу ли я использовать 🎮 Gamepad API?'
+        },
+        '🎮 Gamepad API is not supported.': {
+            'en': '🎮 Gamepad API is not supported.',
+            'ru': '🎮 Gamepad API не поддерживается.'
+        },
+        'Connect and press any button on the gamepad.': {
+            'en': 'Connect and press any button on the gamepad.',
+            'ru': 'Подключите и нажмите любую кнопку на джойстике.'
+        },
+        'Gamepad': {
+            'en': 'Gamepad',
+            'ru': 'Джойстик'
+        },
+        'Storage': {
+            'en': 'Storage',
+            'ru': 'Хранилище'
+        },
+        'Storages': {
+            'en': 'Storages',
+            'ru': 'Хранилища'
+        },
+        'Features': {
+            'en': 'Features',
+            'ru': 'Возможности'
+        },
+        'Can I use web storages?': {
+            'en': 'Can I use web storages?',
+            'ru': 'Могу ли я использовать веб-хранилища?'
+        },
+        'Support of persistent storage': {
+            'en': 'Support of persistent storage',
+            'ru': 'Поддержка постоянного хранилища'
+        },
+        'Storage quota for origin': {
+            'en': 'Storage quota for origin',
+            'ru': 'Квота хранилища на домен'
+        },
+        'Color spaces': {
+            'en': 'Color spaces',
+            'ru': 'Цветовые пространства'
+        },
+        'HDR support': {
+            'en': 'HDR support',
+            'ru': 'Поддержка HDR'
+        },
+        'Current screen': {
+            'en': 'Current screen',
+            'ru': 'Текущий экран'
+        },
+        'Orientation': {
+            'en': 'Orientation',
+            'ru': 'Ориентация'
+        },
+        'Camera': {
+            'en': 'Camera',
+            'ru': 'Камера'
+        },
+        'Webcamera': {
+            'en': 'Webcamera',
+            'ru': 'Веб-камера'
+        },
+        'Select camera': {
+            'en': 'Select camera',
+            'ru': 'Выбрать камеру'
+        },
+        'Stop': {
+            'en': 'Stop',
+            'ru': 'Стоп'
+        },
+        'Resolution': {
+            'en': 'Resolution',
+            'ru': 'Разрешение'
+        },
+        'Low resolution': {
+            'en': 'Low resolution',
+            'ru': 'Низкое разрешение'
+        },
+        'High resolution': {
+            'en': 'High resolution',
+            'ru': 'Высокое разрешение'
+        },
+        'High frame rate': {
+            'en': 'High frame rate',
+            'ru': 'Высокая частота кадров'
+        },
+        'Frame rate': {
+            'en': 'Frame rate',
+            'ru': 'Частота кадров'
+        },
+        'Specify': {
+            'en': 'Specify',
+            'ru': 'Уточнить'
+        },
+        'Camera not found.': {
+            'en': 'Camera not found.',
+            'ru': 'Камера не найдена.'
+        },
+        'Camera is blocked.': {
+            'en': 'Camera is blocked.',
+            'ru': 'Камера заблокирована.'
+        },
+        'Has touch screen': {
+            'en': 'Has touch screen',
+            'ru': 'Сенсорный экран'
+        },
+        'Additionally': {
+            'en': 'Additionally',
+            'ru': 'Дополнительно'
+        },
+        'Standalone application': {
+            'en': 'Standalone application',
+            'ru': 'Автономное приложение'
+        },
+        'Page not found.': {
+            'en': 'Page not found.',
+            'ru': 'Страница не найдена.'
+        },
+        'Go to main page': {
+            'en': 'Go to main page',
+            'ru': 'Перейти на главную'
+        },
+        'Permissions': {
+            'en': 'Permissions',
+            'ru': 'Разрешения'
+        },
+        'Start test': {
+            'en': 'Start test',
+            'ru': 'Начать тест'
+        },
+        'Test dead pixels': {
+            'en': 'Test dead pixels',
+            'ru': 'Тест битых пикселей'
+        },
+        'Tests': {
+            'en': 'Tests',
+            'ru': 'Тесты'
+        },
+        'RAM': {
+            'en': 'RAM',
+            'ru': 'ОЗУ'
+        },
+        'Hz': {
+            'en': 'Hz',
+            'ru': 'Гц'
+        },
+        'Refresh rate': {
+            'en': 'Refresh rate',
+            'ru': 'Частота обновления'
+        },
+        'Input': {
+            'en': 'Input',
+            'ru': 'Ввод'
+        },
+        'Mouse': {
+            'en': 'Mouse',
+            'ru': 'Мышь'
+        },
+        'Reset': {
+            'en': 'Reset',
+            'ru': 'Сброс'
+        },
+        'Mouse and keyboard': {
+            'en': 'Mouse and keyboard',
+            'ru': 'Мышь и клавиатура'
+        },
+        'Keyboard': {
+            'en': 'Keyboard',
+            'ru': 'Клавиатура'
+        },
+        'Testing keyboard': {
+            'en': 'Testing keyboard',
+            'ru': 'Тестирование клавиатуры'
+        },
+        'Testing mouse': {
+            'en': 'Testing mouse',
+            'ru': 'Тестирование мышки'
+        },
+        'Check device online': {
+            'en': 'Check device online',
+            'ru': 'Проверь устройство онлайн'
+        },
+        'Report a bug': {
+            'en': 'Report a bug',
+            'ru': 'Сообщить об ошибке'
+        },
+        'Press a key to display its code.': {
+            'en': 'Press a key to display its code.',
+            'ru': 'Нажмите клавишу, чтобы увидеть её код.'
+        },
+        'Displaying key codes': {
+            'en': 'Displaying key codes',
+            'ru': 'Отображение кодов клавиш'
+        },
+        'Mic': {
+            'en': 'Mic',
+            'ru': 'Микрофон'
+        },
+        'Fonts': {
+            'en': 'Fonts',
+            'ru': 'Шрифты'
+        }
+    };
+
+    var i18nKeysets = keysets;
+    var i18nLang;
+    function i18n(id) {
+        var key = i18nKeysets[id];
+        if (!key) {
+            console.error("Not found key \"".concat(id, "\" in getText()."));
+            return id;
+        }
+        var value = key[i18nLang];
+        if (typeof value === 'undefined') {
+            console.error("Not found key \"".concat(id, "\", lang \"").concat(i18nLang, "\" in getText()."));
+            return id;
+        }
+        return value;
+    }
+    function i18nWithKeyset(keyset) {
+        return keyset[i18nLang];
+    }
+    function setI18nLang(lang) {
+        i18nLang = lang;
+    }
+
+    var hasDocument = typeof document !== 'undefined';
+    var hasWindow = typeof window !== 'undefined';
+    var hasNavigator = typeof navigator != 'undefined';
+    var hasScreen = typeof screen != 'undefined';
+    function getCharset() {
+        return hasDocument && typeof document.charset === 'string' ?
+            document.charset.toLowerCase() :
+            '';
+    }
+    function getPageUrl() {
+        return hasWindow && window.location ? window.location.href : '';
+    }
+    function getReferrer() {
+        return hasDocument ? document.referrer : '';
+    }
+    function getTitle() {
+        return hasDocument ? document.title : '';
+    }
+    function cookieEnabled() {
+        return hasNavigator ? navigator.cookieEnabled : false;
+    }
+    function getScreenSize() {
+        return hasScreen ? [
+            screen.width,
+            screen.height,
+            screen.colorDepth
+        ].join('x') : '';
+    }
+    var DEFAULT_DEVICE_PIXEL_RATIO = 1;
+    function getDevicePixelRatio() {
+        return hasWindow ?
+            (window.devicePixelRatio || DEFAULT_DEVICE_PIXEL_RATIO) :
+            DEFAULT_DEVICE_PIXEL_RATIO;
+    }
+    function getClientSize() {
+        return hasWindow ? [
+            window.innerWidth,
+            window.innerHeight
+        ].join('x') : '';
+    }
+
+    function truncate(str, len) {
+        return (str || '').slice(0, len);
+    }
+
+    function getRandom() {
+        return Math.floor(Math.random() * (1 << 31 - 1));
+    }
+
+    function getSeconds() {
+        return Math.round(Date.now() / 1000);
+    }
+
+    var MAX_TITLE_LEN = 512;
+    function addParam(result, name, value) {
+        if (value || value === 0) {
+            result.push(name + ':' + (value === true ? '1' : value));
+        }
+    }
+    function getBrowserInfo(params, title) {
+        var result = [];
+        if (params) {
+            Object.keys(params).forEach(function (key) { return addParam(result, key, params[key]); });
+        }
+        addParam(result, 'rn', getRandom());
+        addParam(result, 'c', cookieEnabled());
+        addParam(result, 's', getScreenSize());
+        addParam(result, 'sk', getDevicePixelRatio());
+        addParam(result, 'w', getClientSize());
+        addParam(result, 'en', getCharset());
+        var time = getSeconds();
+        addParam(result, 'et', time);
+        addParam(result, 'st', time);
+        addParam(result, 't', truncate(title, MAX_TITLE_LEN));
+        return result.join(':');
+    }
+
+    function queryStringify(params) {
+        return Object.keys(params)
+            .filter(function (key) { return params[key] || params[key] === 0; })
+            .map(function (key) { return encodeURIComponent(key) + '=' + encodeURIComponent(params[key]); })
+            .join('&');
+    }
+    var MAX_URL_LEN = 1024;
+    function prepareUrl(url) {
+        return truncate(url, MAX_URL_LEN);
+    }
+
+    function sendData(counterId, queryParams) {
+        var url = 'https://mc.yandex.ru/watch/' + counterId + '?' + queryStringify(queryParams);
+        var hasBeacon = typeof navigator !== 'undefined' && navigator.sendBeacon;
+        if (!hasBeacon || !navigator.sendBeacon(url, ' ')) {
+            if (typeof fetch !== 'undefined') {
+                fetch(url, { credentials: 'include' }).catch(function () { });
+            }
+            else if (typeof Image !== 'undefined') {
+                new Image().src = url;
+            }
+        }
+    }
+
+    function hitExt(hitExtParams) {
+        var browserInfo = hitExtParams.browserInfo, counterId = hitExtParams.counterId, pageParams = hitExtParams.pageParams;
+        var data = {
+            'browser-info': getBrowserInfo(browserInfo, pageParams.title),
+            rn: getRandom(),
+            ut: pageParams.ut
+        };
+        if (pageParams.url) {
+            data['page-url'] = prepareUrl(pageParams.url);
+        }
+        if (pageParams.referrer) {
+            data['page-ref'] = prepareUrl(pageParams.referrer);
+        }
+        sendData(counterId, data);
+    }
+    /**
+     * Отправка хита.
+     *
+     * @param counterId - Номер счётчика.
+     * @param hitParams -  Параметры страницы.
+     * @param userVars - Параметры визитов.
+     *
+     * @example
+     * hit('123456');
+     *
+     * hit('123456', {
+     *     referer: document.referer,
+     *     title: document.title,
+     *     url: window.location.href
+     * }, {
+     *     myParam: 'value'
+     * });
+     */
+    function hit(counterId, hitParams, params) {
+        var referrer = getReferrer();
+        var title = getTitle();
+        var url = getPageUrl();
+        hitExt({
+            browserInfo: { pv: true, ar: true },
+            counterId: counterId,
+            pageParams: {
+                referrer: referrer,
+                title: title,
+                url: url
+            },
+            params: params
+        });
+    }
+
+    function getLang() {
+        var lang = getLangFromUrl() || getLangFromNavigator();
+        if (lang !== 'en' && lang !== 'ru') {
+            lang = 'en';
+        }
+        return lang;
+    }
+    function getLangFromNavigator() {
+        return ((navigator.language || '').split('-')[0] || 'en');
+    }
+    function getLangFromUrl() {
+        var params = window.location.search.slice(1).split('&');
+        for (var i = 0; i < params.length; i++) {
+            var _a = params[i].split('='), name_1 = _a[0], value = _a[1];
+            if (name_1 === 'lang') {
+                return value;
+            }
+        }
+        return '';
+    }
+
+    function withInstallApp() {
+        window.addEventListener('beforeinstallprompt', function (e) {
+        });
+    }
+
+    var counterId = window.location.host === 'caniwatchvideo.online' ? '95998062' : '97747983';
+    hit(counterId);
+    setI18nLang(getLang());
+    withInstallApp();
+
+    var b$4 = block('link');
+    function Link(props) {
+        return m$1(templateObject_1$8 || (templateObject_1$8 = __makeTemplateObject(["<a class=\"", "\" href=\"", "\">", "</a>"], ["<a class=\"", "\" href=\"", "\">", "</a>"])), b$4({ theme: props.theme }), props.href, props.children);
+    }
+    var templateObject_1$8;
+
+    var b$3 = block('footer');
+    function Footer() {
+        return m$1(templateObject_1$7 || (templateObject_1$7 = __makeTemplateObject(["<div class=\"", "\">\n        <div class=\"", "\">\u00A9 <span class=\"", "\">V</span><span class=\"", "\">v</span><span class=\"", "\">i</span><span class=\"", "\">d</span><span class=\"", "\">e</span><span class=\"", "\">o</span></div>\n        <div class=\"", "\"><", " target=\"_blank\" href=\"https://github.com/vvideo/caniwatchvideo/issues\">", "<//></div>\n    </div>"], ["<div class=\"", "\">\n        <div class=\"", "\">\u00A9 <span class=\"", "\">V</span><span class=\"", "\">v</span><span class=\"", "\">i</span><span class=\"", "\">d</span><span class=\"", "\">e</span><span class=\"", "\">o</span></div>\n        <div class=\"", "\"><", " target=\"_blank\" href=\"https://github.com/vvideo/caniwatchvideo/issues\">", "<//></div>\n    </div>"])), b$3(), b$3('item'), b$3('l1'), b$3('l2'), b$3('l3'), b$3('l4'), b$3('l5'), b$3('l6'), b$3('item', { g: true }), Link, i18n('Report a bug'));
+    }
+    var templateObject_1$7;
+
+    var b$2 = block('main-menu');
+    function MainMenu(props) {
+        return m$1(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "])), b$2(), props.items.filter(function (item) { return !item.hidden; }).map(function (item) {
+            return m$1(templateObject_1$6 || (templateObject_1$6 = __makeTemplateObject(["<a class=\"", "\" href=\"", "\">", "</a>"], ["<a class=\"", "\" href=\"", "\">", "</a>"])), b$2('item', { selected: item.selected }), item.url, item.title);
+        }));
+    }
+    var templateObject_1$6, templateObject_2;
+
+    var pages = [
+        {
+            "header": {
+                "en": "Can I watch video?",
+                "ru": "Могу ли я смотреть видео?"
+            },
+            "menuTitle": {
+                "en": "Video",
+                "ru": "Видео"
+            },
+            "id": "index",
+            "url": "./"
+        },
+        {
+            "menuTitle": {
+                "en": "Audio",
+                "ru": "Аудио"
+            },
+            "id": "audio",
+            "url": "./audio.html"
+        },
+        {
+            "menuTitle": {
+                "en": "Screen",
+                "ru": "Экран"
+            },
+            "id": "screen",
+            "url": "./screen.html"
+        },
+        {
+            "menuTitle": {
+                "en": "Webcamera",
+                "ru": "Веб-камера"
+            },
+            "id": "camera",
+            "url": "./camera.html"
+        },
+        {
+            "menuTitle": {
+                "en": "GPU",
+                "ru": "GPU"
+            },
+            "id": "gpu",
+            "url": "./gpu.html"
+        },
+        {
+            "menuTitle": {
+                "en": "Mouse",
+                "ru": "Мышь"
+            },
+            "id": "mouse",
+            "url": "./mouse.html"
+        },
+        {
+            "menuTitle": {
+                "en": "Keyboard",
+                "ru": "Клавиатура"
+            },
+            "id": "keyboard",
+            "url": "./keyboard.html"
+        },
+        {
+            "menuTitle": {
+                "en": "Key codes",
+                "ru": "Коды клавиш"
+            },
+            "id": "keycodes",
+            "url": "./keycodes.html",
+            "hidden": true
+        },
+        {
+            "menuTitle": {
+                "en": "Gamepad",
+                "ru": "Джойстик"
+            },
+            "id": "gamepad",
+            "url": "./gamepad.html"
+        },
+        {
+            "menuTitle": {
+                "en": "Storage",
+                "ru": "Хранилище"
+            },
+            "id": "storage",
+            "url": "./storage.html"
+        },
+        {
+            "menuTitle": {
+                "en": "Network & geo",
+                "ru": "Сеть и гео"
+            },
+            "id": "network",
+            "url": "./network.html"
+        },
+        {
+            "menuTitle": {
+                "en": "Platform",
+                "ru": "Платформа"
+            },
+            "id": "platform",
+            "url": "./platform.html"
+        },
+        {
+            "menuTitle": {
+                "en": "Battery",
+                "ru": "Батарея"
+            },
+            "id": "battery",
+            "url": "./battery.html"
+        },
+        {
+            "menuTitle": {
+                "en": "Fonts",
+                "ru": "Шрифты"
+            },
+            "id": "fonts",
+            "url": "./fonts.html",
+            "hidden": true
+        },
+        {
+            "menuTitle": {
+                "en": "404",
+                "ru": "404"
+            },
+            "id": "error404",
+            "url": "./error404.html",
+            "hidden": true
+        },
+        {
+            "menuTitle": {
+                "en": "Test dead pixels",
+                "ru": "Тестирование битых пикселей"
+            },
+            "id": "test-dead-pixels",
+            "url": "./test-dead-pixels.html",
+            "hidden": true
+        }
+    ];
+
+    function getIdFromLocation() {
+        var id = window.location.pathname
+            // Fix for github pages
+            .replace(/^\/caniwatchvideo/, '')
+            .split(/[?./]/)[1];
+        return id ? id : 'index';
+    }
+    function Menu() {
+        var id = getIdFromLocation();
+        var items = pages.map(function (item) {
+            var selected = item.id === id;
+            if (selected) {
+                document.title = i18nWithKeyset(item.header || item.menuTitle);
+            }
+            return __assign(__assign({}, item), { title: i18nWithKeyset(item.menuTitle), selected: selected });
+        });
+        return m$1(templateObject_1$5 || (templateObject_1$5 = __makeTemplateObject(["<", " items=\"", "\"><//>"], ["<", " items=\"", "\"><//>"])), MainMenu, items);
+    }
+    var templateObject_1$5;
+
+    var b$1 = block('head');
+    function Head() {
+        return m$1(templateObject_1$4 || (templateObject_1$4 = __makeTemplateObject(["\n        <div class=\"", "\">\n            <span class=\"", "\"></span>", "\n        </div>\n    "], ["\n        <div class=\"", "\">\n            <span class=\"", "\"></span>", "\n        </div>\n    "])), b$1(), b$1('logo'), i18n('Check device online'));
+    }
+    var templateObject_1$4;
+
+    function Page(props) {
+        return m$1(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n        <div>\n            <", " //>\n            <", "><//>\n\n            ", "\n\n            <", "><//>\n        </div>"], ["\n        <div>\n            <", " //>\n            <", "><//>\n\n            ", "\n\n            <", "><//>\n        </div>"])), Head, Menu, props.children, Footer);
+    }
+    var templateObject_1$3;
+
+    var t,r,u,i,o=0,f=[],c=l$1,e=c.__b,a=c.__r,v=c.diffed,l=c.__c,m=c.unmount,s=c.__;function d(n,t){c.__h&&c.__h(r,n,o||t),o=0;var u=r.__H||(r.__H={__:[],__h:[]});return n>=u.__.length&&u.__.push({}),u.__[n]}function h(n){return o=1,p(D,n)}function p(n,u,i){var o=d(t++,2);if(o.t=n,!o.__c&&(o.__=[D(void 0,u),function(n){var t=o.__N?o.__N[0]:o.__[0],r=o.t(t,n);t!==r&&(o.__N=[r,o.__[1]],o.__c.setState({}));}],o.__c=r,!r.u)){var f=function(n,t,r){if(!o.__c.__H)return !0;var u=o.__c.__H.__.filter(function(n){return !!n.__c});if(u.every(function(n){return !n.__N}))return !c||c.call(this,n,t,r);var i=!1;return u.forEach(function(n){if(n.__N){var t=n.__[0];n.__=n.__N,n.__N=void 0,t!==n.__[0]&&(i=!0);}}),!(!i&&o.__c.props===n)&&(!c||c.call(this,n,t,r))};r.u=!0;var c=r.shouldComponentUpdate,e=r.componentWillUpdate;r.componentWillUpdate=function(n,t,r){if(this.__e){var u=c;c=void 0,f(n,t,r),c=u;}e&&e.call(this,n,t,r);},r.shouldComponentUpdate=f;}return o.__N||o.__}function y(n,u){var i=d(t++,3);!c.__s&&C(i.__H,u)&&(i.__=n,i.i=u,r.__H.__h.push(i));}function A(n){return o=5,T(function(){return {current:n}},[])}function T(n,r){var u=d(t++,7);return C(u.__H,r)&&(u.__=n(),u.__H=r,u.__h=n),u.__}function q(n,t){return o=8,T(function(){return n},t)}function j(){for(var n;n=f.shift();)if(n.__P&&n.__H)try{n.__H.__h.forEach(z),n.__H.__h.forEach(B),n.__H.__h=[];}catch(t){n.__H.__h=[],c.__e(t,n.__v);}}c.__b=function(n){r=null,e&&e(n);},c.__=function(n,t){n&&t.__k&&t.__k.__m&&(n.__m=t.__k.__m),s&&s(n,t);},c.__r=function(n){a&&a(n),t=0;var i=(r=n.__c).__H;i&&(u===r?(i.__h=[],r.__h=[],i.__.forEach(function(n){n.__N&&(n.__=n.__N),n.i=n.__N=void 0;})):(i.__h.forEach(z),i.__h.forEach(B),i.__h=[],t=0)),u=r;},c.diffed=function(n){v&&v(n);var t=n.__c;t&&t.__H&&(t.__H.__h.length&&(1!==f.push(t)&&i===c.requestAnimationFrame||((i=c.requestAnimationFrame)||w)(j)),t.__H.__.forEach(function(n){n.i&&(n.__H=n.i),n.i=void 0;})),u=r=null;},c.__c=function(n,t){t.some(function(n){try{n.__h.forEach(z),n.__h=n.__h.filter(function(n){return !n.__||B(n)});}catch(r){t.some(function(n){n.__h&&(n.__h=[]);}),t=[],c.__e(r,n.__v);}}),l&&l(n,t);},c.unmount=function(n){m&&m(n);var t,r=n.__c;r&&r.__H&&(r.__H.__.forEach(function(n){try{z(n);}catch(n){t=n;}}),r.__H=void 0,t&&c.__e(t,r.__v));};var k="function"==typeof requestAnimationFrame;function w(n){var t,r=function(){clearTimeout(u),k&&cancelAnimationFrame(t),setTimeout(n);},u=setTimeout(r,100);k&&(t=requestAnimationFrame(r));}function z(n){var t=r,u=n.__c;"function"==typeof u&&(n.__c=void 0,u()),r=t;}function B(n){var t=r;n.__c=n.__(),r=t;}function C(n,t){return !n||n.length!==t.length||t.some(function(t,r){return t!==n[r]})}function D(n,t){return "function"==typeof t?t(n):t}
+
+    var useForceUpdate = function () {
+        var _a = h({}), updateState = _a[1];
+        return q(function () { return updateState({}); }, []);
+    };
+
+    function noop() { }
+
+    // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#safely_detecting_option_support
+    var passiveSupported = false;
+    try {
+        var options = {
+            get passive() {
+                passiveSupported = true;
+                return false;
+            },
+        };
+        window.addEventListener('test', noop, options);
+        window.removeEventListener('test', noop, {});
+    }
+    catch (e) {
+        passiveSupported = false;
+    }
+
+    var b = block('mouse');
+    function Mouse() {
+        var _a = h(0), wheelY = _a[0], setWheelY = _a[1];
+        var forceUpdate = useForceUpdate();
+        var buttons = A({});
+        var refRoot = A();
+        y(function () {
+            var handleScroll = function (e) {
+                e.preventDefault();
+            };
+            var handleMouseDown = function (e) {
+                buttons.current[e.button] = true;
+                forceUpdate();
+            };
+            var handleMouseUp = function (e) {
+                buttons.current[e.button] = false;
+                forceUpdate();
+            };
+            document.addEventListener('contextmenu', handleScroll);
+            document.addEventListener('scroll', handleScroll);
+            document.addEventListener('mousedown', handleMouseDown);
+            document.addEventListener('mouseup', handleMouseUp);
+            return function () {
+                document.removeEventListener('contextmenu', handleScroll);
+                document.removeEventListener('scroll', handleScroll);
+                document.removeEventListener('mousedown', handleMouseDown);
+                document.removeEventListener('mouseup', handleMouseUp);
+            };
+        }, []);
+        y(function () {
+            var _a;
+            var handleWheel = function (e) {
+                e.preventDefault();
+                setWheelY(wheelY - e.deltaY);
+            };
+            (_a = refRoot.current) === null || _a === void 0 ? void 0 : _a.addEventListener('wheel', handleWheel, passiveSupported ? { passive: false } : false);
+            return function () {
+                var _a;
+                (_a = refRoot.current) === null || _a === void 0 ? void 0 : _a.removeEventListener('wheel', handleWheel);
+            };
+        }, [wheelY]);
+        return m$1(templateObject_1$2 || (templateObject_1$2 = __makeTemplateObject(["\n        <div ref=\"", "\" class=\"", "\">\n            <div class=\"", "\">\n                <div class=\"", "\"></div>\n                <div class=\"", "\">\n                    <div class=\"", "\" style=\"background-position-y:", "px\"></div>\n                </div>\n                <div class=\"", "\"></div>\n                <div class=\"", "\"></div>\n                <div class=\"", "\"></div>\n            </div>\n        </div>\n    "], ["\n        <div ref=\"", "\" class=\"", "\">\n            <div class=\"", "\">\n                <div class=\"", "\"></div>\n                <div class=\"", "\">\n                    <div class=\"", "\" style=\"background-position-y:", "px\"></div>\n                </div>\n                <div class=\"", "\"></div>\n                <div class=\"", "\"></div>\n                <div class=\"", "\"></div>\n            </div>\n        </div>\n    "])), refRoot, b(), b('body'), b('left-button', { pressed: buttons.current[0] }), b('middle-button', { pressed: buttons.current[1] }), b('wheel'), wheelY, b('right-button', { pressed: buttons.current[2] }), b('4-button', { pressed: buttons.current[3] }), b('5-button', { pressed: buttons.current[4] }));
+    }
+    var templateObject_1$2;
+
+    function MousePage() {
+        return m$1(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n        <", ">\n            <", ">\n                ", "\n            <//>\n\n            <", " //>\n        <//>"], ["\n        <", ">\n            <", ">\n                ", "\n            <//>\n\n            <", " //>\n        <//>"])), Page, Header, i18n('Testing mouse'), Mouse);
+    }
+    var templateObject_1$1;
+
+    B$1(m$1(templateObject_1 || (templateObject_1 = __makeTemplateObject(["<", " //>"], ["<", " //>"])), MousePage), document.querySelector('.page'));
+    var templateObject_1;
+
+}));
