@@ -1,0 +1,39 @@
+.checkbox {
+    user-select: none;
+    box-sizing: border-box;
+}
+
+.checkbox__input {
+    display: inline;
+    margin: 0;
+    width: 0;
+    height: 0;
+    appearance: none;
+}
+
+.checkbox::before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 1.15em;
+    width: 1.15em;
+    margin-right: 0.55em;
+    color: rgba(0, 0, 0, 0.275);
+    border: solid 0.06em;
+    box-shadow: 0 0 0.04em, 0 0.06em 0.16em -0.03em inset, 0 0 0 0.07em transparent inset;
+    border-radius: 0.2em;
+    will-change: color, border, background, background-size, box-shadow;
+    transform: translate3d(0, 0, 0);
+    transition: color 0.1s, border 0.1s, background 0.15s, box-shadow 0.1s;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.checkbox_theme_active::before {
+    background: gold;
+}
+
+.checkbox_checked::before {
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xml:space="preserve" fill="black" viewBox="0 0 9 9"><rect x="0" y="4.3" transform="matrix(-0.707 -0.7072 0.7072 -0.707 0.5891 10.4702)" width="4.3" height="1.6" /><rect x="2.2" y="2.9" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 12.1877 2.9833)" width="6.1" height="1.7" /></svg>');
+}
