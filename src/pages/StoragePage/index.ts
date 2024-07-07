@@ -1,13 +1,13 @@
 import { html } from 'htm/preact';
-import { Header } from '../../components/Header';
 import { i18n } from '../../i18n/i18n';
 import { Storages } from '../../components/Storages';
 import { Page } from '../Page';
+import { PageTitle } from '../../components/PageTitle';
 
 export function StoragePage() {
     return html`
         <${Page}>
-            <${Header}>
+            <${PageTitle}>
                 ${i18n('Storages')}
             <//>
 

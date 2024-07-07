@@ -3,7 +3,6 @@ import { useCallback, useEffect } from 'preact/hooks';
 import { block } from '../../utils/bem';
 import { ScreenItemProps, ScreenItem } from '../ScreenItem';
 import { Button } from '../Button';
-import { Header } from '../Header';
 import { i18n } from '../../i18n/i18n';
 import { useForceUpdate } from '../../hooks/useForceUpdate';
 import { screenInfo } from '../../lib/ScreenInfo';
@@ -12,9 +11,10 @@ import { hasTouchScreen } from '../../utils/hasTouchScreen';
 import { getChecked } from '../../utils/getChecked';
 import { getMaxTouchPoints } from '../../utils/getMaxTouchPoints';
 import { RefreshRate } from '../RefreshRate';
+import { RefreshRateController } from '../../lib/RefreshRateController';
+import { PageTitle } from '../PageTitle';
 
 import './index.css';
-import { RefreshRateController } from '../../lib/RefreshRateController';
 
 export interface ScreenList {
     items: ScreenItemProps[];
@@ -56,7 +56,7 @@ export function ScreenList() {
     const screenInfoData = screenInfo.get();
 
     return html`<div class="${b()}">
-        <${Header}>
+        <${PageTitle}>
             ${screenInfoData.screens.length === 1 ? i18n('Screen') : i18n('Screens')}
         <//>
 

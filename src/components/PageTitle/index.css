@@ -1,0 +1,13 @@
+.page-title {
+    position: relative;
+    margin: 20px 0 20px 0;
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 1.5em;
+}
+
+@media (max-width: 700px) {
+    .page-title {
+        font-size: 20px;
+    }
+}

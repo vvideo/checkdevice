@@ -1,7 +1,7 @@
 import { html } from 'htm/preact';
 import { AudioBadge } from '../../components/AudioBadge';
 import { AudioCodecs } from '../../components/AudioCodecs';
-import { Header } from '../../components/Header';
+import { PageTitle } from '../../components/PageTitle';
 import { Row } from '../../components/Row';
 import { i18n } from '../../i18n/i18n';
 import { Page } from '../Page';
@@ -15,7 +15,7 @@ const b = block('audio-page');
 export function AudioPage() {
     return html`
         <${Page}>
-            <${Header}>
+            <${PageTitle}}>
                 ${i18n('Audio')}
             <//>
 

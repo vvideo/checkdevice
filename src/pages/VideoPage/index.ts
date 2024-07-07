@@ -2,7 +2,6 @@ import { html } from 'htm/preact';
 import { useEffect } from 'preact/hooks';
 import { ScreenBadges } from '../../components/ScreenBadges';
 import { VideoCodecs } from '../../components/VideoCodecs';
-import { Header } from '../../components/Header';
 import { DrmBadges } from '../../components/DrmBadges';
 import { Row } from '../../components/Row';
 import { NativeStreaming } from '../../components/NativeStreaming';
@@ -12,6 +11,7 @@ import { ImageFormats } from '../../components/ImageFormats';
 import { i18n } from '../../i18n/i18n';
 import { useForceUpdate } from '../../hooks/useForceUpdate';
 import { Page } from '../Page';
+import { PageTitle } from '../../components/PageTitle';
 
 export function VideoPage() {
     const forceUpdate = useForceUpdate();
@@ -30,7 +30,7 @@ export function VideoPage() {
 
     return html`
         <${Page}>
-            <${Header}>
+            <${PageTitle}>
                 ${i18n('Can I watch video in this browser?')}
             <//>
 

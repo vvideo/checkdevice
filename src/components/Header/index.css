@@ -1,13 +1,26 @@
 .header {
-    position: relative;
-    margin: 20px 0 20px 0;
-    font-size: 24px;
-    font-weight: normal;
+    margin: 20px 0;
+    font-size: 30px;
     line-height: 1.5em;
+    color: white;
+}
+
+.header__logo {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-color: gold;
+    border-radius: 5px;
+    margin-right: 10px;
 }
 
 @media (max-width: 700px) {
     .header {
-        font-size: 20px;
+        font-size: 22px;
+    }
+
+    .header__logo {
+        width: 18px;
+        height: 18px;
     }
 }
