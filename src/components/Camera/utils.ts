@@ -23,17 +23,34 @@ export function getStreamParams(stream: MediaStream) {
     const audio = stream.getAudioTracks()[0];
 
     const videoSettings = video?.getSettings();
+    const audioSettings = audio?.getSettings();
+
+    console.log(videoSettings, audioSettings, video, audio);
 
     return {
-        video: {
-            width: videoSettings?.width,
-            height: videoSettings?.height,
-            label: video?.label,
-            frameRate: videoSettings?.frameRate,
-        },
-        audio: {
-            label: audio?.label,
-        },
+        video: video && videoSettings ? {
+            deviceId: videoSettings.deviceId,
+            groupId: videoSettings.groupId,
+            label: video.label,
+            width: videoSettings.width,
+            height: videoSettings.height,
+            frameRate: videoSettings.frameRate,
+            // @ts-ignore
+            resizeMode: videoSettings.resizeMode,
+        } : undefined,
+        audio: audio && audioSettings ? {
+            deviceId: audioSettings.deviceId,
+            groupId: audioSettings.groupId,
+            label: audio.label,
+            // @ts-ignore
+            latency: audioSettings.latency,
+            autoGainControl: audioSettings.autoGainControl,
+            channelCount: audioSettings.channelCount,
+            echoCancellation: audioSettings.echoCancellation,
+            noiseSuppression: audioSettings.noiseSuppression,
+            sampleRate: audioSettings.sampleRate,
+            sampleSize: audioSettings.sampleSize,
+        } : undefined,
     };
 }
 

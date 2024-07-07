@@ -520,5 +520,33 @@ export const keysets: I18nKeysets = {
     'Group by family': {
         'en': 'Group by family',
         'ru': 'Группировать по семейству'
+    },
+    'Sample rate': {
+        'en': 'Sample rate',
+        'ru': 'Частота дискретизации'
+    },
+    'Sample size': {
+        'en': 'Sample size',
+        'ru': 'Размер семпла'
+    },
+    'Channel count': {
+        'en': 'Channel count',
+        'ru': 'Количество каналов'
+    },
+    'Auto gain control': {
+        'en': 'Auto gain control',
+        'ru': 'Автоматическая регулировка усиления'
+    },
+    'Latency': {
+        'en': 'Latency',
+        'ru': 'Задержка'
+    },
+    'Noise suppression': {
+        'en': 'Noise suppression',
+        'ru': 'Шумоподавление'
+    },
+    'Echo cancellation': {
+        'en': 'Echo cancellation',
+        'ru': 'Эхоподавление'
     }
 };
