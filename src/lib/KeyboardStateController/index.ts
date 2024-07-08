@@ -104,8 +104,6 @@ export class KeyboardStateController {
         }
 
         this.setWasPressed(code, true);
-
-        console.log('keydown code', code);
     }
 
     private handleBlur = () => {
@@ -122,8 +120,6 @@ export class KeyboardStateController {
         if (code === 'MetaLeft' || code === 'MetaRight') {
             this.clearPressed();
         }
-
-        console.log('keyup code', code);
     }
 
     private prepareKeyboardCode(code: string, key: string) {
