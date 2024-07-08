@@ -3,8 +3,10 @@ import { Row } from '../Row';
 import { block } from '../../utils/bem';
 
 import './index.css';
+import { classname } from '../../utils/classname';
 
 interface ListProps {
+    class?: string;
     title: string;
     items: Array<[string, any] | [string]>;
 }
@@ -34,8 +36,10 @@ export function List(props: ListProps) {
                 [name, typeof value === 'boolean' ? String(value) : value];
         });
 
+    const className = classname(props.class, b());
+
     return filteredItems.length ? html`<${Row} name="${props.title}">
-        <ul class="${b()}">
+        <ul class="${className}">
         ${
             filteredItems.map(item => {
                 const [name, value] = item;

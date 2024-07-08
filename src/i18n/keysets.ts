@@ -552,5 +552,25 @@ export const keysets: I18nKeysets = {
     'Background blur': {
         'en': 'Background blur',
         'ru': 'Размытие фона'
+    },
+    'hr.': {
+        'en': 'hr.',
+        'ru': 'ч.'
+    },
+    'min.': {
+        'en': 'min.',
+        'ru': 'мин.'
+    },
+    'sec.': {
+        'en': 'sec.',
+        'ru': 'с.'
+    },
+    'Discharging time': {
+        'en': 'Discharging time',
+        'ru': 'Время до полной разрядки'
+    },
+    'Charging time': {
+        'en': 'Charging time',
+        'ru': 'Время до полной зарядки'
     }
 };

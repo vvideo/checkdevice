@@ -1,17 +1,24 @@
 import { html } from 'htm/preact';
-import { useEffect, useRef, useState } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
 import { WarningMessage } from '../WarningMessage';
 import { block } from '../../utils/bem';
-import { TreeList } from '../TreeList';
 import { i18n } from '../../i18n/i18n';
 import { BatteryBadge } from '../BatteryBadge';
 import { useForceUpdate } from '../../hooks/useForceUpdate';
+import { Spinner } from '../Spinner';
+import { List } from '../List';
+import { formatTime } from './utils';
+
+import './index.css';
 
 const b = block('battery-status');
 
 export function BatteryStatus() {
-    const [hasBattery, setBattery] = useState(false);
-    const refBattery = useRef<BatteryManager | undefined>();
+    if (!navigator.getBattery) {
+        return html`<${WarningMessage}>${i18n('Battery Status API is not supported.')}<//>`;
+    }
+
+    const [batteryManager, setBatteryManager] = useState<BatteryManager | undefined>();
 
     const forceUpdate = useForceUpdate();
 
@@ -21,8 +28,7 @@ export function BatteryStatus() {
         }
 
         navigator.getBattery().then(battery => {
-            refBattery.current = battery;
-            setBattery(true);
+            setBatteryManager(battery);
         }).catch((error: Error) => {
             console.error(error);
         });
@@ -34,21 +40,15 @@ export function BatteryStatus() {
         return () => clearInterval(interval);
     }, []);
 
-    if (!navigator.getBattery) {
-        return html`<${WarningMessage}>${i18n('Battery Status API is not supported.')}<//>`;
-    }
+    const items = batteryManager ? [
+        [i18n('Charging time'), isFinite(batteryManager?.chargingTime) ? formatTime(batteryManager?.chargingTime) : '∞'],
+        [i18n('Discharging time'), isFinite(batteryManager?.dischargingTime) ? formatTime(batteryManager?.dischargingTime) : '∞']
+    ] : [];
 
-    const data = {
-        charging: refBattery.current?.charging,
-        chargingTime: refBattery.current?.chargingTime,
-        dischargingTime: refBattery.current?.dischargingTime,
-        level: refBattery.current?.level,
-    };
-
-    return hasBattery ? html`
+    return batteryManager ? html`
         <div class="${b()}">
-            <${TreeList} data="${data}"><//>
-            <${BatteryBadge} level="${data.level}" charging="${data.charging}"><//>
+            <${BatteryBadge} level="${batteryManager.level}" charging="${batteryManager.charging}"><//>
+            <${List} class="${b('list')}" items="${items}"><//>
         </div>
-    ` : '...';
+    ` : html`<${Spinner} //>`;
 }
