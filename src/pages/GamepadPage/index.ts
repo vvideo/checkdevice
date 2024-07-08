@@ -7,7 +7,7 @@ import { PageTitle } from '../../components/PageTitle';
 export function GamepadPage() {
     return html`
         <${Page}>
-            <${{PageTitle}}>
+            <${PageTitle}}>
                 ${i18n('Gamepad')}
             <//>
 
