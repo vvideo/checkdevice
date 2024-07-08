@@ -548,5 +548,9 @@ export const keysets: I18nKeysets = {
     'Echo cancellation': {
         'en': 'Echo cancellation',
         'ru': 'Эхоподавление'
+    },
+    'Background blur': {
+        'en': 'Background blur',
+        'ru': 'Размытие фона'
     }
 };
