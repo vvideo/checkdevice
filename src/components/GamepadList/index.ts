@@ -5,10 +5,10 @@ import { block } from '../../utils/bem';
 import { TreeList } from '../TreeList';
 import { i18n } from '../../i18n/i18n';
 import { useForceUpdate } from '../../hooks/useForceUpdate';
-
-import './index.css';
 import { Spinner } from '../Spinner';
 import { XboxButtons } from '../XboxButtons';
+
+import './index.css';
 
 const b = block('gamepad-list');
 
