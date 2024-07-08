@@ -25,8 +25,6 @@ export function getStreamParams(stream: MediaStream) {
     const videoSettings = video?.getSettings();
     const audioSettings = audio?.getSettings();
 
-    console.log(videoSettings, audioSettings, video, audio);
-
     return {
         video: video && videoSettings ? {
             deviceId: videoSettings.deviceId,
@@ -37,6 +35,8 @@ export function getStreamParams(stream: MediaStream) {
             frameRate: videoSettings.frameRate,
             // @ts-ignore
             resizeMode: videoSettings.resizeMode,
+            // @ts-ignore
+            backgroundBlur: videoSettings.backgroundBlur,
         } : undefined,
         audio: audio && audioSettings ? {
             deviceId: audioSettings.deviceId,
