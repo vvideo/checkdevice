@@ -5,7 +5,12 @@ import { withInstallApp } from '../../utils/withInstallApp';
 
 import './index.css';
 
-const counterId = window.location.host === 'caniwatchvideo.online' ? '95998062' : '97747983';
+const host = window.location.host;
+const counterId = (
+    host === 'caniwatchvideo.online' ||
+    host === 'checkdevice.online'
+) ? '95998062' : '97747983';
+
 hit(counterId);
 
 setI18nLang(getLang() as I18NLanguage);
