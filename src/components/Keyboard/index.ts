@@ -8,27 +8,57 @@ import { winKeyboardLayout } from '../KeyboardLayout/type/win';
 import { RadioButtonProps } from '../RadioButton';
 import { RadioButtons, getSelectedButton } from '../RadioButtons';
 import { macKeyboardLayout } from '../KeyboardLayout/type/mac';
-import { isMacintosh } from '../../utils/platform';
+import { isIpad, isMacintosh } from '../../utils/platform';
 import { keyboardStateController } from '../../lib/KeyboardStateController';
+import { ipadKeyboardLayout } from '../KeyboardLayout/type/ipad';
 
 import './index.css';
 
 export const b = block('keyboard');
 
-const selectedPlatform = isMacintosh() ? 'mac' : 'win';
+const platform = getPlatform();
 
 const buttons: RadioButtonProps[] = [
     {
         text: 'Win',
         value: 'win',
-        selected: selectedPlatform === 'win'
+        selected: platform === 'win'
     },
     {
         text: 'Mac',
         value: 'mac',
-        selected: selectedPlatform === 'mac'
+        selected: platform === 'mac'
+    },
+    {
+        text: 'iPad',
+        value: 'ipad',
+        selected: platform === 'ipad'
     }
 ];
+
+function getLayoutData(layout: string) {
+    switch (layout) {
+        case 'ipad':
+            return ipadKeyboardLayout;
+        case 'mac':
+            return macKeyboardLayout;
+        default:
+            return winKeyboardLayout;
+    }
+}
+
+function getPlatform() {
+    if (isIpad()) {
+        return 'ipad';
+    }
+
+    if (isMacintosh()) {
+        return 'mac';
+    }
+
+    return 'win';
+}
+
 
 export function Keyboard() {
     const selectedButton = getSelectedButton(buttons)
@@ -48,7 +78,7 @@ export function Keyboard() {
                 <${RadioButtons} onSelect="${handleSelect}" buttons="${buttons}"><//>
             </div>
 
-            <${KeyboardLayout} layout="${layout === 'win' ? winKeyboardLayout : macKeyboardLayout}" //>
+            <${KeyboardLayout} layout="${getLayoutData(layout)}" //>
 
             <div class="${b('bottom-controls')}">
                 <${Button} size="m" onClick="${handleReset}">${i18n('Reset')}<//>
