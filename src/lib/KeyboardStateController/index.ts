@@ -129,7 +129,8 @@ export class KeyboardStateController {
             return 'IntlBackslash';
         }
 
-        return code;
+        // Fix for media keys on Windows.
+        return code || key;
     }
 }
 
