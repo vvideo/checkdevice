@@ -560,15 +560,15 @@ const row5: KeyboardRowData = [
 const row6: KeyboardRowData = [
     {
         type: 'led',
+        code: 'NumLock'
+    },
+    {
+        type: 'led',
         code: 'CapsLock'
     },
     {
         type: 'led',
         code: 'ScrollLock'
-    },
-    {
-        type: 'led',
-        code: 'NumLock'
     }
 ];
 

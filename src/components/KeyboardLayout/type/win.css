@@ -172,22 +172,6 @@
     width: 80px;
 }
 
-.keyboard-layout_type_win .keyboard-key_code_CapsLock .keyboard-key__led {
-    position: absolute;
-    left: 8px;
-    top: 8px;
-    width: 8px;
-    height: 8px;
-    background-color: #333;
-    border-radius: 100%;
-    border: 1px solid transparent;
-}
-
-.keyboard-layout_type_win .keyboard-key_code_CapsLock .keyboard-key__led_on {
-    background-color: YellowGreen;
-    border-color: rgba(0, 0, 0, .5);
-}
-
 .keyboard-layout_type_win .keyboard-key_fontSize_small {
     font-size: 10px;
     line-height: 14px;
