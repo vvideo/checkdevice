@@ -4,6 +4,7 @@
     padding: 7px 10px;
     border-radius: 5px;
     background-color: #454342;
+    user-select: none;
 }
 
 .keyboard-layout_type_macbook .keyboard-layout__row {

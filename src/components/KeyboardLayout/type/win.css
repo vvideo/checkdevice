@@ -4,6 +4,7 @@
     width: 1140px;
     padding: 20px;
     border-radius: 5px;
+    user-select: none;
 }
 
 .keyboard-layout_type_win .keyboard-layout__row {

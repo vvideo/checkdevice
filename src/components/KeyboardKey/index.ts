@@ -58,8 +58,10 @@ export function KeyboardKey(props: KeyboardKeyProps) {
 
     const state = keyboardStateController.getKeyState(keyData.code);
 
+    const title = keyData.code;
+
     return html`
-        <div class="${b({ align: keyData.align, code: keyData.code, pressed: state.pressed, wasPressed: state.wasPressed, view: keyData.view, fontSize: keyData.fontSize })}">
+        <div title="${title}" class="${b({ align: keyData.align, code: keyData.code, pressed: state.pressed, wasPressed: state.wasPressed, view: keyData.view, fontSize: keyData.fontSize })}">
             ${keyData.text || ''}
             ${keyData.topSymbol ? html`<div class="${b('top-symbol')}">${keyData.topSymbol}</div>` : ''}
             ${keyData.topLeftSymbol ? html`<div class="${b('top-left-symbol')}">${keyData.topLeftSymbol}</div>` : ''}
