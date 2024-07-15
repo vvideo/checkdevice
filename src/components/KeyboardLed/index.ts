@@ -29,5 +29,5 @@ export function KeyboardLed(props: KeyboardLedProps) {
     }, [props.code]);
 
     const state = keyboardStateController.getKeyState(props.code);
-    return html`<div class="${b({ on: state.led, code: props.code })}"></div>`;
+    return html`<div title="${props.code}" class="${b({ on: state.led, code: props.code })}"></div>`;
 }
