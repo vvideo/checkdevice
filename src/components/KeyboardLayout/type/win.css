@@ -131,6 +131,47 @@
     width: 150px;
 }
 
+.keyboard-layout_type_win .keyboard-key_code_KeyF::after,
+.keyboard-layout_type_win .keyboard-key_code_KeyJ::after {
+    position: absolute;
+    left: 33%;
+    bottom: 9px;
+    content: '';
+    width: 33%;
+    height: 1px;
+    background-color: white;
+    opacity: .25;
+}
+
+.keyboard-layout_type_win .keyboard-key_code_ContextMenu .keyboard-key__top-left-symbol {
+    position: absolute;
+    left: 17px;
+    top: 13px;
+    right: 17px;
+    bottom: 13px;
+    border: 1px solid white;
+    border-radius: 2px;
+}
+
+.keyboard-layout_type_win .keyboard-key_code_ContextMenu .keyboard-key__top-right-symbol {
+    position: absolute;
+    left: 20px;
+    top: 17px;
+    right: 20px;
+    bottom: 17px;
+    border: 1px solid white;
+    border-left: none;
+    border-right: none;
+}
+
+.keyboard-layout_type_win .keyboard-key_code_ContextMenu .keyboard-key__bottom-right-symbol {
+    position: absolute;
+    left: 20px;
+    top: 21px;
+    right: 20px;
+    border-top: 1px solid white;
+}
+
 .keyboard-layout_type_win .keyboard-key_code_Tab {
     width: 65px;
 }

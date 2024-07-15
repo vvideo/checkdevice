@@ -508,7 +508,7 @@ const row5: KeyboardRowData = [
     },
     {
         code: 'AltRight',
-        text: 'ALTGR',
+        text: 'ALT',
         fontSize: 'small'
     },
     {
@@ -520,7 +520,10 @@ const row5: KeyboardRowData = [
     },
     {
         code: 'ContextMenu',
-        text: '□',
+        topLeftSymbol: ' ',
+        topRightSymbol: ' ',
+        bottomLeftSymbol: ' ',
+        bottomRightSymbol: ' '
     },
     {
         code: 'ControlRight',
