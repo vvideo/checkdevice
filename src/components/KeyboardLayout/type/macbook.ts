@@ -1,6 +1,6 @@
 import { KeyboardLayoutData, KeyboardRowData } from '..';
 
-import './mac.css';
+import './macbook.css';
 
 const row0: KeyboardRowData = [
     {
@@ -364,8 +364,8 @@ const row5: KeyboardRowData = [
     },
 ];
 
-export const macKeyboardLayout: KeyboardLayoutData = {
-    type: 'mac',
+export const macbookKeyboardLayout: KeyboardLayoutData = {
+    type: 'macbook',
     rows: [
         row0,
         row1,

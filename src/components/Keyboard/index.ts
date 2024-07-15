@@ -7,7 +7,7 @@ import { KeyboardLayout } from '../KeyboardLayout';
 import { winKeyboardLayout } from '../KeyboardLayout/type/win';
 import { RadioButtonProps } from '../RadioButton';
 import { RadioButtons, getSelectedButton } from '../RadioButtons';
-import { macKeyboardLayout } from '../KeyboardLayout/type/mac';
+import { macbookKeyboardLayout } from '../KeyboardLayout/type/macbook';
 import { isIpad, isMacintosh } from '../../utils/platform';
 import { keyboardStateController } from '../../lib/KeyboardStateController';
 import { ipadKeyboardLayout } from '../KeyboardLayout/type/ipad';
@@ -25,9 +25,9 @@ const buttons: RadioButtonProps[] = [
         selected: platform === 'win'
     },
     {
-        text: 'Mac',
-        value: 'mac',
-        selected: platform === 'mac'
+        text: 'MacBook',
+        value: 'macbook',
+        selected: platform === 'macbook'
     },
     {
         text: 'iPad',
@@ -40,8 +40,8 @@ function getLayoutData(layout: string) {
     switch (layout) {
         case 'ipad':
             return ipadKeyboardLayout;
-        case 'mac':
-            return macKeyboardLayout;
+        case 'macbook':
+            return macbookKeyboardLayout;
         default:
             return winKeyboardLayout;
     }
@@ -53,7 +53,7 @@ function getPlatform() {
     }
 
     if (isMacintosh()) {
-        return 'mac';
+        return 'macbook';
     }
 
     return 'win';

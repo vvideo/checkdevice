@@ -139,6 +139,18 @@
     align-content: end;
 }
 
+.keyboard-layout_type_ipad .keyboard-key_code_KeyF::after,
+.keyboard-layout_type_ipad .keyboard-key_code_KeyJ::after {
+    position: absolute;
+    left: 40%;
+    bottom: 9px;
+    content: '';
+    width: 20%;
+    height: 2px;
+    background-color: white;
+    opacity: .25;
+}
+
 .keyboard-layout_type_ipad .keyboard-key_code_CapsLock {
     width: 115px;
     align-content: end;
