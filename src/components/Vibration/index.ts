@@ -18,5 +18,4 @@ export function Vibration() {
     return html`
         <${Button} disabled="${!isSupported}" onClick=${onClick}>${i18n('Vibrate')}<//>
     `;
-
 }
