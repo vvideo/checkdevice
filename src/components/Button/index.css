@@ -38,3 +38,10 @@
     font-size: 12px;
     padding: 2px 4px;
 }
+
+.button.button_disabled {
+    background: #444;
+    color: #777;
+    cursor: default;
+    transform: scale(1);
+}

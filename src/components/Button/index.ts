@@ -1,4 +1,5 @@
 import { html } from 'htm/preact';
+import { useCallback } from 'preact/hooks';
 import { VNode } from 'preact';
 import { classname } from '../../utils/classname';
 import { block } from '../../utils/bem';
@@ -10,16 +11,26 @@ interface ButtonProps {
     children: VNode | string;
     onClick?: () => void;
     theme?: 'active' | 'red';
+    disabled?: boolean;
     size?: 's';
 }
 
 const b = block('button');
 
 export function Button(props: ButtonProps) {
+    const { disabled, size, theme, onClick } = props;
     const className = classname(
         props.class,
-        b({ theme: props.theme, size: props.size }),
+        b({ theme, size, disabled }),
     );
 
-    return html`<button class="${className}" onClick="${props.onClick}">${props.children}</button>`;
+    const handleClick = useCallback(() => {
+        if (disabled) {
+            return;
+        }
+
+        onClick && onClick();
+    }, [disabled, onClick]);
+
+    return html`<button class="${className}" disabled="${disabled}" onClick="${handleClick}">${props.children}</button>`;
 }

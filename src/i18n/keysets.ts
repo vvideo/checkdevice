@@ -572,5 +572,17 @@ export const keysets: I18nKeysets = {
     'Charging time': {
         'en': 'Charging time',
         'ru': 'Время до полной зарядки'
+    },
+    'Vibration': {
+        'en': 'Vibration',
+        'ru': 'Вибрация'
+    },
+    'Vibrate': {
+        'en': 'Vibrate',
+        'ru': 'Вибрировать'
+    },
+    'Vibration API is not supported': {
+        'en': 'Vibration API is not supported',
+        'ru': 'Vibration API не поддерживается'
     }
 };

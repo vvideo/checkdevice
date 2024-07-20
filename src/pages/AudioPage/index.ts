@@ -9,6 +9,7 @@ import { QuestionSurroundSound } from '../../components/QuestionSurroundSound';
 import { block } from '../../utils/bem';
 
 import './index.css';
+import { Vibration } from '../../components/Vibration';
 
 const b = block('audio-page');
 
@@ -27,6 +28,10 @@ export function AudioPage() {
 
             <${Row} name="${i18n('Audio Codecs')}">
                 <${AudioCodecs}><//>
+            <//>
+
+            <${Row} name="${i18n('Vibration')}">
+                <${Vibration}><//>
             <//>
         <//>`;
 }
