@@ -1,11 +1,11 @@
 import { KeyboardLayoutData, KeyboardRowData } from '..';
 
-import './macbook.css';
+import './mac.css';
 
 const row0: KeyboardRowData = [
     {
         code: 'Escape',
-        text: 'esc',
+        bottomText: 'esc',
         align: 'left'
     },
     {
@@ -58,16 +58,50 @@ const row0: KeyboardRowData = [
     },
     {
         code: 'PowerOff',
+    },
+    {
+        type: 'spacer',
+        name: 'before-sys'
+    },
+    {
+        code: 'F13',
+        text: 'F13'
+    },
+    {
+        code: 'F14',
+        text: 'F14'
+    },
+    {
+        code: 'F15',
+        text: 'F15'
+    },
+    {
+        type: 'spacer',
+        name: 'before-numpad'
+    },
+    {
+        code: 'F16',
+        text: 'F16'
+    },
+    {
+        code: 'F17',
+        text: 'F17'
+    },
+    {
+        code: 'F18',
+        text: 'F18'
+    },
+    {
+        code: 'F19',
+        text: 'F19'
     }
 ];
 
 const row1: KeyboardRowData = [
     {
-        code: 'IntlBackslash',
-        topLeftSymbol: '±',
-        topRightSymbol: '<',
-        bottomLeftSymbol: '§',
-        bottomRightSymbol: '>',
+        code: 'Backquote',
+        topSymbol: '~',
+        bottomSymbol: '`'
     },
     {
         code: 'Digit1',
@@ -131,14 +165,56 @@ const row1: KeyboardRowData = [
     },
     {
         code: 'Backspace',
-        bottomRightSymbol: '⌫'
+        bottomText: 'delete',
+        align: 'right'
     },
+    {
+        type: 'spacer',
+        name: 'before-sys'
+    },
+    {
+        code: 'Fn',
+        bottomRightSymbol: 'fn',
+        text: '🌐'
+    },
+    {
+        code: 'Home',
+        text: 'home',
+        fontSize: 'small'
+    },
+    {
+        code: 'PageUp',
+        text: 'page up',
+        fontSize: 'small'
+    },
+    {
+        type: 'spacer',
+        name: 'before-numpad'
+    },
+    {
+        code: 'Clear',
+        text: 'clear',
+        fontSize: 'small'
+    },
+    {
+        code: 'NumpadEqual',
+        text: '='
+    },
+    {
+        code: 'NumpadDivide',
+        text: '/'
+    },
+    {
+        code: 'NumpadMultiply',
+        text: '*'
+    }
 ];
 
 const row2: KeyboardRowData = [
     {
         code: 'Tab',
-        bottomLeftSymbol: '⇥'
+        bottomText: 'tab',
+        align: 'left'
     },
     {
         code: 'KeyQ',
@@ -191,15 +267,56 @@ const row2: KeyboardRowData = [
         bottomSymbol: ']'
     },
     {
-        code: 'Enter',
-        text: '⏎'
+        code: 'Backslash',
+        topSymbol: '|',
+        bottomSymbol: '\\'
     },
+    {
+        type: 'spacer',
+        name: 'before-sys'
+    },
+    {
+        code: 'Delete',
+        text: '⌫',
+        fontSize: 'small'
+    },
+    {
+        code: 'End',
+        text: 'end',
+        fontSize: 'small'
+    },
+    {
+        code: 'PageDown',
+        text: 'page down',
+        fontSize: 'small'
+    },
+    {
+        type: 'spacer',
+        name: 'before-numpad'
+    },
+    {
+        code: 'Numpad7',
+        text: '7'
+    },
+    {
+        code: 'Numpad8',
+        text: '8'
+    },
+    {
+        code: 'Numpad9',
+        text: '9'
+    },
+    {
+        code: 'NumpadSubtract',
+        text: '-'
+    }
 ];
 
 const row3: KeyboardRowData = [
     {
         code: 'CapsLock',
-        bottomLeftSymbol: '⇪',
+        bottomText: 'caps lock',
+        align: 'left',
         led: true
     },
     {
@@ -249,10 +366,30 @@ const row3: KeyboardRowData = [
         bottomSymbol: '\''
     },
     {
-        code: 'Backslash',
-        topSymbol: '|',
-        bottomSymbol: '\\'
+        code: 'Enter',
+        bottomText: 'return',
+        align: 'right'
     },
+    {
+        type: 'spacer',
+        name: 'before-numpad-long'
+    },
+    {
+        code: 'Numpad4',
+        text: '4'
+    },
+    {
+        code: 'Numpad5',
+        text: '5'
+    },
+    {
+        code: 'Numpad6',
+        text: '6'
+    },
+    {
+        code: 'NumpadAdd',
+        text: '+'
+    }
 ];
 
 const row4: KeyboardRowData = [
@@ -260,11 +397,6 @@ const row4: KeyboardRowData = [
         code: 'ShiftLeft',
         bottomText: 'shift',
         align: 'left'
-    },
-    {
-        code: 'Backquote',
-        topSymbol: '~',
-        bottomSymbol: '`'
     },
     {
         code: 'KeyZ',
@@ -314,29 +446,54 @@ const row4: KeyboardRowData = [
         bottomText: 'shift',
         align: 'right'
     },
+    {
+        type: 'spacer',
+        name: 'before-arrow-up'
+    },
+    {
+        code: 'ArrowUp'
+    },
+    {
+        type: 'spacer',
+        name: 'after-arrow-up'
+    },
+    {
+        code: 'Numpad1',
+        text: '1'
+    },
+    {
+        code: 'Numpad2',
+        text: '2'
+    },
+    {
+        code: 'Numpad3',
+        text: '3'
+    },
+    {
+        code: 'NumpadEnter',
+        bottomText: 'enter',
+        fontSize: 'small'
+    }
 ];
 
 const row5: KeyboardRowData = [
     {
-        code: 'Fn',
-        fontSize: 'small',
-        topRightSymbol: 'fn',
-        bottomLeftSymbol: '🌐'
-    },
-    {
         code: 'ControlLeft',
         topRightSymbol: '^',
-        bottomText: 'control'
+        bottomText: 'control',
+        align: 'right'
     },
     {
         code: 'AltLeft',
         topRightSymbol: '⌥',
-        bottomText: 'option'
+        bottomText: 'option',
+        align: 'right'
     },
     {
         code: 'MetaLeft',
         topRightSymbol: '⌘',
-        bottomText: 'command'
+        bottomText: 'command',
+        align: 'right'
     },
     {
         code: 'Space'
@@ -344,12 +501,24 @@ const row5: KeyboardRowData = [
     {
         code: 'MetaRight',
         topLeftSymbol: '⌘',
-        bottomText: 'command'
+        bottomText: 'command',
+        align: 'left'
     },
     {
         code: 'AltRight',
         topLeftSymbol: '⌥',
-        bottomText: 'option'
+        bottomText: 'option',
+        align: 'left'
+    },
+    {
+        code: 'ControlRight',
+        topLeftSymbol: '^',
+        bottomText: 'control',
+        align: 'left'
+    },
+    {
+        type: 'spacer',
+        name: 'before-arrows'
     },
     {
         code: 'ArrowLeft'
@@ -358,15 +527,24 @@ const row5: KeyboardRowData = [
         code: 'ArrowDown'
     },
     {
-        code: 'ArrowUp'
-    },
-    {
         code: 'ArrowRight'
     },
+    {
+        type: 'spacer',
+        name: 'after-arrows'
+    },
+    {
+        code: 'Numpad0',
+        text: '0'
+    },
+    {
+        code: 'NumpadDecimal',
+        text: '.'
+    }
 ];
 
-export const macbookKeyboardLayout: KeyboardLayoutData = {
-    type: 'macbook',
+export const macKeyboardLayout: KeyboardLayoutData = {
+    type: 'mac',
     rows: [
         row0,
         row1,

@@ -4,13 +4,14 @@ import { block } from '../../utils/bem';
 import { i18n } from '../../i18n/i18n';
 import { Button } from '../Button';
 import { KeyboardLayout } from '../KeyboardLayout';
-import { winKeyboardLayout } from '../KeyboardLayout/type/win';
 import { RadioButtonProps } from '../RadioButton';
 import { RadioButtons, getSelectedButton } from '../RadioButtons';
-import { macbookKeyboardLayout } from '../KeyboardLayout/type/macbook';
 import { isIpad, isMacintosh } from '../../utils/platform';
 import { keyboardStateController } from '../../lib/KeyboardStateController';
 import { ipadKeyboardLayout } from '../KeyboardLayout/type/ipad';
+import { macKeyboardLayout } from '../KeyboardLayout/type/mac';
+import { macbookKeyboardLayout } from '../KeyboardLayout/type/macbook';
+import { winKeyboardLayout } from '../KeyboardLayout/type/win';
 
 import './index.css';
 
@@ -23,6 +24,11 @@ const buttons: RadioButtonProps[] = [
         text: 'Win',
         value: 'win',
         selected: platform === 'win'
+    },
+    {
+        text: 'Mac',
+        value: 'mac',
+        selected: platform === 'mac'
     },
     {
         text: 'MacBook',
@@ -40,6 +46,8 @@ function getLayoutData(layout: string) {
     switch (layout) {
         case 'ipad':
             return ipadKeyboardLayout;
+        case 'mac':
+            return macKeyboardLayout;
         case 'macbook':
             return macbookKeyboardLayout;
         default:
@@ -47,13 +55,25 @@ function getLayoutData(layout: string) {
     }
 }
 
+function getIsMacBook() {
+    const { width, height } = window.screen;
+
+    if ((width === 1440 && height === 900)) {
+        return true;
+    }
+
+    return false;
+}
+
 function getPlatform() {
     if (isIpad()) {
         return 'ipad';
     }
 
+    const isMacBook = getIsMacBook();
+
     if (isMacintosh()) {
-        return 'macbook';
+        return isMacBook ? 'macbook' : 'mac';
     }
 
     return 'win';

@@ -8,7 +8,7 @@ const b = block('keyboard-layout');
 export type KeyboardRowData = (KeyData | LedData | SpacerData)[];
 
 export interface KeyboardLayoutData {
-    type: 'macbook' | 'win' | 'ipad',
+    type: 'macbook' | 'mac' | 'win' | 'ipad',
     rows: KeyboardRowData[];
 }
 
