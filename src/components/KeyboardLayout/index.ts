@@ -2,6 +2,10 @@ import { html } from 'htm/preact';
 import { block } from '../../utils/bem';
 import { KeyData, LedData, SpacerData } from '../KeyboardKey';
 import { KeyboardRow } from '../KeyboardRow';
+import { ipadKeyboardLayout } from './type/ipad';
+import { macKeyboardLayout } from './type/mac';
+import { macbookKeyboardLayout } from './type/macbook';
+import { winKeyboardLayout } from './type/win';
 
 const b = block('keyboard-layout');
 
@@ -28,4 +32,17 @@ export function KeyboardLayout(props: KeyboardLayoutProps) {
     });
 
     return html`<div class="${b({ type: layout.type })}">${items}</div>`;
+}
+
+export function getLayoutData(layout: string) {
+    switch (layout) {
+        case 'ipad':
+            return ipadKeyboardLayout;
+        case 'mac':
+            return macKeyboardLayout;
+        case 'macbook':
+            return macbookKeyboardLayout;
+        default:
+            return winKeyboardLayout;
+    }
 }

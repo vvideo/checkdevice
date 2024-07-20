@@ -3,15 +3,11 @@ import { useCallback, useState } from 'preact/hooks';
 import { block } from '../../utils/bem';
 import { i18n } from '../../i18n/i18n';
 import { Button } from '../Button';
-import { KeyboardLayout } from '../KeyboardLayout';
+import { getLayoutData, KeyboardLayout } from '../KeyboardLayout';
 import { RadioButtonProps } from '../RadioButton';
 import { RadioButtons, getSelectedButton } from '../RadioButtons';
-import { isIpad, isMacintosh } from '../../utils/platform';
 import { keyboardStateController } from '../../lib/KeyboardStateController';
-import { ipadKeyboardLayout } from '../KeyboardLayout/type/ipad';
-import { macKeyboardLayout } from '../KeyboardLayout/type/mac';
-import { macbookKeyboardLayout } from '../KeyboardLayout/type/macbook';
-import { winKeyboardLayout } from '../KeyboardLayout/type/win';
+import { getPlatform } from './utils';
 
 import './index.css';
 
@@ -41,44 +37,6 @@ const buttons: RadioButtonProps[] = [
         selected: platform === 'ipad'
     }
 ];
-
-function getLayoutData(layout: string) {
-    switch (layout) {
-        case 'ipad':
-            return ipadKeyboardLayout;
-        case 'mac':
-            return macKeyboardLayout;
-        case 'macbook':
-            return macbookKeyboardLayout;
-        default:
-            return winKeyboardLayout;
-    }
-}
-
-function getIsMacBook() {
-    const { width, height } = window.screen;
-
-    if ((width === 1440 && height === 900)) {
-        return true;
-    }
-
-    return false;
-}
-
-function getPlatform() {
-    if (isIpad()) {
-        return 'ipad';
-    }
-
-    const isMacBook = getIsMacBook();
-
-    if (isMacintosh()) {
-        return isMacBook ? 'macbook' : 'mac';
-    }
-
-    return 'win';
-}
-
 
 export function Keyboard() {
     const selectedButton = getSelectedButton(buttons)
