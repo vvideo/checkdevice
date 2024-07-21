@@ -6,6 +6,7 @@ export function createPage({ id, header, headerPostfix }) {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="theme-color" content="#FFd700" />
+    <link rel="canonical" href="https://checkdevice.online/${id === 'index' ? '' : id + '.html'}" />
     <link rel="manifest" href="./manifest.json" />
     <link rel="shortcut icon" href="./static/favicons/favicon.png" />
     <link rel="apple-touch-icon" href="./static/favicons/touch.png" />
