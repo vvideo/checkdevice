@@ -1,0 +1,4 @@
+.warning-message_theme_gray {
+    color: gray;
+    filter: grayscale();
+}

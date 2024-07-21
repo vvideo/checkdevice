@@ -573,9 +573,13 @@ export const keysets: I18nKeysets = {
         'en': 'Charging time',
         'ru': 'Время до полной зарядки'
     },
-    'Vibration': {
-        'en': 'Vibration',
-        'ru': 'Вибрация'
+    'Check vibration': {
+        'en': 'Check vibration',
+        'ru': 'Проверить вибрацию'
+    },
+    'Support is mainly on mobile devices.': {
+        'en': 'Support is mainly on mobile devices.',
+        'ru': 'Поддержка в основном только на мобильных устройствах.'
     },
     'Vibrate': {
         'en': 'Vibrate',
