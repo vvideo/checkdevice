@@ -357,9 +357,9 @@ export const keysets: I18nKeysets = {
         'en': 'Webcamera',
         'ru': 'Веб-камера'
     },
-    'Select camera': {
-        'en': 'Select camera',
-        'ru': 'Выбрать камеру'
+    'Check camera': {
+        'en': 'Check camera',
+        'ru': 'Проверить камеру'
     },
     'Stop': {
         'en': 'Stop',

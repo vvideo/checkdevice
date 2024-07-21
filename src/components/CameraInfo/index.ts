@@ -2,7 +2,7 @@ import { html } from 'htm/preact';
 import { i18n } from '../../i18n/i18n';
 import { List } from '../List';
 import { calcAspectRatio } from 'calc-aspect-ratio';
-import { getChecked } from '../../utils/getChecked';
+import { MicInfo } from '../MicInfo';
 
 interface CameraInfoProps {
     video: {
@@ -41,20 +41,8 @@ export function CameraInfo(props: CameraInfoProps) {
         ['deviceId', video.deviceId],
     ];
 
-    const audioParams = audio ? [
-        [i18n('Auto gain control'), getChecked(audio.autoGainControl)],
-        [i18n('Channel count'), audio.channelCount],
-        [i18n('Echo cancellation'), getChecked(audio.echoCancellation)],
-        [i18n('Latency'), audio.latency],
-        [i18n('Noise suppression'), getChecked(audio.noiseSuppression)],
-        [i18n('Sample rate'), audio.sampleRate ? `${audio.sampleRate} ${i18n('Hz')}` : undefined],
-        [i18n('Sample size'), audio.sampleSize],
-        ['groupId', audio.groupId],
-        ['deviceId', audio.deviceId],
-    ] : [];
-
     return html`
         <${List} title="${video.label}" items="${videoParams}"><//>
-        ${audio ? html`<${List} title="${audio.label}" items="${audioParams}"><//>` : ''}
+        ${audio ? html`<${MicInfo} ..."${audio}"><//>` : ''}
     `;
 }

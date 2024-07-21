@@ -1,9 +1,11 @@
+import { getStreamParams } from '../../utils/getStreamParams';
+
 export class MicWaveform {
     private canvas!: HTMLCanvasElement;
 
-    private audioCtx = new AudioContext();
+    private audioCtx?: AudioContext;
     private audio = new Audio();
-    private analyser = this.audioCtx.createAnalyser();
+    private analyser?: AnalyserNode;
     private stream: MediaStream | null = null;
 
     private frameRequestId = 0;
@@ -21,14 +23,19 @@ export class MicWaveform {
 
     public setMuted(muted: boolean) {
         this.audio.muted = muted;
-
-        console.log('muted', muted);
     }
 
     public start(canvas: HTMLCanvasElement) {
         this.canvas = canvas;
 
+        this.audioCtx = new AudioContext()
+        this.analyser = this.audioCtx.createAnalyser();
+
         return this.requestMic().then(stream => {
+            if (!this.audioCtx || !this.analyser) {
+                return;
+            }
+
             const source = this.audioCtx.createMediaStreamSource(stream);
             source.connect(this.analyser);
             const distortion = this.audioCtx.createWaveShaper();
@@ -36,6 +43,10 @@ export class MicWaveform {
 
             this.frameRequestId = requestAnimationFrame(this.draw);
         });
+    }
+
+    public getStreamParams() {
+        return this.stream ? getStreamParams(this.stream) : null;
     }
 
     public stop() {
@@ -61,6 +72,10 @@ export class MicWaveform {
     }
 
     public draw = () => {
+        if (!this.audioCtx || !this.analyser) {
+            return;
+        }
+
         const canvasCtx = this.canvas.getContext('2d')!;
 
         this.analyser.fftSize = 2048;

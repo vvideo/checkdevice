@@ -2,7 +2,7 @@ import { html } from 'htm/preact';
 import { useCallback, useRef, useState } from 'preact/hooks';
 import { block } from '../../utils/bem';
 import { i18n } from '../../i18n/i18n';
-import { getConstraints, getStreamParams, requestCamera, stopCamera } from './utils';
+import { getConstraints, requestCamera, stopCamera } from './utils';
 import { Button } from '../Button';
 import { getSelectedButton, RadioButtons } from '../RadioButtons';
 import { RadioButtonProps } from '../RadioButton';
@@ -10,6 +10,7 @@ import { WarningMessage } from '../WarningMessage';
 import { CameraInfo } from '../CameraInfo';
 import { Checkbox } from '../Checkbox';
 import { CameraError } from '../CameraError';
+import { getStreamParams } from '../../utils/getStreamParams';
 
 import './index.css';
 
@@ -95,7 +96,7 @@ export function Camera() {
 
     return html`<div class="${b()}">
         <div class="${b('select')}">
-            <${Button} class="${b('select-camera')}" theme="${showStop ? 'red' : 'active'}" onClick="${handleClick}">${stream ? i18n('Stop') : i18n('Select camera')}<//>
+            <${Button} class="${b('select-camera')}" theme="${showStop ? 'red' : 'active'}" onClick="${handleClick}">${stream ? i18n('Stop') : i18n('Check camera')}<//>
             <${Checkbox} label="${i18n('Mic')}" checked="${withMic}" onClick="${handleMic}" //>
         </div>
         <div class="${b('controls')}">

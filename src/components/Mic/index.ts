@@ -7,6 +7,7 @@ import { block } from '../../utils/bem';
 import { micWaveform } from '../../lib/MicWaveform';
 
 import './index.css';
+import { MicInfo } from '../MicInfo';
 
 const b = block('mic');
 
@@ -20,9 +21,10 @@ export function Mic() {
             return;
         }
 
-        micWaveform.start(refCanvas.current);
         micWaveform.setMuted(muted);
-        setStarted(true);
+        micWaveform.start(refCanvas.current).then(() => {
+            setStarted(true);
+        });
     }, [muted, setStarted]);
 
     const handleHearYourself = useCallback((value: boolean) => {
@@ -37,10 +39,15 @@ export function Mic() {
 
     const selectButton = html`<${Button} theme="active" onClick="${handleSelectMic}">${i18n('Check mic')}<//>`;
     const stopButton = html`<${Button} theme="red" onClick="${handleStop}">${i18n('Stop')}<//>`;
+    const streamParams = micWaveform.getStreamParams();
 
-    return html`
+    return html`<div class="${b({ started })}">
         ${started ? stopButton : selectButton}<${Checkbox} class="${b('hear-yourself')}" label="${i18n('Hear yourself')}" onClick="${handleHearYourself}" />
 
-        <canvas ref="${refCanvas}" class="${b('canvas')}" width="300" height="200"></canvas>
-    `;
+        <div class="${b('canvas-container')}">
+            <canvas ref="${refCanvas}" class="${b('canvas')}" width="300" height="200"></canvas>
+        </div>
+
+        ${streamParams && streamParams.audio ? html`<${MicInfo} ..."${streamParams.audio}" />` : ''}
+    </div>`;
 }
