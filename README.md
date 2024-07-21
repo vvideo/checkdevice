@@ -11,6 +11,7 @@ This service answers the questions:
 Also info about:
 + Screen
 + Webcamera
++ Mic
 + Gamepad
 + Keyboard
 + Mouse
