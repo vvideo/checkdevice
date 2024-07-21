@@ -1,5 +1,5 @@
 import { html } from 'htm/preact';
-import { VideoPage } from '../pages/VideoPage';
+import { IndexPage } from '../pages/IndexPage';
 import { render } from 'preact';
 
-render(html`<${VideoPage} //>`, document.querySelector('.page') as HTMLDivElement);
+render(html`<${IndexPage} //>`, document.querySelector('.page') as HTMLDivElement);

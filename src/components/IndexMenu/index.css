@@ -1,0 +1,40 @@
+.index-menu {
+    margin: 10px 0;
+}
+
+.index-menu__item {
+    float: left;
+    padding: 20px;
+    background: #111;
+    border-radius: 10px;
+    width: 300px;
+    margin: 0 10px 10px 0;
+    font-size: 20px;
+}
+
+.index-menu__emoji {
+    display: inline-block;
+    filter: grayscale(0.5);
+    color: white;
+    width: 1.5em;
+}
+
+.index-menu .link {
+    transition: background-color .4s ease;
+}
+
+.index-menu .link:link,
+.index-menu .link:visited,
+.index-menu .link:hover,
+.index-menu .link:active {
+    text-decoration: none;
+}
+
+.index-menu .link:hover {
+    background-color: #333;
+}
+
+.index-menu__clear {
+    clear: both;
+    margin-bottom: 10px;
+}

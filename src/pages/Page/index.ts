@@ -10,13 +10,14 @@ import './index.css';
 
 interface PageProps {
     children: VNode;
+    withoutMenu?: boolean;
 }
 
 export function Page(props: PageProps) {
     return html`
         <div>
             <${Header} //>
-            <${Menu}><//>
+            ${props.withoutMenu ? '' : html`<${Menu}><//>`}
 
             ${props.children}
 

@@ -1,8 +1,8 @@
-export function createPage({ id, header, headerPostfix }) {
+export function createPage({ id, header }) {
     return `<!DOCTYPE html>
 <html>
 <head>
-    <title>${header} / ${headerPostfix}</title>
+    <title>${header}</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="theme-color" content="#FFd700" />

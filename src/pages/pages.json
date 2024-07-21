@@ -1,6 +1,19 @@
 [
     {
         "header": {
+            "en": "Check device online",
+            "ru": "Проверь устройство онлайн"
+        },
+        "menuTitle": {
+            "en": "",
+            "ru": ""
+        },
+        "id": "index",
+        "url": "./",
+        "hidden": true
+    },
+    {
+        "header": {
             "en": "Can I watch video?",
             "ru": "Могу ли я смотреть видео?"
         },
@@ -8,8 +21,8 @@
             "en": "Video",
             "ru": "Видео"
         },
-        "id": "index",
-        "url": "./"
+        "id": "video",
+        "url": "./video.html"
     },
     {
         "menuTitle": {
