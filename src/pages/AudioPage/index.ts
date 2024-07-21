@@ -7,9 +7,9 @@ import { i18n } from '../../i18n/i18n';
 import { Page } from '../Page';
 import { QuestionSurroundSound } from '../../components/QuestionSurroundSound';
 import { block } from '../../utils/bem';
+import { Vibration } from '../../components/Vibration';
 
 import './index.css';
-import { Vibration } from '../../components/Vibration';
 
 const b = block('audio-page');
 

@@ -2,9 +2,9 @@ import { html } from 'htm/preact';
 import { block } from '../../utils/bem';
 import { i18n } from '../../i18n/i18n';
 import { Link } from '../Link';
+import { getPagePath } from '../../utils/getPagePath';
 
 import './index.css';
-import { getPagePath } from '../../utils/getPagePath';
 
 const b = block('header');
 

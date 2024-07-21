@@ -3,6 +3,7 @@
     font-size: 30px;
     line-height: 1.5em;
     color: white;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .header:hover .header__logo {
