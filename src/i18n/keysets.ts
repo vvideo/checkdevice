@@ -584,5 +584,13 @@ export const keysets: I18nKeysets = {
     'Vibration API is not supported': {
         'en': 'Vibration API is not supported',
         'ru': 'Vibration API не поддерживается'
+    },
+    'Check mic': {
+        'en': 'Check mic',
+        'ru': 'Проверить микрофон'
+    },
+    'Hear yourself': {
+        'en': 'Hear yourself',
+        'ru': 'Слышать себя'
     }
 };

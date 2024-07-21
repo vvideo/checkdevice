@@ -41,8 +41,7 @@
             "ru": "Микрофон"
         },
         "id": "mic",
-        "url": "./mic.html",
-        "hidden": true
+        "url": "./mic.html"
     },
     {
         "menuTitle": {
