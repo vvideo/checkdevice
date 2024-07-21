@@ -20,11 +20,11 @@ export function Vibration() {
         return html`<${WarningMessage}>${i18n('Vibration API is not supported.')}<//>`;
     }
 
-    return html`
+    return html`<div class="${b()}">
         <${Button} disabled="${!isSupported}" onClick=${onClick}>${i18n('Vibrate')}<//>
 
         <div class="${b('details')}">
             <${WarningMessage} theme="gray">${i18n('Support is mainly on mobile devices.')}<//>
         </div>
-    `;
+    </div>`;
 }
