@@ -17,26 +17,9 @@ export function IndexMenu() {
         };
     });
 
-    const emojies: Record<string, string | undefined> = {
-        screen: '🖥️',
-        video: '⏯',
-        audio: '🔊',
-        gamepad: '🕹️',
-        network: '📍',
-        platform: '💻',
-        battery: '🔋',
-        storage: '💽',
-        mouse: '🖱',
-        keyboard: '⌨️',
-        gpu: '⚙️',
-        camera: '📸',
-        mic: '🎙️',
-        fonts: '❝'
-    };
-
     return html`<div class="${b()}">
         ${items.map(item => {
-            return html`<${Link} theme="white" class="${b('item')}" href="${getPagePath(item.id)}"><span class="${b('emoji')}">${emojies[item.id] || ''}</span>${item.title}<//>`;
+            return html`<${Link} theme="white" class="${b('item')}" href="${getPagePath(item.id)}"><span class="${b('emoji')}">${item.emoji}</span>${item.title}<//>`;
         })}
         <div class="${b('clear')}"></div>
     </div>
