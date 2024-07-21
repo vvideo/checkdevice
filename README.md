@@ -1,4 +1,4 @@
-# [Can I Watch Video](https://vvideo.github.io/caniwatchvideo)
+# [Can I Watch Video](https://checkdevice.online)
 
 <img align="right" width="200" src="./static/images/logo.png" />
 
