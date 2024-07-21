@@ -54,7 +54,7 @@
     border: 3px #333 solid;
 }
 
-.codec_disabled .codec__name:hover {
+body.hover_yes .codec_disabled .codec__name:hover {
     opacity: .2;
 }
 
@@ -68,7 +68,7 @@
     margin: 5px;
 }
 
-.codec__name:hover {
+body.hover_yes .codec__name:hover {
     opacity: .8;
 }
 
@@ -90,6 +90,6 @@
     margin-left: -10px;
 }
 
-.codec:hover .codec__tooltip {
+body.hover_yes .codec:hover .codec__tooltip {
     display: block;
 }

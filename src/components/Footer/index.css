@@ -10,11 +10,11 @@
     margin-right: 20px;
 }
 
-.footer__item:hover span {
+body.hover_yes .footer__item:hover span {
     transition: opacity .5s ease;
 }
 
-.footer__item:hover span {
+body.hover_yes .footer__item:hover span {
     opacity: 1;
 }
 

@@ -14,7 +14,7 @@
     transform: scale(0.98);
 }
 
-.button:hover {
+body.hover_yes .button:hover {
     background: #eee;
 }
 
@@ -22,7 +22,7 @@
     background: #ffd700;
 }
 
-.button_theme_active:hover {
+body.hover_yes .button_theme_active:hover {
     background: #efc700;
 }
 
@@ -31,7 +31,7 @@
     color: white;
 }
 
-.button_theme_red:hover {
+body.hover_yes .button_theme_red:hover {
     background: #ef0000;
 }
 
