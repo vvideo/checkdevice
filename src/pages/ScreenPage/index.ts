@@ -4,10 +4,11 @@ import { Page } from '../Page';
 import { i18n } from '../../i18n/i18n';
 import { List } from '../../components/List';
 import { Link } from '../../components/Link';
+import { getPagePath } from '../../utils/getPagePath';
 
 export function ScreenPage() {
     const items = [
-        [html`<${Link} href="./test-dead-pixels.html">${i18n('Test dead pixels')}<//>`]
+        [html`<${Link} href="${getPagePath('test-dead-pixels')}">${i18n('Test dead pixels')}<//>`]
     ];
 
     return html`

@@ -1,0 +1,11 @@
+.lang-switcher-item {
+    white-space: nowrap;
+    padding: 5px 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.lang-switcher-item:hover {
+    background-color: gold;
+    color: black;
+}

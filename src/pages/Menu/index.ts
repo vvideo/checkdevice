@@ -1,7 +1,7 @@
 import { html } from 'htm/preact';
 import { MainMenu, MainMenuItem } from '../../components/MainMenu';
 import pages from '../pages';
-import { i18n, i18nWithKeyset } from '../../i18n/i18n';
+import { getI18nLang, i18n, i18nWithKeyset } from '../../i18n/i18n';
 
 export function getIdFromLocation() {
     const id = window.location.pathname
@@ -22,6 +22,7 @@ export function Menu() {
 
         return {
             ...item,
+            url: item.url + '?lang=' + getI18nLang(),
             title: i18nWithKeyset(item.menuTitle),
             selected,
         };

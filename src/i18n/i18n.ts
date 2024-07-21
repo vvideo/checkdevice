@@ -1,4 +1,4 @@
-import { keysets } from './keysets';
+import { keysets, langs } from './keysets';
 
 export type I18NKeys = { 'en': string, 'ru': string };
 export type I18nKeysets = Record<string, I18NKeys>;
@@ -6,6 +6,12 @@ export type I18NLanguage = keyof I18NKeys;
 
 const i18nKeysets = keysets;
 let i18nLang: I18NLanguage;
+
+export function getI18nLangs() {
+    return [
+        ...langs,
+    ];
+}
 
 export function i18n(id: string) {
     const key = i18nKeysets[id];
