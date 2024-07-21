@@ -10,6 +10,7 @@ pages.forEach(item => {
     const html = createPage({
         id: item.id,
         header: item.header ? item.header.en : item.menuTitle.en,
+        headerPostfix: 'Check device online'
     });
 
     fs.writeFileSync(`${item.id}.html`, html, 'utf-8');

@@ -1,7 +1,7 @@
 import { html } from 'htm/preact';
 import { MainMenu, MainMenuItem } from '../../components/MainMenu';
 import pages from '../pages';
-import { i18nWithKeyset } from '../../i18n/i18n';
+import { i18n, i18nWithKeyset } from '../../i18n/i18n';
 
 export function getIdFromLocation() {
     const id = window.location.pathname
@@ -17,7 +17,7 @@ export function Menu() {
     const items: MainMenuItem[] = pages.map(item => {
         const selected = item.id === id;
         if (selected) {
-            document.title = i18nWithKeyset(item.header || item.menuTitle)
+            document.title = i18nWithKeyset(item.header || item.menuTitle) + ' / ' + i18n('Check device online')
         }
 
         return {
