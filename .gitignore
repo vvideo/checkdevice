@@ -1,3 +1,5 @@
 node_modules/
 src/pages/pages.ts
+dist/*.server.css
+dist/*.server.js
 .DS_Store

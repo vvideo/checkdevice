@@ -2,6 +2,7 @@ import { html } from 'htm/preact';
 import { MainMenu, MainMenuItem } from '../../components/MainMenu';
 import pages from '../pages';
 import { getI18nLang, i18n, i18nWithKeyset } from '../../i18n/i18n';
+import { isSsr } from '../../utils/isSsr';
 
 export function getIdFromLocation() {
     const id = window.location.pathname
@@ -13,7 +14,7 @@ export function getIdFromLocation() {
 }
 
 export function Menu() {
-    const id = getIdFromLocation();
+    const id = isSsr ? '' : getIdFromLocation();
     const items: MainMenuItem[] = pages.map(item => {
         const selected = item.id === id;
         if (selected) {

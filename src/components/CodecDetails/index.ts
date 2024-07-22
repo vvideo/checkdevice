@@ -1,5 +1,6 @@
 import { html } from 'htm/preact';
 import { i18n } from '../../i18n/i18n';
+import { isSsr } from '../../utils/isSsr';
 
 interface CodecDetailsProps {
     canPlayType: string;
@@ -9,7 +10,7 @@ interface CodecDetailsProps {
 }
 
 function getIsTypeSupportedProps(isTypeSupported: boolean) {
-    return window.MediaSource ? {
+    return !isSsr && window.MediaSource ? {
         value: String(isTypeSupported),
         color: isTypeSupported ? 'green' : 'red',
     } : {
