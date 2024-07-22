@@ -14,7 +14,7 @@ export function Vibration() {
         navigator.vibrate(1000);
     }, []);
 
-    const isSupported = typeof navigator.vibrate === 'function';
+    const isSupported = typeof navigator !== 'undefined' && typeof navigator.vibrate === 'function';
 
     if (!isSupported) {
         return html`<${WarningMessage}>${i18n('Vibration API is not supported.')}<//>`;
