@@ -10,7 +10,7 @@
             "ru": ""
         },
         "id": "index",
-        "url": "./",
+        "url": "/",
         "hidden": true
     },
     {
@@ -24,7 +24,7 @@
             "ru": "Видео"
         },
         "id": "video",
-        "url": "./video.html"
+        "url": "/video.html"
     },
     {
         "menuTitle": {
@@ -33,7 +33,7 @@
         },
         "emoji": "🔊",
         "id": "audio",
-        "url": "./audio.html"
+        "url": "/audio.html"
     },
     {
         "menuTitle": {
@@ -42,7 +42,7 @@
         },
         "emoji": "🖥️",
         "id": "screen",
-        "url": "./screen.html"
+        "url": "/screen.html"
     },
     {
         "menuTitle": {
@@ -51,7 +51,7 @@
         },
         "emoji": "📸",
         "id": "camera",
-        "url": "./camera.html"
+        "url": "/camera.html"
     },
     {
         "menuTitle": {
@@ -60,7 +60,7 @@
         },
         "emoji": "🎙️",
         "id": "mic",
-        "url": "./mic.html"
+        "url": "/mic.html"
     },
     {
         "menuTitle": {
@@ -69,7 +69,7 @@
         },
         "emoji": "⚙️",
         "id": "gpu",
-        "url": "./gpu.html"
+        "url": "/gpu.html"
     },
     {
         "menuTitle": {
@@ -78,7 +78,7 @@
         },
         "emoji": "🖱",
         "id": "mouse",
-        "url": "./mouse.html"
+        "url": "/mouse.html"
     },
     {
         "menuTitle": {
@@ -87,7 +87,7 @@
         },
         "emoji": "⌨",
         "id": "keyboard",
-        "url": "./keyboard.html"
+        "url": "/keyboard.html"
     },
     {
         "menuTitle": {
@@ -96,7 +96,7 @@
         },
         "emoji": "",
         "id": "keycodes",
-        "url": "./keycodes.html",
+        "url": "/keycodes.html",
         "hidden": true
     },
     {
@@ -106,7 +106,7 @@
         },
         "emoji": "🕹️",
         "id": "gamepad",
-        "url": "./gamepad.html"
+        "url": "/gamepad.html"
     },
     {
         "menuTitle": {
@@ -115,7 +115,7 @@
         },
         "emoji": "💽",
         "id": "storage",
-        "url": "./storage.html"
+        "url": "/storage.html"
     },
     {
         "menuTitle": {
@@ -124,7 +124,7 @@
         },
         "emoji": "📍",
         "id": "network",
-        "url": "./network.html"
+        "url": "/network.html"
     },
     {
         "menuTitle": {
@@ -133,7 +133,7 @@
         },
         "emoji": "💻",
         "id": "platform",
-        "url": "./platform.html"
+        "url": "/platform.html"
     },
     {
         "menuTitle": {
@@ -142,7 +142,7 @@
         },
         "emoji": "🔋",
         "id": "battery",
-        "url": "./battery.html"
+        "url": "/battery.html"
     },
     {
         "menuTitle": {
@@ -151,7 +151,7 @@
         },
         "emoji": "❝",
         "id": "fonts",
-        "url": "./fonts.html"
+        "url": "/fonts.html"
     },
     {
         "menuTitle": {
@@ -160,7 +160,7 @@
         },
         "emoji": "",
         "id": "error404",
-        "url": "./error404.html",
+        "url": "/error404.html",
         "hidden": true
     },
     {
@@ -170,7 +170,7 @@
         },
         "emoji": "",
         "id": "test-dead-pixels",
-        "url": "./test-dead-pixels.html",
+        "url": "/test-dead-pixels.html",
         "hidden": true
     }
 ]

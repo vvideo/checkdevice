@@ -23,7 +23,7 @@ export function Menu() {
 
         return {
             ...item,
-            url: item.url + '?lang=' + getI18nLang(),
+            url: item.url + (isSsr ? '' : '?lang=' + getI18nLang()),
             title: i18nWithKeyset(item.menuTitle),
             selected,
         };
