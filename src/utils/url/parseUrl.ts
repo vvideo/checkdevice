@@ -19,11 +19,11 @@ export interface UrlObject {
 let PARSE_LINK_ELEMENT: HTMLAnchorElement;
 
 export function parseUrl(url: string): UrlObject {
-    PARSE_LINK_ELEMENT.href = url;
-
     if (!PARSE_LINK_ELEMENT) {
         PARSE_LINK_ELEMENT = document.createElement('a');
     }
+
+    PARSE_LINK_ELEMENT.href = url;
 
     let pathname = PARSE_LINK_ELEMENT.pathname || '';
     if (pathname.charAt(0) !== '/') {
