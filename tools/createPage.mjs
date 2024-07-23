@@ -23,7 +23,7 @@ export function createPage({ id, header, content }) {
 </head>
 <body>
     <div class="page">${content}</div>
-    <script1 src="./dist/${id}.js?md5="></script>
+    <script src="./dist/${id}.js?md5="></script>
 </body>
 </html>
 `;
