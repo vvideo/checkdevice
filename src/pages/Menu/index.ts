@@ -5,11 +5,7 @@ import { getI18nLang, i18n, i18nWithKeyset } from '../../i18n/i18n';
 import { isSsr } from '../../utils/isSsr';
 
 export function getIdFromLocation() {
-    const id = window.location.pathname
-        // Fix for github pages
-        .replace(/^\/caniwatchvideo/, '')
-        .split(/[?./]/)[1];
-
+    const id = window.location.pathname.split(/[?./]/)[1];
     return id ? id : 'index';
 }
 
