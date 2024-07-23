@@ -2051,7 +2051,7 @@ var pages$1 = [
             "ru": ""
         },
         "id": "index",
-        "url": "./",
+        "url": "/",
         "hidden": true
     },
     {
@@ -2065,7 +2065,7 @@ var pages$1 = [
             "ru": "Видео"
         },
         "id": "video",
-        "url": "./video.html"
+        "url": "/video.html"
     },
     {
         "menuTitle": {
@@ -2074,7 +2074,7 @@ var pages$1 = [
         },
         "emoji": "🔊",
         "id": "audio",
-        "url": "./audio.html"
+        "url": "/audio.html"
     },
     {
         "menuTitle": {
@@ -2083,7 +2083,7 @@ var pages$1 = [
         },
         "emoji": "🖥️",
         "id": "screen",
-        "url": "./screen.html"
+        "url": "/screen.html"
     },
     {
         "menuTitle": {
@@ -2092,7 +2092,7 @@ var pages$1 = [
         },
         "emoji": "📸",
         "id": "camera",
-        "url": "./camera.html"
+        "url": "/camera.html"
     },
     {
         "menuTitle": {
@@ -2101,7 +2101,7 @@ var pages$1 = [
         },
         "emoji": "🎙️",
         "id": "mic",
-        "url": "./mic.html"
+        "url": "/mic.html"
     },
     {
         "menuTitle": {
@@ -2110,7 +2110,7 @@ var pages$1 = [
         },
         "emoji": "⚙️",
         "id": "gpu",
-        "url": "./gpu.html"
+        "url": "/gpu.html"
     },
     {
         "menuTitle": {
@@ -2119,7 +2119,7 @@ var pages$1 = [
         },
         "emoji": "🖱",
         "id": "mouse",
-        "url": "./mouse.html"
+        "url": "/mouse.html"
     },
     {
         "menuTitle": {
@@ -2128,7 +2128,7 @@ var pages$1 = [
         },
         "emoji": "⌨",
         "id": "keyboard",
-        "url": "./keyboard.html"
+        "url": "/keyboard.html"
     },
     {
         "menuTitle": {
@@ -2137,7 +2137,7 @@ var pages$1 = [
         },
         "emoji": "",
         "id": "keycodes",
-        "url": "./keycodes.html",
+        "url": "/keycodes.html",
         "hidden": true
     },
     {
@@ -2147,7 +2147,7 @@ var pages$1 = [
         },
         "emoji": "🕹️",
         "id": "gamepad",
-        "url": "./gamepad.html"
+        "url": "/gamepad.html"
     },
     {
         "menuTitle": {
@@ -2156,7 +2156,7 @@ var pages$1 = [
         },
         "emoji": "💽",
         "id": "storage",
-        "url": "./storage.html"
+        "url": "/storage.html"
     },
     {
         "menuTitle": {
@@ -2165,7 +2165,7 @@ var pages$1 = [
         },
         "emoji": "📍",
         "id": "network",
-        "url": "./network.html"
+        "url": "/network.html"
     },
     {
         "menuTitle": {
@@ -2174,7 +2174,7 @@ var pages$1 = [
         },
         "emoji": "💻",
         "id": "platform",
-        "url": "./platform.html"
+        "url": "/platform.html"
     },
     {
         "menuTitle": {
@@ -2183,7 +2183,7 @@ var pages$1 = [
         },
         "emoji": "🔋",
         "id": "battery",
-        "url": "./battery.html"
+        "url": "/battery.html"
     },
     {
         "menuTitle": {
@@ -2192,7 +2192,7 @@ var pages$1 = [
         },
         "emoji": "❝",
         "id": "fonts",
-        "url": "./fonts.html"
+        "url": "/fonts.html"
     },
     {
         "menuTitle": {
@@ -2201,7 +2201,7 @@ var pages$1 = [
         },
         "emoji": "",
         "id": "error404",
-        "url": "./error404.html",
+        "url": "/error404.html",
         "hidden": true
     },
     {
@@ -2211,7 +2211,7 @@ var pages$1 = [
         },
         "emoji": "",
         "id": "test-dead-pixels",
-        "url": "./test-dead-pixels.html",
+        "url": "/test-dead-pixels.html",
         "hidden": true
     }
 ];
@@ -2230,7 +2230,7 @@ function Menu() {
         if (selected) {
             document.title = i18nWithKeyset(item.header || item.menuTitle) + ' / ' + i18n('Check device online');
         }
-        return __assign(__assign({}, item), { url: item.url + '?lang=' + getI18nLang(), title: i18nWithKeyset(item.menuTitle), selected: selected });
+        return __assign(__assign({}, item), { url: item.url + (isSsr ? '' : '?lang=' + getI18nLang()), title: i18nWithKeyset(item.menuTitle), selected: selected });
     });
     return m$1(templateObject_1$1z || (templateObject_1$1z = __makeTemplateObject(["<", " items=\"", "\"><//>"], ["<", " items=\"", "\"><//>"])), MainMenu, items);
 }
