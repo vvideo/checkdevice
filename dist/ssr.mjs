@@ -2217,10 +2217,7 @@ var pages$1 = [
 ];
 
 function getIdFromLocation() {
-    var id = window.location.pathname
-        // Fix for github pages
-        .replace(/^\/caniwatchvideo/, '')
-        .split(/[?./]/)[1];
+    var id = window.location.pathname.split(/[?./]/)[1];
     return id ? id : 'index';
 }
 function Menu() {
