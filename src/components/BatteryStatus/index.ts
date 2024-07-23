@@ -10,11 +10,12 @@ import { List } from '../List';
 import { formatTime } from './utils';
 
 import './index.css';
+import { isSsr } from '../../utils/isSsr';
 
 const b = block('battery-status');
 
 export function BatteryStatus() {
-    if (!navigator.getBattery) {
+    if (isSsr || !navigator.getBattery) {
         return html`<${WarningMessage}>${i18n('Battery Status API is not supported.')}<//>`;
     }
 

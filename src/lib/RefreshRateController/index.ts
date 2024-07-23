@@ -7,6 +7,7 @@ export class RefreshRateController {
 
     public static hasSupport() {
         return Boolean(
+            typeof window !== 'undefined' &&
             typeof window.performance?.now === 'function' &&
             typeof window.requestAnimationFrame === 'function'
         );

@@ -22,15 +22,15 @@ export function ScreenBadges() {
     const handleClick = useCallback(() => {
         screenInfo.getScreenDetails()
             .then(handleScreenChange)
-            .catch(handleScreenChange); 
+            .catch(handleScreenChange);
     }, []);
 
-    useEffect(() => {          
+    useEffect(() => {
         screenInfo.addListener(handleScreenChange);
 
         !screenInfo.isDenied && screenInfo.getScreenDetails()
             .then(handleScreenChange)
-            .catch(handleScreenChange);        
+            .catch(handleScreenChange);
 
         return () => {
             screenInfo.removeListener(handleScreenChange);
@@ -52,6 +52,6 @@ export function ScreenBadges() {
     return html`<${Row} name="${name}">
         ${!screenInfo.isDenied && screenInfo.needUserActivity ? html`<div class="${b('specify')}"><${Button} size="s" theme="red" onClick="${handleClick}">${i18n('Specify')}<//></div>` : ''}
         ${content}
-        ${!screenInfo.isScreenDetails && screen.isExtended === true ? html`<div class="${b('additional')}">⚠️ ${i18n('Additional monitor detected')}</div>` : ''}
+        ${!screenInfo.isScreenDetails && (typeof screen !== 'undefined' && screen.isExtended === true) ? html`<div class="${b('additional')}">⚠️ ${i18n('Additional monitor detected')}</div>` : ''}
     <//>`;
 }

@@ -12,13 +12,14 @@ import { Codec } from '../Codec';
 import { i18n } from '../../i18n/i18n';
 import { CodecDetails } from '../CodecDetails';
 import { InfoLink } from '../InfoLink';
+import { isSsr } from '../../utils/isSsr';
 
 export function QuestionHdr() {
     const isVp910Bit = isVp9Profile2Level110BitSupported();
     const isHevcMain10 = isHevcMain10Supported();
     const isAv1Main10 = isAV1Main10Supported();
-    const isHdr = isHighDynamicRangeSupported();
-    const isVideoHdr = isHighVideoDynamicRangeSupported();
+    const isHdr = !isSsr && isHighDynamicRangeSupported();
+    const isVideoHdr = !isSsr && isHighVideoDynamicRangeSupported();
     const mainAnswer = Boolean(isHdr || isVideoHdr) && Boolean(isVp910Bit.any || isHevcMain10.any || isAv1Main10.any);
     const head = html`${i18n('Can I watch HDR video?')} <${Result} value="${mainAnswer}"><//>`;
 

@@ -598,9 +598,9 @@ export const keysets: I18nKeysets = {
         'en': 'Vibrate',
         'ru': 'Вибрировать'
     },
-    'Vibration API is not supported': {
-        'en': 'Vibration API is not supported',
-        'ru': 'Vibration API не поддерживается'
+    'Vibration API is not supported.': {
+        'en': 'Vibration API is not supported.',
+        'ru': 'Vibration API не поддерживается.'
     },
     'Check mic': {
         'en': 'Check mic',
@@ -609,5 +609,13 @@ export const keysets: I18nKeysets = {
     'Hear yourself': {
         'en': 'Hear yourself',
         'ru': 'Слышать себя'
+    },
+    'Max touch points': {
+        'en': 'Max touch points',
+        'ru': 'Max touch points'
+    },
+    'Media Devices API is not supported.': {
+        'en': 'Media Devices API is not supported.',
+        'ru': 'Media Devices API не поддерживается.'
     }
 };

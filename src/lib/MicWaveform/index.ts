@@ -4,7 +4,7 @@ export class MicWaveform {
     private canvas!: HTMLCanvasElement;
 
     private audioCtx?: AudioContext;
-    private audio = new Audio();
+    private audio!: HTMLAudioElement;
     private analyser?: AnalyserNode;
     private stream: MediaStream | null = null;
 
@@ -28,7 +28,8 @@ export class MicWaveform {
     public start(canvas: HTMLCanvasElement) {
         this.canvas = canvas;
 
-        this.audioCtx = new AudioContext()
+        this.audioCtx = new AudioContext();
+        this.audio = new Audio();
         this.analyser = this.audioCtx.createAnalyser();
 
         return this.requestMic().then(stream => {

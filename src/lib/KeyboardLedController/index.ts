@@ -1,9 +1,10 @@
 import { isFirefox } from 'detect-audio-video';
 import { Signal } from '../Signal';
+import { isSsr } from '../../utils/isSsr';
 
 export class KeyboardLedController {
     private signal = new Signal<'CapsLock' | 'ScrollLock' | 'NumLock'>();
-    private isFirefox = isFirefox();
+    private isFirefox = !isSsr && isFirefox();
 
     public capsLock = false;
     public scrollLock = false;

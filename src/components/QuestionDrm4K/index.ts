@@ -25,6 +25,7 @@ import { getCachedCheckAllHdcpVersions } from '../../utils/getCachedCheckAllHdcp
 import { noop } from '../../utils/noop';
 import { isUhdHdcpSupported } from 'hdcp';
 import { Link } from '../Link';
+import { isSsr } from '../../utils/isSsr';
 
 export function QuestionDrm4K() {
     const [isWidevine, setIsWidevine] = useState(false);
@@ -127,7 +128,7 @@ export function QuestionDrm4K() {
     const largeThan2K = isScreensLargerThan2K(screens);
     const answer = anyCodecWithDrm && largeThan2K;
 
-    const isSafari = isDesktopSafari();
+    const isSafari = !isSsr && isDesktopSafari();
     const hasCommonWarning = isSafari;
     const head = html`${i18n('Can I watch 4K video on online services?')}\u00a0<${Result} value="${answer}"><//>${hasCommonWarning ? '\u00a0⚠️' : ''}`;
 

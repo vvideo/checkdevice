@@ -73,7 +73,7 @@ export function GpuNavigator() {
         features: prepareAdapterFeatures(refAdapter.current && refAdapter.current.features),
     };
 
-    if (!navigator.gpu) {
+    if (typeof navigator === 'undefined' || !navigator.gpu) {
         return html`<${WarningMessage}>${i18n('WebGPU is not supported.')}<//>`;
     }
 

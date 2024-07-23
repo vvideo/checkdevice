@@ -1,4 +1,5 @@
 import { CheckHdcpVersion, checkAllHdcpVersions } from 'hdcp';
+import { isSsr } from './isSsr';
 
 interface CacheItem {
     promise: Promise<CheckHdcpVersion[]>;
@@ -24,7 +25,7 @@ export function getCachedCheckAllHdcpVersions(keySystem: string) {
         }
     }
 
-    const promise = checkAllHdcpVersions(keySystem);
+    const promise = isSsr ? Promise.resolve([]) : checkAllHdcpVersions(keySystem);
 
     cache[keySystem] = {
         promise,

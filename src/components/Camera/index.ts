@@ -13,6 +13,7 @@ import { CameraError } from '../CameraError';
 import { getStreamParams } from '../../utils/getStreamParams';
 
 import './index.css';
+import { isSsr } from '../../utils/isSsr';
 
 const b = block('camera');
 
@@ -87,7 +88,7 @@ export function Camera() {
 
     const params = stream ? getStreamParams(stream) : undefined;
 
-    if (!navigator.mediaDevices || typeof navigator.mediaDevices.getUserMedia !== 'function') {
+    if (isSsr || !navigator.mediaDevices || typeof navigator.mediaDevices.getUserMedia !== 'function') {
         return html`<${WarningMessage}>${i18n('Media Devices API is not supported.')}<//>`;
     }
 

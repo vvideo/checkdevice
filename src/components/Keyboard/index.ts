@@ -8,12 +8,13 @@ import { RadioButtonProps } from '../RadioButton';
 import { RadioButtons, getSelectedButton } from '../RadioButtons';
 import { keyboardStateController } from '../../lib/KeyboardStateController';
 import { getPlatform } from './utils';
+import { isSsr } from '../../utils/isSsr';
 
 import './index.css';
 
 export const b = block('keyboard');
 
-const platform = getPlatform();
+const platform = isSsr ? 'win' : getPlatform();
 
 const buttons: RadioButtonProps[] = [
     {

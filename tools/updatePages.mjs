@@ -3,6 +3,7 @@ import { createPage } from './createPage.mjs';
 import { updateTemplate } from './updateTemplate.mjs';
 import { createSitemap } from './createSitemap.mjs';
 import { loadJson } from './utils/loadJson.mjs';
+import { buildPage } from '../dist/ssr.mjs';
 
 const pages = loadJson('./src/pages/pages.json');
 
@@ -14,9 +15,10 @@ pages.forEach(item => {
         header += 'Check device online';
     }
 
-    const html = createPage({
+    let html = createPage({
         id: item.id,
         header,
+        content: buildPage(item.id),
     });
 
     fs.writeFileSync(`${item.id}.html`, html, 'utf-8');

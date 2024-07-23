@@ -10,9 +10,10 @@ import {
 import { block } from '../../utils/bem';
 import { i18n } from '../../i18n/i18n';
 import { isDocumentPipSupported } from './utils';
+import { getAutoplayPolicy } from '../../utils/getAutoplayPolicy';
+import { isSsr } from '../../utils/isSsr';
 
 import './index.css';
-import { getAutoplayPolicy } from '../../utils/getAutoplayPolicy';
 
 const b = block('html-video-element-features');
 
@@ -21,32 +22,32 @@ export function HtmlVideoElementFeatures() {
         {
             label: 'Media Source Extensions',
             title: 'MSE',
-            supported: isMseSupported(),
+            supported: isSsr ? false : isMseSupported(),
         },
         {
             label: 'Managed Media Source',
             title: 'MMS',
-            supported: isMmsSupported(),
+            supported: isSsr ? false : isMmsSupported(),
         },
         {
             label: 'Encrypted Media Extensions',
             title: 'EME',
-            supported: isEmeSupported(),
+            supported: isSsr ? false : isEmeSupported(),
         },
         {
             label: 'Picture-in-picture',
             title: 'Pip',
-            supported: isPipSupported(),
+            supported: isSsr ? false : isPipSupported(),
         },
         {
             label: 'Document Picture-in-picture',
             title: 'Document Pip',
-            supported: isDocumentPipSupported(),
+            supported: isSsr ? false : isDocumentPipSupported(),
         },
         {
             label: 'Cast to AirPlay',
             title: 'AirPlay',
-            supported: isCastToAirPlaySupported(),
+            supported: isSsr ? false : isCastToAirPlaySupported(),
         }
     ];
 
@@ -64,7 +65,7 @@ export function HtmlVideoElementFeatures() {
         return html`<li title="${item.title}">${item.label}: ${supported}</li>`;
     });
 
-    const autoplayPolicy = getAutoplayPolicy();
+    const autoplayPolicy = isSsr ? '' : getAutoplayPolicy();
     if (autoplayPolicy) {
         content.push(html`<li>Autoplay Policy: ${autoplayPolicy}</li>`);
     }

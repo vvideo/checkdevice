@@ -1,11 +1,12 @@
 import { html } from 'htm/preact';
 import { block } from '../../utils/bem';
 import { TreeList } from '../TreeList';
+import { isSsr } from '../../utils/isSsr';
 
 const b = block('connection-navigator');
 
 export function ConnectionNavigator() {
-    if (!navigator.connection) {
+    if (isSsr || !navigator.connection) {
         return '';
     }
 

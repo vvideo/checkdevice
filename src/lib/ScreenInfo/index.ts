@@ -6,6 +6,7 @@ import {
     isSrgbSupported,
 } from 'detect-audio-video';
 import { noop } from '../../utils/noop';
+import { isSsr } from '../../utils/isSsr';
 
 export interface ScreenDetailed extends Screen {
     label: string;
@@ -37,7 +38,7 @@ declare global {
 
 class ScreenInfo {
     private listeners: (() => void)[] = [];
-    private devicePixelRatio = getDevicePixelRatio();
+    private devicePixelRatio = isSsr ? 1 : getDevicePixelRatio();
     private screens: ScreenDetailed[] = [];
     private timer = -1;
 
@@ -46,6 +47,10 @@ class ScreenInfo {
     public isDenied = false;
 
     constructor() {
+        if (isSsr) {
+            return;
+        }
+
         let screenJson = JSON.stringify(this.getScreen());
 
         this.timer = window.setInterval(() => {
@@ -82,7 +87,7 @@ class ScreenInfo {
     }
 
     public getScreenDetails() {
-        if (!window.getScreenDetails) {
+        if (isSsr || !window.getScreenDetails) {
             return Promise.resolve();
         }
 
@@ -204,6 +209,10 @@ class ScreenInfo {
     }
 
     public get() {
+        if (isSsr) {
+            return { screens: [] } as { screens: ScreenDetailed[] };
+        }
+
         const result = {
             screens: this.isScreenDetails ?
                 this.screens.map(item => {

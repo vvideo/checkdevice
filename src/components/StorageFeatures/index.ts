@@ -6,11 +6,12 @@ import { ExtLink } from '../ExtLink';
 import { getChecked } from '../../utils/getChecked';
 import { i18n } from '../../i18n/i18n';
 import { List } from '../List';
+import { isSsr } from '../../utils/isSsr';
 
 export function StorageFeatures() {
     const [quota, setQuota] = useState<undefined | number>(undefined);
 
-    if (typeof navigator.storage?.estimate !== 'function') {
+    if (isSsr || typeof navigator.storage?.estimate !== 'function') {
         return '';
     }
 

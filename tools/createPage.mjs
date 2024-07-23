@@ -1,4 +1,4 @@
-export function createPage({ id, header }) {
+export function createPage({ id, header, content }) {
     return `<!DOCTYPE html>
 <html>
 <head>
@@ -14,16 +14,16 @@ export function createPage({ id, header }) {
     <meta name="google-site-verification" content="BUV1qxuhIx696cS8GU9knQcJcZaGugHSDV2kAkEG73I" />
     <meta name="yandex-verification" content="985312253f7c8a44" />
     <script>
-    <!--
+        <!--
         if (location.href.search(/show_error/) !== -1) {
-            document.write('<script src="https://unpkg.com/show-js-error/dist/show-js-error.js"></script>');
+            document.write('<scr' + 'ipt src="https://unpkg.com/show-js-error/dist/show-js-error.js"></scr' + 'ipt>');
         }
-    //-->
+        //-->
     </script>
 </head>
 <body>
-    <div class="page"></div>
-    <script src="./dist/${id}.js?md5="></script>
+    <div class="page">${content}</div>
+    <script1 src="./dist/${id}.js?md5="></script>
 </body>
 </html>
 `;

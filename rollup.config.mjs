@@ -32,26 +32,4 @@ const createConfig = name => ({
     ]
 });
 
-const createServerConfig = name => ({
-    input: `src/entries/${name}.server.ts`,
-    output: [
-        {
-            file: `dist/${name}.server.js`,
-            format: 'es',
-        },
-]   ,
-    plugins: [
-        typescript(),
-        nodeResolve(),
-        postcss({
-            config: true,
-            extract: path.resolve(`dist/temp.server.css`),
-        }),
-    ]
-});
-
-const result = pages.map(item => createConfig(item.id));
-
-result.push(createServerConfig('audio'));
-
-export default result;
+export default pages.map(item => createConfig(item.id));

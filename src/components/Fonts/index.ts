@@ -9,13 +9,14 @@ import { WarningMessage } from '../WarningMessage';
 import { filterFonts } from './utils';
 import { FontList } from '../FontList';
 import { FontListGrouped } from '../FontListGrouped';
+import { isSsr } from '../../utils/isSsr';
 
 import './index.css';
 
 const b = block('fonts');
 
 export function Fonts() {
-    if (!window.queryLocalFonts) {
+    if (isSsr || !window.queryLocalFonts) {
         return html`<${WarningMessage}>${i18n('Local Font Access API is not supported.')}<//>`;
     }
 

@@ -1,5 +1,5 @@
 import { html } from 'htm/preact';
 import { render } from 'preact';
-import { KeycodePage } from '../pages/KeycodePage';
+import { KeycodesPage } from '../pages/KeycodesPage';
 
-render(html`<${KeycodePage} //>`, document.querySelector('.page') as HTMLDivElement);
+render(html`<${KeycodesPage} //>`, document.querySelector('.page') as HTMLDivElement);

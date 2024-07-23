@@ -6,6 +6,7 @@ import { YaStaticMap } from '../YaStaticMap';
 import { block } from '../../utils/bem';
 import { i18n } from '../../i18n/i18n';
 import { Spinner } from '../Spinner';
+import { isSsr } from '../../utils/isSsr';
 
 import './index.css';
 
@@ -16,7 +17,7 @@ interface GeoLocationProps {
 }
 
 export function GeoLocation(props: GeoLocationProps) {
-    if (typeof navigator.geolocation?.getCurrentPosition === 'undefined') {
+    if (isSsr || typeof navigator.geolocation?.getCurrentPosition === 'undefined') {
         return '';
     }
 

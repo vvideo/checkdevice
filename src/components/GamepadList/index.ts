@@ -7,13 +7,14 @@ import { i18n } from '../../i18n/i18n';
 import { useForceUpdate } from '../../hooks/useForceUpdate';
 import { Spinner } from '../Spinner';
 import { XboxButtons } from '../XboxButtons';
+import { isSsr } from '../../utils/isSsr';
 
 import './index.css';
 
 const b = block('gamepad-list');
 
 export function GamepadList() {
-    if (!navigator.getGamepads) {
+    if (isSsr || !navigator.getGamepads) {
         return html`<${WarningMessage}>${i18n('🎮 Gamepad API is not supported.')}<//>`;
     }
 

@@ -13,6 +13,7 @@ import { getMaxTouchPoints } from '../../utils/getMaxTouchPoints';
 import { RefreshRate } from '../RefreshRate';
 import { RefreshRateController } from '../../lib/RefreshRateController';
 import { PageTitle } from '../PageTitle';
+import { isSsr } from '../../utils/isSsr';
 
 import './index.css';
 
@@ -49,8 +50,8 @@ export function ScreenList() {
 
     const additionalItems = [
         RefreshRateController.hasSupport() ? [i18n('Refresh rate'), html`<${RefreshRate} //>`] : undefined,
-        [i18n('Has touch screen'), getChecked(hasTouchScreen())],
-        [i18n('Max touch points'), getMaxTouchPoints()],
+        [i18n('Has touch screen'), getChecked(isSsr ? false : hasTouchScreen())],
+        [i18n('Max touch points'), isSsr ? 0 : getMaxTouchPoints()],
     ];
 
     const screenInfoData = screenInfo.get();

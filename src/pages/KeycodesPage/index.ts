@@ -4,7 +4,7 @@ import { Page } from '../Page';
 import { Keycode } from '../../components/Keycode';
 import { PageTitle } from '../../components/PageTitle';
 
-export function KeycodePage() {
+export function KeycodesPage() {
     return html`
         <${Page}>
             <${PageTitle}>

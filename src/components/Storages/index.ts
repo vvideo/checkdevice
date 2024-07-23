@@ -4,6 +4,7 @@ import { getChecked } from '../../utils/getChecked';
 import { StorageFeatures } from '../StorageFeatures';
 import { block } from '../../utils/bem';
 import { ExtLink } from '../ExtLink';
+import { isSsr } from '../../utils/isSsr';
 
 import './index.css';
 
@@ -18,27 +19,27 @@ const mdnLinks = {
 const b = block('storages');
 
 export function Storages() {
-    const hasOPFS = typeof navigator.storage?.getDirectory === 'function';
+    const hasOPFS = !isSsr && typeof navigator.storage?.getDirectory === 'function';
     const items = [
         [
             html`<${ExtLink} theme="white" href="${mdnLinks.cookies}">Cookies<//>`,
-            getChecked(navigator.cookieEnabled)
+            isSsr ? '…' : getChecked(navigator.cookieEnabled)
         ],
         [
             html`<${ExtLink} theme="white" href="${mdnLinks.localStorage}">Local storage<//>`,
-            getChecked(Boolean(window.localStorage))
+            isSsr ? '…' : getChecked(Boolean(window.localStorage))
         ],
         [
             html`<${ExtLink} theme="white" href="${mdnLinks.sessionStorage}">Session storage<//>`,
-            getChecked(Boolean(window.sessionStorage))
+            isSsr ? '…' : getChecked(Boolean(window.sessionStorage))
         ],
         [
             html`<${ExtLink} theme="white" href="${mdnLinks.indexeddb}">IndexedDB<//>`,
-            getChecked(Boolean(window.indexedDB))
+            isSsr ? '…' : getChecked(Boolean(window.indexedDB))
         ],
         [
             html`<${ExtLink} theme="white" href="${mdnLinks.opfs}">Origin private file system<//>`,
-            getChecked(hasOPFS)
+            isSsr ? '…' : getChecked(hasOPFS)
         ],
     ];
 
@@ -52,6 +53,3 @@ export function Storages() {
         </div>
     `;
 }
-
-
-

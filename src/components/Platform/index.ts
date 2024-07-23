@@ -7,18 +7,19 @@ import { isStandalone, hasHardwareAcceleration } from 'detect-audio-video';
 import { VNode } from 'preact';
 import { InfoLink } from '../InfoLink';
 import { getChecked } from '../../utils/getChecked';
+import { isSsr } from '../../utils/isSsr';
 
 export function Platform() {
     const ref = useRef<[string, any][]>([]);
     const [_, setUserData] = useState(false);
     const [hardwareAcceleration, setHardwareAcceleration] = useState<boolean | undefined>(undefined);
 
-    hasHardwareAcceleration().then(result => {
+    !isSsr && hasHardwareAcceleration().then(result => {
         setHardwareAcceleration(result);
     });
 
     // @ts-ignore
-    navigator.userAgentData?.getHighEntropyValues?.([
+    !isSsr && navigator.userAgentData?.getHighEntropyValues?.([
         'architecture',
         'bitness',
         'formFactor',
@@ -54,19 +55,19 @@ export function Platform() {
     let items: [VNode | string, any][] = [
         [
             html`Hardware concurrency <${InfoLink} title="MDN" href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/hardwareConcurrency"><//>`,
-            navigator.hardwareConcurrency
+            isSsr ? '…' : navigator.hardwareConcurrency
         ],
         [
             i18n('Standalone application'),
-            getChecked(isStandalone())
+            isSsr ? '…' : getChecked(isStandalone())
         ],
         [
             'User agent',
-            navigator.userAgent
+            isSsr ? '…' : navigator.userAgent
         ],
     ];
 
-    if (navigator.deviceMemory) {
+    if (!isSsr && navigator.deviceMemory) {
         items.unshift([
             html`${i18n('RAM')} <${InfoLink} title="MDN" href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/deviceMemory"><//>`,
             `≈\u202F${navigator.deviceMemory} ${i18n('GB')}`
@@ -86,7 +87,7 @@ export function Platform() {
         items = [
             [
                 i18n('Name'),
-                navigator.platform
+                isSsr ? '…' : navigator.platform
             ],
             ...items,
         ];
