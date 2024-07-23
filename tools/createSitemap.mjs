@@ -4,7 +4,7 @@ export function createSitemap(pages) {
 ${
     pages.map(item => {
         return `  <url>
-    <loc>https://caniwatchvideo.online/${item.id === 'index' ? '' : `${item.id}.html`}</loc>
+    <loc>https://checkdevice.online/${item.id === 'index' ? '' : `${item.id}.html`}</loc>
   </url>`;
     }).join('\n')
 }
