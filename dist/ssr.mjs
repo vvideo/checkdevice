@@ -1950,10 +1950,10 @@ function parseQueryString(qs) {
 
 var PARSE_LINK_ELEMENT;
 function parseUrl(url) {
-    PARSE_LINK_ELEMENT.href = url;
     if (!PARSE_LINK_ELEMENT) {
         PARSE_LINK_ELEMENT = document.createElement('a');
     }
+    PARSE_LINK_ELEMENT.href = url;
     var pathname = PARSE_LINK_ELEMENT.pathname || '';
     if (pathname.charAt(0) !== '/') {
         pathname = "/".concat(pathname);
