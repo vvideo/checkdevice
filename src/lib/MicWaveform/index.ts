@@ -21,7 +21,14 @@ export class MicWaveform {
         });
     }
 
+    private initAudio() {
+        if (!this.audio) {
+            this.audio = new Audio();
+        }
+    }
+
     public setMuted(muted: boolean) {
+        this.initAudio();
         this.audio.muted = muted;
     }
 
@@ -29,7 +36,7 @@ export class MicWaveform {
         this.canvas = canvas;
 
         this.audioCtx = new AudioContext();
-        this.audio = new Audio();
+        this.initAudio();
         this.analyser = this.audioCtx.createAnalyser();
 
         return this.requestMic().then(stream => {
