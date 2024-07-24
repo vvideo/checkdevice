@@ -13,13 +13,6 @@ export function createPage({ id, header, content }) {
     <link rel="stylesheet" href="./dist/${id}.css?md5=" />
     <meta name="google-site-verification" content="BUV1qxuhIx696cS8GU9knQcJcZaGugHSDV2kAkEG73I" />
     <meta name="yandex-verification" content="985312253f7c8a44" />
-    <script>
-        <!--
-        if (location.href.search(/show_error/) !== -1) {
-            document.write('<scr' + 'ipt src="https://unpkg.com/show-js-error/dist/show-js-error.js"></scr' + 'ipt>');
-        }
-        //-->
-    </script>
 </head>
 <body>
     <div class="page">${content}</div>
