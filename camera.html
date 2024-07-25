@@ -9,7 +9,7 @@
     <link rel="manifest" href="./manifest.json" />
     <link rel="shortcut icon" href="./static/favicons/favicon.png" />
     <link rel="apple-touch-icon" href="./static/favicons/touch.png" />
-    <link rel="stylesheet" href="./dist/camera.css?md5=f69846c8d01df91e12b071ac49e5cbaa" />
+    <link rel="stylesheet" href="./dist/camera.css?md5=162ded2ce3daa45b571584288b333e4f" />
     <meta name="google-site-verification" content="BUV1qxuhIx696cS8GU9knQcJcZaGugHSDV2kAkEG73I" />
     <meta name="yandex-verification" content="985312253f7c8a44" />
 </head>
@@ -49,9 +49,27 @@
             </li>
         </ul>
     </nav>
-    <h1 class="page-title">Webcamera</h1><span class="warning-message">⚠️ Media Devices API is not supported.</span>
+    <h1 class="page-title">Webcamera</h1>
+    <div class="camera">
+        <div class="camera__select">
+            <button class="camera__select-camera button button_theme_active">Check camera</button>
+            <label class="checkbox">
+                <input autocomplete="off" class="checkbox__input" type="checkbox" />Mic</label>
+        </div>
+        <div class="camera__controls">
+            <div class="radio-buttons">
+                <div class="radio-buttons__label"></div>
+                <div class="radio-buttons__items"><span class="radio-button radio-button_selected radio-buttons__item">High resolution</span><span class="radio-button radio-buttons__item">Low resolution</span><span class="radio-button radio-buttons__item">High frame rate</span>
+                </div>
+            </div>
+        </div>
+        <div class="camera__container">
+            <video class="camera__video"></video>
+        </div>
+        <div class="camera__params"></div>
+    </div>
     <footer class="footer">
-        <div class="footer__item footer__item_g"><a class="link" href="https://github.com/vvideo/caniwatchvideo/issues/new">Report a bug</a>
+        <div class="footer__item footer__item_report"><a class="link" href="https://github.com/vvideo/caniwatchvideo/issues/new">Report a bug</a>
         </div>
         <div class="footer__item">
             <div class="lang-switcher">
@@ -62,10 +80,9 @@
                 </div>
             </div>
         </div>
-        <div class="footer__item">© <span class="footer__l1">V</span><span class="footer__l2">v</span><span class="footer__l3">i</span><span class="footer__l4">d</span><span class="footer__l5">e</span><span class="footer__l6">o</span>
-        </div>
+        <div class="footer__item">© Vvideo</div>
     </footer>
 </div></div>
-    <script src="./dist/camera.js?md5=f967bc5073bd7a4df4a775270bce710a"></script>
+    <script src="./dist/camera.js?md5=066bd998bf7d36bb1aeb0b1f6421d091"></script>
 </body>
 </html>

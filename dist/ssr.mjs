@@ -100,9 +100,9 @@ function Badge(props) {
         hidden: props.hidden,
         size: props.size,
         click: props.click,
-    }), ((_a = props.top) === null || _a === void 0 ? void 0 : _a.text) ? m$1(templateObject_1$1N || (templateObject_1$1N = __makeTemplateObject(["<div class=\"", "\" title=\"", "\">", "</div>"], ["<div class=\"", "\" title=\"", "\">", "</div>"])), b$1a('top-text'), props.top.title, props.top.text) : '', b$1a('body'), props.text, ((_b = props.bottom) === null || _b === void 0 ? void 0 : _b.text) ? m$1(templateObject_2$R || (templateObject_2$R = __makeTemplateObject(["<div class=\"", "\" title=\"", "\">", "</div>"], ["<div class=\"", "\" title=\"", "\">", "</div>"])), b$1a('bottom-text'), props.bottom.title, props.bottom.text) : '');
+    }), ((_a = props.top) === null || _a === void 0 ? void 0 : _a.text) ? m$1(templateObject_1$1N || (templateObject_1$1N = __makeTemplateObject(["<div class=\"", "\" title=\"", "\">", "</div>"], ["<div class=\"", "\" title=\"", "\">", "</div>"])), b$1a('top-text'), props.top.title, props.top.text) : '', b$1a('body'), props.text, ((_b = props.bottom) === null || _b === void 0 ? void 0 : _b.text) ? m$1(templateObject_2$Q || (templateObject_2$Q = __makeTemplateObject(["<div class=\"", "\" title=\"", "\">", "</div>"], ["<div class=\"", "\" title=\"", "\">", "</div>"])), b$1a('bottom-text'), props.bottom.title, props.bottom.text) : '');
 }
-var templateObject_1$1N, templateObject_2$R, templateObject_3$q;
+var templateObject_1$1N, templateObject_2$Q, templateObject_3$q;
 
 const AAC_CONTENT_TYPE = 'audio/mp4; codecs="mp4a.40.2"';
 const DOLBY_AC3_CONTENT_TYPE = 'audio/mp4; codecs="ac-3"';
@@ -915,13 +915,13 @@ var b$18 = block('codec');
 function Codec(props) {
     var color = props.disabled ? 'black' : (props.color || 'black');
     var tooltip = props.tooltip ? m$1(templateObject_1$1L || (templateObject_1$1L = __makeTemplateObject(["<div class=\"", "\">", "</div>"], ["<div class=\"", "\">", "</div>"])), b$18('tooltip'), props.tooltip) : '';
-    return m$1(templateObject_2$Q || (templateObject_2$Q = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n            <div class=\"", "\">", "</div>\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n            <div class=\"", "\">", "</div>\n        </div>\n    "])), b$18({
+    return m$1(templateObject_2$P || (templateObject_2$P = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n            <div class=\"", "\">", "</div>\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n            <div class=\"", "\">", "</div>\n        </div>\n    "])), b$18({
         color: color,
         border: props.border,
         disabled: props.disabled,
     }), tooltip, b$18('name'), props.name);
 }
-var templateObject_1$1L, templateObject_2$Q;
+var templateObject_1$1L, templateObject_2$P;
 
 var b$17 = block('column');
 function Column(props) {
@@ -1526,7 +1526,7 @@ var keysets = {
     },
     'Support is mainly on mobile devices.': {
         'en': 'Support is mainly on mobile devices.',
-        'ru': 'Поддержка в основном только на мобильных устройствах.'
+        'ru': 'Поддержка в основном на мобильных устройствах.'
     },
     'Vibrate': {
         'en': 'Vibrate',
@@ -1617,9 +1617,9 @@ function CodecDetails(props) {
     }
     var canPlayTypeResult = getCanPlayTypeProps(props.canPlayType);
     var isTypeSupportedResult = getIsTypeSupportedProps(props.isTypeSupported);
-    return m$1(templateObject_2$P || (templateObject_2$P = __makeTemplateObject(["\n        ", ".canPlayType(): <span style=\"color:", "\">", "</span><br />\n        MediaSource.isTypeSupported(): <span style=\"color:", "\">", "</span><br />\n        <hr />\n        ", "\n    "], ["\n        ", ".canPlayType(): <span style=\"color:", "\">", "</span><br />\n        MediaSource.isTypeSupported(): <span style=\"color:", "\">", "</span><br />\n        <hr />\n        ", "\n    "])), [props.mediaElementType], canPlayTypeResult.color, canPlayTypeResult.value, isTypeSupportedResult.color, isTypeSupportedResult.value, props.contentType);
+    return m$1(templateObject_2$O || (templateObject_2$O = __makeTemplateObject(["\n        ", ".canPlayType(): <span style=\"color:", "\">", "</span><br />\n        MediaSource.isTypeSupported(): <span style=\"color:", "\">", "</span><br />\n        <hr />\n        ", "\n    "], ["\n        ", ".canPlayType(): <span style=\"color:", "\">", "</span><br />\n        MediaSource.isTypeSupported(): <span style=\"color:", "\">", "</span><br />\n        <hr />\n        ", "\n    "])), [props.mediaElementType], canPlayTypeResult.color, canPlayTypeResult.value, isTypeSupportedResult.color, isTypeSupportedResult.value, props.contentType);
 }
-var templateObject_1$1I, templateObject_2$P;
+var templateObject_1$1I, templateObject_2$O;
 
 function AudioCodecs() {
     var supported = [];
@@ -1633,7 +1633,7 @@ function AudioCodecs() {
         { supported: isVorbisSupported(), name: 'Vorbis', color: 'green' },
         { supported: isOpusSupported(), name: 'Opus', color: 'green' },
         { supported: isDolbyDigitalSupported(), name: m$1(templateObject_1$1H || (templateObject_1$1H = __makeTemplateObject(["<b>Dolby</b> Digital"], ["<b>Dolby</b> Digital"]))), color: 'black', border: 'white' },
-        { supported: isDolbyDigitalPlusSupported(), name: m$1(templateObject_2$O || (templateObject_2$O = __makeTemplateObject(["<b>Dolby</b> Digital Plus"], ["<b>Dolby</b> Digital Plus"]))), color: 'black', border: 'white' },
+        { supported: isDolbyDigitalPlusSupported(), name: m$1(templateObject_2$N || (templateObject_2$N = __makeTemplateObject(["<b>Dolby</b> Digital Plus"], ["<b>Dolby</b> Digital Plus"]))), color: 'black', border: 'white' },
         { supported: isDolbyAtmosSupported(), name: m$1(templateObject_3$p || (templateObject_3$p = __makeTemplateObject(["<b>Dolby</b> Atmos"], ["<b>Dolby</b> Atmos"]))), color: 'black', border: 'white' },
         { supported: isDtsSupported(), name: 'DTS', color: 'black' },
         { supported: isDtsHdSupported(), name: 'DTS:HD', color: 'black' },
@@ -1660,7 +1660,7 @@ function AudioCodecs() {
     });
     return m$1(templateObject_5$8 || (templateObject_5$8 = __makeTemplateObject(["<", ">\n        <", " name=\"", "\">\n            ", "\n        <//>\n        ", "\n    <//>"], ["<", ">\n        <", " name=\"", "\">\n            ", "\n        <//>\n        ", "\n    <//>"])), Columns, Column, i18n('Supported'), supported.length ? supported : i18n('No supported audio codecs.'), unsupported.length ? m$1(templateObject_4$f || (templateObject_4$f = __makeTemplateObject(["<", " name=\"", "\">", "<//>"], ["<", " name=\"", "\">", "<//>"])), Column, i18n('Unsupported'), unsupported) : '');
 }
-var templateObject_1$1H, templateObject_2$O, templateObject_3$p, templateObject_4$f, templateObject_5$8;
+var templateObject_1$1H, templateObject_2$N, templateObject_3$p, templateObject_4$f, templateObject_5$8;
 
 var b$15 = block('page-title');
 function PageTitle(props) {
@@ -2021,23 +2021,23 @@ function LangSwitcher() {
         setVisible(true);
     }, [setVisible]);
     var currentLangItem = langs.filter(function (item) { return currentLang === item.value; })[0];
-    return m$1(templateObject_2$N || (templateObject_2$N = __makeTemplateObject(["<div class=\"", "\">\n        <div class=\"", "\" onClick=\"", "\"><span class=\"", "\">", "</span> ", "</div>\n        <div class=\"", "\">\n            ", "\n        </div>\n    </div>"], ["<div class=\"", "\">\n        <div class=\"", "\" onClick=\"", "\"><span class=\"", "\">", "</span> ", "</div>\n        <div class=\"", "\">\n            ", "\n        </div>\n    </div>"])), b$11(), b$11('current'), handleClick, b$11('emoji'), currentLangItem.emoji, currentLangItem.name, b$11('popup', { visible: visible }), langs.map(function (item) { return m$1(templateObject_1$1C || (templateObject_1$1C = __makeTemplateObject(["<", " selected=\"", "\" key=\"", "\" onClick=\"", "\" ...\"", "\" //>"], ["<", " selected=\"", "\" key=\"", "\" onClick=\"", "\" ...\"", "\" //>"])), LangSwitcherItem, currentLang === item.value, item.value, handleClickItem, item); }));
+    return m$1(templateObject_2$M || (templateObject_2$M = __makeTemplateObject(["<div class=\"", "\">\n        <div class=\"", "\" onClick=\"", "\"><span class=\"", "\">", "</span> ", "</div>\n        <div class=\"", "\">\n            ", "\n        </div>\n    </div>"], ["<div class=\"", "\">\n        <div class=\"", "\" onClick=\"", "\"><span class=\"", "\">", "</span> ", "</div>\n        <div class=\"", "\">\n            ", "\n        </div>\n    </div>"])), b$11(), b$11('current'), handleClick, b$11('emoji'), currentLangItem.emoji, currentLangItem.name, b$11('popup', { visible: visible }), langs.map(function (item) { return m$1(templateObject_1$1C || (templateObject_1$1C = __makeTemplateObject(["<", " selected=\"", "\" key=\"", "\" onClick=\"", "\" ...\"", "\" //>"], ["<", " selected=\"", "\" key=\"", "\" onClick=\"", "\" ...\"", "\" //>"])), LangSwitcherItem, currentLang === item.value, item.value, handleClickItem, item); }));
 }
-var templateObject_1$1C, templateObject_2$N;
+var templateObject_1$1C, templateObject_2$M;
 
 var b$10 = block('footer');
 function Footer() {
-    return m$1(templateObject_1$1B || (templateObject_1$1B = __makeTemplateObject(["<footer class=\"", "\">\n        <div class=\"", "\"><", " target=\"_blank\" href=\"https://github.com/vvideo/caniwatchvideo/issues/new\">", "<//></div>\n        <div class=\"", "\"><", " //></div>\n        <div class=\"", "\">\u00A9 <span class=\"", "\">V</span><span class=\"", "\">v</span><span class=\"", "\">i</span><span class=\"", "\">d</span><span class=\"", "\">e</span><span class=\"", "\">o</span></div>\n    </footer>"], ["<footer class=\"", "\">\n        <div class=\"", "\"><", " target=\"_blank\" href=\"https://github.com/vvideo/caniwatchvideo/issues/new\">", "<//></div>\n        <div class=\"", "\"><", " //></div>\n        <div class=\"", "\">\u00A9 <span class=\"", "\">V</span><span class=\"", "\">v</span><span class=\"", "\">i</span><span class=\"", "\">d</span><span class=\"", "\">e</span><span class=\"", "\">o</span></div>\n    </footer>"])), b$10(), b$10('item', { g: true }), Link, i18n('Report a bug'), b$10('item'), LangSwitcher, b$10('item'), b$10('l1'), b$10('l2'), b$10('l3'), b$10('l4'), b$10('l5'), b$10('l6'));
+    return m$1(templateObject_1$1B || (templateObject_1$1B = __makeTemplateObject(["<footer class=\"", "\">\n        <div class=\"", "\"><", " target=\"_blank\" href=\"https://github.com/vvideo/caniwatchvideo/issues/new\">", "<//></div>\n        <div class=\"", "\"><", " //></div>\n        <div class=\"", "\">\u00A9 Vvideo</div>\n    </footer>"], ["<footer class=\"", "\">\n        <div class=\"", "\"><", " target=\"_blank\" href=\"https://github.com/vvideo/caniwatchvideo/issues/new\">", "<//></div>\n        <div class=\"", "\"><", " //></div>\n        <div class=\"", "\">\u00A9 Vvideo</div>\n    </footer>"])), b$10(), b$10('item', { report: true }), Link, i18n('Report a bug'), b$10('item'), LangSwitcher, b$10('item'));
 }
 var templateObject_1$1B;
 
 var b$$ = block('main-menu');
 function MainMenu(props) {
-    return m$1(templateObject_2$M || (templateObject_2$M = __makeTemplateObject(["\n        <nav class=\"", "\">\n            <ul class=\"", "\">\n            ", "\n            </ul>\n        </nav>\n    "], ["\n        <nav class=\"", "\">\n            <ul class=\"", "\">\n            ", "\n            </ul>\n        </nav>\n    "])), b$$(), b$$('list'), props.items.filter(function (item) { return !item.hidden; }).map(function (item) {
+    return m$1(templateObject_2$L || (templateObject_2$L = __makeTemplateObject(["\n        <nav class=\"", "\">\n            <ul class=\"", "\">\n            ", "\n            </ul>\n        </nav>\n    "], ["\n        <nav class=\"", "\">\n            <ul class=\"", "\">\n            ", "\n            </ul>\n        </nav>\n    "])), b$$(), b$$('list'), props.items.filter(function (item) { return !item.hidden; }).map(function (item) {
         return m$1(templateObject_1$1A || (templateObject_1$1A = __makeTemplateObject(["<li class=\"", "\" key=\"", "\"><a class=\"", "\" href=\"", "\">", "</a></li>"], ["<li class=\"", "\" key=\"", "\"><a class=\"", "\" href=\"", "\">", "</a></li>"])), b$$('item', { selected: item.selected }), item.id, b$$('link'), item.url, item.title);
     }));
 }
-var templateObject_1$1A, templateObject_2$M;
+var templateObject_1$1A, templateObject_2$L;
 
 var pages$1 = [
     {
@@ -2247,9 +2247,9 @@ function Header() {
 var templateObject_1$1y;
 
 function Page(props) {
-    return m$1(templateObject_2$L || (templateObject_2$L = __makeTemplateObject(["\n        <div>\n            <", " //>\n            ", "\n\n            ", "\n\n            <", "><//>\n        </div>"], ["\n        <div>\n            <", " //>\n            ", "\n\n            ", "\n\n            <", "><//>\n        </div>"])), Header, props.withoutMenu ? '' : m$1(templateObject_1$1x || (templateObject_1$1x = __makeTemplateObject(["<", "><//>"], ["<", "><//>"])), Menu), props.children, Footer);
+    return m$1(templateObject_2$K || (templateObject_2$K = __makeTemplateObject(["\n        <div>\n            <", " //>\n            ", "\n\n            ", "\n\n            <", "><//>\n        </div>"], ["\n        <div>\n            <", " //>\n            ", "\n\n            ", "\n\n            <", "><//>\n        </div>"])), Header, props.withoutMenu ? '' : m$1(templateObject_1$1x || (templateObject_1$1x = __makeTemplateObject(["<", "><//>"], ["<", "><//>"])), Menu), props.children, Footer);
 }
-var templateObject_1$1x, templateObject_2$L;
+var templateObject_1$1x, templateObject_2$K;
 
 var b$Z = block('active-question');
 function ActiveQuestion(props) {
@@ -2279,11 +2279,11 @@ function Result(props) {
             type = 'warning';
         }
     }
-    return m$1(templateObject_2$K || (templateObject_2$K = __makeTemplateObject(["<span class=\"", "\">\n        ", "\n        ", "\n    </span>"], ["<span class=\"", "\">\n        ", "\n        ", "\n    </span>"])), b$Y({
+    return m$1(templateObject_2$J || (templateObject_2$J = __makeTemplateObject(["<span class=\"", "\">\n        ", "\n        ", "\n    </span>"], ["<span class=\"", "\">\n        ", "\n        ", "\n    </span>"])), b$Y({
         type: type,
     }), text, props.details ? m$1(templateObject_1$1v || (templateObject_1$1v = __makeTemplateObject(["<span class=\"", "\">", "</span>"], ["<span class=\"", "\">", "</span>"])), b$Y('details'), props.details) : '');
 }
-var templateObject_1$1v, templateObject_2$K;
+var templateObject_1$1v, templateObject_2$J;
 
 var b$X = block('question-surround-sound');
 function QuestionSurroundSound() {
@@ -2300,9 +2300,9 @@ function QuestionSurroundSound() {
         isDtsHd.any ||
         isDtsX.any;
     var head = m$1(templateObject_1$1u || (templateObject_1$1u = __makeTemplateObject(["", "\u00A0<", " value=\"", "\"><//>"], ["", "\\u00a0<", " value=\"", "\"><//>"])), i18n('Can I listen to surround sound on online services?'), Result, mainAnswer);
-    return m$1(templateObject_2$J || (templateObject_2$J = __makeTemplateObject(["\n        <div class=\"", "\">\n            <", " head=\"", "\">\n                ", "\u00A0<", " value=\"", "\"><//>\n                <ul>\n                    <li>\n                        <", "\n                            name=\"Dolby Digital\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\u00A0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"Dolby Digital Plus\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\u00A0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"Dolby Atmos\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\">\n                            <//>\u00A0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"DTS\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\u00A0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"DTS:HD\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\u00A0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"DTS:X\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\u00A0<", " value=\"", "\"><//>\n                    </li>\n                </ul>\n            <//>\n        </div>\n    "], ["\n        <div class=\"", "\">\n            <", " head=\"", "\">\n                ", "\\u00a0<", " value=\"", "\"><//>\n                <ul>\n                    <li>\n                        <", "\n                            name=\"Dolby Digital\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\\u00a0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"Dolby Digital Plus\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\\u00a0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"Dolby Atmos\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\">\n                            <//>\\u00a0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"DTS\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\\u00a0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"DTS:HD\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\\u00a0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"DTS:X\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\\u00a0<", " value=\"", "\"><//>\n                    </li>\n                </ul>\n            <//>\n        </div>\n    "])), b$X(), ActiveQuestion, head, i18n('Supports one of the audio codecs?'), Result, mainAnswer, Codec, !isDolbyDigital.any, CodecDetails(isDolbyDigital), Result, isDolbyDigital.any, Codec, !isDolbyDigitalPlus.any, CodecDetails(isDolbyDigitalPlus), Result, isDolbyDigitalPlus.any, Codec, !isDolbyAtmos, Result, isDolbyAtmos, Codec, !isDts.any, CodecDetails(isDts), Result, isDts.any, Codec, !isDtsHd.any, CodecDetails(isDtsHd), Result, isDtsHd.any, Codec, !isDtsX.any, CodecDetails(isDtsX), Result, isDtsX.any);
+    return m$1(templateObject_2$I || (templateObject_2$I = __makeTemplateObject(["\n        <div class=\"", "\">\n            <", " head=\"", "\">\n                ", "\u00A0<", " value=\"", "\"><//>\n                <ul>\n                    <li>\n                        <", "\n                            name=\"Dolby Digital\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\u00A0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"Dolby Digital Plus\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\u00A0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"Dolby Atmos\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\">\n                            <//>\u00A0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"DTS\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\u00A0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"DTS:HD\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\u00A0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"DTS:X\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\u00A0<", " value=\"", "\"><//>\n                    </li>\n                </ul>\n            <//>\n        </div>\n    "], ["\n        <div class=\"", "\">\n            <", " head=\"", "\">\n                ", "\\u00a0<", " value=\"", "\"><//>\n                <ul>\n                    <li>\n                        <", "\n                            name=\"Dolby Digital\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\\u00a0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"Dolby Digital Plus\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\\u00a0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"Dolby Atmos\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\">\n                            <//>\\u00a0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"DTS\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\\u00a0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"DTS:HD\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\\u00a0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"DTS:X\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\\u00a0<", " value=\"", "\"><//>\n                    </li>\n                </ul>\n            <//>\n        </div>\n    "])), b$X(), ActiveQuestion, head, i18n('Supports one of the audio codecs?'), Result, mainAnswer, Codec, !isDolbyDigital.any, CodecDetails(isDolbyDigital), Result, isDolbyDigital.any, Codec, !isDolbyDigitalPlus.any, CodecDetails(isDolbyDigitalPlus), Result, isDolbyDigitalPlus.any, Codec, !isDolbyAtmos, Result, isDolbyAtmos, Codec, !isDts.any, CodecDetails(isDts), Result, isDts.any, Codec, !isDtsHd.any, CodecDetails(isDtsHd), Result, isDtsHd.any, Codec, !isDtsX.any, CodecDetails(isDtsX), Result, isDtsX.any);
 }
-var templateObject_1$1u, templateObject_2$J;
+var templateObject_1$1u, templateObject_2$I;
 
 var b$W = block('button');
 function Button(props) {
@@ -2330,12 +2330,12 @@ function Vibration() {
         navigator.vibrate(1000);
     }, []);
     var isSupported = typeof navigator !== 'undefined' && typeof navigator.vibrate === 'function';
-    if (!isSupported) {
-        return m$1(templateObject_1$1r || (templateObject_1$1r = __makeTemplateObject(["<", ">", "<//>"], ["<", ">", "<//>"])), WarningMessage, i18n('Vibration API is not supported.'));
+    if (!isSsr && !isSupported) {
+        return '';
     }
-    return m$1(templateObject_2$I || (templateObject_2$I = __makeTemplateObject(["<div class=\"", "\">\n        <", " disabled=\"", "\" onClick=", ">", "<//>\n\n        <div class=\"", "\">\n            <", " theme=\"gray\">", "<//>\n        </div>\n    </div>"], ["<div class=\"", "\">\n        <", " disabled=\"", "\" onClick=", ">", "<//>\n\n        <div class=\"", "\">\n            <", " theme=\"gray\">", "<//>\n        </div>\n    </div>"])), b$U(), Button, !isSupported, onClick, i18n('Vibrate'), b$U('details'), WarningMessage, i18n('Support is mainly on mobile devices.'));
+    return m$1(templateObject_1$1r || (templateObject_1$1r = __makeTemplateObject(["<div class=\"", "\">\n        <", " disabled=\"", "\" onClick=", ">", "<//>\n\n        <div class=\"", "\">\n            <", " theme=\"gray\">", "<//>\n        </div>\n    </div>"], ["<div class=\"", "\">\n        <", " disabled=\"", "\" onClick=", ">", "<//>\n\n        <div class=\"", "\">\n            <", " theme=\"gray\">", "<//>\n        </div>\n    </div>"])), b$U(), Button, !isSupported, onClick, i18n('Vibrate'), b$U('details'), WarningMessage, i18n('Support is mainly on mobile devices.'));
 }
-var templateObject_1$1r, templateObject_2$I;
+var templateObject_1$1r;
 
 var b$T = block('audio-page');
 function AudioPage() {
@@ -2759,8 +2759,10 @@ function Camera() {
         setWithMic(checked);
     }, []);
     var params = stream ? getStreamParams(stream) : undefined;
-    if (isSsr || !navigator.mediaDevices || typeof navigator.mediaDevices.getUserMedia !== 'function') {
-        return m$1(templateObject_1$1e || (templateObject_1$1e = __makeTemplateObject(["<", ">", "<//>"], ["<", ">", "<//>"])), WarningMessage, i18n('Media Devices API is not supported.'));
+    if (!isSsr) {
+        if (!navigator.mediaDevices || typeof navigator.mediaDevices.getUserMedia !== 'function') {
+            return m$1(templateObject_1$1e || (templateObject_1$1e = __makeTemplateObject(["<", ">", "<//>"], ["<", ">", "<//>"])), WarningMessage, i18n('Media Devices API is not supported.'));
+        }
     }
     var showStop = Boolean(stream);
     var played = Boolean(stream);
