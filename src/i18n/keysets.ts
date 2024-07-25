@@ -592,7 +592,7 @@ export const keysets: I18nKeysets = {
     },
     'Support is mainly on mobile devices.': {
         'en': 'Support is mainly on mobile devices.',
-        'ru': 'Поддержка в основном только на мобильных устройствах.'
+        'ru': 'Поддержка в основном на мобильных устройствах.'
     },
     'Vibrate': {
         'en': 'Vibrate',
