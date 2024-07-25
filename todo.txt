@@ -1,2 +1,5 @@
 - hdcp for drm question
 - Additional monitors
+- Marker for map / geo
+- Refresh when change order of monitors
+- Fix float window for video page
