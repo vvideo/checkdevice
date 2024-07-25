@@ -17,11 +17,13 @@ export function IndexMenu() {
         };
     });
 
-    return html`<div class="${b()}">
+    return html`<nav class="${b()}">
+        <ul class="${b('list')}">
         ${items.map(item => {
-            return html`<${Link} theme="white" class="${b('item')}" href="${getPagePath(item.id)}"><span class="${b('emoji')}">${item.emoji}</span>${item.title}<//>`;
+            return html`<li key="${item.id}" class="${b('item')}"><${Link} class="${b('link')}" theme="white" href="${getPagePath(item.id)}"><span class="${b('emoji')}">${item.emoji}</span> ${item.title}<//></li>`;
         })}
+        </ul>
         <div class="${b('clear')}"></div>
-    </div>
+    </nav>
     `;
 }

@@ -2,15 +2,25 @@
     margin: 10px 0;
 }
 
+.index-menu__list {
+    margin: 0;
+    padding: 0;
+}
+
 .index-menu__item {
     display: block;
+    list-style: none;
     float: left;
-    padding: 20px;
     background: #111;
     border-radius: 10px;
     width: 300px;
     margin: 0 10px 10px 0;
+}
+
+.index-menu__link {
+    display: block;
     font-size: 20px;
+    padding: 20px;
 }
 
 @media (max-width: 700px) {
@@ -26,7 +36,7 @@
     display: inline-block;
     filter: grayscale(0.5);
     color: white;
-    width: 1.5em;
+    width: 1em;
 }
 
 .index-menu .link {

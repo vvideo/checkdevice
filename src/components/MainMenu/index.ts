@@ -20,9 +20,11 @@ const b = block('main-menu');
 export function MainMenu(props: MainMenuProps) {
     return html`
         <nav class="${b()}">
+            <ul class="${b('list')}">
             ${props.items.filter(item => !item.hidden).map(item => {
-                return html`<a class="${b('item', { selected: item.selected })}" href="${item.url}">${item.title}</a>`;
+                return html`<li class="${b('item', { selected: item.selected })}" key="${item.id}"><a class="${b('link')}" href="${item.url}">${item.title}</a></li>`;
             })}
+            </ul>
         </nav>
     `;
 }

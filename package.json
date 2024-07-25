@@ -41,11 +41,13 @@
         "globals": "15.8.0",
         "hdcp": "^1.1.0",
         "htm": "^3.1.1",
+        "htmlfy": "0.2.1",
         "lyam": "^3.1.0",
         "preact": "^10.22.1",
         "preact-render-to-string": "6.5.6",
         "rollup": "^4.19.0",
         "rollup-plugin-postcss": "^4.0.2",
+        "simply-beautiful": "1.0.1",
         "tslib": "^2.6.3",
         "typescript": "^5.5.3",
         "typescript-eslint": "7.16.1"
