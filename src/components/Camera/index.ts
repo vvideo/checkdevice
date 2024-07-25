@@ -88,8 +88,10 @@ export function Camera() {
 
     const params = stream ? getStreamParams(stream) : undefined;
 
-    if (isSsr || !navigator.mediaDevices || typeof navigator.mediaDevices.getUserMedia !== 'function') {
-        return html`<${WarningMessage}>${i18n('Media Devices API is not supported.')}<//>`;
+    if (!isSsr) {
+        if (!navigator.mediaDevices || typeof navigator.mediaDevices.getUserMedia !== 'function') {
+            return html`<${WarningMessage}>${i18n('Media Devices API is not supported.')}<//>`;
+        }
     }
 
     const showStop = Boolean(stream);

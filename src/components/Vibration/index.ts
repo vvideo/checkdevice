@@ -6,6 +6,7 @@ import { i18n } from '../../i18n/i18n';
 import { block } from '../../utils/bem';
 
 import './index.css';
+import { isSsr } from '../../utils/isSsr';
 
 const b = block('vibration');
 
@@ -16,8 +17,8 @@ export function Vibration() {
 
     const isSupported = typeof navigator !== 'undefined' && typeof navigator.vibrate === 'function';
 
-    if (!isSupported) {
-        return html`<${WarningMessage}>${i18n('Vibration API is not supported.')}<//>`;
+    if (!isSsr && !isSupported) {
+        return '';
     }
 
     return html`<div class="${b()}">
