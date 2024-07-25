@@ -8,14 +8,18 @@ import { useForceUpdate } from '../../hooks/useForceUpdate';
 import { Spinner } from '../Spinner';
 import { List } from '../List';
 import { formatTime } from './utils';
+import { isSsr } from '../../utils/isSsr';
 
 import './index.css';
-import { isSsr } from '../../utils/isSsr';
 
 const b = block('battery-status');
 
 export function BatteryStatus() {
-    if (isSsr || !navigator.getBattery) {
+    if (isSsr) {
+        return html`<${Spinner} //>`;
+    }
+
+    if (!navigator.getBattery) {
         return html`<${WarningMessage}>${i18n('Battery Status API is not supported.')}<//>`;
     }
 

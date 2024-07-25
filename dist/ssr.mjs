@@ -1658,9 +1658,9 @@ function AudioCodecs() {
             }));
         }
     });
-    return m$1(templateObject_5$8 || (templateObject_5$8 = __makeTemplateObject(["<", ">\n        <", " name=\"", "\">\n            ", "\n        <//>\n        ", "\n    <//>"], ["<", ">\n        <", " name=\"", "\">\n            ", "\n        <//>\n        ", "\n    <//>"])), Columns, Column, i18n('Supported'), supported.length ? supported : i18n('No supported audio codecs.'), unsupported.length ? m$1(templateObject_4$e || (templateObject_4$e = __makeTemplateObject(["<", " name=\"", "\">", "<//>"], ["<", " name=\"", "\">", "<//>"])), Column, i18n('Unsupported'), unsupported) : '');
+    return m$1(templateObject_5$8 || (templateObject_5$8 = __makeTemplateObject(["<", ">\n        <", " name=\"", "\">\n            ", "\n        <//>\n        ", "\n    <//>"], ["<", ">\n        <", " name=\"", "\">\n            ", "\n        <//>\n        ", "\n    <//>"])), Columns, Column, i18n('Supported'), supported.length ? supported : i18n('No supported audio codecs.'), unsupported.length ? m$1(templateObject_4$f || (templateObject_4$f = __makeTemplateObject(["<", " name=\"", "\">", "<//>"], ["<", " name=\"", "\">", "<//>"])), Column, i18n('Unsupported'), unsupported) : '');
 }
-var templateObject_1$1H, templateObject_2$O, templateObject_3$p, templateObject_4$e, templateObject_5$8;
+var templateObject_1$1H, templateObject_2$O, templateObject_3$p, templateObject_4$f, templateObject_5$8;
 
 var b$15 = block('page-title');
 function PageTitle(props) {
@@ -2401,8 +2401,11 @@ function formatTime(secs) {
 
 var b$P = block('battery-status');
 function BatteryStatus() {
-    if (isSsr || !navigator.getBattery) {
-        return m$1(templateObject_1$1m || (templateObject_1$1m = __makeTemplateObject(["<", ">", "<//>"], ["<", ">", "<//>"])), WarningMessage, i18n('Battery Status API is not supported.'));
+    if (isSsr) {
+        return m$1(templateObject_1$1m || (templateObject_1$1m = __makeTemplateObject(["<", " //>"], ["<", " //>"])), Spinner);
+    }
+    if (!navigator.getBattery) {
+        return m$1(templateObject_2$F || (templateObject_2$F = __makeTemplateObject(["<", ">", "<//>"], ["<", ">", "<//>"])), WarningMessage, i18n('Battery Status API is not supported.'));
     }
     var _a = h(), batteryManager = _a[0], setBatteryManager = _a[1];
     var forceUpdate = useForceUpdate();
@@ -2424,9 +2427,9 @@ function BatteryStatus() {
         [i18n('Charging time'), isFinite(batteryManager === null || batteryManager === void 0 ? void 0 : batteryManager.chargingTime) ? formatTime(batteryManager === null || batteryManager === void 0 ? void 0 : batteryManager.chargingTime) : '∞'],
         [i18n('Discharging time'), isFinite(batteryManager === null || batteryManager === void 0 ? void 0 : batteryManager.dischargingTime) ? formatTime(batteryManager === null || batteryManager === void 0 ? void 0 : batteryManager.dischargingTime) : '∞']
     ] : [];
-    return batteryManager ? m$1(templateObject_2$F || (templateObject_2$F = __makeTemplateObject(["\n        <div class=\"", "\">\n            <", " level=\"", "\" charging=\"", "\"><//>\n            <", " class=\"", "\" items=\"", "\"><//>\n        </div>\n    "], ["\n        <div class=\"", "\">\n            <", " level=\"", "\" charging=\"", "\"><//>\n            <", " class=\"", "\" items=\"", "\"><//>\n        </div>\n    "])), b$P(), BatteryBadge, batteryManager.level, batteryManager.charging, List, b$P('list'), items) : m$1(templateObject_3$n || (templateObject_3$n = __makeTemplateObject(["<", " //>"], ["<", " //>"])), Spinner);
+    return batteryManager ? m$1(templateObject_3$n || (templateObject_3$n = __makeTemplateObject(["\n        <div class=\"", "\">\n            <", " level=\"", "\" charging=\"", "\"><//>\n            <", " class=\"", "\" items=\"", "\"><//>\n        </div>\n    "], ["\n        <div class=\"", "\">\n            <", " level=\"", "\" charging=\"", "\"><//>\n            <", " class=\"", "\" items=\"", "\"><//>\n        </div>\n    "])), b$P(), BatteryBadge, batteryManager.level, batteryManager.charging, List, b$P('list'), items) : m$1(templateObject_4$e || (templateObject_4$e = __makeTemplateObject(["<", " //>"], ["<", " //>"])), Spinner);
 }
-var templateObject_1$1m, templateObject_2$F, templateObject_3$n;
+var templateObject_1$1m, templateObject_2$F, templateObject_3$n, templateObject_4$e;
 
 function BatteryPage() {
     return m$1(templateObject_1$1l || (templateObject_1$1l = __makeTemplateObject(["\n        <", "}>\n            <", ">\n                ", "\n            <//>\n\n            <", "><//>\n        <//>"], ["\n        <", "}>\n            <", ">\n                ", "\n            <//>\n\n            <", "><//>\n        <//>"])), Page, PageTitle, i18n('Battery'), BatteryStatus);
@@ -2853,8 +2856,11 @@ var templateObject_1$17, templateObject_2$x;
 
 var b$F = block('fonts');
 function Fonts() {
-    if (isSsr || !window.queryLocalFonts) {
-        return m$1(templateObject_1$16 || (templateObject_1$16 = __makeTemplateObject(["<", ">", "<//>"], ["<", ">", "<//>"])), WarningMessage, i18n('Local Font Access API is not supported.'));
+    if (isSsr) {
+        return m$1(templateObject_1$16 || (templateObject_1$16 = __makeTemplateObject(["<", " //>"], ["<", " //>"])), Spinner);
+    }
+    if (!window.queryLocalFonts) {
+        return m$1(templateObject_2$w || (templateObject_2$w = __makeTemplateObject(["<", ">", "<//>"], ["<", ">", "<//>"])), WarningMessage, i18n('Local Font Access API is not supported.'));
     }
     var _a = h(), fonts = _a[0], setFonts = _a[1];
     var _b = h(''), filter = _b[0], setFilter = _b[1];
@@ -2877,9 +2883,9 @@ function Fonts() {
         setFilter(value);
     }, []);
     var items = filterFonts(fonts || [], filter);
-    return m$1(templateObject_5$7 || (templateObject_5$7 = __makeTemplateObject(["\n        <div class=\"", "\">\n            <div class=\"", "\">\n                ", "\n                ", "\n                ", "\n            </div>\n            <", " items=\"", "\" />\n        </div>\n    "], ["\n        <div class=\"", "\">\n            <div class=\"", "\">\n                ", "\n                ", "\n                ", "\n            </div>\n            <", " items=\"", "\" />\n        </div>\n    "])), b$F(), b$F('controls'), fonts ? '' : m$1(templateObject_2$w || (templateObject_2$w = __makeTemplateObject(["<", " theme=\"active\" onClick=\"", "\">", "<//>"], ["<", " theme=\"active\" onClick=\"", "\">", "<//>"])), Button, handleButtonClick, i18n('Request fonts')), fonts ? m$1(templateObject_3$k || (templateObject_3$k = __makeTemplateObject(["<", " class=\"", "\" placeholder=\"", "\" value=\"\" onChange=\"", "\" //>"], ["<", " class=\"", "\" placeholder=\"", "\" value=\"\" onChange=\"", "\" //>"])), Input, b$F('filter'), i18n('Filter'), handleChange) : '', fonts ? m$1(templateObject_4$d || (templateObject_4$d = __makeTemplateObject(["<div class=\"", "\"><", " onClick=\"", "\" label=\"", "\" checked=\"", "\" //></div>"], ["<div class=\"", "\"><", " onClick=\"", "\" label=\"", "\" checked=\"", "\" //></div>"])), b$F('group-by-family'), Checkbox, handleCheckboxClick, i18n('Group by family'), groupByFamily) : '', groupByFamily ? FontListGrouped : FontList, items);
+    return m$1(templateObject_6$5 || (templateObject_6$5 = __makeTemplateObject(["\n        <div class=\"", "\">\n            <div class=\"", "\">\n                ", "\n                ", "\n                ", "\n            </div>\n            <", " items=\"", "\" />\n        </div>\n    "], ["\n        <div class=\"", "\">\n            <div class=\"", "\">\n                ", "\n                ", "\n                ", "\n            </div>\n            <", " items=\"", "\" />\n        </div>\n    "])), b$F(), b$F('controls'), fonts ? '' : m$1(templateObject_3$k || (templateObject_3$k = __makeTemplateObject(["<", " theme=\"active\" onClick=\"", "\">", "<//>"], ["<", " theme=\"active\" onClick=\"", "\">", "<//>"])), Button, handleButtonClick, i18n('Request fonts')), fonts ? m$1(templateObject_4$d || (templateObject_4$d = __makeTemplateObject(["<", " class=\"", "\" placeholder=\"", "\" value=\"\" onChange=\"", "\" //>"], ["<", " class=\"", "\" placeholder=\"", "\" value=\"\" onChange=\"", "\" //>"])), Input, b$F('filter'), i18n('Filter'), handleChange) : '', fonts ? m$1(templateObject_5$7 || (templateObject_5$7 = __makeTemplateObject(["<div class=\"", "\"><", " onClick=\"", "\" label=\"", "\" checked=\"", "\" //></div>"], ["<div class=\"", "\"><", " onClick=\"", "\" label=\"", "\" checked=\"", "\" //></div>"])), b$F('group-by-family'), Checkbox, handleCheckboxClick, i18n('Group by family'), groupByFamily) : '', groupByFamily ? FontListGrouped : FontList, items);
 }
-var templateObject_1$16, templateObject_2$w, templateObject_3$k, templateObject_4$d, templateObject_5$7;
+var templateObject_1$16, templateObject_2$w, templateObject_3$k, templateObject_4$d, templateObject_5$7, templateObject_6$5;
 
 function FontsPage() {
     return m$1(templateObject_1$15 || (templateObject_1$15 = __makeTemplateObject(["\n        <", ">\n            <", ">", "<//>\n            <", "><//>\n        <//>"], ["\n        <", ">\n            <", ">", "<//>\n            <", "><//>\n        <//>"])), Page, PageTitle, i18n('Local fonts'), Fonts);
@@ -2922,7 +2928,7 @@ function buildData(data, options, level) {
         return m$1(templateObject_5$6 || (templateObject_5$6 = __makeTemplateObject(["<span class=\"", "\">function</span>"], ["<span class=\"", "\">function</span>"])), b$E('function'));
     }
     if (typeof data === 'symbol') {
-        return m$1(templateObject_6$3 || (templateObject_6$3 = __makeTemplateObject(["<span class=\"", "\">", "</span>"], ["<span class=\"", "\">", "</span>"])), b$E('symbol'), data);
+        return m$1(templateObject_6$4 || (templateObject_6$4 = __makeTemplateObject(["<span class=\"", "\">", "</span>"], ["<span class=\"", "\">", "</span>"])), b$E('symbol'), data);
     }
     if (typeof data === 'undefined') {
         return m$1(templateObject_7$1 || (templateObject_7$1 = __makeTemplateObject(["<span class=\"", "\">undefined</span>"], ["<span class=\"", "\">undefined</span>"])), b$E('undefined'));
@@ -2953,7 +2959,7 @@ function buildData(data, options, level) {
         return m$1(templateObject_16 || (templateObject_16 = __makeTemplateObject(["<li><span class=\"", "\">", ": </span>", "", "</li>"], ["<li><span class=\"", "\">", ": </span>", "", "</li>"])), b$E('property'), key, buildData(data[key], options, level + 1), i === items.length - 1 ? '' : ',');
     }), hasBraces ? '}' : '');
 }
-var templateObject_1$14, templateObject_2$v, templateObject_3$j, templateObject_4$c, templateObject_5$6, templateObject_6$3, templateObject_7$1, templateObject_8$1, templateObject_9$1, templateObject_10, templateObject_11, templateObject_12, templateObject_13, templateObject_14, templateObject_15, templateObject_16, templateObject_17;
+var templateObject_1$14, templateObject_2$v, templateObject_3$j, templateObject_4$c, templateObject_5$6, templateObject_6$4, templateObject_7$1, templateObject_8$1, templateObject_9$1, templateObject_10, templateObject_11, templateObject_12, templateObject_13, templateObject_14, templateObject_15, templateObject_16, templateObject_17;
 
 function TreeList(props) {
     return m$1(templateObject_1$13 || (templateObject_1$13 = __makeTemplateObject(["\n        <", " name=\"", "\">\n            <div class=\"", "\">\n                ", "\n            </div>\n        <//>"], ["\n        <", " name=\"", "\">\n            <div class=\"", "\">\n                ", "\n            </div>\n        <//>"])), Row, props.title, b$E(), buildData(props.data, props.options));
@@ -2968,8 +2974,11 @@ var templateObject_1$12;
 
 var b$C = block('gamepad-list');
 function GamepadList() {
-    if (isSsr || !navigator.getGamepads) {
-        return m$1(templateObject_1$11 || (templateObject_1$11 = __makeTemplateObject(["<", ">", "<//>"], ["<", ">", "<//>"])), WarningMessage, i18n('🎮 Gamepad API is not supported.'));
+    if (isSsr) {
+        return m$1(templateObject_1$11 || (templateObject_1$11 = __makeTemplateObject(["<", " //>"], ["<", " //>"])), Spinner);
+    }
+    if (!navigator.getGamepads) {
+        return m$1(templateObject_2$u || (templateObject_2$u = __makeTemplateObject(["<", ">", "<//>"], ["<", ">", "<//>"])), WarningMessage, i18n('🎮 Gamepad API is not supported.'));
     }
     var forceUpdate = useForceUpdate();
     y(function () {
@@ -2989,7 +2998,7 @@ function GamepadList() {
     }, []);
     var result = navigator.getGamepads();
     var gamepads = Array.isArray(result) ? result.filter(function (item) { return item !== null; }) : [];
-    return gamepads.length ? m$1(templateObject_3$i || (templateObject_3$i = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "])), b$C(), gamepads.map(function (rawItem, i) {
+    return gamepads.length ? m$1(templateObject_4$b || (templateObject_4$b = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n        </div>\n    "])), b$C(), gamepads.map(function (rawItem, i) {
         var item = rawItem;
         var data = {
             index: item.index,
@@ -3014,13 +3023,13 @@ function GamepadList() {
             compactArrayWithSimpleTypes: true,
             showArrayIndex: true,
         };
-        return m$1(templateObject_2$u || (templateObject_2$u = __makeTemplateObject(["\n                        <div class=\"", "\">\n                            <div class=\"", "\">", "</div>\n                            <", " name=\"", "\" data=\"", "\" options=\"", "\"><//>\n                        </div>"], ["\n                        <div class=\"", "\">\n                            <div class=\"", "\">", "</div>\n                            <", " name=\"", "\" data=\"", "\" options=\"", "\"><//>\n                        </div>"])), b$C('item'), b$C('title'), item.id, TreeList, i, data, options);
-    })) : m$1(templateObject_4$b || (templateObject_4$b = __makeTemplateObject(["<", " //>"], ["<", " //>"])), GamepadWait);
+        return m$1(templateObject_3$i || (templateObject_3$i = __makeTemplateObject(["\n                        <div class=\"", "\">\n                            <div class=\"", "\">", "</div>\n                            <", " name=\"", "\" data=\"", "\" options=\"", "\"><//>\n                        </div>"], ["\n                        <div class=\"", "\">\n                            <div class=\"", "\">", "</div>\n                            <", " name=\"", "\" data=\"", "\" options=\"", "\"><//>\n                        </div>"])), b$C('item'), b$C('title'), item.id, TreeList, i, data, options);
+    })) : m$1(templateObject_5$5 || (templateObject_5$5 = __makeTemplateObject(["<", " //>"], ["<", " //>"])), GamepadWait);
 }
 function GamepadWait() {
-    return m$1(templateObject_5$5 || (templateObject_5$5 = __makeTemplateObject(["<", " size=\"m\" //> ", " <", " //>"], ["<", " size=\"m\" //> ", " <", " //>"])), Spinner, i18n('Connect and press any button on the gamepad.'), XboxButtons);
+    return m$1(templateObject_6$3 || (templateObject_6$3 = __makeTemplateObject(["<", " size=\"m\" //> ", " <", " //>"], ["<", " size=\"m\" //> ", " <", " //>"])), Spinner, i18n('Connect and press any button on the gamepad.'), XboxButtons);
 }
-var templateObject_1$11, templateObject_2$u, templateObject_3$i, templateObject_4$b, templateObject_5$5;
+var templateObject_1$11, templateObject_2$u, templateObject_3$i, templateObject_4$b, templateObject_5$5, templateObject_6$3;
 
 function GamepadPage() {
     return m$1(templateObject_1$10 || (templateObject_1$10 = __makeTemplateObject(["\n        <", ">\n            <", "}>\n                ", "\n            <//>\n\n            <", "><//>\n        <//>"], ["\n        <", ">\n            <", "}>\n                ", "\n            <//>\n\n            <", "><//>\n        <//>"])), Page, PageTitle, i18n('Gamepad'), GamepadList);

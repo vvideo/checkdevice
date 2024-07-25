@@ -14,7 +14,11 @@ import './index.css';
 const b = block('gamepad-list');
 
 export function GamepadList() {
-    if (isSsr || !navigator.getGamepads) {
+    if (isSsr) {
+        return html`<${Spinner} //>`;
+    }
+
+    if (!navigator.getGamepads) {
         return html`<${WarningMessage}>${i18n('🎮 Gamepad API is not supported.')}<//>`;
     }
 
