@@ -2027,14 +2027,14 @@ var templateObject_1$1C, templateObject_2$N;
 
 var b$10 = block('footer');
 function Footer() {
-    return m$1(templateObject_1$1B || (templateObject_1$1B = __makeTemplateObject(["<footer class=\"", "\">\n        <div class=\"", "\">\u00A9 <span class=\"", "\">V</span><span class=\"", "\">v</span><span class=\"", "\">i</span><span class=\"", "\">d</span><span class=\"", "\">e</span><span class=\"", "\">o</span></div>\n        <div class=\"", "\"><", " target=\"_blank\" href=\"https://github.com/vvideo/caniwatchvideo/issues/new\">", "<//></div>\n        <div class=\"", "\"><", " //></div>\n    </footer>"], ["<footer class=\"", "\">\n        <div class=\"", "\">\u00A9 <span class=\"", "\">V</span><span class=\"", "\">v</span><span class=\"", "\">i</span><span class=\"", "\">d</span><span class=\"", "\">e</span><span class=\"", "\">o</span></div>\n        <div class=\"", "\"><", " target=\"_blank\" href=\"https://github.com/vvideo/caniwatchvideo/issues/new\">", "<//></div>\n        <div class=\"", "\"><", " //></div>\n    </footer>"])), b$10(), b$10('item'), b$10('l1'), b$10('l2'), b$10('l3'), b$10('l4'), b$10('l5'), b$10('l6'), b$10('item', { g: true }), Link, i18n('Report a bug'), b$10('item'), LangSwitcher);
+    return m$1(templateObject_1$1B || (templateObject_1$1B = __makeTemplateObject(["<footer class=\"", "\">\n        <div class=\"", "\"><", " target=\"_blank\" href=\"https://github.com/vvideo/caniwatchvideo/issues/new\">", "<//></div>\n        <div class=\"", "\"><", " //></div>\n        <div class=\"", "\">\u00A9 <span class=\"", "\">V</span><span class=\"", "\">v</span><span class=\"", "\">i</span><span class=\"", "\">d</span><span class=\"", "\">e</span><span class=\"", "\">o</span></div>\n    </footer>"], ["<footer class=\"", "\">\n        <div class=\"", "\"><", " target=\"_blank\" href=\"https://github.com/vvideo/caniwatchvideo/issues/new\">", "<//></div>\n        <div class=\"", "\"><", " //></div>\n        <div class=\"", "\">\u00A9 <span class=\"", "\">V</span><span class=\"", "\">v</span><span class=\"", "\">i</span><span class=\"", "\">d</span><span class=\"", "\">e</span><span class=\"", "\">o</span></div>\n    </footer>"])), b$10(), b$10('item', { g: true }), Link, i18n('Report a bug'), b$10('item'), LangSwitcher, b$10('item'), b$10('l1'), b$10('l2'), b$10('l3'), b$10('l4'), b$10('l5'), b$10('l6'));
 }
 var templateObject_1$1B;
 
 var b$$ = block('main-menu');
 function MainMenu(props) {
-    return m$1(templateObject_2$M || (templateObject_2$M = __makeTemplateObject(["\n        <nav class=\"", "\">\n            ", "\n        </nav>\n    "], ["\n        <nav class=\"", "\">\n            ", "\n        </nav>\n    "])), b$$(), props.items.filter(function (item) { return !item.hidden; }).map(function (item) {
-        return m$1(templateObject_1$1A || (templateObject_1$1A = __makeTemplateObject(["<a class=\"", "\" href=\"", "\">", "</a>"], ["<a class=\"", "\" href=\"", "\">", "</a>"])), b$$('item', { selected: item.selected }), item.url, item.title);
+    return m$1(templateObject_2$M || (templateObject_2$M = __makeTemplateObject(["\n        <nav class=\"", "\">\n            <ul class=\"", "\">\n            ", "\n            </ul>\n        </nav>\n    "], ["\n        <nav class=\"", "\">\n            <ul class=\"", "\">\n            ", "\n            </ul>\n        </nav>\n    "])), b$$(), b$$('list'), props.items.filter(function (item) { return !item.hidden; }).map(function (item) {
+        return m$1(templateObject_1$1A || (templateObject_1$1A = __makeTemplateObject(["<li class=\"", "\" key=\"", "\"><a class=\"", "\" href=\"", "\">", "</a></li>"], ["<li class=\"", "\" key=\"", "\"><a class=\"", "\" href=\"", "\">", "</a></li>"])), b$$('item', { selected: item.selected }), item.id, b$$('link'), item.url, item.title);
     }));
 }
 var templateObject_1$1A, templateObject_2$M;
@@ -3145,8 +3145,8 @@ function IndexMenu() {
     var items = pages$1.filter(function (item) { return !item.hidden; }).map(function (item) {
         return __assign(__assign({}, item), { title: i18nWithKeyset(item.menuTitle) });
     });
-    return m$1(templateObject_2$s || (templateObject_2$s = __makeTemplateObject(["<div class=\"", "\">\n        ", "\n        <div class=\"", "\"></div>\n    </div>\n    "], ["<div class=\"", "\">\n        ", "\n        <div class=\"", "\"></div>\n    </div>\n    "])), b$z(), items.map(function (item) {
-        return m$1(templateObject_1$X || (templateObject_1$X = __makeTemplateObject(["<", " theme=\"white\" class=\"", "\" href=\"", "\"><span class=\"", "\">", "</span>", "<//>"], ["<", " theme=\"white\" class=\"", "\" href=\"", "\"><span class=\"", "\">", "</span>", "<//>"])), Link, b$z('item'), getPagePath(item.id), b$z('emoji'), item.emoji, item.title);
+    return m$1(templateObject_2$s || (templateObject_2$s = __makeTemplateObject(["<nav class=\"", "\">\n        <ul class=\"", "\">\n        ", "\n        </ul>\n        <div class=\"", "\"></div>\n    </nav>\n    "], ["<nav class=\"", "\">\n        <ul class=\"", "\">\n        ", "\n        </ul>\n        <div class=\"", "\"></div>\n    </nav>\n    "])), b$z(), b$z('list'), items.map(function (item) {
+        return m$1(templateObject_1$X || (templateObject_1$X = __makeTemplateObject(["<li key=\"", "\" class=\"", "\"><", " class=\"", "\" theme=\"white\" href=\"", "\"><span class=\"", "\">", "</span> ", "<//></li>"], ["<li key=\"", "\" class=\"", "\"><", " class=\"", "\" theme=\"white\" href=\"", "\"><span class=\"", "\">", "</span> ", "<//></li>"])), item.id, b$z('item'), Link, b$z('link'), getPagePath(item.id), b$z('emoji'), item.emoji, item.title);
     }), b$z('clear'));
 }
 var templateObject_1$X, templateObject_2$s;
