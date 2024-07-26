@@ -5763,7 +5763,7 @@ var ScreenInfo = /** @class */ (function () {
             colorSpaces: [],
         };
         try {
-            var win = window.open('about:blank', 'caniwatchvideo', "popup=yes,left=".concat(screen.availLeft, ",top=").concat(screen.availTop, ",width=100,height=100"));
+            var win = window.open('about:blank', 'checkdevice', "popup=yes,left=".concat(screen.availLeft, ",top=").concat(screen.availTop, ",width=100,height=100"));
             if (win) {
                 // @ts-ignore
                 result.isHdrSupported = isHighDynamicRangeSupported(win);
