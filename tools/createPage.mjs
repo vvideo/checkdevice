@@ -1,12 +1,14 @@
-export function createPage({ id, header, content }) {
+export function createPage({ id, header, lang, content }) {
+    const canonicalUrl = `https://checkdevice.online/${id === 'index' ? '' : id + '.html'}`;
+
     return `<!DOCTYPE html>
-<html>
+<html lang="${lang}">
 <head>
     <title>${header}</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="theme-color" content="#FFd700" />
-    <link rel="canonical" href="https://checkdevice.online/${id === 'index' ? '' : id + '.html'}" />
+    <link rel="canonical" href="${canonicalUrl}" />
     <link rel="manifest" href="./manifest.json" />
     <link rel="shortcut icon" href="./static/favicons/favicon.png" />
     <link rel="apple-touch-icon" href="./static/favicons/touch.png" />
@@ -16,7 +18,7 @@ export function createPage({ id, header, content }) {
 </head>
 <body>
     <div class="page">${content}</div>
-    <script src="./dist/${id}.js?md5="></script>
+    <script defer src="./dist/${id}.js?md5="></script>
 </body>
 </html>
 `;

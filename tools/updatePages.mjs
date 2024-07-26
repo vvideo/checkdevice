@@ -1,12 +1,15 @@
 import fs from 'fs';
+import beautify from 'simply-beautiful';
+
 import { createPage } from './createPage.mjs';
 import { updateTemplate } from './updateTemplate.mjs';
 import { createSitemap } from './createSitemap.mjs';
 import { loadJson } from './utils/loadJson.mjs';
 import { buildPage } from '../dist/ssr.mjs';
-import beautify from 'simply-beautiful';
 
 const pages = loadJson('./src/pages/pages.json');
+
+const lang = 'en';
 
 pages.forEach(item => {
     let header = (item.header ? item.header.en : item.menuTitle.en);
@@ -18,6 +21,7 @@ pages.forEach(item => {
     let html = createPage({
         id: item.id,
         header,
+        lang,
         content: beautify.html(buildPage(item.id)),
     });
 
