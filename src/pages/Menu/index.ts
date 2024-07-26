@@ -1,8 +1,9 @@
 import { html } from 'htm/preact';
 import { MainMenu, MainMenuItem } from '../../components/MainMenu';
 import pages from '../pages';
-import { getI18nLang, i18n, i18nWithKeyset } from '../../i18n/i18n';
+import { i18nWithKeyset } from '../../i18n/i18n';
 import { isSsr } from '../../utils/isSsr';
+import { getPagePath } from '../../utils/getPagePath';
 
 export function getIdFromLocation() {
     const id = window.location.pathname.split(/[?./]/)[1];
@@ -13,13 +14,10 @@ export function Menu() {
     const id = isSsr ? '' : getIdFromLocation();
     const items: MainMenuItem[] = pages.map(item => {
         const selected = item.id === id;
-        if (selected) {
-            document.title = i18nWithKeyset(item.header || item.menuTitle) + ' / ' + i18n('Check device online')
-        }
 
         return {
             ...item,
-            url: item.url + (isSsr ? '' : '?lang=' + getI18nLang()),
+            url: getPagePath(item.id),
             title: i18nWithKeyset(item.menuTitle),
             selected,
         };

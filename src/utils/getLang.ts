@@ -1,5 +1,5 @@
 export function getLang() {
-    let lang = getLangFromUrl() || getLangFromNavigator();
+    let lang = window.appData?.lang || getLangFromUrl() || getLangFromNavigator();
 
     if (lang !== 'en' && lang !== 'ru') {
         lang = 'en';

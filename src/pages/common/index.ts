@@ -7,14 +7,16 @@ import { isSsr } from '../../utils/isSsr';
 
 import './index.css';
 
-if (isSsr) {
-    setI18nLang('en');
-} else {
+if (!isSsr) {
     hit('95998062'); // 97747983
 
-    setI18nLang(getLang() as I18NLanguage);
+    const lang = getLang() as I18NLanguage;
+    setI18nLang(lang);
 
     withInstallApp();
 
     addHoverOnBody();
+
+    // ally
+    document.documentElement?.setAttribute('lang', lang);
 }

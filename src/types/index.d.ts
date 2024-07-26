@@ -11,6 +11,10 @@ declare global {
     interface Window {
         documentPictureInPicture?: unknown;
         queryLocalFonts?: () => Promise<FontData[]>;
+        appData: {
+            pageId: string;
+            lang: string;
+        };
     }
 
     interface BatteryManager {

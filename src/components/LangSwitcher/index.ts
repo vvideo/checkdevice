@@ -3,7 +3,7 @@ import { useCallback, useState } from 'preact/hooks';
 import { getI18nLang, getI18nLangs } from '../../i18n/i18n';
 import { block } from '../../utils/bem';
 import { LangSwitcherItem } from '../LangSwitcherItem';
-import { addParamToUrl } from '../../utils/url/addParamToUrl';
+import { getPagePath } from '../../utils/getPagePath';
 
 import './index.css';
 
@@ -16,7 +16,7 @@ export function LangSwitcher() {
 
     const handleClickItem = useCallback((value: string) => {
         setVisible(false);
-        window.location.href = addParamToUrl(window.location.href, 'lang', value);
+        window.location.href = getPagePath(window.appData.pageId, value);
     }, [setVisible]);
 
 

@@ -19,6 +19,7 @@ import { TestDeadPixelsPage } from '../pages/TestDeadPixelsPage';
 import { VideoPage } from '../pages/VideoPage';
 import { MicPage } from '../pages/MicPage';
 import { NetworkPage } from '../pages/NetworkPage';
+import { I18NLanguage, setI18nLang } from '../i18n/i18n';
 
 export const pages: Record<string, any> = {
     audio: AudioPage,
@@ -43,4 +44,8 @@ export const pages: Record<string, any> = {
 
 export function buildPage(id: string): string {
     return pages[id] ? render(html`<${pages[id]} //>`) : '';
+}
+
+export function setLang(lang: I18NLanguage) {
+    setI18nLang(lang);
 }

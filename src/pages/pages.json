@@ -10,21 +10,19 @@
             "ru": ""
         },
         "id": "index",
-        "url": "/",
         "hidden": true
     },
     {
         "header": {
-            "en": "Can I watch video?",
-            "ru": "Могу ли я смотреть видео?"
+            "en": "Video",
+            "ru": "Видео"
         },
         "emoji": "⏯",
         "menuTitle": {
             "en": "Video",
             "ru": "Видео"
         },
-        "id": "video",
-        "url": "/video.html"
+        "id": "video"
     },
     {
         "menuTitle": {
@@ -32,8 +30,7 @@
             "ru": "Аудио"
         },
         "emoji": "🔊",
-        "id": "audio",
-        "url": "/audio.html"
+        "id": "audio"
     },
     {
         "menuTitle": {
@@ -41,8 +38,7 @@
             "ru": "Экран"
         },
         "emoji": "🖥️",
-        "id": "screen",
-        "url": "/screen.html"
+        "id": "screen"
     },
     {
         "menuTitle": {
@@ -50,8 +46,7 @@
             "ru": "Веб-камера"
         },
         "emoji": "📸",
-        "id": "camera",
-        "url": "/camera.html"
+        "id": "camera"
     },
     {
         "menuTitle": {
@@ -59,8 +54,7 @@
             "ru": "Микрофон"
         },
         "emoji": "🎙️",
-        "id": "mic",
-        "url": "/mic.html"
+        "id": "mic"
     },
     {
         "menuTitle": {
@@ -68,8 +62,7 @@
             "ru": "GPU"
         },
         "emoji": "⚙️",
-        "id": "gpu",
-        "url": "/gpu.html"
+        "id": "gpu"
     },
     {
         "menuTitle": {
@@ -77,8 +70,7 @@
             "ru": "Мышь"
         },
         "emoji": "🖱",
-        "id": "mouse",
-        "url": "/mouse.html"
+        "id": "mouse"
     },
     {
         "menuTitle": {
@@ -86,8 +78,7 @@
             "ru": "Клавиатура"
         },
         "emoji": "⌨",
-        "id": "keyboard",
-        "url": "/keyboard.html"
+        "id": "keyboard"
     },
     {
         "menuTitle": {
@@ -96,7 +87,6 @@
         },
         "emoji": "",
         "id": "keycodes",
-        "url": "/keycodes.html",
         "hidden": true
     },
     {
@@ -105,8 +95,7 @@
             "ru": "Джойстик"
         },
         "emoji": "🕹️",
-        "id": "gamepad",
-        "url": "/gamepad.html"
+        "id": "gamepad"
     },
     {
         "menuTitle": {
@@ -114,8 +103,7 @@
             "ru": "Хранилище"
         },
         "emoji": "💽",
-        "id": "storage",
-        "url": "/storage.html"
+        "id": "storage"
     },
     {
         "menuTitle": {
@@ -123,8 +111,7 @@
             "ru": "Сеть и гео"
         },
         "emoji": "📍",
-        "id": "network",
-        "url": "/network.html"
+        "id": "network"
     },
     {
         "menuTitle": {
@@ -132,8 +119,7 @@
             "ru": "Платформа"
         },
         "emoji": "💻",
-        "id": "platform",
-        "url": "/platform.html"
+        "id": "platform"
     },
     {
         "menuTitle": {
@@ -141,8 +127,7 @@
             "ru": "Батарея"
         },
         "emoji": "🔋",
-        "id": "battery",
-        "url": "/battery.html"
+        "id": "battery"
     },
     {
         "menuTitle": {
@@ -150,8 +135,7 @@
             "ru": "Шрифты"
         },
         "emoji": "❝",
-        "id": "fonts",
-        "url": "/fonts.html"
+        "id": "fonts"
     },
     {
         "menuTitle": {
@@ -160,7 +144,6 @@
         },
         "emoji": "",
         "id": "error404",
-        "url": "/error404.html",
         "hidden": true
     },
     {
@@ -170,7 +153,6 @@
         },
         "emoji": "",
         "id": "test-dead-pixels",
-        "url": "/test-dead-pixels.html",
         "hidden": true
     }
 ]
