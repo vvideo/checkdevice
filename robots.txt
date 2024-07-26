@@ -1,4 +1,4 @@
 User-agent: *
 
-Host: https://caniwatchvideo.online
-Sitemap: https://caniwatchvideo.online/sitemap.xml
+Host: https://checkdevice.online
+Sitemap: https://checkdevice.online/sitemap.xml
