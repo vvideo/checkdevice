@@ -1,7 +1,7 @@
 {
-    "name": "caniwatchvideo",
+    "name": "checkdeviceonline",
     "version": "1.0.0",
-    "description": "Can I Watch Video?",
+    "description": "Check device in your browser",
     "scripts": {
         "clean": "del ./dist",
         "build": "npm run clean; npm run build:menu && npm run build:client && npm run build:ssr && npm run build:pages",
