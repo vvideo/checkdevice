@@ -165,7 +165,7 @@ class ScreenInfo {
         try {
             const win = window.open(
                 'about:blank',
-                'caniwatchvideo',
+                'checkdevice',
                 `popup=yes,left=${screen.availLeft},top=${screen.availTop},width=100,height=100`,
             );
 
