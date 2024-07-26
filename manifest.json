@@ -1,7 +1,7 @@
 {
     "short_name": "Check device",
     "name": "Check device online",
-    "description": "Can I watch 4K video on online services?",
+    "description": "Check device in your browser",
     "icons": [
       {
         "src": "/static/favicons/favicon.png",
