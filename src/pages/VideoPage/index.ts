@@ -31,9 +31,10 @@ export function VideoPage() {
     return html`
         <${Page}>
             <${PageTitle}>
-                ${i18n('Can I watch video in this browser?')}
+                ${i18n('Video')}
             <//>
 
+            <h2>${i18n('Can I watch video in this browser?')}</h2>
             <${VideoQuestions}><//>
             <${ScreenBadges}><//>
 
