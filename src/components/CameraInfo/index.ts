@@ -37,8 +37,6 @@ export function CameraInfo(props: CameraInfoProps) {
         [i18n('Aspect ratio'), calcAspectRatio(Math.max(width, height), Math.min(width, height)).value],
         [i18n('Frame rate'), `${video.frameRate}`],
         [i18n('Resize mode'), video.resizeMode],
-        ['groupId', video.groupId],
-        ['deviceId', video.deviceId],
     ];
 
     return html`

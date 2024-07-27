@@ -25,8 +25,6 @@ export function MicInfo(props: MicInfoProps) {
         [i18n('Noise suppression'), getChecked(props.noiseSuppression)],
         [i18n('Sample rate'), props.sampleRate ? `${props.sampleRate} ${i18n('Hz')}` : undefined],
         [i18n('Sample size'), props.sampleSize],
-        ['groupId', props.groupId],
-        ['deviceId', props.deviceId],
     ];
 
     return html`<${List} title="${props.label}" items="${audioParams}"><//>`;
