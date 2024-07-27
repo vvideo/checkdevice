@@ -77,7 +77,7 @@
             "en": "Keyboard",
             "ru": "Клавиатура"
         },
-        "emoji": "⌨",
+        "emoji": "⌨️",
         "id": "keyboard"
     },
     {
@@ -107,11 +107,19 @@
     },
     {
         "menuTitle": {
-            "en": "Network & geo",
-            "ru": "Сеть и гео"
+            "en": "Network",
+            "ru": "Сеть"
+        },
+        "emoji": "🌐",
+        "id": "network"
+    },
+    {
+        "menuTitle": {
+            "en": "Geo",
+            "ru": "Гео"
         },
         "emoji": "📍",
-        "id": "network"
+        "id": "geo"
     },
     {
         "menuTitle": {

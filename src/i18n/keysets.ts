@@ -298,9 +298,13 @@ export const keysets: I18nKeysets = {
         'en': 'Network Information API is not supported.',
         'ru': 'Network Information API не поддерживается.'
     },
-    'Network & geo': {
-        'en': 'Network & geo',
-        'ru': 'Сеть и гео'
+    'Network': {
+        'en': 'Network',
+        'ru': 'Сеть'
+    },
+    'Geo': {
+        'en': 'Geo',
+        'ru': 'Гео'
     },
     'Request geo location': {
         'en': 'Request geo location',
