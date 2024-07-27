@@ -9,6 +9,7 @@
 
 .index-menu__item {
     display: block;
+    position: relative;
     list-style: none;
     float: left;
     background: #111;
@@ -20,7 +21,7 @@
 .index-menu__link {
     display: block;
     font-size: 20px;
-    padding: 20px;
+    padding: 20px 20px 20px 60px;
 }
 
 @media (max-width: 700px) {
@@ -33,14 +34,26 @@
 }
 
 .index-menu__emoji {
+    position: absolute;
     display: inline-block;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
     filter: grayscale(0.5);
     color: white;
-    width: 1em;
+    background: #222;
+    vertical-align: middle;
+    text-align: center;
+    border-radius: 5px;
+    line-height: 40px;
 }
 
 .index-menu .link {
     transition: background-color .4s ease;
+    position: relative;
+    z-index: 1;
 }
 
 .index-menu .link:link,
@@ -50,8 +63,12 @@
     text-decoration: none;
 }
 
-body.hover_yes .index-menu .link:hover {
+body.hover_yes .index-menu__item:hover  {
     background-color: #333;
+}
+
+body.hover_yes .index-menu__item:hover .index-menu__emoji {
+    background-color: #444;
 }
 
 .index-menu__clear {

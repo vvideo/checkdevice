@@ -27,6 +27,6 @@
     text-decoration: none;
 }
 
-.main-menu__item_selected {
+body.hover_yes .main-menu__item:hover, .main-menu__item_selected {
     border-bottom: 2px solid white;
 }
