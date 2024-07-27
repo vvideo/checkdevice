@@ -4,117 +4,135 @@
     <loc>https://checkdevice.online</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/en//</loc>
+    <loc>https://checkdevice.online/en/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/en/video//</loc>
+    <loc>https://checkdevice.online/en/video/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/en/audio//</loc>
+    <loc>https://checkdevice.online/en/audio/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/en/screen//</loc>
+    <loc>https://checkdevice.online/en/screen/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/en/camera//</loc>
+    <loc>https://checkdevice.online/en/camera/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/en/mic//</loc>
+    <loc>https://checkdevice.online/en/mic/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/en/gpu//</loc>
+    <loc>https://checkdevice.online/en/gpu/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/en/mouse//</loc>
+    <loc>https://checkdevice.online/en/mouse/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/en/keyboard//</loc>
+    <loc>https://checkdevice.online/en/keyboard/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/en/keycodes//</loc>
+    <loc>https://checkdevice.online/en/keycodes/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/en/gamepad//</loc>
+    <loc>https://checkdevice.online/en/gamepad/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/en/storage//</loc>
+    <loc>https://checkdevice.online/en/storage/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/en/network//</loc>
+    <loc>https://checkdevice.online/en/network/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/en/geo//</loc>
+    <loc>https://checkdevice.online/en/geo/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/en/platform//</loc>
+    <loc>https://checkdevice.online/en/usb/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/en/battery//</loc>
+    <loc>https://checkdevice.online/en/bluetooth/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/en/fonts//</loc>
+    <loc>https://checkdevice.online/en/sensor/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/en/error404//</loc>
+    <loc>https://checkdevice.online/en/platform/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/en/test-dead-pixels//</loc>
+    <loc>https://checkdevice.online/en/battery/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/ru//</loc>
+    <loc>https://checkdevice.online/en/fonts/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/ru/video//</loc>
+    <loc>https://checkdevice.online/en/error404/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/ru/audio//</loc>
+    <loc>https://checkdevice.online/en/test-dead-pixels/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/ru/screen//</loc>
+    <loc>https://checkdevice.online/ru/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/ru/camera//</loc>
+    <loc>https://checkdevice.online/ru/video/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/ru/mic//</loc>
+    <loc>https://checkdevice.online/ru/audio/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/ru/gpu//</loc>
+    <loc>https://checkdevice.online/ru/screen/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/ru/mouse//</loc>
+    <loc>https://checkdevice.online/ru/camera/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/ru/keyboard//</loc>
+    <loc>https://checkdevice.online/ru/mic/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/ru/keycodes//</loc>
+    <loc>https://checkdevice.online/ru/gpu/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/ru/gamepad//</loc>
+    <loc>https://checkdevice.online/ru/mouse/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/ru/storage//</loc>
+    <loc>https://checkdevice.online/ru/keyboard/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/ru/network//</loc>
+    <loc>https://checkdevice.online/ru/keycodes/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/ru/geo//</loc>
+    <loc>https://checkdevice.online/ru/gamepad/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/ru/platform//</loc>
+    <loc>https://checkdevice.online/ru/storage/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/ru/battery//</loc>
+    <loc>https://checkdevice.online/ru/network/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/ru/fonts//</loc>
+    <loc>https://checkdevice.online/ru/geo/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/ru/error404//</loc>
+    <loc>https://checkdevice.online/ru/usb/</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/ru/test-dead-pixels//</loc>
+    <loc>https://checkdevice.online/ru/bluetooth/</loc>
+  </url>
+  <url>
+    <loc>https://checkdevice.online/ru/sensor/</loc>
+  </url>
+  <url>
+    <loc>https://checkdevice.online/ru/platform/</loc>
+  </url>
+  <url>
+    <loc>https://checkdevice.online/ru/battery/</loc>
+  </url>
+  <url>
+    <loc>https://checkdevice.online/ru/fonts/</loc>
+  </url>
+  <url>
+    <loc>https://checkdevice.online/ru/error404/</loc>
+  </url>
+  <url>
+    <loc>https://checkdevice.online/ru/test-dead-pixels/</loc>
   </url>
 </urlset>
