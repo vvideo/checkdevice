@@ -11,6 +11,7 @@
 
 .main-menu__item {
     display: inline-block;
+    margin-bottom: 7px;
     margin-right: 20px;
     white-space: nowrap;
     list-style-type: none;
