@@ -3,7 +3,7 @@ export function getPagePath(lang, id) {
     const dir = `${lang}/${idPath}`;
 
     return {
-        pagePath: `/${dir}/`,
+        pagePath: `/${dir}`,
         dir,
         filePath: `${dir}/index.html`,
     };
