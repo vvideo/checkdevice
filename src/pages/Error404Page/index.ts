@@ -10,6 +10,6 @@ export function Error404Page() {
             <${PageTitle}>404<//>
 
             <p>${i18n('Page not found.')}</p>
-            <p><${Link} href="/">${i18n('Go to main page')}><//></p>
+            <p><${Link} href="/">${i18n('Go to main page')}<//></p>
         <//>`;
 }
