@@ -18,5 +18,5 @@ const b = block('link');
 export function Link(props: LinkProps) {
     const className = classname(props.class, b({ theme: props.theme }));
 
-    return html`<a class="${className}" href="${props.href}">${props.children}</a>`;
+    return html`<a target="${props.target}" class="${className}" href="${props.href}">${props.children}</a>`;
 }
