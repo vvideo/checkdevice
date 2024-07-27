@@ -641,5 +641,9 @@ export const keysets: I18nKeysets = {
     'Sensors': {
         'en': 'Sensors',
         'ru': 'Сенсоры'
+    },
+    'MIDI': {
+        'en': 'MIDI',
+        'ru': 'MIDI'
     }
 };

@@ -20,6 +20,10 @@ import { VideoPage } from '../pages/VideoPage';
 import { MicPage } from '../pages/MicPage';
 import { NetworkPage } from '../pages/NetworkPage';
 import { I18NLanguage, setI18nLang, i18n as i18nOriginal } from '../i18n/i18n';
+import { SensorPage } from '../pages/SensorPage';
+import { UsbPage } from '../pages/UsbPage';
+import { BluetoothPage } from '../pages/BluetoothPage';
+import { MidiPage } from '../pages/MidiPage';
 
 export const pages: Record<string, any> = {
     audio: AudioPage,
@@ -40,6 +44,10 @@ export const pages: Record<string, any> = {
     mouse: MousePage,
     mic: MicPage,
     network: NetworkPage,
+    midi: MidiPage,
+    sensor: SensorPage,
+    usb: UsbPage,
+    bluetooth: BluetoothPage,
 };
 
 export function buildPage(id: string): string {

@@ -123,6 +123,15 @@
     },
     {
         "menuTitle": {
+            "en": "MIDI",
+            "ru": "MIDI"
+        },
+        "emoji": "🎹",
+        "id": "midi",
+        "hidden": true
+    },
+    {
+        "menuTitle": {
             "en": "USB",
             "ru": "USB"
         },
