@@ -12,11 +12,13 @@
 .main-menu__item {
     display: inline-block;
     margin-right: 20px;
-    cursor: pointer;
-    padding-bottom: 2px;
-    border-bottom: 2px solid #111;
     white-space: nowrap;
     list-style-type: none;
+}
+
+.main-menu__link {
+    padding-bottom: 4px;
+    border-bottom: 2px solid #111;
 }
 
 .main-menu__link:link,
@@ -27,6 +29,6 @@
     text-decoration: none;
 }
 
-body.hover_yes .main-menu__item:hover, .main-menu__item_selected {
+body.hover_yes .main-menu__link:hover, .main-menu__item_selected .main-menu__link {
     border-bottom: 2px solid white;
 }
