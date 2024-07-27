@@ -46,6 +46,9 @@
     <loc>https://checkdevice.online/en/geo/</loc>
   </url>
   <url>
+    <loc>https://checkdevice.online/en/midi/</loc>
+  </url>
+  <url>
     <loc>https://checkdevice.online/en/usb/</loc>
   </url>
   <url>
@@ -110,6 +113,9 @@
   </url>
   <url>
     <loc>https://checkdevice.online/ru/geo/</loc>
+  </url>
+  <url>
+    <loc>https://checkdevice.online/ru/midi/</loc>
   </url>
   <url>
     <loc>https://checkdevice.online/ru/usb/</loc>
