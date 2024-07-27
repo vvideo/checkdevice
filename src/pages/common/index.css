@@ -11,3 +11,12 @@ html, body {
 input, button, textarea, select {
     font: inherit;
 }
+
+h2 {
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 1.6em;
+
+    margin: 0;
+    padding: 0 0 .5em 0;
+}
