@@ -3,8 +3,9 @@
     "version": "1.0.0",
     "description": "Check device in your browser",
     "scripts": {
-        "clean": "del ./dist",
-        "build": "npm run clean; npm run build:menu && npm run build:client && npm run build:ssr && npm run build:pages",
+        "clean": "del ./dist; del ./ru; del ./en",
+        "build": "npm run clean; npm run build:menu && npm run build:client && npm run build:ssr && npm run build:pages && npm run build:sitemap",
+        "build:sitemap": "node ./tools/updateSitemap.mjs",
         "build:menu": "npm run menu",
         "build:client": "rollup -c ./rollup.config.mjs",
         "build:ssr": "rollup -c ./rollup.config.ssr.mjs",

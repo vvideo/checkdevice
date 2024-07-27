@@ -1,12 +1,12 @@
-import fs from 'fs';
+import fs, { existsSync, mkdirSync } from 'fs';
 import beautify from 'simply-beautiful';
 
 import { createPage } from './createPage.mjs';
 import { updateTemplate } from './updateTemplate.mjs';
-import { createSitemap } from './createSitemap.mjs';
 import { loadJson } from './utils/loadJson.mjs';
-import { buildPage, setLang } from '../dist/ssr.mjs';
+import { buildPage, setLang, i18n } from '../dist/ssr.mjs';
 import { langs } from './langs.mjs';
+import { getPagePath } from './getPagePath.mjs';
 
 const pages = loadJson('./src/pages/pages.json');
 
@@ -18,7 +18,7 @@ langs.forEach(lang => {
         let header = (item.header ? item.header[lang] : item.menuTitle[lang]);
 
         if (item.id !== 'index') {
-            header += ' / Check device online';
+            header += ' / ' + i18n('Check device online');
         }
 
         let html = createPage({
@@ -28,7 +28,16 @@ langs.forEach(lang => {
             content: beautify.html(buildPage(id)),
         });
 
-        savePage(`${lang}/${item.id}.html`, html);
+        if (!existsSync(lang)) {
+            mkdirSync(lang);
+        }
+
+        const dir = getPagePath(lang, id).dir;
+        if (!existsSync(dir)) {
+            mkdirSync(dir);
+        }
+
+        savePage(getPagePath(lang, id).filePath, html);
 
         if (lang === 'en' && (id === 'index' || id === 'error404')) {
             html = createPage({
@@ -42,12 +51,6 @@ langs.forEach(lang => {
         }
     });
 });
-
-fs.writeFileSync(
-    'sitemap.xml',
-    createSitemap(pages),
-    'utf-8'
-);
 
 function savePage(file, html) {
     fs.writeFileSync(file, html, 'utf-8');

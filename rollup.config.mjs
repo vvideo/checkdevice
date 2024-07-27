@@ -14,7 +14,7 @@ const createConfig = name => ({
     input: `src/entries/${name}.ts`,
     output: [
         {
-            file: `dist/${name}.js`,
+            file: `static/${name}.js`,
             format: 'umd',
         },
 ]   ,
@@ -23,7 +23,7 @@ const createConfig = name => ({
         nodeResolve(),
         postcss({
             config: true,
-            extract: path.resolve(`dist/${name}.css`),
+            extract: path.resolve(`static/${name}.css`),
             plugins: withMinify ? [
                 cssnano,
             ] : [],

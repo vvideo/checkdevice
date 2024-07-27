@@ -6,8 +6,8 @@ import { isSsr } from '../../utils/isSsr';
 import { getPagePath } from '../../utils/getPagePath';
 
 export function getIdFromLocation() {
-    const id = window.location.pathname.split(/[?./]/)[1];
-    return id ? id : 'index';
+    const id = window.location.pathname.split(/[?./]/)[2];
+    return id;
 }
 
 export function Menu() {
