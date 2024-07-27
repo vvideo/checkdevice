@@ -1,57 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://checkdevice.online/</loc>
+    <loc>https://checkdevice.online</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/video.html</loc>
+    <loc>https://checkdevice.online/en//</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/audio.html</loc>
+    <loc>https://checkdevice.online/en/video//</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/screen.html</loc>
+    <loc>https://checkdevice.online/en/audio//</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/camera.html</loc>
+    <loc>https://checkdevice.online/en/screen//</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/mic.html</loc>
+    <loc>https://checkdevice.online/en/camera//</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/gpu.html</loc>
+    <loc>https://checkdevice.online/en/mic//</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/mouse.html</loc>
+    <loc>https://checkdevice.online/en/gpu//</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/keyboard.html</loc>
+    <loc>https://checkdevice.online/en/mouse//</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/keycodes.html</loc>
+    <loc>https://checkdevice.online/en/keyboard//</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/gamepad.html</loc>
+    <loc>https://checkdevice.online/en/keycodes//</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/storage.html</loc>
+    <loc>https://checkdevice.online/en/gamepad//</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/network.html</loc>
+    <loc>https://checkdevice.online/en/storage//</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/platform.html</loc>
+    <loc>https://checkdevice.online/en/network//</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/battery.html</loc>
+    <loc>https://checkdevice.online/en/platform//</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/fonts.html</loc>
+    <loc>https://checkdevice.online/en/battery//</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/error404.html</loc>
+    <loc>https://checkdevice.online/en/fonts//</loc>
   </url>
   <url>
-    <loc>https://checkdevice.online/test-dead-pixels.html</loc>
+    <loc>https://checkdevice.online/en/error404//</loc>
+  </url>
+  <url>
+    <loc>https://checkdevice.online/en/test-dead-pixels//</loc>
+  </url>
+  <url>
+    <loc>https://checkdevice.online/ru//</loc>
+  </url>
+  <url>
+    <loc>https://checkdevice.online/ru/video//</loc>
+  </url>
+  <url>
+    <loc>https://checkdevice.online/ru/audio//</loc>
+  </url>
+  <url>
+    <loc>https://checkdevice.online/ru/screen//</loc>
+  </url>
+  <url>
+    <loc>https://checkdevice.online/ru/camera//</loc>
+  </url>
+  <url>
+    <loc>https://checkdevice.online/ru/mic//</loc>
+  </url>
+  <url>
+    <loc>https://checkdevice.online/ru/gpu//</loc>
+  </url>
+  <url>
+    <loc>https://checkdevice.online/ru/mouse//</loc>
+  </url>
+  <url>
+    <loc>https://checkdevice.online/ru/keyboard//</loc>
+  </url>
+  <url>
+    <loc>https://checkdevice.online/ru/keycodes//</loc>
+  </url>
+  <url>
+    <loc>https://checkdevice.online/ru/gamepad//</loc>
+  </url>
+  <url>
+    <loc>https://checkdevice.online/ru/storage//</loc>
+  </url>
+  <url>
+    <loc>https://checkdevice.online/ru/network//</loc>
+  </url>
+  <url>
+    <loc>https://checkdevice.online/ru/platform//</loc>
+  </url>
+  <url>
+    <loc>https://checkdevice.online/ru/battery//</loc>
+  </url>
+  <url>
+    <loc>https://checkdevice.online/ru/fonts//</loc>
+  </url>
+  <url>
+    <loc>https://checkdevice.online/ru/error404//</loc>
+  </url>
+  <url>
+    <loc>https://checkdevice.online/ru/test-dead-pixels//</loc>
   </url>
 </urlset>

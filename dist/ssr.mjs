@@ -1559,7 +1559,7 @@ var i18nLang;
 function getI18nLangs() {
     return __spreadArray([], langs, true);
 }
-function i18n(id) {
+function i18n$1(id) {
     var key = i18nKeysets[id];
     if (!key) {
         console.error("Not found key \"".concat(id, "\" in getText()."));
@@ -1589,7 +1589,7 @@ function getIsTypeSupportedProps(isTypeSupported) {
         value: String(isTypeSupported),
         color: isTypeSupported ? 'green' : 'red',
     } : {
-        value: m$1(templateObject_1$1I || (templateObject_1$1I = __makeTemplateObject(["<b>", "</b>"], ["<b>", "</b>"])), i18n('unsupported')),
+        value: m$1(templateObject_1$1I || (templateObject_1$1I = __makeTemplateObject(["<b>", "</b>"], ["<b>", "</b>"])), i18n$1('unsupported')),
         color: 'red',
     };
 }
@@ -1658,7 +1658,7 @@ function AudioCodecs() {
             }));
         }
     });
-    return m$1(templateObject_5$8 || (templateObject_5$8 = __makeTemplateObject(["<", ">\n        <", " name=\"", "\">\n            ", "\n        <//>\n        ", "\n    <//>"], ["<", ">\n        <", " name=\"", "\">\n            ", "\n        <//>\n        ", "\n    <//>"])), Columns, Column, i18n('Supported'), supported.length ? supported : i18n('No supported audio codecs.'), unsupported.length ? m$1(templateObject_4$f || (templateObject_4$f = __makeTemplateObject(["<", " name=\"", "\">", "<//>"], ["<", " name=\"", "\">", "<//>"])), Column, i18n('Unsupported'), unsupported) : '');
+    return m$1(templateObject_5$8 || (templateObject_5$8 = __makeTemplateObject(["<", ">\n        <", " name=\"", "\">\n            ", "\n        <//>\n        ", "\n    <//>"], ["<", ">\n        <", " name=\"", "\">\n            ", "\n        <//>\n        ", "\n    <//>"])), Columns, Column, i18n$1('Supported'), supported.length ? supported : i18n$1('No supported audio codecs.'), unsupported.length ? m$1(templateObject_4$f || (templateObject_4$f = __makeTemplateObject(["<", " name=\"", "\">", "<//>"], ["<", " name=\"", "\">", "<//>"])), Column, i18n$1('Unsupported'), unsupported) : '');
 }
 var templateObject_1$1H, templateObject_2$N, templateObject_3$p, templateObject_4$f, templateObject_5$8;
 
@@ -1825,7 +1825,8 @@ function hit(counterId, hitParams, params) {
 }
 
 function getLang() {
-    var lang = getLangFromUrl() || getLangFromNavigator();
+    var _a;
+    var lang = ((_a = window.appData) === null || _a === void 0 ? void 0 : _a.lang) || getLangFromUrl() || getLangFromNavigator();
     if (lang !== 'en' && lang !== 'ru') {
         lang = 'en';
     }
@@ -1867,14 +1868,15 @@ function addHoverOnBody() {
     document.addEventListener('mousemove', handleHover);
 }
 
-if (isSsr) {
-    setI18nLang('en');
-}
-else {
+var _a;
+if (!isSsr) {
     hit('95998062'); // 97747983
-    setI18nLang(getLang());
+    var lang = getLang();
+    setI18nLang(lang);
     withInstallApp();
     addHoverOnBody();
+    // ally
+    (_a = document.documentElement) === null || _a === void 0 ? void 0 : _a.setAttribute('lang', lang);
 }
 
 function classname() {
@@ -1906,106 +1908,8 @@ function LangSwitcherItem(props) {
 }
 var templateObject_1$1D;
 
-var decodeValue = function (value) {
-    try {
-        return decodeURIComponent(value);
-    }
-    catch (e) {
-        return value;
-    }
-};
-// parse only VALID search or hash part of URL
-function parseQueryString(qs) {
-    var result = {};
-    var qsBody = qs.replace(/^[?#]+/, '').replace(/#.*$/, '');
-    var params = qsBody.split('&');
-    for (var i = 0; i < params.length; i += 1) {
-        var index = params[i].indexOf('=');
-        var key = void 0;
-        var value = void 0;
-        if (index === -1) {
-            key = decodeValue(params[i]);
-            value = '';
-        }
-        else {
-            key = decodeValue(params[i].slice(0, index));
-            value = params[i].slice(index + 1);
-        }
-        if (key) {
-            var isValueArray = Boolean(/(\[\])$/.exec(key));
-            key = key.replace(/\[\]$/, '');
-            if (!isValueArray) {
-                result[key] = decodeValue(value);
-            }
-            else if (result[key] === undefined) {
-                result[key] = [decodeValue(value)];
-            }
-            else {
-                result[key] = [].concat(result[key] || [], decodeValue(value));
-            }
-        }
-    }
-    return result;
-}
-
-var PARSE_LINK_ELEMENT;
-function parseUrl(url) {
-    if (!PARSE_LINK_ELEMENT) {
-        PARSE_LINK_ELEMENT = document.createElement('a');
-    }
-    PARSE_LINK_ELEMENT.href = url;
-    var pathname = PARSE_LINK_ELEMENT.pathname || '';
-    if (pathname.charAt(0) !== '/') {
-        pathname = "/".concat(pathname);
-    }
-    var searchAndHash = (PARSE_LINK_ELEMENT.search || '') + (PARSE_LINK_ELEMENT.hash || '');
-    var pos = url.lastIndexOf(searchAndHash);
-    var originalPath = pos === -1 ? url : url.slice(0, pos);
-    return {
-        originalPath: originalPath,
-        href: PARSE_LINK_ELEMENT.href,
-        protocol: PARSE_LINK_ELEMENT.protocol,
-        host: PARSE_LINK_ELEMENT.host,
-        hostname: PARSE_LINK_ELEMENT.hostname,
-        port: PARSE_LINK_ELEMENT.port,
-        pathname: pathname,
-        search: PARSE_LINK_ELEMENT.search,
-        hash: PARSE_LINK_ELEMENT.hash,
-    };
-}
-
-function urlFromUrlObject(urlObject) {
-    var host = urlObject.port === '443' || urlObject.port === '80' ? urlObject.hostname : urlObject.host;
-    return "".concat(urlObject.protocol, "//").concat(host).concat(urlObject.pathname).concat(urlObject.search).concat(urlObject.hash);
-}
-
-function addParamToUrl(url, key, value) {
-    if (value === undefined) {
-        return url;
-    }
-    var urlObj = parseUrl(url);
-    var queryObj = parseQueryString(urlObj.search);
-    queryObj[key] = value;
-    return urlFromUrlObject(__assign(__assign({}, urlObj), { search: formatQueryString(queryObj) }));
-}
-var createQueryArrayParam = function (key, arr) {
-    return arr.map(function (el) { return "".concat(key, "[]=").concat(encodeURIComponent(el)); }).join('&');
-};
-function formatQueryString(queryObj) {
-    var result = [];
-    Object.keys(queryObj).forEach(function (key) {
-        var value = queryObj[key];
-        if (Array.isArray(value)) {
-            result.push(createQueryArrayParam(key, value));
-        }
-        else if (value !== undefined) {
-            result.push("".concat(key, "=").concat(encodeURIComponent(value)));
-        }
-    });
-    if (!result.length) {
-        return '';
-    }
-    return "?".concat(result.join('&'));
+function getPagePath(id, lang) {
+    return "/".concat(lang || getI18nLang(), "/").concat(id, "/");
 }
 
 var b$11 = block('lang-switcher');
@@ -2015,7 +1919,7 @@ function LangSwitcher() {
     var langs = getI18nLangs();
     var handleClickItem = q(function (value) {
         setVisible(false);
-        window.location.href = addParamToUrl(window.location.href, 'lang', value);
+        window.location.href = getPagePath(window.appData.pageId, value);
     }, [setVisible]);
     var handleClick = q(function () {
         setVisible(true);
@@ -2027,14 +1931,14 @@ var templateObject_1$1C, templateObject_2$M;
 
 var b$10 = block('footer');
 function Footer() {
-    return m$1(templateObject_1$1B || (templateObject_1$1B = __makeTemplateObject(["<footer class=\"", "\">\n        <div class=\"", "\"><", " target=\"_blank\" href=\"https://github.com/vvideo/caniwatchvideo/issues/new\">", "<//></div>\n        <div class=\"", "\"><", " //></div>\n        <div class=\"", "\">\u00A9 Vvideo</div>\n    </footer>"], ["<footer class=\"", "\">\n        <div class=\"", "\"><", " target=\"_blank\" href=\"https://github.com/vvideo/caniwatchvideo/issues/new\">", "<//></div>\n        <div class=\"", "\"><", " //></div>\n        <div class=\"", "\">\u00A9 Vvideo</div>\n    </footer>"])), b$10(), b$10('item', { report: true }), Link, i18n('Report a bug'), b$10('item'), LangSwitcher, b$10('item'));
+    return m$1(templateObject_1$1B || (templateObject_1$1B = __makeTemplateObject(["<footer class=\"", "\">\n        <div class=\"", "\"><", " target=\"_blank\" href=\"https://github.com/vvideo/caniwatchvideo/issues/new\">", "<//></div>\n        <div class=\"", "\"><", " //></div>\n        <div class=\"", "\">\u00A9 Vvideo</div>\n    </footer>"], ["<footer class=\"", "\">\n        <div class=\"", "\"><", " target=\"_blank\" href=\"https://github.com/vvideo/caniwatchvideo/issues/new\">", "<//></div>\n        <div class=\"", "\"><", " //></div>\n        <div class=\"", "\">\u00A9 Vvideo</div>\n    </footer>"])), b$10(), b$10('item', { report: true }), Link, i18n$1('Report a bug'), b$10('item'), LangSwitcher, b$10('item'));
 }
 var templateObject_1$1B;
 
 var b$$ = block('main-menu');
 function MainMenu(props) {
     return m$1(templateObject_2$L || (templateObject_2$L = __makeTemplateObject(["\n        <nav class=\"", "\">\n            <ul class=\"", "\">\n            ", "\n            </ul>\n        </nav>\n    "], ["\n        <nav class=\"", "\">\n            <ul class=\"", "\">\n            ", "\n            </ul>\n        </nav>\n    "])), b$$(), b$$('list'), props.items.filter(function (item) { return !item.hidden; }).map(function (item) {
-        return m$1(templateObject_1$1A || (templateObject_1$1A = __makeTemplateObject(["<li class=\"", "\" key=\"", "\"><a class=\"", "\" href=\"", "\">", "</a></li>"], ["<li class=\"", "\" key=\"", "\"><a class=\"", "\" href=\"", "\">", "</a></li>"])), b$$('item', { selected: item.selected }), item.id, b$$('link'), item.url, item.title);
+        return m$1(templateObject_1$1A || (templateObject_1$1A = __makeTemplateObject(["<li class=\"", "\" key=\"", "\"><a class=\"", "\" href=\"", "\">", "</a></li>"], ["<li class=\"", "\" key=\"", "\"><a class=\"", "\" href=\"", "\">", "</a></li>"])), b$$('item', { selected: item.selected }), item.id, b$$('link'), getPagePath(item.id), item.title);
     }));
 }
 var templateObject_1$1A, templateObject_2$L;
@@ -2051,21 +1955,19 @@ var pages$1 = [
             "ru": ""
         },
         "id": "index",
-        "url": "/",
         "hidden": true
     },
     {
         "header": {
-            "en": "Can I watch video?",
-            "ru": "Могу ли я смотреть видео?"
+            "en": "Video",
+            "ru": "Видео"
         },
         "emoji": "⏯",
         "menuTitle": {
             "en": "Video",
             "ru": "Видео"
         },
-        "id": "video",
-        "url": "/video.html"
+        "id": "video"
     },
     {
         "menuTitle": {
@@ -2073,8 +1975,7 @@ var pages$1 = [
             "ru": "Аудио"
         },
         "emoji": "🔊",
-        "id": "audio",
-        "url": "/audio.html"
+        "id": "audio"
     },
     {
         "menuTitle": {
@@ -2082,8 +1983,7 @@ var pages$1 = [
             "ru": "Экран"
         },
         "emoji": "🖥️",
-        "id": "screen",
-        "url": "/screen.html"
+        "id": "screen"
     },
     {
         "menuTitle": {
@@ -2091,8 +1991,7 @@ var pages$1 = [
             "ru": "Веб-камера"
         },
         "emoji": "📸",
-        "id": "camera",
-        "url": "/camera.html"
+        "id": "camera"
     },
     {
         "menuTitle": {
@@ -2100,8 +1999,7 @@ var pages$1 = [
             "ru": "Микрофон"
         },
         "emoji": "🎙️",
-        "id": "mic",
-        "url": "/mic.html"
+        "id": "mic"
     },
     {
         "menuTitle": {
@@ -2109,8 +2007,7 @@ var pages$1 = [
             "ru": "GPU"
         },
         "emoji": "⚙️",
-        "id": "gpu",
-        "url": "/gpu.html"
+        "id": "gpu"
     },
     {
         "menuTitle": {
@@ -2118,8 +2015,7 @@ var pages$1 = [
             "ru": "Мышь"
         },
         "emoji": "🖱",
-        "id": "mouse",
-        "url": "/mouse.html"
+        "id": "mouse"
     },
     {
         "menuTitle": {
@@ -2127,8 +2023,7 @@ var pages$1 = [
             "ru": "Клавиатура"
         },
         "emoji": "⌨",
-        "id": "keyboard",
-        "url": "/keyboard.html"
+        "id": "keyboard"
     },
     {
         "menuTitle": {
@@ -2137,7 +2032,6 @@ var pages$1 = [
         },
         "emoji": "",
         "id": "keycodes",
-        "url": "/keycodes.html",
         "hidden": true
     },
     {
@@ -2146,8 +2040,7 @@ var pages$1 = [
             "ru": "Джойстик"
         },
         "emoji": "🕹️",
-        "id": "gamepad",
-        "url": "/gamepad.html"
+        "id": "gamepad"
     },
     {
         "menuTitle": {
@@ -2155,8 +2048,7 @@ var pages$1 = [
             "ru": "Хранилище"
         },
         "emoji": "💽",
-        "id": "storage",
-        "url": "/storage.html"
+        "id": "storage"
     },
     {
         "menuTitle": {
@@ -2164,8 +2056,7 @@ var pages$1 = [
             "ru": "Сеть и гео"
         },
         "emoji": "📍",
-        "id": "network",
-        "url": "/network.html"
+        "id": "network"
     },
     {
         "menuTitle": {
@@ -2173,8 +2064,7 @@ var pages$1 = [
             "ru": "Платформа"
         },
         "emoji": "💻",
-        "id": "platform",
-        "url": "/platform.html"
+        "id": "platform"
     },
     {
         "menuTitle": {
@@ -2182,8 +2072,7 @@ var pages$1 = [
             "ru": "Батарея"
         },
         "emoji": "🔋",
-        "id": "battery",
-        "url": "/battery.html"
+        "id": "battery"
     },
     {
         "menuTitle": {
@@ -2191,8 +2080,7 @@ var pages$1 = [
             "ru": "Шрифты"
         },
         "emoji": "❝",
-        "id": "fonts",
-        "url": "/fonts.html"
+        "id": "fonts"
     },
     {
         "menuTitle": {
@@ -2201,7 +2089,6 @@ var pages$1 = [
         },
         "emoji": "",
         "id": "error404",
-        "url": "/error404.html",
         "hidden": true
     },
     {
@@ -2211,38 +2098,27 @@ var pages$1 = [
         },
         "emoji": "",
         "id": "test-dead-pixels",
-        "url": "/test-dead-pixels.html",
         "hidden": true
     }
 ];
 
 function getIdFromLocation() {
-    var id = window.location.pathname.split(/[?./]/)[1];
-    return id ? id : 'index';
+    var id = window.location.pathname.split(/[?./]/)[2];
+    return id;
 }
 function Menu() {
     var id = isSsr ? '' : getIdFromLocation();
     var items = pages$1.map(function (item) {
         var selected = item.id === id;
-        if (selected) {
-            document.title = i18nWithKeyset(item.header || item.menuTitle) + ' / ' + i18n('Check device online');
-        }
-        return __assign(__assign({}, item), { url: item.url + (isSsr ? '' : '?lang=' + getI18nLang()), title: i18nWithKeyset(item.menuTitle), selected: selected });
+        return __assign(__assign({}, item), { url: getPagePath(item.id), title: i18nWithKeyset(item.menuTitle), selected: selected });
     });
     return m$1(templateObject_1$1z || (templateObject_1$1z = __makeTemplateObject(["<", " items=\"", "\"><//>"], ["<", " items=\"", "\"><//>"])), MainMenu, items);
 }
 var templateObject_1$1z;
 
-function getPagePath(id) {
-    var langPostfix = isSsr ? '' : "?lang=".concat(getI18nLang());
-    return id === 'index' ?
-        "/".concat(langPostfix) :
-        "".concat(id, ".html").concat(langPostfix);
-}
-
 var b$_ = block('header');
 function Header() {
-    return m$1(templateObject_1$1y || (templateObject_1$1y = __makeTemplateObject(["\n        <header class=\"", "\">\n            <", " theme=\"white\" href=\"", "\"><span class=\"", "\"></span>", "<//>\n        </header>\n    "], ["\n        <header class=\"", "\">\n            <", " theme=\"white\" href=\"", "\"><span class=\"", "\"></span>", "<//>\n        </header>\n    "])), b$_(), Link, getPagePath('index'), b$_('logo'), i18n('Check device online'));
+    return m$1(templateObject_1$1y || (templateObject_1$1y = __makeTemplateObject(["\n        <header class=\"", "\">\n            <", " theme=\"white\" href=\"", "\"><span class=\"", "\"></span>", "<//>\n        </header>\n    "], ["\n        <header class=\"", "\">\n            <", " theme=\"white\" href=\"", "\"><span class=\"", "\"></span>", "<//>\n        </header>\n    "])), b$_(), Link, getPagePath('index'), b$_('logo'), i18n$1('Check device online'));
 }
 var templateObject_1$1y;
 
@@ -2267,15 +2143,15 @@ function Result(props) {
     var type = '';
     if (!props.text) {
         if (props.value === true) {
-            text = i18n('Yes');
+            text = i18n$1('Yes');
             type = 'yes';
         }
         if (props.value === false) {
-            text = i18n('No');
+            text = i18n$1('No');
             type = 'no';
         }
         if (props.value === undefined) {
-            text = i18n('Warning');
+            text = i18n$1('Warning');
             type = 'warning';
         }
     }
@@ -2299,8 +2175,8 @@ function QuestionSurroundSound() {
         isDts.any ||
         isDtsHd.any ||
         isDtsX.any;
-    var head = m$1(templateObject_1$1u || (templateObject_1$1u = __makeTemplateObject(["", "\u00A0<", " value=\"", "\"><//>"], ["", "\\u00a0<", " value=\"", "\"><//>"])), i18n('Can I listen to surround sound on online services?'), Result, mainAnswer);
-    return m$1(templateObject_2$I || (templateObject_2$I = __makeTemplateObject(["\n        <div class=\"", "\">\n            <", " head=\"", "\">\n                ", "\u00A0<", " value=\"", "\"><//>\n                <ul>\n                    <li>\n                        <", "\n                            name=\"Dolby Digital\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\u00A0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"Dolby Digital Plus\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\u00A0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"Dolby Atmos\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\">\n                            <//>\u00A0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"DTS\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\u00A0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"DTS:HD\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\u00A0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"DTS:X\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\u00A0<", " value=\"", "\"><//>\n                    </li>\n                </ul>\n            <//>\n        </div>\n    "], ["\n        <div class=\"", "\">\n            <", " head=\"", "\">\n                ", "\\u00a0<", " value=\"", "\"><//>\n                <ul>\n                    <li>\n                        <", "\n                            name=\"Dolby Digital\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\\u00a0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"Dolby Digital Plus\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\\u00a0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"Dolby Atmos\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\">\n                            <//>\\u00a0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"DTS\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\\u00a0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"DTS:HD\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\\u00a0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"DTS:X\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\\u00a0<", " value=\"", "\"><//>\n                    </li>\n                </ul>\n            <//>\n        </div>\n    "])), b$X(), ActiveQuestion, head, i18n('Supports one of the audio codecs?'), Result, mainAnswer, Codec, !isDolbyDigital.any, CodecDetails(isDolbyDigital), Result, isDolbyDigital.any, Codec, !isDolbyDigitalPlus.any, CodecDetails(isDolbyDigitalPlus), Result, isDolbyDigitalPlus.any, Codec, !isDolbyAtmos, Result, isDolbyAtmos, Codec, !isDts.any, CodecDetails(isDts), Result, isDts.any, Codec, !isDtsHd.any, CodecDetails(isDtsHd), Result, isDtsHd.any, Codec, !isDtsX.any, CodecDetails(isDtsX), Result, isDtsX.any);
+    var head = m$1(templateObject_1$1u || (templateObject_1$1u = __makeTemplateObject(["", "\u00A0<", " value=\"", "\"><//>"], ["", "\\u00a0<", " value=\"", "\"><//>"])), i18n$1('Can I listen to surround sound on online services?'), Result, mainAnswer);
+    return m$1(templateObject_2$I || (templateObject_2$I = __makeTemplateObject(["\n        <div class=\"", "\">\n            <", " head=\"", "\">\n                ", "\u00A0<", " value=\"", "\"><//>\n                <ul>\n                    <li>\n                        <", "\n                            name=\"Dolby Digital\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\u00A0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"Dolby Digital Plus\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\u00A0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"Dolby Atmos\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\">\n                            <//>\u00A0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"DTS\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\u00A0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"DTS:HD\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\u00A0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"DTS:X\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\u00A0<", " value=\"", "\"><//>\n                    </li>\n                </ul>\n            <//>\n        </div>\n    "], ["\n        <div class=\"", "\">\n            <", " head=\"", "\">\n                ", "\\u00a0<", " value=\"", "\"><//>\n                <ul>\n                    <li>\n                        <", "\n                            name=\"Dolby Digital\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\\u00a0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"Dolby Digital Plus\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\\u00a0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"Dolby Atmos\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\">\n                            <//>\\u00a0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"DTS\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\\u00a0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"DTS:HD\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\\u00a0<", " value=\"", "\"><//>\n                    </li>\n                    <li>\n                        <", "\n                            name=\"DTS:X\"\n                            color=\"black\"\n                            border=\"white\"\n                            disabled=\"", "\"\n                            tooltip=\"", "\">\n                            <//>\\u00a0<", " value=\"", "\"><//>\n                    </li>\n                </ul>\n            <//>\n        </div>\n    "])), b$X(), ActiveQuestion, head, i18n$1('Supports one of the audio codecs?'), Result, mainAnswer, Codec, !isDolbyDigital.any, CodecDetails(isDolbyDigital), Result, isDolbyDigital.any, Codec, !isDolbyDigitalPlus.any, CodecDetails(isDolbyDigitalPlus), Result, isDolbyDigitalPlus.any, Codec, !isDolbyAtmos, Result, isDolbyAtmos, Codec, !isDts.any, CodecDetails(isDts), Result, isDts.any, Codec, !isDtsHd.any, CodecDetails(isDtsHd), Result, isDtsHd.any, Codec, !isDtsX.any, CodecDetails(isDtsX), Result, isDtsX.any);
 }
 var templateObject_1$1u, templateObject_2$I;
 
@@ -2333,13 +2209,13 @@ function Vibration() {
     if (!isSsr && !isSupported) {
         return '';
     }
-    return m$1(templateObject_1$1r || (templateObject_1$1r = __makeTemplateObject(["<div class=\"", "\">\n        <", " disabled=\"", "\" onClick=", ">", "<//>\n\n        <div class=\"", "\">\n            <", " theme=\"gray\">", "<//>\n        </div>\n    </div>"], ["<div class=\"", "\">\n        <", " disabled=\"", "\" onClick=", ">", "<//>\n\n        <div class=\"", "\">\n            <", " theme=\"gray\">", "<//>\n        </div>\n    </div>"])), b$U(), Button, !isSupported, onClick, i18n('Vibrate'), b$U('details'), WarningMessage, i18n('Support is mainly on mobile devices.'));
+    return m$1(templateObject_1$1r || (templateObject_1$1r = __makeTemplateObject(["<div class=\"", "\">\n        <", " disabled=\"", "\" onClick=", ">", "<//>\n\n        <div class=\"", "\">\n            <", " theme=\"gray\">", "<//>\n        </div>\n    </div>"], ["<div class=\"", "\">\n        <", " disabled=\"", "\" onClick=", ">", "<//>\n\n        <div class=\"", "\">\n            <", " theme=\"gray\">", "<//>\n        </div>\n    </div>"])), b$U(), Button, !isSupported, onClick, i18n$1('Vibrate'), b$U('details'), WarningMessage, i18n$1('Support is mainly on mobile devices.'));
 }
 var templateObject_1$1r;
 
 var b$T = block('audio-page');
 function AudioPage() {
-    return m$1(templateObject_1$1q || (templateObject_1$1q = __makeTemplateObject(["\n        <", ">\n            <", "}>\n                ", "\n            <//>\n\n            <", "><//>\n\n            <div class=\"", "\">\n                <", "><//>\n            </div>\n\n            <", " name=\"", "\">\n                <", "><//>\n            <//>\n\n            <", " name=\"", "\">\n                <", "><//>\n            <//>\n        <//>"], ["\n        <", ">\n            <", "}>\n                ", "\n            <//>\n\n            <", "><//>\n\n            <div class=\"", "\">\n                <", "><//>\n            </div>\n\n            <", " name=\"", "\">\n                <", "><//>\n            <//>\n\n            <", " name=\"", "\">\n                <", "><//>\n            <//>\n        <//>"])), Page, PageTitle, i18n('Audio'), QuestionSurroundSound, b$T('badge'), AudioBadge, Row, i18n('Audio Codecs'), AudioCodecs, Row, i18n('Check vibration'), Vibration);
+    return m$1(templateObject_1$1q || (templateObject_1$1q = __makeTemplateObject(["\n        <", ">\n            <", "}>\n                ", "\n            <//>\n\n            <", "><//>\n\n            <div class=\"", "\">\n                <", "><//>\n            </div>\n\n            <", " name=\"", "\">\n                <", "><//>\n            <//>\n\n            <", " name=\"", "\">\n                <", "><//>\n            <//>\n        <//>"], ["\n        <", ">\n            <", "}>\n                ", "\n            <//>\n\n            <", "><//>\n\n            <div class=\"", "\">\n                <", "><//>\n            </div>\n\n            <", " name=\"", "\">\n                <", "><//>\n            <//>\n\n            <", " name=\"", "\">\n                <", "><//>\n            <//>\n        <//>"])), Page, PageTitle, i18n$1('Audio'), QuestionSurroundSound, b$T('badge'), AudioBadge, Row, i18n$1('Audio Codecs'), AudioCodecs, Row, i18n$1('Check vibration'), Vibration);
 }
 var templateObject_1$1q;
 
@@ -2394,8 +2270,8 @@ function formatTime(secs) {
     var h = Math.floor(secs / 60 / 60);
     var m = Math.floor((secs - h * 60 * 60) / 60);
     return [
-        "".concat(h ? "".concat(h, " ").concat(i18n('hr.')) : ''),
-        "".concat(!h && !m ? '' : "".concat(m, " ").concat(i18n('min.')))
+        "".concat(h ? "".concat(h, " ").concat(i18n$1('hr.')) : ''),
+        "".concat(!h && !m ? '' : "".concat(m, " ").concat(i18n$1('min.')))
     ].filter(Boolean).join(' ');
 }
 
@@ -2405,7 +2281,7 @@ function BatteryStatus() {
         return m$1(templateObject_1$1m || (templateObject_1$1m = __makeTemplateObject(["<", " //>"], ["<", " //>"])), Spinner);
     }
     if (!navigator.getBattery) {
-        return m$1(templateObject_2$F || (templateObject_2$F = __makeTemplateObject(["<", ">", "<//>"], ["<", ">", "<//>"])), WarningMessage, i18n('Battery Status API is not supported.'));
+        return m$1(templateObject_2$F || (templateObject_2$F = __makeTemplateObject(["<", ">", "<//>"], ["<", ">", "<//>"])), WarningMessage, i18n$1('Battery Status API is not supported.'));
     }
     var _a = h(), batteryManager = _a[0], setBatteryManager = _a[1];
     var forceUpdate = useForceUpdate();
@@ -2424,15 +2300,15 @@ function BatteryStatus() {
         return function () { return clearInterval(interval); };
     }, []);
     var items = batteryManager ? [
-        [i18n('Charging time'), isFinite(batteryManager === null || batteryManager === void 0 ? void 0 : batteryManager.chargingTime) ? formatTime(batteryManager === null || batteryManager === void 0 ? void 0 : batteryManager.chargingTime) : '∞'],
-        [i18n('Discharging time'), isFinite(batteryManager === null || batteryManager === void 0 ? void 0 : batteryManager.dischargingTime) ? formatTime(batteryManager === null || batteryManager === void 0 ? void 0 : batteryManager.dischargingTime) : '∞']
+        [i18n$1('Charging time'), isFinite(batteryManager === null || batteryManager === void 0 ? void 0 : batteryManager.chargingTime) ? formatTime(batteryManager === null || batteryManager === void 0 ? void 0 : batteryManager.chargingTime) : '∞'],
+        [i18n$1('Discharging time'), isFinite(batteryManager === null || batteryManager === void 0 ? void 0 : batteryManager.dischargingTime) ? formatTime(batteryManager === null || batteryManager === void 0 ? void 0 : batteryManager.dischargingTime) : '∞']
     ] : [];
     return batteryManager ? m$1(templateObject_3$n || (templateObject_3$n = __makeTemplateObject(["\n        <div class=\"", "\">\n            <", " level=\"", "\" charging=\"", "\"><//>\n            <", " class=\"", "\" items=\"", "\"><//>\n        </div>\n    "], ["\n        <div class=\"", "\">\n            <", " level=\"", "\" charging=\"", "\"><//>\n            <", " class=\"", "\" items=\"", "\"><//>\n        </div>\n    "])), b$P(), BatteryBadge, batteryManager.level, batteryManager.charging, List, b$P('list'), items) : m$1(templateObject_4$e || (templateObject_4$e = __makeTemplateObject(["<", " //>"], ["<", " //>"])), Spinner);
 }
 var templateObject_1$1m, templateObject_2$F, templateObject_3$n, templateObject_4$e;
 
 function BatteryPage() {
-    return m$1(templateObject_1$1l || (templateObject_1$1l = __makeTemplateObject(["\n        <", "}>\n            <", ">\n                ", "\n            <//>\n\n            <", "><//>\n        <//>"], ["\n        <", "}>\n            <", ">\n                ", "\n            <//>\n\n            <", "><//>\n        <//>"])), Page, PageTitle, i18n('Battery'), BatteryStatus);
+    return m$1(templateObject_1$1l || (templateObject_1$1l = __makeTemplateObject(["\n        <", "}>\n            <", ">\n                ", "\n            <//>\n\n            <", "><//>\n        <//>"], ["\n        <", "}>\n            <", ">\n                ", "\n            <//>\n\n            <", "><//>\n        <//>"])), Page, PageTitle, i18n$1('Battery'), BatteryStatus);
 }
 var templateObject_1$1l;
 
@@ -2600,18 +2476,18 @@ function gcd(a = 0, b = 0) {
 }
 
 function getChecked(checked) {
-    return checked ? '✓' : i18n('No');
+    return checked ? '✓' : i18n$1('No');
 }
 
 function MicInfo(props) {
     var audioParams = [
-        [i18n('Auto gain control'), getChecked(props.autoGainControl)],
-        [i18n('Channel count'), props.channelCount],
-        [i18n('Echo cancellation'), getChecked(props.echoCancellation)],
-        [i18n('Latency'), props.latency],
-        [i18n('Noise suppression'), getChecked(props.noiseSuppression)],
-        [i18n('Sample rate'), props.sampleRate ? "".concat(props.sampleRate, " ").concat(i18n('Hz')) : undefined],
-        [i18n('Sample size'), props.sampleSize],
+        [i18n$1('Auto gain control'), getChecked(props.autoGainControl)],
+        [i18n$1('Channel count'), props.channelCount],
+        [i18n$1('Echo cancellation'), getChecked(props.echoCancellation)],
+        [i18n$1('Latency'), props.latency],
+        [i18n$1('Noise suppression'), getChecked(props.noiseSuppression)],
+        [i18n$1('Sample rate'), props.sampleRate ? "".concat(props.sampleRate, " ").concat(i18n$1('Hz')) : undefined],
+        [i18n$1('Sample size'), props.sampleSize],
         ['groupId', props.groupId],
         ['deviceId', props.deviceId],
     ];
@@ -2623,10 +2499,10 @@ function CameraInfo(props) {
     var video = props.video, audio = props.audio;
     var width = video.width, height = video.height;
     var videoParams = [
-        [i18n('Resolution'), "".concat(video.width, "\u00D7").concat(video.height)],
-        [i18n('Aspect ratio'), calcAspectRatio(Math.max(width, height), Math.min(width, height)).value],
-        [i18n('Frame rate'), "".concat(video.frameRate)],
-        [i18n('Resize mode'), video.resizeMode],
+        [i18n$1('Resolution'), "".concat(video.width, "\u00D7").concat(video.height)],
+        [i18n$1('Aspect ratio'), calcAspectRatio(Math.max(width, height), Math.min(width, height)).value],
+        [i18n$1('Frame rate'), "".concat(video.frameRate)],
+        [i18n$1('Resize mode'), video.resizeMode],
         ['groupId', video.groupId],
         ['deviceId', video.deviceId],
     ];
@@ -2656,10 +2532,10 @@ function CameraError(props) {
         return '';
     }
     if (error.name === 'NotFoundError') {
-        return m$1(templateObject_1$1f || (templateObject_1$1f = __makeTemplateObject(["<", ">", "<//>"], ["<", ">", "<//>"])), WarningMessage, i18n('Camera not found.'));
+        return m$1(templateObject_1$1f || (templateObject_1$1f = __makeTemplateObject(["<", ">", "<//>"], ["<", ">", "<//>"])), WarningMessage, i18n$1('Camera not found.'));
     }
     if (error.name === 'NotAllowedError') {
-        return m$1(templateObject_2$C || (templateObject_2$C = __makeTemplateObject(["<", ">", "<//>"], ["<", ">", "<//>"])), WarningMessage, i18n('Camera is blocked.'));
+        return m$1(templateObject_2$C || (templateObject_2$C = __makeTemplateObject(["<", ">", "<//>"], ["<", ">", "<//>"])), WarningMessage, i18n$1('Camera is blocked.'));
     }
     return m$1(templateObject_3$m || (templateObject_3$m = __makeTemplateObject(["<", ">", "<//>"], ["<", ">", "<//>"])), WarningMessage, error.message);
 }
@@ -2703,16 +2579,16 @@ var b$L = block('camera');
 function Camera() {
     var buttons = [
         {
-            text: i18n('High resolution'),
+            text: i18n$1('High resolution'),
             value: '0',
             selected: true,
         },
         {
-            text: i18n('Low resolution'),
+            text: i18n$1('Low resolution'),
             value: '1',
         },
         {
-            text: i18n('High frame rate'),
+            text: i18n$1('High frame rate'),
             value: '2',
         }
     ];
@@ -2761,22 +2637,22 @@ function Camera() {
     var params = stream ? getStreamParams(stream) : undefined;
     if (!isSsr) {
         if (!navigator.mediaDevices || typeof navigator.mediaDevices.getUserMedia !== 'function') {
-            return m$1(templateObject_1$1e || (templateObject_1$1e = __makeTemplateObject(["<", ">", "<//>"], ["<", ">", "<//>"])), WarningMessage, i18n('Media Devices API is not supported.'));
+            return m$1(templateObject_1$1e || (templateObject_1$1e = __makeTemplateObject(["<", ">", "<//>"], ["<", ">", "<//>"])), WarningMessage, i18n$1('Media Devices API is not supported.'));
         }
     }
     var showStop = Boolean(stream);
     var played = Boolean(stream);
-    return m$1(templateObject_3$l || (templateObject_3$l = __makeTemplateObject(["<div class=\"", "\">\n        <div class=\"", "\">\n            <", " class=\"", "\" theme=\"", "\" onClick=\"", "\">", "<//>\n            <", " label=\"", "\" checked=\"", "\" onClick=\"", "\" //>\n        </div>\n        <div class=\"", "\">\n            <", " onSelect=\"", "\" buttons=\"", "\"><//>\n        </div>\n\n        <", " error=\"", "\" //>\n\n        <div class=\"", "\">\n            <video ref=\"", "\" class=\"", "\" />\n        </div>\n\n        <div class=\"", "\">\n            ", "\n        </div>\n    </div>"], ["<div class=\"", "\">\n        <div class=\"", "\">\n            <", " class=\"", "\" theme=\"", "\" onClick=\"", "\">", "<//>\n            <", " label=\"", "\" checked=\"", "\" onClick=\"", "\" //>\n        </div>\n        <div class=\"", "\">\n            <", " onSelect=\"", "\" buttons=\"", "\"><//>\n        </div>\n\n        <", " error=\"", "\" //>\n\n        <div class=\"", "\">\n            <video ref=\"", "\" class=\"", "\" />\n        </div>\n\n        <div class=\"", "\">\n            ", "\n        </div>\n    </div>"])), b$L(), b$L('select'), Button, b$L('select-camera'), showStop ? 'red' : 'active', handleClick, stream ? i18n('Stop') : i18n('Check camera'), Checkbox, i18n('Mic'), withMic, handleMic, b$L('controls'), RadioButtons, handleSelect, buttons, CameraError, error, b$L('container', { played: played }), refVideo, b$L('video'), b$L('params'), params ? m$1(templateObject_2$B || (templateObject_2$B = __makeTemplateObject(["<", " ...", " //>"], ["<", " ...", " //>"])), CameraInfo, params) : '');
+    return m$1(templateObject_3$l || (templateObject_3$l = __makeTemplateObject(["<div class=\"", "\">\n        <div class=\"", "\">\n            <", " class=\"", "\" theme=\"", "\" onClick=\"", "\">", "<//>\n            <", " label=\"", "\" checked=\"", "\" onClick=\"", "\" //>\n        </div>\n        <div class=\"", "\">\n            <", " onSelect=\"", "\" buttons=\"", "\"><//>\n        </div>\n\n        <", " error=\"", "\" //>\n\n        <div class=\"", "\">\n            <video ref=\"", "\" class=\"", "\" />\n        </div>\n\n        <div class=\"", "\">\n            ", "\n        </div>\n    </div>"], ["<div class=\"", "\">\n        <div class=\"", "\">\n            <", " class=\"", "\" theme=\"", "\" onClick=\"", "\">", "<//>\n            <", " label=\"", "\" checked=\"", "\" onClick=\"", "\" //>\n        </div>\n        <div class=\"", "\">\n            <", " onSelect=\"", "\" buttons=\"", "\"><//>\n        </div>\n\n        <", " error=\"", "\" //>\n\n        <div class=\"", "\">\n            <video ref=\"", "\" class=\"", "\" />\n        </div>\n\n        <div class=\"", "\">\n            ", "\n        </div>\n    </div>"])), b$L(), b$L('select'), Button, b$L('select-camera'), showStop ? 'red' : 'active', handleClick, stream ? i18n$1('Stop') : i18n$1('Check camera'), Checkbox, i18n$1('Mic'), withMic, handleMic, b$L('controls'), RadioButtons, handleSelect, buttons, CameraError, error, b$L('container', { played: played }), refVideo, b$L('video'), b$L('params'), params ? m$1(templateObject_2$B || (templateObject_2$B = __makeTemplateObject(["<", " ...", " //>"], ["<", " ...", " //>"])), CameraInfo, params) : '');
 }
 var templateObject_1$1e, templateObject_2$B, templateObject_3$l;
 
 function CameraPage() {
-    return m$1(templateObject_1$1d || (templateObject_1$1d = __makeTemplateObject(["\n        <", ">\n            <", ">", "<//>\n            <", "><//>\n        <//>"], ["\n        <", ">\n            <", ">", "<//>\n            <", "><//>\n        <//>"])), Page, PageTitle, i18n('Webcamera'), Camera);
+    return m$1(templateObject_1$1d || (templateObject_1$1d = __makeTemplateObject(["\n        <", ">\n            <", ">", "<//>\n            <", "><//>\n        <//>"], ["\n        <", ">\n            <", ">", "<//>\n            <", "><//>\n        <//>"])), Page, PageTitle, i18n$1('Webcamera'), Camera);
 }
 var templateObject_1$1d;
 
 function Error404Page() {
-    return m$1(templateObject_1$1c || (templateObject_1$1c = __makeTemplateObject(["\n        <", ">\n            <", ">404<//>\n\n            <p>", "</p>\n            <p><", " href=\"/\">", "><//></p>\n        <//>"], ["\n        <", ">\n            <", ">404<//>\n\n            <p>", "</p>\n            <p><", " href=\"/\">", "><//></p>\n        <//>"])), Page, PageTitle, i18n('Page not found.'), Link, i18n('Go to main page'));
+    return m$1(templateObject_1$1c || (templateObject_1$1c = __makeTemplateObject(["\n        <", ">\n            <", ">404<//>\n\n            <p>", "</p>\n            <p><", " href=\"/\">", "><//></p>\n        <//>"], ["\n        <", ">\n            <", ">404<//>\n\n            <p>", "</p>\n            <p><", " href=\"/\">", "><//></p>\n        <//>"])), Page, PageTitle, i18n$1('Page not found.'), Link, i18n$1('Go to main page'));
 }
 var templateObject_1$1c;
 
@@ -2823,7 +2699,7 @@ function FontItem(props) {
     var handleClick = q(function () {
         setOpened(!opened);
     }, [opened]);
-    return m$1(templateObject_2$A || (templateObject_2$A = __makeTemplateObject(["<div class=\"", "\">\n        <div class=\"", "\">\n            <span class=\"", "\" onClick=\"", "\">", "</span>\n            ", "\n        </div>\n    </div>"], ["<div class=\"", "\">\n        <div class=\"", "\">\n            <span class=\"", "\" onClick=\"", "\">", "</span>\n            ", "\n        </div>\n    </div>"])), b$J({ opened: opened }), b$J('value'), b$J('switcher'), handleClick, props.fullName, opened ? m$1(templateObject_1$1a || (templateObject_1$1a = __makeTemplateObject(["<div class=\"", "\">\n                <div class=\"", "\">", ": ", "</div>\n                <div class=\"", "\">", ": ", "</div>\n            </div>"], ["<div class=\"", "\">\n                <div class=\"", "\">", ": ", "</div>\n                <div class=\"", "\">", ": ", "</div>\n            </div>"])), b$J('content'), b$J('family'), i18n('Family'), props.family, b$J('style'), i18n('Style'), props.style) : '');
+    return m$1(templateObject_2$A || (templateObject_2$A = __makeTemplateObject(["<div class=\"", "\">\n        <div class=\"", "\">\n            <span class=\"", "\" onClick=\"", "\">", "</span>\n            ", "\n        </div>\n    </div>"], ["<div class=\"", "\">\n        <div class=\"", "\">\n            <span class=\"", "\" onClick=\"", "\">", "</span>\n            ", "\n        </div>\n    </div>"])), b$J({ opened: opened }), b$J('value'), b$J('switcher'), handleClick, props.fullName, opened ? m$1(templateObject_1$1a || (templateObject_1$1a = __makeTemplateObject(["<div class=\"", "\">\n                <div class=\"", "\">", ": ", "</div>\n                <div class=\"", "\">", ": ", "</div>\n            </div>"], ["<div class=\"", "\">\n                <div class=\"", "\">", ": ", "</div>\n                <div class=\"", "\">", ": ", "</div>\n            </div>"])), b$J('content'), b$J('family'), i18n$1('Family'), props.family, b$J('style'), i18n$1('Style'), props.style) : '');
 }
 var templateObject_1$1a, templateObject_2$A;
 
@@ -2862,7 +2738,7 @@ function Fonts() {
         return m$1(templateObject_1$16 || (templateObject_1$16 = __makeTemplateObject(["<", " //>"], ["<", " //>"])), Spinner);
     }
     if (!window.queryLocalFonts) {
-        return m$1(templateObject_2$w || (templateObject_2$w = __makeTemplateObject(["<", ">", "<//>"], ["<", ">", "<//>"])), WarningMessage, i18n('Local Font Access API is not supported.'));
+        return m$1(templateObject_2$w || (templateObject_2$w = __makeTemplateObject(["<", ">", "<//>"], ["<", ">", "<//>"])), WarningMessage, i18n$1('Local Font Access API is not supported.'));
     }
     var _a = h(), fonts = _a[0], setFonts = _a[1];
     var _b = h(''), filter = _b[0], setFilter = _b[1];
@@ -2885,12 +2761,12 @@ function Fonts() {
         setFilter(value);
     }, []);
     var items = filterFonts(fonts || [], filter);
-    return m$1(templateObject_6$5 || (templateObject_6$5 = __makeTemplateObject(["\n        <div class=\"", "\">\n            <div class=\"", "\">\n                ", "\n                ", "\n                ", "\n            </div>\n            <", " items=\"", "\" />\n        </div>\n    "], ["\n        <div class=\"", "\">\n            <div class=\"", "\">\n                ", "\n                ", "\n                ", "\n            </div>\n            <", " items=\"", "\" />\n        </div>\n    "])), b$F(), b$F('controls'), fonts ? '' : m$1(templateObject_3$k || (templateObject_3$k = __makeTemplateObject(["<", " theme=\"active\" onClick=\"", "\">", "<//>"], ["<", " theme=\"active\" onClick=\"", "\">", "<//>"])), Button, handleButtonClick, i18n('Request fonts')), fonts ? m$1(templateObject_4$d || (templateObject_4$d = __makeTemplateObject(["<", " class=\"", "\" placeholder=\"", "\" value=\"\" onChange=\"", "\" //>"], ["<", " class=\"", "\" placeholder=\"", "\" value=\"\" onChange=\"", "\" //>"])), Input, b$F('filter'), i18n('Filter'), handleChange) : '', fonts ? m$1(templateObject_5$7 || (templateObject_5$7 = __makeTemplateObject(["<div class=\"", "\"><", " onClick=\"", "\" label=\"", "\" checked=\"", "\" //></div>"], ["<div class=\"", "\"><", " onClick=\"", "\" label=\"", "\" checked=\"", "\" //></div>"])), b$F('group-by-family'), Checkbox, handleCheckboxClick, i18n('Group by family'), groupByFamily) : '', groupByFamily ? FontListGrouped : FontList, items);
+    return m$1(templateObject_6$5 || (templateObject_6$5 = __makeTemplateObject(["\n        <div class=\"", "\">\n            <div class=\"", "\">\n                ", "\n                ", "\n                ", "\n            </div>\n            <", " items=\"", "\" />\n        </div>\n    "], ["\n        <div class=\"", "\">\n            <div class=\"", "\">\n                ", "\n                ", "\n                ", "\n            </div>\n            <", " items=\"", "\" />\n        </div>\n    "])), b$F(), b$F('controls'), fonts ? '' : m$1(templateObject_3$k || (templateObject_3$k = __makeTemplateObject(["<", " theme=\"active\" onClick=\"", "\">", "<//>"], ["<", " theme=\"active\" onClick=\"", "\">", "<//>"])), Button, handleButtonClick, i18n$1('Request fonts')), fonts ? m$1(templateObject_4$d || (templateObject_4$d = __makeTemplateObject(["<", " class=\"", "\" placeholder=\"", "\" value=\"\" onChange=\"", "\" //>"], ["<", " class=\"", "\" placeholder=\"", "\" value=\"\" onChange=\"", "\" //>"])), Input, b$F('filter'), i18n$1('Filter'), handleChange) : '', fonts ? m$1(templateObject_5$7 || (templateObject_5$7 = __makeTemplateObject(["<div class=\"", "\"><", " onClick=\"", "\" label=\"", "\" checked=\"", "\" //></div>"], ["<div class=\"", "\"><", " onClick=\"", "\" label=\"", "\" checked=\"", "\" //></div>"])), b$F('group-by-family'), Checkbox, handleCheckboxClick, i18n$1('Group by family'), groupByFamily) : '', groupByFamily ? FontListGrouped : FontList, items);
 }
 var templateObject_1$16, templateObject_2$w, templateObject_3$k, templateObject_4$d, templateObject_5$7, templateObject_6$5;
 
 function FontsPage() {
-    return m$1(templateObject_1$15 || (templateObject_1$15 = __makeTemplateObject(["\n        <", ">\n            <", ">", "<//>\n            <", "><//>\n        <//>"], ["\n        <", ">\n            <", ">", "<//>\n            <", "><//>\n        <//>"])), Page, PageTitle, i18n('Local fonts'), Fonts);
+    return m$1(templateObject_1$15 || (templateObject_1$15 = __makeTemplateObject(["\n        <", ">\n            <", ">", "<//>\n            <", "><//>\n        <//>"], ["\n        <", ">\n            <", ">", "<//>\n            <", "><//>\n        <//>"])), Page, PageTitle, i18n$1('Local fonts'), Fonts);
 }
 var templateObject_1$15;
 
@@ -2980,7 +2856,7 @@ function GamepadList() {
         return m$1(templateObject_1$11 || (templateObject_1$11 = __makeTemplateObject(["<", " //>"], ["<", " //>"])), Spinner);
     }
     if (!navigator.getGamepads) {
-        return m$1(templateObject_2$u || (templateObject_2$u = __makeTemplateObject(["<", ">", "<//>"], ["<", ">", "<//>"])), WarningMessage, i18n('🎮 Gamepad API is not supported.'));
+        return m$1(templateObject_2$u || (templateObject_2$u = __makeTemplateObject(["<", ">", "<//>"], ["<", ">", "<//>"])), WarningMessage, i18n$1('🎮 Gamepad API is not supported.'));
     }
     var forceUpdate = useForceUpdate();
     y(function () {
@@ -3029,12 +2905,12 @@ function GamepadList() {
     })) : m$1(templateObject_5$5 || (templateObject_5$5 = __makeTemplateObject(["<", " //>"], ["<", " //>"])), GamepadWait);
 }
 function GamepadWait() {
-    return m$1(templateObject_6$3 || (templateObject_6$3 = __makeTemplateObject(["<", " size=\"m\" //> ", " <", " //>"], ["<", " size=\"m\" //> ", " <", " //>"])), Spinner, i18n('Connect and press any button on the gamepad.'), XboxButtons);
+    return m$1(templateObject_6$3 || (templateObject_6$3 = __makeTemplateObject(["<", " size=\"m\" //> ", " <", " //>"], ["<", " size=\"m\" //> ", " <", " //>"])), Spinner, i18n$1('Connect and press any button on the gamepad.'), XboxButtons);
 }
 var templateObject_1$11, templateObject_2$u, templateObject_3$i, templateObject_4$b, templateObject_5$5, templateObject_6$3;
 
 function GamepadPage() {
-    return m$1(templateObject_1$10 || (templateObject_1$10 = __makeTemplateObject(["\n        <", ">\n            <", "}>\n                ", "\n            <//>\n\n            <", "><//>\n        <//>"], ["\n        <", ">\n            <", "}>\n                ", "\n            <//>\n\n            <", "><//>\n        <//>"])), Page, PageTitle, i18n('Gamepad'), GamepadList);
+    return m$1(templateObject_1$10 || (templateObject_1$10 = __makeTemplateObject(["\n        <", ">\n            <", "}>\n                ", "\n            <//>\n\n            <", "><//>\n        <//>"], ["\n        <", ">\n            <", "}>\n                ", "\n            <//>\n\n            <", "><//>\n        <//>"])), Page, PageTitle, i18n$1('Gamepad'), GamepadList);
 }
 var templateObject_1$10;
 
@@ -3122,10 +2998,10 @@ function GpuNavigator() {
         features: prepareAdapterFeatures(refAdapter.current && refAdapter.current.features),
     };
     if (typeof navigator === 'undefined' || !navigator.gpu) {
-        return m$1(templateObject_1$$ || (templateObject_1$$ = __makeTemplateObject(["<", ">", "<//>"], ["<", ">", "<//>"])), WarningMessage, i18n('WebGPU is not supported.'));
+        return m$1(templateObject_1$$ || (templateObject_1$$ = __makeTemplateObject(["<", ">", "<//>"], ["<", ">", "<//>"])), WarningMessage, i18n$1('WebGPU is not supported.'));
     }
     if (hasAdapter === null) {
-        return m$1(templateObject_2$t || (templateObject_2$t = __makeTemplateObject(["<", ">", "<//>"], ["<", ">", "<//>"])), WarningMessage, i18n('GPU Adapter is not found.'));
+        return m$1(templateObject_2$t || (templateObject_2$t = __makeTemplateObject(["<", ">", "<//>"], ["<", ">", "<//>"])), WarningMessage, i18n$1('GPU Adapter is not found.'));
     }
     return hasAdapter ? m$1(templateObject_3$h || (templateObject_3$h = __makeTemplateObject(["\n        <div class=\"", "\">\n            <div class=\"", "\">\n                <", "\n                    label=\"Power preference:\"\n                    buttons=\"", "\"\n                    onSelect=\"", "\"\n                ><//>\n            </div>\n\n            <", " title=\"Adapter\" data=", "><//>\n        </div>\n    "], ["\n        <div class=\"", "\">\n            <div class=\"", "\">\n                <", "\n                    label=\"Power preference:\"\n                    buttons=\"", "\"\n                    onSelect=\"", "\"\n                ><//>\n            </div>\n\n            <", " title=\"Adapter\" data=", "><//>\n        </div>\n    "])), b$B(), b$B('controls'), RadioButtons, buttons$1, onSelect, TreeList, data) : '...';
 }
@@ -5310,15 +5186,15 @@ function Keyboard() {
     var handleSelect = q(function (value) {
         setLayout(value);
     }, [layout]);
-    return m$1(templateObject_1$Q || (templateObject_1$Q = __makeTemplateObject(["\n        <div class=\"", "\">\n            <div class=\"", "\">\n                <", " onSelect=\"", "\" buttons=\"", "\"><//>\n            </div>\n\n            <", " layout=\"", "\" //>\n\n            <div class=\"", "\">\n                <", " size=\"m\" onClick=\"", "\">", "<//>\n            </div>\n        </div>\n    "], ["\n        <div class=\"", "\">\n            <div class=\"", "\">\n                <", " onSelect=\"", "\" buttons=\"", "\"><//>\n            </div>\n\n            <", " layout=\"", "\" //>\n\n            <div class=\"", "\">\n                <", " size=\"m\" onClick=\"", "\">", "<//>\n            </div>\n        </div>\n    "])), b$u(), b$u('top-controls'), RadioButtons, handleSelect, buttons, KeyboardLayout, getLayoutData(layout), b$u('bottom-controls'), Button, handleReset, i18n('Reset'));
+    return m$1(templateObject_1$Q || (templateObject_1$Q = __makeTemplateObject(["\n        <div class=\"", "\">\n            <div class=\"", "\">\n                <", " onSelect=\"", "\" buttons=\"", "\"><//>\n            </div>\n\n            <", " layout=\"", "\" //>\n\n            <div class=\"", "\">\n                <", " size=\"m\" onClick=\"", "\">", "<//>\n            </div>\n        </div>\n    "], ["\n        <div class=\"", "\">\n            <div class=\"", "\">\n                <", " onSelect=\"", "\" buttons=\"", "\"><//>\n            </div>\n\n            <", " layout=\"", "\" //>\n\n            <div class=\"", "\">\n                <", " size=\"m\" onClick=\"", "\">", "<//>\n            </div>\n        </div>\n    "])), b$u(), b$u('top-controls'), RadioButtons, handleSelect, buttons, KeyboardLayout, getLayoutData(layout), b$u('bottom-controls'), Button, handleReset, i18n$1('Reset'));
 }
 var templateObject_1$Q;
 
 function KeyboardPage() {
     var items = [
-        [m$1(templateObject_1$P || (templateObject_1$P = __makeTemplateObject(["<", " href=\"", "\">", "<//>"], ["<", " href=\"", "\">", "<//>"])), Link, getPagePath('keycodes'), i18n('Displaying key codes'))]
+        [m$1(templateObject_1$P || (templateObject_1$P = __makeTemplateObject(["<", " href=\"", "\">", "<//>"], ["<", " href=\"", "\">", "<//>"])), Link, getPagePath('keycodes'), i18n$1('Displaying key codes'))]
     ];
-    return m$1(templateObject_2$o || (templateObject_2$o = __makeTemplateObject(["\n        <", ">\n            <", ">\n                ", "\n            <//>\n\n            <", " //>\n\n            <", " items=\"", "\" title=\"", "\" //>\n        <//>"], ["\n        <", ">\n            <", ">\n                ", "\n            <//>\n\n            <", " //>\n\n            <", " items=\"", "\" title=\"", "\" //>\n        <//>"])), Page, PageTitle, i18n('Testing keyboard'), Keyboard, List, items, i18n('Additionally'));
+    return m$1(templateObject_2$o || (templateObject_2$o = __makeTemplateObject(["\n        <", ">\n            <", ">\n                ", "\n            <//>\n\n            <", " //>\n\n            <", " items=\"", "\" title=\"", "\" //>\n        <//>"], ["\n        <", ">\n            <", ">\n                ", "\n            <//>\n\n            <", " //>\n\n            <", " items=\"", "\" title=\"", "\" //>\n        <//>"])), Page, PageTitle, i18n$1('Testing keyboard'), Keyboard, List, items, i18n$1('Additionally'));
 }
 var templateObject_1$P, templateObject_2$o;
 
@@ -5364,12 +5240,12 @@ function Keycode() {
         };
     }, []);
     var keydownItems = getEventList(keydownEvent);
-    return m$1(templateObject_2$n || (templateObject_2$n = __makeTemplateObject(["\n        <div class=\"", "\">\n            <div class=\"", "\">", "</div>\n            ", "\n            <div class=\"", "\">\n                <", " data=", " title=\"keydown event\" //>\n            </div>\n        </div>\n    "], ["\n        <div class=\"", "\">\n            <div class=\"", "\">", "</div>\n            ", "\n            <div class=\"", "\">\n                <", " data=", " title=\"keydown event\" //>\n            </div>\n        </div>\n    "])), b$t(), b$t('description'), i18n('Press a key to display its code.'), key ? m$1(templateObject_1$O || (templateObject_1$O = __makeTemplateObject(["<div class=\"", "\">", "</div>"], ["<div class=\"", "\">", "</div>"])), b$t('key', { pressed: pressed }), key) : '', b$t('keydown'), TreeList, keydownItems);
+    return m$1(templateObject_2$n || (templateObject_2$n = __makeTemplateObject(["\n        <div class=\"", "\">\n            <div class=\"", "\">", "</div>\n            ", "\n            <div class=\"", "\">\n                <", " data=", " title=\"keydown event\" //>\n            </div>\n        </div>\n    "], ["\n        <div class=\"", "\">\n            <div class=\"", "\">", "</div>\n            ", "\n            <div class=\"", "\">\n                <", " data=", " title=\"keydown event\" //>\n            </div>\n        </div>\n    "])), b$t(), b$t('description'), i18n$1('Press a key to display its code.'), key ? m$1(templateObject_1$O || (templateObject_1$O = __makeTemplateObject(["<div class=\"", "\">", "</div>"], ["<div class=\"", "\">", "</div>"])), b$t('key', { pressed: pressed }), key) : '', b$t('keydown'), TreeList, keydownItems);
 }
 var templateObject_1$O, templateObject_2$n;
 
 function KeycodesPage() {
-    return m$1(templateObject_1$N || (templateObject_1$N = __makeTemplateObject(["\n        <", ">\n            <", ">\n                ", "\n            <//>\n\n            <", " //>\n        <//>"], ["\n        <", ">\n            <", ">\n                ", "\n            <//>\n\n            <", " //>\n        <//>"])), Page, PageTitle, i18n('Displaying key codes'), Keycode);
+    return m$1(templateObject_1$N || (templateObject_1$N = __makeTemplateObject(["\n        <", ">\n            <", ">\n                ", "\n            <//>\n\n            <", " //>\n        <//>"], ["\n        <", ">\n            <", ">\n                ", "\n            <//>\n\n            <", " //>\n        <//>"])), Page, PageTitle, i18n$1('Displaying key codes'), Keycode);
 }
 var templateObject_1$N;
 
@@ -5437,7 +5313,7 @@ function Mouse() {
 var templateObject_1$M;
 
 function MousePage() {
-    return m$1(templateObject_1$L || (templateObject_1$L = __makeTemplateObject(["\n        <", ">\n            <", ">\n                ", "\n            <//>\n\n            <", " //>\n        <//>"], ["\n        <", ">\n            <", ">\n                ", "\n            <//>\n\n            <", " //>\n        <//>"])), Page, PageTitle, i18n('Testing mouse'), Mouse);
+    return m$1(templateObject_1$L || (templateObject_1$L = __makeTemplateObject(["\n        <", ">\n            <", ">\n                ", "\n            <//>\n\n            <", " //>\n        <//>"], ["\n        <", ">\n            <", ">\n                ", "\n            <//>\n\n            <", " //>\n        <//>"])), Page, PageTitle, i18n$1('Testing mouse'), Mouse);
 }
 var templateObject_1$L;
 
@@ -5467,19 +5343,19 @@ function Platform() {
     ]).then(function (data) {
         var result = [
             [
-                i18n('Name'),
+                i18n$1('Name'),
                 "".concat(data.platform, " ").concat((data.platformVersion || ''))
             ],
             [
-                i18n('Architecture'),
+                i18n$1('Architecture'),
                 data.architecture ? "".concat(data.architecture, " ").concat((data.bitness || '')) : ''
             ],
             [
-                i18n('Form factor'),
+                i18n$1('Form factor'),
                 data.formFactor
             ],
             [
-                i18n('Model'),
+                i18n$1('Model'),
                 data.model
             ],
         ];
@@ -5492,7 +5368,7 @@ function Platform() {
             isSsr ? '…' : navigator.hardwareConcurrency
         ],
         [
-            i18n('Standalone application'),
+            i18n$1('Standalone application'),
             isSsr ? '…' : getChecked(isStandalone())
         ],
         [
@@ -5502,13 +5378,13 @@ function Platform() {
     ];
     if (!isSsr && navigator.deviceMemory) {
         items.unshift([
-            m$1(templateObject_2$m || (templateObject_2$m = __makeTemplateObject(["", " <", " title=\"MDN\" href=\"https://developer.mozilla.org/en-US/docs/Web/API/Navigator/deviceMemory\"><//>"], ["", " <", " title=\"MDN\" href=\"https://developer.mozilla.org/en-US/docs/Web/API/Navigator/deviceMemory\"><//>"])), i18n('RAM'), InfoLink),
-            "\u2248\u202F".concat(navigator.deviceMemory, " ").concat(i18n('GB'))
+            m$1(templateObject_2$m || (templateObject_2$m = __makeTemplateObject(["", " <", " title=\"MDN\" href=\"https://developer.mozilla.org/en-US/docs/Web/API/Navigator/deviceMemory\"><//>"], ["", " <", " title=\"MDN\" href=\"https://developer.mozilla.org/en-US/docs/Web/API/Navigator/deviceMemory\"><//>"])), i18n$1('RAM'), InfoLink),
+            "\u2248\u202F".concat(navigator.deviceMemory, " ").concat(i18n$1('GB'))
         ]);
     }
     if (hardwareAcceleration !== undefined) {
         items.push([
-            i18n('Hardware acceleration'),
+            i18n$1('Hardware acceleration'),
             getChecked(hardwareAcceleration)
         ]);
     }
@@ -5518,7 +5394,7 @@ function Platform() {
     else {
         items = __spreadArray([
             [
-                i18n('Name'),
+                i18n$1('Name'),
                 isSsr ? '…' : navigator.platform
             ]
         ], items, true);
@@ -5572,13 +5448,13 @@ function Permissions() {
             setDone(true);
         });
     }, []);
-    return done ? m$1(templateObject_1$I || (templateObject_1$I = __makeTemplateObject(["<", " title=\"", "\" items=\"", "\" //>"], ["<", " title=\"", "\" items=\"", "\" //>"])), List, i18n('Permissions'), items) :
+    return done ? m$1(templateObject_1$I || (templateObject_1$I = __makeTemplateObject(["<", " title=\"", "\" items=\"", "\" //>"], ["<", " title=\"", "\" items=\"", "\" //>"])), List, i18n$1('Permissions'), items) :
         '';
 }
 var templateObject_1$I;
 
 function PlatformPage() {
-    return m$1(templateObject_1$H || (templateObject_1$H = __makeTemplateObject(["\n        <", ">\n            <", ">", "<//>\n\n            <", " //>\n\n            <", " //>\n        <//>"], ["\n        <", ">\n            <", ">", "<//>\n\n            <", " //>\n\n            <", " //>\n        <//>"])), Page, PageTitle, i18n('Platform'), Platform, Permissions);
+    return m$1(templateObject_1$H || (templateObject_1$H = __makeTemplateObject(["\n        <", ">\n            <", ">", "<//>\n\n            <", " //>\n\n            <", " //>\n        <//>"], ["\n        <", ">\n            <", ">", "<//>\n\n            <", " //>\n\n            <", " //>\n        <//>"])), Page, PageTitle, i18n$1('Platform'), Platform, Permissions);
 }
 var templateObject_1$H;
 
@@ -5641,18 +5517,18 @@ function ScreenItem(props) {
     var logicalSize = [width, height, devicePixelRatio];
     var realSize = [width * devicePixelRatio, height * devicePixelRatio];
     var items = [
-        [i18n('Size'), "".concat(realSize.join('×'), " (").concat(logicalSize.join('×'), ")")],
+        [i18n$1('Size'), "".concat(realSize.join('×'), " (").concat(logicalSize.join('×'), ")")],
         ['devicePixelRatio', devicePixelRatio],
-        [i18n('Aspect ratio'), calcAspectRatio(Math.max(width, height), Math.min(width, height)).value],
-        orientation ? [i18n('Orientation'), orientation.type] : '',
-        [i18n('Color depth'), "".concat(colorDepth, " ").concat(i18n('bit'))],
+        [i18n$1('Aspect ratio'), calcAspectRatio(Math.max(width, height), Math.min(width, height)).value],
+        orientation ? [i18n$1('Orientation'), orientation.type] : '',
+        [i18n$1('Color depth'), "".concat(colorDepth, " ").concat(i18n$1('bit'))],
         [m$1(templateObject_1$D || (templateObject_1$D = __makeTemplateObject(["<", " enabled=\"", "\" //>"], ["<", " enabled=\"", "\" //>"])), HdrLabel, isHdr), getChecked(Boolean(isHdr))],
-        [i18n('Color spaces'), m$1(templateObject_2$k || (templateObject_2$k = __makeTemplateObject(["<", " items=\"", "\" //>"], ["<", " items=\"", "\" //>"])), ColorSpaceList, colorSpaces)],
-        typeof isPrimary === 'undefined' ? '' : [i18n('Primary'), getChecked(Boolean(isPrimary))],
-        typeof isInternal === 'undefined' ? '' : [i18n('Internal'), getChecked(Boolean(isInternal))],
-        typeof maxTouchPoints === 'undefined' ? '' : [i18n('Max touch points'), maxTouchPoints],
+        [i18n$1('Color spaces'), m$1(templateObject_2$k || (templateObject_2$k = __makeTemplateObject(["<", " items=\"", "\" //>"], ["<", " items=\"", "\" //>"])), ColorSpaceList, colorSpaces)],
+        typeof isPrimary === 'undefined' ? '' : [i18n$1('Primary'), getChecked(Boolean(isPrimary))],
+        typeof isInternal === 'undefined' ? '' : [i18n$1('Internal'), getChecked(Boolean(isInternal))],
+        typeof maxTouchPoints === 'undefined' ? '' : [i18n$1('Max touch points'), maxTouchPoints],
     ].filter(Boolean);
-    return m$1(templateObject_5$3 || (templateObject_5$3 = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n            <", " items=\"", "\"><//>\n\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n            <", " items=\"", "\"><//>\n\n            ", "\n        </div>\n    "])), b$n(), label ? m$1(templateObject_3$d || (templateObject_3$d = __makeTemplateObject(["<div class=\"", "\">", "</div>"], ["<div class=\"", "\">", "</div>"])), b$n('label'), label) : '', List, items, isExtended === true ? m$1(templateObject_4$9 || (templateObject_4$9 = __makeTemplateObject(["<", ">", "<//>"], ["<", ">", "<//>"])), WarningMessage, i18n('Additional monitor detected')) : '');
+    return m$1(templateObject_5$3 || (templateObject_5$3 = __makeTemplateObject(["\n        <div class=\"", "\">\n            ", "\n            <", " items=\"", "\"><//>\n\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\">\n            ", "\n            <", " items=\"", "\"><//>\n\n            ", "\n        </div>\n    "])), b$n(), label ? m$1(templateObject_3$d || (templateObject_3$d = __makeTemplateObject(["<div class=\"", "\">", "</div>"], ["<div class=\"", "\">", "</div>"])), b$n('label'), label) : '', List, items, isExtended === true ? m$1(templateObject_4$9 || (templateObject_4$9 = __makeTemplateObject(["<", ">", "<//>"], ["<", ">", "<//>"])), WarningMessage, i18n$1('Additional monitor detected')) : '');
 }
 var templateObject_1$D, templateObject_2$k, templateObject_3$d, templateObject_4$9, templateObject_5$3;
 
@@ -5966,7 +5842,7 @@ function RefreshRate() {
         };
     }, []);
     var value = (_a = ref.current) === null || _a === void 0 ? void 0 : _a.get();
-    return value ? m$1(templateObject_1$C || (templateObject_1$C = __makeTemplateObject(["<span class=\"", "\">", " ", "</span>"], ["<span class=\"", "\">", " ", "</span>"])), b$m(), value.toFixed(3), i18n('Hz')) : m$1(templateObject_2$j || (templateObject_2$j = __makeTemplateObject(["<", " size=\"s\" //>"], ["<", " size=\"s\" //>"])), Spinner);
+    return value ? m$1(templateObject_1$C || (templateObject_1$C = __makeTemplateObject(["<span class=\"", "\">", " ", "</span>"], ["<span class=\"", "\">", " ", "</span>"])), b$m(), value.toFixed(3), i18n$1('Hz')) : m$1(templateObject_2$j || (templateObject_2$j = __makeTemplateObject(["<", " size=\"s\" //>"], ["<", " size=\"s\" //>"])), Spinner);
 }
 var templateObject_1$C, templateObject_2$j;
 
@@ -5991,28 +5867,28 @@ function ScreenList() {
         };
     }, []);
     var additionalItems = [
-        RefreshRateController.hasSupport() ? [i18n('Refresh rate'), m$1(templateObject_1$B || (templateObject_1$B = __makeTemplateObject(["<", " //>"], ["<", " //>"])), RefreshRate)] : undefined,
-        [i18n('Has touch screen'), getChecked(isSsr ? false : hasTouchScreen())],
-        [i18n('Max touch points'), isSsr ? 0 : getMaxTouchPoints()],
+        RefreshRateController.hasSupport() ? [i18n$1('Refresh rate'), m$1(templateObject_1$B || (templateObject_1$B = __makeTemplateObject(["<", " //>"], ["<", " //>"])), RefreshRate)] : undefined,
+        [i18n$1('Has touch screen'), getChecked(isSsr ? false : hasTouchScreen())],
+        [i18n$1('Max touch points'), isSsr ? 0 : getMaxTouchPoints()],
     ];
     var screenInfoData = screenInfo.get();
-    return m$1(templateObject_4$8 || (templateObject_4$8 = __makeTemplateObject(["<div class=\"", "\">\n        <", ">\n            ", "\n        <//>\n\n        ", "\n\n        ", "\n\n        <", " title=\"", "\" items=\"", "\" //>\n    </div>"], ["<div class=\"", "\">\n        <", ">\n            ", "\n        <//>\n\n        ", "\n\n        ", "\n\n        <", " title=\"", "\" items=\"", "\" //>\n    </div>"])), b$l(), PageTitle, screenInfoData.screens.length === 1 ? i18n('Screen') : i18n('Screens'), !screenInfo.isDenied && screenInfo.needUserActivity ? m$1(templateObject_2$i || (templateObject_2$i = __makeTemplateObject(["<div class=\"", "\"><", " theme=\"red\" size=\"s\" onClick=\"", "\">", "</button></div>"], ["<div class=\"", "\"><", " theme=\"red\" size=\"s\" onClick=\"", "\">", "</button></div>"])), b$l('specify'), Button, handleClick, i18n('Specify')) : '', screenInfoData.screens.map(function (item) {
+    return m$1(templateObject_4$8 || (templateObject_4$8 = __makeTemplateObject(["<div class=\"", "\">\n        <", ">\n            ", "\n        <//>\n\n        ", "\n\n        ", "\n\n        <", " title=\"", "\" items=\"", "\" //>\n    </div>"], ["<div class=\"", "\">\n        <", ">\n            ", "\n        <//>\n\n        ", "\n\n        ", "\n\n        <", " title=\"", "\" items=\"", "\" //>\n    </div>"])), b$l(), PageTitle, screenInfoData.screens.length === 1 ? i18n$1('Screen') : i18n$1('Screens'), !screenInfo.isDenied && screenInfo.needUserActivity ? m$1(templateObject_2$i || (templateObject_2$i = __makeTemplateObject(["<div class=\"", "\"><", " theme=\"red\" size=\"s\" onClick=\"", "\">", "</button></div>"], ["<div class=\"", "\"><", " theme=\"red\" size=\"s\" onClick=\"", "\">", "</button></div>"])), b$l('specify'), Button, handleClick, i18n$1('Specify')) : '', screenInfoData.screens.map(function (item) {
         return m$1(templateObject_3$c || (templateObject_3$c = __makeTemplateObject(["<", " ...", "><//>"], ["<", " ...", "><//>"])), ScreenItem, item);
-    }), List, i18n('Additionally'), additionalItems);
+    }), List, i18n$1('Additionally'), additionalItems);
 }
 var templateObject_1$B, templateObject_2$i, templateObject_3$c, templateObject_4$8;
 
 function ScreenPage() {
     var items = [
-        [m$1(templateObject_1$A || (templateObject_1$A = __makeTemplateObject(["<", " href=\"", "\">", "<//>"], ["<", " href=\"", "\">", "<//>"])), Link, getPagePath('test-dead-pixels'), i18n('Test dead pixels'))]
+        [m$1(templateObject_1$A || (templateObject_1$A = __makeTemplateObject(["<", " href=\"", "\">", "<//>"], ["<", " href=\"", "\">", "<//>"])), Link, getPagePath('test-dead-pixels'), i18n$1('Test dead pixels'))]
     ];
-    return m$1(templateObject_2$h || (templateObject_2$h = __makeTemplateObject(["\n        <", ">\n            <", "><//>\n\n            <", " title=\"", "\" items=\"", "\" //>\n        <//>"], ["\n        <", ">\n            <", "><//>\n\n            <", " title=\"", "\" items=\"", "\" //>\n        <//>"])), Page, ScreenList, List, i18n('Tests'), items);
+    return m$1(templateObject_2$h || (templateObject_2$h = __makeTemplateObject(["\n        <", ">\n            <", "><//>\n\n            <", " title=\"", "\" items=\"", "\" //>\n        <//>"], ["\n        <", ">\n            <", "><//>\n\n            <", " title=\"", "\" items=\"", "\" //>\n        <//>"])), Page, ScreenList, List, i18n$1('Tests'), items);
 }
 var templateObject_1$A, templateObject_2$h;
 
 function formatBytesToGB(bytes) {
     var result = Math.floor(bytes / 1024 / 1024 / 1024 * 100) / 100;
-    return "".concat(result, " ").concat(i18n('GB'));
+    return "".concat(result, " ").concat(i18n$1('GB'));
 }
 
 function ExtLink(props) {
@@ -6035,17 +5911,17 @@ function StorageFeatures() {
     }, []);
     var features = [
         [
-            m$1(templateObject_1$y || (templateObject_1$y = __makeTemplateObject(["<", " theme=\"white\" href=\"https://developer.mozilla.org/en-US/docs/Web/API/StorageManager/persist\">", "<//>"], ["<", " theme=\"white\" href=\"https://developer.mozilla.org/en-US/docs/Web/API/StorageManager/persist\">", "<//>"])), ExtLink, i18n('Support of persistent storage')),
+            m$1(templateObject_1$y || (templateObject_1$y = __makeTemplateObject(["<", " theme=\"white\" href=\"https://developer.mozilla.org/en-US/docs/Web/API/StorageManager/persist\">", "<//>"], ["<", " theme=\"white\" href=\"https://developer.mozilla.org/en-US/docs/Web/API/StorageManager/persist\">", "<//>"])), ExtLink, i18n$1('Support of persistent storage')),
             getChecked(Boolean(typeof ((_b = navigator.storage) === null || _b === void 0 ? void 0 : _b.persist) === 'function'))
         ],
     ];
     if (typeof quota === 'number') {
         features.push([
-            m$1(templateObject_2$g || (templateObject_2$g = __makeTemplateObject(["<", " theme=\"white\" href=\"https://developer.mozilla.org/ru/docs/Web/API/StorageManager/estimate\">", "<//>"], ["<", " theme=\"white\" href=\"https://developer.mozilla.org/ru/docs/Web/API/StorageManager/estimate\">", "<//>"])), ExtLink, i18n('Storage quota for origin')),
+            m$1(templateObject_2$g || (templateObject_2$g = __makeTemplateObject(["<", " theme=\"white\" href=\"https://developer.mozilla.org/ru/docs/Web/API/StorageManager/estimate\">", "<//>"], ["<", " theme=\"white\" href=\"https://developer.mozilla.org/ru/docs/Web/API/StorageManager/estimate\">", "<//>"])), ExtLink, i18n$1('Storage quota for origin')),
             formatBytesToGB(quota)
         ]);
     }
-    return m$1(templateObject_3$b || (templateObject_3$b = __makeTemplateObject(["<", " title=\"", "\" items=\"", "\"><//>"], ["<", " title=\"", "\" items=\"", "\"><//>"])), List, i18n('Features'), features);
+    return m$1(templateObject_3$b || (templateObject_3$b = __makeTemplateObject(["<", " title=\"", "\" items=\"", "\"><//>"], ["<", " title=\"", "\" items=\"", "\"><//>"])), List, i18n$1('Features'), features);
 }
 var templateObject_1$y, templateObject_2$g, templateObject_3$b;
 
@@ -6087,7 +5963,7 @@ function Storages() {
 var templateObject_1$x, templateObject_2$f, templateObject_3$a, templateObject_4$7, templateObject_5$2, templateObject_6$1;
 
 function StoragePage() {
-    return m$1(templateObject_1$w || (templateObject_1$w = __makeTemplateObject(["\n        <", ">\n            <", ">\n                ", "\n            <//>\n\n            <", "><//>\n        <//>"], ["\n        <", ">\n            <", ">\n                ", "\n            <//>\n\n            <", "><//>\n        <//>"])), Page, PageTitle, i18n('Storages'), Storages);
+    return m$1(templateObject_1$w || (templateObject_1$w = __makeTemplateObject(["\n        <", ">\n            <", ">\n                ", "\n            <//>\n\n            <", "><//>\n        <//>"], ["\n        <", ">\n            <", ">\n                ", "\n            <//>\n\n            <", "><//>\n        <//>"])), Page, PageTitle, i18n$1('Storages'), Storages);
 }
 var templateObject_1$w;
 
@@ -6154,12 +6030,12 @@ function TestDeadPixels() {
             document.removeEventListener('fullscreenchange', handleFullscreen);
         };
     }, []);
-    return m$1(templateObject_1$t || (templateObject_1$t = __makeTemplateObject(["\n        <div class=\"", "\">\n            <", " theme=\"active\" onClick=\"", "\">", "<///>\n            <div class=\"", "\" ref=\"", "\" style=\"background-color: ", "\" onClick=\"", "\"></div>\n        </div>\n    "], ["\n        <div class=\"", "\">\n            <", " theme=\"active\" onClick=\"", "\">", "<///>\n            <div class=\"", "\" ref=\"", "\" style=\"background-color: ", "\" onClick=\"", "\"></div>\n        </div>\n    "])), b$h({ fullscreen: isFullScreen }), Button, handleButtonClick, i18n('Start test'), b$h('content'), ref, colors[step], handleContentClick);
+    return m$1(templateObject_1$t || (templateObject_1$t = __makeTemplateObject(["\n        <div class=\"", "\">\n            <", " theme=\"active\" onClick=\"", "\">", "<///>\n            <div class=\"", "\" ref=\"", "\" style=\"background-color: ", "\" onClick=\"", "\"></div>\n        </div>\n    "], ["\n        <div class=\"", "\">\n            <", " theme=\"active\" onClick=\"", "\">", "<///>\n            <div class=\"", "\" ref=\"", "\" style=\"background-color: ", "\" onClick=\"", "\"></div>\n        </div>\n    "])), b$h({ fullscreen: isFullScreen }), Button, handleButtonClick, i18n$1('Start test'), b$h('content'), ref, colors[step], handleContentClick);
 }
 var templateObject_1$t;
 
 function TestDeadPixelsPage() {
-    return m$1(templateObject_1$s || (templateObject_1$s = __makeTemplateObject(["\n        <", ">\n            <", ">", "<//>\n            <", "><", " //><//>\n            <", " //>\n        <//>"], ["\n        <", ">\n            <", ">", "<//>\n            <", "><", " //><//>\n            <", " //>\n        <//>"])), Page, PageTitle, i18n('Test dead pixels'), Monitor, ScreenDeadPixelsExample, TestDeadPixels);
+    return m$1(templateObject_1$s || (templateObject_1$s = __makeTemplateObject(["\n        <", ">\n            <", ">", "<//>\n            <", "><", " //><//>\n            <", " //>\n        <//>"], ["\n        <", ">\n            <", ">", "<//>\n            <", "><", " //><//>\n            <", " //>\n        <//>"])), Page, PageTitle, i18n$1('Test dead pixels'), Monitor, ScreenDeadPixelsExample, TestDeadPixels);
 }
 var templateObject_1$s;
 
@@ -6186,7 +6062,7 @@ function ScreenBadgeDetails(props) {
     var screenSize = props.withDevicePixelRatio ?
         [props.width, props.height, props.devicePixelRatio] :
         [props.width * props.devicePixelRatio, props.height * props.devicePixelRatio];
-    return m$1(templateObject_4$6 || (templateObject_4$6 = __makeTemplateObject(["\n        <div class=\"", "\">\n            <div>", ": ", "</div>\n            <div>", ": ", "</div>\n            ", "\n            <div>", ": ", " ", "</div>\n            <div>", "</div>\n            ", "\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\">\n            <div>", ": ", "</div>\n            <div>", ": ", "</div>\n            ", "\n            <div>", ": ", " ", "</div>\n            <div>", "</div>\n            ", "\n            ", "\n        </div>\n    "])), b$g(), i18n('Size'), screenSize.join('×'), i18n('Aspect ratio'), calcAspectRatio(Math.floor(props.width), Math.floor(props.height)).value, hasZoom() ? m$1(templateObject_1$r || (templateObject_1$r = __makeTemplateObject(["<div>\u26A0 ", "</div>"], ["<div>\u26A0 ", "</div>"])), i18n('Please reset zoom in the page')) : '', i18n('Color depth'), props.colorDepth, i18n('bit'), props.colorSpaces && props.colorSpaces.length ? prepareColorSpaces(props.colorSpaces) : '', typeof props.isPrimary === 'undefined' ? '' : m$1(templateObject_2$e || (templateObject_2$e = __makeTemplateObject(["<div>", ": ", "</div>"], ["<div>", ": ", "</div>"])), i18n('Primary'), getChecked(props.isPrimary)), typeof props.isInternal === 'undefined' ? '' : m$1(templateObject_3$9 || (templateObject_3$9 = __makeTemplateObject(["<div>", ": ", "</div>"], ["<div>", ": ", "</div>"])), i18n('Internal'), getChecked(props.isInternal)));
+    return m$1(templateObject_4$6 || (templateObject_4$6 = __makeTemplateObject(["\n        <div class=\"", "\">\n            <div>", ": ", "</div>\n            <div>", ": ", "</div>\n            ", "\n            <div>", ": ", " ", "</div>\n            <div>", "</div>\n            ", "\n            ", "\n        </div>\n    "], ["\n        <div class=\"", "\">\n            <div>", ": ", "</div>\n            <div>", ": ", "</div>\n            ", "\n            <div>", ": ", " ", "</div>\n            <div>", "</div>\n            ", "\n            ", "\n        </div>\n    "])), b$g(), i18n$1('Size'), screenSize.join('×'), i18n$1('Aspect ratio'), calcAspectRatio(Math.floor(props.width), Math.floor(props.height)).value, hasZoom() ? m$1(templateObject_1$r || (templateObject_1$r = __makeTemplateObject(["<div>\u26A0 ", "</div>"], ["<div>\u26A0 ", "</div>"])), i18n$1('Please reset zoom in the page')) : '', i18n$1('Color depth'), props.colorDepth, i18n$1('bit'), props.colorSpaces && props.colorSpaces.length ? prepareColorSpaces(props.colorSpaces) : '', typeof props.isPrimary === 'undefined' ? '' : m$1(templateObject_2$e || (templateObject_2$e = __makeTemplateObject(["<div>", ": ", "</div>"], ["<div>", ": ", "</div>"])), i18n$1('Primary'), getChecked(props.isPrimary)), typeof props.isInternal === 'undefined' ? '' : m$1(templateObject_3$9 || (templateObject_3$9 = __makeTemplateObject(["<div>", ": ", "</div>"], ["<div>", ": ", "</div>"])), i18n$1('Internal'), getChecked(props.isInternal)));
 }
 var templateObject_1$r, templateObject_2$e, templateObject_3$9, templateObject_4$6;
 
@@ -6249,8 +6125,8 @@ function ScreenBadges() {
         var props = __assign({ isScreenDetails: screenInfo.isScreenDetails }, item);
         return m$1(templateObject_1$p || (templateObject_1$p = __makeTemplateObject(["<", " ...", "><//>"], ["<", " ...", "><//>"])), ScreenBadge, props);
     });
-    var name = screenInfoData.screens.length > 1 ? i18n('Screens') : i18n('Screen');
-    return m$1(templateObject_4$5 || (templateObject_4$5 = __makeTemplateObject(["<", " name=\"", "\">\n        ", "\n        ", "\n        ", "\n    <//>"], ["<", " name=\"", "\">\n        ", "\n        ", "\n        ", "\n    <//>"])), Row, name, !screenInfo.isDenied && screenInfo.needUserActivity ? m$1(templateObject_2$c || (templateObject_2$c = __makeTemplateObject(["<div class=\"", "\"><", " size=\"s\" theme=\"red\" onClick=\"", "\">", "<//></div>"], ["<div class=\"", "\"><", " size=\"s\" theme=\"red\" onClick=\"", "\">", "<//></div>"])), b$e('specify'), Button, handleClick, i18n('Specify')) : '', content, !screenInfo.isScreenDetails && (typeof screen !== 'undefined' && screen.isExtended === true) ? m$1(templateObject_3$7 || (templateObject_3$7 = __makeTemplateObject(["<div class=\"", "\">\u26A0\uFE0F ", "</div>"], ["<div class=\"", "\">\u26A0\uFE0F ", "</div>"])), b$e('additional'), i18n('Additional monitor detected')) : '');
+    var name = screenInfoData.screens.length > 1 ? i18n$1('Screens') : i18n$1('Screen');
+    return m$1(templateObject_4$5 || (templateObject_4$5 = __makeTemplateObject(["<", " name=\"", "\">\n        ", "\n        ", "\n        ", "\n    <//>"], ["<", " name=\"", "\">\n        ", "\n        ", "\n        ", "\n    <//>"])), Row, name, !screenInfo.isDenied && screenInfo.needUserActivity ? m$1(templateObject_2$c || (templateObject_2$c = __makeTemplateObject(["<div class=\"", "\"><", " size=\"s\" theme=\"red\" onClick=\"", "\">", "<//></div>"], ["<div class=\"", "\"><", " size=\"s\" theme=\"red\" onClick=\"", "\">", "<//></div>"])), b$e('specify'), Button, handleClick, i18n$1('Specify')) : '', content, !screenInfo.isScreenDetails && (typeof screen !== 'undefined' && screen.isExtended === true) ? m$1(templateObject_3$7 || (templateObject_3$7 = __makeTemplateObject(["<div class=\"", "\">\u26A0\uFE0F ", "</div>"], ["<div class=\"", "\">\u26A0\uFE0F ", "</div>"])), b$e('additional'), i18n$1('Additional monitor detected')) : '');
 }
 var templateObject_1$p, templateObject_2$c, templateObject_3$7, templateObject_4$5;
 
@@ -6288,7 +6164,7 @@ function VideoCodecs() {
             }));
         }
     });
-    return m$1(templateObject_4$4 || (templateObject_4$4 = __makeTemplateObject(["\n        <", " name=\"", "\">\n            ", "\n            ", "\n        <//>\n"], ["\n        <", " name=\"", "\">\n            ", "\n            ", "\n        <//>\n"])), Columns, i18n('Video Codecs'), supported.length ? m$1(templateObject_2$b || (templateObject_2$b = __makeTemplateObject(["<", " name=\"", "\">\n                ", "\n            <//>"], ["<", " name=\"", "\">\n                ", "\n            <//>"])), Column, i18n('Supported'), supported) : i18n('No supported video codecs.'), unsupported.length ? m$1(templateObject_3$6 || (templateObject_3$6 = __makeTemplateObject(["<", " name=\"", "\">\n                ", "\n            <//>"], ["<", " name=\"", "\">\n                ", "\n            <//>"])), Column, i18n('Unsupported'), unsupported) : '');
+    return m$1(templateObject_4$4 || (templateObject_4$4 = __makeTemplateObject(["\n        <", " name=\"", "\">\n            ", "\n            ", "\n        <//>\n"], ["\n        <", " name=\"", "\">\n            ", "\n            ", "\n        <//>\n"])), Columns, i18n$1('Video Codecs'), supported.length ? m$1(templateObject_2$b || (templateObject_2$b = __makeTemplateObject(["<", " name=\"", "\">\n                ", "\n            <//>"], ["<", " name=\"", "\">\n                ", "\n            <//>"])), Column, i18n$1('Supported'), supported) : i18n$1('No supported video codecs.'), unsupported.length ? m$1(templateObject_3$6 || (templateObject_3$6 = __makeTemplateObject(["<", " name=\"", "\">\n                ", "\n            <//>"], ["<", " name=\"", "\">\n                ", "\n            <//>"])), Column, i18n$1('Unsupported'), unsupported) : '');
 }
 var templateObject_1$o, templateObject_2$b, templateObject_3$6, templateObject_4$4;
 
@@ -6358,7 +6234,7 @@ function checkAllHdcpVersions(keySystem) {
 }
 
 function getHdcpNotDetected() {
-    return i18n('HDCP not detected');
+    return i18n$1('HDCP not detected');
 }
 function getHdcpVersion(versions) {
     var maxVersion = getMaxHdcpVersion(versions);
@@ -6369,21 +6245,21 @@ function getHdcpVersion(versions) {
 function KeySystems(_a) {
     var items = _a.items;
     if (items.length === 1) {
-        return "".concat(i18n('Key system'), ": ").concat(items[0]);
+        return "".concat(i18n$1('Key system'), ": ").concat(items[0]);
     }
-    return "".concat(i18n('Key systems'), ": \n") + items.map(function (item) { return "\u2022 ".concat(item); }).join('\n');
+    return "".concat(i18n$1('Key systems'), ": \n") + items.map(function (item) { return "\u2022 ".concat(item); }).join('\n');
 }
 
 function SecurityLevels(_a) {
     var items = _a.items;
     var length = items.length;
     if (!length) {
-        return "".concat(i18n('Security levels'), ": ").concat(i18n('Not detected'));
+        return "".concat(i18n$1('Security levels'), ": ").concat(i18n$1('Not detected'));
     }
     if (length === 1) {
-        return "".concat(i18n('Security level'), ": ").concat(items[0]);
+        return "".concat(i18n$1('Security level'), ": ").concat(items[0]);
     }
-    return "".concat(i18n('Security levels'), ": ").concat(items.join(', '));
+    return "".concat(i18n$1('Security levels'), ": ").concat(items.join(', '));
 }
 
 var cache = {};
@@ -6623,8 +6499,8 @@ function Question4K() {
     var isAv1 = isAV1Supported();
     var largeThan2K = isScreensLargerThan2K(screens);
     var mainAnswer = largeThan2K && Boolean(isVp9.any || isHevc.any || isAv1.any);
-    var head = m$1(templateObject_1$f || (templateObject_1$f = __makeTemplateObject(["", "\u00A0<", " value=\"", "\"><//>"], ["", "\\u00a0<", " value=\"", "\"><//>"])), i18n('Can I watch 4K video?'), Result, mainAnswer);
-    return m$1(templateObject_2$7 || (templateObject_2$7 = __makeTemplateObject(["\n        <", " head=\"", "\">\n            <ul>\n                <li>", "\u00A0<", " value=\"", "\"><//></li>\n                <li>\n                    ", "\u00A0<", " value=", "><//>\n                    <ul>\n                        <li>\n                            <", "\n                                name=\"VP9\"\n                                color=\"green\"\n                                disabled=\"", "\"\n                                tooltip=\"", "\">\n                                <//>\u00A0<", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"H.265\"\n                                color=\"orange\"\n                                disabled=\"", "\"\n                                tooltip=\"", "\">\n                                <//>\u00A0<", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"AV1\"\n                                color=\"yellow\"\n                                disabled=\"", "\">\n                                tooltip=\"", "\">\n                                <//>\u00A0<", " value=\"", "\"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    "], ["\n        <", " head=\"", "\">\n            <ul>\n                <li>", "\\u00a0<", " value=\"", "\"><//></li>\n                <li>\n                    ", "\\u00a0<", " value=", "><//>\n                    <ul>\n                        <li>\n                            <", "\n                                name=\"VP9\"\n                                color=\"green\"\n                                disabled=\"", "\"\n                                tooltip=\"", "\">\n                                <//>\\u00a0<", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"H.265\"\n                                color=\"orange\"\n                                disabled=\"", "\"\n                                tooltip=\"", "\">\n                                <//>\\u00a0<", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"AV1\"\n                                color=\"yellow\"\n                                disabled=\"", "\">\n                                tooltip=\"", "\">\n                                <//>\\u00a0<", " value=\"", "\"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    "])), ActiveQuestion, head, i18n('Is the screen larger than 2K?'), Result, largeThan2K, i18n('Supports one of the video codecs?'), Result, true, Codec, !isVp9.any, CodecDetails(isVp9), Result, isVp9.any, Codec, !isHevc.any, CodecDetails(isHevc), Result, isHevc.any, Codec, !isAv1.any, CodecDetails(isAv1), Result, isAv1.any);
+    var head = m$1(templateObject_1$f || (templateObject_1$f = __makeTemplateObject(["", "\u00A0<", " value=\"", "\"><//>"], ["", "\\u00a0<", " value=\"", "\"><//>"])), i18n$1('Can I watch 4K video?'), Result, mainAnswer);
+    return m$1(templateObject_2$7 || (templateObject_2$7 = __makeTemplateObject(["\n        <", " head=\"", "\">\n            <ul>\n                <li>", "\u00A0<", " value=\"", "\"><//></li>\n                <li>\n                    ", "\u00A0<", " value=", "><//>\n                    <ul>\n                        <li>\n                            <", "\n                                name=\"VP9\"\n                                color=\"green\"\n                                disabled=\"", "\"\n                                tooltip=\"", "\">\n                                <//>\u00A0<", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"H.265\"\n                                color=\"orange\"\n                                disabled=\"", "\"\n                                tooltip=\"", "\">\n                                <//>\u00A0<", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"AV1\"\n                                color=\"yellow\"\n                                disabled=\"", "\">\n                                tooltip=\"", "\">\n                                <//>\u00A0<", " value=\"", "\"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    "], ["\n        <", " head=\"", "\">\n            <ul>\n                <li>", "\\u00a0<", " value=\"", "\"><//></li>\n                <li>\n                    ", "\\u00a0<", " value=", "><//>\n                    <ul>\n                        <li>\n                            <", "\n                                name=\"VP9\"\n                                color=\"green\"\n                                disabled=\"", "\"\n                                tooltip=\"", "\">\n                                <//>\\u00a0<", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"H.265\"\n                                color=\"orange\"\n                                disabled=\"", "\"\n                                tooltip=\"", "\">\n                                <//>\\u00a0<", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"AV1\"\n                                color=\"yellow\"\n                                disabled=\"", "\">\n                                tooltip=\"", "\">\n                                <//>\\u00a0<", " value=\"", "\"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    "])), ActiveQuestion, head, i18n$1('Is the screen larger than 2K?'), Result, largeThan2K, i18n$1('Supports one of the video codecs?'), Result, true, Codec, !isVp9.any, CodecDetails(isVp9), Result, isVp9.any, Codec, !isHevc.any, CodecDetails(isHevc), Result, isHevc.any, Codec, !isAv1.any, CodecDetails(isAv1), Result, isAv1.any);
 }
 var templateObject_1$f, templateObject_2$7;
 
@@ -6635,17 +6511,17 @@ function QuestionHdr() {
     var isHdr = !isSsr && isHighDynamicRangeSupported();
     var isVideoHdr = !isSsr && isHighVideoDynamicRangeSupported();
     var mainAnswer = Boolean(isHdr || isVideoHdr) && Boolean(isVp910Bit.any || isHevcMain10.any || isAv1Main10.any);
-    var head = m$1(templateObject_1$e || (templateObject_1$e = __makeTemplateObject(["", " <", " value=\"", "\"><//>"], ["", " <", " value=\"", "\"><//>"])), i18n('Can I watch HDR video?'), Result, mainAnswer);
-    return m$1(templateObject_2$6 || (templateObject_2$6 = __makeTemplateObject(["\n        <", " head=\"", "\">\n            <ul>\n                <li><", " isHdr=\"", "\" isVideoHdr=\"", "\" //></li>\n                <li>", "\u00A0<", " value=\"", "\"><//>\n                    <ul>\n                        <li>\n                            <", "\n                                name=\"VP9 Profile 2 Level 1 10 bits\"\n                                color=\"green\"\n                                disabled=\"", "\"\n                                tooltip=\"", "\">\n                                <//>\u00A0<", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"H.265 Main 10\"\n                                color=\"orange\"\n                                disabled=\"", "\"\n                                tooltip=\"", "\">\n                                <//>\u00A0<", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"AV1 Main 10\"\n                                color=\"yellow\"\n                                disabled=\"", "\"\n                                tooltip=\"", "\">\n                                <//>\u00A0<", " value=\"", "\"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    "], ["\n        <", " head=\"", "\">\n            <ul>\n                <li><", " isHdr=\"", "\" isVideoHdr=\"", "\" //></li>\n                <li>", "\\u00a0<", " value=\"", "\"><//>\n                    <ul>\n                        <li>\n                            <", "\n                                name=\"VP9 Profile 2 Level 1 10 bits\"\n                                color=\"green\"\n                                disabled=\"", "\"\n                                tooltip=\"", "\">\n                                <//>\\u00a0<", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"H.265 Main 10\"\n                                color=\"orange\"\n                                disabled=\"", "\"\n                                tooltip=\"", "\">\n                                <//>\\u00a0<", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"AV1 Main 10\"\n                                color=\"yellow\"\n                                disabled=\"", "\"\n                                tooltip=\"", "\">\n                                <//>\\u00a0<", " value=\"", "\"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    "])), ActiveQuestion, head, QuestionHdrHead, isHdr, isVideoHdr, i18n('Supports one of the video codecs?'), Result, Boolean(isVp910Bit || isHevcMain10 || isAv1Main10), Codec, !isVp910Bit.any, CodecDetails(isVp910Bit), Result, isVp910Bit.any, Codec, !isHevcMain10.any, CodecDetails(isHevcMain10), Result, isHevcMain10.any, Codec, !isAv1Main10.any, CodecDetails(isAv1Main10), Result, isAv1Main10.any);
+    var head = m$1(templateObject_1$e || (templateObject_1$e = __makeTemplateObject(["", " <", " value=\"", "\"><//>"], ["", " <", " value=\"", "\"><//>"])), i18n$1('Can I watch HDR video?'), Result, mainAnswer);
+    return m$1(templateObject_2$6 || (templateObject_2$6 = __makeTemplateObject(["\n        <", " head=\"", "\">\n            <ul>\n                <li><", " isHdr=\"", "\" isVideoHdr=\"", "\" //></li>\n                <li>", "\u00A0<", " value=\"", "\"><//>\n                    <ul>\n                        <li>\n                            <", "\n                                name=\"VP9 Profile 2 Level 1 10 bits\"\n                                color=\"green\"\n                                disabled=\"", "\"\n                                tooltip=\"", "\">\n                                <//>\u00A0<", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"H.265 Main 10\"\n                                color=\"orange\"\n                                disabled=\"", "\"\n                                tooltip=\"", "\">\n                                <//>\u00A0<", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"AV1 Main 10\"\n                                color=\"yellow\"\n                                disabled=\"", "\"\n                                tooltip=\"", "\">\n                                <//>\u00A0<", " value=\"", "\"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    "], ["\n        <", " head=\"", "\">\n            <ul>\n                <li><", " isHdr=\"", "\" isVideoHdr=\"", "\" //></li>\n                <li>", "\\u00a0<", " value=\"", "\"><//>\n                    <ul>\n                        <li>\n                            <", "\n                                name=\"VP9 Profile 2 Level 1 10 bits\"\n                                color=\"green\"\n                                disabled=\"", "\"\n                                tooltip=\"", "\">\n                                <//>\\u00a0<", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"H.265 Main 10\"\n                                color=\"orange\"\n                                disabled=\"", "\"\n                                tooltip=\"", "\">\n                                <//>\\u00a0<", " value=\"", "\"><//>\n                        </li>\n                        <li>\n                            <", "\n                                name=\"AV1 Main 10\"\n                                color=\"yellow\"\n                                disabled=\"", "\"\n                                tooltip=\"", "\">\n                                <//>\\u00a0<", " value=\"", "\"><//>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        <//>\n    "])), ActiveQuestion, head, QuestionHdrHead, isHdr, isVideoHdr, i18n$1('Supports one of the video codecs?'), Result, Boolean(isVp910Bit || isHevcMain10 || isAv1Main10), Codec, !isVp910Bit.any, CodecDetails(isVp910Bit), Result, isVp910Bit.any, Codec, !isHevcMain10.any, CodecDetails(isHevcMain10), Result, isHevcMain10.any, Codec, !isAv1Main10.any, CodecDetails(isAv1Main10), Result, isAv1Main10.any);
 }
 function QuestionHdrHead(props) {
     var isHdr = Boolean(props.isHdr);
     var isVideoHdr = Boolean(props.isVideoHdr);
     // For Firefox on MacOS
     if (!isHdr && isVideoHdr) {
-        return m$1(templateObject_3$5 || (templateObject_3$5 = __makeTemplateObject(["", "<", " href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/@media/video-dynamic-range\" //>\u00A0<", " value=\"", "\"><//>"], ["", "<", " href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/@media/video-dynamic-range\" //>\\u00a0<", " value=\"", "\"><//>"])), i18n('Has HDR support for video?'), InfoLink, Result, isVideoHdr);
+        return m$1(templateObject_3$5 || (templateObject_3$5 = __makeTemplateObject(["", "<", " href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/@media/video-dynamic-range\" //>\u00A0<", " value=\"", "\"><//>"], ["", "<", " href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/@media/video-dynamic-range\" //>\\u00a0<", " value=\"", "\"><//>"])), i18n$1('Has HDR support for video?'), InfoLink, Result, isVideoHdr);
     }
-    return m$1(templateObject_4$3 || (templateObject_4$3 = __makeTemplateObject(["", "<", " href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/@media/dynamic-range\" //>\u00A0<", " value=\"", "\"><//>"], ["", "<", " href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/@media/dynamic-range\" //>\\u00a0<", " value=\"", "\"><//>"])), i18n('Is this an HDR-compatible screen?'), InfoLink, Result, isHdr);
+    return m$1(templateObject_4$3 || (templateObject_4$3 = __makeTemplateObject(["", "<", " href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/@media/dynamic-range\" //>\u00A0<", " value=\"", "\"><//>"], ["", "<", " href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/@media/dynamic-range\" //>\\u00a0<", " value=\"", "\"><//>"])), i18n$1('Is this an HDR-compatible screen?'), InfoLink, Result, isHdr);
 }
 var templateObject_1$e, templateObject_2$6, templateObject_3$5, templateObject_4$3;
 
@@ -6735,8 +6611,8 @@ function QuestionDrm4K() {
     var answer = anyCodecWithDrm && largeThan2K;
     var isSafari = !isSsr && isDesktopSafari();
     var hasCommonWarning = isSafari;
-    var head = m$1(templateObject_1$d || (templateObject_1$d = __makeTemplateObject(["", "\u00A0<", " value=\"", "\"><//>", ""], ["", "\\u00a0<", " value=\"", "\"><//>", ""])), i18n('Can I watch 4K video on online services?'), Result, answer, hasCommonWarning ? '\u00a0⚠️' : '');
-    return m$1(templateObject_4$2 || (templateObject_4$2 = __makeTemplateObject(["\n        <", " head=\"", "\">\n            <ul>\n                <li>", "\u00A0<", " value=\"", "\"><//></li>\n                <li>", "", "<", " target=\"_blank\" href=\"", "\">DRM<//>.<br/>\n                    ", " <", " value=", "><//>\n                    <ul>\n                        ", "\n\n                        ", "\n\n                        ", "\n                    </ul>\n                </li>\n                ", "\n                ", "\n            </ul>\n        <//>\n    "], ["\n        <", " head=\"", "\">\n            <ul>\n                <li>", "\\u00a0<", " value=\"", "\"><//></li>\n                <li>", "", "<", " target=\"_blank\" href=\"", "\">DRM<//>.<br/>\n                    ", " <", " value=", "><//>\n                    <ul>\n                        ", "\n\n                        ", "\n\n                        ", "\n                    </ul>\n                </li>\n                ", "\n                ", "\n            </ul>\n        <//>\n    "])), ActiveQuestion, head, i18n('Is the screen larger than 2K?'), Result, largeThan2K, i18n('Online services protect content using'), '\u00a0', Link, i18n('link:wiki:drm'), i18n('Supports one of the video codecs and DRM with high security level?'), Result, anyCodecWithDrm, DrmItem({
+    var head = m$1(templateObject_1$d || (templateObject_1$d = __makeTemplateObject(["", "\u00A0<", " value=\"", "\"><//>", ""], ["", "\\u00a0<", " value=\"", "\"><//>", ""])), i18n$1('Can I watch 4K video on online services?'), Result, answer, hasCommonWarning ? '\u00a0⚠️' : '');
+    return m$1(templateObject_4$2 || (templateObject_4$2 = __makeTemplateObject(["\n        <", " head=\"", "\">\n            <ul>\n                <li>", "\u00A0<", " value=\"", "\"><//></li>\n                <li>", "", "<", " target=\"_blank\" href=\"", "\">DRM<//>.<br/>\n                    ", " <", " value=", "><//>\n                    <ul>\n                        ", "\n\n                        ", "\n\n                        ", "\n                    </ul>\n                </li>\n                ", "\n                ", "\n            </ul>\n        <//>\n    "], ["\n        <", " head=\"", "\">\n            <ul>\n                <li>", "\\u00a0<", " value=\"", "\"><//></li>\n                <li>", "", "<", " target=\"_blank\" href=\"", "\">DRM<//>.<br/>\n                    ", " <", " value=", "><//>\n                    <ul>\n                        ", "\n\n                        ", "\n\n                        ", "\n                    </ul>\n                </li>\n                ", "\n                ", "\n            </ul>\n        <//>\n    "])), ActiveQuestion, head, i18n$1('Is the screen larger than 2K?'), Result, largeThan2K, i18n$1('Online services protect content using'), '\u00a0', Link, i18n$1('link:wiki:drm'), i18n$1('Supports one of the video codecs and DRM with high security level?'), Result, anyCodecWithDrm, DrmItem({
         name: 'Google Widevine L1',
         hasNeededHdcp: hasWidevineNeededHdcp,
         isSupported: isWidevine,
@@ -6757,11 +6633,11 @@ function QuestionDrm4K() {
         isVp9Supported: isFairplayVp9,
         isHevcSupported: isFairplayHevc,
         isAv1Supported: isFairplayAv1,
-    }), needHdcpWarning() ? m$1(templateObject_2$5 || (templateObject_2$5 = __makeTemplateObject(["<li>\n                    \u26A0\uFE0F ", "\n                </li>"], ["<li>\n                    \u26A0\uFE0F ", "\n                </li>"])), i18n('Make sure that monitors, video cards, and cables support HDCP 2.2 or later.')) : '', isSafari ? m$1(templateObject_3$4 || (templateObject_3$4 = __makeTemplateObject(["<li>\n                    \u26A0\uFE0F ", " <", " href=\"", "\" target=\"_blank\">Apple T2 Security Chip<//>.\n                </li>"], ["<li>\n                    \u26A0\uFE0F ", " <", " href=\"", "\" target=\"_blank\">Apple T2 Security Chip<//>.\n                </li>"])), i18n('Select 2018 or later Mac computer with an'), Link, i18n('link:apple:t2')) : '');
+    }), needHdcpWarning() ? m$1(templateObject_2$5 || (templateObject_2$5 = __makeTemplateObject(["<li>\n                    \u26A0\uFE0F ", "\n                </li>"], ["<li>\n                    \u26A0\uFE0F ", "\n                </li>"])), i18n$1('Make sure that monitors, video cards, and cables support HDCP 2.2 or later.')) : '', isSafari ? m$1(templateObject_3$4 || (templateObject_3$4 = __makeTemplateObject(["<li>\n                    \u26A0\uFE0F ", " <", " href=\"", "\" target=\"_blank\">Apple T2 Security Chip<//>.\n                </li>"], ["<li>\n                    \u26A0\uFE0F ", " <", " href=\"", "\" target=\"_blank\">Apple T2 Security Chip<//>.\n                </li>"])), i18n$1('Select 2018 or later Mac computer with an'), Link, i18n$1('link:apple:t2')) : '');
 }
 function DrmItem(props) {
     var isSupported = props.isSupported, name = props.name, hasNeededHdcp = props.hasNeededHdcp, isVp9Supported = props.isVp9Supported, isHevcSupported = props.isHevcSupported, isAv1Supported = props.isAv1Supported;
-    return isSupported ? m$1(templateObject_6 || (templateObject_6 = __makeTemplateObject(["<li>", "\n        <ul>\n            ", "\n            <li>\n                <", "\n                    name=\"VP9\"\n                    color=\"green\"\n                    disabled=\"", "\">\n                <//>\u00A0<", " value=\"", "\"><//>\n            </li>\n            <li>\n                <", "\n                    name=\"H.265\"\n                    color=\"orange\"\n                    disabled=\"", "\">\n                <//>\u00A0<", " value=\"", "\"><//>\n            </li>\n            <li>\n                <", "\n                    name=\"AV1\"\n                    color=\"yellow\"\n                    disabled=\"", "\">\n                <//>\u00A0<", " value=\"", "\"><//>\n            </li>\n        </ul>\n    </li>"], ["<li>", "\n        <ul>\n            ", "\n            <li>\n                <", "\n                    name=\"VP9\"\n                    color=\"green\"\n                    disabled=\"", "\">\n                <//>\\u00a0<", " value=\"", "\"><//>\n            </li>\n            <li>\n                <", "\n                    name=\"H.265\"\n                    color=\"orange\"\n                    disabled=\"", "\">\n                <//>\\u00a0<", " value=\"", "\"><//>\n            </li>\n            <li>\n                <", "\n                    name=\"AV1\"\n                    color=\"yellow\"\n                    disabled=\"", "\">\n                <//>\\u00a0<", " value=\"", "\"><//>\n            </li>\n        </ul>\n    </li>"])), name, hasNeededHdcp === null ? '' : m$1(templateObject_5$1 || (templateObject_5$1 = __makeTemplateObject(["<li>", " <", " value=\"", "\" //></li>"], ["<li>", " <", " value=\"", "\" //></li>"])), i18n('HDCP 2.2 or later'), Result, hasNeededHdcp), Codec, !isVp9Supported, Result, isVp9Supported, Codec, !isHevcSupported, Result, isHevcSupported, Codec, !isAv1Supported, Result, isAv1Supported) : '';
+    return isSupported ? m$1(templateObject_6 || (templateObject_6 = __makeTemplateObject(["<li>", "\n        <ul>\n            ", "\n            <li>\n                <", "\n                    name=\"VP9\"\n                    color=\"green\"\n                    disabled=\"", "\">\n                <//>\u00A0<", " value=\"", "\"><//>\n            </li>\n            <li>\n                <", "\n                    name=\"H.265\"\n                    color=\"orange\"\n                    disabled=\"", "\">\n                <//>\u00A0<", " value=\"", "\"><//>\n            </li>\n            <li>\n                <", "\n                    name=\"AV1\"\n                    color=\"yellow\"\n                    disabled=\"", "\">\n                <//>\u00A0<", " value=\"", "\"><//>\n            </li>\n        </ul>\n    </li>"], ["<li>", "\n        <ul>\n            ", "\n            <li>\n                <", "\n                    name=\"VP9\"\n                    color=\"green\"\n                    disabled=\"", "\">\n                <//>\\u00a0<", " value=\"", "\"><//>\n            </li>\n            <li>\n                <", "\n                    name=\"H.265\"\n                    color=\"orange\"\n                    disabled=\"", "\">\n                <//>\\u00a0<", " value=\"", "\"><//>\n            </li>\n            <li>\n                <", "\n                    name=\"AV1\"\n                    color=\"yellow\"\n                    disabled=\"", "\">\n                <//>\\u00a0<", " value=\"", "\"><//>\n            </li>\n        </ul>\n    </li>"])), name, hasNeededHdcp === null ? '' : m$1(templateObject_5$1 || (templateObject_5$1 = __makeTemplateObject(["<li>", " <", " value=\"", "\" //></li>"], ["<li>", " <", " value=\"", "\" //></li>"])), i18n$1('HDCP 2.2 or later'), Result, hasNeededHdcp), Codec, !isVp9Supported, Result, isVp9Supported, Codec, !isHevcSupported, Result, isHevcSupported, Codec, !isAv1Supported, Result, isAv1Supported) : '';
 }
 var templateObject_1$d, templateObject_2$5, templateObject_3$4, templateObject_4$2, templateObject_5$1, templateObject_6;
 
@@ -6823,7 +6699,7 @@ function HtmlVideoElementFeatures() {
         return a.supported ? -1 : 1;
     });
     var content = items.map(function (item) {
-        var supported = item.supported ? '✓' : i18n('No');
+        var supported = item.supported ? '✓' : i18n$1('No');
         return m$1(templateObject_1$b || (templateObject_1$b = __makeTemplateObject(["<li title=\"", "\">", ": ", "</li>"], ["<li title=\"", "\">", ": ", "</li>"])), item.title, item.label, supported);
     });
     var autoplayPolicy = isSsr ? '' : getAutoplayPolicy();
@@ -6893,7 +6769,7 @@ function ImageFormats() {
             }));
         }
     });
-    return m$1(templateObject_2$3 || (templateObject_2$3 = __makeTemplateObject(["<", ">\n        <", " name=\"", "\">\n            ", "\n        <//>\n        ", "\n    <//>"], ["<", ">\n        <", " name=\"", "\">\n            ", "\n        <//>\n        ", "\n    <//>"])), Columns, Column, i18n('Supported'), supported.length ? supported : i18n('No supported image formats.'), unsupported.length ? m$1(templateObject_1$a || (templateObject_1$a = __makeTemplateObject(["<", " name=\"", "\">", "<//>"], ["<", " name=\"", "\">", "<//>"])), Column, i18n('Unsupported'), unsupported) : '');
+    return m$1(templateObject_2$3 || (templateObject_2$3 = __makeTemplateObject(["<", ">\n        <", " name=\"", "\">\n            ", "\n        <//>\n        ", "\n    <//>"], ["<", ">\n        <", " name=\"", "\">\n            ", "\n        <//>\n        ", "\n    <//>"])), Columns, Column, i18n$1('Supported'), supported.length ? supported : i18n$1('No supported image formats.'), unsupported.length ? m$1(templateObject_1$a || (templateObject_1$a = __makeTemplateObject(["<", " name=\"", "\">", "<//>"], ["<", " name=\"", "\">", "<//>"])), Column, i18n$1('Unsupported'), unsupported) : '');
 }
 var templateObject_1$a, templateObject_2$3;
 
@@ -6908,7 +6784,7 @@ function VideoPage() {
             document.removeEventListener('visibilitychange', onVisibilityСhange);
         };
     }, []);
-    return m$1(templateObject_1$9 || (templateObject_1$9 = __makeTemplateObject(["\n        <", ">\n            <", ">\n                ", "\n            <//>\n\n            <", "><//>\n            <", "><//>\n\n            <", " name=\"", "\">\n                <", "><//>\n            <//>\n\n            <", " name=\"DRM\">\n                <", "><//>\n            <//>\n\n            <", " name=\"", "\">\n                <", "><//>\n            <//>\n\n            <", " name=\"", "\">\n                <", "><//>\n            <//>\n\n            <", " name=\"", "\">\n                <", "><//>\n            <//>\n        <//>"], ["\n        <", ">\n            <", ">\n                ", "\n            <//>\n\n            <", "><//>\n            <", "><//>\n\n            <", " name=\"", "\">\n                <", "><//>\n            <//>\n\n            <", " name=\"DRM\">\n                <", "><//>\n            <//>\n\n            <", " name=\"", "\">\n                <", "><//>\n            <//>\n\n            <", " name=\"", "\">\n                <", "><//>\n            <//>\n\n            <", " name=\"", "\">\n                <", "><//>\n            <//>\n        <//>"])), Page, PageTitle, i18n('Can I watch video in this browser?'), VideoQuestions, ScreenBadges, Row, i18n('Video Codecs'), VideoCodecs, Row, DrmBadges, Row, i18n('Image Formats'), ImageFormats, Row, i18n('Native Streaming Support'), NativeStreaming, Row, i18n('HTMLVideoElement Features'), HtmlVideoElementFeatures);
+    return m$1(templateObject_1$9 || (templateObject_1$9 = __makeTemplateObject(["\n        <", ">\n            <", ">\n                ", "\n            <//>\n\n            <", "><//>\n            <", "><//>\n\n            <", " name=\"", "\">\n                <", "><//>\n            <//>\n\n            <", " name=\"DRM\">\n                <", "><//>\n            <//>\n\n            <", " name=\"", "\">\n                <", "><//>\n            <//>\n\n            <", " name=\"", "\">\n                <", "><//>\n            <//>\n\n            <", " name=\"", "\">\n                <", "><//>\n            <//>\n        <//>"], ["\n        <", ">\n            <", ">\n                ", "\n            <//>\n\n            <", "><//>\n            <", "><//>\n\n            <", " name=\"", "\">\n                <", "><//>\n            <//>\n\n            <", " name=\"DRM\">\n                <", "><//>\n            <//>\n\n            <", " name=\"", "\">\n                <", "><//>\n            <//>\n\n            <", " name=\"", "\">\n                <", "><//>\n            <//>\n\n            <", " name=\"", "\">\n                <", "><//>\n            <//>\n        <//>"])), Page, PageTitle, i18n$1('Can I watch video in this browser?'), VideoQuestions, ScreenBadges, Row, i18n$1('Video Codecs'), VideoCodecs, Row, DrmBadges, Row, i18n$1('Image Formats'), ImageFormats, Row, i18n$1('Native Streaming Support'), NativeStreaming, Row, i18n$1('HTMLVideoElement Features'), HtmlVideoElementFeatures);
 }
 var templateObject_1$9;
 
@@ -7030,15 +6906,15 @@ function Mic() {
         micWaveform.stop();
         setStarted(false);
     }, [setMuted, setStarted]);
-    var selectButton = m$1(templateObject_1$8 || (templateObject_1$8 = __makeTemplateObject(["<", " theme=\"active\" onClick=\"", "\">", "<//>"], ["<", " theme=\"active\" onClick=\"", "\">", "<//>"])), Button, handleSelectMic, i18n('Check mic'));
-    var stopButton = m$1(templateObject_2$2 || (templateObject_2$2 = __makeTemplateObject(["<", " theme=\"red\" onClick=\"", "\">", "<//>"], ["<", " theme=\"red\" onClick=\"", "\">", "<//>"])), Button, handleStop, i18n('Stop'));
+    var selectButton = m$1(templateObject_1$8 || (templateObject_1$8 = __makeTemplateObject(["<", " theme=\"active\" onClick=\"", "\">", "<//>"], ["<", " theme=\"active\" onClick=\"", "\">", "<//>"])), Button, handleSelectMic, i18n$1('Check mic'));
+    var stopButton = m$1(templateObject_2$2 || (templateObject_2$2 = __makeTemplateObject(["<", " theme=\"red\" onClick=\"", "\">", "<//>"], ["<", " theme=\"red\" onClick=\"", "\">", "<//>"])), Button, handleStop, i18n$1('Stop'));
     var streamParams = micWaveform.getStreamParams();
-    return m$1(templateObject_4$1 || (templateObject_4$1 = __makeTemplateObject(["<div class=\"", "\">\n        ", "<", " class=\"", "\" label=\"", "\" onClick=\"", "\" />\n\n        <div class=\"", "\">\n            <canvas ref=\"", "\" class=\"", "\" width=\"300\" height=\"200\"></canvas>\n        </div>\n\n        ", "\n    </div>"], ["<div class=\"", "\">\n        ", "<", " class=\"", "\" label=\"", "\" onClick=\"", "\" />\n\n        <div class=\"", "\">\n            <canvas ref=\"", "\" class=\"", "\" width=\"300\" height=\"200\"></canvas>\n        </div>\n\n        ", "\n    </div>"])), b$4({ started: started }), started ? stopButton : selectButton, Checkbox, b$4('hear-yourself'), i18n('Hear yourself'), handleHearYourself, b$4('canvas-container'), refCanvas, b$4('canvas'), streamParams && streamParams.audio ? m$1(templateObject_3$2 || (templateObject_3$2 = __makeTemplateObject(["<", " ...\"", "\" />"], ["<", " ...\"", "\" />"])), MicInfo, streamParams.audio) : '');
+    return m$1(templateObject_4$1 || (templateObject_4$1 = __makeTemplateObject(["<div class=\"", "\">\n        ", "<", " class=\"", "\" label=\"", "\" onClick=\"", "\" />\n\n        <div class=\"", "\">\n            <canvas ref=\"", "\" class=\"", "\" width=\"300\" height=\"200\"></canvas>\n        </div>\n\n        ", "\n    </div>"], ["<div class=\"", "\">\n        ", "<", " class=\"", "\" label=\"", "\" onClick=\"", "\" />\n\n        <div class=\"", "\">\n            <canvas ref=\"", "\" class=\"", "\" width=\"300\" height=\"200\"></canvas>\n        </div>\n\n        ", "\n    </div>"])), b$4({ started: started }), started ? stopButton : selectButton, Checkbox, b$4('hear-yourself'), i18n$1('Hear yourself'), handleHearYourself, b$4('canvas-container'), refCanvas, b$4('canvas'), streamParams && streamParams.audio ? m$1(templateObject_3$2 || (templateObject_3$2 = __makeTemplateObject(["<", " ...\"", "\" />"], ["<", " ...\"", "\" />"])), MicInfo, streamParams.audio) : '');
 }
 var templateObject_1$8, templateObject_2$2, templateObject_3$2, templateObject_4$1;
 
 function MicPage() {
-    return m$1(templateObject_1$7 || (templateObject_1$7 = __makeTemplateObject(["\n        <", ">\n            <", "}>", "<//>\n            <", " //>\n        <//>"], ["\n        <", ">\n            <", "}>", "<//>\n            <", " //>\n        <//>"])), Page, PageTitle, i18n('Mic'), Mic);
+    return m$1(templateObject_1$7 || (templateObject_1$7 = __makeTemplateObject(["\n        <", ">\n            <", "}>", "<//>\n            <", " //>\n        <//>"], ["\n        <", ">\n            <", "}>", "<//>\n            <", " //>\n        <//>"])), Page, PageTitle, i18n$1('Mic'), Mic);
 }
 var templateObject_1$7;
 
@@ -7163,7 +7039,7 @@ function GeoLocation(props) {
         }
         navigator.geolocation.getCurrentPosition(success, error, options);
     }, []);
-    return m$1(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n        <", " theme=\"active\" onClick=\"", "\">", "<//> ", "\n        ", "\n        ", "\n        ", "\n    "], ["\n        <", " theme=\"active\" onClick=\"", "\">", "<//> ", "\n        ", "\n        ", "\n        ", "\n    "])), Button, handleClick, i18n('Request geo location'), inProgress ? m$1(templateObject_1$2 || (templateObject_1$2 = __makeTemplateObject(["<", " size=\"m\" //>"], ["<", " size=\"m\" //>"])), Spinner) : '', coords ? m$1(templateObject_2 || (templateObject_2 = __makeTemplateObject(["<div class=\"", "\"><", " data=\"", "\" //></div>"], ["<div class=\"", "\"><", " data=\"", "\" //></div>"])), b('list'), TreeList, coords) : '', error ? m$1(templateObject_3 || (templateObject_3 = __makeTemplateObject(["<div class=\"", "\">", "</div>"], ["<div class=\"", "\">", "</div>"])), b('error'), error) : '', coords ? m$1(templateObject_4 || (templateObject_4 = __makeTemplateObject(["<div class=\"", "\">\n            <", "\n                latitude=\"", "\"\n                longitude=\"", "\"\n                width=\"300\"\n                height=\"300\"\n                zoom=\"13\"\n                apikey=\"", "\" //>\n        </div>"], ["<div class=\"", "\">\n            <", "\n                latitude=\"", "\"\n                longitude=\"", "\"\n                width=\"300\"\n                height=\"300\"\n                zoom=\"13\"\n                apikey=\"", "\" //>\n        </div>"])), b('map'), YaStaticMap, coords.latitude, coords.longitude, props.yaMapsApiKey) : '');
+    return m$1(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n        <", " theme=\"active\" onClick=\"", "\">", "<//> ", "\n        ", "\n        ", "\n        ", "\n    "], ["\n        <", " theme=\"active\" onClick=\"", "\">", "<//> ", "\n        ", "\n        ", "\n        ", "\n    "])), Button, handleClick, i18n$1('Request geo location'), inProgress ? m$1(templateObject_1$2 || (templateObject_1$2 = __makeTemplateObject(["<", " size=\"m\" //>"], ["<", " size=\"m\" //>"])), Spinner) : '', coords ? m$1(templateObject_2 || (templateObject_2 = __makeTemplateObject(["<div class=\"", "\"><", " data=\"", "\" //></div>"], ["<div class=\"", "\"><", " data=\"", "\" //></div>"])), b('list'), TreeList, coords) : '', error ? m$1(templateObject_3 || (templateObject_3 = __makeTemplateObject(["<div class=\"", "\">", "</div>"], ["<div class=\"", "\">", "</div>"])), b('error'), error) : '', coords ? m$1(templateObject_4 || (templateObject_4 = __makeTemplateObject(["<div class=\"", "\">\n            <", "\n                latitude=\"", "\"\n                longitude=\"", "\"\n                width=\"300\"\n                height=\"300\"\n                zoom=\"13\"\n                apikey=\"", "\" //>\n        </div>"], ["<div class=\"", "\">\n            <", "\n                latitude=\"", "\"\n                longitude=\"", "\"\n                width=\"300\"\n                height=\"300\"\n                zoom=\"13\"\n                apikey=\"", "\" //>\n        </div>"])), b('map'), YaStaticMap, coords.latitude, coords.longitude, props.yaMapsApiKey) : '');
 }
 var templateObject_1$2, templateObject_2, templateObject_3, templateObject_4, templateObject_5;
 
@@ -7172,7 +7048,7 @@ var config = {
 };
 
 function NetworkPage() {
-    return m$1(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n        <", ">\n            <", ">\n                ", "\n            <//>\n            <", "><//>\n            <", " yaMapsApiKey=\"", "\" //>\n        <//>"], ["\n        <", ">\n            <", ">\n                ", "\n            <//>\n            <", "><//>\n            <", " yaMapsApiKey=\"", "\" //>\n        <//>"])), Page, PageTitle, i18n('Network & geo'), NetworkInformation, GeoLocation, config.yaMapsApiKey);
+    return m$1(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n        <", ">\n            <", ">\n                ", "\n            <//>\n            <", "><//>\n            <", " yaMapsApiKey=\"", "\" //>\n        <//>"], ["\n        <", ">\n            <", ">\n                ", "\n            <//>\n            <", "><//>\n            <", " yaMapsApiKey=\"", "\" //>\n        <//>"])), Page, PageTitle, i18n$1('Network & geo'), NetworkInformation, GeoLocation, config.yaMapsApiKey);
 }
 var templateObject_1$1;
 
@@ -7199,6 +7075,12 @@ var pages = {
 function buildPage(id) {
     return pages[id] ? S(m$1(templateObject_1 || (templateObject_1 = __makeTemplateObject(["<", " //>"], ["<", " //>"])), pages[id])) : '';
 }
+function setLang(lang) {
+    setI18nLang(lang);
+}
+function i18n(id) {
+    return i18n$1(id);
+}
 var templateObject_1;
 
-export { buildPage, pages };
+export { buildPage, i18n, pages, setLang };
