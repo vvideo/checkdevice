@@ -1,5 +1,11 @@
 .index-menu {
-    margin: 10px 0;
+    margin: 40px 0 0 0;
+}
+
+@media (max-width: 700px) {
+    .index-menu {
+        margin-top: 20px;
+    }
 }
 
 .index-menu__list {

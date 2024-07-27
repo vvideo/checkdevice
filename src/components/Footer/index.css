@@ -6,6 +6,12 @@
     border-top: 1px solid #222;
 }
 
+@media (max-width: 700px) {
+    .footer {
+        margin-top: 20px;
+    }
+}
+
 .footer__item {
     margin-right: 20px;
 }
