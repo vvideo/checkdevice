@@ -21,6 +21,7 @@ export function YaStaticMap(props: ColumnProps) {
         ['size', `${props.width},${props.height}`],
         ['z', props.zoom],
         ['apikey', props.apikey],
+        ['pt', `${props.longitude},${props.latitude},flag`]
     ].map(item => {
         return `${item[0]}=${item[1]}`;
     }).join('&');
