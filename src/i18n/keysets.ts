@@ -625,5 +625,21 @@ export const keysets: I18nKeysets = {
     'Check HDCP version': {
         'en': 'Check HDCP version',
         'ru': 'Проверить HDCP версию'
+    },
+    'Bluetooth': {
+        'en': 'Bluetooth',
+        'ru': 'Bluetooth'
+    },
+    'USB': {
+        'en': 'USB',
+        'ru': 'USB'
+    },
+    'Sensor': {
+        'en': 'Sensor',
+        'ru': 'Сенсор'
+    },
+    'Sensors': {
+        'en': 'Sensors',
+        'ru': 'Сенсоры'
     }
 };

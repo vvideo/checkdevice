@@ -123,6 +123,33 @@
     },
     {
         "menuTitle": {
+            "en": "USB",
+            "ru": "USB"
+        },
+        "emoji": "🔌",
+        "id": "usb",
+        "hidden": true
+    },
+    {
+        "menuTitle": {
+            "en": "Bluetooth",
+            "ru": "Bluetooth"
+        },
+        "emoji": "ᛒ",
+        "id": "bluetooth",
+        "hidden": true
+    },
+    {
+        "menuTitle": {
+            "en": "Sensor",
+            "ru": "Сенсор"
+        },
+        "emoji": "🧲",
+        "id": "sensor",
+        "hidden": true
+    },
+    {
+        "menuTitle": {
             "en": "Platform",
             "ru": "Платформа"
         },
