@@ -621,5 +621,9 @@ export const keysets: I18nKeysets = {
     'Media Devices API is not supported.': {
         'en': 'Media Devices API is not supported.',
         'ru': 'Media Devices API не поддерживается.'
+    },
+    'Check HDCP version': {
+        'en': 'Check HDCP version',
+        'ru': 'Проверить HDCP версию'
     }
 };
