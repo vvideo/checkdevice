@@ -1,5 +1,7 @@
 .header {
-    margin: 20px 0;
+    padding: 20px 0 10px 0;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #222;
     font-size: 30px;
     line-height: 1.5em;
     color: white;

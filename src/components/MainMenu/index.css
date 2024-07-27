@@ -20,6 +20,7 @@
 .main-menu__link {
     padding-bottom: 4px;
     border-bottom: 2px solid #111;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .main-menu__link:link,
