@@ -1,7 +1,7 @@
 import { calcAspectRatio } from 'calc-aspect-ratio';
 import { html } from 'htm/preact';
 import { hasZoom } from '../../utils/hasZoom';
-import { i18n } from '../../i18n/i18n';
+import { i18n } from '../../i18n';
 import { prepareColorSpaces } from '../../utils/getColorSpaces';
 import { getChecked } from '../../utils/getChecked';
 import { block } from '../../utils/css/bem';

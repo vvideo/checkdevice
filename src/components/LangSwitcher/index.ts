@@ -1,6 +1,6 @@
 import { html } from 'htm/preact';
 import { useCallback, useState } from 'preact/hooks';
-import { getI18nLang, getI18nLangs } from '../../i18n/i18n';
+import { getI18nLang, getI18nLangs } from '../../i18n';
 import { block } from '../../utils/css/bem';
 import { LangSwitcherItem } from '../LangSwitcherItem';
 import { getPagePath } from '../../utils/getPagePath';

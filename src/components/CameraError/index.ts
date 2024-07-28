@@ -1,6 +1,6 @@
 import { html } from 'htm/preact';
 import { WarningMessage } from '../WarningMessage';
-import { i18n } from '../../i18n/i18n';
+import { i18n } from '../../i18n';
 
 interface CameraErrorProps {
     error: Error;

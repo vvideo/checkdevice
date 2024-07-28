@@ -1,6 +1,6 @@
 import { html } from 'htm/preact';
 import { useEffect, useState } from 'preact/hooks';
-import { i18n } from '../../i18n/i18n';
+import { i18n } from '../../i18n';
 import { List } from '../List';
 import { noop } from '../../utils/noop';
 import { isSsr } from '../../utils/isSsr';

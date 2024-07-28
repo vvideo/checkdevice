@@ -2,7 +2,7 @@ import { html } from 'htm/preact';
 import { calcAspectRatio } from 'calc-aspect-ratio';
 import { List } from '../List';
 import { getChecked } from '../../utils/getChecked';
-import { i18n } from '../../i18n/i18n';
+import { i18n } from '../../i18n';
 import { block } from '../../utils/css/bem';
 import { WarningMessage } from '../WarningMessage';
 import { HdrLabel } from '../HdrLabel';

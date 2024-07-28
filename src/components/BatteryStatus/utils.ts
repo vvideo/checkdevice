@@ -1,4 +1,4 @@
-import { i18n } from '../../i18n/i18n';
+import { i18n } from '../../i18n';
 
 export function formatTime(secs: number) {
     const h = Math.floor(secs / 60 / 60);

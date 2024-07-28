@@ -3,7 +3,7 @@ import { useCallback, useEffect } from 'preact/hooks';
 import { ScreenBadge } from '../ScreenBadge';
 import { Row } from '../Row';
 import { screenInfo } from '../../lib/ScreenInfo';
-import { i18n } from '../../i18n/i18n';
+import { i18n } from '../../i18n';
 import { block } from '../../utils/css/bem';
 import { useForceUpdate } from '../../hooks/useForceUpdate';
 import { Button } from '../Button';

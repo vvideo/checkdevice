@@ -3,7 +3,7 @@ import { AudioBadge } from '../../components/AudioBadge';
 import { AudioCodecs } from '../../components/AudioCodecs';
 import { PageTitle } from '../../components/PageTitle';
 import { Row } from '../../components/Row';
-import { i18n } from '../../i18n/i18n';
+import { i18n } from '../../i18n';
 import { Page } from '../Page';
 import { QuestionSurroundSound } from '../../components/QuestionSurroundSound';
 import { block } from '../../utils/css/bem';

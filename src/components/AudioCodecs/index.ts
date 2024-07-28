@@ -20,7 +20,7 @@ import { html } from 'htm/preact';
 import { VNode } from 'preact';
 import { Column } from '../Column';
 import { Columns } from '../Columns';
-import { i18n } from '../../i18n/i18n';
+import { i18n } from '../../i18n';
 import { CodecDetails } from '../CodecDetails';
 
 export function AudioCodecs() {

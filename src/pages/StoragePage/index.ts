@@ -1,5 +1,5 @@
 import { html } from 'htm/preact';
-import { i18n } from '../../i18n/i18n';
+import { i18n } from '../../i18n';
 import { Storages } from '../../components/Storages';
 import { Page } from '../Page';
 import { PageTitle } from '../../components/PageTitle';

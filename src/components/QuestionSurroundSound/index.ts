@@ -3,7 +3,7 @@ import { isDolbyAtmosSupported, isDolbyDigitalPlusSupported, isDolbyDigitalSuppo
 import { ActiveQuestion } from '../ActiveQuestion';
 import { Result } from '../Result';
 import { Codec } from '../Codec';
-import { i18n } from '../../i18n/i18n';
+import { i18n } from '../../i18n';
 import { CodecDetails } from '../CodecDetails';
 import { block } from '../../utils/css/bem';
 

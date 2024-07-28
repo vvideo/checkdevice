@@ -1,7 +1,7 @@
 import { html } from 'htm/preact';
 import { useCallback, useEffect, useState } from 'preact/hooks';
 import { block } from '../../utils/css/bem';
-import { i18n } from '../../i18n/i18n';
+import { i18n } from '../../i18n';
 import { Button } from '../Button';
 import { Checkbox } from '../Checkbox';
 import { Input } from '../Input';

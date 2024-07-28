@@ -19,7 +19,7 @@ import { TestDeadPixelsPage } from '../pages/TestDeadPixelsPage';
 import { VideoPage } from '../pages/VideoPage';
 import { MicPage } from '../pages/MicPage';
 import { NetworkPage } from '../pages/NetworkPage';
-import { I18NLanguage, setI18nLang, i18n as i18nOriginal } from '../i18n/i18n';
+import { I18NLanguage, setI18nLang, i18n as i18nOriginal } from '../i18n';
 import { SensorPage } from '../pages/SensorPage';
 import { UsbPage } from '../pages/UsbPage';
 import { BluetoothPage } from '../pages/BluetoothPage';

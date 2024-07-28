@@ -1,4 +1,4 @@
-import { I18nKeysets } from './i18n';
+import { I18nKeysets } from '.';
 
 export const langs = [
     {

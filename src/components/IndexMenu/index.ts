@@ -1,7 +1,7 @@
 import { html } from 'htm/preact';
 import { block } from '../../utils/css/bem';
 import pages from '../../pages/pages';
-import { i18nWithKeyset } from '../../i18n/i18n';
+import { i18nWithKeyset } from '../../i18n';
 import { Link } from '../Link';
 import { getPagePath } from '../../utils/getPagePath';
 

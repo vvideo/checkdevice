@@ -1,7 +1,7 @@
 import { html } from 'htm/preact';
 import { MainMenu, MainMenuItem } from '../../components/MainMenu';
 import pages from '../pages';
-import { i18nWithKeyset } from '../../i18n/i18n';
+import { i18nWithKeyset } from '../../i18n';
 import { isSsr } from '../../utils/isSsr';
 import { getPagePath } from '../../utils/getPagePath';
 

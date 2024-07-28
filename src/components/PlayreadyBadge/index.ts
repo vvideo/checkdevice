@@ -15,7 +15,7 @@ import { block } from '../../utils/css/bem';
 import { getHdcpNotDetected, getHdcpVersion } from '../../utils/drm/getHcpVersion';
 import { getCachedCheckAllHdcpVersions } from '../../utils/drm/getCachedCheckAllHdcpVersions';
 import { getEncryptionSchemes } from '../../utils/drm/getEncryptionSchemes';
-import { i18n } from '../../i18n/i18n';
+import { i18n } from '../../i18n';
 
 const b = block('playready-badge');
 

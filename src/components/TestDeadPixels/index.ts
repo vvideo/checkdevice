@@ -2,7 +2,7 @@ import { html } from 'htm/preact';
 import { useCallback, useEffect, useRef, useState } from 'preact/hooks';
 import { block } from '../../utils/css/bem';
 import { Button } from '../Button';
-import { i18n } from '../../i18n/i18n';
+import { i18n } from '../../i18n';
 import { VK_BACKSPACE, VK_ESC } from '../../const/keycodes';
 
 import './index.css';

@@ -1,5 +1,5 @@
 import { html } from 'htm/preact';
-import { i18n } from '../../i18n/i18n';
+import { i18n } from '../../i18n';
 import { List } from '../List';
 import { calcAspectRatio } from 'calc-aspect-ratio';
 import { MicInfo } from '../MicInfo';

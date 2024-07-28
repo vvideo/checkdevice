@@ -5,7 +5,7 @@ import { prepareAdapterFeatures, prepareAdapterInfo, prepareAdapterLimits } from
 import { WarningMessage } from '../WarningMessage';
 import { block } from '../../utils/css/bem';
 import { TreeList } from '../TreeList';
-import { i18n } from '../../i18n/i18n';
+import { i18n } from '../../i18n';
 
 import './index.css';
 

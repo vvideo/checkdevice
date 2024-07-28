@@ -5,7 +5,7 @@ import { Result } from '../Result';
 import { ActiveQuestion } from '../ActiveQuestion';
 import { Codec } from '../Codec';
 import { isScreensLargerThan2K, screenInfo } from '../../lib/ScreenInfo';
-import { i18n } from '../../i18n/i18n';
+import { i18n } from '../../i18n';
 import { CodecDetails } from '../CodecDetails';
 
 export function Question4K() {

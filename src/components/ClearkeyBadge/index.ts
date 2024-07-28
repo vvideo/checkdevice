@@ -7,7 +7,7 @@ import { html } from 'htm/preact';
 import { Badge } from '../Badge';
 import { KeySystems } from '../KeySystems';
 import { block } from '../../utils/css/bem';
-import { i18n } from '../../i18n/i18n';
+import { i18n } from '../../i18n';
 import { getEncryptionSchemes } from '../../utils/drm/getEncryptionSchemes';
 
 const b = block('clearkey-badge');

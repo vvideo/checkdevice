@@ -2,7 +2,7 @@ import { html } from 'htm/preact';
 import { useEffect, useRef } from 'preact/hooks';
 import { RefreshRateController } from '../../lib/RefreshRateController';
 import { Spinner } from '../Spinner';
-import { i18n } from '../../i18n/i18n';
+import { i18n } from '../../i18n';
 import { useForceUpdate } from '../../hooks/useForceUpdate';
 import { block } from '../../utils/css/bem';
 

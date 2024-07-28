@@ -18,7 +18,7 @@ import {
 import { ActiveQuestion } from '../ActiveQuestion';
 import { Result } from '../Result';
 import { Codec } from '../Codec';
-import { i18n } from '../../i18n/i18n';
+import { i18n } from '../../i18n';
 import { isScreensLargerThan2K, needHdcpWarning, screenInfo } from '../../lib/ScreenInfo';
 import { isDesktopSafari } from '../../utils/isDesktopSafari';
 import { getCachedCheckAllHdcpVersions } from '../../utils/drm/getCachedCheckAllHdcpVersions';

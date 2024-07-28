@@ -13,7 +13,7 @@ import { KeySystems } from '../KeySystems';
 import { SecurityLevels } from '../SecurityLevels';
 import { block } from '../../utils/css/bem';
 import { getCachedCheckAllHdcpVersions } from '../../utils/drm/getCachedCheckAllHdcpVersions';
-import { i18n } from '../../i18n/i18n';
+import { i18n } from '../../i18n';
 import { getEncryptionSchemes } from '../../utils/drm/getEncryptionSchemes';
 
 const b = block('widevine-badge');

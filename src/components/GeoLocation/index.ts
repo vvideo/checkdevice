@@ -4,7 +4,7 @@ import { Button } from '../Button';
 import { TreeList } from '../TreeList';
 import { YaStaticMap } from '../YaStaticMap';
 import { block } from '../../utils/css/bem';
-import { i18n } from '../../i18n/i18n';
+import { i18n } from '../../i18n';
 import { Spinner } from '../Spinner';
 import { isSsr } from '../../utils/isSsr';
 

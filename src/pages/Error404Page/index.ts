@@ -1,6 +1,6 @@
 import { html } from 'htm/preact';
 import { PageTitle } from '../../components/PageTitle';
-import { i18n } from '../../i18n/i18n';
+import { i18n } from '../../i18n';
 import { Page } from '../Page';
 import { Link } from '../../components/Link';
 

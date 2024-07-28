@@ -4,7 +4,7 @@ import { VNode } from 'preact';
 import { formatBytesToGB } from '../../utils/formatBytesToGB';
 import { ExtLink } from '../ExtLink';
 import { getChecked } from '../../utils/getChecked';
-import { i18n } from '../../i18n/i18n';
+import { i18n } from '../../i18n';
 import { List } from '../List';
 import { isSsr } from '../../utils/isSsr';
 

@@ -1,7 +1,7 @@
 import { html  } from 'htm/preact';
 import { useEffect, useState } from 'preact/hooks';
 import { block } from '../../utils/css/bem';
-import { i18n } from '../../i18n/i18n';
+import { i18n } from '../../i18n';
 import { TreeList } from '../TreeList';
 
 import './index.css';
