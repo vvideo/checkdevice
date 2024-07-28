@@ -25,6 +25,16 @@ const permissions = [
     'xr-spatial-tracking',
 ];
 
+function getStatusColor(state: string) {
+    const states: Record<string, string> = {
+        'granted': 'lightgreen',
+        'prompt': '#ffff80',
+        'denied': 'lightcoral',
+    };
+
+    return states[state] || 'white';
+}
+
 export function Permissions() {
     if (isSsr || !navigator.permissions) {
         return '';
@@ -34,7 +44,10 @@ export function Permissions() {
     const [done, setDone] = useState(false);
 
     const items = result
-        .map(item => [item.name, item.state])
+        .map(item => {
+            const color = getStatusColor(item.state);
+            return [item.name, html`<span style="color: ${color}">${item.state}</span>`];
+        })
         .sort((a, b) => a[0] > b[0] ? 1 : -1);
 
     useEffect(() => {
