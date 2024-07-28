@@ -12,13 +12,13 @@ import {
 } from 'detect-audio-video';
 import { Badge } from '../Badge';
 import { KeySystems } from '../KeySystems';
-import { block } from '../../utils/bem';
+import { block } from '../../utils/css/bem';
 
 const b = block('fairplay-badge');
 
 export function FairplayBadge() {
     const [hasFairplay, setFairplay] = useState(false);
-    
+
     const [hasFairplay1, setFairplay1] = useState(false);
     const [hasFairplay2, setFairplay2] = useState(false);
     const [hasFairplay3, setFairplay3] = useState(false);
@@ -40,7 +40,7 @@ export function FairplayBadge() {
     });
 
     const keySystems: string[] = [];
-    
+
     if (hasFairplay) {
         keySystems.push(FAIRPLAY_KEY_SYSTEM);
     }
@@ -57,9 +57,9 @@ export function FairplayBadge() {
         keySystems.push(FAIRPLAY_V3_KEY_SYSTEM);
     }
 
-    return html`
+    return hasFairplay ? html`
         <div class="${b()}">
-            ${hasFairplay && Badge({
+            ${Badge({
                 text: 'FairPlay',
                 background: 'white',
                 top: {
@@ -70,5 +70,5 @@ export function FairplayBadge() {
                 },
             })}
         </div>
-    `;
+    ` : '';
 }

@@ -1,6 +1,6 @@
 import { html } from 'htm/preact';
 import { isNativeHlsSupported, isNativeMpdSupported, isNativeMssSupported } from 'detect-audio-video';
-import { block } from '../../utils/bem';
+import { block } from '../../utils/css/bem';
 import { getChecked } from '../../utils/getChecked';
 
 import './index.css';

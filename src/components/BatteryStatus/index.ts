@@ -1,7 +1,7 @@
 import { html } from 'htm/preact';
 import { useEffect, useState } from 'preact/hooks';
 import { WarningMessage } from '../WarningMessage';
-import { block } from '../../utils/bem';
+import { block } from '../../utils/css/bem';
 import { i18n } from '../../i18n/i18n';
 import { BatteryBadge } from '../BatteryBadge';
 import { useForceUpdate } from '../../hooks/useForceUpdate';

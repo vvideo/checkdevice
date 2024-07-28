@@ -1,5 +1,5 @@
 import { html } from 'htm/preact';
-import { block } from '../../utils/bem';
+import { block } from '../../utils/css/bem';
 
 interface ColumnProps {
     key: string;

@@ -1,5 +1,5 @@
 import { html } from 'htm/preact';
-import { block } from '../../utils/bem';
+import { block } from '../../utils/css/bem';
 import { KeyData, LedData, SpacerData } from '../KeyboardKey';
 import { KeyboardRow } from '../KeyboardRow';
 import { ipadKeyboardLayout } from './type/ipad';

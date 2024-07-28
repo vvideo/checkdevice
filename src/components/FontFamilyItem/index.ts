@@ -1,6 +1,6 @@
 import { html } from 'htm/preact';
 import { useCallback, useState } from 'preact/hooks';
-import { block } from '../../utils/bem';
+import { block } from '../../utils/css/bem';
 import { FontFamilyData } from '../Fonts/utils';
 import { FontList } from '../FontList';
 

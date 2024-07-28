@@ -1,5 +1,5 @@
 import { CheckHdcpVersion, checkAllHdcpVersions } from 'hdcp';
-import { isSsr } from './isSsr';
+import { isSsr } from '../isSsr';
 
 interface CacheItem {
     promise: Promise<CheckHdcpVersion[]>;

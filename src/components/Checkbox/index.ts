@@ -1,7 +1,7 @@
 import { html } from 'htm/preact';
 import { useCallback, useRef, useState } from 'preact/hooks';
-import { classname } from '../../utils/classname';
-import { block } from '../../utils/bem';
+import { classname } from '../../utils/css/classname';
+import { block } from '../../utils/css/bem';
 
 import './index.css';
 

@@ -7,7 +7,7 @@ import {
     isCastToAirPlaySupported,
 } from 'detect-audio-video';
 
-import { block } from '../../utils/bem';
+import { block } from '../../utils/css/bem';
 import { i18n } from '../../i18n/i18n';
 import { isDocumentPipSupported } from './utils';
 import { getAutoplayPolicy } from '../../utils/getAutoplayPolicy';

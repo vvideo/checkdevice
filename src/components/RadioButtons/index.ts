@@ -1,8 +1,8 @@
 import { html } from 'htm/preact';
 import { useCallback, useState } from 'preact/hooks';
-import { block } from '../../utils/bem';
+import { block } from '../../utils/css/bem';
 import { RadioButtonProps, RadioButton } from '../RadioButton';
-import { classname } from '../../utils/classname';
+import { classname } from '../../utils/css/classname';
 
 import './index.css';
 

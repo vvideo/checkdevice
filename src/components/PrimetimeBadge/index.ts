@@ -6,7 +6,7 @@ import {
 } from 'detect-audio-video';
 import { Badge } from '../Badge';
 import { KeySystems } from '../KeySystems';
-import { block } from '../../utils/bem';
+import { block } from '../../utils/css/bem';
 
 const b = block('primetime-badge');
 

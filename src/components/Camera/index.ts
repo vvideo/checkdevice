@@ -1,6 +1,6 @@
 import { html } from 'htm/preact';
 import { useCallback, useRef, useState } from 'preact/hooks';
-import { block } from '../../utils/bem';
+import { block } from '../../utils/css/bem';
 import { i18n } from '../../i18n/i18n';
 import { getConstraints, requestCamera, stopCamera } from './utils';
 import { Button } from '../Button';

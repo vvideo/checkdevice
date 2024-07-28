@@ -2,7 +2,7 @@ import { html } from 'htm/preact';
 import { List } from '../List';
 import { getChecked } from '../../utils/getChecked';
 import { StorageFeatures } from '../StorageFeatures';
-import { block } from '../../utils/bem';
+import { block } from '../../utils/css/bem';
 import { ExtLink } from '../ExtLink';
 import { isSsr } from '../../utils/isSsr';
 

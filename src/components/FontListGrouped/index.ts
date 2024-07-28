@@ -1,6 +1,6 @@
 import { html } from 'htm/preact';
 import { groupByFamily } from '../Fonts/utils';
-import { block } from '../../utils/bem';
+import { block } from '../../utils/css/bem';
 import { FontFamilyItem } from '../FontFamilyItem';
 
 interface FontsListHGroupedProps {

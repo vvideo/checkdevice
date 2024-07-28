@@ -1,5 +1,5 @@
 import { CheckHdcpVersion, getMaxHdcpVersion } from 'hdcp';
-import { i18n } from '../i18n/i18n';
+import { i18n } from '../../i18n/i18n';
 
 export function getHdcpNotDetected() {
     return i18n('HDCP not detected');

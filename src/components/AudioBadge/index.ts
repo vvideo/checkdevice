@@ -9,7 +9,7 @@ import {
     isDtsSupported,
     isDtsXSupported,
 } from 'detect-audio-video';
-import { block } from '../../utils/bem';
+import { block } from '../../utils/css/bem';
 
 const b = block('audio-badges');
 

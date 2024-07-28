@@ -1,6 +1,6 @@
 import { html } from 'htm/preact';
 import { useEffect } from 'preact/hooks';
-import { block } from '../../utils/bem';
+import { block } from '../../utils/css/bem';
 import { keyboardStateController } from '../../lib/KeyboardStateController';
 import { useForceUpdate } from '../../hooks/useForceUpdate';
 

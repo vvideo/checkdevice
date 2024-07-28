@@ -1,7 +1,7 @@
 import { html } from 'htm/preact';
 import { useEffect } from 'preact/hooks';
 import { WarningMessage } from '../WarningMessage';
-import { block } from '../../utils/bem';
+import { block } from '../../utils/css/bem';
 import { TreeList } from '../TreeList';
 import { i18n } from '../../i18n/i18n';
 import { useForceUpdate } from '../../hooks/useForceUpdate';

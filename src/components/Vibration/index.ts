@@ -3,7 +3,7 @@ import { Button } from '../Button';
 import { html } from 'htm/preact';
 import { WarningMessage } from '../WarningMessage';
 import { i18n } from '../../i18n/i18n';
-import { block } from '../../utils/bem';
+import { block } from '../../utils/css/bem';
 
 import './index.css';
 import { isSsr } from '../../utils/isSsr';

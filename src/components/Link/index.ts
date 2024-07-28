@@ -1,9 +1,9 @@
 import { VNode } from 'preact';
-import { block } from '../../utils/bem';
+import { block } from '../../utils/css/bem';
 import { html } from 'htm/preact';
 
 import './index.css';
-import { classname } from '../../utils/classname';
+import { classname } from '../../utils/css/classname';
 
 interface LinkProps {
     class?: string;

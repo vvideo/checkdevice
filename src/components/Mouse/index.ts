@@ -1,6 +1,6 @@
 import { html } from 'htm/preact';
 import { useEffect, useRef, useState } from 'preact/hooks';
-import { block } from '../../utils/bem';
+import { block } from '../../utils/css/bem';
 import { useForceUpdate } from '../../hooks/useForceUpdate';
 import { passiveSupported } from '../../utils/passiveSupported';
 
