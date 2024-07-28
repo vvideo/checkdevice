@@ -8,6 +8,10 @@ html, body {
     line-height: 24px;
 }
 
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
 input, button, textarea, select {
     font: inherit;
 }

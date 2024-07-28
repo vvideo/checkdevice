@@ -1,7 +1,6 @@
 .lang-switcher {
     position: relative;
     cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
 }
 
 .lang-switcher__current .lang-switcher__emoji {
