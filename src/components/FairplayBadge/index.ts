@@ -13,6 +13,8 @@ import {
 import { Badge } from '../Badge';
 import { KeySystems } from '../KeySystems';
 import { block } from '../../utils/css/bem';
+import { getEncryptionSchemes } from '../../utils/drm/getEncryptionSchemes';
+import { i18n } from '../../i18n';
 
 const b = block('fairplay-badge');
 
@@ -23,20 +25,23 @@ export function FairplayBadge() {
     const [hasFairplay2, setFairplay2] = useState(false);
     const [hasFairplay3, setFairplay3] = useState(false);
 
-    isFairPlaySupported().then(result => {
-        setFairplay(result);
-    });
+    const [encryptionSchemes, setEncryptionSchemes] = useState<string>('');
 
-    isFairPlayV1Supported().then(result => {
-        setFairplay1(result);
-    });
+    Promise.all([
+        isFairPlaySupported(),
+        isFairPlayV1Supported(),
+        isFairPlayV2Supported(),
+        isFairPlayV3Supported(),
+        getEncryptionSchemes(FAIRPLAY_KEY_SYSTEM),
+    ]).then(data => {
+        const [ resultFairPlay, resultFairPlay1, resultFairPlay2, resultFairPlay3, resultEncryption ] = data;
+        setFairplay(resultFairPlay);
+        setFairplay1(resultFairPlay1);
+        setFairplay2(resultFairPlay2);
+        setFairplay3(resultFairPlay3);
 
-    isFairPlayV2Supported().then(result => {
-        setFairplay2(result);
-    });
-
-    isFairPlayV3Supported().then(result => {
-        setFairplay3(result);
+        console.log('resultEncryption', resultEncryption);
+        setEncryptionSchemes(resultEncryption.join(', '));
     });
 
     const keySystems: string[] = [];
@@ -66,7 +71,10 @@ export function FairplayBadge() {
                     text: 'Apple',
                 },
                 bottom: {
-                    text: KeySystems({ items: keySystems }),
+                    text: html`
+                        <div><${KeySystems} items="${keySystems}" //></div>
+                        <div>${encryptionSchemes.length ? `${i18n('Encryption schemes')}: ${encryptionSchemes}` : ''}</div>
+                    `
                 },
             })}
         </div>

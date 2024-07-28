@@ -71,55 +71,49 @@ export function QuestionDrm4K() {
             setPlayReadyNeededHdcp(result);
         }).catch(noop);
 
-        isWidevineSupported().then(result => {
-            setIsWidevine(result);
-        });
+        Promise.all([
+            isWidevineSupported(),
+            isWidevineL1Supported({
+                videoCapabilities: [{ contentType: VP9_CONTENT_TYPE }]
+            }),
+            isWidevineL1Supported({
+                videoCapabilities: [{ contentType: HEV_MAIN_CONTENT_TYPE }]
+            }),
+            isWidevineL1Supported({
+                videoCapabilities: [{ contentType: AV1_CONTENT_TYPE }]
+            }),
+            isPlayReadySupported(),
+            isPlayReadySL3000Supported({
+                videoCapabilities: [{ contentType: VP9_CONTENT_TYPE }]
+            }),
+            isPlayReadySL3000Supported({
+                videoCapabilities: [{ contentType: HEV_MAIN_CONTENT_TYPE }]
+            }),
+            isPlayReadySL3000Supported({
+                videoCapabilities: [{ contentType: AV1_CONTENT_TYPE }]
+            }),
+            isFairPlaySupported(),
+        ]).then(data => {
+            const [
+                resultWidevine, resultWidevineL1VP9, resultWidevineL1HEV, resultWidevineL1AV1,
+                resultPlayReady, resultPlayReadyVP9, resultPlayReadyHEV, resultPlayReadyAV1,
+                resultFairplay,
+            ] = data;
 
-        isWidevineL1Supported({
-            videoCapabilities: [{ contentType: VP9_CONTENT_TYPE }]
-        }).then(result => {
-            setIsWidevineL1Vp9(result);
-        });
+            setIsWidevine(resultWidevine);
+            setIsWidevineL1Vp9(resultWidevineL1VP9);
+            setIsWidevineL1Hevc(resultWidevineL1HEV);
+            setIsWidevineL1Av1(resultWidevineL1AV1);
 
-        isWidevineL1Supported({
-            videoCapabilities: [{ contentType: HEV_MAIN_CONTENT_TYPE }]
-        }).then(result => {
-            setIsWidevineL1Hevc(result);
-        });
+            setIsPlayReady(resultPlayReady);
+            setIsPlayReadySL3000Vp9(resultPlayReadyVP9);
+            setIsPlayReadySL3000Hevc(resultPlayReadyHEV);
+            setIsPlayReadySL3000Av1(resultPlayReadyAV1);
 
-        isWidevineL1Supported({
-            videoCapabilities: [{ contentType: AV1_CONTENT_TYPE }]
-        }).then(result => {
-            setIsWidevineL1Av1(result);
-        });
-
-        isPlayReadySupported().then(result => {
-            setIsPlayReady(result);
-        });
-
-        isPlayReadySL3000Supported({
-            videoCapabilities: [{ contentType: VP9_CONTENT_TYPE }]
-        }).then(result => {
-            setIsPlayReadySL3000Vp9(result);
-        });
-
-        isPlayReadySL3000Supported({
-            videoCapabilities: [{ contentType: HEV_MAIN_CONTENT_TYPE }]
-        }).then(result => {
-            setIsPlayReadySL3000Hevc(result);
-        });
-
-        isPlayReadySL3000Supported({
-            videoCapabilities: [{ contentType: AV1_CONTENT_TYPE }]
-        }).then(result => {
-            setIsPlayReadySL3000Av1(result);
-        });
-
-        isFairPlaySupported().then(result => {
-            setIsFairplay(result);
-            setIsFairplayVp9(result && isVp9Supported().any);
-            setIsFairplayHevc(result && isHevcMainSupported().any);
-            setIsFairplayAv1(result && isAV1Supported().any);
+            setIsFairplay(resultFairplay);
+            setIsFairplayVp9(resultFairplay && isVp9Supported().any);
+            setIsFairplayHevc(resultFairplay && isHevcMainSupported().any);
+            setIsFairplayAv1(resultFairplay && isAV1Supported().any);
         });
     }, [
         isWidevineL1Vp9, isWidevineL1Hevc, isWidevineL1Av1,

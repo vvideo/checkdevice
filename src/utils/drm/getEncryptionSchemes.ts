@@ -1,4 +1,14 @@
-import { CLEAR_KEY_SYSTEM, encryptionSchemes, isClearKeySupported, isPlayReadySupported, isWidevineSupported, PLAYREADY_RECOMMENDATION_KEY_SYSTEM, WIDEWINE_KEY_SYSTEM } from 'detect-audio-video';
+import {
+    encryptionSchemes,
+    CLEAR_KEY_SYSTEM,
+    isClearKeySupported,
+    FAIRPLAY_KEY_SYSTEM,
+    isFairPlaySupported,
+    PLAYREADY_RECOMMENDATION_KEY_SYSTEM,
+    isPlayReadySupported,
+    WIDEWINE_KEY_SYSTEM,
+    isWidevineSupported,
+} from 'detect-audio-video';
 
 export function getEncryptionSchemes(keySystem: string): Promise<string[]> {
     const schemes: string[] = encryptionSchemes.filter(item => typeof item === 'string');
@@ -16,6 +26,10 @@ export function getEncryptionSchemes(keySystem: string): Promise<string[]> {
     } else if (keySystem === PLAYREADY_RECOMMENDATION_KEY_SYSTEM) {
         promises = schemes.map(encryptionScheme => {
             return isPlayReadySupported({ encryptionScheme });
+        });
+    } else if (keySystem === FAIRPLAY_KEY_SYSTEM) {
+        promises = schemes.map(encryptionScheme => {
+            return isFairPlaySupported({ encryptionScheme });
         });
     }
 
