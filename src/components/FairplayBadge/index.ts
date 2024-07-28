@@ -40,7 +40,6 @@ export function FairplayBadge() {
         setFairplay2(resultFairPlay2);
         setFairplay3(resultFairPlay3);
 
-        console.log('resultEncryption', resultEncryption);
         setEncryptionSchemes(resultEncryption.join(', '));
     });
 
