@@ -7,6 +7,7 @@ import {
 } from 'detect-audio-video';
 import { noop } from '../../utils/noop';
 import { isSsr } from '../../utils/isSsr';
+import { needChangeWidthHeight } from '../../utils/needChangeWidthHeight';
 
 export interface ScreenDetailed extends Screen {
     label: string;
@@ -259,15 +260,22 @@ class ScreenInfo {
 
         const additionalProps = this.getAdditionalProps();
 
+        const needChange = needChangeWidthHeight();
+
+        const width = needChange ? screen.height : screen.width;
+        const height = needChange ? screen.width : screen.height;
+        const availWidth = needChange ? screen.availHeight : screen.availWidth;
+        const availHeight = needChange ? screen.availWidth : screen.availHeight;
+
         return {
             availLeft: screen.availLeft,
             availTop: screen.availTop,
-            availWidth: screen.availWidth,
-            availHeight: screen.availHeight,
+            availWidth,
+            availHeight,
+            width,
+            height,
             colorDepth: screen.colorDepth,
             pixelDepth: screen.pixelDepth,
-            width: screen.width,
-            height: screen.height,
             label: '',
             isInternal: undefined,
             isPrimary: undefined,
