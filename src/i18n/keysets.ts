@@ -1,18 +1,5 @@
 import { I18nKeysets } from '.';
 
-export const langs = [
-    {
-        name: 'EN',
-        value: 'en',
-        emoji: '🇺🇸'
-    },
-    {
-        name: 'RU',
-        value: 'ru',
-        emoji: '🇷🇺',
-    },
-];
-
 export const keysets: I18nKeysets = {
     'Can I watch video in this browser?': {
         'en': 'Can I\u00a0watch video in\u00a0this browser?',

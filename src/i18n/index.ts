@@ -1,4 +1,5 @@
-import { keysets, langs } from './keysets';
+import { keysets } from './keysets';
+import { langs } from './langs';
 
 export type I18NKeys = { 'en': string, 'ru': string };
 export type I18nKeysets = Record<string, I18NKeys>;
