@@ -645,5 +645,9 @@ export const keysets: I18nKeysets = {
     'MIDI': {
         'en': 'MIDI',
         'ru': 'MIDI'
+    },
+    'Encryption schemes': {
+        'en': 'Encryption schemes',
+        'ru': 'Схемы шифрования'
     }
 };

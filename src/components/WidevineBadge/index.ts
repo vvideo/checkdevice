@@ -8,11 +8,13 @@ import {
     isWidevineSupported,
 } from 'detect-audio-video';
 import { HdcpLink } from '../HdcpLink';
-import { getHdcpNotDetected, getHdcpVersion } from '../../utils/getHcpVersion';
+import { getHdcpNotDetected, getHdcpVersion } from '../../utils/drm/getHcpVersion';
 import { KeySystems } from '../KeySystems';
 import { SecurityLevels } from '../SecurityLevels';
-import { block } from '../../utils/bem';
-import { getCachedCheckAllHdcpVersions } from '../../utils/getCachedCheckAllHdcpVersions';
+import { block } from '../../utils/css/bem';
+import { getCachedCheckAllHdcpVersions } from '../../utils/drm/getCachedCheckAllHdcpVersions';
+import { i18n } from '../../i18n/i18n';
+import { getEncryptionSchemes } from '../../utils/drm/getEncryptionSchemes';
 
 const b = block('widevine-badge');
 
@@ -21,6 +23,7 @@ export function WidevineBadge() {
     const [hasL1, setL1] = useState(false);
     const [hasL3, setL3] = useState(false);
     const [hdcpVersion, setHdcpVersion] = useState('');
+    const [encryptionSchemes, setEncryptionSchemes] = useState<string>('');
 
     getCachedCheckAllHdcpVersions(WIDEWINE_KEY_SYSTEM).then(data => {
         setHdcpVersion(getHdcpVersion(data));
@@ -28,16 +31,17 @@ export function WidevineBadge() {
         setHdcpVersion(getHdcpNotDetected());
     });
 
-    isWidevineSupported().then(result => {
+    Promise.all([
+        isWidevineSupported(),
+        isWidevineL1Supported(),
+        isWidevineL3Supported(),
+        getEncryptionSchemes(WIDEWINE_KEY_SYSTEM),
+    ]).then(data => {
+        const [result, resultL1, resultL3, resultEncryption] = data;
         setWidevine(result);
-    });
-
-    isWidevineL1Supported().then(result => {
-        setL1(result);
-    });
-
-    isWidevineL3Supported().then(result => {
-        setL3(result);
+        setL1(resultL1);
+        setL3(resultL3);
+        setEncryptionSchemes(resultEncryption.join(', '));
     });
 
     const levels = [];
@@ -50,9 +54,9 @@ export function WidevineBadge() {
         levels.push('L3');
     }
 
-    return html`
+    return hasWidevine ? html`
         <div class="${b()}">
-            ${hasWidevine && Badge({
+            ${Badge({
                 text: 'Widevine',
                 background: 'white',
                 top: {
@@ -61,9 +65,10 @@ export function WidevineBadge() {
                 bottom: {
                     text: html`<div><${SecurityLevels} items="${levels}" //></div>
                         <div><${KeySystems} items="${[WIDEWINE_KEY_SYSTEM]}" //></div>
+                        <div>${encryptionSchemes.length ? `${i18n('Encryption schemes')}: ${encryptionSchemes}` : ''}</div>
                         <div><${HdcpLink} version="${hdcpVersion}" //></div>`,
                 },
             })}
         </div>
-    `;
+    ` : '';
 }

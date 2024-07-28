@@ -11,9 +11,11 @@ import { Badge } from '../Badge';
 import { HdcpLink } from '../HdcpLink';
 import { KeySystems } from '../KeySystems';
 import { SecurityLevels } from '../SecurityLevels';
-import { block } from '../../utils/bem';
-import { getHdcpNotDetected, getHdcpVersion } from '../../utils/getHcpVersion';
-import { getCachedCheckAllHdcpVersions } from '../../utils/getCachedCheckAllHdcpVersions';
+import { block } from '../../utils/css/bem';
+import { getHdcpNotDetected, getHdcpVersion } from '../../utils/drm/getHcpVersion';
+import { getCachedCheckAllHdcpVersions } from '../../utils/drm/getCachedCheckAllHdcpVersions';
+import { getEncryptionSchemes } from '../../utils/drm/getEncryptionSchemes';
+import { i18n } from '../../i18n/i18n';
 
 const b = block('playready-badge');
 
@@ -25,6 +27,7 @@ export function PlayreadyBadge() {
     const [hasSL2000, setSL2000] = useState(false);
     const [hasSL3000, setSL3000] = useState(false);
     const [hdcpVersion, setHdcpVersion] = useState('');
+    const [encryptionSchemes, setEncryptionSchemes] = useState<string>('');
 
     getCachedCheckAllHdcpVersions(PLAYREADY_RECOMMENDATION_KEY_SYSTEM).then(data => {
         setHdcpVersion(getHdcpVersion(data));
@@ -32,20 +35,19 @@ export function PlayreadyBadge() {
         setHdcpVersion(getHdcpNotDetected());
     });
 
-    isPlayReadySupported().then(result => {
-        setPlayready(result);
-    });
-
-    isPlayReadySL150Supported().then(result => {
-        setSL150(result);
-    });
-
-    isPlayReadySL2000Supported().then(result => {
-        setSL2000(result);
-    });
-
-    isPlayReadySL3000Supported().then(result => {
-        setSL3000(result);
+    Promise.all([
+        isPlayReadySupported(),
+        isPlayReadySL150Supported(),
+        isPlayReadySL2000Supported(),
+        isPlayReadySL3000Supported(),
+        getEncryptionSchemes(PLAYREADY_RECOMMENDATION_KEY_SYSTEM),
+    ]).then(data => {
+        const [resultPlayReady, resultPlayReady150, resultPlayReady2000, resultPlayReady3000, resultEncryption] = data;
+        setPlayready(resultPlayReady);
+        setSL150(resultPlayReady150);
+        setSL2000(resultPlayReady2000);
+        setSL3000(resultPlayReady3000);
+        setEncryptionSchemes(resultEncryption.join(', '));
     });
 
     const levels = [];
@@ -62,9 +64,9 @@ export function PlayreadyBadge() {
         levels.push('SL3000');
     }
 
-    return html`
+    return hasPlayready? html`
         <div class="${b()}">
-            ${hasPlayready && Badge({
+            ${Badge({
                 text: 'PlayReady',
                 background: 'white',
                 top: {
@@ -73,9 +75,10 @@ export function PlayreadyBadge() {
                 bottom: {
                     text: html`<div><${SecurityLevels} items="${levels}" //></div>
                         <div><${KeySystems} items="${keySystemsItems}" //></div>
+                        <div>${encryptionSchemes.length ? `${i18n('Encryption schemes')}: ${encryptionSchemes}` : ''}</div>
                         <div><${HdcpLink} version="${hdcpVersion}" //></div>`
                 },
             })}
         </div>
-    `;
+    ` : '';
 }

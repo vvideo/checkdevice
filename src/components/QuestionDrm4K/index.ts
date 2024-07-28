@@ -21,7 +21,7 @@ import { Codec } from '../Codec';
 import { i18n } from '../../i18n/i18n';
 import { isScreensLargerThan2K, needHdcpWarning, screenInfo } from '../../lib/ScreenInfo';
 import { isDesktopSafari } from '../../utils/isDesktopSafari';
-import { getCachedCheckAllHdcpVersions } from '../../utils/getCachedCheckAllHdcpVersions';
+import { getCachedCheckAllHdcpVersions } from '../../utils/drm/getCachedCheckAllHdcpVersions';
 import { noop } from '../../utils/noop';
 import { isUhdHdcpSupported } from 'hdcp';
 import { Link } from '../Link';
@@ -75,15 +75,21 @@ export function QuestionDrm4K() {
             setIsWidevine(result);
         });
 
-        isWidevineL1Supported(VP9_CONTENT_TYPE).then(result => {
+        isWidevineL1Supported({
+            videoCapabilities: [{ contentType: VP9_CONTENT_TYPE }]
+        }).then(result => {
             setIsWidevineL1Vp9(result);
         });
 
-        isWidevineL1Supported(HEV_MAIN_CONTENT_TYPE).then(result => {
+        isWidevineL1Supported({
+            videoCapabilities: [{ contentType: HEV_MAIN_CONTENT_TYPE }]
+        }).then(result => {
             setIsWidevineL1Hevc(result);
         });
 
-        isWidevineL1Supported(AV1_CONTENT_TYPE).then(result => {
+        isWidevineL1Supported({
+            videoCapabilities: [{ contentType: AV1_CONTENT_TYPE }]
+        }).then(result => {
             setIsWidevineL1Av1(result);
         });
 
@@ -91,15 +97,21 @@ export function QuestionDrm4K() {
             setIsPlayReady(result);
         });
 
-        isPlayReadySL3000Supported(VP9_CONTENT_TYPE).then(result => {
+        isPlayReadySL3000Supported({
+            videoCapabilities: [{ contentType: VP9_CONTENT_TYPE }]
+        }).then(result => {
             setIsPlayReadySL3000Vp9(result);
         });
 
-        isPlayReadySL3000Supported(HEV_MAIN_CONTENT_TYPE).then(result => {
+        isPlayReadySL3000Supported({
+            videoCapabilities: [{ contentType: HEV_MAIN_CONTENT_TYPE }]
+        }).then(result => {
             setIsPlayReadySL3000Hevc(result);
         });
 
-        isPlayReadySL3000Supported(AV1_CONTENT_TYPE).then(result => {
+        isPlayReadySL3000Supported({
+            videoCapabilities: [{ contentType: AV1_CONTENT_TYPE }]
+        }).then(result => {
             setIsPlayReadySL3000Av1(result);
         });
 
