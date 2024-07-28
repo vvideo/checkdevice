@@ -4,6 +4,7 @@ import { i18n } from '../../i18n';
 import { List } from '../List';
 import { noop } from '../../utils/noop';
 import { isSsr } from '../../utils/isSsr';
+import { Spinner } from '../Spinner';
 
 const permissions = [
     'accessibility-events',
@@ -36,12 +37,18 @@ function getStatusColor(state: string) {
 }
 
 export function Permissions() {
-    if (isSsr || !navigator.permissions) {
+    if (!isSsr && !navigator.permissions) {
         return '';
     }
 
     const [result, _] = useState<{ state: string; name: string; }[]>([]);
-    const [done, setDone] = useState(false);
+    const [done, setDone] = useState<boolean>(isSsr);
+
+    if (isSsr) {
+        permissions.forEach(name => {
+            result.push({ state: '…', name});
+        });
+    }
 
     const items = result
         .map(item => {
@@ -72,5 +79,5 @@ export function Permissions() {
 
     return done ?
         html`<${List} title="${i18n('Permissions')}" items="${items}" //>` :
-        '';
+        html`<${Spinner} //>`;
 }
