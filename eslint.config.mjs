@@ -13,6 +13,7 @@ export default [
   {
     ignores: [
       'src/pages/pages.ts',
+      'static/**',
       'dist/**',
       'rollup.config.mjs'
     ],
