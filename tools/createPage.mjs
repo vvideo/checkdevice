@@ -9,6 +9,7 @@ export function createPage({ id, header, lang, content }) {
 <head>
     <title>${header}</title>
     <meta charset="utf-8" />
+    <link rel="yandex-tableau-widget" href="/yandex-tableau-widget.json" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="theme-color" content="#FFd700" />
     <link rel="canonical" href="${canonicalUrl}" />

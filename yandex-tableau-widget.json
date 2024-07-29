@@ -1,0 +1,7 @@
+{
+    "api_version": 4,
+    "layout": {
+        "logo": "/static/favicons/yandex-tableau-widget.png",
+        "color": "#ffd700"
+    }
+}
