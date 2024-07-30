@@ -10,7 +10,7 @@
     <link rel="manifest" href="/manifest.json" />
     <link rel="shortcut icon" href="/static/favicons/favicon.png?md5=6f1af9b922c5779e69d0eb52eb461028" />
     <link rel="apple-touch-icon" href="/static/favicons/touch.png?md5=6e108c39be05fb44e6b380984c64302b" />
-    <link rel="stylesheet" href="/static/camera.css?md5=6efd002443da110f5da98d6c8842ae49" />
+    <link rel="stylesheet" href="/static/camera.css?md5=3a85c6aada2dceb0e4217c809702a476" />
     <meta name="google-site-verification" content="BUV1qxuhIx696cS8GU9knQcJcZaGugHSDV2kAkEG73I" />
     <meta name="yandex-verification" content="985312253f7c8a44" />
     <script>
@@ -66,11 +66,14 @@
                 <input autocomplete="off" class="checkbox__input" type="checkbox" />Микрофон</label>
         </div>
         <div class="camera__controls">
-            <div class="radio-buttons">
-                <div class="radio-buttons__label"></div>
-                <div class="radio-buttons__items"><span class="radio-button radio-button_selected radio-buttons__item">Высокое разрешение</span><span class="radio-button radio-buttons__item">Низкое разрешение</span><span class="radio-button radio-buttons__item">Высокая частота кадров</span>
-                </div>
-            </div>
+            <fieldset class="radio-buttons">
+                <legend class="radio-buttons__label"></legend>
+                <ul class="radio-buttons__items">
+                    <li class="radio-button radio-button_selected radio-buttons__item">Высокое разрешение</li>
+                    <li class="radio-button radio-buttons__item">Низкое разрешение</li>
+                    <li class="radio-button radio-buttons__item">Высокая частота кадров</li>
+                </ul>
+            </fieldset>
         </div>
         <div class="camera__container">
             <video class="camera__video"></video>
@@ -92,6 +95,6 @@
         <div class="footer__item">© Vvideo</div>
     </footer>
 </div></div>
-    <script defer src="/static/camera.js?md5=6b127ee77eac0b5e01ae8a6db0fce191"></script>
+    <script defer src="/static/camera.js?md5=099f22f6ad03968d6a2135cb34477f43"></script>
 </body>
 </html>
