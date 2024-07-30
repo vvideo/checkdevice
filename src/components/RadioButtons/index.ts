@@ -8,6 +8,7 @@ import './index.css';
 
 export interface RadioButtonsProps {
     className?: string;
+    hideLabel?: boolean;
     label: string;
     buttons: RadioButtonProps[];
     onSelect(value: string): void;
@@ -32,9 +33,9 @@ export function RadioButtons(props: RadioButtonsProps) {
     }, [onSelect]);
 
     return html`
-        <div class="${classname(b(), className)}">
-            <div class="${b('label')}">${label}</div>
-            <div class="${b('items')}">
+        <fieldset class="${classname(b(), className)}">
+            ${props.hideLabel || !label ? html`<legend class="${b('label')}">${label}</legend>` : ''}
+            <ul class="${b('items')}">
                 ${
                     buttons.map(item => {
                         return html`<${RadioButton}
@@ -47,7 +48,7 @@ export function RadioButtons(props: RadioButtonsProps) {
                         ><//>`;
                     })
                 }
-            </div>
-        </div>
+            </ul>
+        </fieldset>
     `;
 }
