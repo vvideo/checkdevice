@@ -28,8 +28,8 @@ export function LangSwitcher() {
 
     return html`<div class="${b()}">
         <div class="${b('current')}" onClick="${handleClick}"><span class="${b('emoji')}">${currentLangItem.emoji}</span> ${currentLangItem.name}</div>
-        <div class="${b('popup', { visible })}">
+        <menu class="${b('popup', { visible })}">
             ${langs.map(item => html`<${LangSwitcherItem} selected="${currentLang === item.value}" key="${item.value}" onClick="${handleClickItem}" ..."${item}" //>`)}
-        </div>
+        </menu>
     </div>`;
 }

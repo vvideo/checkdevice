@@ -188,7 +188,8 @@
         },
         "emoji": "",
         "id": "error404",
-        "hidden": true
+        "hidden": true,
+        "sitemap": false
     },
     {
         "menuTitle": {

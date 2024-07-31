@@ -4,6 +4,7 @@ import { getLang } from '../../utils/getLang';
 import { withInstallApp } from '../../utils/withInstallApp';
 import { addHoverOnBody } from '../../utils/css/addHoverOnBody';
 import { isSsr } from '../../utils/isSsr';
+import 'show-js-error';
 
 import './index.css';
 

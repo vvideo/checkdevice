@@ -24,6 +24,7 @@ import { SensorPage } from '../pages/SensorPage';
 import { UsbPage } from '../pages/UsbPage';
 import { BluetoothPage } from '../pages/BluetoothPage';
 import { MidiPage } from '../pages/MidiPage';
+import { GeoPage } from '../pages/GeoPage';
 
 export const pages: Record<string, any> = {
     audio: AudioPage,
@@ -48,10 +49,15 @@ export const pages: Record<string, any> = {
     sensor: SensorPage,
     usb: UsbPage,
     bluetooth: BluetoothPage,
+    geo: GeoPage,
 };
 
 export function buildPage(id: string): string {
-    return pages[id] ? render(html`<${pages[id]} //>`) : '';
+    if (pages[id]) {
+        return render(html`<${pages[id]} //>`);
+    } else {
+        throw Error(`Not founded "${id}" page component for SSR`);
+    }
 }
 
 export function setLang(lang: I18NLanguage) {
