@@ -37,6 +37,14 @@
             "en": "Screen",
             "ru": "Экран"
         },
+        "description": {
+            "en": "View screen resolution of monitor, laptop, smartphone or tablet online, support for multiple monitors",
+            "ru": "Посмотреть разрешение экрана монитора, ноутбука, смартфона или планшета онлайн, поддержка нескольких мониторов"
+        },
+        "keywords": {
+            "en": "logical size, actual size, resolution screen, hdr, device pixel ratio, max touch points, color depth, aspect ratio, color spaces, orientation, frame rate",
+            "ru": "разрешение экрана, логический и фактический размер, HDR, соотношение сторон, глубина цвета, ориентация, частота обновления, цветовые пространства"
+        },
         "emoji": "🖥️",
         "id": "screen"
     },
