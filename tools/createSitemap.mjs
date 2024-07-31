@@ -13,6 +13,10 @@ function buildList() {
 
     langs.forEach(lang => {
         pages.forEach(item => {
+            if (item.sitemap === false) {
+                return;
+            }
+
             result.push(
                 buildUrl(`${siteUrl}${getPagePath(lang, item.id).pagePath}`)
             );
