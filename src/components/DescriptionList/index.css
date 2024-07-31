@@ -1,0 +1,27 @@
+.description-list {
+    font-size: 16px;
+    line-height: 26px;
+    padding: 0;
+    margin: 0 0 0 15px;
+}
+
+.description-list__item {
+    display: list-item;
+    list-style-type: disc;
+}
+
+.description-list__term {
+    display: inline;
+    padding: 0;
+    margin: 0;
+}
+
+.description-list__term::after {
+    content: ': ';
+}
+
+.description-list__details {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}

@@ -1,9 +1,9 @@
 import { html } from 'htm/preact';
 import { Row } from '../Row';
 import { block } from '../../utils/css/bem';
+import { classname } from '../../utils/css/classname';
 
 import './index.css';
-import { classname } from '../../utils/css/classname';
 
 interface ListProps {
     class?: string;
