@@ -5,7 +5,7 @@
     "scripts": {
         "clean": "del ./dist; del ./ru; del ./en",
         "build": "npm run clean; npm run build:menu && npm run build:client && npm run build:ssr && npm run build:pages && npm run build:sitemap",
-        "build:sitemap": "node ./tools/updateSitemap.mjs",
+        "build:sitemap": "node ./tools/createSitemap.mjs",
         "build:menu": "npm run menu",
         "build:client": "rollup -c ./rollup.config.mjs",
         "build:ssr": "rollup -c ./rollup.config.ssr.mjs",
@@ -48,6 +48,7 @@
         "preact-render-to-string": "6.5.6",
         "rollup": "^4.19.0",
         "rollup-plugin-postcss": "^4.0.2",
+        "show-js-error": "^4.0.2",
         "simply-beautiful": "1.0.1",
         "tslib": "^2.6.3",
         "typescript": "^5.5.3",
