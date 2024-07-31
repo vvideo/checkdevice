@@ -1,6 +1,6 @@
 import { html } from 'htm/preact';
 import { calcAspectRatio } from 'calc-aspect-ratio';
-import { List } from '../List';
+import { DescriptionList } from '../DescriptionList';
 import { getChecked } from '../../utils/getChecked';
 import { i18n } from '../../i18n';
 import { block } from '../../utils/css/bem';
@@ -44,12 +44,13 @@ export function ScreenItem(props: ScreenItemProps) {
         orientation,
     } = props;
 
-    const logicalSize = [width, height, devicePixelRatio];
+    const logicalSize = [width, height];
     const realSize = [width * devicePixelRatio, height * devicePixelRatio];
 
     const items = [
-        [i18n('Size'), `${realSize.join('×')} (${logicalSize.join('×')})`],
-        ['devicePixelRatio', devicePixelRatio],
+        [i18n('Actual size'), realSize.join('×')],
+        [i18n('Logical size'), logicalSize.join('×')],
+        [i18n('Device pixel ratio'), devicePixelRatio],
         [i18n('Aspect ratio'), calcAspectRatio(Math.max(width, height), Math.min(width, height)).value],
         orientation ? [i18n('Orientation'), orientation.type] : '',
         [i18n('Color depth'), `${colorDepth} ${i18n('bit')}`],
@@ -63,7 +64,7 @@ export function ScreenItem(props: ScreenItemProps) {
     return html`
         <div class="${b()}">
             ${label ? html`<div class="${b('label')}">${label}</div>` : ''}
-            <${List} items="${items}"><//>
+            <${DescriptionList} items="${items}"><//>
 
             ${isExtended === true ? html`<${WarningMessage}>${i18n('Additional monitor detected')}<//>` : ''}
         </div>

@@ -6,7 +6,6 @@ import { Button } from '../Button';
 import { i18n } from '../../i18n';
 import { useForceUpdate } from '../../hooks/useForceUpdate';
 import { screenInfo } from '../../lib/ScreenInfo';
-import { List } from '../List';
 import { hasTouchScreen } from '../../utils/hasTouchScreen';
 import { getChecked } from '../../utils/getChecked';
 import { getMaxTouchPoints } from '../../utils/getMaxTouchPoints';
@@ -16,6 +15,7 @@ import { PageTitle } from '../PageTitle';
 import { isSsr } from '../../utils/isSsr';
 
 import './index.css';
+import { DescriptionList } from '../DescriptionList';
 
 export interface ScreenList {
     items: ScreenItemProps[];
@@ -69,6 +69,6 @@ export function ScreenList() {
             })
         }
 
-        <${List} title="${i18n('Additionally')}" items="${additionalItems}" //>
+        <${DescriptionList} title="${i18n('Additionally')}" items="${additionalItems}" //>
     </div>`;
 }

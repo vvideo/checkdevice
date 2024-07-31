@@ -636,5 +636,13 @@ export const keysets: I18nKeysets = {
     'Encryption schemes': {
         'en': 'Encryption schemes',
         'ru': 'Схемы шифрования'
+    },
+    'Logical size': {
+        'en': 'Logical size',
+        'ru': 'Логический размер'
+    },
+    'Actual size': {
+        'en': 'Actual size',
+        'ru': 'Фактический размер'
     }
 };
