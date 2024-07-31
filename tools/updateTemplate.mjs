@@ -5,7 +5,7 @@ export function updateTemplate(template) {
     const html = fs.readFileSync(template, { encoding: 'utf-8'});
 
     const content = html.replace(/(src|href)="(.*?)"/g, ($0, attr, file) => {
-        if (!$0.includes('/static')) {
+        if (!$0.includes('/static') || !$0.includes('md5')) {
             return $0;
         }
 
