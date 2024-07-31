@@ -644,5 +644,21 @@ export const keysets: I18nKeysets = {
     'Actual size': {
         'en': 'Actual size',
         'ru': 'Фактический размер'
+    },
+    'landscape-primary': {
+        'en': 'landscape (primary)',
+        'ru': 'альбомная (первичная)'
+    },
+    'portrait-primary': {
+        'en': 'portrait (primary)',
+        'ru': 'книжная (первичная)'
+    },
+    'landscape-secondary': {
+        'en': 'landscape (secondary)',
+        'ru': 'альбомная (вторичная)'
+    },
+    'portrait-secondary': {
+        'en': 'portrait (secondary)',
+        'ru': 'книжная (вторичная)'
     }
 };

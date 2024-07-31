@@ -52,7 +52,7 @@ export function ScreenItem(props: ScreenItemProps) {
         [i18n('Logical size'), logicalSize.join('×')],
         [i18n('Device pixel ratio'), devicePixelRatio],
         [i18n('Aspect ratio'), calcAspectRatio(Math.max(width, height), Math.min(width, height)).value],
-        orientation ? [i18n('Orientation'), orientation.type] : '',
+        orientation ? [i18n('Orientation'), i18n(orientation.type)] : '',
         [i18n('Color depth'), `${colorDepth} ${i18n('bit')}`],
         [html`<${HdrLabel} enabled="${isHdr}" //>`, getChecked(Boolean(isHdr))],
         [i18n('Color spaces'), html`<${ColorSpaceList} items="${colorSpaces}" //>`],
