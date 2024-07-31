@@ -1,6 +1,9 @@
 .color-space-item {
+    display: inline;
+    list-style-type: none;
     color: #666;
-    margin-right: 8px;
+    margin: 0 .8em 0 0;
+    padding: 0;
     white-space: nowrap;
 }
 

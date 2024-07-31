@@ -14,5 +14,7 @@ const b = block('color-space-item');
 export function ColorSpaceItem(props: ColorSpaceItemProps) {
     const { name, supported, type } = props;
 
-    return html`<span class="${b({ type, supported })}"><span class="${b('checked')}">${supported ? '✓' : '✗'}</span> <span class="${b('color')}">${name}</span></span>`;
+    return html`<li class="${b({ type, supported })}">
+    <span class="${b('checked')}">${supported ? '✓' : '✗'}</span> <span class="${b('color')}">${name}</span>
+</li>`;
 }

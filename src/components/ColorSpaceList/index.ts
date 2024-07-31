@@ -3,6 +3,8 @@ import { block } from '../../utils/css/bem';
 import { ColorSpaceItem } from '../ColorSpaceItem';
 import { colorSpaceTypes, getColorSpaceTitle } from '../../utils/getColorSpaces';
 
+import './index.css';
+
 interface ColorSpaceListProps {
     items: string[] | undefined;
 }
@@ -23,9 +25,9 @@ export function ColorSpaceList(props: ColorSpaceListProps) {
     });
 
     return html`
-        <span class="${b()}">
+        <ul class="${b()}">
             ${items.map(item => {
                 return html`<${ColorSpaceItem} ...${item} //>`;
             })}
-        </span>`;
+        </ul>`;
 }
