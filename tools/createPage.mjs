@@ -1,9 +1,4 @@
-import { siteUrl } from './data.mjs';
-import { getPagePath } from './getPagePath.mjs';
-
-export function createPage({ id, header, lang, content }) {
-    const canonicalUrl = `${siteUrl}/${getPagePath(lang, id).dir}`;
-
+export function createPage({ id, header, lang, content, canonicalUrl }) {
     return `<!DOCTYPE html>
 <html lang="${lang || 'en'}">
 <head>

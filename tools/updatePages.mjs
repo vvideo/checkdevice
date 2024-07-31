@@ -7,6 +7,7 @@ import { loadJson } from './utils/loadJson.mjs';
 import { buildPage, setLang, i18n } from '../dist/ssr.mjs';
 import { langs } from './langs.mjs';
 import { getPagePath } from './getPagePath.mjs';
+import { siteUrl } from './data.mjs';
 
 const pages = loadJson('./src/pages/pages.json');
 
@@ -21,11 +22,14 @@ langs.forEach(lang => {
             header += ' / ' + i18n('Check device online');
         }
 
+        const canonicalUrl = `${siteUrl}/${getPagePath(lang, id).dir}`;
+
         let html = createPage({
             id,
             header,
             lang,
             content: beautify.html(buildPage(id)),
+            canonicalUrl,
         });
 
         if (!existsSync(lang)) {
@@ -45,6 +49,7 @@ langs.forEach(lang => {
                 header,
                 lang: undefined,
                 content: beautify.html(buildPage(id)),
+                canonicalUrl,
             });
 
             savePage(`${id}.html`, html);
