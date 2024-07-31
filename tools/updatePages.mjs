@@ -23,6 +23,8 @@ langs.forEach(lang => {
         }
 
         const canonicalUrl = `${siteUrl}/${getPagePath(lang, id).dir}`;
+        const description = item.description ? item.description[lang] : '';
+        const keywords = item.keywords ? item.keywords[lang] : '';
 
         let html = createPage({
             id,
@@ -30,6 +32,8 @@ langs.forEach(lang => {
             lang,
             content: beautify.html(buildPage(id)),
             canonicalUrl,
+            keywords,
+            description,
         });
 
         if (!existsSync(lang)) {
@@ -50,6 +54,8 @@ langs.forEach(lang => {
                 lang: undefined,
                 content: beautify.html(buildPage(id)),
                 canonicalUrl,
+                keywords,
+                description,
             });
 
             savePage(`${id}.html`, html);
