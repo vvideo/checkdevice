@@ -1,3 +1,8 @@
 .speech-synthesis__supported {
     margin: 0.5em 0;
 }
+
+.speech-synthesis__input {
+    width: 50%;
+    max-width: 400px;
+}

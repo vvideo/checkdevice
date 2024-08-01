@@ -29,6 +29,7 @@ export function SpeechSynthesis() {
         ${isSupported && !isSsr ? '' : html`<div class="${b('supported')}">Web Speech API<${InfoLink} title="MDN" href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis"><//>: ${getChecked(isSupported)}</div>`}
         ${isSupported || isSsr ? html`<div class="${b('form')}">
             <${Input}
+                class="${b('input')}"
                 title="${i18n('Input text for speech synthesis')}"
                 placeholder="${i18n('Input text')}"
                 value="${text}"
