@@ -8,12 +8,14 @@ const b = block('column');
 
 interface ColumnProps {
     name: string;
+    title?: string;
     children: VNode;
+    disabled?: boolean;
 }
 
 export function Column(props: ColumnProps) {
     return html`<div class="${b()}">
-        <div class="${b('category')}">${props.name}</div>
+        <div title="${props.title}" class="${b('category', { disabled: props.disabled })}">${props.name}</div>
         <div class="${b('body')}">${props.children}</div>
     </div>`;
 }

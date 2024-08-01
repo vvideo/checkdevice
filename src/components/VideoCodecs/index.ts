@@ -59,10 +59,10 @@ export function VideoCodecs() {
 
     return html`
         <${Columns} name="${i18n('Video Codecs')}">
-            ${supported.length ? html`<${Column} name="${i18n('Supported')}">
+            ${supported.length ? html`<${Column} title="${i18n('Supported video codecs')}" name="${i18n('Supported')}">
                 ${supported}
             <//>` : i18n('No supported video codecs.')}
-            ${unsupported.length ? html`<${Column} name="${i18n('Unsupported')}">
+            ${unsupported.length ? html`<${Column} disabled title="${i18n('Unsupported video codecs')}" name="${i18n('Unsupported')}">
                 ${unsupported}
             <//>` : ''}
         <//>

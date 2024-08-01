@@ -2,7 +2,7 @@ import { html } from 'htm/preact';
 import { AudioBadge } from '../../components/AudioBadge';
 import { AudioCodecs } from '../../components/AudioCodecs';
 import { PageTitle } from '../../components/PageTitle';
-import { Row } from '../../components/Row';
+import { Section } from '../../components/Section';
 import { i18n } from '../../i18n';
 import { Page } from '../Page';
 import { QuestionSurroundSound } from '../../components/QuestionSurroundSound';
@@ -27,15 +27,15 @@ export function AudioPage() {
                 <${AudioBadge}><//>
             </div>
 
-            <${Row} name="${i18n('Audio Codecs')}">
+            <${Section} name="${i18n('Audio Codecs')}">
                 <${AudioCodecs}><//>
             <//>
 
-            <${Row} name="${i18n('Speech Synthesis')}">
+            <${Section} name="${i18n('Speech Synthesis')}">
                 <${SpeechSynthesis}><//>
             <//>
 
-            <${Row} name="${i18n('Vibration')}">
+            <${Section} name="${i18n('Vibration')}">
                 <${Vibration}><//>
             <//>
         <//>`;

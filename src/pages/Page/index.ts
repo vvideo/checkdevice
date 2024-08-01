@@ -15,12 +15,10 @@ interface PageProps {
 
 export function Page(props: PageProps) {
     return html`
-        <div>
+        <main>
             <${Header} //>
-            ${props.withoutMenu ? '' : html`<${Menu}><//>`}
-
+            ${props.withoutMenu ? '' : html`<${Menu} //>`}
             ${props.children}
-
-            <${Footer}><//>
-        </div>`;
+            <${Footer} //>
+        </main>`;
 }

@@ -4,16 +4,16 @@ import { VNode } from 'preact';
 
 import './index.css';
 
-const b = block('row');
+const b = block('section');
 
-interface RowProps {
+interface SectionProps {
     name: string;
     children: VNode;
 }
 
-export function Row(props: RowProps) {
-    return html`<div class="${b()}">
-        <div class="${b('category')}">${props.name}</div>
+export function Section(props: SectionProps) {
+    return html`<section class="${b()}">
+        <h2 class="${b('name')}">${props.name}</h2>
         <div class="${b('body')}">${props.children}</div>
-    </div>`;
+    </section>`;
 }

@@ -1,5 +1,5 @@
 import { html } from 'htm/preact';
-import { Row } from '../Row';
+import { Section } from '../Section';
 import { b } from './className';
 import { BuildDataOptions, buildData } from './utils';
 
@@ -13,7 +13,7 @@ interface TreeListProps {
 
 export function TreeList(props: TreeListProps) {
     return html`
-        <${Row} name="${props.title}">
+        <${Section} name="${props.title}">
             <div class="${b()}">
                 ${buildData(props.data, props.options)}
             </div>

@@ -1,7 +1,7 @@
 import { html } from 'htm/preact';
 import { useCallback, useEffect } from 'preact/hooks';
 import { ScreenBadge } from '../ScreenBadge';
-import { Row } from '../Row';
+import { Section } from '../Section';
 import { screenInfo } from '../../lib/ScreenInfo';
 import { i18n } from '../../i18n';
 import { block } from '../../utils/css/bem';
@@ -49,7 +49,7 @@ export function ScreenBadges() {
 
     const name = screenInfoData.screens.length > 1 ? i18n('Screens') : i18n('Screen');
 
-    return html`<${Row} name="${name}">
+    return html`<${Section} name="${name}">
         ${!screenInfo.isDenied && screenInfo.needUserActivity ? html`<div class="${b('specify')}"><${Button} size="s" theme="red" onClick="${handleClick}">${i18n('Specify')}<//></div>` : ''}
         ${content}
         ${!screenInfo.isScreenDetails && (typeof screen !== 'undefined' && screen.isExtended === true) ? html`<div class="${b('additional')}">⚠️ ${i18n('Additional monitor detected')}</div>` : ''}

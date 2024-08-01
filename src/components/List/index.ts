@@ -1,5 +1,5 @@
 import { html } from 'htm/preact';
-import { Row } from '../Row';
+import { Section } from '../Section';
 import { block } from '../../utils/css/bem';
 import { classname } from '../../utils/css/classname';
 
@@ -38,7 +38,7 @@ export function List(props: ListProps) {
 
     const className = classname(props.class, b());
 
-    return filteredItems.length ? html`<${Row} name="${props.title}">
+    return filteredItems.length ? html`<${Section} name="${props.title}">
         <ul class="${className}">
         ${
             filteredItems.map(item => {

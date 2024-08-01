@@ -3,7 +3,7 @@ import { useEffect } from 'preact/hooks';
 import { ScreenBadges } from '../../components/ScreenBadges';
 import { VideoCodecs } from '../../components/VideoCodecs';
 import { DrmBadges } from '../../components/DrmBadges';
-import { Row } from '../../components/Row';
+import { Section } from '../../components/Section';
 import { NativeStreaming } from '../../components/NativeStreaming';
 import { VideoQuestions } from '../../components/VideoQuestions';
 import { HtmlVideoElementFeatures } from '../../components/HtmlVideoElementFeatures';
@@ -38,23 +38,23 @@ export function VideoPage() {
             <${VideoQuestions}><//>
             <${ScreenBadges}><//>
 
-            <${Row} name="${i18n('Video Codecs')}">
+            <${Section} name="${i18n('Video Codecs')}">
                 <${VideoCodecs}><//>
             <//>
 
-            <${Row} name="DRM">
+            <${Section} name="DRM">
                 <${DrmBadges}><//>
             <//>
 
-            <${Row} name="${i18n('Image Formats')}">
+            <${Section} name="${i18n('Image Formats')}">
                 <${ImageFormats}><//>
             <//>
 
-            <${Row} name="${i18n('Native Streaming Support')}">
+            <${Section} name="${i18n('Native Streaming Support')}">
                 <${NativeStreaming}><//>
             <//>
 
-            <${Row} name="${i18n('HTMLVideoElement Features')}">
+            <${Section} name="${i18n('HTMLVideoElement Features')}">
                 <${HtmlVideoElementFeatures}><//>
             <//>
         <//>`;
