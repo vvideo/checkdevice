@@ -1,6 +1,9 @@
 import { html } from 'htm/preact';
 import { i18n } from '../../i18n';
 import { isSsr } from '../../utils/isSsr';
+import { block } from '../../utils/css/bem';
+
+import './index.css';
 
 interface CodecDetailsProps {
     canPlayType: string;
@@ -40,6 +43,19 @@ function getCanPlayTypeProps(canPlayType: string) {
     };
 }
 
+// function getCodecType(mediaElementType: string) {
+//     if (mediaElementType === 'audio') {
+//         return i18n('Audio codec');
+//     }
+
+//     if (mediaElementType === 'video') {
+//         return i18n('Video codec');
+//     }
+
+//     return i18n('Codec');
+// }
+
+const b = block('codec-details');
 
 export function CodecDetails(props: CodecDetailsProps | boolean) {
     if (typeof props === 'boolean') {
@@ -50,9 +66,13 @@ export function CodecDetails(props: CodecDetailsProps | boolean) {
     const isTypeSupportedResult = getIsTypeSupportedProps(props.isTypeSupported);
 
     return html`
-        ${[props.mediaElementType]}.canPlayType(): <span style="color:${canPlayTypeResult.color}">${canPlayTypeResult.value}</span><br />
-        MediaSource.isTypeSupported(): <span style="color:${isTypeSupportedResult.color}">${isTypeSupportedResult.value}</span><br />
-        <hr />
-        ${props.contentType}
-    `;
+<div class="${b()}">
+    <div class="${b('mimetype')}">${i18n('MIME type')}: <code>${props.contentType}</code></div>
+    <div class="${b('types')}">${i18n('Types of testing')}:</div>
+    <ul class="${b('list')}">
+        <li class="${b('item')}"><code>${[props.mediaElementType]}.canPlayType(): <span style="color:${canPlayTypeResult.color}">${canPlayTypeResult.value}</span></code></li>
+        <li class="${b('item')}"><code>MediaSource.isTypeSupported(): <span style="color:${isTypeSupportedResult.color}">${isTypeSupportedResult.value}</span></code></li>
+    </ul>
+</div>
+`;
 }
