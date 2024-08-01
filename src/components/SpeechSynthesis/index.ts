@@ -23,10 +23,10 @@ export function SpeechSynthesis() {
         setText(value);
     }, [setText]);
 
-    const isSupported = typeof SpeechSynthesis === 'function';
+    const isSupported = typeof SpeechSynthesis === 'function' && typeof speechSynthesis !== 'undefined';
 
     return html`<div class="${b()}">
-        ${!isSupported && !isSsr ? '' : html`<div class="${b('supported')}">Web Speech API<${InfoLink} title="MDN" href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis"><//>: ${getChecked(isSupported)}</div>`}
+        ${isSupported && !isSsr ? '' : html`<div class="${b('supported')}">Web Speech API<${InfoLink} title="MDN" href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis"><//>: ${getChecked(isSupported)}</div>`}
         ${isSupported || isSsr ? html`<div class="${b('form')}">
             <${Input}
                 title="${i18n('Input text for speech synthesis')}"
