@@ -18,4 +18,7 @@ body,html{background:#000;color:#fff;font-family:Arial,Helvetica,sans-serif;font
 .button{background:#fff;border:none;border-radius:5px;color:#000;cursor:pointer;font-size:16px;line-height:1.5em;padding:5px 7px;user-select:none}.button:active{transform:scale(.98)}body.hover_yes .button:hover{background:#eee}.button_theme_active{background:gold}body.hover_yes .button_theme_active:hover{background:#efc700}.button_theme_red{background:red;color:#fff}body.hover_yes .button_theme_red:hover{background:#ef0000}.button_size_s{font-size:12px;padding:2px 4px}.button.button_disabled{background:#444;color:#777;cursor:default;transform:scale(1)}
 .warning-message_theme_gray{color:gray;filter:grayscale()}
 .vibration,.vibration__details{margin-top:10px}
+.input{background-color:#000;border:2px solid #fff;border-radius:5px;color:#fff;outline:none;padding:5px}.input:focus{border-color:gold}
+.info-link{margin-left:3px;position:relative;top:-.5em}.info-link__link{font-size:12px}.info-link__link:active,.info-link__link:hover,.info-link__link:link,.info-link__link:visited{color:#fff;text-decoration:none}
+.speech-synthesis__supported{margin:.5em 0}
 .audio-page__badge{margin-bottom:15px;margin-top:30px}
