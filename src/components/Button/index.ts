@@ -13,12 +13,13 @@ interface ButtonProps {
     theme?: 'active' | 'red';
     disabled?: boolean;
     size?: 's';
+    title?: string;
 }
 
 const b = block('button');
 
 export function Button(props: ButtonProps) {
-    const { disabled, size, theme, onClick } = props;
+    const { disabled, size, theme, onClick, title } = props;
     const className = classname(
         props.class,
         b({ theme, size, disabled }),
@@ -32,5 +33,5 @@ export function Button(props: ButtonProps) {
         onClick && onClick();
     }, [disabled, onClick]);
 
-    return html`<button class="${className}" disabled="${disabled}" onClick="${handleClick}">${props.children}</button>`;
+    return html`<button title="${title}" class="${className}" disabled="${disabled}" onClick="${handleClick}">${props.children}</button>`;
 }
