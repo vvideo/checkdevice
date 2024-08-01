@@ -17,14 +17,14 @@ export function getI18nLangs() {
 export function i18n(id: string) {
     const key = i18nKeysets[id];
     if (!key) {
-        console.error(`Not found key "${id}" in getText().`);
+        console.error(`i18n: not found translation key "${id}".`);
         return id;
     }
 
     const value = key[i18nLang];
 
     if (typeof value === 'undefined') {
-        console.error(`Not found key "${id}", lang "${i18nLang}" in getText().`);
+        console.error(`i18n: not found translation key "${id}", lang "${i18nLang}".`);
         return id;
     }
 

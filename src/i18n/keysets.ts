@@ -17,6 +17,22 @@ export const keysets: I18nKeysets = {
         'en': 'Supported',
         'ru': 'Поддерживаемые'
     },
+    'Supported audio codecs': {
+        'en': 'Supported audio codecs',
+        'ru': 'Поддерживаемые аудиокодеки'
+    },
+    'Supported video codecs': {
+        'en': 'Supported video codecs',
+        'ru': 'Поддерживаемые видеокодеки'
+    },
+    'Unsupported audio codecs': {
+        'en': 'Unsupported audio codecs.',
+        'ru': 'Не поддерживаемые аудиокодеки.'
+    },
+    'Unsupported video codecs': {
+        'en': 'Unsupported video codecs.',
+        'ru': 'Не поддерживаемые видеокодеки.'
+    },
     'No supported audio codecs.': {
         'en': 'No supported audio codecs.',
         'ru': 'Нет поддерживаемых аудиокодеков.'
@@ -688,5 +704,13 @@ export const keysets: I18nKeysets = {
     'Input text for speech synthesis': {
         'en': 'Input text for speech synthesis',
         'ru': 'Введите текст для синтеза речи'
+    },
+    'MIME type': {
+        'en': 'MIME type',
+        'ru': 'Медиатип'
+    },
+    'Types of testing': {
+        'en': 'Types of testing',
+        'ru': 'Виды тестирования'
     }
 };
