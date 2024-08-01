@@ -707,7 +707,7 @@ export const keysets: I18nKeysets = {
     },
     'MIME type': {
         'en': 'MIME type',
-        'ru': 'Медиатип'
+        'ru': 'MIME тип'
     },
     'Types of testing': {
         'en': 'Types of testing',
