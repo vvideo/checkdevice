@@ -20,7 +20,7 @@ import { Result } from '../Result';
 import { Codec } from '../Codec';
 import { i18n } from '../../i18n';
 import { isScreensLargerThan2K, needHdcpWarning, screenInfo } from '../../lib/ScreenInfo';
-import { isDesktopSafari } from '../../utils/isDesktopSafari';
+import { isDesktopSafari } from '../../utils/device/isDesktopSafari';
 import { getCachedCheckAllHdcpVersions } from '../../utils/drm/getCachedCheckAllHdcpVersions';
 import { noop } from '../../utils/noop';
 import { isUhdHdcpSupported } from 'hdcp';
