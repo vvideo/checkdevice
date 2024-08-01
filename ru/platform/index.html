@@ -13,7 +13,7 @@
     <link rel="manifest" href="/manifest.json" />
     <link rel="shortcut icon" href="/static/favicons/favicon.png" />
     <link rel="apple-touch-icon" href="/static/favicons/touch.png" />
-    <link rel="stylesheet" href="/static/platform.css?md5=2c0d771092655ff79d5b3c1d49c53040" />
+    <link rel="stylesheet" href="/static/platform.css?md5=5a6d0f9d892dcdffd430e62ab535b634" />
     <link rel="yandex-tableau-widget" href="/yandex-tableau-widget.json" />
     <script>
         window.appData = {
@@ -23,7 +23,7 @@
     </script>
 </head>
 <body>
-    <div class="page"><div>
+    <div class="page"><main>
     <header class="header"><a class="link link_theme_white" href="/ru/"><span class="header__logo"></span>Проверь устройство онлайн</a>
     </header>
     <nav class="main-menu">
@@ -61,9 +61,9 @@
         </ul>
     </nav>
     <h1 class="page-title">Платформа</h1>
-    <div class="row">
-        <div class="row__category"></div>
-        <div class="row__body">
+    <section class="section">
+        <h2 class="section__name"></h2>
+        <div class="section__body">
             <ul class="list">
                 <li>Название: …</li>
                 <li>Hardware concurrency <span class="info-link"><a class="info-link__link" href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/hardwareConcurrency" title="MDN" target="_blank">ⓘ</a></span>: …</li>
@@ -71,10 +71,10 @@
                 <li>User agent: …</li>
             </ul>
         </div>
-    </div>
-    <div class="row">
-        <div class="row__category">Разрешения</div>
-        <div class="row__body">
+    </section>
+    <section class="section">
+        <h2 class="section__name">Разрешения</h2>
+        <div class="section__body">
             <ul class="list">
                 <li>accelerometer: <span style="color: white">…</span>
                 </li>
@@ -124,7 +124,7 @@
                 </li>
             </ul>
         </div>
-    </div>
+    </section>
     <footer class="footer">
         <div class="footer__item footer__item_report"><a target="_blank" class="link link_theme_white" href="https://github.com/vvideo/caniwatchvideo/issues/new">Сообщить об ошибке</a>
         </div>
@@ -139,7 +139,7 @@
         </div>
         <div class="footer__item">© Vvideo</div>
     </footer>
-</div></div>
-    <script defer src="/static/platform.js?md5=850bf6983aafdc1ab197085cb43ddf91"></script>
+</main></div>
+    <script defer src="/static/platform.js?md5=505a78ab28521473a6f776b480ac88f6"></script>
 </body>
 </html>

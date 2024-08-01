@@ -1,4 +1,4 @@
-.row{margin-bottom:20px}.row__category{color:gray;margin-bottom:5px}
+.section{margin:0 0 30px;padding:0}.section__name{font-size:18px;font-weight:400;line-height:1.6em;margin:0 0 .5em;padding:0}
 .list{font-size:16px;line-height:26px;margin:0 0 0 15px;padding:0}
 .link:active,.link:link,.link:visited{color:#009cf4}.link:hover{color:#30acf4}.link_theme_white:active,.link_theme_white:hover,.link_theme_white:link,.link_theme_white:visited{color:#fff;text-decoration:underline;text-decoration-color:hsla(0,0%,100%,.2);transition:text-decoration-color .3s ease}.link_theme_white:hover{text-decoration-color:#fff}
 .storages__features{margin-top:10px}

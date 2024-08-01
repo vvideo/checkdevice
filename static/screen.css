@@ -1,4 +1,4 @@
-.row{margin-bottom:20px}.row__category{color:gray;margin-bottom:5px}
+.section{margin:0 0 30px;padding:0}.section__name{font-size:18px;font-weight:400;line-height:1.6em;margin:0 0 .5em;padding:0}
 .description-list{font-size:16px;line-height:26px;margin:0 0 0 15px;padding:0}.description-list__item{display:list-item;list-style-type:disc}.description-list__term{display:inline;margin:0;padding:0}.description-list__term:after{content:": "}.description-list__details{display:inline;margin:0;padding:0}
 .warning-message_theme_gray{color:gray;filter:grayscale()}
 .hdr-label_enabled{background-color:gold;border-radius:3px;color:#000;font-weight:700;padding:2px 4px}
