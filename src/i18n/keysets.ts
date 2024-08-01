@@ -664,5 +664,29 @@ export const keysets: I18nKeysets = {
     'portrait-secondary': {
         'en': 'portrait (secondary)',
         'ru': 'книжная (вторичная)'
+    },
+    'Speech Synthesis': {
+        'en': 'Speech Synthesis',
+        'ru': 'Синтез речи'
+    },
+    'Speak': {
+        'en': 'Speak',
+        'ru': 'Сказать'
+    },
+    'Hello world!': {
+        'en': 'Hello world!',
+        'ru': 'Привет, мир!'
+    },
+    'Input text': {
+        'en': 'Input text',
+        'ru': 'Введите текст'
+    },
+    'Speak words': {
+        'en': 'Speak words',
+        'ru': 'Speak слова'
+    },
+    'Input text for speech synthesis': {
+        'en': 'Input text for speech synthesis',
+        'ru': 'Введите текст для синтеза речи'
     }
 };

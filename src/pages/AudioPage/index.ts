@@ -8,6 +8,7 @@ import { Page } from '../Page';
 import { QuestionSurroundSound } from '../../components/QuestionSurroundSound';
 import { block } from '../../utils/css/bem';
 import { Vibration } from '../../components/Vibration';
+import { SpeechSynthesis } from '../../components/SpeechSynthesis';
 
 import './index.css';
 
@@ -28,6 +29,10 @@ export function AudioPage() {
 
             <${Row} name="${i18n('Audio Codecs')}">
                 <${AudioCodecs}><//>
+            <//>
+
+            <${Row} name="${i18n('Speech Synthesis')}">
+                <${SpeechSynthesis}><//>
             <//>
 
             <${Row} name="${i18n('Vibration')}">
