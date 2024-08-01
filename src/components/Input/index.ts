@@ -10,6 +10,7 @@ interface InputProps {
     value?: string;
     placeholder?: string;
     onChange?: (value: string) => void;
+    title?: string;
 }
 
 const b = block('input');
@@ -30,5 +31,5 @@ export function Input(props: InputProps) {
         props.onChange && props.onChange(value);
     }, [value, props.onChange]);
 
-    return html`<input ref="${ref}" class="${className}" onInput="${handleInput}" placeholder="${props.placeholder}" value="${value}" />`
+    return html`<input ref="${ref}" title="${props.title}" class="${className}" onInput="${handleInput}" placeholder="${props.placeholder}" value="${value}" />`
 }
