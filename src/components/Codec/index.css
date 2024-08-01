@@ -64,7 +64,7 @@ body.hover_yes .codec_disabled .codec__name:hover {
     position: relative;
     border-radius: 1px;
     font-weight: bold;
-    padding: 5px;
+    padding: 3px 5px;
     margin: 5px;
 }
 
