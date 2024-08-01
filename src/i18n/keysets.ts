@@ -581,6 +581,10 @@ export const keysets: I18nKeysets = {
         'en': 'Check vibration',
         'ru': 'Проверить вибрацию'
     },
+    'Vibration': {
+        'en': 'Vibration',
+        'ru': 'Вибрация'
+    },
     'Support is mainly on mobile devices.': {
         'en': 'Support is mainly on mobile devices.',
         'ru': 'Поддержка в основном на мобильных устройствах.'

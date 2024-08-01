@@ -4,9 +4,10 @@ import { html } from 'htm/preact';
 import { WarningMessage } from '../WarningMessage';
 import { i18n } from '../../i18n';
 import { block } from '../../utils/css/bem';
+import { isSsr } from '../../utils/isSsr';
+import { isMobile } from 'detect-audio-video';
 
 import './index.css';
-import { isSsr } from '../../utils/isSsr';
 
 const b = block('vibration');
 
@@ -22,10 +23,12 @@ export function Vibration() {
     }
 
     return html`<div class="${b()}">
-        <${Button} disabled="${!isSupported}" onClick=${onClick}>${i18n('Vibrate')}<//>
+        <${Button} disabled="${!isSupported}" onClick=${onClick} title="${i18n('Check vibration')}">${i18n('Vibrate')}<//>
 
-        <div class="${b('details')}">
-            <${WarningMessage} theme="gray">${i18n('Support is mainly on mobile devices.')}<//>
-        </div>
+        ${
+            !isSsr && isMobile() ? '' : html`<div class="${b('details')}">
+                <${WarningMessage} theme="gray">${i18n('Support is mainly on mobile devices.')}<//>
+            </div>`
+        }
     </div>`;
 }

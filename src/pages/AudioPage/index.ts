@@ -30,7 +30,7 @@ export function AudioPage() {
                 <${AudioCodecs}><//>
             <//>
 
-            <${Row} name="${i18n('Check vibration')}">
+            <${Row} name="${i18n('Vibration')}">
                 <${Vibration}><//>
             <//>
         <//>`;
