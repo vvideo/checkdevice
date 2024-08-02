@@ -9,6 +9,7 @@ export interface RadioButtonProps {
     text: string;
     value: string;
     selected?: boolean;
+    title?: string;
     class?: string;
     onClick?: (value: string) => void;
 }
@@ -24,6 +25,7 @@ export function RadioButton(props: RadioButtonProps) {
 
     return html`
         <li
+            title="${props.title}"
             class="${className}"
             onClick="${handleClick}"
             key="${props.value}"

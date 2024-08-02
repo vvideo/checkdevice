@@ -2,10 +2,11 @@ import { html } from 'htm/preact';
 import { i18n } from '../../i18n';
 import { Page } from '../Page';
 import { Keyboard } from '../../components/Keyboard';
-import { List } from '../../components/List';
 import { Link } from '../../components/Link';
 import { PageTitle } from '../../components/PageTitle';
 import { getPagePath } from '../../utils/getPagePath';
+import { Section } from '../../components/Section';
+import { NavList } from '../../components/NavList';
 
 export function KeyboardPage() {
     const items = [
@@ -20,6 +21,8 @@ export function KeyboardPage() {
 
             <${Keyboard} //>
 
-            <${List} items="${items}" title="${i18n('Additionally')}" //>
+            <${Section} name="${i18n('Additionally')}">
+                <${NavList} items="${items}" //>
+            <//>
         <//>`;
 }

@@ -34,7 +34,7 @@ export function RadioButtons(props: RadioButtonsProps) {
 
     return html`
         <fieldset class="${classname(b(), className)}">
-            ${props.hideLabel || !label ? html`<legend class="${b('label')}">${label}</legend>` : ''}
+            ${label ? html`<legend class="${b('label', { hidden: props.hideLabel })}">${label}</legend>` : ''}
             <ul class="${b('items')}">
                 ${
                     buttons.map(item => {
@@ -42,6 +42,7 @@ export function RadioButtons(props: RadioButtonsProps) {
                             key="${item.value}"
                             class="${b('item')}"
                             selected="${item.value === selectedValue}"
+                            title="${item.title}"
                             text="${item.text}"
                             value="${item.value}"
                             onClick="${handleSelect}"

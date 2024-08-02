@@ -2,10 +2,11 @@ import { html } from 'htm/preact';
 import { ScreenList } from '../../components/ScreenList';
 import { Page } from '../Page';
 import { i18n } from '../../i18n';
-import { List } from '../../components/List';
 import { Link } from '../../components/Link';
 import { getPagePath } from '../../utils/getPagePath';
 import { ExtLink } from '../../components/ExtLink';
+import { NavList } from '../../components/NavList';
+import { Section } from '../../components/Section';
 
 export function ScreenPage() {
     const items = [
@@ -17,6 +18,8 @@ export function ScreenPage() {
         <${Page}>
             <${ScreenList}><//>
 
-            <${List} title="${i18n('Tests')}" items="${items}" //>
+            <${Section} name="${i18n('Additionally')}">
+                <${NavList} title="${i18n('Tests')}" items="${items}" //>
+            <//>
         <//>`;
 }
