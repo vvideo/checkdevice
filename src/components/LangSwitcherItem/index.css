@@ -5,6 +5,7 @@
     white-space: nowrap;
     color: white;
     cursor: pointer;
+    list-style-type: none;
 }
 
 .lang-switcher-item:hover {

@@ -21,5 +21,5 @@ export function LangSwitcherItem(props: LangSwitcherItemProps) {
         onClick(value);
     }, []);
 
-    return html`<menuitem class="${b()}" onClick="${handleClick}">${emoji} ${name} ${selected ? ' ✓' : ''}</menuitem>`;
+    return html`<li class="${b()}" onClick="${handleClick}">${emoji} ${name} ${selected ? ' ✓' : ''}</li>`;
 }
