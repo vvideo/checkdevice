@@ -25,7 +25,7 @@ langs.forEach(lang => {
             header += ' / ' + i18n('Check device online');
         }
 
-        const canonicalUrl = getAbsolutePageUrl(lang, id);
+        const canonicalUrl = id === 'error404' ? '' : getAbsolutePageUrl(lang, id);
         const description = item.description ? item.description[lang] : '';
         const keywords = item.keywords ? item.keywords[lang] : '';
         const alternateLinks = langs
