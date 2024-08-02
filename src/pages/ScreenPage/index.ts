@@ -18,8 +18,8 @@ export function ScreenPage() {
         <${Page}>
             <${ScreenList}><//>
 
-            <${Section} name="${i18n('Additionally')}">
-                <${NavList} title="${i18n('Tests')}" items="${items}" //>
+            <${Section} name="${i18n('Tests')}">
+                <${NavList} items="${items}" //>
             <//>
         <//>`;
 }
