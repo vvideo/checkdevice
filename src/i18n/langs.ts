@@ -10,3 +10,5 @@ export const langs = [
         emoji: '🇷🇺',
     },
 ];
+
+export const defaultLang = 'en';

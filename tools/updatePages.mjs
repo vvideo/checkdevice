@@ -4,7 +4,7 @@ import beautify from 'simply-beautiful';
 import { createPage } from './createPage.mjs';
 import { updateTemplate } from './updateTemplate.mjs';
 import { loadJson } from './utils/loadJson.mjs';
-import { buildPage, setLang, i18n } from '../dist/ssr.mjs';
+import { buildPage, setLang, i18n, setPageId } from '../dist/ssr.mjs';
 import { getPagePath } from './getPagePath.mjs';
 import { siteUrl, langs } from './data.mjs';
 
@@ -18,6 +18,8 @@ langs.forEach(lang => {
     setLang(lang);
 
     pages.forEach(item => {
+        setPageId(item.id);
+
         const { id } = item;
         let header = (item.header ? item.header[lang] : item.menuTitle[lang]);
 

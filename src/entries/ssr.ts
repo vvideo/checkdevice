@@ -20,6 +20,7 @@ import { VideoPage } from '../pages/VideoPage';
 import { MicPage } from '../pages/MicPage';
 import { NetworkPage } from '../pages/NetworkPage';
 import { I18NLanguage, setI18nLang, i18n as i18nOriginal } from '../i18n';
+import { getPageId as getPageIdOriginal, setPageId as setPageIdOriginal } from '../pages/common/pageId';
 import { SensorPage } from '../pages/SensorPage';
 import { UsbPage } from '../pages/UsbPage';
 import { BluetoothPage } from '../pages/BluetoothPage';
@@ -66,4 +67,12 @@ export function setLang(lang: I18NLanguage) {
 
 export function i18n(id: string) {
     return i18nOriginal(id);
+}
+
+export function setPageId(id: string) {
+    setPageIdOriginal(id);
+}
+
+export function getPageId() {
+    return getPageIdOriginal();
 }

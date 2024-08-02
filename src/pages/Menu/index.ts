@@ -2,16 +2,11 @@ import { html } from 'htm/preact';
 import { MainMenu, MainMenuItem } from '../../components/MainMenu';
 import pages from '../pages';
 import { i18nWithKeyset } from '../../i18n';
-import { isSsr } from '../../utils/isSsr';
 import { getPagePath } from '../../utils/getPagePath';
-
-export function getIdFromLocation() {
-    const id = window.location.pathname.split(/[?./]/)[2];
-    return id;
-}
+import { getPageId } from '../common/pageId';
 
 export function Menu() {
-    const id = isSsr ? '' : getIdFromLocation();
+    const id = getPageId();
     const items: MainMenuItem[] = pages.map(item => {
         const selected = item.id === id;
 

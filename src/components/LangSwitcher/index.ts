@@ -4,19 +4,20 @@ import { getI18nLang, getI18nLangs } from '../../i18n';
 import { block } from '../../utils/css/bem';
 import { LangSwitcherItem } from '../LangSwitcherItem';
 import { getPagePath } from '../../utils/getPagePath';
+import { getPageId } from '../../pages/common/pageId';
 
 import './index.css';
 
 const b = block('lang-switcher');
 
 export function LangSwitcher() {
-    const [visible, setVisible ] = useState(false);
+    const [visible, setVisible] = useState(false);
     const currentLang = getI18nLang();
     const langs = getI18nLangs();
 
     const handleClickItem = useCallback((value: string) => {
         setVisible(false);
-        window.location.href = getPagePath(window.appData.pageId, value);
+        window.location.href = getPagePath(getPageId(), value);
     }, [setVisible]);
 
 

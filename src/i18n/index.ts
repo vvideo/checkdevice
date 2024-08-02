@@ -35,8 +35,10 @@ export function i18nWithKeyset(keyset: I18NKeys) {
     return keyset[i18nLang];
 }
 
-export function setI18nLang(lang: I18NLanguage) {
-    i18nLang = lang;
+export function setI18nLang(lang?: I18NLanguage) {
+    if (lang) {
+        i18nLang = lang;
+    }
 }
 
 export function getI18nLang() {
