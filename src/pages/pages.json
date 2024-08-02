@@ -10,7 +10,8 @@
             "ru": ""
         },
         "id": "index",
-        "hidden": true
+        "hidden": true,
+        "isIndex": true
     },
     {
         "header": {
@@ -197,7 +198,8 @@
         "emoji": "",
         "id": "error404",
         "hidden": true,
-        "sitemap": false
+        "sitemap": false,
+        "isError": true
     },
     {
         "menuTitle": {
