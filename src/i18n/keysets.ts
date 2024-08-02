@@ -381,6 +381,18 @@ export const keysets: I18nKeysets = {
         'en': 'Check camera',
         'ru': 'Проверить камеру'
     },
+    'Select camera option': {
+        'en': 'Select camera option',
+        'ru': 'Выберите настройку камеры'
+    },
+    'On/off microphone': {
+        'en': 'On/off microphone',
+        'ru': 'Включить/выключить микрофон'
+    },
+    'Select camera': {
+        'en': 'Select camera',
+        'ru': 'Выбрать камеру'
+    },
     'Stop': {
         'en': 'Stop',
         'ru': 'Стоп'
@@ -712,5 +724,53 @@ export const keysets: I18nKeysets = {
     'Types of testing': {
         'en': 'Types of testing',
         'ru': 'Виды тестирования'
+    },
+    'Windows Logitech G810 keyboard': {
+        'en': 'Windows Logitech G810 keyboard',
+        'ru': 'Клавиатура Windows Logitech G810'
+    },
+    'Apple Magic Keyboard with Numeric Keypad': {
+        'en': 'Apple Magic Keyboard with Numeric Keypad',
+        'ru': 'Клавиатура Apple MagicKeyboard with Numeric Keypad'
+    },
+    'MacBook keyboard': {
+        'en': 'MacBook keyboard',
+        'ru': 'MacBook клавиатура'
+    },
+    'Apple Magic Keyboard for iPad': {
+        'en': 'Apple Magic Keyboard for iPad',
+        'ru': 'Клавиатура Apple Magic Keyboard for iPad'
+    },
+    'Select keyboard': {
+        'en': 'Select keyboard',
+        'ru': 'Выберите клавиатуру'
+    },
+    'Reset pressed keys on keyboard': {
+        'en': 'Reset pressed keys on keyboard',
+        'ru': 'Сбросить нажатые клавиши на клавиатуре'
+    },
+    'The acquisition of the geolocation information failed because the page didn\'t have the permission to do it.': {
+        'en': 'The acquisition of the geolocation information failed because the page didn\'t have the permission to do it.',
+        'ru': 'Не удалось получить информацию о геолокации, поскольку у страницы не было разрешения на это.'
+    },
+    'The acquisition of the geolocation failed because one or several internal sources of position returned an internal error.': {
+        'en': 'The acquisition of the geolocation failed because one or several internal sources of position returned an internal error.',
+        'ru': 'Не удалось определить геолокацию, поскольку один или несколько внутренних источников определения местоположения выдали внутреннюю ошибку.'
+    },
+    'Geolocation information was not obtained in the allowed time.': {
+        'en': 'Geolocation information was not obtained in the allowed time.',
+        'ru': 'Информация о геолокации не была получена в отведенное время.'
+    },
+    'Geo Location API is not supported.': {
+        'en': 'Geo Location API is not supported.',
+        'ru': 'Geo Location API не поддерживается.'
+    },
+    'Mic not found.': {
+        'en': 'Mic not found.',
+        'ru': 'Микрофон не найден.'
+    },
+    'Mic is blocked.': {
+        'en': 'Mic is blocked.',
+        'ru': 'Микрофон заблокирован.'
     }
 };
