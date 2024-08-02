@@ -15,10 +15,9 @@ interface PageProps {
 
 export function Page(props: PageProps) {
     return html`
-        <main>
-            <${Header} //>
-            ${props.withoutMenu ? '' : html`<${Menu} //>`}
-            ${props.children}
-            <${Footer} //>
-        </main>`;
+        <${Header} //>
+        ${props.withoutMenu ? '' : html`<${Menu} //>`}
+        ${props.children}
+        <${Footer} //>
+    `;
 }
