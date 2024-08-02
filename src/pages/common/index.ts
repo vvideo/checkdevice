@@ -10,7 +10,7 @@ import { defaultLang, langs } from '../../i18n/langs';
 import './index.css';
 
 export function getLang() {
-    let lang = window.appData.lang || getLangFromNavigator();
+    let lang = window.__appData__.lang || getLangFromNavigator();
 
     const result = langs.filter(item => item.value === lang);
     if (!result.length) {
@@ -31,7 +31,7 @@ if (!isSsr) {
     const lang = getLang();
     setI18nLang(lang as I18NLanguage);
 
-    setPageId(window.appData.pageId);
+    setPageId(window.__appData__.pageId);
 
     withInstallApp();
 

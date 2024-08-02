@@ -27,7 +27,7 @@ export function createPage(params) {
     <link rel="stylesheet" href="/static/${id}.css?md5=" />
     <link rel="yandex-tableau-widget" href="/yandex-tableau-widget.json" />
     <script>
-        window.appData = {
+        var __appData__ = {
             pageId: '${id}',
             lang: '${lang || ''}'
         };

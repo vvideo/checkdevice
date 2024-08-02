@@ -11,7 +11,7 @@ declare global {
     interface Window {
         documentPictureInPicture?: unknown;
         queryLocalFonts?: () => Promise<FontData[]>;
-        appData: {
+        __appData__: {
             pageId: string;
             lang: string;
         };
