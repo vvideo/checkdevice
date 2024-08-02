@@ -25,10 +25,12 @@ langs.forEach(lang => {
             header += ' / ' + i18n('Check device online');
         }
 
-        const canonicalUrl = id === 'error404' ? '' : getAbsolutePageUrl(lang, id);
+        const is404 = id === 'error404';
+
+        const canonicalUrl = is404 ? '' : getAbsolutePageUrl(lang, id);
         const description = item.description ? item.description[lang] : '';
         const keywords = item.keywords ? item.keywords[lang] : '';
-        const alternateLinks = langs
+        const alternateLinks = is404 ? [] : langs
             .filter(item => lang !== item)
             .map(item => ({
                 lang: item,
