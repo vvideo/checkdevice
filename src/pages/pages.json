@@ -15,8 +15,8 @@
     },
     {
         "header": {
-            "en": "Video",
-            "ru": "Видео"
+            "en": "Check Video",
+            "ru": "Проверить видео"
         },
         "emoji": "⏯",
         "menuTitle": {
@@ -26,6 +26,10 @@
         "id": "video"
     },
     {
+        "header": {
+            "en": "Check Audio",
+            "ru": "Проверить аудио"
+        },
         "menuTitle": {
             "en": "Audio",
             "ru": "Аудио"
@@ -34,6 +38,10 @@
         "id": "audio"
     },
     {
+        "header": {
+            "en": "Check Screen",
+            "ru": "Проверить экран"
+        },
         "menuTitle": {
             "en": "Screen",
             "ru": "Экран"
@@ -50,6 +58,10 @@
         "id": "screen"
     },
     {
+        "header": {
+            "en": "Check Webcamera",
+            "ru": "Проверить веб-камеру"
+        },
         "menuTitle": {
             "en": "Webcamera",
             "ru": "Веб-камера"
@@ -58,14 +70,22 @@
         "id": "camera"
     },
     {
+        "header": {
+            "en": "Check Microphone",
+            "ru": "Проверить микрофон"
+        },
         "menuTitle": {
-            "en": "Mic",
+            "en": "Microphone",
             "ru": "Микрофон"
         },
         "emoji": "🎙️",
         "id": "mic"
     },
     {
+        "header": {
+            "en": "Check GPU",
+            "ru": "Проверить GPU"
+        },
         "menuTitle": {
             "en": "GPU",
             "ru": "GPU"
@@ -74,6 +94,10 @@
         "id": "gpu"
     },
     {
+        "header": {
+            "en": "Check Mouse",
+            "ru": "Проверить мышку"
+        },
         "menuTitle": {
             "en": "Mouse",
             "ru": "Мышь"
@@ -82,6 +106,10 @@
         "id": "mouse"
     },
     {
+        "header": {
+            "en": "Check Keyboard",
+            "ru": "Проверить клавиатуру"
+        },
         "menuTitle": {
             "en": "Keyboard",
             "ru": "Клавиатура"
@@ -90,6 +118,10 @@
         "id": "keyboard"
     },
     {
+        "header": {
+            "en": "Displaying Сode of Pressed Key",
+            "ru": "Отображение кода нажатой клавиши"
+        },
         "menuTitle": {
             "en": "Key codes",
             "ru": "Коды клавиш"
@@ -99,6 +131,10 @@
         "hidden": true
     },
     {
+        "header": {
+            "en": "Check Gamepad",
+            "ru": "Проверить джойстик"
+        },
         "menuTitle": {
             "en": "Gamepad",
             "ru": "Джойстик"
@@ -107,14 +143,22 @@
         "id": "gamepad"
     },
     {
+        "header": {
+            "en": "Check Storages",
+            "ru": "Проверить хранилища"
+        },
         "menuTitle": {
-            "en": "Storage",
-            "ru": "Хранилище"
+            "en": "Storages",
+            "ru": "Хранилища"
         },
         "emoji": "💽",
         "id": "storage"
     },
     {
+        "header": {
+            "en": "Check Network",
+            "ru": "Проверить сеть"
+        },
         "menuTitle": {
             "en": "Network",
             "ru": "Сеть"
@@ -123,6 +167,10 @@
         "id": "network"
     },
     {
+        "header": {
+            "en": "Check Geo",
+            "ru": "Проверить геолокацию"
+        },
         "menuTitle": {
             "en": "Geo",
             "ru": "Гео"
@@ -131,6 +179,10 @@
         "id": "geo"
     },
     {
+        "header": {
+            "en": "Check MIDI Keyboard",
+            "ru": "Проверить MIDI-клавиатуру"
+        },
         "menuTitle": {
             "en": "MIDI",
             "ru": "MIDI"
@@ -140,6 +192,10 @@
         "hidden": true
     },
     {
+        "header": {
+            "en": "View Info About USB Device",
+            "ru": "Посмотреть информацию о USB-устройстве"
+        },
         "menuTitle": {
             "en": "USB",
             "ru": "USB"
@@ -167,6 +223,10 @@
         "hidden": true
     },
     {
+        "header": {
+            "en": "View Info About Platform",
+            "ru": "Посмотреть информацию о платформе"
+        },
         "menuTitle": {
             "en": "Platform",
             "ru": "Платформа"
@@ -175,6 +235,10 @@
         "id": "platform"
     },
     {
+        "header": {
+            "en": "Check Battery",
+            "ru": "Проверить батарею"
+        },
         "menuTitle": {
             "en": "Battery",
             "ru": "Батарея"
@@ -183,6 +247,10 @@
         "id": "battery"
     },
     {
+        "header": {
+            "en": "View Local Fonts",
+            "ru": "Посмотреть локальные шрифты"
+        },
         "menuTitle": {
             "en": "Fonts",
             "ru": "Шрифты"
