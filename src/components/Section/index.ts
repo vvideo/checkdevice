@@ -13,7 +13,7 @@ interface SectionProps {
 
 export function Section(props: SectionProps) {
     return html`<section class="${b()}">
-        <h2 class="${b('name')}">${props.name}</h2>
+        ${props.name ? html`<h2 class="${b('name')}">${props.name}</h2>` : ''}
         <div class="${b('body')}">${props.children}</div>
     </section>`;
 }
