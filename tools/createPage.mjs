@@ -16,7 +16,6 @@ export function createPage(params) {
     <meta name="theme-color" content="#FFd700" />
     <meta name="google-site-verification" content="BUV1qxuhIx696cS8GU9knQcJcZaGugHSDV2kAkEG73I" />
     <meta name="yandex-verification" content="985312253f7c8a44" />
-    ${lang ? `<meta http-equiv="Content-Language" content="${lang}" />` : '' }
     ${canonicalUrl ? `<link rel="canonical" href="${canonicalUrl}" />` : '' }
     ${alternateLinks && alternateLinks.length ? alternateLinks.map(item => {
         return `<link rel="alternate" hreflang="${item.lang}" href="${item.url}" />
