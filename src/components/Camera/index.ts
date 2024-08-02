@@ -100,10 +100,10 @@ export function Camera() {
     return html`<div class="${b()}">
         <div class="${b('select')}">
             <${Button} class="${b('select-camera')}" theme="${showStop ? 'red' : 'active'}" onClick="${handleClick}">${stream ? i18n('Stop') : i18n('Check camera')}<//>
-            <${Checkbox} label="${i18n('Mic')}" checked="${withMic}" onClick="${handleMic}" //>
+            <${Checkbox} title="${i18n('On/off microphone')}" label="${i18n('Mic')}" checked="${withMic}" onClick="${handleMic}" //>
         </div>
         <div class="${b('controls')}">
-            <${RadioButtons} onSelect="${handleSelect}" buttons="${buttons}"><//>
+            <${RadioButtons} hideLabel label="${i18n('Select camera option')}" onSelect="${handleSelect}" buttons="${buttons}"><//>
         </div>
 
         <${CameraError} error="${error}" //>

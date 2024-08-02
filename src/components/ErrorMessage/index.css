@@ -1,0 +1,9 @@
+.error-message {
+    margin: 1em 0;
+    color: #f77;
+}
+
+.error-message_theme_gray {
+    color: gray;
+    filter: grayscale();
+}

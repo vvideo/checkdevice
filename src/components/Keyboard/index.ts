@@ -16,30 +16,34 @@ export const b = block('keyboard');
 
 const platform = isSsr ? 'win' : getPlatform();
 
-const buttons: RadioButtonProps[] = [
-    {
-        text: 'Win',
-        value: 'win',
-        selected: platform === 'win'
-    },
-    {
-        text: 'Mac',
-        value: 'mac',
-        selected: platform === 'mac'
-    },
-    {
-        text: 'MacBook',
-        value: 'macbook',
-        selected: platform === 'macbook'
-    },
-    {
-        text: 'iPad',
-        value: 'ipad',
-        selected: platform === 'ipad'
-    }
-];
-
 export function Keyboard() {
+    const buttons: RadioButtonProps[] = [
+        {
+            text: 'Win',
+            value: 'win',
+            title: i18n('Windows Logitech G810 keyboard'),
+            selected: platform === 'win'
+        },
+        {
+            text: 'Mac',
+            value: 'mac',
+            title: i18n('Apple Magic Keyboard with Numeric Keypad'),
+            selected: platform === 'mac'
+        },
+        {
+            text: 'MacBook',
+            value: 'macbook',
+            title: i18n('MacBook keyboard'),
+            selected: platform === 'macbook',
+        },
+        {
+            text: 'iPad',
+            value: 'ipad',
+            title: i18n('Apple Magic Keyboard for iPad'),
+            selected: platform === 'ipad'
+        }
+    ];
+
     const selectedButton = getSelectedButton(buttons)
     const [layout, setLayout] = useState(selectedButton && selectedButton.value);
 
@@ -54,13 +58,13 @@ export function Keyboard() {
     return html`
         <div class="${b()}">
             <div class="${b('top-controls')}">
-                <${RadioButtons} onSelect="${handleSelect}" buttons="${buttons}"><//>
+                <${RadioButtons} hideLabel label="${i18n('Select keyboard')}" onSelect="${handleSelect}" buttons="${buttons}"><//>
             </div>
 
             <${KeyboardLayout} layout="${getLayoutData(layout)}" //>
 
             <div class="${b('bottom-controls')}">
-                <${Button} size="m" onClick="${handleReset}">${i18n('Reset')}<//>
+                <${Button} title="${i18n('Reset pressed keys on keyboard')}" size="m" onClick="${handleReset}">${i18n('Reset')}<//>
             </div>
         </div>
     `;

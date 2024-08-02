@@ -1,12 +1,12 @@
 import { html } from 'htm/preact';
-import { ErrorMessage } from '../ErrorMessage';
 import { i18n } from '../../i18n';
+import { ErrorMessage } from '../ErrorMessage';
 
-interface CameraErrorProps {
+interface MicErrorProps {
     error: Error;
 }
 
-export function CameraError(props: CameraErrorProps) {
+export function MicError(props: MicErrorProps) {
     const { error } = props;
 
     if (!error) {
@@ -14,11 +14,11 @@ export function CameraError(props: CameraErrorProps) {
     }
 
     if (error.name === 'NotFoundError') {
-        return html`<${ErrorMessage}>${i18n('Camera not found.')}<//>`;
+        return html`<${ErrorMessage}>${i18n('Mic not found.')}<//>`;
     }
 
     if (error.name === 'NotAllowedError') {
-        return html`<${ErrorMessage}>${i18n('Camera is blocked.')}<//>`;
+        return html`<${ErrorMessage}>${i18n('Mic is blocked.')}<//>`;
     }
 
     return html`<${ErrorMessage}>${error.message}<//>`;

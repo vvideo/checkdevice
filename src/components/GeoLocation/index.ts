@@ -7,6 +7,8 @@ import { block } from '../../utils/css/bem';
 import { i18n } from '../../i18n';
 import { Spinner } from '../Spinner';
 import { isSsr } from '../../utils/isSsr';
+import { ErrorMessage } from '../ErrorMessage';
+import { WarningMessage } from '../WarningMessage';
 
 import './index.css';
 
@@ -16,9 +18,25 @@ interface GeoLocationProps {
     yaMapsApiKey: string;
 }
 
+function getErrorMessage(error: GeolocationPositionError) {
+    if (error.code === 1) { // PERMISSION_DENIED
+        return i18n('The acquisition of the geolocation information failed because the page didn\'t have the permission to do it.');
+    }
+
+    if (error.code === 2) { // POSITION_UNAVAILABLE
+        return i18n('The acquisition of the geolocation failed because one or several internal sources of position returned an internal error.');
+    }
+
+    if (error.code === 3) { // TIMEOUT
+        return i18n('Geolocation information was not obtained in the allowed time.');
+    }
+
+    return error.message;
+}
+
 export function GeoLocation(props: GeoLocationProps) {
-    if (isSsr || typeof navigator.geolocation?.getCurrentPosition === 'undefined') {
-        return '';
+    if (!isSsr && typeof navigator.geolocation?.getCurrentPosition === 'undefined') {
+        return html`<${WarningMessage}>${i18n('Geo Location API is not supported.')}<//>`;
     }
 
     const [coords, setCoords] = useState<GeolocationCoordinates | null>(null);
@@ -52,7 +70,9 @@ export function GeoLocation(props: GeoLocationProps) {
 
         function error(error: GeolocationPositionError) {
             setInProgress(false);
-            setError(error.message);
+
+            const message = getErrorMessage(error);
+            setError(message);
             console.error(error);
         }
 
@@ -62,7 +82,7 @@ export function GeoLocation(props: GeoLocationProps) {
     return html`
         <${Button} theme="active" onClick="${handleClick}">${i18n('Request geo location')}<//> ${inProgress ? html`<${Spinner} size="m" //>` : ''}
         ${coords ? html`<div class="${b('list')}"><${TreeList} data="${coords}" //></div>` : ''}
-        ${error ? html`<div class="${b('error')}">${error}</div>` : ''}
+        ${error ? html`<${ErrorMessage}>${error}<//>` : ''}
         ${coords ? html`<div class="${b('map')}">
             <${YaStaticMap}
                 latitude="${coords.latitude}"
