@@ -2,6 +2,7 @@ export function createPage(params) {
     const {
         id, header, lang, content, canonicalUrl,
         description, keywords,
+        alternateLinks,
     } = params;
 
     return `<!DOCTYPE html>
@@ -15,7 +16,11 @@ export function createPage(params) {
     <meta name="theme-color" content="#FFd700" />
     <meta name="google-site-verification" content="BUV1qxuhIx696cS8GU9knQcJcZaGugHSDV2kAkEG73I" />
     <meta name="yandex-verification" content="985312253f7c8a44" />
-    <link rel="canonical" href="${canonicalUrl}" />
+    ${lang ? `<meta http-equiv="Content-Language" content="${lang}" />` : '' }
+    ${canonicalUrl ? `<link rel="canonical" href="${canonicalUrl}" />` : '' }
+    ${alternateLinks && alternateLinks.length ? alternateLinks.map(item => {
+        return `<link rel="alternate" hreflang="${item.lang}" href="${item.url}" />
+`; }) : '' }
     <link rel="manifest" href="/manifest.json" />
     <link rel="shortcut icon" href="/static/favicons/favicon.png" />
     <link rel="apple-touch-icon" href="/static/favicons/touch.png" />

@@ -5,9 +5,12 @@ import { createPage } from './createPage.mjs';
 import { updateTemplate } from './updateTemplate.mjs';
 import { loadJson } from './utils/loadJson.mjs';
 import { buildPage, setLang, i18n } from '../dist/ssr.mjs';
-import { langs } from './langs.mjs';
 import { getPagePath } from './getPagePath.mjs';
-import { siteUrl } from './data.mjs';
+import { siteUrl, langs } from './data.mjs';
+
+function getAbsolutePageUrl(lang, id) {
+    return `${siteUrl}/${getPagePath(lang, id).dir}`;
+}
 
 const pages = loadJson('./src/pages/pages.json');
 
@@ -22,9 +25,15 @@ langs.forEach(lang => {
             header += ' / ' + i18n('Check device online');
         }
 
-        const canonicalUrl = `${siteUrl}/${getPagePath(lang, id).dir}`;
+        const canonicalUrl = getAbsolutePageUrl(lang, id);
         const description = item.description ? item.description[lang] : '';
         const keywords = item.keywords ? item.keywords[lang] : '';
+        const alternateLinks = langs
+            .filter(item => lang !== item)
+            .map(item => ({
+                lang: item,
+                url: getAbsolutePageUrl(item, id),
+            }));
 
         let html = createPage({
             id,
@@ -34,6 +43,7 @@ langs.forEach(lang => {
             canonicalUrl,
             keywords,
             description,
+            alternateLinks,
         });
 
         if (!existsSync(lang)) {

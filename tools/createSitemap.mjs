@@ -1,6 +1,5 @@
 import fs from 'fs';
-import { siteUrl } from './data.mjs';
-import { langs } from './langs.mjs';
+import { siteUrl, langs } from './data.mjs';
 import { loadJson } from './utils/loadJson.mjs';
 import { getPagePath } from './getPagePath.mjs';
 
