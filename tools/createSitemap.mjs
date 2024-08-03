@@ -26,8 +26,10 @@ function buildList() {
 }
 
 function buildUrl(loc) {
+    const now = new Date();
     return `  <url>
     <loc>${loc}</loc>
+    <lastmod>${now.toISOString().split('T')[0]}</lastmod>
   </url>`;
 }
 
