@@ -98,6 +98,6 @@ export function ImageFormats() {
         <${Column} name="${i18n('Supported')}">
             ${supported.length ? supported : i18n('No supported image formats.')}
         <//>
-        ${unsupported.length ? html`<${Column} name="${i18n('Unsupported')}">${unsupported}<//>` : ''}
+        ${unsupported.length ? html`<${Column} disabled name="${i18n('Unsupported')}">${unsupported}<//>` : ''}
     <//>`;
 }
