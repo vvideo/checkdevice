@@ -82,6 +82,14 @@
             "en": "Webcamera",
             "ru": "Веб-камера"
         },
+        "description": {
+            "en": "Online testing of webcam with or without microphone",
+            "ru": "Онлайн-тестирование веб-камеры с микрофоном или без микрофона"
+        },
+        "keywords": {
+            "en": "web camera, microphone, web camera with microphone, web camera without microphone, low resolution of camera, high resolution of camera, high rate of camera",
+            "ru": "веб-камера, микрофон, веб-камера с микрофоном, веб-камера без микрофона, веб-камера с низким разрешением, веб-камера с высоким разрешением, веб-камера с высокой частотой обновления"
+        },
         "emoji": "📸",
         "id": "camera"
     },
@@ -93,6 +101,14 @@
         "menuTitle": {
             "en": "Microphone",
             "ru": "Микрофон"
+        },
+        "description": {
+            "en": "Online testing of microphone with ability to hear yourself",
+            "ru": "Онлайн-тестирование микрофона с возможностью слышать себя"
+        },
+        "keywords": {
+            "en": "microphone, hear yourself, auto gain control, channel count, echo cancellation, noise suppression, sample rate, sample size",
+            "ru": "микрофон, слышать себя, автоматическая регулировка усиления, количество каналов, эхоподавление, шумоподавление, размер семпла"
         },
         "emoji": "🎙️",
         "id": "mic"
