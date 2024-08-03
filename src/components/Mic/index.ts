@@ -5,8 +5,9 @@ import { i18n } from '../../i18n';
 import { Checkbox } from '../Checkbox';
 import { block } from '../../utils/css/bem';
 import { micWaveform } from '../../lib/MicWaveform';
-import { MicInfo } from '../MicInfo';
+import { MicInfo, MicInfoSsr } from '../MicInfo';
 import { MicError } from '../MicError';
+import { isSsr } from '../../utils/isSsr';
 
 import './index.css';
 
@@ -53,9 +54,9 @@ export function Mic() {
         <${MicError} error="${error}" //>
 
         <div class="${b('canvas-container')}">
-            <canvas ref="${refCanvas}" class="${b('canvas')}" width="300" height="200"></canvas>
+            <canvas title="${i18n('Sound spectrum visualizer for mic')}" ref="${refCanvas}" class="${b('canvas')}" width="300" height="200"></canvas>
+            <div class="${b('speak-up', { started })}">📢 ${i18n('Speak up!')}</div>
         </div>
-
-        ${streamParams && streamParams.audio ? html`<${MicInfo} ..."${streamParams.audio}" />` : ''}
+        ${isSsr ? html`<${MicInfoSsr} //>` : (streamParams?.audio ? html`<${MicInfo} ..."${streamParams.audio}" />` : '')}
     </div>`;
 }

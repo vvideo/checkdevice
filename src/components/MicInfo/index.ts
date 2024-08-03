@@ -2,6 +2,7 @@ import { html } from 'htm/preact';
 import { i18n } from '../../i18n';
 import { List } from '../List';
 import { getChecked } from '../../utils/getChecked';
+import { ValueInProgress } from '../ValueInProgress';
 
 interface MicInfoProps {
     groupId: string;
@@ -28,4 +29,18 @@ export function MicInfo(props: MicInfoProps) {
     ];
 
     return html`<${List} title="${props.label}" items="${audioParams}"><//>`;
+}
+
+export function MicInfoSsr() {
+    const audioParams =  [
+        [i18n('Auto gain control'), html`<${ValueInProgress} //>`],
+        [i18n('Channel count'), html`<${ValueInProgress} //>`],
+        [i18n('Echo cancellation'), html`<${ValueInProgress} //>`],
+        [i18n('Latency'), html`<${ValueInProgress} //>`],
+        [i18n('Noise suppression'), html`<${ValueInProgress} //>`],
+        [i18n('Sample rate'), html`<${ValueInProgress} //>`],
+        [i18n('Sample size'), html`<${ValueInProgress} //>`],
+    ];
+
+    return html`<${List} title="${i18n('Microphone name')}" items="${audioParams}"><//>`;
 }

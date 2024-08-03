@@ -30,3 +30,40 @@
 .mic_started .mic__canvas-container::after {
     display: none;
 }
+
+.mic__speak-up {
+    display: none;
+}
+
+.mic__speak-up_started {
+    display: block;
+    animation: speak-up 3s;
+    opacity: 0;
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translateX(-50%);
+    color: gold;
+}
+
+@keyframes speak-up {
+    0% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
