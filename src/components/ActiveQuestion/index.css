@@ -22,6 +22,14 @@
     margin: 3px 10px 0 0;
 }
 
+.active-question__plus::before {
+    content: '+';
+}
+
+.active-question__plus_opened::before {
+    content: '-';
+}
+
 .active-question ul {
     padding: 0;
     margin: 0 0 0 20px;

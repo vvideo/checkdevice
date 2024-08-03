@@ -20,7 +20,7 @@ export function ActiveQuestion(props: ActiveQuestionProps) {
 
     return html`<div class="${b({ opened })}">
         <div class="${b('head')}" onClick=${callback}>
-            <div class="${b('plus')}">${opened ? '-' : '+'}</div>
+            <div class="${b('plus', { opened })}"></div>
             <div class="${b('question')}">${props.head}</div>
         </div>
         <div class="${b('body')}">${props.children}</div>
