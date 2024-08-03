@@ -16,6 +16,8 @@ import { block } from '../../utils/css/bem';
 import { getEncryptionSchemes } from '../../utils/drm/getEncryptionSchemes';
 import { i18n } from '../../i18n';
 
+import './index.css';
+
 const b = block('fairplay-badge');
 
 export function FairplayBadge() {
@@ -70,10 +72,10 @@ export function FairplayBadge() {
                     text: 'Apple',
                 },
                 bottom: {
-                    text: html`
-                        <div><${KeySystems} items="${keySystems}" //></div>
-                        <div>${encryptionSchemes.length ? `${i18n('Encryption schemes')}: ${encryptionSchemes}` : ''}</div>
-                    `
+                    text: html`<ul class="${b('list')}">
+                        <li class="${b('item')}"><${KeySystems} items="${keySystems}" //></li>
+                        <li class="${b('item')}">${encryptionSchemes.length ? `${i18n('Encryption schemes')}: ${encryptionSchemes}` : ''}</li>
+                    </ul>`
                 },
             })}
         </div>

@@ -1,0 +1,7 @@
+.image-formats__tooltip code {
+    font-size: 13px;
+    font-style: normal;
+    padding: 4px 6px;
+    background-color: #eee;
+    border-radius: 4px;
+}

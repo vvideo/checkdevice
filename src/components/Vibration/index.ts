@@ -23,7 +23,7 @@ export function Vibration() {
     }
 
     return html`<div class="${b()}">
-        <${Button} disabled="${!isSupported}" onClick=${onClick} title="${i18n('Check vibration')}">${i18n('Vibrate')}<//>
+        <${Button} onClick=${onClick} title="${i18n('Check vibration')}">${i18n('Vibrate')}<//>
 
         ${
             !isSsr && isMobile() ? '' : html`<div class="${b('details')}">

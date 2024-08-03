@@ -10,6 +10,8 @@ import { block } from '../../utils/css/bem';
 import { i18n } from '../../i18n';
 import { getEncryptionSchemes } from '../../utils/drm/getEncryptionSchemes';
 
+import './index.css';
+
 const b = block('clearkey-badge');
 
 const keySystemsItems = [CLEAR_KEY_SYSTEM];
@@ -33,10 +35,10 @@ export function ClearkeyBadge() {
                 background: 'white',
                 size: 'small',
                 bottom: {
-                    text: html`
-                        <div><${KeySystems} items="${keySystemsItems}" //></div>
-                        <div>${encryptionSchemes.length ? `${i18n('Encryption schemes')}: ${encryptionSchemes}` : ''}</div>
-                    `
+                    text: html`<ul class="${b('list')}">
+                        <li class="${b('item')}"><${KeySystems} items="${keySystemsItems}" //></li>
+                        <li class="${b('item')}">${encryptionSchemes.length ? `${i18n('Encryption schemes')}: ${encryptionSchemes}` : ''}</li>
+                    </ul>`
                 }
             })}
         </div>

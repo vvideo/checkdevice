@@ -1,0 +1,10 @@
+.widevine-badge__list {
+    padding: 0;
+    margin: 0 0 0 15px;
+}
+
+.widevine-badge__item {
+    margin: 0;
+    padding: 0;
+    list-style-type: disc;
+}

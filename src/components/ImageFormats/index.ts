@@ -26,6 +26,9 @@ import { Codec } from '../Codec';
 import { Column } from '../Column';
 import { Columns } from '../Columns';
 import { i18n } from '../../i18n';
+import { block } from '../../utils/css/bem';
+
+import './index.css';
 
 function getSupportedImageFormats() {
     const result: Record<string, boolean> = {
@@ -53,6 +56,8 @@ function getSupportedImageFormats() {
 
     return Promise.all(promises).then(() => result);
 }
+
+const b = block('image-formats');
 
 export function ImageFormats() {
     const supported: VNode[] = [];
@@ -82,14 +87,14 @@ export function ImageFormats() {
             supported.push(Codec({
                 name: item.name,
                 color: item.color,
-                tooltip: item.tooltip,
+                tooltip: getTooltip(item.tooltip),
             }));
         } else {
             unsupported.push(Codec({
                 name: item.name,
                 color: 'black',
                 disabled: true,
-                tooltip: item.tooltip,
+                tooltip: getTooltip(item.tooltip),
             }));
         }
     });
@@ -100,4 +105,8 @@ export function ImageFormats() {
         <//>
         ${unsupported.length ? html`<${Column} disabled name="${i18n('Unsupported')}">${unsupported}<//>` : ''}
     <//>`;
+}
+
+function getTooltip(mimeType: string) {
+    return html`<div class="${b('tooltip')}">${i18n('MIME type')}: <code>${mimeType}</code></div>`;
 }

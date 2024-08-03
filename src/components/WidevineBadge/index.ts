@@ -16,6 +16,8 @@ import { getCachedCheckAllHdcpVersions } from '../../utils/drm/getCachedCheckAll
 import { i18n } from '../../i18n';
 import { getEncryptionSchemes } from '../../utils/drm/getEncryptionSchemes';
 
+import './index.css';
+
 const b = block('widevine-badge');
 
 export function WidevineBadge() {
@@ -63,10 +65,12 @@ export function WidevineBadge() {
                     text: 'Google',
                 },
                 bottom: {
-                    text: html`<div><${SecurityLevels} items="${levels}" //></div>
-                        <div><${KeySystems} items="${[WIDEWINE_KEY_SYSTEM]}" //></div>
-                        <div>${encryptionSchemes.length ? `${i18n('Encryption schemes')}: ${encryptionSchemes}` : ''}</div>
-                        <div><${HdcpLink} version="${hdcpVersion}" //></div>`,
+                    text: html`<ul class="${b('list')}">
+                        <li class="${b('item')}"><${SecurityLevels} items="${levels}" //></li>
+                        <li class="${b('item')}"><${KeySystems} items="${[WIDEWINE_KEY_SYSTEM]}" //></li>
+                        <li class="${b('item')}">${encryptionSchemes.length ? `${i18n('Encryption schemes')}: ${encryptionSchemes}` : ''}</li>
+                        <li class="${b('item')}"><${HdcpLink} version="${hdcpVersion}" //></li>
+                    </ul>`,
                 },
             })}
         </div>

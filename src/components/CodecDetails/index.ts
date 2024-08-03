@@ -17,7 +17,7 @@ function getIsTypeSupportedProps(isTypeSupported: boolean) {
         value: String(isTypeSupported),
         color: isTypeSupported ? 'green' : 'red',
     } : {
-        value: html`<b>${i18n('unsupported')}</b>`,
+        value: html`<span style="font-weight:bold">${i18n('unsupported')}</span>`,
         color: 'red',
     };
 }
