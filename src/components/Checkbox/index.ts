@@ -34,6 +34,6 @@ export function Checkbox(props: ButtonProps) {
     );
 
     return html`<label class="${className}" onClick="${handleClick}">
-        <input autocomplete="off" ref="${ref}" class="${b('input')}" type="checkbox" checked="${checked}" />${props.label}
+        <input type="checkbox" ref="${ref}" class="${b('input')}" checked="${checked}" />${props.label}
     </label>`;
 }
