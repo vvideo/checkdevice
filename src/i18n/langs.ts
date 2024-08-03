@@ -2,7 +2,8 @@ export const langs = [
     {
         name: 'EN',
         value: 'en',
-        emoji: '🇺🇸'
+        emoji: '🇺🇸',
+        default: true
     },
     {
         name: 'RU',
@@ -11,4 +12,4 @@ export const langs = [
     },
 ];
 
-export const defaultLang = 'en';
+export const defaultLang = langs.filter(item => Boolean(item.default))[0].value;
