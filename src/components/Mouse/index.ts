@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'preact/hooks';
 import { block } from '../../utils/css/bem';
 import { useForceUpdate } from '../../hooks/useForceUpdate';
 import { passiveSupported } from '../../utils/passiveSupported';
+import { i18n } from '../../i18n';
 
 import './index.css';
 
@@ -59,15 +60,24 @@ export function Mouse() {
     }, [wheelY]);
 
     return html`
-        <div ref="${refRoot}" class="${b()}">
+        <div ref="${refRoot}" class="${b()}" title="${i18n('Mouse')}">
             <div class="${b('body')}">
-                <div class="${b('left-button', { pressed: buttons.current[0] })}"></div>
-                <div class="${b('middle-button', { pressed: buttons.current[1] })}">
-                    <div class="${b('wheel')}" style="background-position-y:${wheelY}px"></div>
+                <div class="${b('left-button', { pressed: buttons.current[0] })}" title="${i18n('Left mouse button')}">
+                    <div class="${b('text')}">${i18n('Left mouse button')}</div>
                 </div>
-                <div class="${b('right-button', { pressed: buttons.current[2] })}"></div>
-                <div class="${b('4-button', { pressed: buttons.current[3] })}"></div>
-                <div class="${b('5-button', { pressed: buttons.current[4] })}"></div>
+                <div class="${b('middle-button', { pressed: buttons.current[1] })}">
+                    <div class="${b('wheel')}" style="background-position-y:${wheelY}px" title="${i18n('Middle mouse button and mouse wheel')}"></div>
+                    <div class="${b('text')}">${i18n('Middle mouse button and mouse wheel')}</div>
+                </div>
+                <div class="${b('right-button', { pressed: buttons.current[2] })}" title="${i18n('Right mouse button')}">
+                    <div class="${b('text')}">${i18n('Right mouse button')}</div>
+                </div>
+                <div class="${b('4-button', { pressed: buttons.current[3] })}" title="${i18n('Additional mouse button 4')}">
+                    <div class="${b('text')}">${i18n('Additional mouse button 4')}</div>
+                </div>
+                <div class="${b('5-button', { pressed: buttons.current[4] })}" title="${i18n('Additional mouse button 5')}">
+                    <div class="${b('text')}">${i18n('Additional mouse button 5')}</div>
+                </div>
             </div>
         </div>
     `;

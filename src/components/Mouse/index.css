@@ -139,6 +139,10 @@
     background: white;
 }
 
+.mouse__text {
+    display: none;
+}
+
 @keyframes rotate {
 	100% {
 		transform: rotate(1turn);
