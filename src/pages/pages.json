@@ -9,6 +9,14 @@
             "en": "",
             "ru": ""
         },
+        "description": {
+            "en": "Online testing and viewing detailed information about devices in browser",
+            "ru": "Тестирование и просмотр детальной информации об устройствах в браузере онлайн"
+        },
+        "keywords": {
+            "en": "audio, video, mouse, keyboard, gamepad, geo, gpu, battery, screen, midi, usb, mic, camera",
+            "ru": "аудио, видео, мышь, клавиатура, джойстик, гео, gpu, батарея, экран, миди, юсб, микрофон, веб-камера"
+        },
         "id": "index",
         "hidden": true,
         "isIndex": true
