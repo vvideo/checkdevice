@@ -3,6 +3,7 @@ import { block } from '../../utils/css/bem';
 import { i18n } from '../../i18n';
 
 import './index.css';
+import { isSsr } from '../../utils/isSsr';
 
 const b = block('result');
 
@@ -15,6 +16,10 @@ interface ResultProps {
 export function Result(props: ResultProps) {
     let text: string | undefined = props.text;
     let type = '';
+
+    if (isSsr) {
+        return '';
+    }
 
     if (!props.text) {
         if (props.value === true) {
