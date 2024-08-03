@@ -10,8 +10,8 @@
             "ru": ""
         },
         "description": {
-            "en": "Online testing and viewing detailed information about devices in browser",
-            "ru": "Тестирование и просмотр детальной информации об устройствах в браузере онлайн"
+            "en": "Online testing and viewing detailed information about devices in your browser",
+            "ru": "Тестирование и просмотр детальной информации об устройствах в вашем браузере онлайн"
         },
         "keywords": {
             "en": "audio, video, mouse, keyboard, gamepad, geo, gpu, battery, screen, midi, usb, mic, camera",
@@ -41,6 +41,14 @@
         "menuTitle": {
             "en": "Audio",
             "ru": "Аудио"
+        },
+        "description": {
+            "en": "View information about audio codecs and multichannel audio support in your browser",
+            "ru": "Посмотреть информацию о поддержке аудиокодеков и многоканального звука в вашем браузере"
+        },
+        "keywords": {
+            "en": "check dolby atmos, check dolby digital, check surround sound, check vibration, check speech syntesis",
+            "ru": "проверить dolby atmos, проверить dolby digital, проверить многоканальый звук, аудиокодеки, проверить вибрацию, синтез речи"
         },
         "emoji": "🔊",
         "id": "audio"
