@@ -573,6 +573,14 @@ export const keysets: I18nKeysets = {
         'en': 'Latency',
         'ru': 'Задержка'
     },
+    'Microphone name': {
+        'en': 'Microphone name',
+        'ru': 'Название микрофона'
+    },
+    'Sound spectrum visualizer for mic': {
+        'en': 'Sound spectrum visualizer for mic',
+        'ru': 'Отображение звукового спектра для микрофона'
+    },
     'Noise suppression': {
         'en': 'Noise suppression',
         'ru': 'Шумоподавление'
@@ -772,5 +780,9 @@ export const keysets: I18nKeysets = {
     'Mic is blocked.': {
         'en': 'Mic is blocked.',
         'ru': 'Микрофон заблокирован.'
+    },
+    'Speak up!': {
+        'en': 'Speak up!',
+        'ru': 'Говорите!'
     }
 };
