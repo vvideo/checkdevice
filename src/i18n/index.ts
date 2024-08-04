@@ -31,7 +31,7 @@ export function i18n(id: string) {
     return value;
 }
 
-export function i18nWithKeyset(keyset: I18NKeys) {
+export function i18nWithKeyset(keyset: I18NKeys): string {
     return keyset[i18nLang];
 }
 

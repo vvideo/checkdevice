@@ -18,6 +18,7 @@
     position: relative;
     list-style: none;
     float: left;
+    box-sizing: border-box;
     background: #111;
     border-radius: 10px;
     width: 300px;
@@ -32,9 +33,7 @@
 
 @media (max-width: 700px) {
     .index-menu__item {
-        float: none;
         width: 100%;
-        box-sizing: border-box;
         margin-right: 0;
     }
 }
@@ -43,8 +42,7 @@
     position: absolute;
     display: inline-block;
     left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 10px;
     width: 40px;
     height: 40px;
     filter: grayscale(0.5);
@@ -58,7 +56,11 @@
 
 .index-menu .link {
     transition: background-color .4s ease;
-    position: relative;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
     z-index: 1;
 }
 
@@ -80,4 +82,24 @@ body.hover_yes .index-menu__item:hover .index-menu__emoji {
 .index-menu__clear {
     clear: both;
     margin-bottom: 10px;
+}
+
+.index-menu__keywords-list {
+    margin: 55px 0 7px 15px;
+    padding: 0;
+}
+
+.index-menu__keywords-item {
+    margin: 0 0 0 10px;
+    padding: 0;
+    list-style-type: disc;
+    color: gray;
+    font-size: 12px;
+}
+
+.index-menu__keywords-item-container {
+    text-overflow: ellipsis;
+    max-width: 90%;
+    overflow: hidden;
+    white-space: nowrap;
 }
