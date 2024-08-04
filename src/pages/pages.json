@@ -234,13 +234,13 @@
         "id": "keyboard",
         "indexMenuList": {
             "en": [
-              "Testing keyboard",
               "Displaying keystrokes on keyboard",
+              "Displaying keyboard key codes",
               "Keyboards: Windows, Mac, MacBook, iPad"
             ],
             "ru": [
-              "Тестирование клавиатуры",
               "Отображение нажатий клавиш на клавиатуре",
+              "Отображение кодов клавиш клавиатуры",
               "Клавиатуры: Windows, Mac, MacBook, iPad"
             ]
         }
