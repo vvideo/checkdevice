@@ -139,8 +139,73 @@
     background: white;
 }
 
+.mouse__left-button_dblClick,
+.mouse__right-button_dblClick,
+.mouse__middle-button_dblClick,
+.mouse__4-button_dblClick,
+.mouse__5-button_dblClick {
+    background: gold;
+}
+
+.mouse__left-button_dblClick:before,
+.mouse__right-button_dblClick:before,
+.mouse__middle-button_dblClick:before,
+.mouse__4-button_dblClick:before,
+.mouse__5-button_dblClick:before {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    content: '×2';
+    color: black;
+    font-size: 22px;
+    font-weight: bold;
+}
+
 .mouse__text {
     display: none;
+}
+
+.mouse__wheel-arrow-up,
+.mouse__wheel-arrow-down {
+    position: absolute;
+    display: inline-block;
+    left: 64px;
+    background: white;
+    padding: 5px;
+    color: black;
+    content: '';
+    width: 11px;
+    height: 11px;
+    font-size: 11px;
+    line-height: 11px;
+    border-radius: 100%;
+    z-index: 20;
+    vertical-align: middle;
+    text-align: center;
+    transition: opacity .3s ease;
+    opacity: 1;
+}
+
+.mouse__wheel-arrow-up_hidden,
+.mouse__wheel-arrow-down_hidden {
+    opacity: 0;
+}
+
+.mouse__wheel-arrow-up:before {
+    content: '↑';
+}
+
+.mouse__wheel-arrow-down:before {
+    content: '↓';
+}
+
+.mouse__wheel-arrow-up {
+    top: 13px;
+}
+
+.mouse__wheel-arrow-down {
+    top: 90px;
 }
 
 @keyframes rotate {
