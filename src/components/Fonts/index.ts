@@ -12,16 +12,11 @@ import { FontListGrouped } from '../FontListGrouped';
 import { isSsr } from '../../utils/isSsr';
 
 import './index.css';
-import { Spinner } from '../Spinner';
 
 const b = block('fonts');
 
 export function Fonts() {
-    if (isSsr) {
-        return html`<${Spinner} //>`;
-    }
-
-    if (!window.queryLocalFonts) {
+    if (!isSsr && !window.queryLocalFonts) {
         return html`<${WarningMessage}>${i18n('Local Font Access API is not supported.')}<//>`;
     }
 

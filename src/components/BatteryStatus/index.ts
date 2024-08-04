@@ -9,6 +9,7 @@ import { Spinner } from '../Spinner';
 import { List } from '../List';
 import { formatTime } from './utils';
 import { isSsr } from '../../utils/isSsr';
+import { ValueInProgress } from '../ValueInProgress';
 
 import './index.css';
 
@@ -16,7 +17,7 @@ const b = block('battery-status');
 
 export function BatteryStatus() {
     if (isSsr) {
-        return html`<${Spinner} //>`;
+        return html`<${BatteryStatusSsr} //>`;
     }
 
     if (!navigator.getBattery) {
@@ -56,4 +57,16 @@ export function BatteryStatus() {
             <${List} class="${b('list')}" items="${items}"><//>
         </div>
     ` : html`<${Spinner} //>`;
+}
+
+export function BatteryStatusSsr() {
+    const items = [
+        [i18n('Charging time'), html`<${ValueInProgress} //>`],
+        [i18n('Discharging time'),  html`<${ValueInProgress} //>`]
+    ];
+
+    return html`<div class="${b()}">
+        <${BatteryBadge} level="${0}" charging="${false}"><//>
+        <${List} class="${b('list')}" items="${items}"><//>
+    </div>`;
 }
