@@ -1,11 +1,15 @@
 .lang-switcher-item {
     display: block;
     margin: 0;
+    padding: 0;
+}
+
+.lang-switcher-item .link {
+    display: block;
     padding: 5px 10px;
     white-space: nowrap;
-    color: white;
-    cursor: pointer;
     list-style-type: none;
+    text-decoration: none;
 }
 
 .lang-switcher-item:hover {

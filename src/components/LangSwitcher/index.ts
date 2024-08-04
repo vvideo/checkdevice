@@ -15,12 +15,6 @@ export function LangSwitcher() {
     const currentLang = getI18nLang();
     const langs = getI18nLangs();
 
-    const handleClickItem = useCallback((value: string) => {
-        setVisible(false);
-        window.location.href = getPagePath(getPageId(), value);
-    }, [setVisible]);
-
-
     const handleClick = useCallback(() => {
         setVisible(true);
     }, [setVisible]);
@@ -28,9 +22,21 @@ export function LangSwitcher() {
     const currentLangItem = langs.filter(item => currentLang === item.value)[0];
 
     return html`<div class="${b()}">
-        <div class="${b('current')}" onClick="${handleClick}"><span class="${b('emoji')}">${currentLangItem.emoji}</span> ${currentLangItem.name}</div>
+        <div class="${b('current')}" onClick="${handleClick}">
+            <span class="${b('emoji')}">${currentLangItem.emoji}</span> ${currentLangItem.name}
+        </div>
         <menu class="${b('popup', { visible })}">
-            ${langs.map(item => html`<${LangSwitcherItem} selected="${currentLang === item.value}" key="${item.value}" onClick="${handleClickItem}" ..."${item}" //>`)}
+            ${langs.map(item => {
+                const url = getPagePath(getPageId(), item.value);
+
+                return html`<${LangSwitcherItem}
+                    key="${item.value}"
+                    name="${item.name}"
+                    emoji="${item.emoji}"
+                    selected="${currentLang === item.value}"
+                    url="${url}"
+                //>`;
+            })}
         </menu>
     </div>`;
 }
