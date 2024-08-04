@@ -89,7 +89,7 @@ export function Mouse() {
         const handleWheel = (e: WheelEvent) => {
             e.preventDefault();
             const deltaY = prepareDeltaY(e);
-            setWheelY(wheelY - deltaY);
+            setWheelY(wheelY + deltaY);
 
             if (deltaY < 0) {
                 setWheelArrowUp(true);
