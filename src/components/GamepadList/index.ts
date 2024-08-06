@@ -39,8 +39,6 @@ export function GamepadList() {
         };
     }, []);
 
-    console.log('typeof navigator === ', typeof navigator);
-
     const result = isSsr ? [] : navigator.getGamepads();
     const gamepads = Array.isArray(result) ? result.filter(item => item !== null) : [];
 
