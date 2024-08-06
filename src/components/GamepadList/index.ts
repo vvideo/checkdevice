@@ -39,7 +39,9 @@ export function GamepadList() {
         };
     }, []);
 
-    const result = typeof navigator === 'undefined' ? [] : navigator.getGamepads();
+    console.log('typeof navigator === ', typeof navigator);
+
+    const result = isSsr ? [] : navigator.getGamepads();
     const gamepads = Array.isArray(result) ? result.filter(item => item !== null) : [];
 
     return gamepads.length ? html`
