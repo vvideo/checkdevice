@@ -804,5 +804,13 @@ export const keysets: I18nKeysets = {
     'Additional mouse button 5': {
         'en': 'Additional mouse button 5',
         'ru': 'Дополнительная кнопка мышки 5',
+    },
+    'Select USB device': {
+        'en': 'Select USB device',
+        'ru': 'Выбрать USB-устройство'
+    },
+    'WebUSB API is not supported.': {
+        'en': 'WebUSB API is not supported.',
+        'ru': 'WebUSB API не поддерживается.'
     }
 };

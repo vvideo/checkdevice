@@ -1,17 +1,17 @@
 import { html } from 'htm/preact';
 import { useCallback, useState } from 'preact/hooks';
-import { block } from '../../utils/bem';
-import { i18n } from '../../i18n/i18n';
 import { Button } from '../Button';
 import { WarningMessage } from '../WarningMessage';
+import { TreeList } from '../TreeList';
+import { block } from '../../utils/css/bem';
+import { i18n } from '../../i18n';
 
 import './index.css';
-import { TreeList } from '../TreeList';
 
 const b = block('usb');
 
 export function Usb() {
-    const [usbDevice, setUsbDevice] = useState<any | null>(null);
+    const [usbDevice, setUsbDevice] = useState<USBDevice | null>(null);
     const [error, setError] = useState<Error | null>(null);
 
     const handleClick = useCallback(() => {
@@ -22,7 +22,7 @@ export function Usb() {
             for (const key in device) {
                 // @ts-ignore
                 result[key] = device[key];
-                console.log(key, device.hasOwnProperty(key));
+                //console.log(key, device.hasOwnProperty(key));
             }
 
             setUsbDevice(result);
