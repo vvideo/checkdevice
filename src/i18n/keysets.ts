@@ -819,6 +819,6 @@ export const keysets: I18nKeysets = {
     },
     'USB device not found.': {
         'en': 'USB device not found.',
-        'ru': 'USB-устройство не найден.'
+        'ru': 'USB-устройство не найдено.'
     }
 };
