@@ -11,4 +11,4 @@ body,html{background:#000;color:#fff;font-family:Arial,Helvetica,sans-serif;font
 .warning-message_theme_gray{color:gray;filter:grayscale()}
 .section{margin:0 0 30px;padding:0}.section__name{font-size:18px;font-weight:400;line-height:1.6em;margin:0 0 .5em;padding:0}
 .tree-list{font-size:16px}.tree-list ul{margin:0;padding:0 0 0 1em}.tree-list .tree-list__ul_padding_no{padding-left:0}.tree-list li{list-style-type:none}.tree-list__bigint,.tree-list__number{color:violet}.tree-list__string{color:#90ee90}.tree-list__symbol{color:#add8e6}.tree-list__index{color:gray}.tree-list__boolean,.tree-list__null{color:violet}.tree-list__undefined{color:gray}.tree-list__index,.tree-list__property{color:#add8e6}
-.usb__controls{margin-bottom:10px}
+.usb__controls{margin-bottom:20px}
