@@ -6,6 +6,7 @@ import { WarningMessage } from '../WarningMessage';
 import { block } from '../../utils/css/bem';
 import { TreeList } from '../TreeList';
 import { i18n } from '../../i18n';
+import { isSsr } from '../../utils/isSsr';
 
 import './index.css';
 
@@ -73,7 +74,7 @@ export function GpuNavigator() {
         features: prepareAdapterFeatures(refAdapter.current && refAdapter.current.features),
     };
 
-    if (typeof navigator === 'undefined' || !navigator.gpu) {
+    if (!isSsr && !navigator.gpu) {
         return html`<${WarningMessage}>${i18n('WebGPU is not supported.')}<//>`;
     }
 
