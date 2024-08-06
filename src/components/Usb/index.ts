@@ -5,28 +5,37 @@ import { WarningMessage } from '../WarningMessage';
 import { TreeList } from '../TreeList';
 import { block } from '../../utils/css/bem';
 import { i18n } from '../../i18n';
+import { UsbError } from '../UsbError';
+import { sortObject } from '../../utils/object/sortObject';
 
 import './index.css';
 
 const b = block('usb');
 
 export function Usb() {
-    const [usbDevice, setUsbDevice] = useState<USBDevice | null>(null);
+    const [usbDevice, setUsbDevice] = useState<Record<string, unknown> | null>(null);
     const [error, setError] = useState<Error | null>(null);
 
     const handleClick = useCallback(() => {
-        navigator.usb.requestDevice({ filters: [] }).then(device => {
+        navigator.usb.requestDevice({ filters: [] }).then(data => {
             setError(null);
 
-            const result = {};
+            const result: Record<string, unknown> = {};
+            const device = data as unknown as Record<string, unknown>;
+
             for (const key in device) {
-                // @ts-ignore
+                if (
+                    typeof device[key] === 'function' ||
+                    key === 'configuration' ||
+                    key === 'configurations'
+                ) {
+                    continue;
+                }
+
                 result[key] = device[key];
-                //console.log(key, device.hasOwnProperty(key));
             }
 
-            setUsbDevice(result);
-            console.log(result);
+            setUsbDevice(sortObject(result));
         }).catch(error => {
             setError(error);
             console.log(error);
@@ -48,26 +57,4 @@ export function Usb() {
             <${TreeList} data="${usbDevice}" //>
         </div>` : ''}
     </div>`;
-}
-
-interface UsbErrorProps {
-    error: Error;
-}
-
-function UsbError(props: UsbErrorProps) {
-    const { error } = props;
-
-    if (!error) {
-        return '';
-    }
-    
-    if (error.name === 'NotFoundError') {
-        return html`<${WarningMessage}>${i18n('USB device not found.')}<//>`;
-    }
-
-    if (error.name === 'NotAllowedError') {
-        return html`<${WarningMessage}>${i18n('USB device is blocked.')}<//>`;
-    }
-
-    return html`<${WarningMessage}>${error.message}<//>`;
 }

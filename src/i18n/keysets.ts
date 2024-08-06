@@ -812,5 +812,13 @@ export const keysets: I18nKeysets = {
     'WebUSB API is not supported.': {
         'en': 'WebUSB API is not supported.',
         'ru': 'WebUSB API не поддерживается.'
+    },
+    'USB device is blocked.': {
+        'en': 'USB device is blocked.',
+        'ru': 'USB-устройство заблокировано.'
+    },
+    'USB device not found.': {
+        'en': 'USB device not found.',
+        'ru': 'USB-устройство не найден.'
     }
 };
