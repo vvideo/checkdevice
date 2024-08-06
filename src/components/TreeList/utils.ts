@@ -44,7 +44,7 @@ export function buildData(data: any, options: BuildDataOptions = {}, level = 0):
     }
 
     if (typeof data === 'function') {
-        return html`<span class="${b('function')}">function</span>`;
+        return html`<span class="${b('function')}">ƒ ${data.name}()</span>`;
     }
 
     if (typeof data === 'symbol') {
@@ -84,9 +84,14 @@ export function buildData(data: any, options: BuildDataOptions = {}, level = 0):
         ${' '}}`;
     }
 
+    const props = [];
+    for (const key in data) {
+        props.push(key);
+    }
+    
     const hasBraces = Boolean(options.showCurlyBracesAtRootLevel || level);
     return html`${hasBraces ? '{' : ''}<ul class="${b('ul', { padding: hasBraces ? 'yes' : 'no' })}">
-        ${Object.keys(data).map((key: string, i: number, items) => {
+        ${props.map((key: string, i: number, items) => {
             return html`<li><span class="${b('property')}">${key}: </span>${buildData(data[key], options, level + 1)}${i === items.length - 1 ? '' : ','}</li>`;
         })}
     </ul>${hasBraces ? '}' : ''}`;
