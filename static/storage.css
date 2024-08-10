@@ -1,7 +1,7 @@
 .section{margin:0 0 30px;padding:0}.section__name{font-size:18px;font-weight:400;line-height:1.6em;margin:0 0 .5em;padding:0}
 .list{font-size:16px;line-height:26px;margin:0 0 0 15px;padding:0}
 .link:active,.link:link,.link:visited{color:#009cf4}.link:hover{color:#30acf4}.link_theme_white:active,.link_theme_white:hover,.link_theme_white:link,.link_theme_white:visited{color:#fff;text-decoration:underline;text-decoration-color:hsla(0,0%,100%,.2);transition:text-decoration-color .3s ease}.link_theme_white:hover{text-decoration-color:#fff}
-.storages__features{margin-top:10px}
+.storage__features{margin-top:10px}
 body,html{background:#000;color:#fff;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:24px;margin:0;padding:0}*{-webkit-tap-highlight-color:transparent}button,input,select,textarea{font:inherit}h2{font-size:20px;font-weight:400;line-height:1.6em;margin:0;padding:0 0 .5em}
 .lang-switcher-item{display:block;margin:0;padding:0}.lang-switcher-item .link{display:block;list-style-type:none;padding:5px 10px;text-decoration:none;white-space:nowrap}.lang-switcher-item:hover{background-color:gold;color:#000}
 .lang-switcher{cursor:pointer;position:relative}.lang-switcher__current{white-space:nowrap}.lang-switcher__current .lang-switcher__emoji{filter:grayscale(.1)}.lang-switcher__popup{background-color:#000;border:1px solid #333;border-radius:5px;bottom:0;display:none;left:0;margin:0;padding:0;position:absolute;z-index:10}.lang-switcher__popup_visible{display:block}
