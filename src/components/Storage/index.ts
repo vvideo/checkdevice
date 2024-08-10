@@ -16,9 +16,9 @@ const mdnLinks = {
     opfs: 'https://developer.mozilla.org/en-US/docs/Web/API/File_System_API/Origin_private_file_system',
 }
 
-const b = block('storages');
+const b = block('storage');
 
-export function Storages() {
+export function Storage() {
     const hasOPFS = !isSsr && typeof navigator.storage?.getDirectory === 'function';
     const items = [
         [

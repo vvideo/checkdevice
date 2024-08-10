@@ -269,10 +269,6 @@ export const keysets: I18nKeysets = {
         'en': 'Name',
         'ru': 'Название'
     },
-    'Can I use WebGPU?': {
-        'en': 'Can I use WebGPU?',
-        'ru': 'Могу ли я использовать WebGPU?'
-    },
     'WebGPU is not supported.': {
         'en': 'WebGPU is not supported.',
         'ru': 'WebGPU не поддерживается.'
@@ -285,17 +281,9 @@ export const keysets: I18nKeysets = {
         'en': 'Video & audio',
         'ru': 'Видео и аудио'
     },
-    'Can I use Battery Status API?': {
-        'en': 'Can I use Battery Status API?',
-        'ru': 'Могу ли я использовать Battery Status API?'
-    },
     'Battery Status API is not supported.': {
         'en': 'Battery Status API is not supported.',
         'ru': 'Battery Status API не поддерживается.'
-    },
-    'Can I use Network Information API?': {
-        'en': 'Can I use Network Information API?',
-        'ru': 'Могу ли я использовать Network Information API?'
     },
     'Network Information API is not supported.': {
         'en': 'Network Information API is not supported.',
@@ -313,10 +301,6 @@ export const keysets: I18nKeysets = {
         'en': 'Request geo location',
         'ru': 'Запросить местоположение'
     },
-    'Can I use 🎮 Gamepad API?': {
-        'en': 'Can I use 🎮 Gamepad API?',
-        'ru': 'Могу ли я использовать 🎮 Gamepad API?'
-    },
     '🎮 Gamepad API is not supported.': {
         'en': '🎮 Gamepad API is not supported.',
         'ru': '🎮 Gamepad API не поддерживается.'
@@ -333,17 +317,9 @@ export const keysets: I18nKeysets = {
         'en': 'Storage',
         'ru': 'Хранилище'
     },
-    'Storages': {
-        'en': 'Storages',
-        'ru': 'Хранилища'
-    },
     'Features': {
         'en': 'Features',
         'ru': 'Возможности'
-    },
-    'Can I use web storages?': {
-        'en': 'Can I use web storages?',
-        'ru': 'Могу ли я использовать веб-хранилища?'
     },
     'Support of persistent storage': {
         'en': 'Support of persistent storage',

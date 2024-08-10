@@ -284,19 +284,19 @@
     },
     {
         "header": {
-            "en": "Check Storages",
-            "ru": "Проверить хранилища"
+            "en": "Check Storage",
+            "ru": "Проверить хранилище"
         },
         "menuTitle": {
-            "en": "Storages",
-            "ru": "Хранилища"
+            "en": "Storage",
+            "ru": "Хранилище"
         },
         "emoji": "💽",
         "id": "storage",
         "indexMenuList": {
             "en": [
               "Types of supported storage",
-              "Support of persistent storage:",
+              "Support of persistent storage",
               "Storage quota for origin"
             ],
             "ru": [
