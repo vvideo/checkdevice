@@ -1,4 +1,9 @@
-.camera__controls {
+.camera__top-controls {
+    margin-bottom: 15px;
+}
+
+.camera__bottom-controls {
+    margin-top: 15px;
     margin-bottom: 15px;
 }
 
