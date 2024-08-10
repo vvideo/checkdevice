@@ -30,7 +30,7 @@ if (!isSsr) {
         reportUrl: config.showJSErrorRepportUrl,
     });
 
-    hit('95998062'); // 97747983
+    hit(config.metrikaCounterId);
 
     const lang = getLang();
     setI18nLang(lang as I18NLanguage);
