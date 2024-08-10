@@ -46,8 +46,8 @@ export class MicWaveform {
 
             const source = this.audioCtx.createMediaStreamSource(stream);
             source.connect(this.analyser);
-            const distortion = this.audioCtx.createWaveShaper();
-            distortion.connect(this.audioCtx.destination);
+            // const distortion = this.audioCtx.createWaveShaper();
+            // distortion.connect(this.audioCtx.destination);
 
             this.frameRequestId = requestAnimationFrame(this.draw);
         });
