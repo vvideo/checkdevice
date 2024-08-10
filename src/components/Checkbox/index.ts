@@ -24,7 +24,8 @@ export function Checkbox(props: ButtonProps) {
         if (ref.current) {
             const value = !ref.current.checked;
             setChecked(value);
-            props.onClick && props.onClick(value);
+            
+            props.onClick?.(value);
         }
     }, [checked]);
 

@@ -28,7 +28,8 @@ export function Input(props: InputProps) {
 
         const value = ref.current.value;
         setValue(value);
-        props.onChange && props.onChange(value);
+        
+        props.onChange?.(value);
     }, [value, props.onChange]);
 
     return html`<input ref="${ref}" title="${props.title}" class="${className}" onInput="${handleInput}" placeholder="${props.placeholder}" value="${value}" />`

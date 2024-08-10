@@ -14,11 +14,14 @@ export function Platform() {
     const [_, setUserData] = useState(false);
     const [hardwareAcceleration, setHardwareAcceleration] = useState<boolean | undefined>(undefined);
 
-    !isSsr && hasHardwareAcceleration().then(result => {
-        setHardwareAcceleration(result);
-    });
+    if(!isSsr) {
+        hasHardwareAcceleration().then(result => {
+            setHardwareAcceleration(result);
+        });
+    }
 
     // @ts-ignore
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     !isSsr && navigator.userAgentData?.getHighEntropyValues?.([
         'architecture',
         'bitness',

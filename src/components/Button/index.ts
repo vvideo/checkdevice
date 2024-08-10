@@ -30,7 +30,7 @@ export function Button(props: ButtonProps) {
             return;
         }
 
-        onClick && onClick();
+        onClick?.();
     }, [disabled, onClick]);
 
     return html`<button title="${title}" class="${className}" disabled="${disabled}" onClick="${handleClick}">${props.children}</button>`;

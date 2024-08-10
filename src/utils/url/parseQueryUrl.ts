@@ -3,7 +3,7 @@ export type QueryStringObject = Record<string, string | string[] | undefined>;
 const decodeValue = (value: string) => {
     try {
         return decodeURIComponent(value);
-    } catch (e) {
+    } catch {
         return value;
     }
 };

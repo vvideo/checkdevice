@@ -13,6 +13,6 @@ try {
 
     window.addEventListener('test', noop, options);
     window.removeEventListener('test', noop, {});
-} catch (e) {
+} catch {
     passiveSupported = false;
 }

@@ -28,9 +28,11 @@ export function ScreenBadges() {
     useEffect(() => {
         screenInfo.addListener(handleScreenChange);
 
-        !screenInfo.isDenied && screenInfo.getScreenDetails()
-            .then(handleScreenChange)
-            .catch(handleScreenChange);
+        if (!screenInfo.isDenied) {
+            screenInfo.getScreenDetails()
+                .then(handleScreenChange)
+                .catch(handleScreenChange);
+        }
 
         return () => {
             screenInfo.removeListener(handleScreenChange);
