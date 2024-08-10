@@ -7,10 +7,6 @@
     white-space: nowrap;
 }
 
-.lang-switcher__current .lang-switcher__emoji {
-    filter: grayscale(0.1);
-}
-
 .lang-switcher__popup {
     display: none;
     position: absolute;

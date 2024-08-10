@@ -23,7 +23,7 @@ export function IndexMenu() {
         <ul class="${b('list')}">
         ${items.map(item => {
             return html`<li key="${item.id}" class="${b('item')}">
-                <${Link} class="${b('link')}" theme="white" href="${getPagePath(item.id)}"><span class="${b('emoji')}">${item.emoji}</span> ${item.title}<//>
+                <${Link} class="${b('link')}" theme="white" href="${getPagePath(item.id)}"><span class="${b('image', { type: item.id })}"></span> ${item.title}<//>
                 <ul class="${b('keywords-list')}">
                     ${item.indexMenuList.map(text => html`<li class="${b('keywords-item')}"><div class="${b('keywords-item-container')}">${text}</div></li>`)}
                 </ul>

@@ -19,7 +19,7 @@
     list-style: none;
     float: left;
     box-sizing: border-box;
-    background: #111;
+    background: #151515;
     border-radius: 10px;
     width: 300px;
     margin: 0 10px 10px 0;
@@ -38,20 +38,16 @@
     }
 }
 
-.index-menu__emoji {
+.index-menu__image {
     position: absolute;
     display: inline-block;
     left: 10px;
     top: 10px;
     width: 40px;
     height: 40px;
-    filter: grayscale(0.5);
-    color: white;
-    background: #222;
-    vertical-align: middle;
-    text-align: center;
     border-radius: 5px;
-    line-height: 40px;
+    background: no-repeat center center;
+    background-size: 30px 30px;
 }
 
 .index-menu .link {
@@ -102,4 +98,68 @@ body.hover_yes .index-menu__item:hover .index-menu__emoji {
     max-width: 90%;
     overflow: hidden;
     white-space: nowrap;
+}
+
+.index-menu__image_type_mic {
+    background-image: url('/static/icons/pages/mic.svg');
+}
+
+.index-menu__image_type_gamepad {
+    background-image: url('/static/icons/pages/gamepad.svg');
+}
+
+.index-menu__image_type_mouse {
+    background-image: url('/static/icons/pages/mouse.svg');
+}
+
+.index-menu__image_type_storage {
+    background-image: url('/static/icons/pages/storage.svg');
+}
+
+.index-menu__image_type_screen {
+    background-image: url('/static/icons/pages/screen.svg');
+}
+
+.index-menu__image_type_battery {
+    background-image: url('/static/icons/pages/battery.svg');
+}
+
+.index-menu__image_type_usb {
+    background-image: url('/static/icons/pages/usb.svg');
+}
+
+.index-menu__image_type_audio {
+    background-image: url('/static/icons/pages/audio.svg');
+}
+
+.index-menu__image_type_video {
+    background-image: url('/static/icons/pages/video.svg');
+}
+
+.index-menu__image_type_camera {
+    background-image: url('/static/icons/pages/camera.svg');
+}
+
+.index-menu__image_type_network {
+    background-image: url('/static/icons/pages/network.svg');
+}
+
+.index-menu__image_type_geo {
+    background-image: url('/static/icons/pages/geo.svg');
+}
+
+.index-menu__image_type_fonts {
+    background-image: url('/static/icons/pages/fonts.svg');
+}
+
+.index-menu__image_type_gpu {
+    background-image: url('/static/icons/pages/gpu.svg');
+}
+
+.index-menu__image_type_keyboard {
+    background-image: url('/static/icons/pages/keyboard.svg');
+}
+
+.index-menu__image_type_platform {
+    background-image: url('/static/icons/pages/platform.svg');
 }

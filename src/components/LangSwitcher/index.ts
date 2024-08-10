@@ -7,6 +7,7 @@ import { getPagePath } from '../../utils/getPagePath';
 import { getPageId } from '../../pages/common/pageId';
 
 import './index.css';
+import { LangIcon } from '../LangIcon';
 
 const b = block('lang-switcher');
 
@@ -23,7 +24,7 @@ export function LangSwitcher() {
 
     return html`<div class="${b()}">
         <div class="${b('current')}" onClick="${handleClick}">
-            <span class="${b('emoji')}">${currentLangItem.emoji}</span> ${currentLangItem.name}
+            <${LangIcon} lang="${currentLangItem.value}" //> ${currentLangItem.name}
         </div>
         <menu class="${b('popup', { visible })}">
             ${langs.map(item => {
@@ -32,7 +33,7 @@ export function LangSwitcher() {
                 return html`<${LangSwitcherItem}
                     key="${item.value}"
                     name="${item.name}"
-                    emoji="${item.emoji}"
+                    value="${item.value}"
                     selected="${currentLang === item.value}"
                     url="${url}"
                 //>`;
