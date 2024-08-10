@@ -1,4 +1,4 @@
-import 'show-js-error';
+import { showJSError } from 'show-js-error';
 import { hit } from 'lyam';
 import { I18NLanguage, setI18nLang } from '../../i18n';
 import { withInstallApp } from '../../utils/withInstallApp';
@@ -6,6 +6,7 @@ import { addHoverOnBody } from '../../utils/css/addHoverOnBody';
 import { isSsr } from '../../utils/isSsr';
 import { setPageId } from './pageId';
 import { defaultLang, langs } from '../../i18n/langs';
+import { config } from '../../config';
 
 import './index.css';
 
@@ -24,8 +25,11 @@ function getLangFromNavigator() {
     return ((navigator.language || '').split('-')[0] || defaultLang);
 }
 
-
 if (!isSsr) {
+    showJSError.setSettings({
+        reportUrl: config.showJSErrorRepportUrl,
+    });
+
     hit('95998062'); // 97747983
 
     const lang = getLang();
