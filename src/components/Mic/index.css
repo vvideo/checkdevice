@@ -8,13 +8,26 @@
     margin: 20px 0;
 }
 
+.mic__canvas-container::before {
+    position: absolute;
+    left: 50px;
+    top: 40px;
+    width: 100px;
+    height: 100px;
+    background: url('/static/icons/mic.svg') center center no-repeat;
+    background-size: 100% 100%;
+    content: '';
+}
+
 .mic__canvas-container::after {
     position: absolute;
+    left: 150px;
+    top: 40px;
+    width: 100px;
+    height: 100px;
+    background: url('/static/icons/waveform.svg') center center no-repeat;
+    background-size: 100% 100%;
     content: '';
-    left: 5px;
-    right: 5px;
-    top: 50%;
-    border-top: 1px solid #333;
 }
 
 .mic__canvas {
@@ -27,6 +40,7 @@
     border-radius: 10px;
 }
 
+.mic_started .mic__canvas-container::before,
 .mic_started .mic__canvas-container::after {
     display: none;
 }
