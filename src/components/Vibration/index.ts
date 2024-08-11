@@ -8,6 +8,7 @@ import { isSsr } from '../../utils/isSsr';
 import { isMobile } from 'detect-audio-video';
 
 import './index.css';
+import { Section } from '../Section';
 
 const b = block('vibration');
 
@@ -22,13 +23,12 @@ export function Vibration() {
         return '';
     }
 
-    return html`<div class="${b()}">
+    return html`<${Section} class="${b()}" name="${i18n('Vibration')}">
         <${Button} onClick=${onClick} title="${i18n('Check vibration')}">${i18n('Vibrate')}<//>
-
         ${
             !isSsr && isMobile() ? '' : html`<div class="${b('details')}">
                 <${WarningMessage} theme="gray">${i18n('Support is mainly on mobile devices.')}<//>
             </div>`
         }
-    </div>`;
+    <//>`;
 }
