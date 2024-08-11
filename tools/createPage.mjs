@@ -3,6 +3,7 @@ export function createPage(params) {
         id, header, lang, content, canonicalUrl,
         description, keywords,
         alternateLinks,
+        sitemap,
     } = params;
 
     return `<!DOCTYPE html>
@@ -20,6 +21,7 @@ export function createPage(params) {
     ${alternateLinks && alternateLinks.length ? alternateLinks.map(item => {
         return `<link rel="alternate" hreflang="${item.lang}" href="${item.url}" />
 `; }) : '' }
+    ${sitemap === false ? `<meta name="robots" content="noindex" />` : '' }
     <link rel="manifest" href="/manifest.json" />
     <link rel="shortcut icon" href="/static/favicons/favicon.png" />
     <link rel="apple-touch-icon" href="/static/favicons/touch.png" />

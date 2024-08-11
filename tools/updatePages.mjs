@@ -46,6 +46,7 @@ langs.forEach(lang => {
             keywords,
             description,
             alternateLinks,
+            sitemap: item.sitemap,
         });
 
         if (!existsSync(lang)) {
@@ -68,6 +69,7 @@ langs.forEach(lang => {
                 canonicalUrl,
                 keywords,
                 description,
+                sitemap: item.sitemap,
             });
 
             savePage(`${id}.html`, html);
