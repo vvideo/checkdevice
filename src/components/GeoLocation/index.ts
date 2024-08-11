@@ -50,6 +50,8 @@ export function GeoLocation(props: GeoLocationProps) {
             maximumAge: 0,
         };
 
+        setError(null);
+        setCoords(null);
         setInProgress(true);
 
         function success(position: GeolocationPosition) {
@@ -80,7 +82,7 @@ export function GeoLocation(props: GeoLocationProps) {
     }, []);
 
     return html`
-        <${Button} theme="active" onClick="${handleClick}">${i18n('Request geo location')}<//> ${inProgress ? html`<${Spinner} size="m" //>` : ''}
+        <${Button} disabled="${inProgress}" theme="active" onClick="${handleClick}">${i18n('Request geo location')}<//> ${inProgress ? html`<${Spinner} size="m" //>` : ''}
         ${coords ? html`<div class="${b('list')}"><${TreeList} data="${coords}" //></div>` : ''}
         ${error ? html`<${ErrorMessage}>${error}<//>` : ''}
         ${coords ? html`<div class="${b('map')}">
