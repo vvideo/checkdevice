@@ -46,10 +46,10 @@ export function BatteryStatus() {
         return () => clearInterval(interval);
     }, []);
 
-    const items = batteryManager ? [
-        [i18n('Charging time'), isFinite(batteryManager?.chargingTime) ? formatTime(batteryManager?.chargingTime) : '∞'],
-        [i18n('Discharging time'), isFinite(batteryManager?.dischargingTime) ? formatTime(batteryManager?.dischargingTime) : '∞']
-    ] : [];
+    const items = (batteryManager ? [
+        isFinite(batteryManager.chargingTime) ? [i18n('Charging time'), formatTime(batteryManager.chargingTime)] : undefined,
+        isFinite(batteryManager.dischargingTime) ? [i18n('Discharging time'), formatTime(batteryManager.dischargingTime)] : undefined,
+    ] : []).filter(Boolean);
 
     return batteryManager ? html`
         <div class="${b()}">
@@ -62,7 +62,7 @@ export function BatteryStatus() {
 export function BatteryStatusSsr() {
     const items = [
         [i18n('Charging time'), html`<${ValueInProgress} //>`],
-        [i18n('Discharging time'),  html`<${ValueInProgress} //>`]
+        [i18n('Discharging time'), html`<${ValueInProgress} //>`]
     ];
 
     return html`<div class="${b()}">
