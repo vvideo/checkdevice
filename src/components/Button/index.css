@@ -40,7 +40,8 @@ body.hover_yes .button_theme_red:hover {
     padding: 2px 4px;
 }
 
-.button.button_disabled {
+body .button.button_disabled,
+body.hover_yes .button.button_disabled {
     background: #444;
     color: #777;
     cursor: default;
