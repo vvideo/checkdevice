@@ -18,6 +18,7 @@ const permissions = [
     'microphone', 'camera',
     'notifications',
     'push',
+    'speaker-selection',
     'accelerometer', 'gyroscope', 'magnetometer', 'ambient-light-sensor',
     'storage-access', 'top-level-storage-access', 'persistent-storage',
     'midi',
