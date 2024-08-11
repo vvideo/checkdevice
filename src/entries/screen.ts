@@ -1,5 +1,4 @@
-import { html } from 'htm/preact';
-import { render } from 'preact';
 import { ScreenPage } from '../pages/ScreenPage';
+import { renderToRoot } from './utils';
 
-render(html`<${ScreenPage} //>`, document.querySelector('.page') as HTMLDivElement);
+renderToRoot(ScreenPage);

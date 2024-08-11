@@ -1,5 +1,4 @@
-import { html } from 'htm/preact';
 import { NetworkPage } from '../pages/NetworkPage';
-import { render } from 'preact';
+import { renderToRoot } from './utils';
 
-render(html`<${NetworkPage} //>`, document.querySelector('.page') as HTMLDivElement);
+renderToRoot(NetworkPage);

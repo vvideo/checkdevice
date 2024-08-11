@@ -1,5 +1,4 @@
-import { html } from 'htm/preact';
-import { render } from 'preact';
 import { KeycodesPage } from '../pages/KeycodesPage';
+import { renderToRoot } from './utils';
 
-render(html`<${KeycodesPage} //>`, document.querySelector('.page') as HTMLDivElement);
+renderToRoot(KeycodesPage);

@@ -1,5 +1,4 @@
-import { html } from 'htm/preact';
 import { GpuPage } from '../pages/GpuPage';
-import { render } from 'preact';
+import { renderToRoot } from './utils';
 
-render(html`<${GpuPage} //>`, document.querySelector('.page') as HTMLDivElement);
+renderToRoot(GpuPage);

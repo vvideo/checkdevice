@@ -1,5 +1,4 @@
-import { html } from 'htm/preact';
 import { IndexPage } from '../pages/IndexPage';
-import { render } from 'preact';
+import { renderToRoot } from './utils';
 
-render(html`<${IndexPage} //>`, document.querySelector('.page') as HTMLDivElement);
+renderToRoot(IndexPage);

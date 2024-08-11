@@ -1,5 +1,4 @@
-import { html } from 'htm/preact';
-import { render } from 'preact';
 import { MousePage } from '../pages/MousePage';
+import { renderToRoot } from './utils';
 
-render(html`<${MousePage} //>`, document.querySelector('.page') as HTMLDivElement);
+renderToRoot(MousePage);

@@ -1,5 +1,4 @@
-import { html } from 'htm/preact';
 import { SensorPage } from '../pages/SensorPage';
-import { render } from 'preact';
+import { renderToRoot } from './utils';
 
-render(html`<${SensorPage} //>`, document.querySelector('.page') as HTMLDivElement);
+renderToRoot(SensorPage);

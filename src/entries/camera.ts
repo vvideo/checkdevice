@@ -1,5 +1,4 @@
-import { html } from 'htm/preact';
-import { render } from 'preact';
 import { CameraPage } from '../pages/CameraPage';
+import { renderToRoot } from './utils';
 
-render(html`<${CameraPage} //>`, document.querySelector('.page') as HTMLDivElement);
+renderToRoot(CameraPage);

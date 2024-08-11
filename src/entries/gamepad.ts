@@ -1,5 +1,4 @@
-import { html } from 'htm/preact';
-import { render } from 'preact';
-import { GamepadPage } from '../pages/GamepadPage';
+import { FontsPage } from '../pages/FontsPage';
+import { renderToRoot } from './utils';
 
-render(html`<${GamepadPage} //>`, document.querySelector('.page') as HTMLDivElement);
+renderToRoot(FontsPage);

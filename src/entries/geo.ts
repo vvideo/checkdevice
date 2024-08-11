@@ -1,5 +1,4 @@
-import { html } from 'htm/preact';
 import { GeoPage } from '../pages/GeoPage';
-import { render } from 'preact';
+import { renderToRoot } from './utils';
 
-render(html`<${GeoPage} //>`, document.querySelector('.page') as HTMLDivElement);
+renderToRoot(GeoPage);

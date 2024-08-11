@@ -1,5 +1,4 @@
-import { html } from 'htm/preact';
-import { render } from 'preact';
 import { StoragePage } from '../pages/StoragePage';
+import { renderToRoot } from './utils';
 
-render(html`<${StoragePage} //>`, document.querySelector('.page') as HTMLDivElement);
+renderToRoot(StoragePage);

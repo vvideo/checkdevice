@@ -1,5 +1,4 @@
-import { html } from 'htm/preact';
-import { render } from 'preact';
 import { FontsPage } from '../pages/FontsPage';
+import { renderToRoot } from './utils';
 
-render(html`<${FontsPage} //>`, document.querySelector('.page') as HTMLDivElement);
+renderToRoot(FontsPage);

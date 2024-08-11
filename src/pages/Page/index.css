@@ -1,6 +1,8 @@
 .page {
     margin-left: 50px;
     margin-right: 50px;
+    position: relative;
+    z-index: 5;
 }
 
 @media only screen and (max-width: 1024px) {

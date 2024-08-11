@@ -35,8 +35,6 @@ export function AudioPage() {
                 <${SpeechSynthesis}><//>
             <//>
 
-            <${Section} name="${i18n('Vibration')}">
-                <${Vibration}><//>
-            <//>
+            <${Vibration}><//>
         <//>`;
 }

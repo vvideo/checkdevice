@@ -1,5 +1,4 @@
-import { html } from 'htm/preact';
-import { render } from 'preact';
 import { MicPage } from '../pages/MicPage';
+import { renderToRoot } from './utils';
 
-render(html`<${MicPage} //>`, document.querySelector('.page') as HTMLDivElement);
+renderToRoot(MicPage);

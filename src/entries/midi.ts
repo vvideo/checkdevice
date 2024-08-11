@@ -1,5 +1,4 @@
-import { html } from 'htm/preact';
-import { render } from 'preact';
 import { MidiPage } from '../pages/MidiPage';
+import { renderToRoot } from './utils';
 
-render(html`<${MidiPage} //>`, document.querySelector('.page') as HTMLDivElement);
+renderToRoot(MidiPage);

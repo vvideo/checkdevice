@@ -1,5 +1,4 @@
-import { html } from 'htm/preact';
-import { render } from 'preact';
 import { PlatformPage } from '../pages/PlatformPage';
+import { renderToRoot } from './utils';
 
-render(html`<${PlatformPage} //>`, document.querySelector('.page') as HTMLDivElement);
+renderToRoot(PlatformPage);

@@ -1,5 +1,4 @@
-import { html } from 'htm/preact';
-import { render } from 'preact';
 import { BatteryPage } from '../pages/BatteryPage';
+import { renderToRoot } from './utils';
 
-render(html`<${BatteryPage} //>`, document.querySelector('.page') as HTMLDivElement);
+renderToRoot(BatteryPage);

@@ -1,5 +1,4 @@
-import { html } from 'htm/preact';
 import { UsbPage } from '../pages/UsbPage';
-import { render } from 'preact';
+import { renderToRoot } from './utils';
 
-render(html`<${UsbPage} //>`, document.querySelector('.page') as HTMLDivElement);
+renderToRoot(UsbPage);

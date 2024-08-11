@@ -1,5 +1,4 @@
-import { html } from 'htm/preact';
-import { render } from 'preact';
 import { BluetoothPage } from '../pages/BluetoothPage';
+import { renderToRoot } from './utils';
 
-render(html`<${BluetoothPage} //>`, document.querySelector('.page') as HTMLDivElement);
+renderToRoot(BluetoothPage);

@@ -1,5 +1,4 @@
-import { html } from 'htm/preact';
-import { render } from 'preact';
 import { Error404Page } from '../pages/Error404Page';
+import { renderToRoot } from './utils';
 
-render(html`<${Error404Page} //>`, document.querySelector('.page') as HTMLDivElement);
+renderToRoot(Error404Page);

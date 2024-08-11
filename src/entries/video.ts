@@ -1,5 +1,4 @@
-import { html } from 'htm/preact';
 import { VideoPage } from '../pages/VideoPage';
-import { render } from 'preact';
+import { renderToRoot } from './utils';
 
-render(html`<${VideoPage} //>`, document.querySelector('.page') as HTMLDivElement);
+renderToRoot(VideoPage);
