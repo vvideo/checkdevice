@@ -33,7 +33,7 @@ export function createPage(params) {
     </script>
 </head>
 <body>
-    <div class="page">${content}</div>
+    <div class="root">${content}</div>
     <script defer src="/static/${id}.js?md5="></script>
 </body>
 </html>
