@@ -8,6 +8,8 @@ import { VNode } from 'preact';
 import { InfoLink } from '../InfoLink';
 import { getChecked } from '../../utils/getChecked';
 import { isSsr } from '../../utils/isSsr';
+import { ValueInProgress } from '../ValueInProgress';
+import { DateInProgress } from '../DateInProgress';
 
 export function Platform() {
     const ref = useRef<[string, any][]>([]);
@@ -58,16 +60,20 @@ export function Platform() {
     let items: [VNode | string, any][] = [
         [
             html`Hardware concurrency <${InfoLink} title="MDN" href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/hardwareConcurrency"><//>`,
-            isSsr ? '…' : navigator.hardwareConcurrency
+            isSsr ? html`<${ValueInProgress} />` : navigator.hardwareConcurrency
         ],
         [
             i18n('Standalone application'),
-            isSsr ? '…' : getChecked(isStandalone())
+            isSsr ? html`<${ValueInProgress} />` : getChecked(isStandalone())
         ],
         [
             'User agent',
-            isSsr ? '…' : navigator.userAgent
+            isSsr ? html`<${ValueInProgress} />` : navigator.userAgent
         ],
+        [
+            i18n('Date'),
+            isSsr ? html`<${ValueInProgress} />` : html`<${DateInProgress} //>`,
+        ]
     ];
 
     if (!isSsr && navigator.deviceMemory) {
