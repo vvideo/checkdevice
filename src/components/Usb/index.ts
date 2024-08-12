@@ -7,6 +7,7 @@ import { block } from '../../utils/css/bem';
 import { i18n } from '../../i18n';
 import { UsbError } from '../UsbError';
 import { sortObject } from '../../utils/object/sortObject';
+import { isSsr } from '../../utils/isSsr';
 
 import './index.css';
 
@@ -42,7 +43,7 @@ export function Usb() {
         });
     }, []);
 
-    if (!navigator.usb || typeof navigator.usb.requestDevice !== 'function') {
+    if (!isSsr && (!navigator.usb || typeof navigator.usb.requestDevice !== 'function')) {
         return html`<${WarningMessage}>${i18n('WebUSB API is not supported.')}<//>`;
     }
 
