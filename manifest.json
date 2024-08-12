@@ -1,7 +1,16 @@
 {
-    "short_name": "Check device",
-    "name": "Check device online",
-    "description": "Check device in your browser",
+    "short_name": {
+      "en": "Check device",
+      "ru": "Проверь устройство"
+    },
+    "name": {
+      "en": "Check device online",
+      "ru": "Проверь устройство онлайн"
+    },
+    "description": {
+      "en": "Check device in your browser",
+      "ru": "Проверь устройство в своём браузере"
+    },
     "icons": [
       {
         "src": "/static/favicons/favicon.png",
@@ -18,5 +27,5 @@
     "background_color": "#000000",
     "display": "standalone",
     "scope": "/",
-    "theme_color": "#FFd700"
+    "theme_color": "#000000"
 }
