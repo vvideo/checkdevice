@@ -18,7 +18,7 @@ const b = block('page');
 
 export function Page(props: PageProps) {
     return html`
-        <div class="${b('page')}">
+        <div class="${b()}">
             <${Header} //>
             ${props.withoutMenu ? '' : html`<${Menu} //>`}
             ${props.children}
