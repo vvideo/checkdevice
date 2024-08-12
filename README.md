@@ -9,6 +9,8 @@ This service answers the questions:
 + Can I watch 4K video on online services?
 
 Also info about:
++ Video
++ Audio
 + Screen
 + Webcamera
 + Mic
@@ -17,7 +19,9 @@ Also info about:
 + Mouse
 + GPU
 + Storage
-+ Network and geo
++ Network
++ Geo
++ USB
 + Platform
 + Battery
 + Local fonts
