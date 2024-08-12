@@ -7,10 +7,11 @@
 .main-menu__list {
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .main-menu__item {
-    display: inline-block;
     margin-bottom: 7px;
     margin-right: 20px;
     white-space: nowrap;
