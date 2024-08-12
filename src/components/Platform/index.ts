@@ -71,7 +71,7 @@ export function Platform() {
             isSsr ? html`<${ValueInProgress} />` : navigator.userAgent
         ],
         [
-            i18n('Date'),
+            i18n('Date and time'),
             isSsr ? html`<${ValueInProgress} />` : html`<${DateInProgress} //>`,
         ]
     ];

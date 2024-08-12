@@ -796,5 +796,9 @@ export const keysets: I18nKeysets = {
     'USB device not found.': {
         'en': 'USB device not found.',
         'ru': 'USB-устройство не найдено.'
+    },
+    'Date and time': {
+        'en': 'Date and time',
+        'ru': 'Дата и время'
     }
 };
