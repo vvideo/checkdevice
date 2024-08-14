@@ -800,5 +800,17 @@ export const keysets: I18nKeysets = {
     'Date and time': {
         'en': 'Date and time',
         'ru': 'Дата и время'
-    }
+    },
+    'Save photo': {
+        'en': 'Save photo',
+        'ru': 'Сохранить фото'
+    },
+    'Mirror': {
+        'en': 'Mirror',
+        'ru': 'Зеркало'
+    },
+    'On/off mirror mode': {
+        'en': 'On/off mirror mode',
+        'ru': 'Включить/выключить режим зеркала'
+    }    
 };

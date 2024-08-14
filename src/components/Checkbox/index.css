@@ -1,7 +1,6 @@
 .checkbox {
     user-select: none;
     box-sizing: border-box;
-    display: inline-flex;
 }
 
 .checkbox__input {

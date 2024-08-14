@@ -38,6 +38,7 @@ export function Camera() {
     const [stream, setStream] = useState<MediaStream | null>(null);
     const [quality, setQuality] = useState(getSelectedButton(buttons).value);
     const [withMic, setWithMic] = useState(false);
+    const [withMirror, setWithMirror] = useState(false);
     const [error, setError] = useState<Error | null>(null);
 
     const handleClick = useCallback(() => {
@@ -95,6 +96,10 @@ export function Camera() {
         setWithMic(checked);
     }, []);
 
+    const handleMirror = useCallback((checked: boolean) => {
+        setWithMirror(checked);
+    }, []);
+
     const params = stream ? getStreamParams(stream) : undefined;
 
     if (!isSsr) {
@@ -109,7 +114,7 @@ export function Camera() {
     return html`<div class="${b()}">
         <div class="${b('select')}">
             <${Button} class="${b('select-camera')}" theme="${showStop ? 'red' : 'active'}" onClick="${handleClick}">${stream ? i18n('Stop') : i18n('Check camera')}<//>
-            <${Checkbox} title="${i18n('On/off microphone')}" label="${i18n('Mic')}" checked="${withMic}" onClick="${handleMic}" //>
+            <${Checkbox} class="${b('mic')}" title="${i18n('On/off microphone')}" label="${i18n('Mic')}" checked="${withMic}" onClick="${handleMic}" //>
         </div>
         <div class="${b('top-controls')}">
             <${RadioButtons} hideLabel label="${i18n('Select camera option')}" onSelect="${handleSelect}" buttons="${buttons}"><//>
@@ -118,11 +123,18 @@ export function Camera() {
         <${CameraError} error="${error}" //>
 
         <div class="${b('container', { played })}">
-            <video ref="${refVideo}" class="${b('video')}" />
+            <video ref="${refVideo}" class="${b('video', { mirror: withMirror })}" />
         </div>
 
         ${showStop ? html`<div class="${b('bottom-controls')}">
-            <${Button} onClick="${handleSavePhoto}">${'Save photo'}<//>
+            <${Button} onClick="${handleSavePhoto}">${i18n('Save photo')}<//>
+            <${Checkbox}
+                class="${b('mirror')}"
+                title="${i18n('On/off mirror mode')}"
+                label="${i18n('Mirror')}"
+                checked="${withMirror}"
+                onClick="${handleMirror}"
+            //>
         </div>` : ''}
 
         <div class="${b('params')}">
