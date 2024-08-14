@@ -9,8 +9,9 @@ interface InputProps {
     class?: string;
     value?: string;
     placeholder?: string;
-    onChange?: (value: string) => void;
     title?: string;
+    onKeyPress?: (event: KeyboardEvent) => void;
+    onChange?: (value: string) => void;
 }
 
 const b = block('input');
@@ -32,5 +33,21 @@ export function Input(props: InputProps) {
         props.onChange?.(value);
     }, [value, props.onChange]);
 
-    return html`<input ref="${ref}" title="${props.title}" class="${className}" onInput="${handleInput}" placeholder="${props.placeholder}" value="${value}" />`
+    const handleKeyPress = useCallback((event: KeyboardEvent) => {
+        if (!ref.current) {
+            return;
+        }
+        
+        props.onKeyPress?.(event);
+    }, [value, props.onKeyPress]);    
+
+    return html`<input
+        class="${className}"
+        ref="${ref}"
+        title="${props.title}"
+        onKeypress="${handleKeyPress}"
+        onInput="${handleInput}"
+        placeholder="${props.placeholder}"
+        value="${value}"
+    />`;
 }

@@ -14,10 +14,21 @@ const b = block('speech-synthesis');
 
 export function SpeechSynthesis() {
     const [text, setText] = useState<string>(i18n('Hello world!'));
+
+    function speech() {
+        const ssu = new SpeechSynthesisUtterance(text);
+        window.speechSynthesis.speak(ssu);
+    }
+
     const handleSpeak = useCallback(() => {
-        const speech = new SpeechSynthesisUtterance(text);
-        window.speechSynthesis.speak(speech);
-    }, [text]);
+        speech();
+    }, [speech]);
+
+    const handleKeyPress = useCallback((event: KeyboardEvent) => {
+        if (event.code === 'Enter') {
+            speech();
+        }
+    }, [speech])
 
     const handleInput = useCallback((value: string) => {
         setText(value);
@@ -33,6 +44,7 @@ export function SpeechSynthesis() {
                 title="${i18n('Input text for speech synthesis')}"
                 placeholder="${i18n('Input text')}"
                 value="${text}"
+                onKeyPress="${handleKeyPress}"
                 onChange="${handleInput}"
             /> <${Button} onClick=${handleSpeak} title="${i18n('Speak words')}">${i18n('Speak')}<//>
         </div>` : ''}
