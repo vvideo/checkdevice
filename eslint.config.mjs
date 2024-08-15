@@ -19,6 +19,12 @@ export default [
     ],
   },
   {
+    settings: {
+      react: {
+        pragma: 'h',
+        version: 'preact'
+      }
+    },    
     rules: {
       '@typescript-eslint/ban-ts-comment': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
@@ -26,7 +32,7 @@ export default [
         'error',
         {
           argsIgnorePattern: '^_',
-          varsIgnorePattern: "^_"
+          varsIgnorePattern: "(^_|^h$)"
         }
       ]
     }
