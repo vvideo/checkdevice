@@ -1,4 +1,4 @@
-import { FontsPage } from '../pages/FontsPage';
+import { GamepadPage } from '../pages/GamepadPage';
 import { renderToRoot } from './utils';
 
-renderToRoot(FontsPage);
+renderToRoot(GamepadPage);
