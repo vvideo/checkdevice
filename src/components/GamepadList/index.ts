@@ -5,7 +5,7 @@ import { block } from '../../utils/css/bem';
 import { TreeList } from '../TreeList';
 import { i18n } from '../../i18n';
 import { useForceUpdate } from '../../hooks/useForceUpdate';
-import { Spinner } from '../Spinner';
+import { Spinner } from '../ui/Spinner';
 import { XboxButtons } from '../XboxButtons';
 import { isSsr } from '../../utils/isSsr';
 

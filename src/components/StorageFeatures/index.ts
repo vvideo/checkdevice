@@ -2,7 +2,7 @@ import { html } from 'htm/preact';
 import { useEffect, useState } from 'preact/hooks';
 import { VNode } from 'preact';
 import { formatBytesToGB } from '../../utils/formatBytesToGB';
-import { ExtLink } from '../ExtLink';
+import { ExtLink } from '../ui/ExtLink';
 import { getChecked } from '../../utils/getChecked';
 import { i18n } from '../../i18n';
 import { List } from '../List';

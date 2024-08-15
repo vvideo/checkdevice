@@ -5,7 +5,7 @@ import { block } from '../../utils/css/bem';
 import { i18n } from '../../i18n';
 import { BatteryBadge } from '../BatteryBadge';
 import { useForceUpdate } from '../../hooks/useForceUpdate';
-import { Spinner } from '../Spinner';
+import { Spinner } from '../ui/Spinner';
 import { List } from '../List';
 import { formatTime } from './utils';
 import { isSsr } from '../../utils/isSsr';

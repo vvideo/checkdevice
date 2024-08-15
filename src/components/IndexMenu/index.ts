@@ -2,7 +2,7 @@ import { html } from 'htm/preact';
 import { block } from '../../utils/css/bem';
 import pages from '../../pages/pages';
 import { getI18nLang, i18nWithKeyset } from '../../i18n';
-import { Link } from '../Link';
+import { Link } from '../ui/Link';
 import { getPagePath } from '../../utils/getPagePath';
 
 import './index.css';

@@ -3,7 +3,7 @@ import { List } from '../List';
 import { getChecked } from '../../utils/getChecked';
 import { StorageFeatures } from '../StorageFeatures';
 import { block } from '../../utils/css/bem';
-import { ExtLink } from '../ExtLink';
+import { ExtLink } from '../ui/ExtLink';
 import { isSsr } from '../../utils/isSsr';
 
 import './index.css';

@@ -1,9 +1,9 @@
-import { html } from 'htm/preact';
+import { h } from 'preact';
 import { useCallback } from 'preact/hooks';
-import { block } from '../../utils/css/bem';
+import { block } from '../../../utils/css/bem';
+import { classname } from '../../../utils/css/classname';
 
 import './index.css';
-import { classname } from '../../utils/css/classname';
 
 export interface RadioButtonProps {
     text: string;
@@ -23,12 +23,5 @@ export function RadioButton(props: RadioButtonProps) {
 
     const className = classname(b({ selected: props.selected }), props.class);
 
-    return html`
-        <li
-            title="${props.title}"
-            class="${className}"
-            onClick="${handleClick}"
-            key="${props.value}"
-        >${props.text}</li>
-    `;
+    return (<li title={props.title} class={className} onClick={handleClick} key={props.value}>{props.text}</li>);
 }

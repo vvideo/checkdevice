@@ -1,8 +1,8 @@
 import { html } from 'htm/preact';
 import { useCallback, useRef, useState } from 'preact/hooks';
-import { Button } from '../Button';
+import { Button } from '../ui/Button';
 import { i18n } from '../../i18n';
-import { Checkbox } from '../Checkbox';
+import { Checkbox } from '../ui/Checkbox';
 import { block } from '../../utils/css/bem';
 import { micWaveform } from '../../lib/MicWaveform';
 import { MicInfo, MicInfoSsr } from '../MicInfo';

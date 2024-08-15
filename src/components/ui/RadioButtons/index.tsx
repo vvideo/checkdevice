@@ -1,8 +1,8 @@
-import { html } from 'htm/preact';
+import { h } from 'preact';
 import { useCallback, useState } from 'preact/hooks';
-import { block } from '../../utils/css/bem';
+import { block } from '../../../utils/css/bem';
 import { RadioButtonProps, RadioButton } from '../RadioButton';
-import { classname } from '../../utils/css/classname';
+import { classname } from '../../../utils/css/classname';
 
 import './index.css';
 
@@ -32,24 +32,23 @@ export function RadioButtons(props: RadioButtonsProps) {
         onSelect(value);
     }, [onSelect]);
 
-    return html`
-        <fieldset class="${classname(b(), className)}">
-            ${label ? html`<legend class="${b('label', { hidden: props.hideLabel })}">${label}</legend>` : ''}
-            <ul class="${b('items')}">
-                ${
+    return (<fieldset class={classname(b(), className)}>
+            {label ? (<legend class={b('label', { hidden: props.hideLabel })}>{label}</legend>) : ''}
+            <ul class={b('items')}>
+                {
                     buttons.map(item => {
-                        return html`<${RadioButton}
-                            key="${item.value}"
-                            class="${b('item')}"
-                            selected="${item.value === selectedValue}"
-                            title="${item.title}"
-                            text="${item.text}"
-                            value="${item.value}"
-                            onClick="${handleSelect}"
-                        ><//>`;
+                        return (<RadioButton
+                            key={item.value}
+                            class={b('item')}
+                            selected={item.value === selectedValue}
+                            title={item.title}
+                            text={item.text}
+                            value={item.value}
+                            onClick={handleSelect}
+                        />);
                     })
                 }
             </ul>
         </fieldset>
-    `;
+    );
 }

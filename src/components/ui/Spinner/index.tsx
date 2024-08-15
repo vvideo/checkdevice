@@ -1,5 +1,5 @@
-import { html } from 'htm/preact';
-import { block } from '../../utils/css/bem';
+import { h } from 'preact';
+import { block } from '../../../utils/css/bem';
 
 import './index.css';
 
@@ -10,5 +10,5 @@ interface SpinnerProps {
 const b = block('spinner');
 
 export function Spinner(props: SpinnerProps) {
-    return html`<div class="${b({ size: props.size })}"></div>`;
+    return (<div class={b({ size: props.size })}></div>);
 }

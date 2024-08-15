@@ -1,5 +1,5 @@
 import { html } from 'htm/preact';
-import { Link } from '../Link';
+import { Link } from '../ui/Link';
 
 interface HdcpLinkProps {
     version: string;

@@ -2,7 +2,7 @@ import { html } from 'htm/preact';
 import { useCallback, useEffect } from 'preact/hooks';
 import { block } from '../../utils/css/bem';
 import { ScreenItemProps, ScreenItem } from '../ScreenItem';
-import { Button } from '../Button';
+import { Button } from '../ui/Button';
 import { i18n } from '../../i18n';
 import { useForceUpdate } from '../../hooks/useForceUpdate';
 import { screenInfo } from '../../lib/ScreenInfo';

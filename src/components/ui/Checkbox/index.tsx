@@ -1,7 +1,7 @@
-import { html } from 'htm/preact';
+import { h } from 'preact';
 import { useCallback, useRef, useState } from 'preact/hooks';
-import { classname } from '../../utils/css/classname';
-import { block } from '../../utils/css/bem';
+import { classname } from '../../../utils/css/classname';
+import { block } from '../../../utils/css/bem';
 
 import './index.css';
 
@@ -18,7 +18,7 @@ const b = block('checkbox');
 export function Checkbox(props: ButtonProps) {
     const [checked, setChecked] = useState(props.checked);
 
-    const ref = useRef<HTMLInputElement | undefined>();
+    const ref = useRef<HTMLInputElement>(null);
 
     const handleClick = useCallback(() => {
         if (ref.current) {
@@ -34,7 +34,12 @@ export function Checkbox(props: ButtonProps) {
         b({ checked, theme: props.theme }),
     );
 
-    return html`<label class="${className}" onClick="${handleClick}">
-        <input type="checkbox" ref="${ref}" class="${b('input')}" checked="${checked}" />${props.label}
-    </label>`;
+    return (<label class={className} onClick={handleClick}>
+        <input
+            type="checkbox"
+            ref={ref}
+            class={b('input')}
+            checked={checked}
+        />{props.label}
+    </label>);
 }

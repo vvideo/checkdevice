@@ -1,10 +1,10 @@
 import { html } from 'htm/preact';
 import { useCallback, useState } from 'preact/hooks';
 import { block } from '../../utils/css/bem';
-import { Button } from '../Button';
+import { Button } from '../ui/Button';
 import { i18n } from '../../i18n';
 import { getChecked } from '../../utils/getChecked';
-import { Input } from '../Input';
+import { Input } from '../ui/Input';
 import { InfoLink } from '../InfoLink';
 import { isSsr } from '../../utils/isSsr';
 

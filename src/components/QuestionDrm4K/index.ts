@@ -24,7 +24,7 @@ import { isDesktopSafari } from '../../utils/device/isDesktopSafari';
 import { getCachedCheckAllHdcpVersions } from '../../utils/drm/getCachedCheckAllHdcpVersions';
 import { noop } from '../../utils/noop';
 import { isUhdHdcpSupported } from 'hdcp';
-import { Link } from '../Link';
+import { Link } from '../ui/Link';
 import { isSsr } from '../../utils/isSsr';
 
 export function QuestionDrm4K() {

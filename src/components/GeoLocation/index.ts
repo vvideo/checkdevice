@@ -1,11 +1,11 @@
 import { html } from 'htm/preact';
 import { useCallback, useState } from 'preact/hooks';
-import { Button } from '../Button';
+import { Button } from '../ui/Button';
 import { TreeList } from '../TreeList';
 import { YaStaticMap } from '../YaStaticMap';
 import { block } from '../../utils/css/bem';
 import { i18n } from '../../i18n';
-import { Spinner } from '../Spinner';
+import { Spinner } from '../ui/Spinner';
 import { isSsr } from '../../utils/isSsr';
 import { ErrorMessage } from '../ErrorMessage';
 import { WarningMessage } from '../WarningMessage';

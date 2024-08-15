@@ -6,7 +6,7 @@ import { screenInfo } from '../../lib/ScreenInfo';
 import { i18n } from '../../i18n';
 import { block } from '../../utils/css/bem';
 import { useForceUpdate } from '../../hooks/useForceUpdate';
-import { Button } from '../Button';
+import { Button } from '../ui/Button';
 
 import './index.css';
 

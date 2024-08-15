@@ -1,7 +1,7 @@
 import { html } from 'htm/preact';
 import { block } from '../../utils/css/bem';
 import { i18n } from '../../i18n';
-import { Link } from '../Link';
+import { Link } from '../ui/Link';
 import { LangSwitcher } from '../LangSwitcher';
 
 import './index.css';

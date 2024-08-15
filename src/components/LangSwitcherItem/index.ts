@@ -1,6 +1,6 @@
 import { html } from 'htm/preact';
 import { block } from '../../utils/css/bem';
-import { Link } from '../Link';
+import { Link } from '../ui/Link';
 
 import './index.css';
 import { LangIcon } from '../LangIcon';

@@ -2,7 +2,7 @@ import { html } from 'htm/preact';
 import { PageTitle } from '../../components/PageTitle';
 import { i18n } from '../../i18n';
 import { Page } from '../Page';
-import { Link } from '../../components/Link';
+import { Link } from '../../components/ui/Link';
 
 export function Error404Page() {
     return html`

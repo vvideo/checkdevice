@@ -1,7 +1,7 @@
 import { html } from 'htm/preact';
 import { useEffect, useState } from 'preact/hooks';
 import { List } from '../List';
-import { Spinner } from '../Spinner';
+import { Spinner } from '../ui/Spinner';
 import { getCfIp } from './utils';
 import { fetch } from '../../utils/fetch';
 

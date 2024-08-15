@@ -1,7 +1,7 @@
-import { html } from 'htm/preact';
+import { h } from 'preact';
 import { useCallback, useRef, useState } from 'preact/hooks';
-import { block } from '../../utils/css/bem';
-import { classname } from '../../utils/css/classname';
+import { block } from '../../../utils/css/bem';
+import { classname } from '../../../utils/css/classname';
 
 import './index.css';
 
@@ -20,7 +20,7 @@ export function Input(props: InputProps) {
     const className = classname(b(), props.class);
     const [value, setValue] = useState<string>(props.value || '');
 
-    const ref = useRef<HTMLInputElement>();
+    const ref = useRef<HTMLInputElement>(null);
 
     const handleInput = useCallback(() => {
         if (!ref.current) {
@@ -41,13 +41,13 @@ export function Input(props: InputProps) {
         props.onKeyPress?.(event);
     }, [value, props.onKeyPress]);    
 
-    return html`<input
-        class="${className}"
-        ref="${ref}"
-        title="${props.title}"
-        onKeypress="${handleKeyPress}"
-        onInput="${handleInput}"
-        placeholder="${props.placeholder}"
-        value="${value}"
-    />`;
+    return (<input
+        class={className}
+        ref={ref}
+        title={props.title}
+        onKeyPress={handleKeyPress}
+        onInput={handleInput}
+        placeholder={props.placeholder}
+        value={value}
+    />);
 }

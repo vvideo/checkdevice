@@ -2,9 +2,9 @@ import { html } from 'htm/preact';
 import { ScreenList } from '../../components/ScreenList';
 import { Page } from '../Page';
 import { i18n } from '../../i18n';
-import { Link } from '../../components/Link';
+import { Link } from '../../components/ui/Link';
 import { getPagePath } from '../../utils/getPagePath';
-import { ExtLink } from '../../components/ExtLink';
+import { ExtLink } from '../../components/ui/ExtLink';
 import { NavList } from '../../components/NavList';
 import { Section } from '../../components/Section';
 

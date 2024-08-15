@@ -1,6 +1,6 @@
 import { html } from 'htm/preact';
 import { useCallback, useState } from 'preact/hooks';
-import { Button } from '../Button';
+import { Button } from '../ui/Button';
 import { WarningMessage } from '../WarningMessage';
 import { TreeList } from '../TreeList';
 import { block } from '../../utils/css/bem';

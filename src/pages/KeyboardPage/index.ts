@@ -2,7 +2,7 @@ import { html } from 'htm/preact';
 import { i18n } from '../../i18n';
 import { Page } from '../Page';
 import { Keyboard } from '../../components/Keyboard';
-import { Link } from '../../components/Link';
+import { Link } from '../../components/ui/Link';
 import { PageTitle } from '../../components/PageTitle';
 import { getPagePath } from '../../utils/getPagePath';
 import { Section } from '../../components/Section';

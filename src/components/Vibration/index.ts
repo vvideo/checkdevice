@@ -1,5 +1,5 @@
 import { useCallback } from 'preact/hooks';
-import { Button } from '../Button';
+import { Button } from '../ui/Button';
 import { html } from 'htm/preact';
 import { WarningMessage } from '../WarningMessage';
 import { i18n } from '../../i18n';

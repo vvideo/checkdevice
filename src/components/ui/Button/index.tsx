@@ -1,8 +1,8 @@
-import { html } from 'htm/preact';
+import { h } from 'preact';
 import { useCallback } from 'preact/hooks';
 import { VNode } from 'preact';
-import { classname } from '../../utils/css/classname';
-import { block } from '../../utils/css/bem';
+import { classname } from '../../../utils/css/classname';
+import { block } from '../../../utils/css/bem';
 
 import './index.css';
 
@@ -33,5 +33,10 @@ export function Button(props: ButtonProps) {
         onClick?.();
     }, [disabled, onClick]);
 
-    return html`<button title="${title}" class="${className}" disabled="${disabled}" onClick="${handleClick}">${props.children}</button>`;
+    return (<button
+        title={title}
+        class={className}
+        disabled={disabled}
+        onClick={handleClick}
+    >{props.children}</button>);
 }

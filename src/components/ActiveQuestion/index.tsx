@@ -1,5 +1,5 @@
+import { h } from 'preact';
 import { useCallback, useState } from 'preact/hooks';
-import { html } from 'htm/preact';
 import { VNode } from 'preact';
 import { block } from '../../utils/css/bem';
 
@@ -18,11 +18,11 @@ export function ActiveQuestion(props: ActiveQuestionProps) {
         setOpened(!opened);
     }, [opened]);
 
-    return html`<div class="${b({ opened })}">
-        <div class="${b('head')}" onClick=${callback}>
-            <div class="${b('plus', { opened })}"></div>
-            <div class="${b('question')}">${props.head}</div>
+    return (<div class={b({ opened })}>
+        <div class={b('head')} onClick={callback}>
+            <div class={b('plus', { opened })}></div>
+            <div class={b('question')}>{props.head}</div>
         </div>
-        <div class="${b('body')}">${props.children}</div>
-    </div>`;
+        <div class={b('body')}>{props.children}</div>
+    </div>);
 }
