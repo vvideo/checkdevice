@@ -1,7 +1,7 @@
 import { useCallback } from 'preact/hooks';
 import { Button } from '../ui/Button';
 import { html } from 'htm/preact';
-import { WarningMessage } from '../WarningMessage';
+import { WarningMessage } from '../ui/WarningMessage';
 import { i18n } from '../../i18n';
 import { block } from '../../utils/css/bem';
 import { isSsr } from '../../utils/isSsr';

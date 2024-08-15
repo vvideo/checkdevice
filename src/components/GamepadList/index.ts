@@ -1,6 +1,6 @@
 import { html } from 'htm/preact';
 import { useEffect } from 'preact/hooks';
-import { WarningMessage } from '../WarningMessage';
+import { WarningMessage } from '../ui/WarningMessage';
 import { block } from '../../utils/css/bem';
 import { TreeList } from '../TreeList';
 import { i18n } from '../../i18n';

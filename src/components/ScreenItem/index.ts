@@ -4,7 +4,7 @@ import { DescriptionList } from '../DescriptionList';
 import { getChecked } from '../../utils/getChecked';
 import { i18n } from '../../i18n';
 import { block } from '../../utils/css/bem';
-import { WarningMessage } from '../WarningMessage';
+import { WarningMessage } from '../ui/WarningMessage';
 import { HdrLabel } from '../HdrLabel';
 import { ColorSpaceList } from '../ColorSpaceList';
 

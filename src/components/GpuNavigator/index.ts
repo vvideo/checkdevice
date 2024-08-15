@@ -2,7 +2,7 @@ import { html } from 'htm/preact';
 import { useCallback, useEffect, useRef, useState } from 'preact/hooks';
 import { RadioButtons, RadioButtonsProps } from '../ui/RadioButtons';
 import { prepareAdapterFeatures, prepareAdapterInfo, prepareAdapterLimits } from './utils';
-import { WarningMessage } from '../WarningMessage';
+import { WarningMessage } from '../ui/WarningMessage';
 import { block } from '../../utils/css/bem';
 import { TreeList } from '../TreeList';
 import { i18n } from '../../i18n';

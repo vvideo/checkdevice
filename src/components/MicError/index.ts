@@ -1,6 +1,6 @@
 import { html } from 'htm/preact';
 import { i18n } from '../../i18n';
-import { ErrorMessage } from '../ErrorMessage';
+import { ErrorMessage } from '../ui/ErrorMessage';
 
 interface MicErrorProps {
     error: Error;

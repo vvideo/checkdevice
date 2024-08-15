@@ -6,7 +6,7 @@ import { getConstraints, requestCamera, stopCamera, savePhoto } from './utils';
 import { Button } from '../ui/Button';
 import { getSelectedButton, RadioButtons } from '../ui/RadioButtons';
 import { RadioButtonProps } from '../ui/RadioButton';
-import { WarningMessage } from '../WarningMessage';
+import { WarningMessage } from '../ui/WarningMessage';
 import { CameraInfo } from '../CameraInfo';
 import { Checkbox } from '../ui/Checkbox';
 import { CameraError } from '../CameraError';

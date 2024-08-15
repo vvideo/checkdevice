@@ -1,5 +1,5 @@
 import { html } from 'htm/preact';
-import { WarningMessage } from '../WarningMessage';
+import { WarningMessage } from '../ui/WarningMessage';
 import { i18n } from '../../i18n';
 
 interface UsbErrorProps {

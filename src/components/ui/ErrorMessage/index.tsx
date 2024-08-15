@@ -1,7 +1,7 @@
-import { html } from 'htm/preact';
+import { h } from 'preact';
 import { VNode } from 'preact';
-import { block } from '../../utils/css/bem';
-import { classname } from '../../utils/css/classname';
+import { block } from '../../../utils/css/bem';
+import { classname } from '../../../utils/css/classname';
 
 import './index.css';
 
@@ -16,5 +16,5 @@ const b = block('error-message');
 export function ErrorMessage(props: WarningMessageProps) {
     const className = classname(props.class, b({ theme: props.theme }));
 
-    return html`<div class="${className}">❌ ${props.children}</div>`;
+    return (<div class={className}>❌ ${props.children}</div>);
 }

@@ -5,7 +5,7 @@ import { i18n } from '../../i18n';
 import { Button } from '../ui/Button';
 import { Checkbox } from '../ui/Checkbox';
 import { Input } from '../ui/Input';
-import { WarningMessage } from '../WarningMessage';
+import { WarningMessage } from '../ui/WarningMessage';
 import { filterFonts } from './utils';
 import { FontList } from '../FontList';
 import { FontListGrouped } from '../FontListGrouped';

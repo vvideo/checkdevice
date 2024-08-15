@@ -7,8 +7,8 @@ import { block } from '../../utils/css/bem';
 import { i18n } from '../../i18n';
 import { Spinner } from '../ui/Spinner';
 import { isSsr } from '../../utils/isSsr';
-import { ErrorMessage } from '../ErrorMessage';
-import { WarningMessage } from '../WarningMessage';
+import { ErrorMessage } from '../ui/ErrorMessage';
+import { WarningMessage } from '../ui/WarningMessage';
 
 import './index.css';
 

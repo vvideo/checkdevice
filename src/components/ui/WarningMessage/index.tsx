@@ -1,6 +1,5 @@
-import { html } from 'htm/preact';
-import { VNode } from 'preact';
-import { block } from '../../utils/css/bem';
+import { VNode, h } from 'preact';
+import { block } from '../../../utils/css/bem';
 
 import './index.css';
 
@@ -12,5 +11,5 @@ interface WarningMessageProps {
 const b = block('warning-message');
 
 export function WarningMessage(props: WarningMessageProps) {
-    return html`<span class="${b({ theme: props.theme })}">⚠️ ${props.children}</span>`;
+    return (<span class={b({ theme: props.theme })}>⚠️ {props.children}</span>);
 }
