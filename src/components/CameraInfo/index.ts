@@ -2,7 +2,7 @@ import { html } from 'htm/preact';
 import { i18n } from '../../i18n';
 import { List } from '../List';
 import { calcAspectRatio } from 'calc-aspect-ratio';
-import { MicInfo } from '../MicInfo';
+import { MicInfo } from '../../pages/MicPage/components/MicInfo';
 
 interface CameraInfoProps {
     video: {

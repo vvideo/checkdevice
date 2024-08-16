@@ -1,4 +1,4 @@
-import { html } from 'htm/preact';
+import { h } from 'preact';
 import { Section } from '../Section';
 import { block } from '../../utils/css/bem';
 import { classname } from '../../utils/css/classname';
@@ -7,8 +7,8 @@ import './index.css';
 
 interface ListProps {
     class?: string;
-    title: string;
-    items: Array<[string, any] | [string]>;
+    title?: string;
+    items: Array<[string | number | h.JSX.Element | undefined, any] | [string | undefined]>;
 }
 
 const b = block('list');
@@ -38,19 +38,19 @@ export function List(props: ListProps) {
 
     const className = classname(props.class, b());
 
-    return filteredItems.length ? html`<${Section} name="${props.title}">
-        <ul class="${className}">
-        ${
+    return filteredItems.length ? (<Section name={props.title}>
+        <ul class={className}>
+        {
             filteredItems.map(item => {
                 const [name, value] = item;
 
                 if (item.length === 1) {
-                    return html`<li>${name}</li>`;
+                    return (<li>{name}</li>);
                 }
 
-                return html`<li>${name}: ${value}</li>`;
+                return (<li>{name}: {value}</li>);
             })
         }
         </ul>
-    <//>` : '';
+    </Section>) : null;
 }
