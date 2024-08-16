@@ -3,7 +3,7 @@ import { Page } from '../Page';
 import { i18n } from '../../i18n';
 import { Monitor } from '../../components/Monitor';
 import { ScreenDeadPixelsExample } from '../../components/ScreenDeadPixelsExample';
-import { TestDeadPixels } from '../../components/TestDeadPixels';
+import { TestDeadPixels } from './components/TestDeadPixels';
 import { PageTitle } from '../../components/PageTitle';
 
 export function TestDeadPixelsPage() {

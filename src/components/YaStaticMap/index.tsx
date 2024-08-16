@@ -1,4 +1,4 @@
-import { html } from 'htm/preact';
+import { h } from 'preact';
 import { block } from '../../utils/css/bem';
 
 interface ColumnProps {
@@ -26,5 +26,5 @@ export function YaStaticMap(props: ColumnProps) {
         return `${item[0]}=${item[1]}`;
     }).join('&');
 
-    return html`<div class="${b()}"><img src="${url}" width="${props.width}" height="${props.height}" /></div>`;
+    return (<div class={b()}><img src={url} width={props.width} height={props.height} /></div>);
 }

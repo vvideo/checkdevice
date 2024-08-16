@@ -1,9 +1,9 @@
-import { html } from 'htm/preact';
+import { h } from 'preact';
 import { useCallback, useEffect, useRef, useState } from 'preact/hooks';
-import { block } from '../../utils/css/bem';
-import { Button } from '../ui/Button';
-import { i18n } from '../../i18n';
-import { VK_BACKSPACE, VK_ESC } from '../../const/keycodes';
+import { block } from '../../../../utils/css/bem';
+import { Button } from '../../../../components/ui/Button';
+import { i18n } from '../../../../i18n';
+import { VK_BACKSPACE, VK_ESC } from '../../../../const/keycodes';
 
 import './index.css';
 
@@ -14,7 +14,7 @@ const colors = ['white', 'black', 'red', 'green', 'blue'];
 export function TestDeadPixels() {
     const [isFullScreen, setFullScreen] = useState(false);
     const [step, setStep] = useState(0);
-    const ref = useRef<HTMLElement>();
+    const ref = useRef<HTMLDivElement>(null);
 
     const handleButtonClick = useCallback(() => {
         setStep(0);
@@ -65,10 +65,10 @@ export function TestDeadPixels() {
         };
     }, []);
 
-    return html`
-        <div class="${b({ fullscreen: isFullScreen })}">
-            <${Button} theme="active" onClick="${handleButtonClick}">${i18n('Start test')}<///>
-            <div class="${b('content')}" ref="${ref}" style="background-color: ${colors[step]}" onClick="${handleContentClick}"></div>
+    return (
+        <div class={b({ fullscreen: isFullScreen })}>
+            <Button theme="active" onClick={handleButtonClick}>{i18n('Start test')}</Button>
+            <div class={b('content')} ref={ref} style={`background-color: ${colors[step]}`} onClick={handleContentClick}></div>
         </div>
-    `;
+    );
 }
