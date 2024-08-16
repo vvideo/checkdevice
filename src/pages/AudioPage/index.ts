@@ -2,7 +2,7 @@ import { html } from 'htm/preact';
 import { AudioBadge } from '../../components/AudioBadge';
 import { AudioCodecs } from '../../components/AudioCodecs';
 import { PageTitle } from '../../components/PageTitle';
-import { Section } from '../../components/Section';
+import { Section } from '../../components/ui/Section';
 import { i18n } from '../../i18n';
 import { Page } from '../Page';
 import { QuestionSurroundSound } from '../../components/QuestionSurroundSound';

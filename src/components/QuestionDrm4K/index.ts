@@ -16,7 +16,7 @@ import {
     isWidevineSupported,
 } from 'detect-audio-video';
 import { ActiveQuestion } from '../ActiveQuestion';
-import { Result } from '../Result';
+import { Result } from '../ui/Result';
 import { Codec } from '../Codec';
 import { i18n } from '../../i18n';
 import { isScreensLargerThan2K, needHdcpWarning, screenInfo } from '../../lib/ScreenInfo';

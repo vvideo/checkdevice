@@ -1,6 +1,6 @@
 import { html } from 'htm/preact';
 import { getGpuRenderer, getGpuVendor } from 'detect-audio-video';
-import { List } from '../List';
+import { List } from '../ui/List';
 
 export function WebGLContext() {
     const items = [

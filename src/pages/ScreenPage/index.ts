@@ -6,7 +6,7 @@ import { Link } from '../../components/ui/Link';
 import { getPagePath } from '../../utils/getPagePath';
 import { ExtLink } from '../../components/ui/ExtLink';
 import { NavList } from '../../components/NavList';
-import { Section } from '../../components/Section';
+import { Section } from '../../components/ui/Section';
 
 export function ScreenPage() {
     const items = [

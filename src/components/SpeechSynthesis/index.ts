@@ -5,7 +5,7 @@ import { Button } from '../ui/Button';
 import { i18n } from '../../i18n';
 import { getChecked } from '../../utils/getChecked';
 import { Input } from '../ui/Input';
-import { InfoLink } from '../InfoLink';
+import { InfoLink } from '../ui/InfoLink';
 import { isSsr } from '../../utils/isSsr';
 
 import './index.css';

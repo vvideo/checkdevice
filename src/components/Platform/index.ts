@@ -1,11 +1,11 @@
 import { html } from 'htm/preact';
 import { useState, useRef } from 'preact/hooks';
 import { i18n } from '../../i18n';
-import { List } from '../List';
+import { List } from '../ui/List';
 import { noop } from '../../utils/noop';
 import { isStandalone, hasHardwareAcceleration } from 'detect-audio-video';
 import { VNode } from 'preact';
-import { InfoLink } from '../InfoLink';
+import { InfoLink } from '../ui/InfoLink';
 import { getChecked } from '../../utils/getChecked';
 import { isSsr } from '../../utils/isSsr';
 import { ValueInProgress } from '../ValueInProgress';

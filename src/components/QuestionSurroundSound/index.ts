@@ -1,7 +1,7 @@
 import { html } from 'htm/preact';
 import { isDolbyAtmosSupported, isDolbyDigitalPlusSupported, isDolbyDigitalSupported, isDtsHdSupported, isDtsSupported, isDtsXSupported } from 'detect-audio-video';
 import { ActiveQuestion } from '../ActiveQuestion';
-import { Result } from '../Result';
+import { Result } from '../ui/Result';
 import { Codec } from '../Codec';
 import { i18n } from '../../i18n';
 import { CodecDetails } from '../CodecDetails';

@@ -5,7 +5,7 @@ import { Keyboard } from '../../components/Keyboard';
 import { Link } from '../../components/ui/Link';
 import { PageTitle } from '../../components/PageTitle';
 import { getPagePath } from '../../utils/getPagePath';
-import { Section } from '../../components/Section';
+import { Section } from '../../components/ui/Section';
 import { NavList } from '../../components/NavList';
 
 export function KeyboardPage() {

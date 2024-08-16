@@ -1,5 +1,5 @@
 import { html } from 'htm/preact';
-import { List } from '../List';
+import { List } from '../ui/List';
 import { getChecked } from '../../utils/getChecked';
 import { StorageFeatures } from '../StorageFeatures';
 import { block } from '../../utils/css/bem';

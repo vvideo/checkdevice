@@ -5,7 +5,7 @@ import { formatBytesToGB } from '../../utils/formatBytesToGB';
 import { ExtLink } from '../ui/ExtLink';
 import { getChecked } from '../../utils/getChecked';
 import { i18n } from '../../i18n';
-import { List } from '../List';
+import { List } from '../ui/List';
 import { isSsr } from '../../utils/isSsr';
 
 export function StorageFeatures() {

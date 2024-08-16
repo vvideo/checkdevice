@@ -1,13 +1,13 @@
 import { html } from 'htm/preact';
-import { Section } from '../Section';
+import { Section } from '../ui/Section';
 import { b } from './className';
 import { BuildDataOptions, buildData } from './utils';
 
 import './index.css';
 
 interface TreeListProps {
-    title: string;
     data: any;
+    title?: string;
     options?: BuildDataOptions;
 }
 

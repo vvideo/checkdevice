@@ -1,7 +1,7 @@
 import { html } from 'htm/preact';
 import { useEffect, useState } from 'preact/hooks';
 import { isAV1Supported, isHevcMainSupported, isVp9Supported } from 'detect-audio-video';
-import { Result } from '../Result';
+import { Result } from '../ui/Result';
 import { ActiveQuestion } from '../ActiveQuestion';
 import { Codec } from '../Codec';
 import { isScreensLargerThan2K, screenInfo } from '../../lib/ScreenInfo';

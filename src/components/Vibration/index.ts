@@ -8,7 +8,7 @@ import { isSsr } from '../../utils/isSsr';
 import { isMobile } from 'detect-audio-video';
 
 import './index.css';
-import { Section } from '../Section';
+import { Section } from '../ui/Section';
 
 const b = block('vibration');
 

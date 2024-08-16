@@ -1,6 +1,6 @@
 import { h } from 'preact';
 import { i18n } from '../../../../i18n';
-import { List } from '../../../../components/List';
+import { List } from '../../../../components/ui/List';
 import { getChecked } from '../../../../utils/getChecked';
 import { ValueInProgress } from '../../../../components/ValueInProgress';
 

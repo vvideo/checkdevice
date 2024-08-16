@@ -3,7 +3,7 @@ import { useEffect } from 'preact/hooks';
 import { ScreenBadges } from '../../components/ScreenBadges';
 import { VideoCodecs } from '../../components/VideoCodecs';
 import { DrmBadges } from '../../components/DrmBadges';
-import { Section } from '../../components/Section';
+import { Section } from '../../components/ui/Section';
 import { NativeStreaming } from '../../components/NativeStreaming';
 import { VideoQuestions } from '../../components/VideoQuestions';
 import { HtmlVideoElementFeatures } from '../../components/HtmlVideoElementFeatures';

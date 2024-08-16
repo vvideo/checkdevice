@@ -1,5 +1,5 @@
 import { html } from 'htm/preact';
-import { Section } from '../Section';
+import { Section } from '../ui/Section';
 import { block } from '../../utils/css/bem';
 import { classname } from '../../utils/css/classname';
 

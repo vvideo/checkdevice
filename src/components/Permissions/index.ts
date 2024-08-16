@@ -1,7 +1,7 @@
 import { html } from 'htm/preact';
 import { useEffect, useState } from 'preact/hooks';
 import { i18n } from '../../i18n';
-import { List } from '../List';
+import { List } from '../ui/List';
 import { noop } from '../../utils/noop';
 import { isSsr } from '../../utils/isSsr';
 import { Spinner } from '../ui/Spinner';

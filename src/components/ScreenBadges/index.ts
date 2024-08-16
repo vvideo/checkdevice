@@ -1,7 +1,7 @@
 import { html } from 'htm/preact';
 import { useCallback, useEffect } from 'preact/hooks';
 import { ScreenBadge } from '../ScreenBadge';
-import { Section } from '../Section';
+import { Section } from '../ui/Section';
 import { screenInfo } from '../../lib/ScreenInfo';
 import { i18n } from '../../i18n';
 import { block } from '../../utils/css/bem';
