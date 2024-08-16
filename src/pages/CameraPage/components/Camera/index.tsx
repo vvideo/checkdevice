@@ -1,17 +1,18 @@
-import { html } from 'htm/preact';
+import { h } from 'preact';
+
 import { useCallback, useRef, useState } from 'preact/hooks';
-import { block } from '../../utils/css/bem';
-import { i18n } from '../../i18n';
+import { block } from '../../../../utils/css/bem';
+import { i18n } from '../../../../i18n';
 import { getConstraints, requestCamera, stopCamera, savePhoto } from './utils';
-import { Button } from '../ui/Button';
-import { getSelectedButton, RadioButtons } from '../ui/RadioButtons';
-import { RadioButtonProps } from '../ui/RadioButton';
-import { WarningMessage } from '../ui/WarningMessage';
+import { Button } from '../../../../components/ui/Button';
+import { getSelectedButton, RadioButtons } from '../../../../components/ui/RadioButtons';
+import { RadioButtonProps } from '../../../../components/ui/RadioButton';
+import { WarningMessage } from '../../../../components/ui/WarningMessage';
 import { CameraInfo } from '../CameraInfo';
-import { Checkbox } from '../ui/Checkbox';
+import { Checkbox } from '../../../../components/ui/Checkbox';
 import { CameraError } from '../CameraError';
-import { getStreamParams } from '../../utils/getStreamParams';
-import { isSsr } from '../../utils/isSsr';
+import { getStreamParams } from '../../../../utils/getStreamParams';
+import { isSsr } from '../../../../utils/isSsr';
 
 import './index.css';
 
@@ -104,41 +105,41 @@ export function Camera() {
 
     if (!isSsr) {
         if (!navigator.mediaDevices || typeof navigator.mediaDevices.getUserMedia !== 'function') {
-            return html`<${WarningMessage}>${i18n('Media Devices API is not supported.')}<//>`;
+            return (<WarningMessage>{i18n('Media Devices API is not supported.')}</WarningMessage>);
         }
     }
 
     const showStop = Boolean(stream);
     const played = Boolean(stream);
 
-    return html`<div class="${b()}">
-        <div class="${b('select')}">
-            <${Button} class="${b('select-camera')}" theme="${showStop ? 'red' : 'active'}" onClick="${handleClick}">${stream ? i18n('Stop') : i18n('Check camera')}<//>
-            <${Checkbox} class="${b('mic')}" title="${i18n('On/off microphone')}" label="${i18n('Mic')}" checked="${withMic}" onClick="${handleMic}" //>
+    return (<div class={b()}>
+        <div class={b('select')}>
+            <Button class={b('select-camera')} theme={showStop ? 'red' : 'active'} onClick={handleClick}>{stream ? i18n('Stop') : i18n('Check camera')}</Button>
+            <Checkbox class={b('mic')} title={i18n('On/off microphone')} label={i18n('Mic')} checked={withMic} onClick={handleMic} />
         </div>
-        <div class="${b('top-controls')}">
-            <${RadioButtons} hideLabel label="${i18n('Select camera option')}" onSelect="${handleSelect}" buttons="${buttons}"><//>
-        </div>
-
-        <${CameraError} error="${error}" //>
-
-        <div class="${b('container', { played })}">
-            <video ref="${refVideo}" class="${b('video', { mirror: withMirror })}" />
+        <div class={b('top-controls')}>
+            <RadioButtons hideLabel label={i18n('Select camera option')} onSelect={handleSelect} buttons={buttons} />
         </div>
 
-        ${showStop ? html`<div class="${b('bottom-controls')}">
-            <${Button} onClick="${handleSavePhoto}">${i18n('Save photo')}<//>
-            <${Checkbox}
-                class="${b('mirror')}"
-                title="${i18n('On/off mirror mode')}"
-                label="${i18n('Mirror')}"
-                checked="${withMirror}"
-                onClick="${handleMirror}"
-            //>
-        </div>` : ''}
+        <CameraError error={error} />
 
-        <div class="${b('params')}">
-            ${params ? html`<${CameraInfo} ...${params} //>` : ''}
+        <div class={b('container', { played })}>
+            <video ref={refVideo} class={b('video', { mirror: withMirror })} />
         </div>
-    </div>`;
+
+        {showStop ? (<div class={b('bottom-controls')}>
+            <Button onClick={handleSavePhoto}>{i18n('Save photo')}</Button>
+            <Checkbox
+                class={b('mirror')}
+                title={i18n('On/off mirror mode')}
+                label={i18n('Mirror')}
+                checked={withMirror}
+                onClick={handleMirror}
+            />
+        </div>) : ''}
+
+        <div class={b('params')}>
+            {params ? (<CameraInfo {...params} />) : ''}
+        </div>
+    </div>);
 }

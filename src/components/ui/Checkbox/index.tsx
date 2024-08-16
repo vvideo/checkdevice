@@ -5,17 +5,18 @@ import { block } from '../../../utils/css/bem';
 
 import './index.css';
 
-interface ButtonProps {
+interface CheckboxProps {
     class?: string;
     checked: boolean;
     label: string;
+    title?: string;
     theme?: 'active';
     onClick: (checked: boolean) => void;
 }
 
 const b = block('checkbox');
 
-export function Checkbox(props: ButtonProps) {
+export function Checkbox(props: CheckboxProps) {
     const [checked, setChecked] = useState(props.checked);
 
     const ref = useRef<HTMLInputElement>(null);
@@ -34,7 +35,7 @@ export function Checkbox(props: ButtonProps) {
         b({ checked, theme: props.theme }),
     );
 
-    return (<label class={className} onClick={handleClick}>
+    return (<label title={props.title} class={className} onClick={handleClick}>
         <input
             type="checkbox"
             ref={ref}
