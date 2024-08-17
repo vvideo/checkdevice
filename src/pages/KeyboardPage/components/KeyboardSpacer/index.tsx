@@ -1,5 +1,6 @@
-import { html } from 'htm/preact';
-import { block } from '../../utils/css/bem';
+import { h } from 'preact';
+
+import { block } from '../../../../utils/css/bem';
 
 interface KeyboardSpacerProps {
     name: string;
@@ -8,5 +9,5 @@ interface KeyboardSpacerProps {
 const b = block('keyboard-spacer');
 
 export function KeyboardSpacer(props: KeyboardSpacerProps) {
-    return html`<div class="${b({ name: props.name })}"></div>`;
+    return (<div class={b({ name: props.name })}></div>);
 }

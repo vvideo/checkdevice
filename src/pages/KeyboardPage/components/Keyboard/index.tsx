@@ -1,14 +1,15 @@
-import { html  } from 'htm/preact';
+import { h  } from 'preact';
 import { useCallback, useState } from 'preact/hooks';
-import { block } from '../../utils/css/bem';
-import { i18n } from '../../i18n';
-import { Button } from '../ui/Button';
+
+import { block } from '../../../../utils/css/bem';
+import { i18n } from '../../../../i18n';
+import { Button } from '../../../../components/ui/Button';
 import { getLayoutData, KeyboardLayout } from '../KeyboardLayout';
-import { RadioButtonProps } from '../ui/RadioButton';
-import { RadioButtons, getSelectedButton } from '../ui/RadioButtons';
-import { keyboardStateController } from '../../lib/KeyboardStateController';
+import { RadioButtonProps } from '../../../../components/ui/RadioButton';
+import { RadioButtons, getSelectedButton } from '../../../../components/ui/RadioButtons';
+import { keyboardStateController } from '../../../../lib/KeyboardStateController';
 import { getPlatform } from './utils';
-import { isSsr } from '../../utils/isSsr';
+import { isSsr } from '../../../../utils/isSsr';
 
 import './index.css';
 
@@ -55,17 +56,17 @@ export function Keyboard() {
         setLayout(value);
     }, [layout]);
 
-    return html`
-        <div class="${b()}">
-            <div class="${b('top-controls')}">
-                <${RadioButtons} hideLabel label="${i18n('Select keyboard')}" onSelect="${handleSelect}" buttons="${buttons}"><//>
+    return (
+        <div class={b()}>
+            <div class={b('top-controls')}>
+                <RadioButtons hideLabel label={i18n('Select keyboard')} onSelect={handleSelect} buttons={buttons} />
             </div>
 
-            <${KeyboardLayout} layout="${getLayoutData(layout)}" //>
+            <KeyboardLayout layout={getLayoutData(layout)} />
 
-            <div class="${b('bottom-controls')}">
-                <${Button} title="${i18n('Reset pressed keys on keyboard')}" size="m" onClick="${handleReset}">${i18n('Reset')}<//>
+            <div class={b('bottom-controls')}>
+                <Button title={i18n('Reset pressed keys on keyboard')} onClick={handleReset}>{i18n('Reset')}</Button>
             </div>
         </div>
-    `;
+    );
 }

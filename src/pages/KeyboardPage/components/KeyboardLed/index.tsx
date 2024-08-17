@@ -1,12 +1,12 @@
-import { html } from 'htm/preact';
+import { h } from 'preact';
 import { useEffect } from 'preact/hooks';
-import { block } from '../../utils/css/bem';
-import { useForceUpdate } from '../../hooks/useForceUpdate';
-import { keyboardStateController } from '../../lib/KeyboardStateController';
+
+import { block } from '../../../../utils/css/bem';
+import { useForceUpdate } from '../../../../hooks/useForceUpdate';
+import { keyboardStateController } from '../../../../lib/KeyboardStateController';
 
 interface KeyboardLedProps {
     code: string;
-    on: boolean;
 }
 
 const b = block('keyboard-led');
@@ -29,5 +29,5 @@ export function KeyboardLed(props: KeyboardLedProps) {
     }, [props.code]);
 
     const state = keyboardStateController.getKeyState(props.code);
-    return html`<div title="${props.code}" class="${b({ on: state.led, code: props.code })}"></div>`;
+    return (<div title={props.code} class={b({ on: state.led, code: props.code })}></div>);
 }

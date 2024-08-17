@@ -1,5 +1,6 @@
-import { html } from 'htm/preact';
-import { block } from '../../utils/css/bem';
+import { h } from 'preact';
+
+import { block } from '../../../../utils/css/bem';
 import { KeyData, LedData, SpacerData } from '../KeyboardKey';
 import { KeyboardRow } from '../KeyboardRow';
 import { ipadKeyboardLayout } from './type/ipad';
@@ -24,14 +25,14 @@ export function KeyboardLayout(props: KeyboardLayoutProps) {
     const { layout } = props;
 
     const items = layout.rows.map((rowData, num) => {
-        return html`
-            <div key="${num}" class="${b('row', { num } )}">
-                <${KeyboardRow} rowData="${rowData}" //>
+        return (
+            <div key={num} class={b('row', { num } )}>
+                <KeyboardRow rowData={rowData} />
             </div>
-        `;
+        );
     });
 
-    return html`<div class="${b({ type: layout.type })}">${items}</div>`;
+    return (<div class={b({ type: layout.type })}>{items}</div>);
 }
 
 export function getLayoutData(layout: string) {
