@@ -1,7 +1,7 @@
 import { h } from 'preact';
-import { block } from '../../utils/css/bem';
-import { TreeList } from '../TreeList';
-import { isSsr } from '../../utils/isSsr';
+import { block } from '../../../../utils/css/bem';
+import { TreeList } from '../../../../components/TreeList';
+import { isSsr } from '../../../../utils/isSsr';
 
 const b = block('connection-navigator');
 

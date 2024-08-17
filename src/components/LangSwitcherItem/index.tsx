@@ -1,12 +1,12 @@
-import { html } from 'htm/preact';
+import { h } from 'preact';
+
 import { block } from '../../utils/css/bem';
 import { Link } from '../ui/Link';
-
-import './index.css';
 import { LangIcon } from '../LangIcon';
 
+import './index.css';
+
 interface LangSwitcherItemProps {
-    emoji: string;
     name: string;
     value: string;
     url: string;
@@ -18,7 +18,7 @@ const b = block('lang-switcher-item');
 export function LangSwitcherItem(props: LangSwitcherItemProps) {
     const { value, name, selected, url } = props;
 
-    return html`<li class="${b()}">
-    <${Link} theme="white" href="${url}"><${LangIcon} lang="${value}" //> ${name}${selected ? ' ✓' : ''}<//>
-</li>`;
+    return (<li class={b()}>
+        <Link theme="white" href={url}><span><LangIcon lang={value} /> {name}${selected ? ' ✓' : ''}</span></Link>
+    </li>);
 }

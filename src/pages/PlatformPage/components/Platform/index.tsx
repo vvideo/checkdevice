@@ -1,15 +1,16 @@
-import { html } from 'htm/preact';
+import { h } from 'preact';
 import { useState, useRef } from 'preact/hooks';
-import { i18n } from '../../i18n';
-import { List } from '../ui/List';
-import { noop } from '../../utils/noop';
+
+import { i18n } from '../../../../i18n';
+import { List } from '../../../../components/ui/List';
+import { noop } from '../../../../utils/noop';
 import { isStandalone, hasHardwareAcceleration } from 'detect-audio-video';
 import { VNode } from 'preact';
-import { InfoLink } from '../ui/InfoLink';
-import { getChecked } from '../../utils/getChecked';
-import { isSsr } from '../../utils/isSsr';
-import { ValueInProgress } from '../ValueInProgress';
-import { DateInProgress } from '../DateInProgress';
+import { InfoLink } from '../../../../components/ui/InfoLink';
+import { getChecked } from '../../../../utils/getChecked';
+import { isSsr } from '../../../../utils/isSsr';
+import { ValueInProgress } from '../../../../components/ValueInProgress';
+import { DateInProgress } from '../../../../components/DateInProgress';
 
 export function Platform() {
     const ref = useRef<[string, any][]>([]);
@@ -59,26 +60,18 @@ export function Platform() {
 
     let items: [VNode | string, any][] = [
         [
-            html`Hardware concurrency <${InfoLink} title="MDN" href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/hardwareConcurrency"><//>`,
-            isSsr ? html`<${ValueInProgress} />` : navigator.hardwareConcurrency
+            (<span>Hardware concurrency <InfoLink title="MDN" href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/hardwareConcurrency" /></span>),
+            isSsr ? (<ValueInProgress />) : navigator.hardwareConcurrency
         ],
         [
             i18n('Standalone application'),
-            isSsr ? html`<${ValueInProgress} />` : getChecked(isStandalone())
+            isSsr ? (<ValueInProgress />) : getChecked(isStandalone())
         ],
-        [
-            'User agent',
-            isSsr ? html`<${ValueInProgress} />` : navigator.userAgent
-        ],
-        [
-            i18n('Date and time'),
-            isSsr ? html`<${ValueInProgress} />` : html`<${DateInProgress} //>`,
-        ]
     ];
 
     if (!isSsr && navigator.deviceMemory) {
         items.unshift([
-            html`${i18n('RAM')} <${InfoLink} title="MDN" href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/deviceMemory"><//>`,
+            (<span>{i18n('RAM')} <InfoLink title="MDN" href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/deviceMemory" /></span>),
             `≈\u202F${navigator.deviceMemory} ${i18n('GB')}`
         ]);
     }
@@ -90,17 +83,28 @@ export function Platform() {
         ]);
     }
 
+    items.push(
+        [
+            'User agent',
+            isSsr ? (<ValueInProgress />) : navigator.userAgent
+        ],
+        [
+            i18n('Date and time'),
+            isSsr ? (<ValueInProgress />) : (<DateInProgress />),
+        ],
+    );
+
     if (ref.current.length) {
         items = [...ref.current, ...items];
     } else {
         items = [
             [
                 i18n('Name'),
-                isSsr ? '…' : navigator.platform
+                isSsr ? (<ValueInProgress />) : navigator.platform
             ],
             ...items,
         ];
     }
 
-    return html`<${List} items="${items}" //>`;
+    return (<List items={items} />);
 }

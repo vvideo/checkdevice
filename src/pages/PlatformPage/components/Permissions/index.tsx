@@ -1,10 +1,11 @@
-import { html } from 'htm/preact';
+import { h } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
-import { i18n } from '../../i18n';
-import { List } from '../ui/List';
-import { noop } from '../../utils/noop';
-import { isSsr } from '../../utils/isSsr';
-import { Spinner } from '../ui/Spinner';
+
+import { i18n } from '../../../../i18n';
+import { List } from '../../../../components/ui/List';
+import { noop } from '../../../../utils/noop';
+import { isSsr } from '../../../../utils/isSsr';
+import { Spinner } from '../../../../components/ui/Spinner';
 
 const permissions = [
     'accessibility-events',
@@ -39,7 +40,7 @@ function getStatusColor(state: string) {
 
 export function Permissions() {
     if (!isSsr && !navigator.permissions) {
-        return '';
+        return null;
     }
 
     const [result, _] = useState<{ state: string; name: string; }[]>([]);
@@ -51,12 +52,14 @@ export function Permissions() {
         });
     }
 
-    const items = result
-        .map(item => {
-            const color = getStatusColor(item.state);
-            return [item.name, html`<span style="color: ${color}">${item.state}</span>`];
-        })
-        .sort((a, b) => a[0] > b[0] ? 1 : -1);
+    const items: [string, string | h.JSX.Element][] = [];
+    
+    result.map(item => {
+        const color = getStatusColor(item.state);
+        items.push([item.name, (<span style={`color: ${color}`}>{item.state}</span>)]);
+    });
+
+    items.sort((a, b) => a[0] > b[0] ? 1 : -1);
 
     useEffect(() => {
         const promises: Promise<void>[] = [];
@@ -78,7 +81,7 @@ export function Permissions() {
         });
     }, []);
 
-    return done ?
-        html`<${List} title="${i18n('Permissions')}" items="${items}" //>` :
-        html`<${Spinner} //>`;
+    return done ? (
+        <List title={i18n('Permissions')} items={items} />) :
+        (<Spinner />);
 }

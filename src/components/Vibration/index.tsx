@@ -20,7 +20,7 @@ export function Vibration() {
     const isSupported = typeof navigator !== 'undefined' && typeof navigator.vibrate === 'function';
 
     if (!isSsr && !isSupported) {
-        return '';
+        return null;
     }
 
     return (<Section class={b()} name={i18n('Vibration')}>

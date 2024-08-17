@@ -1,13 +1,13 @@
-import { html } from 'htm/preact';
+import { h } from 'preact';
 import { useEffect } from 'preact/hooks';
-import { WarningMessage } from '../ui/WarningMessage';
-import { block } from '../../utils/css/bem';
-import { TreeList } from '../TreeList';
-import { i18n } from '../../i18n';
-import { useForceUpdate } from '../../hooks/useForceUpdate';
-import { Spinner } from '../ui/Spinner';
-import { XboxButtons } from '../../pages/GamepadPage/components/XboxButtons';
-import { isSsr } from '../../utils/isSsr';
+
+import { WarningMessage } from '../../../../components/ui/WarningMessage';
+import { block } from '../../../../utils/css/bem';
+import { TreeList } from '../../../../components/TreeList';
+import { i18n } from '../../../../i18n';
+import { useForceUpdate } from '../../../../hooks/useForceUpdate';
+import { isSsr } from '../../../../utils/isSsr';
+import { GamepadWait } from '../GamepadWait';
 
 import './index.css';
 
@@ -15,7 +15,7 @@ const b = block('gamepad-list');
 
 export function GamepadList() {
     if (!isSsr && !navigator.getGamepads) {
-        return html`<${WarningMessage}>${i18n('🎮 Gamepad API is not supported.')}<//>`;
+        return (<WarningMessage>{i18n('🎮 Gamepad API is not supported.')}</WarningMessage>);
     }
 
     const forceUpdate = useForceUpdate();
@@ -42,9 +42,9 @@ export function GamepadList() {
     const result = isSsr ? [] : navigator.getGamepads();
     const gamepads = Array.isArray(result) ? result.filter(item => item !== null) : [];
 
-    return gamepads.length ? html`
-        <div class="${b()}">
-            ${
+    return gamepads.length ? (
+        <div class={b()}>
+            {
                 gamepads.map((rawItem, i) => {
                     const item = rawItem!;
                     const data = {
@@ -73,17 +73,14 @@ export function GamepadList() {
                         showArrayIndex: true,
                     };
 
-                    return html`
-                        <div class="${b('item')}">
-                            <div class="${b('title')}">${item.id}</div>
-                            <${TreeList} name="${i}" data="${data}" options="${options}"><//>
-                        </div>`;
+                    return (
+                        <div class={b('item')}>
+                            <div class={b('title')}>{item.id}</div>
+                            <TreeList title={i} data={data} options={options} />
+                        </div>
+                    );
                 })
             }
         </div>
-    ` : html`<${GamepadWait} //>`;
-}
-
-function GamepadWait() {
-    return html`<${Spinner} size="m" //> ${i18n('Connect and press any button on the gamepad.')} <${XboxButtons} //>`;
+    ) : (<GamepadWait />);
 }

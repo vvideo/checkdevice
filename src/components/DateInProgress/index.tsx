@@ -1,3 +1,4 @@
+import { h } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 
 export function DateInProgress() {
@@ -13,5 +14,5 @@ export function DateInProgress() {
         };
     }, [setDate]);
 
-    return date;
+    return (<span>{date}</span>);
 }

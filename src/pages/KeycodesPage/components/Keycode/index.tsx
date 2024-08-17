@@ -1,8 +1,8 @@
-import { html  } from 'htm/preact';
+import { h  } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
-import { block } from '../../utils/css/bem';
-import { i18n } from '../../i18n';
-import { TreeList } from '../TreeList';
+import { block } from '../../../../utils/css/bem';
+import { i18n } from '../../../../i18n';
+import { TreeList } from '../../../../components/TreeList';
 
 import './index.css';
 
@@ -58,13 +58,13 @@ export function Keycode() {
 
     const keydownItems = getEventList(keydownEvent);
 
-    return html`
-        <div class="${b()}">
-            <div class="${b('description')}">${i18n('Press a key to display its code.')}</div>
-            ${key ? html`<div class="${b('key', { pressed })}">${key}</div>` : ''}
-            <div class="${b('keydown')}">
-                <${TreeList} data=${keydownItems} title="keydown event" //>
+    return (
+        <div class={b()}>
+            <div class={b('description')}>{i18n('Press a key to display its code.')}</div>
+            {key ? (<div class={b('key', { pressed })}>{key}</div>) : ''}
+            <div class={b('keydown')}>
+                <TreeList data={keydownItems} title="keydown event" />
             </div>
         </div>
-    `;
+    );
 }

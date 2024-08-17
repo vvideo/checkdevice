@@ -7,7 +7,7 @@ import './index.css';
 
 interface TreeListProps {
     data: any;
-    title?: string;
+    title?: string | number;
     options?: BuildDataOptions;
 }
 

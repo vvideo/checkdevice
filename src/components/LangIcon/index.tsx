@@ -1,4 +1,5 @@
-import { html } from 'htm/preact';
+import { h } from 'preact';
+
 import { block } from '../../utils/css/bem';
 
 import './index.css';
@@ -10,5 +11,5 @@ interface LangIconProps {
 const b = block('lang-icon');
 
 export function LangIcon(props: LangIconProps) {
-    return html`<span class="${b({ lang: props.lang })}"></span>`;
+    return (<span class={b({ lang: props.lang })}></span>);
 }
