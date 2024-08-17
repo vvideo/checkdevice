@@ -26,7 +26,7 @@ export interface BuildDataOptions {
     showCurlyBracesAtRootLevel?: boolean;
 }
 
-export function buildData(data: any, options: BuildDataOptions = {}, level = 0): VNode {
+export function buildData(data: any, options: BuildDataOptions = {}, level = 0): h.JSX.Element {
     if (typeof data === 'string') {
         return (<span class={b('string')}>'{data}'</span>);
     }
@@ -61,27 +61,27 @@ export function buildData(data: any, options: BuildDataOptions = {}, level = 0):
 
     if (Array.isArray(data)) {
         if (options.compactArrayWithSimpleTypes && isArrayWithSimpleTypes(data)) {
-            return html`[${' '}
-                ${data.map((item, i) => {
-                    return html`${i ? ', ' : ''}${buildData(item, options, level + 1)}`;
+            return (<div>[{' '}
+                {data.map((item, i) => {
+                    return (<div>{i ? ', ' : ''}{buildData(item, options, level + 1)}</div>);
                 })}
-            ${' '}]`;
+            {' '}]</div>);
         } else {
-            return html`[<ul>
-                ${data.map((item, i) => {
-                    const arrayIndex = options.showArrayIndex ? html` <span class="${b('index')}">${i}: </span>` : '';
-                    return html`<li>${arrayIndex}${buildData(item, options, level + 1)}${i === data.length - 1 ? '' : ','}</li>`;
+            return (<div>[<ul>
+                {data.map((item, i) => {
+                    const arrayIndex = options.showArrayIndex ? (<div> <span class={b('index')}>{i}: </span></div>) : '';
+                    return (<li>{arrayIndex}{buildData(item, options, level + 1)}{i === data.length - 1 ? '' : ','}</li>);
                 })}
-            </ul>]`;
+            </ul>]</div>);
         }
     }
 
     if (options.compactObject && level > 0) {
-        return html`{${' '}
-            ${Object.keys(data).map((key: string, i: number, items) => {
-                return html`<span class="${b('property')}">${key}: </span>${buildData(data[key], options, level + 1)}${i === items.length - 1 ? '' : ', '}`;
+        return (<div>{' '}
+            {Object.keys(data).map((key: string, i: number, items) => {
+                return (<div><span class={b('property')}>{key}: </span>{buildData(data[key], options, level + 1)}${i === items.length - 1 ? '' : ', '}</div>);
             })}
-        ${' '}}`;
+        {' '}</div>);
     }
 
     const props = [];
@@ -90,9 +90,9 @@ export function buildData(data: any, options: BuildDataOptions = {}, level = 0):
     }
     
     const hasBraces = Boolean(options.showCurlyBracesAtRootLevel || level);
-    return html`${hasBraces ? '{' : ''}<ul class="${b('ul', { padding: hasBraces ? 'yes' : 'no' })}">
-        ${props.map((key: string, i: number, items) => {
-            return html`<li><span class="${b('property')}">${key}: </span>${buildData(data[key], options, level + 1)}${i === items.length - 1 ? '' : ','}</li>`;
+    return (<div>{hasBraces ? '{' : ''}<ul class={b('ul', { padding: hasBraces ? 'yes' : 'no' })}>
+        {props.map((key: string, i: number, items) => {
+            return (<li><span class={b('property')}>{key}: </span>{buildData(data[key], options, level + 1)}{i === items.length - 1 ? '' : ','}</li>);
         })}
-    </ul>${hasBraces ? '}' : ''}`;
+    </ul>{hasBraces ? '}' : ''}</div>);
 }
