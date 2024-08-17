@@ -1,4 +1,5 @@
-import { html } from 'htm/preact';
+import { h } from 'preact';
+
 import { MainMenu, MainMenuItem } from '../../components/MainMenu';
 import pages from '../pages';
 import { i18nWithKeyset } from '../../i18n';
@@ -18,5 +19,5 @@ export function Menu() {
         };
     });
 
-    return html`<${MainMenu} items="${items}"><//>`;
+    return (<MainMenu items={items} />);
 }
