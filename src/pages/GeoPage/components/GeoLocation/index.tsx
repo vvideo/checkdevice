@@ -1,14 +1,14 @@
 import { h } from 'htm/preact';
 import { useCallback, useState } from 'preact/hooks';
-import { Button } from '../ui/Button';
-import { TreeList } from '../TreeList';
+import { Button } from '../../../../components/ui/Button';
+import { TreeList } from '../../../../components/TreeList';
 import { YaStaticMap } from '../YaStaticMap';
-import { block } from '../../utils/css/bem';
-import { i18n } from '../../i18n';
-import { Spinner } from '../ui/Spinner';
-import { isSsr } from '../../utils/isSsr';
-import { ErrorMessage } from '../ui/ErrorMessage';
-import { WarningMessage } from '../ui/WarningMessage';
+import { block } from '../../../../utils/css/bem';
+import { i18n } from '../../../../i18n';
+import { Spinner } from '../../../../components/ui/Spinner';
+import { isSsr } from '../../../../utils/isSsr';
+import { ErrorMessage } from '../../../../components/ui/ErrorMessage';
+import { WarningMessage } from '../../../../components/ui/WarningMessage';
 
 import './index.css';
 

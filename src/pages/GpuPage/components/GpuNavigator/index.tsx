@@ -1,16 +1,16 @@
 import { h } from 'preact';
 import { useCallback, useEffect, useRef, useState } from 'preact/hooks';
 
-import { RadioButtons, RadioButtonsProps } from '../ui/RadioButtons';
+import { RadioButtons, RadioButtonsProps } from '../../../../components/ui/RadioButtons';
 import { prepareAdapterFeatures, prepareAdapterInfo, prepareAdapterLimits } from './utils';
-import { WarningMessage } from '../ui/WarningMessage';
-import { block } from '../../utils/css/bem';
-import { TreeList } from '../TreeList';
-import { i18n } from '../../i18n';
-import { isSsr } from '../../utils/isSsr';
+import { WarningMessage } from '../../../../components/ui/WarningMessage';
+import { block } from '../../../../utils/css/bem';
+import { TreeList } from '../../../../components/TreeList';
+import { i18n } from '../../../../i18n';
+import { isSsr } from '../../../../utils/isSsr';
 
 import './index.css';
-import { ValueInProgress } from '../ValueInProgress';
+import { ValueInProgress } from '../../../../components/ValueInProgress';
 
 const buttons: RadioButtonsProps['buttons'] = [
     {

@@ -1,4 +1,5 @@
-import { html } from 'htm/preact';
+import { h } from 'htm/preact';
+
 import { block } from '../../utils/css/bem';
 
 import './index.css';
@@ -10,5 +11,5 @@ interface HdrLabelProps {
 }
 
 export function HdrLabel(props: HdrLabelProps) {
-    return html`<span class="${b({ enabled: props.enabled})}">HDR</span>`;
+    return (<span class={b({ enabled: props.enabled })}>HDR</span>);
 }
