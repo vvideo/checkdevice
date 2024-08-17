@@ -18,7 +18,7 @@ export function Result(props: ResultProps) {
     let type = '';
 
     if (isSsr) {
-        return '';
+        return null;
     }
 
     if (!props.text) {

@@ -1,7 +1,8 @@
-import { html } from 'htm/preact';
+import { h } from 'preact';
+
 import { isNativeHlsSupported, isNativeMpdSupported, isNativeMssSupported } from 'detect-audio-video';
-import { block } from '../../utils/css/bem';
-import { getChecked } from '../../utils/getChecked';
+import { block } from '../../../../utils/css/bem';
+import { getChecked } from '../../../../utils/getChecked';
 
 import './index.css';
 
@@ -36,12 +37,12 @@ export function NativeStreaming() {
     });
 
     const result = items.map(item => {
-        return html`<li>${item.label}: ${getChecked(item.supported)}</li>`;
+        return (<li>{item.label}: {getChecked(item.supported)}</li>);
     });
 
-    return html`
-        <ul class=${b()}>
-            ${result}
+    return (
+        <ul class={b()}>
+            {result}
         </ul>
-    `;
+    );
 }

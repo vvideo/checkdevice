@@ -2,11 +2,11 @@ import { h } from 'preact';
 import { useEffect } from 'preact/hooks';
 
 import { ScreenBadges } from '../../components/ScreenBadges';
-import { VideoCodecs } from '../../components/VideoCodecs';
+import { VideoCodecs } from './components/VideoCodecs';
 import { DrmBadges } from './components/DrmBadges';
 import { Section } from '../../components/ui/Section';
-import { NativeStreaming } from '../../components/NativeStreaming';
-import { VideoQuestions } from '../../components/VideoQuestions';
+import { NativeStreaming } from './components/NativeStreaming';
+import { VideoQuestions } from './components/VideoQuestions';
 import { HtmlVideoElementFeatures } from './components/HtmlVideoElementFeatures';
 import { ImageFormats } from './components/ImageFormats';
 import { i18n } from '../../i18n';

@@ -1,12 +1,13 @@
 import { h } from 'preact';
-import { useCallback } from 'preact/hooks';
-import { Button } from '../ui/Button';
-import { WarningMessage } from '../ui/WarningMessage';
-import { i18n } from '../../i18n';
-import { block } from '../../utils/css/bem';
-import { isSsr } from '../../utils/isSsr';
 import { isMobile } from 'detect-audio-video';
-import { Section } from '../ui/Section';
+import { useCallback } from 'preact/hooks';
+
+import { Button } from '../../../../components/ui/Button';
+import { WarningMessage } from '../../../../components/ui/WarningMessage';
+import { i18n } from '../../../../i18n';
+import { block } from '../../../../utils/css/bem';
+import { isSsr } from '../../../../utils/isSsr';
+import { Section } from '../../../../components/ui/Section';
 
 import './index.css';
 

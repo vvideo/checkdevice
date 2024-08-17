@@ -7,7 +7,7 @@ import { i18n } from '../../i18n';
 import { Page } from '../Page';
 import { QuestionSurroundSound } from '../../components/QuestionSurroundSound';
 import { block } from '../../utils/css/bem';
-import { Vibration } from '../../components/Vibration';
+import { Vibration } from './components/Vibration';
 import { SpeechSynthesis } from './components/SpeechSynthesis';
 
 import './index.css';
