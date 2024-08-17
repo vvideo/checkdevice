@@ -1,5 +1,6 @@
-import { html } from 'htm/preact';
+import { h } from 'preact';
 import { useCallback, useEffect, useRef, useState } from 'preact/hooks';
+
 import { RadioButtons, RadioButtonsProps } from '../ui/RadioButtons';
 import { prepareAdapterFeatures, prepareAdapterInfo, prepareAdapterLimits } from './utils';
 import { WarningMessage } from '../ui/WarningMessage';
@@ -9,6 +10,7 @@ import { i18n } from '../../i18n';
 import { isSsr } from '../../utils/isSsr';
 
 import './index.css';
+import { ValueInProgress } from '../ValueInProgress';
 
 const buttons: RadioButtonsProps['buttons'] = [
     {
@@ -75,24 +77,24 @@ export function GpuNavigator() {
     };
 
     if (!isSsr && !navigator.gpu) {
-        return html`<${WarningMessage}>${i18n('WebGPU is not supported.')}<//>`;
+        return (<WarningMessage>{i18n('WebGPU is not supported.')}</WarningMessage>);
     }
 
     if (hasAdapter === null) {
-        return html`<${WarningMessage}>${i18n('GPU Adapter is not found.')}<//>`;
+        return (<WarningMessage>{i18n('GPU Adapter is not found.')}</WarningMessage>);
     }
 
-    return hasAdapter ? html`
-        <div class="${b()}">
-            <div class="${b('controls')}">
-                <${RadioButtons}
+    return hasAdapter ? (
+        <div class={b()}>
+            <div class={b('controls')}>
+                <RadioButtons
                     label="Power preference:"
-                    buttons="${buttons}"
-                    onSelect="${onSelect}"
-                ><//>
+                    buttons={buttons}
+                    onSelect={onSelect}
+                />
             </div>
 
-            <${TreeList} title="Adapter" data=${data}><//>
+            <TreeList title="Adapter" data={data} />
         </div>
-    ` : '...';
+    ) : (<ValueInProgress />);
 }

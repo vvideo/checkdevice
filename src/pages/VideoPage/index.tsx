@@ -1,5 +1,6 @@
-import { html } from 'htm/preact';
+import { h } from 'preact';
 import { useEffect } from 'preact/hooks';
+
 import { ScreenBadges } from '../../components/ScreenBadges';
 import { VideoCodecs } from '../../components/VideoCodecs';
 import { DrmBadges } from '../../components/DrmBadges';
@@ -11,7 +12,6 @@ import { ImageFormats } from '../../components/ImageFormats';
 import { i18n } from '../../i18n';
 import { useForceUpdate } from '../../hooks/useForceUpdate';
 import { Page } from '../Page';
-import { PageTitle } from '../../components/PageTitle';
 
 export function VideoPage() {
     const forceUpdate = useForceUpdate();
@@ -28,34 +28,33 @@ export function VideoPage() {
         };
     }, []);
 
-    return html`
-        <${Page}>
-            <${PageTitle}>
-                ${i18n('Video')}
-            <//>
+    return (
+        <Page title={i18n('Video')}>
+            <div>
+                <h2>{i18n('Can I watch video in this browser?')}</h2>
+                <VideoQuestions />
+                <ScreenBadges />
 
-            <h2>${i18n('Can I watch video in this browser?')}</h2>
-            <${VideoQuestions}><//>
-            <${ScreenBadges}><//>
+                <Section name={i18n('Video Codecs')}>
+                    <VideoCodecs />
+                </Section>
 
-            <${Section} name="${i18n('Video Codecs')}">
-                <${VideoCodecs}><//>
-            <//>
+                <Section name="DRM">
+                    <DrmBadges />
+                </Section>
 
-            <${Section} name="DRM">
-                <${DrmBadges}><//>
-            <//>
+                <Section name={i18n('Image Formats')}>
+                    <ImageFormats />
+                </Section>
 
-            <${Section} name="${i18n('Image Formats')}">
-                <${ImageFormats}><//>
-            <//>
+                <Section name={i18n('Native Streaming Support')}>
+                    <NativeStreaming />
+                </Section>
 
-            <${Section} name="${i18n('Native Streaming Support')}">
-                <${NativeStreaming}><//>
-            <//>
-
-            <${Section} name="${i18n('HTMLVideoElement Features')}">
-                <${HtmlVideoElementFeatures}><//>
-            <//>
-        <//>`;
+                <Section name={i18n('HTMLVideoElement Features')}>
+                    <HtmlVideoElementFeatures />
+                </Section>
+            </div>
+        </Page>
+    );
 }

@@ -1,7 +1,7 @@
 import { h } from 'preact';
-import { block } from '../../utils/css/bem';
-import { ConnectionNavigator } from '../../pages/NetworkPage/components/ConnectionNavigator';
-import { IP } from '../IP';
+import { block } from '../../../../utils/css/bem';
+import { ConnectionNavigator } from '../ConnectionNavigator';
+import { IP } from '../../../../components/IP';
 
 import './index.css';
 
