@@ -12,7 +12,6 @@ import { ColorSpaceList } from '../../../../components/ColorSpaceList';
 import './index.css';
 
 export interface ScreenItemProps {
-    index: number;
     width: number;
     height: number;
     devicePixelRatio: number;
