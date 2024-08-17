@@ -1,4 +1,5 @@
-import { html } from 'htm/preact';
+import { h } from 'preact';
+
 import { Section } from '../ui/Section';
 import { block } from '../../utils/css/bem';
 import { classname } from '../../utils/css/classname';
@@ -31,18 +32,18 @@ export function DescriptionList(props: DescriptionListProps) {
 
     const className = classname(props.class, b());
 
-    return filteredItems.length ? html`<${Section} name="${props.title}">
-        <dl class="${className}">
-        ${
+    return filteredItems.length ? (<Section name={props.title}>
+        <dl class={className}>
+        {
             filteredItems.map(item => {
                 const [name, value] = item;
 
-                return html`<div key="${name}" class="${b('item')}">
-    <dt class="${b('term')}">${name}</dt>
-    <dd class="${b('details')}">${value}</dd>
-</div>`;
+                return (<div key={name} class={b('item')}>
+                    <dt class={b('term')}>{name}</dt>
+                    <dd class={b('details')}>{value}</dd>
+                </div>);
             })
         }
         </dl>
-    <//>` : '';
+    </Section>) : null;
 }

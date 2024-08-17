@@ -1,4 +1,5 @@
-import { html } from 'htm/preact';
+import { h } from 'preact';
+
 import { i18n } from '../../i18n';
 import { isSsr } from '../../utils/isSsr';
 import { block } from '../../utils/css/bem';
@@ -17,7 +18,7 @@ function getIsTypeSupportedProps(isTypeSupported: boolean) {
         value: String(isTypeSupported),
         color: isTypeSupported ? 'green' : 'red',
     } : {
-        value: html`<span style="font-weight:bold">${i18n('unsupported')}</span>`,
+        value: (<span style="font-weight:bold">{i18n('unsupported')}</span>),
         color: 'red',
     };
 }
@@ -65,14 +66,14 @@ export function CodecDetails(props: CodecDetailsProps | boolean) {
     const canPlayTypeResult = getCanPlayTypeProps(props.canPlayType);
     const isTypeSupportedResult = getIsTypeSupportedProps(props.isTypeSupported);
 
-    return html`
-<div class="${b()}">
-    <div class="${b('mimetype')}">${i18n('MIME type')}: <code>${props.contentType}</code></div>
-    <div class="${b('types')}">${i18n('Types of testing')}:</div>
-    <ul class="${b('list')}">
-        <li class="${b('item')}"><code>${[props.mediaElementType]}.canPlayType(): <span style="color:${canPlayTypeResult.color}">${canPlayTypeResult.value}</span></code></li>
-        <li class="${b('item')}"><code>MediaSource.isTypeSupported(): <span style="color:${isTypeSupportedResult.color}">${isTypeSupportedResult.value}</span></code></li>
-    </ul>
-</div>
-`;
+    return (
+        <div class={b()}>
+            <div class={b('mimetype')}>{i18n('MIME type')}: <code>${props.contentType}</code></div>
+            <div class={b('types')}>{i18n('Types of testing')}:</div>
+            <ul class={b('list')}>
+                <li class={b('item')}><code>{[props.mediaElementType]}.canPlayType(): <span style={`color:${canPlayTypeResult.color}`}>{canPlayTypeResult.value}</span></code></li>
+                <li class={b('item')}><code>MediaSource.isTypeSupported(): <span style={`color:${isTypeSupportedResult.color}`}>{isTypeSupportedResult.value}</span></code></li>
+            </ul>
+        </div>
+    );
 }

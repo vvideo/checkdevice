@@ -2,8 +2,9 @@ import {
     CLEAR_KEY_SYSTEM,
     isClearKeySupported,
 } from 'detect-audio-video';
+import { h } from 'preact';
 import { useState } from 'preact/hooks';
-import { html } from 'htm/preact';
+
 import { Badge } from '../Badge';
 import { KeySystems } from '../KeySystems';
 import { block } from '../../utils/css/bem';
@@ -28,19 +29,19 @@ export function ClearkeyBadge() {
         setEncryptionSchemes(result.join(', '));
     });
 
-    return hasClearkey ? html`
-        <div class="${b()}">
-            ${Badge({
-                text: 'ClearKey',
-                background: 'white',
-                size: 'small',
-                bottom: {
-                    text: html`<ul class="${b('list')}">
-                        <li class="${b('item')}"><${KeySystems} items="${keySystemsItems}" //></li>
-                        <li class="${b('item')}">${encryptionSchemes.length ? `${i18n('Encryption schemes')}: ${encryptionSchemes}` : ''}</li>
-                    </ul>`
-                }
-            })}
+    return hasClearkey ? (
+        <div class={b()}>
+            <Badge 
+                text="ClearKey"
+                background="white"
+                size="small"
+                bottom={{
+                    text: (<ul class={b('list')}>
+                        <li class={b('item')}><KeySystems items={keySystemsItems} /></li>
+                        <li class={b('item')}>{encryptionSchemes.length ? `${i18n('Encryption schemes')}: ${encryptionSchemes}` : ''}</li>
+                    </ul>)
+                }}
+            />
         </div>
-    ` : '';
+    ) : null;
 }

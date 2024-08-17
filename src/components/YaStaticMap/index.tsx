@@ -2,7 +2,6 @@ import { h } from 'preact';
 import { block } from '../../utils/css/bem';
 
 interface ColumnProps {
-    key: string;
     width: string;
     height: string;
     latitude: number;

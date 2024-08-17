@@ -1,4 +1,4 @@
-import { html } from 'htm/preact';
+import { h } from 'htm/preact';
 import { useCallback, useState } from 'preact/hooks';
 import { Button } from '../ui/Button';
 import { TreeList } from '../TreeList';
@@ -36,7 +36,7 @@ function getErrorMessage(error: GeolocationPositionError) {
 
 export function GeoLocation(props: GeoLocationProps) {
     if (!isSsr && typeof navigator.geolocation?.getCurrentPosition === 'undefined') {
-        return html`<${WarningMessage}>${i18n('Geo Location API is not supported.')}<//>`;
+        return (<WarningMessage>{i18n('Geo Location API is not supported.')}</WarningMessage>);
     }
 
     const [coords, setCoords] = useState<GeolocationCoordinates | null>(null);
@@ -81,18 +81,21 @@ export function GeoLocation(props: GeoLocationProps) {
         navigator.geolocation.getCurrentPosition(success, error, options);
     }, []);
 
-    return html`
-        <${Button} disabled="${inProgress}" theme="active" onClick="${handleClick}">${i18n('Request geo location')}<//> ${inProgress ? html`<${Spinner} size="m" //>` : ''}
-        ${coords ? html`<div class="${b('list')}"><${TreeList} data="${coords}" //></div>` : ''}
-        ${error ? html`<${ErrorMessage}>${error}<//>` : ''}
-        ${coords ? html`<div class="${b('map')}">
-            <${YaStaticMap}
-                latitude="${coords.latitude}"
-                longitude="${coords.longitude}"
-                width="300"
-                height="300"
-                zoom="13"
-                apikey="${props.yaMapsApiKey}" //>
-        </div>` : ''}
-    `;
+    return (
+        <div class={b()}>
+            <Button disabled={inProgress} theme="active" onClick={handleClick}>{i18n('Request geo location')}</Button> {inProgress ? (<Spinner size="m" />) : ''}
+            {coords ? (<div class={b('list')}><TreeList data={coords} /></div>) : ''}
+            {error ? (<ErrorMessage>{error}</ErrorMessage>) : ''}
+            {coords ? (<div class={b('map')}>
+                <YaStaticMap
+                    latitude={coords.latitude}
+                    longitude={coords.longitude}
+                    width="300"
+                    height="300"
+                    zoom="13"
+                    apikey={props.yaMapsApiKey}
+                />
+            </div>) : null}
+        </div>
+    );
 }
