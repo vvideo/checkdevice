@@ -1,4 +1,4 @@
-import { h } from 'htm/preact';
+import { h } from 'preact';
 
 import { block } from '../../utils/css/bem';
 
