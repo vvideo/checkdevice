@@ -28,7 +28,7 @@ export function LangSwitcher() {
             <LangIcon lang={currentLangItem.value} /> {currentLangItem.name}
         </div>
         <menu class={b('popup', { visible })}>
-            ${langs.map(item => {
+            {langs.map(item => {
                 const url = getPagePath(getPageId(), item.value);
 
                 return (<LangSwitcherItem
