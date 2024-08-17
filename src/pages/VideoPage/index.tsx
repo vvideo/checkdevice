@@ -8,7 +8,7 @@ import { Section } from '../../components/ui/Section';
 import { NativeStreaming } from '../../components/NativeStreaming';
 import { VideoQuestions } from '../../components/VideoQuestions';
 import { HtmlVideoElementFeatures } from './components/HtmlVideoElementFeatures';
-import { ImageFormats } from '../../components/ImageFormats';
+import { ImageFormats } from './components/ImageFormats';
 import { i18n } from '../../i18n';
 import { useForceUpdate } from '../../hooks/useForceUpdate';
 import { Page } from '../Page';

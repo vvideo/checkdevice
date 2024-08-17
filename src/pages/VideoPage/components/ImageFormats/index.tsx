@@ -1,3 +1,4 @@
+import { h } from 'preact';
 import {
     isAPngSupported,
     isAvifSupported,
@@ -18,15 +19,13 @@ import {
     isJpegXlSupported,
     JPEG_XL_CONTENT_TYPE,
 } from 'detect-audio-video';
-import { html } from 'htm/preact';
 import { useState, useRef } from 'preact/hooks';
-import { VNode } from 'preact';
 
-import { Codec } from '../Codec';
-import { Column } from '../Column';
-import { Columns } from '../Columns';
-import { i18n } from '../../i18n';
-import { block } from '../../utils/css/bem';
+import { Codec } from '../../../../components/Codec';
+import { Column } from '../../../../components/Column';
+import { Columns } from '../../../../components/Columns';
+import { i18n } from '../../../../i18n';
+import { block } from '../../../../utils/css/bem';
 
 import './index.css';
 
@@ -60,8 +59,8 @@ function getSupportedImageFormats() {
 const b = block('image-formats');
 
 export function ImageFormats() {
-    const supported: VNode[] = [];
-    const unsupported: VNode[] = [];
+    const supported: h.JSX.Element[] = [];
+    const unsupported: h.JSX.Element[] = [];
 
     const [_, setReady] = useState(false);
     const ref = useRef<Record<string, boolean>>({});
@@ -99,14 +98,16 @@ export function ImageFormats() {
         }
     });
 
-    return html`<${Columns}>
-        <${Column} name="${i18n('Supported')}">
-            ${supported.length ? supported : i18n('No supported image formats.')}
-        <//>
-        ${unsupported.length ? html`<${Column} disabled name="${i18n('Unsupported')}">${unsupported}<//>` : ''}
-    <//>`;
+    return (<Columns>
+        <div>
+            <Column name={i18n('Supported')}>
+                {supported.length ? supported : i18n('No supported image formats.')}
+            </Column>
+            {unsupported.length ? (<Column disabled name={i18n('Unsupported')}>{unsupported}</Column>) : null}
+        </div>
+    </Columns>);
 }
 
 function getTooltip(mimeType: string) {
-    return html`<div class="${b('tooltip')}">${i18n('MIME type')}: <code>${mimeType}</code></div>`;
+    return (<div class={b('tooltip')}>{i18n('MIME type')}: <code>{mimeType}</code></div>);
 }
