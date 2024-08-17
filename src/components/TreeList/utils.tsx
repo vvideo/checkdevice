@@ -1,5 +1,5 @@
-import { html } from 'htm/preact';
-import { VNode } from 'preact';
+import { h } from 'preact';
+
 import { b } from './className';
 
 const simpleTypes = {
@@ -28,35 +28,35 @@ export interface BuildDataOptions {
 
 export function buildData(data: any, options: BuildDataOptions = {}, level = 0): VNode {
     if (typeof data === 'string') {
-        return html`<span class="${b('string')}">'${data}'</span>`;
+        return (<span class={b('string')}>'{data}'</span>);
     }
 
     if (typeof data === 'number') {
-        return html`<span class="${b('number')}">${data}</span>`;
+        return (<span class={b('number')}>{data}</span>);
     }
 
     if (typeof data === 'bigint') {
-        return html`<span class="${b('bigint')}">${data}n</span>`;
+        return (<span class={b('bigint')}>{data}n</span>);
     }
 
     if (typeof data === 'boolean') {
-        return html`<span class="${b('boolean')}">${String(data)}</span>`;
+        return (<span class={b('boolean')}>{String(data)}</span>);
     }
 
     if (typeof data === 'function') {
-        return html`<span class="${b('function')}">ƒ ${data.name}()</span>`;
+        return (<span class={b('function')}>ƒ {data.name}()</span>);
     }
 
     if (typeof data === 'symbol') {
-        return html`<span class="${b('symbol')}">${data}</span>`;
+        return (<span class={b('symbol')}>{data.toString()}</span>);
     }
 
     if (typeof data === 'undefined') {
-        return html`<span class="${b('undefined')}">undefined</span>`;
+        return (<span class={b('undefined')}>undefined</span>);
     }
 
     if (data === null) {
-        return html`<span class="${b('null')}">null</span>`;
+        return (<span class={b('null')}>null</span>);
     }
 
     if (Array.isArray(data)) {

@@ -1,6 +1,6 @@
 import { h } from 'preact';
 
-import { ScreenList } from '../../components/ScreenList';
+import { ScreenList } from './components/ScreenList';
 import { Page } from '../Page';
 import { i18n } from '../../i18n';
 import { Link } from '../../components/ui/Link';

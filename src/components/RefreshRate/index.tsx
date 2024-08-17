@@ -1,5 +1,6 @@
-import { html } from 'htm/preact';
+import { h } from 'preact';
 import { useEffect, useRef } from 'preact/hooks';
+
 import { RefreshRateController } from '../../lib/RefreshRateController';
 import { Spinner } from '../ui/Spinner';
 import { i18n } from '../../i18n';
@@ -31,5 +32,5 @@ export function RefreshRate() {
 
     const value = ref.current?.get();
 
-    return value ? html`<span class="${b()}">${value.toFixed(3)} ${i18n('Hz')}</span>` : html`<${Spinner} size="s" //>`;
+    return value ? (<span class={b()}>{value.toFixed(3)} {i18n('Hz')}</span>) : (<Spinner size="s" />);
 }

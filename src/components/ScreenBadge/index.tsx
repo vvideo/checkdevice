@@ -1,5 +1,6 @@
-import { html } from 'htm/preact';
+import { h } from 'preact';
 import { useCallback, useState } from 'preact/hooks';
+
 import { Badge } from '../Badge';
 import { getResolutionBadge, isMobile } from 'detect-audio-video';
 import { block } from '../../utils/css/bem';
@@ -28,26 +29,26 @@ export function ScreenBadge(props: ScreenBadge) {
         setWithDevicePixelRatio(!withDevicePixelRatio);
     }, [withDevicePixelRatio]);
 
-    const labelContent = props.label ? html`<div class="${b('label')}">${props.label}</div>` : '';
+    const labelContent = props.label ? (<div class={b('label')}>{props.label}</div>) : '';
 
     const background = isLargerFullHd(Math.min(props.width, props.height) * props.devicePixelRatio) ? 'gold' : 'white';
 
-    return html`
-        <div class="${b()}" onClick=${handleClick}>
-            ${labelContent}
-            ${Badge({
+    return (
+        <div class={b()} onClick={handleClick}>
+            {labelContent}
+            <Badge
                 // TODO: Temporarily hide badge for mobile devices
-                text: isMobile() ? '' : getResolutionBadge(
+                text={isMobile() ? '' : getResolutionBadge(
                         Math.max(props.width, props.height) * props.devicePixelRatio,
                         Math.min(props.width, props.height) * props.devicePixelRatio,
-                ) || '',
-                type: '4k',
-                click: true,
-                background,
-                top: {
-                    text: isMobile() ? '' : html`<span style="font-weight:bold">${props.isHdr ? 'HDR' :'\u00A0'}</span>`,
-                },
-                bottom: {
+                ) || ''}
+                type="4k"
+                click={true}
+                background={background}
+                top={{
+                    text: isMobile() ? '' : (<span style="font-weight:bold">{props.isHdr ? 'HDR' :'\u00A0'}</span>),
+                }}
+                bottom={{
                     text: ScreenBadgeDetails({
                         width: props.width,
                         height: props.height,
@@ -59,8 +60,8 @@ export function ScreenBadge(props: ScreenBadge) {
                         devicePixelRatio: props.devicePixelRatio,
                     }),
                     title: [props.width * props.devicePixelRatio, props.height * props.devicePixelRatio].join('×'),
-                },
-            })}
+                }}
+            />
         </div>
-    `;
+    );
 }

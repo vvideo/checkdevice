@@ -9,7 +9,7 @@ import {
     isPlayReadySupported,
 } from 'detect-audio-video';
 import { Badge } from '../../../../components/Badge';
-import { HdcpLink } from '../../../../components/HdcpLink';
+import { HdcpLink } from '../HdcpLink';
 import { KeySystems } from '../KeySystems';
 import { SecurityLevels } from '../SecurityLevels';
 import { block } from '../../../../utils/css/bem';

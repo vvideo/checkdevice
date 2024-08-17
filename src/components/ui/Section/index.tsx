@@ -8,7 +8,7 @@ import './index.css';
 const b = block('section');
 
 interface SectionProps {
-    name?: string;
+    name?: string | number;
     class?: string;
     children: VNode;
 }

@@ -1,6 +1,6 @@
 import { h } from 'preact';
-import { Link } from '../ui/Link';
-import { block } from '../../utils/css/bem';
+import { Link } from '../../../../components/ui/Link';
+import { block } from '../../../../utils/css/bem';
 
 interface HdcpLinkProps {
     version: string;

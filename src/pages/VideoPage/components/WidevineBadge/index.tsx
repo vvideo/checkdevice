@@ -8,7 +8,7 @@ import {
     isWidevineL3Supported,
     isWidevineSupported,
 } from 'detect-audio-video';
-import { HdcpLink } from '../../../../components/HdcpLink';
+import { HdcpLink } from '../HdcpLink';
 import { getHdcpNotDetected, getHdcpVersion } from '../../../../utils/drm/getHcpVersion';
 import { KeySystems } from '../KeySystems';
 import { SecurityLevels } from '../SecurityLevels';

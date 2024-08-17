@@ -1,4 +1,5 @@
-import { html } from 'htm/preact';
+import { h } from 'preact';
+
 import { useCallback, useEffect } from 'preact/hooks';
 import { ScreenBadge } from '../ScreenBadge';
 import { Section } from '../ui/Section';
@@ -46,14 +47,16 @@ export function ScreenBadges() {
             ...item,
         };
 
-        return html`<${ScreenBadge} ...${props}><//>`;
+        return (<ScreenBadge {...props} />);
     });
 
     const name = screenInfoData.screens.length > 1 ? i18n('Screens') : i18n('Screen');
 
-    return html`<${Section} name="${name}">
-        ${!screenInfo.isDenied && screenInfo.needUserActivity ? html`<div class="${b('specify')}"><${Button} size="s" theme="red" onClick="${handleClick}">${i18n('Specify')}<//></div>` : ''}
-        ${content}
-        ${!screenInfo.isScreenDetails && (typeof screen !== 'undefined' && screen.isExtended === true) ? html`<div class="${b('additional')}">⚠️ ${i18n('Additional monitor detected')}</div>` : ''}
-    <//>`;
+    return (<Section name={name}>
+        <div>
+            {!screenInfo.isDenied && screenInfo.needUserActivity ? (<div class={b('specify')}><Button size="s" theme="red" onClick={handleClick}>{i18n('Specify')}</Button></div>) : ''}
+            {content}
+            {!screenInfo.isScreenDetails && (typeof screen !== 'undefined' && screen.isExtended === true) ? (<div class={b('additional')}>⚠️ {i18n('Additional monitor detected')}</div>) : ''}
+        </div>
+    </Section>);
 }

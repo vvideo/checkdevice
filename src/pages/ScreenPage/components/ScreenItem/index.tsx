@@ -1,13 +1,13 @@
 import { h } from 'preact';
 import { calcAspectRatio } from 'calc-aspect-ratio';
 
-import { DescriptionList } from '../DescriptionList';
-import { getChecked } from '../../utils/getChecked';
-import { i18n } from '../../i18n';
-import { block } from '../../utils/css/bem';
-import { WarningMessage } from '../ui/WarningMessage';
+import { DescriptionList } from '../../../../components/DescriptionList';
+import { getChecked } from '../../../../utils/getChecked';
+import { i18n } from '../../../../i18n';
+import { block } from '../../../../utils/css/bem';
+import { WarningMessage } from '../../../../components/ui/WarningMessage';
 import { HdrLabel } from '../HdrLabel';
-import { ColorSpaceList } from '../ColorSpaceList';
+import { ColorSpaceList } from '../../../../components/ColorSpaceList';
 
 import './index.css';
 
