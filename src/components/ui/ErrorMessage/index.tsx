@@ -16,5 +16,5 @@ const b = block('error-message');
 export function ErrorMessage(props: WarningMessageProps) {
     const className = classname(props.class, b({ theme: props.theme }));
 
-    return (<div class={className}>❌ ${props.children}</div>);
+    return (<div class={className}>❌ {props.children}</div>);
 }

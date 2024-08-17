@@ -33,8 +33,8 @@ export function Badge(props: BadgeProps) {
         size: props.size,
         click: props.click,
     })}>
-        ${props.top?.text ? (<div class={b('top-text')} title={props.top.title}>{props.top.text}</div>) : ''}
+        {props.top?.text ? (<div class={b('top-text')} title={props.top.title}>{props.top.text}</div>) : ''}
         <div class={b('body')}>{props.text}</div>
-        ${props.bottom?.text ? (<div class={b('bottom-text')} title={props.bottom.title}>{props.bottom.text}</div>) : ''}
+        {props.bottom?.text ? (<div class={b('bottom-text')} title={props.bottom.title}>{props.bottom.text}</div>) : ''}
     </div>);
 }

@@ -143,7 +143,7 @@ export function QuestionDrm4K() {
         <ActiveQuestion head={head}>
             <ul>
                 <li>{i18n('Is the screen larger than 2K?')}{'\u00a0'}<Result value={largeThan2K} /></li>
-                <li>{i18n('Online services protect content using')}${'\u00a0'}<ExtLink target="_blank" href={i18n('link:wiki:drm')}>DRM</ExtLink>.<br/>
+                <li>{i18n('Online services protect content using')}{'\u00a0'}<ExtLink target="_blank" href={i18n('link:wiki:drm')}>DRM</ExtLink>.<br/>
                     {i18n('Supports one of the video codecs and DRM with high security level?')} <Result value={anyCodecWithDrm} />
                     <ul>
                         <DrmItem
@@ -178,7 +178,7 @@ export function QuestionDrm4K() {
                     ⚠️ {i18n('Make sure that monitors, video cards, and cables support HDCP 2.2 or later.')}
                 </li>) : ''}
                 {isSafari ? (<li>
-                    ⚠️ {i18n('Select 2018 or later Mac computer with an')} <ExtLink href="${i18n('link:apple:t2')}">Apple T2 Security Chip</ExtLink>.
+                    ⚠️ {i18n('Select 2018 or later Mac computer with an')} <ExtLink href={i18n('link:apple:t2')}>Apple T2 Security Chip</ExtLink>.
                 </li>) : ''}
             </ul>
         </ActiveQuestion>

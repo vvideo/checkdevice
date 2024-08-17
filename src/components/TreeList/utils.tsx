@@ -79,7 +79,7 @@ export function buildData(data: any, options: BuildDataOptions = {}, level = 0):
     if (options.compactObject && level > 0) {
         return (<div>{' '}
             {Object.keys(data).map((key: string, i: number, items) => {
-                return (<div><span class={b('property')}>{key}: </span>{buildData(data[key], options, level + 1)}${i === items.length - 1 ? '' : ', '}</div>);
+                return (<div><span class={b('property')}>{key}: </span>{buildData(data[key], options, level + 1)}{i === items.length - 1 ? '' : ', '}</div>);
             })}
         {' '}</div>);
     }
