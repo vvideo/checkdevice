@@ -4,7 +4,7 @@ import { nodeResolve } from '@rollup/plugin-node-resolve';
 import postcss from 'rollup-plugin-postcss';
 
 const createServerConfig = () => ({
-    input: `src/entries/ssr.ts`,
+    input: `src/entries/ssr.tsx`,
     output: [
         {
             file: `dist/ssr.mjs`,
