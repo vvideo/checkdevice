@@ -1,20 +1,21 @@
+import { h } from 'preact';
 import { useState } from 'preact/hooks';
-import { html } from 'htm/preact';
-import { Badge } from '../Badge';
+
+import { Badge } from '../../../../components/Badge';
 import {
     WIDEWINE_KEY_SYSTEM,
     isWidevineL1Supported,
     isWidevineL3Supported,
     isWidevineSupported,
 } from 'detect-audio-video';
-import { HdcpLink } from '../HdcpLink';
-import { getHdcpNotDetected, getHdcpVersion } from '../../utils/drm/getHcpVersion';
+import { HdcpLink } from '../../../../components/HdcpLink';
+import { getHdcpNotDetected, getHdcpVersion } from '../../../../utils/drm/getHcpVersion';
 import { KeySystems } from '../KeySystems';
 import { SecurityLevels } from '../SecurityLevels';
-import { block } from '../../utils/css/bem';
-import { getCachedCheckAllHdcpVersions } from '../../utils/drm/getCachedCheckAllHdcpVersions';
-import { i18n } from '../../i18n';
-import { getEncryptionSchemes } from '../../utils/drm/getEncryptionSchemes';
+import { block } from '../../../../utils/css/bem';
+import { getCachedCheckAllHdcpVersions } from '../../../../utils/drm/getCachedCheckAllHdcpVersions';
+import { i18n } from '../../../../i18n';
+import { getEncryptionSchemes } from '../../../../utils/drm/getEncryptionSchemes';
 
 import './index.css';
 
@@ -56,23 +57,21 @@ export function WidevineBadge() {
         levels.push('L3');
     }
 
-    return hasWidevine ? html`
-        <div class="${b()}">
-            ${Badge({
-                text: 'Widevine',
-                background: 'white',
-                top: {
-                    text: 'Google',
-                },
-                bottom: {
-                    text: html`<ul class="${b('list')}">
-                        <li class="${b('item')}"><${SecurityLevels} items="${levels}" //></li>
-                        <li class="${b('item')}"><${KeySystems} items="${[WIDEWINE_KEY_SYSTEM]}" //></li>
-                        <li class="${b('item')}">${encryptionSchemes.length ? `${i18n('Encryption schemes')}: ${encryptionSchemes}` : ''}</li>
-                        <li class="${b('item')}"><${HdcpLink} version="${hdcpVersion}" //></li>
-                    </ul>`,
-                },
-            })}
+    return hasWidevine ? (
+        <div class={b()}>
+            <Badge
+                text="Widevine"
+                background="white"
+                top={{ text: 'Google' }}
+                bottom={{
+                    text: (<ul class={b('list')}>
+                        <li class="${b('item')}"><SecurityLevels items={levels} /></li>
+                        <li class="${b('item')}"><KeySystems items={[WIDEWINE_KEY_SYSTEM]} /></li>
+                        <li class="${b('item')}">{encryptionSchemes.length ? `${i18n('Encryption schemes')}: ${encryptionSchemes}` : ''}</li>
+                        <li class="${b('item')}"><HdcpLink version={hdcpVersion} /></li>
+                    </ul>),
+                }}
+            />
         </div>
-    ` : '';
+    ) : null;
 }

@@ -1,5 +1,6 @@
+import { h } from 'htm/preact';
 import { useState } from 'preact/hooks';
-import { html } from 'htm/preact';
+
 import {
     PLAYREADY_RECOMMENDATION_KEY_SYSTEM,
     isPlayReadySL150Supported,
@@ -7,15 +8,15 @@ import {
     isPlayReadySL3000Supported,
     isPlayReadySupported,
 } from 'detect-audio-video';
-import { Badge } from '../Badge';
-import { HdcpLink } from '../HdcpLink';
+import { Badge } from '../../../../components/Badge';
+import { HdcpLink } from '../../../../components/HdcpLink';
 import { KeySystems } from '../KeySystems';
 import { SecurityLevels } from '../SecurityLevels';
-import { block } from '../../utils/css/bem';
-import { getHdcpNotDetected, getHdcpVersion } from '../../utils/drm/getHcpVersion';
-import { getCachedCheckAllHdcpVersions } from '../../utils/drm/getCachedCheckAllHdcpVersions';
-import { getEncryptionSchemes } from '../../utils/drm/getEncryptionSchemes';
-import { i18n } from '../../i18n';
+import { block } from '../../../../utils/css/bem';
+import { getHdcpNotDetected, getHdcpVersion } from '../../../../utils/drm/getHcpVersion';
+import { getCachedCheckAllHdcpVersions } from '../../../../utils/drm/getCachedCheckAllHdcpVersions';
+import { getEncryptionSchemes } from '../../../../utils/drm/getEncryptionSchemes';
+import { i18n } from '../../../../i18n';
 
 import './index.css';
 
@@ -66,23 +67,21 @@ export function PlayreadyBadge() {
         levels.push('SL3000');
     }
 
-    return hasPlayready? html`
-        <div class="${b()}">
-            ${Badge({
-                text: 'PlayReady',
-                background: 'white',
-                top: {
-                    text: 'Microsoft',
-                },
-                bottom: {
-                    text: html`<ul class="${b('list')}">
-                        <li class="${b('item')}"><${SecurityLevels} items="${levels}" //></li>
-                        <li class="${b('item')}"><${KeySystems} items="${keySystemsItems}" //></li>
-                        <li class="${b('item')}">${encryptionSchemes.length ? `${i18n('Encryption schemes')}: ${encryptionSchemes}` : ''}</li>
-                        <li class="${b('item')}"><${HdcpLink} version="${hdcpVersion}" //></li>
-                    </ul>`
-                },
-            })}
+    return hasPlayready ? (
+        <div class={b()}>
+            <Badge
+                text="PlayReady"
+                background="white"
+                top={{ text: 'Microsoft' }}
+                bottom={{
+                    text: (<ul class={b('list')}>
+                        <li class={b('item')}><SecurityLevels items={levels} /></li>
+                        <li class={b('item')}><KeySystems items={keySystemsItems} /></li>
+                        <li class={b('item')}>{encryptionSchemes.length ? `${i18n('Encryption schemes')}: ${encryptionSchemes}` : ''}</li>
+                        <li class={b('item')}><HdcpLink version={hdcpVersion} /></li>
+                    </ul>)
+                }}
+            />
         </div>
-    ` : '';
+    ) : null;
 }

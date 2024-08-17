@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import { Badge } from '../Badge';
+import { Badge } from '../../../../components/Badge';
 import {
     isAacSupported,
     isDolbyAtmosSupported,
@@ -9,7 +9,7 @@ import {
     isDtsSupported,
     isDtsXSupported,
 } from 'detect-audio-video';
-import { block } from '../../utils/css/bem';
+import { block } from '../../../../utils/css/bem';
 
 const b = block('audio-badges');
 

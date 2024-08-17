@@ -5,11 +5,11 @@ import {
 import { h } from 'preact';
 import { useState } from 'preact/hooks';
 
-import { Badge } from '../Badge';
+import { Badge } from '../../../../components/Badge';
 import { KeySystems } from '../KeySystems';
-import { block } from '../../utils/css/bem';
-import { i18n } from '../../i18n';
-import { getEncryptionSchemes } from '../../utils/drm/getEncryptionSchemes';
+import { block } from '../../../../utils/css/bem';
+import { i18n } from '../../../../i18n';
+import { getEncryptionSchemes } from '../../../../utils/drm/getEncryptionSchemes';
 
 import './index.css';
 

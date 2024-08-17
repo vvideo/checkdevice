@@ -1,10 +1,12 @@
-import { i18n } from '../../i18n';
+import { h } from 'preact';
+
+import { i18n } from '../../../../i18n';
 
 interface SecurityLevelsProps {
     items: string[];
 }
 
-export function SecurityLevels({ items }: SecurityLevelsProps) {
+function getText(items: string[]) {
     const { length } = items;
     if (!length) {
         return `${i18n('Security levels')}: ${i18n('Not detected')}`;
@@ -15,4 +17,8 @@ export function SecurityLevels({ items }: SecurityLevelsProps) {
     }
 
     return `${i18n('Security levels')}: ${items.join(', ')}`;
+}
+
+export function SecurityLevels({ items }: SecurityLevelsProps) {
+    return (<span>{getText(items)}</span>);
 }

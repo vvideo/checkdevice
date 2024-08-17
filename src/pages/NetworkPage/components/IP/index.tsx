@@ -1,9 +1,9 @@
 import { h } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
-import { List } from '../ui/List';
-import { Spinner } from '../ui/Spinner';
+import { List } from '../../../../components/ui/List';
+import { Spinner } from '../../../../components/ui/Spinner';
 import { getCfIp } from './utils';
-import { fetch } from '../../utils/fetch';
+import { fetch } from '../../../../utils/fetch';
 
 export function IP() {
     const [ipv4, setIpv4] = useState('');

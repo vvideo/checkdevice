@@ -16,16 +16,15 @@ import {
     isMp4AudioSupported,
 } from 'detect-audio-video';
 
-import { Codec } from '../Codec';
-import { VNode } from 'preact';
-import { Column } from '../Column';
-import { Columns } from '../Columns';
-import { i18n } from '../../i18n';
-import { CodecDetails } from '../CodecDetails';
+import { Codec } from '../../../../components/Codec';
+import { Column } from '../../../../components/Column';
+import { Columns } from '../../../../components/Columns';
+import { i18n } from '../../../../i18n';
+import { CodecDetails } from '../../../../components/CodecDetails';
 
 export function AudioCodecs() {
-    const supported: VNode[] = [];
-    const unsupported: VNode[] = [];
+    const supported: h.JSX.Element[] = [];
+    const unsupported: h.JSX.Element[] = [];
 
     [
         { supported: isMp3Supported(), name: 'MP3', color: 'orange' },

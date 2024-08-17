@@ -1,8 +1,8 @@
 import { h } from 'preact';
 import { GpuNavigator } from './components/GpuNavigator';
-import { WebGLContext } from '../../components/WebGLContext';
+import { WebGLContext } from './components/WebGLContext';
 import { Page } from '../Page';
-import { Cube3d } from '../../components/Cube3d';
+import { Cube3d } from './components/Cube3d';
 
 export function GpuPage() {
     return (

@@ -1,14 +1,14 @@
 import { h } from 'preact';
 
-import { AudioBadge } from '../../components/AudioBadge';
-import { AudioCodecs } from '../../components/AudioCodecs';
+import { AudioBadge } from './components/AudioBadge';
+import { AudioCodecs } from './components/AudioCodecs';
 import { Section } from '../../components/ui/Section';
 import { i18n } from '../../i18n';
 import { Page } from '../Page';
 import { QuestionSurroundSound } from '../../components/QuestionSurroundSound';
 import { block } from '../../utils/css/bem';
 import { Vibration } from '../../components/Vibration';
-import { SpeechSynthesis } from '../../components/SpeechSynthesis';
+import { SpeechSynthesis } from './components/SpeechSynthesis';
 
 import './index.css';
 

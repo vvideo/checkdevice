@@ -10,7 +10,7 @@ import { InfoLink } from '../../../../components/ui/InfoLink';
 import { getChecked } from '../../../../utils/getChecked';
 import { isSsr } from '../../../../utils/isSsr';
 import { ValueInProgress } from '../../../../components/ValueInProgress';
-import { DateInProgress } from '../../../../components/DateInProgress';
+import { DateInProgress } from '../DateInProgress';
 
 export function Platform() {
     const ref = useRef<[string, any][]>([]);

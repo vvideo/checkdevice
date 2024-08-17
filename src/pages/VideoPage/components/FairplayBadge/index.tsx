@@ -1,5 +1,6 @@
+import { h } from 'preact';
 import { useState } from 'preact/hooks';
-import { html } from 'htm/preact';
+
 import {
     FAIRPLAY_KEY_SYSTEM,
     FAIRPLAY_V1_KEY_SYSTEM,
@@ -10,11 +11,11 @@ import {
     isFairPlayV2Supported,
     isFairPlayV3Supported,
 } from 'detect-audio-video';
-import { Badge } from '../Badge';
+import { Badge } from '../../../../components/Badge';
 import { KeySystems } from '../KeySystems';
-import { block } from '../../utils/css/bem';
-import { getEncryptionSchemes } from '../../utils/drm/getEncryptionSchemes';
-import { i18n } from '../../i18n';
+import { block } from '../../../../utils/css/bem';
+import { getEncryptionSchemes } from '../../../../utils/drm/getEncryptionSchemes';
+import { i18n } from '../../../../i18n';
 
 import './index.css';
 
@@ -63,21 +64,19 @@ export function FairplayBadge() {
         keySystems.push(FAIRPLAY_V3_KEY_SYSTEM);
     }
 
-    return hasFairplay ? html`
-        <div class="${b()}">
-            ${Badge({
-                text: 'FairPlay',
-                background: 'white',
-                top: {
-                    text: 'Apple',
-                },
-                bottom: {
-                    text: html`<ul class="${b('list')}">
-                        <li class="${b('item')}"><${KeySystems} items="${keySystems}" //></li>
-                        <li class="${b('item')}">${encryptionSchemes.length ? `${i18n('Encryption schemes')}: ${encryptionSchemes}` : ''}</li>
-                    </ul>`
-                },
-            })}
+    return hasFairplay ? (
+        <div class={b()}>
+            <Badge 
+                text="FairPlay"
+                background="white"
+                top={{ text: 'Apple' }}
+                bottom={{
+                    text: (<ul class={b('list')}>
+                        <li class={b('item')}><KeySystems items={keySystems} /></li>
+                        <li class={b('item')}>{encryptionSchemes.length ? `${i18n('Encryption schemes')}: ${encryptionSchemes}` : ''}</li>
+                    </ul>)
+                }}
+            />
         </div>
-    ` : '';
+    ) : null;
 }
