@@ -1,5 +1,5 @@
+import { h } from 'preact';
 import render from 'preact-render-to-string';
-import { html } from 'htm/preact';
 
 import { AudioPage } from '../pages/AudioPage';
 import { BatteryPage } from '../pages/BatteryPage';
@@ -54,8 +54,9 @@ export const pages: Record<string, any> = {
 };
 
 export function buildPage(id: string): string {
-    if (pages[id]) {
-        return render(html`<${pages[id]} //>`);
+    const Component = pages[id]
+    if (Component) {
+        return render(<Component />);
     } else {
         throw Error(`Not founded "${id}" page component for SSR`);
     }

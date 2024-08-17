@@ -1,4 +1,4 @@
-import { h } from 'htm/preact';
+import { h } from 'preact';
 import { useCallback, useState } from 'preact/hooks';
 import { Button } from '../../../../components/ui/Button';
 import { TreeList } from '../../../../components/TreeList';
