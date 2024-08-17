@@ -1,4 +1,5 @@
-import { html } from 'htm/preact';
+import { h } from 'preact';
+
 import { ScreenList } from '../../components/ScreenList';
 import { Page } from '../Page';
 import { i18n } from '../../i18n';
@@ -10,16 +11,18 @@ import { Section } from '../../components/ui/Section';
 
 export function ScreenPage() {
     const items = [
-        [html`<${Link} href="${getPagePath('test-dead-pixels')}">${i18n('Test dead pixels')}<//>`],
-        [html`<${ExtLink} target="_blank" href="https://vvideo.github.io/hdcp/index.html">${i18n('Check HDCP version')}<//>`],
+        [(<Link href={getPagePath('test-dead-pixels')}>{i18n('Test dead pixels')}</Link>)],
+        [(<ExtLink target="_blank" href="https://vvideo.github.io/hdcp/index.html">{i18n('Check HDCP version')}</ExtLink>)],
     ];
 
-    return html`
-        <${Page}>
-            <${ScreenList}><//>
-
-            <${Section} name="${i18n('Tests')}">
-                <${NavList} items="${items}" //>
-            <//>
-        <//>`;
+    return (
+        <Page>
+            <div>
+                <ScreenList />
+                <Section name={i18n('Tests')}>
+                    <NavList items={items} />
+                </Section>
+            </div>
+        </Page>
+    );
 }
