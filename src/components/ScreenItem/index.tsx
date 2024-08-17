@@ -1,5 +1,6 @@
-import { html } from 'htm/preact';
+import { h } from 'preact';
 import { calcAspectRatio } from 'calc-aspect-ratio';
+
 import { DescriptionList } from '../DescriptionList';
 import { getChecked } from '../../utils/getChecked';
 import { i18n } from '../../i18n';
@@ -47,26 +48,27 @@ export function ScreenItem(props: ScreenItemProps) {
     const logicalSize = [width, height];
     const realSize = [width * devicePixelRatio, height * devicePixelRatio];
 
-    const items = [
+    let items: [string | h.JSX.Element, string | h.JSX.Element | number][] = [
         [i18n('Actual size'), realSize.join('×')],
         [i18n('Logical size'), logicalSize.join('×')],
         [i18n('Device pixel ratio'), devicePixelRatio],
         [i18n('Aspect ratio'), calcAspectRatio(Math.max(width, height), Math.min(width, height)).value],
-        orientation ? [i18n('Orientation'), i18n(orientation.type)] : '',
+        orientation ? [i18n('Orientation'), i18n(orientation.type)] : ['', ''],
         [i18n('Color depth'), `${colorDepth} ${i18n('bit')}`],
-        [html`<${HdrLabel} enabled="${isHdr}" //>`, getChecked(Boolean(isHdr))],
-        [i18n('Color spaces'), html`<${ColorSpaceList} items="${colorSpaces}" //>`],
-        typeof isPrimary === 'undefined' ? '' : [i18n('Primary'), getChecked(Boolean(isPrimary))],
-        typeof isInternal === 'undefined' ? '' : [i18n('Internal'), getChecked(Boolean(isInternal))],
-        typeof maxTouchPoints === 'undefined' ? '' : [i18n('Max touch points'), maxTouchPoints],
-    ].filter(Boolean);
+        [(<HdrLabel enabled={Boolean(isHdr)} />), getChecked(Boolean(isHdr))],
+        [i18n('Color spaces'), (<ColorSpaceList items={colorSpaces} />)],
+        typeof isPrimary === 'undefined' ? ['', ''] : [i18n('Primary'), getChecked(Boolean(isPrimary))],
+        typeof isInternal === 'undefined' ? ['', ''] : [i18n('Internal'), getChecked(Boolean(isInternal))],
+        typeof maxTouchPoints === 'undefined' ? ['', ''] : [i18n('Max touch points'), maxTouchPoints],
+    ];
+    
+    items = items.filter(Boolean);
 
-    return html`
-        <div class="${b()}">
-            ${label ? html`<div class="${b('label')}">${label}</div>` : ''}
-            <${DescriptionList} items="${items}"><//>
-
-            ${isExtended === true ? html`<${WarningMessage}>${i18n('Additional monitor detected')}<//>` : ''}
+    return (
+        <div class={b()}>
+            {label ? (<div class={b('label')}>{label}</div>) : ''}
+            <DescriptionList items={items} />
+            {isExtended === true ? (<WarningMessage>{i18n('Additional monitor detected')}</WarningMessage>) : ''}
         </div>
-    `;
+    );
 }

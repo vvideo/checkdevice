@@ -8,8 +8,8 @@ import './index.css';
 
 interface DescriptionListProps {
     class?: string;
-    title: string;
-    items: Array<[string, any]>;
+    title?: string;
+    items: Array<[any, any]>;
 }
 
 const b = block('description-list');
