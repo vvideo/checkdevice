@@ -1,4 +1,4 @@
-import { html } from 'htm/preact';
+import { h } from 'preact';
 import {
     isMseSupported,
     isEmeSupported,
@@ -8,10 +8,10 @@ import {
     isCastToAirPlaySupported,
 } from 'detect-audio-video';
 
-import { block } from '../../utils/css/bem';
-import { i18n } from '../../i18n';
-import { getAutoplayPolicy } from '../../utils/getAutoplayPolicy';
-import { isSsr } from '../../utils/isSsr';
+import { block } from '../../../../utils/css/bem';
+import { i18n } from '../../../../i18n';
+import { getAutoplayPolicy } from '../../../../utils/getAutoplayPolicy';
+import { isSsr } from '../../../../utils/isSsr';
 
 import './index.css';
 
@@ -48,7 +48,7 @@ export function HtmlVideoElementFeatures() {
             label: 'Cast to AirPlay',
             title: 'AirPlay',
             supported: isSsr ? false : isCastToAirPlaySupported(),
-        }
+        },
     ];
 
     items.sort((a, b) => {
@@ -62,13 +62,13 @@ export function HtmlVideoElementFeatures() {
 
     const content = items.map(item => {
         const supported = item.supported ? '✓' : i18n('No');
-        return html`<li title="${item.title}">${item.label}: ${supported}</li>`;
+        return (<li title={item.title}>{item.label}: {supported}</li>);
     });
 
     const autoplayPolicy = isSsr ? '' : getAutoplayPolicy();
     if (autoplayPolicy) {
-        content.push(html`<li>Autoplay Policy: ${autoplayPolicy}</li>`);
+        content.push((<li>Autoplay Policy: {autoplayPolicy}</li>));
     }
 
-    return html`<ul class=${b()}>${content}</ul>`;
+    return (<ul class={b()}>{content}</ul>);
 }

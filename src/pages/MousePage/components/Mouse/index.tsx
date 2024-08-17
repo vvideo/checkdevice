@@ -1,9 +1,10 @@
-import { html } from 'htm/preact';
+import { h } from 'preact';
+
 import { useEffect, useRef, useState } from 'preact/hooks';
-import { block } from '../../utils/css/bem';
-import { useForceUpdate } from '../../hooks/useForceUpdate';
-import { passiveSupported } from '../../utils/passiveSupported';
-import { i18n } from '../../i18n';
+import { block } from '../../../../utils/css/bem';
+import { useForceUpdate } from '../../../../hooks/useForceUpdate';
+import { passiveSupported } from '../../../../utils/passiveSupported';
+import { i18n } from '../../../../i18n';
 import { prepareDeltaY } from './utils';
 
 import './index.css';
@@ -26,7 +27,7 @@ export function Mouse() {
     const wheelArrowUpTimer = useRef<number>(0);
     const wheelArrowDownTimer = useRef<number>(0);
 
-    const refRoot = useRef<HTMLDivElement>();
+    const refRoot = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const handleScroll = (e: Event) => {
@@ -121,29 +122,29 @@ export function Mouse() {
         };
     }, [wheelY]);
 
-    return html`
-        <div ref="${refRoot}" class="${b()}">
-            <div class="${b('body')}" title="${i18n('Mouse')}">
-                <div class="${b('left-button', { pressed: buttons.current[0], /*dblClick: dblClicks.current[0]*/ })}" title="${i18n('Left mouse button')}">
-                    <div class="${b('text')}">${i18n('Left mouse button')}</div>
+    return (
+        <div ref={refRoot} class={b()}>
+            <div class={b('body')} title={i18n('Mouse')}>
+                <div class={b('left-button', { pressed: buttons.current[0], /*dblClick: dblClicks.current[0]*/ })} title={i18n('Left mouse button')}>
+                    <div class={b('text')}>{i18n('Left mouse button')}</div>
                 </div>
-                <div class="${b('middle-button', { pressed: buttons.current[1], /*dblClick: dblClicks.current[1]*/ })}">
-                    <div class="${b('wheel')}" style="background-position-y:${wheelY}px" title="${i18n('Middle mouse button and mouse wheel')}"></div>
-                    <div class="${b('text')}">${i18n('Middle mouse button and mouse wheel')}</div>
+                <div class={b('middle-button', { pressed: buttons.current[1], /*dblClick: dblClicks.current[1]*/ })}>
+                    <div class="${b('wheel')}" style={`background-position-y:${wheelY}px`} title={i18n('Middle mouse button and mouse wheel')}></div>
+                    <div class={b('text')}>{i18n('Middle mouse button and mouse wheel')}</div>
                 </div>
-                <div class="${b('wheel-arrow-up', { hidden: !wheelArrowUp })}"></div>
-                <div class="${b('wheel-arrow-down', { hidden: !wheelArrowDown })}"></div>
+                <div class={b('wheel-arrow-up', { hidden: !wheelArrowUp })}></div>
+                <div class={b('wheel-arrow-down', { hidden: !wheelArrowDown })}></div>
 
-                <div class="${b('right-button', { pressed: buttons.current[2], /*dblClick: dblClicks.current[2]*/ })}" title="${i18n('Right mouse button')}">
-                    <div class="${b('text')}">${i18n('Right mouse button')}</div>
+                <div class={b('right-button', { pressed: buttons.current[2], /*dblClick: dblClicks.current[2]*/ })} title={i18n('Right mouse button')}>
+                    <div class={b('text')}>{i18n('Right mouse button')}</div>
                 </div>
-                <div class="${b('4-button', { pressed: buttons.current[3], /*dblClick: dblClicks.current[3]*/ })}" title="${i18n('Additional mouse button 4')}">
-                    <div class="${b('text')}">${i18n('Additional mouse button 4')}</div>
+                <div class={b('4-button', { pressed: buttons.current[3], /*dblClick: dblClicks.current[3]*/ })} title={i18n('Additional mouse button 4')}>
+                    <div class={b('text')}>{i18n('Additional mouse button 4')}</div>
                 </div>
-                <div class="${b('5-button', { pressed: buttons.current[4], /*dblClick: dblClicks.current[4]*/ })}" title="${i18n('Additional mouse button 5')}">
-                    <div class="${b('text')}">${i18n('Additional mouse button 5')}</div>
+                <div class={b('5-button', { pressed: buttons.current[4], /*dblClick: dblClicks.current[4]*/ })} title={i18n('Additional mouse button 5')}>
+                    <div class={b('text')}>{i18n('Additional mouse button 5')}</div>
                 </div>
             </div>
         </div>
-    `;
+    );
 }
