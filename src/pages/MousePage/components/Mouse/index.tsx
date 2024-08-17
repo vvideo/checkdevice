@@ -129,7 +129,7 @@ export function Mouse() {
                     <div class={b('text')}>{i18n('Left mouse button')}</div>
                 </div>
                 <div class={b('middle-button', { pressed: buttons.current[1], /*dblClick: dblClicks.current[1]*/ })}>
-                    <div class="${b('wheel')}" style={`background-position-y:${wheelY}px`} title={i18n('Middle mouse button and mouse wheel')}></div>
+                    <div class={b('wheel')} style={`background-position-y:${wheelY}px`} title={i18n('Middle mouse button and mouse wheel')}></div>
                     <div class={b('text')}>{i18n('Middle mouse button and mouse wheel')}</div>
                 </div>
                 <div class={b('wheel-arrow-up', { hidden: !wheelArrowUp })}></div>

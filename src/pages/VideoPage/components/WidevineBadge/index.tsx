@@ -1,13 +1,13 @@
 import { h } from 'preact';
 import { useState } from 'preact/hooks';
-
-import { Badge } from '../../../../components/Badge';
 import {
     WIDEWINE_KEY_SYSTEM,
     isWidevineL1Supported,
     isWidevineL3Supported,
     isWidevineSupported,
 } from 'detect-audio-video';
+
+import { Badge } from '../../../../components/Badge';
 import { HdcpLink } from '../HdcpLink';
 import { getHdcpNotDetected, getHdcpVersion } from '../../../../utils/drm/getHcpVersion';
 import { KeySystems } from '../KeySystems';
@@ -65,10 +65,10 @@ export function WidevineBadge() {
                 top={{ text: 'Google' }}
                 bottom={{
                     text: (<ul class={b('list')}>
-                        <li class="${b('item')}"><SecurityLevels items={levels} /></li>
-                        <li class="${b('item')}"><KeySystems items={[WIDEWINE_KEY_SYSTEM]} /></li>
-                        <li class="${b('item')}">{encryptionSchemes.length ? `${i18n('Encryption schemes')}: ${encryptionSchemes}` : ''}</li>
-                        <li class="${b('item')}"><HdcpLink version={hdcpVersion} /></li>
+                        <li class={b('item')}><SecurityLevels items={levels} /></li>
+                        <li class={b('item')}><KeySystems items={[WIDEWINE_KEY_SYSTEM]} /></li>
+                        <li class={b('item')}>{encryptionSchemes.length ? `${i18n('Encryption schemes')}: ${encryptionSchemes}` : ''}</li>
+                        <li class={b('item')}><HdcpLink version={hdcpVersion} /></li>
                     </ul>),
                 }}
             />

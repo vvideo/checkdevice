@@ -50,10 +50,10 @@ export function Fonts() {
 
     return (
         <div class={b()}>
-            <div class="${b('controls')}">
-                ${fonts ? '' : (<Button theme="active" onClick={handleButtonClick}>{i18n('Request fonts')}</Button>)}
-                ${fonts ? (<Input class={b('filter')} placeholder={i18n('Filter')} value="" onChange={handleChange} />) : ''}
-                ${fonts ? (<div class={b('group-by-family')}><Checkbox onClick={handleCheckboxClick} label={i18n('Group by family')} checked={groupByFamily} /></div>) : ''}
+            <div class={b('controls')}>
+                {fonts ? '' : (<Button theme="active" onClick={handleButtonClick}>{i18n('Request fonts')}</Button>)}
+                {fonts ? (<Input class={b('filter')} placeholder={i18n('Filter')} value="" onChange={handleChange} />) : ''}
+                {fonts ? (<div class={b('group-by-family')}><Checkbox onClick={handleCheckboxClick} label={i18n('Group by family')} checked={groupByFamily} /></div>) : ''}
             </div>
             {groupByFamily ? (<FontListGrouped items={items} />) : (<FontList items={items} />)}
         </div>

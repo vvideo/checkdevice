@@ -56,8 +56,8 @@ export function Mic() {
         <MicError error={error} />
 
         <div class={b('canvas-container')}>
-            <canvas title="${i18n('Sound spectrum visualizer for mic')}" ref={refCanvas} class={b('canvas')} width="300" height="200"></canvas>
-            <div class="${b('speak-up', { started })}">📢 ${i18n('Speak up!')}</div>
+            <canvas title={i18n('Sound spectrum visualizer for mic')} ref={refCanvas} class={b('canvas')} width="300" height="200"></canvas>
+            <div class={b('speak-up', { started })}>📢 ${i18n('Speak up!')}</div>
         </div>
         {isSsr ? (<MicInfoSsr />) : (audio ? (<MicInfo {...audio} />) : '')}
     </div>);
