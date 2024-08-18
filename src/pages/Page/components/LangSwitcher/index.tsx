@@ -1,11 +1,11 @@
 import { h } from 'preact';
 
 import { useCallback, useState } from 'preact/hooks';
-import { getI18nLang, getI18nLangs } from '../../i18n';
-import { block } from '../../utils/css/bem';
+import { getI18nLang, getI18nLangs } from '../../../../i18n';
+import { block } from '../../../../utils/css/bem';
 import { LangSwitcherItem } from '../LangSwitcherItem';
-import { getPagePath } from '../../utils/getPagePath';
-import { getPageId } from '../../utils/pageId';
+import { getPagePath } from '../../../../utils/getPagePath';
+import { getPageId } from '../../../../utils/pageId';
 import { LangIcon } from '../LangIcon';
 
 import './index.css';

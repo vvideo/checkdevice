@@ -1,5 +1,6 @@
 import { h } from 'preact';
-import { block } from '../../utils/css/bem';
+
+import { block } from '../../../../utils/css/bem';
 
 import './index.css';
 

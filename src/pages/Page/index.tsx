@@ -2,9 +2,9 @@ import './common';
 
 import { h } from 'preact';
 
-import { Footer } from '../../components/Footer';
+import { Footer } from './components/Footer';
 import { Menu } from './components/Menu';
-import { Header } from '../../components/Header';
+import { Header } from './components/Header';
 import { block } from '../../utils/css/bem';
 import { PageTitle } from '../../components/PageTitle';
 

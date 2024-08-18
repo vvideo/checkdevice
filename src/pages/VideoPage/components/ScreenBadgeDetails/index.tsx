@@ -1,13 +1,13 @@
 import { h } from 'preact';
 import { calcAspectRatio } from 'calc-aspect-ratio';
 
-import { hasZoom } from '../../utils/hasZoom';
-import { i18n } from '../../i18n';
-import { prepareColorSpaces } from '../../utils/getColorSpaces';
-import { getChecked } from '../../utils/getChecked';
-import { block } from '../../utils/css/bem';
-import { ValueInProgress } from '../ValueInProgress';
-import { isSsr } from '../../utils/isSsr';
+import { hasZoom } from '../../../../utils/hasZoom';
+import { i18n } from '../../../../i18n';
+import { prepareColorSpaces } from '../../../../utils/getColorSpaces';
+import { getChecked } from '../../../../utils/getChecked';
+import { block } from '../../../../utils/css/bem';
+import { ValueInProgress } from '../../../../components/ValueInProgress';
+import { isSsr } from '../../../../utils/isSsr';
 
 import './index.css';
 

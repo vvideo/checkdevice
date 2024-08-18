@@ -1,11 +1,11 @@
 import { h } from 'preact';
 import { useEffect, useRef } from 'preact/hooks';
 
-import { RefreshRateController } from '../../lib/RefreshRateController';
-import { Spinner } from '../ui/Spinner';
-import { i18n } from '../../i18n';
-import { useForceUpdate } from '../../hooks/useForceUpdate';
-import { block } from '../../utils/css/bem';
+import { RefreshRateController } from '../../../../lib/RefreshRateController';
+import { Spinner } from '../../../../components/ui/Spinner';
+import { i18n } from '../../../../i18n';
+import { useForceUpdate } from '../../../../hooks/useForceUpdate';
+import { block } from '../../../../utils/css/bem';
 
 import './index.css';
 

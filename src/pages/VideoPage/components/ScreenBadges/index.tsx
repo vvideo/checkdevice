@@ -2,12 +2,12 @@ import { h } from 'preact';
 
 import { useCallback, useEffect } from 'preact/hooks';
 import { ScreenBadge } from '../ScreenBadge';
-import { Section } from '../ui/Section';
-import { screenInfo } from '../../lib/ScreenInfo';
-import { i18n } from '../../i18n';
-import { block } from '../../utils/css/bem';
-import { useForceUpdate } from '../../hooks/useForceUpdate';
-import { Button } from '../ui/Button';
+import { Section } from '../../../../components/ui/Section';
+import { screenInfo } from '../../../../lib/ScreenInfo';
+import { i18n } from '../../../../i18n';
+import { block } from '../../../../utils/css/bem';
+import { useForceUpdate } from '../../../../hooks/useForceUpdate';
+import { Button } from '../../../../components/ui/Button';
 
 import './index.css';
 

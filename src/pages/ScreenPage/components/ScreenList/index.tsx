@@ -10,7 +10,7 @@ import { screenInfo } from '../../../../lib/ScreenInfo';
 import { hasTouchScreen } from '../../../../utils/device/hasTouchScreen';
 import { getChecked } from '../../../../utils/getChecked';
 import { getMaxTouchPoints } from '../../../../utils/device/getMaxTouchPoints';
-import { RefreshRate } from '../../../../components/RefreshRate';
+import { RefreshRate } from '../RefreshRate';
 import { RefreshRateController } from '../../../../lib/RefreshRateController';
 import { PageTitle } from '../../../../components/PageTitle';
 import { isSsr } from '../../../../utils/isSsr';

@@ -1,5 +1,6 @@
 import { showJSError } from 'show-js-error';
 import { hit } from 'lyam';
+
 import { I18NLanguage, setI18nLang } from '../../i18n';
 import { withInstallApp } from '../../utils/withInstallApp';
 import { addHoverOnBody } from '../../utils/css/addHoverOnBody';

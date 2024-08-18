@@ -1,7 +1,7 @@
 import { h } from 'preact';
 
-import { block } from '../../utils/css/bem';
-import { Link } from '../ui/Link';
+import { block } from '../../../../utils/css/bem';
+import { Link } from '../../../../components/ui/Link';
 import { LangIcon } from '../LangIcon';
 
 import './index.css';

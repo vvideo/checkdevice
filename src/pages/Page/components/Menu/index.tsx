@@ -1,6 +1,6 @@
 import { h } from 'preact';
 
-import { MainMenu, MainMenuItem } from '../../../../components/MainMenu';
+import { MainMenu, MainMenuItem } from '../MainMenu';
 import pages from '../../../pages';
 import { i18nWithKeyset } from '../../../../i18n';
 import { getPagePath } from '../../../../utils/getPagePath';

@@ -1,10 +1,10 @@
 import { h } from 'preact';
 import { useCallback, useState } from 'preact/hooks';
-
-import { Badge } from '../Badge';
 import { getResolutionBadge, isMobile } from 'detect-audio-video';
-import { block } from '../../utils/css/bem';
-import { isLargerFullHd } from '../../lib/ScreenInfo';
+
+import { Badge } from '../../../../components/Badge';
+import { block } from '../../../../utils/css/bem';
+import { isLargerFullHd } from '../../../../lib/ScreenInfo';
 import { ScreenBadgeDetails } from '../ScreenBadgeDetails';
 
 import './index.css';

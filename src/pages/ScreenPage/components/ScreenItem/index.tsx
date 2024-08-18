@@ -7,7 +7,7 @@ import { i18n } from '../../../../i18n';
 import { block } from '../../../../utils/css/bem';
 import { WarningMessage } from '../../../../components/ui/WarningMessage';
 import { HdrLabel } from '../HdrLabel';
-import { ColorSpaceList } from '../../../../components/ColorSpaceList';
+import { ColorSpaceList } from '../ColorSpaceList';
 
 import './index.css';
 

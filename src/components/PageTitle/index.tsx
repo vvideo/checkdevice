@@ -1,4 +1,5 @@
 import { h } from 'preact';
+
 import { block } from '../../utils/css/bem';
 import { VNode } from 'preact';
 

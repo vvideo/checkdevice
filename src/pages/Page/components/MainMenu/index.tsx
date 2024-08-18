@@ -1,7 +1,7 @@
 import { h } from 'preact';
 
-import { block } from '../../utils/css/bem';
-import { getPagePath } from '../../utils/getPagePath';
+import { block } from '../../../../utils/css/bem';
+import { getPagePath } from '../../../../utils/getPagePath';
 
 import './index.css';
 
