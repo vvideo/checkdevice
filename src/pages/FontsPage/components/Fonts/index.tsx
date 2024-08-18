@@ -10,9 +10,9 @@ import { filterFonts } from './utils';
 import { FontList } from '../FontList';
 import { FontListGrouped } from '../FontListGrouped';
 import { isSsr } from '../../../../utils/isSsr';
+import { noop } from '../../../../utils/noop';
 
 import './index.css';
-import { noop } from '../../../../utils/noop';
 
 const b = block('fonts');
 
