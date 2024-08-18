@@ -17,7 +17,7 @@ const createConfig = name => ({
             file: `static/${name}.js`,
             format: 'umd',
         },
-]   ,
+    ],
     plugins: [
         typescript(),
         nodeResolve(),
