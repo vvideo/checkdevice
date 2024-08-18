@@ -1,11 +1,11 @@
 import { h } from 'preact';
-import { VNode } from 'preact';
+
 import { Link } from '../Link';
 
 interface ExtLinkProps {
     href: string;
     target?: string;
-    children: VNode | string;
+    children: h.JSX.Element | string;
     theme?: 'white';
 }
 

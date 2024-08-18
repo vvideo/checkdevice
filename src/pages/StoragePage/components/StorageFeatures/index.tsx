@@ -1,7 +1,6 @@
 import { h } from 'preact';
-
 import { useEffect, useState } from 'preact/hooks';
-import { VNode } from 'preact';
+
 import { formatBytesToGB } from '../../../../utils/formatBytesToGB';
 import { ExtLink } from '../../../../components/ui/ExtLink';
 import { getChecked } from '../../../../utils/getChecked';
@@ -24,7 +23,7 @@ export function StorageFeatures() {
         });
     }, []);
 
-    const features: Array<[VNode | string, string]> = [
+    const features: Array<[h.JSX.Element | string, string]> = [
         [
             (<ExtLink theme="white" href="https://developer.mozilla.org/en-US/docs/Web/API/StorageManager/persist">{i18n('Support of persistent storage')}</ExtLink>),
             getChecked(Boolean(typeof navigator.storage?.persist === 'function'))

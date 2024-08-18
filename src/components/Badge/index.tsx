@@ -1,13 +1,13 @@
 import { h } from 'preact';
+
 import { block } from '../../utils/css/bem';
-import { VNode } from 'preact';
 
 import './index.css';
 
 const b = block('badge');
 
 interface BadgeProps {
-    text: string | VNode;
+    text: string | h.JSX.Element;
     type?: '4k' | 'hdr';
     background?: 'white' | 'gold' | 'transparent';
     size?: 'small';
@@ -15,11 +15,11 @@ interface BadgeProps {
     hidden?: boolean;
     click?: boolean;
     top?: {
-        text: string | VNode;
+        text: string | h.JSX.Element;
         title?: string;
     };
     bottom?: {
-        text: string | VNode | VNode[];
+        text: string | h.JSX.Element | h.JSX.Element[];
         title?: string;
     };
 }

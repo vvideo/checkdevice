@@ -1,6 +1,5 @@
-import { h } from 'preact';
-import { VNode, render } from 'preact';
+import { h, render } from 'preact';
 
-export function renderToRoot(Component: () => VNode) {
+export function renderToRoot(Component: () => h.JSX.Element) {
     return render(<Component />, document.querySelector('.root') as HTMLDivElement);
 }

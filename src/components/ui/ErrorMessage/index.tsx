@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import { VNode } from 'preact';
+
 import { block } from '../../../utils/css/bem';
 import { classname } from '../../../utils/css/classname';
 
@@ -8,7 +8,7 @@ import './index.css';
 interface WarningMessageProps {
     theme?: 'gray';
     class?: string;
-    children: VNode | string;
+    children: h.JSX.Element | string;
 }
 
 const b = block('error-message');

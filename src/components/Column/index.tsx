@@ -1,6 +1,6 @@
 import { h } from 'preact';
+
 import { block } from '../../utils/css/bem';
-import { VNode } from 'preact';
 
 import './index.css';
 
@@ -9,7 +9,7 @@ const b = block('column');
 interface ColumnProps {
     name: string;
     title?: string;
-    children: VNode | VNode[] | string;
+    children: h.JSX.Element | h.JSX.Element[] | string;
     disabled?: boolean;
 }
 

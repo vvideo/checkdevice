@@ -1,6 +1,6 @@
 import { h } from 'preact';
 import { useCallback, useState } from 'preact/hooks';
-import { VNode } from 'preact';
+
 import { block } from '../../utils/css/bem';
 
 import './index.css';
@@ -8,8 +8,8 @@ import './index.css';
 const b = block('active-question');
 
 interface ActiveQuestionProps {
-    head: VNode;
-    children: VNode;
+    head: h.JSX.Element;
+    children: h.JSX.Element;
 }
 
 export function ActiveQuestion(props: ActiveQuestionProps) {

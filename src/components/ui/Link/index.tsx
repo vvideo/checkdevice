@@ -1,4 +1,5 @@
-import { VNode, h } from 'preact';
+import { h } from 'preact';
+
 import { block } from '../../../utils/css/bem';
 import { classname } from '../../../utils/css/classname';
 
@@ -9,7 +10,7 @@ interface LinkProps {
     target?: string;
     href: string;
     theme?: 'white';
-    children: VNode | string;
+    children: h.JSX.Element | string;
 }
 
 const b = block('link');

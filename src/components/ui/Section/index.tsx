@@ -1,6 +1,6 @@
 import { h } from 'preact';
+
 import { block } from '../../../utils/css/bem';
-import { VNode } from 'preact';
 import { classname } from '../../../utils/css/classname';
 
 import './index.css';
@@ -10,7 +10,7 @@ const b = block('section');
 interface SectionProps {
     name?: string | number;
     class?: string;
-    children: VNode;
+    children: h.JSX.Element;
 }
 
 export function Section(props: SectionProps) {

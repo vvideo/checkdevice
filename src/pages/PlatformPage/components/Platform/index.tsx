@@ -5,7 +5,6 @@ import { i18n } from '../../../../i18n';
 import { List } from '../../../../components/ui/List';
 import { noop } from '../../../../utils/noop';
 import { isStandalone, hasHardwareAcceleration } from 'detect-audio-video';
-import { VNode } from 'preact';
 import { InfoLink } from '../../../../components/ui/InfoLink';
 import { getChecked } from '../../../../utils/getChecked';
 import { isSsr } from '../../../../utils/isSsr';
@@ -58,7 +57,7 @@ export function Platform() {
         setUserData(true);
     }).catch(noop);
 
-    let items: [VNode | string, any][] = [
+    let items: [h.JSX.Element | string, any][] = [
         [
             (<span>Hardware concurrency <InfoLink title="MDN" href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/hardwareConcurrency" /></span>),
             isSsr ? (<ValueInProgress />) : navigator.hardwareConcurrency

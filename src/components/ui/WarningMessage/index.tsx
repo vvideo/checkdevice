@@ -1,11 +1,11 @@
-import { VNode, h } from 'preact';
+import { h } from 'preact';
 import { block } from '../../../utils/css/bem';
 
 import './index.css';
 
 interface WarningMessageProps {
     theme?: 'gray'
-    children: VNode | string;
+    children: h.JSX.Element | string;
 }
 
 const b = block('warning-message');

@@ -1,6 +1,6 @@
 import { h } from 'preact';
 import { useCallback } from 'preact/hooks';
-import { VNode } from 'preact';
+
 import { classname } from '../../../utils/css/classname';
 import { block } from '../../../utils/css/bem';
 
@@ -8,7 +8,7 @@ import './index.css';
 
 interface ButtonProps {
     class?: string;
-    children: VNode | string;
+    children: h.JSX.Element | string;
     onClick?: () => void;
     theme?: 'active' | 'red';
     disabled?: boolean;

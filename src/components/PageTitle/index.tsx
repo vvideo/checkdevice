@@ -1,12 +1,11 @@
 import { h } from 'preact';
 
 import { block } from '../../utils/css/bem';
-import { VNode } from 'preact';
 
 import './index.css';
 
 interface HeaderProps {
-    children: VNode | string;
+    children: h.JSX.Element | string;
 }
 
 const b = block('page-title');
