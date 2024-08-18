@@ -10,7 +10,7 @@ import { filterFonts } from './utils';
 import { FontList } from '../FontList';
 import { FontListGrouped } from '../FontListGrouped';
 import { isSsr } from '../../../../utils/isSsr';
-import { noop } from '../../../../utils/noop';
+//import { noop } from '../../../../utils/noop';
 
 import './index.css';
 
@@ -32,7 +32,9 @@ export function Fonts() {
 
         window.queryLocalFonts().then(fontData => {
             setFonts(fontData);
-        }).catch(noop);
+        }).catch(e => {
+            console.error(e);
+        });
     }, []);
 
     useEffect(() => {
