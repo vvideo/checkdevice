@@ -12,7 +12,13 @@
     text-decoration: none;
 }
 
-.lang-switcher-item:hover {
+body.hover_yes .lang-switcher-item:hover {
     background-color: gold;
+}
+
+body.hover_yes .lang-switcher-item:hover .link:link,
+body.hover_yes .lang-switcher-item:hover .link:visited,
+body.hover_yes .lang-switcher-item:hover .link:hover,
+body.hover_yes .lang-switcher-item:hover .link:active {
     color: black;
 }
