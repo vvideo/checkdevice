@@ -1,6 +1,6 @@
 import { h } from 'preact';
 
-import { useCallback, useState } from 'preact/hooks';
+import { useCallback, useEffect, useRef, useState } from 'preact/hooks';
 import { getI18nLang, getI18nLangs } from '../../../../i18n';
 import { block } from '../../../../utils/css/bem';
 import { LangSwitcherItem } from '../LangSwitcherItem';
@@ -16,14 +16,40 @@ export function LangSwitcher() {
     const [visible, setVisible] = useState(false);
     const currentLang = getI18nLang();
     const langs = getI18nLangs();
+    const ref = useRef<HTMLDivElement>(null);
 
     const handleClick = useCallback(() => {
-        setVisible(true);
+        setVisible(true);    
+    }, [setVisible]);
+
+    useEffect(() => {
+        const handleDocumentClick = (event: MouseEvent) => {
+            if (event.target && ref.current) {
+                const target = event.target as HTMLElement;
+                if (ref.current.contains && !ref.current.contains(target)) {
+                    setVisible(false);
+                }
+            }
+        };
+
+        const handleDocumentKeydown = (event: KeyboardEvent) => {
+            if (event.code === 'Escape') {
+                setVisible(false);
+            }
+        };
+
+        document.addEventListener('click', handleDocumentClick, false);
+        document.addEventListener('keydown', handleDocumentKeydown, false);
+
+        return () => {
+            document.removeEventListener('click', handleDocumentClick, false);
+            document.removeEventListener('keydown', handleDocumentKeydown, false);
+        };
     }, [setVisible]);
 
     const currentLangItem = langs.filter(item => currentLang === item.value)[0];
 
-    return (<div class={b()}>
+    return (<div ref={ref} class={b()}>
         <div class={b('current')} onClick={handleClick}>
             <LangIcon lang={currentLangItem.value} /> {currentLangItem.name}
         </div>
