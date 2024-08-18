@@ -1,3 +1,3 @@
-.columns {
+.columns > div {
     display: flex;
 }
