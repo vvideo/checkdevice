@@ -61,15 +61,15 @@ export function buildData(data: any, options: BuildDataOptions = {}, level = 0):
 
     if (Array.isArray(data)) {
         if (options.compactArrayWithSimpleTypes && isArrayWithSimpleTypes(data)) {
-            return (<div>[{' '}
+            return (<div class={b('inline')}>[{' '}
                 {data.map((item, i) => {
-                    return (<div>{i ? ', ' : ''}{buildData(item, options, level + 1)}</div>);
+                    return (<div class={b('inline')}>{i ? ', ' : ''}{buildData(item, options, level + 1)}</div>);
                 })}
             {' '}]</div>);
         } else {
-            return (<div>[<ul>
+            return (<div class={b('inline')}>[<ul>
                 {data.map((item, i) => {
-                    const arrayIndex = options.showArrayIndex ? (<div> <span class={b('index')}>{i}: </span></div>) : '';
+                    const arrayIndex = options.showArrayIndex ? (<div class={b('inline')}> <span class={b('index')}>{i}: </span></div>) : '';
                     return (<li>{arrayIndex}{buildData(item, options, level + 1)}{i === data.length - 1 ? '' : ','}</li>);
                 })}
             </ul>]</div>);
@@ -77,9 +77,9 @@ export function buildData(data: any, options: BuildDataOptions = {}, level = 0):
     }
 
     if (options.compactObject && level > 0) {
-        return (<div>{' '}
+        return (<div class={b('inline')}>{' '}
             {Object.keys(data).map((key: string, i: number, items) => {
-                return (<div><span class={b('property')}>{key}: </span>{buildData(data[key], options, level + 1)}{i === items.length - 1 ? '' : ', '}</div>);
+                return (<div class={b('inline')}><span class={b('property')}>{key}: </span>{buildData(data[key], options, level + 1)}{i === items.length - 1 ? '' : ', '}</div>);
             })}
         {' '}</div>);
     }
@@ -90,7 +90,7 @@ export function buildData(data: any, options: BuildDataOptions = {}, level = 0):
     }
     
     const hasBraces = Boolean(options.showCurlyBracesAtRootLevel || level);
-    return (<div>{hasBraces ? '{' : ''}<ul class={b('ul', { padding: hasBraces ? 'yes' : 'no' })}>
+    return (<div class={b('inline')}>{hasBraces ? '{' : ''}<ul class={b('ul', { padding: hasBraces ? 'yes' : 'no' })}>
         {props.map((key: string, i: number, items) => {
             return (<li><span class={b('property')}>{key}: </span>{buildData(data[key], options, level + 1)}{i === items.length - 1 ? '' : ','}</li>);
         })}
