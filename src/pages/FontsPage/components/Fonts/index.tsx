@@ -12,6 +12,7 @@ import { FontListGrouped } from '../FontListGrouped';
 import { isSsr } from '../../../../utils/isSsr';
 
 import './index.css';
+import { noop } from '../../../../utils/noop';
 
 const b = block('fonts');
 
@@ -31,7 +32,7 @@ export function Fonts() {
 
         window.queryLocalFonts().then(fontData => {
             setFonts(fontData);
-        });
+        }).catch(noop);
     }, []);
 
     useEffect(() => {
