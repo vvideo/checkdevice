@@ -16,7 +16,7 @@
     <link rel="manifest" href="/manifest.json" />
     <link rel="shortcut icon" href="/static/favicons/favicon.png" />
     <link rel="apple-touch-icon" href="/static/favicons/touch.png" />
-    <link rel="stylesheet" href="/static/screen.css?md5=fb3bf440847fad8ef99f48beb210ba0f" />
+    <link rel="stylesheet" href="/static/screen.css?md5=2c7dda18d4f0344505b3272207d17f73" />
     <link rel="yandex-tableau-widget" href="/yandex-tableau-widget.json" />
     <script>
         var __appData__ = {
@@ -27,7 +27,7 @@
 </head>
 <body>
     <div class="root"><div class="page">
-    <header class="header"><a class="link link_theme_white" href="/en/"><span class="header__logo"></span>Check device online</a>
+    <header class="header"><a class="link link_theme_white" href="/en/"><span><span class="header__logo"></span>Check device online</span></a>
     </header>
     <nav class="main-menu">
         <ul class="main-menu__list">
@@ -65,35 +65,37 @@
             </li>
         </ul>
     </nav>
-    <div class="screen-list">
-        <h1 class="page-title">Screens</h1>
+    <div>
+        <div class="screen-list">
+            <h1 class="page-title">Screens</h1>
+            <section class="section">
+                <h2 class="section__name">Additionally</h2>
+                <div class="section__body">
+                    <dl class="description-list">
+                        <div class="description-list__item"><dt class="description-list__term">Has touch screen</dt>
+                            <dd class="description-list__details">No</dd>
+                        </div>
+                        <div class="description-list__item"><dt class="description-list__term">Max touch points</dt>
+                            <dd class="description-list__details">0</dd>
+                        </div>
+                    </dl>
+                </div>
+            </section>
+        </div>
         <section class="section">
-            <h2 class="section__name">Additionally</h2>
+            <h2 class="section__name">Tests</h2>
             <div class="section__body">
-                <dl class="description-list">
-                    <div class="description-list__item"><dt class="description-list__term">Has touch screen</dt>
-                        <dd class="description-list__details">No</dd>
-                    </div>
-                    <div class="description-list__item"><dt class="description-list__term">Max touch points</dt>
-                        <dd class="description-list__details">0</dd>
-                    </div>
-                </dl>
+                <nav class="nav-list">
+                    <ul class="nav-list__list">
+                        <li><a class="link" href="/en/test-dead-pixels/">Test dead pixels</a>
+                        </li>
+                        <li><a target="_blank" class="link" href="https://vvideo.github.io/hdcp/index.html">Check HDCP version</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </section>
     </div>
-    <section class="section">
-        <h2 class="section__name">Tests</h2>
-        <div class="section__body">
-            <nav class="nav-list">
-                <ul class="nav-list__list">
-                    <li><a class="link" href="/en/test-dead-pixels/">Test dead pixels</a>
-                    </li>
-                    <li><a target="_blank" class="link" href="https://vvideo.github.io/hdcp/index.html">Check HDCP version</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </section>
     <footer class="footer">
         <div class="footer__item footer__item_report"><a target="_blank" class="link link_theme_white" href="https://github.com/vvideo/caniwatchvideo/issues/new">Report a bug</a>
         </div>
@@ -101,9 +103,9 @@
             <div class="lang-switcher">
                 <div class="lang-switcher__current"><span class="lang-icon lang-icon_lang_en"></span> EN</div>
                 <menu class="lang-switcher__popup">
-                    <li class="lang-switcher-item"><a class="link link_theme_white" href="/en/screen/"><span class="lang-icon lang-icon_lang_en"></span> EN ✓</a>
+                    <li class="lang-switcher-item"><a class="link link_theme_white" href="/en/screen/"><span><span class="lang-icon lang-icon_lang_en"></span> EN ✓</span></a>
                     </li>
-                    <li class="lang-switcher-item"><a class="link link_theme_white" href="/ru/screen/"><span class="lang-icon lang-icon_lang_ru"></span> RU</a>
+                    <li class="lang-switcher-item"><a class="link link_theme_white" href="/ru/screen/"><span><span class="lang-icon lang-icon_lang_ru"></span> RU</span></a>
                     </li>
                 </menu>
             </div>
@@ -111,6 +113,6 @@
         <div class="footer__item">© Vvideo</div>
     </footer>
 </div></div>
-    <script defer src="/static/screen.js?md5=28fde9a0e116b512afbebaf692b72ff1"></script>
+    <script defer src="/static/screen.js?md5=11a46b5f2e74c15c36aef7ae08854487"></script>
 </body>
 </html>
