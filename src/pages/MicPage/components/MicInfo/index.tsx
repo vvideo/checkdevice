@@ -22,7 +22,7 @@ export function MicInfo(props: MicInfoProps) {
         [i18n('Auto gain control'), getChecked(props.autoGainControl)],
         [i18n('Channel count'), props.channelCount],
         [i18n('Echo cancellation'), getChecked(props.echoCancellation)],
-        [i18n('Latency'), props.latency],
+        [i18n('Latency'), typeof props.latency === 'number' ? `${props.latency} ${i18n('sec.')}` : props.latency],
         [i18n('Noise suppression'), getChecked(props.noiseSuppression)],
         [i18n('Sample rate'), props.sampleRate ? `${props.sampleRate} ${i18n('Hz')}` : undefined],
         [i18n('Sample size'), props.sampleSize],
