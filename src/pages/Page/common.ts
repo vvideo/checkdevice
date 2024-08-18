@@ -4,11 +4,11 @@ import { I18NLanguage, setI18nLang } from '../../i18n';
 import { withInstallApp } from '../../utils/withInstallApp';
 import { addHoverOnBody } from '../../utils/css/addHoverOnBody';
 import { isSsr } from '../../utils/isSsr';
-import { setPageId } from './pageId';
+import { setPageId } from '../../utils/pageId';
 import { defaultLang, langs } from '../../i18n/langs';
 import { config } from '../../config';
 
-import './index.css';
+import './global.css';
 
 export function getLang() {
     let lang = window.__appData__.lang || getLangFromNavigator();

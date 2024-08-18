@@ -1,10 +1,10 @@
 import { h } from 'preact';
 
-import { MainMenu, MainMenuItem } from '../../components/MainMenu';
-import pages from '../pages';
-import { i18nWithKeyset } from '../../i18n';
-import { getPagePath } from '../../utils/getPagePath';
-import { getPageId } from '../common/pageId';
+import { MainMenu, MainMenuItem } from '../../../../components/MainMenu';
+import pages from '../../../pages';
+import { i18nWithKeyset } from '../../../../i18n';
+import { getPagePath } from '../../../../utils/getPagePath';
+import { getPageId } from '../../../../utils/pageId';
 
 export function Menu() {
     const id = getPageId();

@@ -6,6 +6,8 @@ import { KeyboardLed } from '../KeyboardLed/index.js';
 import { KeyboardSpacer } from '../KeyboardSpacer/index.js';
 import { block } from '../../../../utils/css/bem.js';
 
+import './index.css';
+
 interface KeyboardRowProps {
     rowData: KeyboardRowData;
 }

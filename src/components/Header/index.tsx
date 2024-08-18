@@ -11,7 +11,7 @@ const b = block('header');
 export function Header() {
     return (
         <header class={b()}>
-            <Link theme="white" href={getPagePath('index')}><span><span class={b('logo')}></span>{i18n('Check device online')}</span></Link>)
+            <Link theme="white" href={getPagePath('index')}><span><span class={b('logo')}></span>{i18n('Check device online')}</span></Link>
         </header>
     );
 }

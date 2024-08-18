@@ -1,19 +1,18 @@
-import '../common';
+import './common';
 
 import { h } from 'preact';
 
 import { Footer } from '../../components/Footer';
-import { Menu } from '../Menu';
-import { VNode } from 'preact';
+import { Menu } from './components/Menu';
 import { Header } from '../../components/Header';
 import { block } from '../../utils/css/bem';
-
-import './index.css';
 import { PageTitle } from '../../components/PageTitle';
 
+import './index.css';
+
 interface PageProps {
-    children: VNode;
-    title?: string | h.JSX.Element; 
+    children: h.JSX.Element;
+    title?: string; 
     withoutMenu?: boolean;
 }
 
