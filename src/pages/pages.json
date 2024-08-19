@@ -4,7 +4,6 @@
             "en": "Check device online",
             "ru": "Проверь устройство онлайн"
         },
-        "emoji": "",
         "menuTitle": {
             "en": "",
             "ru": ""
@@ -26,7 +25,6 @@
             "en": "Check Video",
             "ru": "Проверить видео"
         },
-        "emoji": "⏯",
         "menuTitle": {
             "en": "Video",
             "ru": "Видео"
@@ -62,7 +60,6 @@
             "en": "check dolby atmos, check dolby digital, check surround sound, check vibration, check speech syntesis",
             "ru": "проверить dolby atmos, проверить dolby digital, проверить многоканальый звук, аудиокодеки, проверить вибрацию, синтез речи"
         },
-        "emoji": "🔊",
         "id": "audio",
         "indexMenuList": {
             "en": [
@@ -94,7 +91,6 @@
             "en": "logical size, actual size, resolution screen, hdr, device pixel ratio, max touch points, color depth, aspect ratio, color spaces, orientation, frame rate",
             "ru": "разрешение экрана, логический и фактический размер, HDR, соотношение сторон, глубина цвета, ориентация, частота обновления, цветовые пространства"
         },
-        "emoji": "🖥️",
         "id": "screen",
         "indexMenuList": {
             "en": [
@@ -126,7 +122,6 @@
             "en": "web camera, microphone, web camera with microphone, web camera without microphone, low resolution of camera, high resolution of camera, high rate of camera",
             "ru": "веб-камера, микрофон, веб-камера с микрофоном, веб-камера без микрофона, веб-камера с низким разрешением, веб-камера с высоким разрешением, веб-камера с высокой частотой обновления"
         },
-        "emoji": "📸",
         "id": "camera",
         "indexMenuList": {
             "en": [
@@ -158,7 +153,6 @@
             "en": "microphone, hear yourself, auto gain control, channel count, echo cancellation, noise suppression, sample rate, sample size",
             "ru": "микрофон, слышать себя, автоматическая регулировка усиления, количество каналов, эхоподавление, шумоподавление, размер семпла"
         },
-        "emoji": "🎙️",
         "id": "mic",
         "indexMenuList": {
             "en": [
@@ -182,7 +176,6 @@
             "en": "GPU",
             "ru": "GPU"
         },
-        "emoji": "⚙️",
         "id": "gpu",
         "indexMenuList": {
             "en": [
@@ -214,7 +207,6 @@
             "en": "Mouse",
             "ru": "Мышь"
         },
-        "emoji": "🖱",
         "id": "mouse",
         "indexMenuList": {
             "en": [
@@ -227,7 +219,15 @@
               "Отображение нажатий кнопок мышки",
               "Поддержка дополнительных кнопок"
             ]
-        }
+        },
+        "description": {
+            "en": "Mouse click testing online",
+            "ru": "Тестирование нажатий кнопок мышки онлайн"
+        },
+        "keywords": {
+            "en": "left mouse click, right mouse click, middle mouse click, mouse, wheel mouse",
+            "ru": "левая кнопка мышки, правая кнопка мышки, средняя кнопка мышки, колесо прокрутки мышки"
+        }        
     },
     {
         "header": {
@@ -238,7 +238,6 @@
             "en": "Keyboard",
             "ru": "Клавиатура"
         },
-        "emoji": "⌨️",
         "id": "keyboard",
         "indexMenuList": {
             "en": [
@@ -251,6 +250,14 @@
               "Отображение кодов клавиш клавиатуры",
               "Клавиатуры: Windows, Mac, MacBook, iPad"
             ]
+        },
+        "description": {
+            "en": "Online keyboard key testing",
+            "ru": "Тестирование клавиш клавиатуры онлайн"
+        },
+        "keywords": {
+            "en": "keyboard, keyboard keys, num lock, scroll lock, led indicators, CTRL, SHIT, MET",
+            "ru": "клавиатура, клавиши клавиатуры, индикаторы клавиатуры, CTRL, SHIFT, META"
         }
     },
     {
@@ -262,9 +269,16 @@
             "en": "Key codes",
             "ru": "Коды клавиш"
         },
-        "emoji": "",
         "id": "keycodes",
-        "hidden": true
+        "hidden": true,
+        "description": {
+            "en": "Display keyboard key codes online",
+            "ru": "Отображение кодов клавиш клавиатуры онлайн"
+        },
+        "keywords": {
+            "en": "key codes, keydown event",
+            "ru": "Коды клавиш клавиатуры, keydown событие"
+        }
     },
     {
         "header": {
@@ -275,7 +289,6 @@
             "en": "Gamepad",
             "ru": "Джойстик"
         },
-        "emoji": "🕹️",
         "id": "gamepad",
         "indexMenuList": {
             "en": [
@@ -288,7 +301,15 @@
               "Проверка вибрации джойстика",
               "Поддержка джойстиков: PS3, PS4, PS5, Xbox360 и другие"
             ]
-        }
+        },
+        "description": {
+            "en": "Online testing joystick buttons, triggers and axes",
+            "ru": "Тестирование кнопок, триггеров и осей джойстика онлайн"
+        },
+        "keywords": {
+            "en": "gamepad axes, gamepad buttons, gamepad triggers",
+            "ru": "оси джойстика, кнопки джойстика, триггеры джойстика"
+        }        
     },
     {
         "header": {
@@ -299,7 +320,6 @@
             "en": "Storage",
             "ru": "Хранилище"
         },
-        "emoji": "💽",
         "id": "storage",
         "indexMenuList": {
             "en": [
@@ -312,7 +332,15 @@
               "Поддержка постоянного хранилища",
               "Квота хранилища на домен"
             ]
-        }
+        },
+        "description": {
+            "en": "View supported storage types in your browser",
+            "ru": "Просмотр поддерживаемых типов хранилищ в браузере"
+        },
+        "keywords": {
+            "en": "cookies, local storage, session storage, indexeddb, origin private file system",
+            "ru": "cookies, local storage, session storage, indexeddb, origin private file system"
+        }        
     },
     {
         "header": {
@@ -323,7 +351,6 @@
             "en": "Network",
             "ru": "Сеть"
         },
-        "emoji": "🌐",
         "id": "network",
         "indexMenuList": {
             "en": [
@@ -336,7 +363,15 @@
                 "Downlink",
                 "RTT"
             ]
-        }
+        },
+        "description": {
+            "en": "Display information about your network in browser",
+            "ru": "Отображение информации о вашей сети в браузере"
+        },
+        "keywords": {
+            "en": "IPv4, IPv6, Downlink, RTT",
+            "ru": "IPv4, IPv6, Downlink, RTT"
+        }        
     },
     {
         "header": {
@@ -347,7 +382,6 @@
             "en": "Geo",
             "ru": "Гео"
         },
-        "emoji": "📍",
         "id": "geo",
         "indexMenuList": {
             "en": [
@@ -360,7 +394,15 @@
               "Долгота",
               "Отображение геопозиции на карте"
             ]
-        }
+        },
+        "description": {
+            "en": "Displaying your geolocation information in the browser",
+            "ru": "Отображение информации о вашей геопозиции в браузере"
+        },
+        "keywords": {
+            "en": "latitude, longitude, displaying location on map",
+            "ru": "широта, долгота, отображение геопозиции на карте"
+        }        
     },
     {
         "header": {
@@ -371,21 +413,29 @@
             "en": "MIDI",
             "ru": "MIDI"
         },
-        "emoji": "🎹",
         "id": "midi",
         "hidden": true,
         "indexMenuList": {
             "en": [
-              "",
-              "",
-              ""
-            ],
-            "ru": [
-              "",
-              "",
-              ""
+                "Product name",
+                "Serial number",
+                "Detailed MIDI info"
+              ],
+              "ru": [
+                "Название устройства",
+                "Серийный номер",
+                "Детальная информация o MIDI"
+  
             ]
-        }
+        },
+        "description": {
+            "en": "Testing MIDI keyboard in browser",
+            "ru": "Тестирование MIDI-клавиатуры в браузере"
+        },
+        "keywords": {
+            "en": "MIDI",
+            "ru": "MIDI"
+        } 
     },
     {
         "header": {
@@ -396,19 +446,26 @@
             "en": "USB",
             "ru": "USB"
         },
-        "emoji": "🔌",
         "id": "usb",
         "indexMenuList": {
             "en": [
               "Product name",
               "Serial number",
-              "Detailed info"
+              "Detailed USB info"
             ],
             "ru": [
               "Название устройства",
               "Серийный номер",
               "Детальная информация"
             ]
+        },
+        "description": {
+            "en": "View detailed information about a USB device in browser",
+            "ru": "Посмотреть детальную информацию о USB-устройстве в браузере"
+        },
+        "keywords": {
+            "en": "product name, serial number, detailed USB info",
+            "ru": "название устройства, серийный номер, детальная информация"
         }
     },
     {
@@ -416,20 +473,27 @@
             "en": "Bluetooth",
             "ru": "Bluetooth"
         },
-        "emoji": "ᛒ",
         "id": "bluetooth",
         "hidden": true,
         "indexMenuList": {
             "en": [
-              "",
-              "",
-              ""
-            ],
-            "ru": [
-              "",
-              "",
-              ""
+                "Product name",
+                "Serial number",
+                "Detailed USB info"
+              ],
+              "ru": [
+                "Название устройства",
+                "Серийный номер",
+                "Детальная информация"
             ]
+        },
+        "description": {
+            "en": "Просмотр детальной информации о bluetooth-устройстве онлайн",
+            "ru": "View detailed information about a Bluetooth device online"
+        },
+        "keywords": {
+            "en": "bluetooth",
+            "ru": "bluetooth"
         }
     },
     {
@@ -437,20 +501,27 @@
             "en": "Sensor",
             "ru": "Сенсор"
         },
-        "emoji": "🧲",
         "id": "sensor",
         "hidden": true,
         "indexMenuList": {
             "en": [
-              "",
-              "",
-              ""
+              "Accelerometer, Ammbient light sensor",
+              "Gravity sensor",
+              "Gyroscope, Magnetometer"
             ],
             "ru": [
-              "",
-              "",
-              ""
+              "Акселерометр, Датчик освещенности",
+              "Датчик силы тяжести",
+              "Гироскоп, Магнитометр"
             ]
+        },
+        "description": {
+            "en": "View detailed information about sensors online",
+            "ru": "Просмотр детальной информации о датчиках онлайн"
+        },
+        "keywords": {
+            "en": "accelerometer, ammbient light sensor, gravity sensor, gyroscope, linear acceleration sensor, magnetometer, orientation sensor",
+            "ru": "акселерометр, датчик освещенности, датчик силы тяжести, гироскоп, датчик линейного ускорения, магнитометр, датчик ориентации"
         }
     },
     {
@@ -462,7 +533,6 @@
             "en": "Platform",
             "ru": "Платформа"
         },
-        "emoji": "💻",
         "id": "platform",
         "indexMenuList": {
             "en": [
@@ -475,6 +545,14 @@
               "Разрешения",
               "ОЗУ и количество ядер процессора"
             ]
+        },
+        "description": {
+            "en": "View detailed platform information in your browser",
+            "ru": "Посмотреть детальную информацию о платформе в браузере"
+        },
+        "keywords": {
+            "en": "permissions, RAM, number of processor core ",
+            "ru": "разрешения, ОЗУ, количество ядер процессора"
         }
     },
     {
@@ -486,7 +564,6 @@
             "en": "Battery",
             "ru": "Батарея"
         },
-        "emoji": "🔋",
         "id": "battery",
         "indexMenuList": {
             "en": [
@@ -499,6 +576,14 @@
               "Уровень заряда батареи",
               "Время заряда и разряда батареи"
             ]
+        },
+        "description": {
+            "en": "View detailed battery status information",
+            "ru": "Просмотр детальной информации о статусе батареи"
+        },
+        "keywords": {
+            "en": "battery status, battery charge level, battery charge and discharge time",
+            "ru": "статус батареи, уровень заряда батареи, время заряда и разряда батареи"
         }
     },
     {
@@ -510,7 +595,6 @@
             "en": "Fonts",
             "ru": "Шрифты"
         },
-        "emoji": "❝",
         "id": "fonts",
         "indexMenuList": {
             "en": [
@@ -523,6 +607,14 @@
               "Группировка шрифтов по семейству",
               "Поиск и просмотр шрифтов"
             ]
+        },
+        "description": {
+            "en": "Viewing local fonts in browser",
+            "ru": "Просмотр локальных шрифтов в браузере"
+        },
+        "keywords": {
+            "en": "list of local fonts, group by font family",
+            "ru": "список локальных шрифтов, группировка шрифтов по семейству"
         }
     },
     {
@@ -530,19 +622,29 @@
             "en": "404",
             "ru": "404"
         },
-        "emoji": "",
         "id": "error404",
         "hidden": true,
         "sitemap": false,
-        "isError": true
+        "isError": true,
+        "description": {
+            "en": "Page not found",
+            "ru": "Страница не найдена"
+        }        
     },
     {
         "menuTitle": {
             "en": "Test dead pixels",
             "ru": "Тестирование битых пикселей"
         },
-        "emoji": "",
         "id": "test-dead-pixels",
-        "hidden": true
+        "hidden": true,
+        "description": {
+            "en": "Testing your monitor or TV for dead pixels",
+            "ru": "Тестирование битых пикселей вашего монитора или ТВ"
+        },
+        "keywords": {
+            "en": "dead pixels",
+            "ru": "битые пиксели"
+        }        
     }
 ]
