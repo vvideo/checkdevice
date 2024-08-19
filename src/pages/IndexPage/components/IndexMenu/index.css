@@ -71,10 +71,6 @@ body.hover_yes .index-menu__item:hover  {
     background-color: #333;
 }
 
-body.hover_yes .index-menu__item:hover .index-menu__emoji {
-    background-color: #444;
-}
-
 .index-menu__clear {
     clear: both;
     margin-bottom: 10px;

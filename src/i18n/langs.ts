@@ -2,13 +2,11 @@ export const langs = [
     {
         name: 'EN',
         value: 'en',
-        emoji: '🇺🇸',
         default: true
     },
     {
         name: 'RU',
         value: 'ru',
-        emoji: '🇷🇺',
     },
 ];
 
