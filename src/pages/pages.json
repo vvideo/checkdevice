@@ -195,6 +195,14 @@
               "Название и производитель GPU",
               "WebGPU"
             ]
+        },
+        "description": {
+            "en": "View detailed information about your GPU online",
+            "ru": "Просмотр детальной информации о графическом процессоре онлайн"
+        },
+        "keywords": {
+            "en": "GPU, GPU vendor, GPU name, Lower power GPU, High power GPU",
+            "ru": "производитель GPU, название GPU, GPU, графический процессор, графический процессор с пониженной мощностью, графический процессор с повышенной мощностью"
         }
     },
     {
