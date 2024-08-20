@@ -14,6 +14,7 @@ const mdnLinks = {
     cookies: 'https://developer.mozilla.org/en-US/docs/Web/API/Navigator/cookieEnabled',
     sessionStorage: 'https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage',
     localStorage: 'https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage',
+    sharedStorage: 'https://developer.mozilla.org/en-US/docs/Web/API/Window/sharedStorage',
     indexeddb: 'https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API',
     opfs: 'https://developer.mozilla.org/en-US/docs/Web/API/File_System_API/Origin_private_file_system',
 };
@@ -34,6 +35,13 @@ export function Storage() {
         [
             (<ExtLink theme="white" href={mdnLinks.sessionStorage}>Session storage</ExtLink>),
             isSsr ? (<ValueInProgress />) : getChecked(Boolean(window.sessionStorage))
+        ],
+        [
+            (<ExtLink theme="white" href={mdnLinks.sharedStorage}>Shared storage</ExtLink>),
+            isSsr ?
+                (<ValueInProgress />) :
+                // @ts-ignore
+                getChecked(Boolean(window.sharedStorage))
         ],
         [
             (<ExtLink theme="white" href={mdnLinks.indexeddb}>IndexedDB</ExtLink>),
