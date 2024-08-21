@@ -23,8 +23,8 @@ export function createPage(params) {
 `; }) : '' }
     ${sitemap === false ? `<meta name="robots" content="noindex" />` : '' }
     <link rel="manifest" href="/manifest.json" />
-    <link rel="shortcut icon" href="/static/favicons/favicon.png" />
-    <link rel="apple-touch-icon" href="/static/favicons/touch.png" />
+    <link rel="shortcut icon" href="/static/favicons/icon32x32.png" />
+    <link rel="apple-touch-icon" href="/static/favicons/icon152x152.png" />
     <link rel="stylesheet" href="/static/${id}.css?md5=" />
     <link rel="yandex-tableau-widget" href="/yandex-tableau-widget.json" />
     <script>

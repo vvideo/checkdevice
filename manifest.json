@@ -13,12 +13,12 @@
     },
     "icons": [
       {
-        "src": "/static/favicons/favicon.png",
+        "src": "/static/favicons/icon32x32.png",
         "type": "image/png",
         "sizes": "32x32"
       },
       {
-        "src": "/static/favicons/touch.png",
+        "src": "/static/favicons/icon152x152.png",
         "type": "image/png",
         "sizes": "152x152"
       }
