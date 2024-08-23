@@ -14,13 +14,13 @@
     top: 40px;
     width: 100px;
     height: 100px;
-    background: url('/static/icons/dark/pages/mic.svg') center center no-repeat;
+    background: url('/static/icons/pages/mic_dark.svg') center center no-repeat;
     background-size: 100% 100%;
     content: '';
 }
 
 .page-theme_light .mic__canvas-container::before {
-    background-image: url('/static/icons/light/pages/mic.svg');
+    background-image: url('/static/icons/pages/mic_light.svg');
 }
 
 .mic__canvas-container::after {
@@ -29,13 +29,13 @@
     top: 40px;
     width: 100px;
     height: 100px;
-    background: url('/static/icons/dark/waveform.svg') center center no-repeat;
+    background: url('/static/icons/waveform_dark.svg') center center no-repeat;
     background-size: 100% 100%;
     content: '';
 }
 
 .page-theme_light .mic__canvas-container::after {
-    background-image: url('/static/icons/light/waveform.svg');
+    background-image: url('/static/icons/waveform_light.svg');
 }
 
 .mic__canvas {
