@@ -19,3 +19,31 @@
 .link_theme_white:hover {
     text-decoration-color: rgba(255, 255, 255, 1);
 }
+
+.link_theme_page-theme:link,
+.link_theme_page-theme:visited,
+.link_theme_page-theme:hover,
+.link_theme_page-theme:active {
+    color: white;
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, .2);
+    transition: text-decoration-color .3s ease;
+}
+
+.link_theme_page-theme:hover {
+    text-decoration-color: rgba(255, 255, 255, 1);
+}
+
+.page-theme_light .link_theme_page-theme:link,
+.page-theme_light .link_theme_page-theme:visited,
+.page-theme_light .link_theme_page-theme:hover,
+.page-theme_light .link_theme_page-theme:active {
+    color: black;
+    text-decoration: underline;
+    text-decoration-color: rgba(0, 0, 0, .2);
+    transition: text-decoration-color .3s ease;
+}
+
+.page-theme_light .link_theme_page-theme:hover {
+    text-decoration-color: rgba(0, 0, 0, 1);
+}

@@ -12,6 +12,7 @@
     min-width: 200px;
     max-width: 90%;
     padding: 20px 10px;
+    border: 1px solid #ccc;
     background-color: white;
     border-radius: 5px;
     font-size: 24px;

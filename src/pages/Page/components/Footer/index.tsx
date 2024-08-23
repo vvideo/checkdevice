@@ -12,7 +12,7 @@ const b = block('footer');
 export function Footer() {
     return (
         <footer class={b()}>
-            <div class={b('item', { report: true })}><Link theme="white" target="_blank" href="https://github.com/vvideo/caniwatchvideo/issues/new">{i18n('Report a bug')}</Link></div>
+            <div class={b('item', { report: true })}><Link theme="page-theme" target="_blank" href="https://github.com/vvideo/caniwatchvideo/issues/new">{i18n('Report a bug')}</Link></div>
             <div class={b('item')}><LangSwitcher /></div>
             <div class={b('item')}>© Vvideo</div>
         </footer>

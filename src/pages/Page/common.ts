@@ -8,6 +8,7 @@ import { isSsr } from '../../utils/isSsr';
 import { setPageId } from '../../utils/pageId';
 import { defaultLang, langs } from '../../i18n/langs';
 import { config } from '../../config';
+import { initPageTheme } from '../../lib/PageTheme';
 
 import './global.css';
 
@@ -41,6 +42,8 @@ if (!isSsr) {
     withInstallApp();
 
     addHoverOnBody();
+
+    initPageTheme();
 
     // ally
     document.documentElement?.setAttribute('lang', lang);

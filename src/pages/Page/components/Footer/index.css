@@ -6,6 +6,10 @@
     border-top: 1px solid #222;
 }
 
+.page-theme_light .footer {
+    border-top: 1px solid #ddd;
+}
+
 @media (max-width: 700px) {
     .footer {
         margin-top: 20px;

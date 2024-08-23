@@ -11,6 +11,10 @@
     appearance: none;
 }
 
+.page-theme_light .checkbox__input {
+    border-color: #333;
+}
+
 .checkbox::before {
     content: '';
     display: inline-block;
@@ -18,9 +22,10 @@
     height: 1.15em;
     width: 1.15em;
     margin-right: 0.55em;
-    color: rgba(0, 0, 0, 0.275);
+    color: #333;
     border: solid 0.06em;
     box-shadow: 0 0 0.04em, 0 0.06em 0.16em -0.03em inset, 0 0 0 0.07em transparent inset;
+    box-sizing: border-box;
     border-radius: 0.2em;
     will-change: color, border, background, background-size, box-shadow;
     transform: translate3d(0, 0, 0);

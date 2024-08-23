@@ -1,12 +1,12 @@
 import { h } from 'preact';
 
-import { Link } from '../Link';
+import { Link, LinkProps } from '../Link';
 
 interface ExtLinkProps {
     href: string;
     target?: string;
     children: h.JSX.Element | string;
-    theme?: 'white';
+    theme?: LinkProps['theme'];
 }
 
 export function ExtLink(props: ExtLinkProps) {

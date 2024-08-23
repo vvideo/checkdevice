@@ -62,15 +62,23 @@
 }
 
 .badge_background_transparent {
-    background-color: black;
     color: white;
     border: 5px solid white;
+}
+
+.page-theme_light .badge_background_transparent {
+    color: black;
+    border-color: black;
 }
 
 .badge_background_white {
     text-align: left;
     background-color: white;
     color: black;
+}
+
+.page-theme_light .badge_background_white {
+    border: 1px solid #ddd;
 }
 
 .badge_background_white .badge__bottom-text {
@@ -83,6 +91,10 @@
 
 .badge_background_transparent .badge__bottom-text {
     color: white;
+}
+
+.page-theme_light .badge_background_transparent .badge__bottom-text {
+    color: black;
 }
 
 .badge_type_4k, .badge_type_hdr {

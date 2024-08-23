@@ -3,8 +3,14 @@
     border: 2px solid white;
     border-radius: 5px;
     color: white;
-    background-color: black;
+    background-color: transparent;
     outline: none;
+    transition: border-color .3s ease;
+}
+
+.page-theme_light .input {
+    color: black;
+    border-color: #aaa;
 }
 
 .input:focus {

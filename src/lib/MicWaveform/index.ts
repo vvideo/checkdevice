@@ -1,4 +1,5 @@
 import { getStreamParams } from '../../utils/getStreamParams';
+import { getPreferredTheme } from '../PageTheme';
 
 export class MicWaveform {
     private canvas!: HTMLCanvasElement;
@@ -92,11 +93,15 @@ export class MicWaveform {
 
         this.analyser.getByteTimeDomainData(dataArray);
 
-        canvasCtx.fillStyle = 'rgb(0, 0, 0)';
+        const theme = getPreferredTheme();
+        const fillStyle = theme === 'light' ? 'white' : 'black';
+        const strokeStyle = theme === 'light' ? 'black' : 'white';
+
+        canvasCtx.fillStyle = fillStyle;
         canvasCtx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
         canvasCtx.lineWidth = 2;
-        canvasCtx.strokeStyle = 'rgb(255, 255, 255)';
+        canvasCtx.strokeStyle = strokeStyle;
         canvasCtx.beginPath();
 
         const sliceWidth = this.canvas.width / bufferLength;

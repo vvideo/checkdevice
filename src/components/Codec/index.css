@@ -82,12 +82,17 @@ body.hover_yes .codec__name:hover {
     line-height: 22px;
     padding: 10px;
     border-radius: 10px;
+    border: 1px solid #333;
     color: black;
     z-index: 100;
     opacity: .9;
     text-align: left;
     margin-top: 3em;
     margin-left: -10px;
+}
+
+.page-theme_light .codec__tooltip {
+    border-color: #ddd;
 }
 
 body.hover_yes .codec:hover .codec__tooltip {

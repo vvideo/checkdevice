@@ -1,0 +1,23 @@
+.permissions__value_state_granted {
+    color: lightgreen;
+}
+
+.permissions__value_state_prompt {
+    color: #ffff80;
+}
+
+.permissions__value_state_denied {
+    color: lightcoral;
+}
+
+.page-theme_light .permissions__value_state_granted {
+    color: green;
+}
+
+.page-theme_light .permissions__value_state_prompt {
+    color: darkorange;
+}
+
+.page-theme_light .permissions__value_state_denied {
+    color: red;
+}

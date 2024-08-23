@@ -25,6 +25,10 @@
     margin: 0 10px 10px 0;
 }
 
+.page-theme_light .index-menu__item {
+    background: #f5f5f5;
+}
+
 .index-menu__link {
     display: block;
     font-size: 20px;
@@ -71,6 +75,11 @@ body.hover_yes .index-menu__item:hover  {
     background-color: #333;
 }
 
+
+.page-theme_light body.hover_yes .index-menu__item:hover  {
+    background-color: #eee;
+}
+
 .index-menu__clear {
     clear: both;
     margin-bottom: 10px;
@@ -97,65 +106,130 @@ body.hover_yes .index-menu__item:hover  {
 }
 
 .index-menu__image_type_mic {
-    background-image: url('/static/icons/pages/mic.svg');
+    background-image: url('/static/icons/dark/pages/mic.svg');
+}
+
+.page-theme_light .index-menu__image_type_mic {
+    background-image: url('/static/icons/light/pages/mic.svg');
 }
 
 .index-menu__image_type_gamepad {
-    background-image: url('/static/icons/pages/gamepad.svg');
+    background-image: url('/static/icons/dark/pages/gamepad.svg');
+}
+
+.page-theme_light .index-menu__image_type_gamepad {
+    background-image: url('/static/icons/light/pages/gamepad.svg');
 }
 
 .index-menu__image_type_mouse {
-    background-image: url('/static/icons/pages/mouse.svg');
+    background-image: url('/static/icons/dark/pages/mouse.svg');
+}
+
+.page-theme_light .index-menu__image_type_mouse {
+    background-image: url('/static/icons/light/pages/mouse.svg');
 }
 
 .index-menu__image_type_storage {
-    background-image: url('/static/icons/pages/storage.svg');
+    background-image: url('/static/icons/dark/pages/storage.svg');
+}
+
+.page-theme_light .index-menu__image_type_storage {
+    background-image: url('/static/icons/light/pages/storage.svg');
 }
 
 .index-menu__image_type_screen {
-    background-image: url('/static/icons/pages/screen.svg');
+    background-image: url('/static/icons/dark/pages/screen.svg');
+}
+
+.page-theme_light .index-menu__image_type_screen {
+    background-image: url('/static/icons/light/pages/screen.svg');
 }
 
 .index-menu__image_type_battery {
-    background-image: url('/static/icons/pages/battery.svg');
+    background-image: url('/static/icons/dark/pages/battery.svg');
+}
+
+.page-theme_light .index-menu__image_type_battery {
+    background-image: url('/static/icons/light/pages/battery.svg');
 }
 
 .index-menu__image_type_usb {
-    background-image: url('/static/icons/pages/usb.svg');
+    background-image: url('/static/icons/dark/pages/usb.svg');
+}
+
+.page-theme_light .index-menu__image_type_usb {
+    background-image: url('/static/icons/light/pages/usb.svg');
 }
 
 .index-menu__image_type_audio {
-    background-image: url('/static/icons/pages/audio.svg');
+    background-image: url('/static/icons/dark/pages/audio.svg');
+}
+
+.page-theme_light .index-menu__image_type_audio {
+    background-image: url('/static/icons/light/pages/audio.svg');
 }
 
 .index-menu__image_type_video {
-    background-image: url('/static/icons/pages/video.svg');
+    background-image: url('/static/icons/dark/pages/video.svg');
+}
+
+.page-theme_light .index-menu__image_type_video {
+    background-image: url('/static/icons/light/pages/video.svg');
 }
 
 .index-menu__image_type_camera {
-    background-image: url('/static/icons/pages/camera.svg');
+    background-image: url('/static/icons/dark/pages/camera.svg');
+}
+
+.page-theme_light .index-menu__image_type_camera {
+    background-image: url('/static/icons/light/pages/camera.svg');
 }
 
 .index-menu__image_type_network {
-    background-image: url('/static/icons/pages/network.svg');
+    background-image: url('/static/icons/dark/pages/network.svg');
+}
+
+.page-theme_light .index-menu__image_type_network {
+    background-image: url('/static/icons/light/pages/network.svg');
 }
 
 .index-menu__image_type_geo {
-    background-image: url('/static/icons/pages/geo.svg');
+    background-image: url('/static/icons/dark/pages/geo.svg');
+}
+
+.page-theme_light .index-menu__image_type_geo {
+    background-image: url('/static/icons/light/pages/geo.svg');
 }
 
 .index-menu__image_type_fonts {
-    background-image: url('/static/icons/pages/fonts.svg');
+    background-image: url('/static/icons/dark/pages/fonts.svg');
+}
+
+.page-theme_light .index-menu__image_type_fonts {
+    background-image: url('/static/icons/light/pages/fonts.svg');
 }
 
 .index-menu__image_type_gpu {
-    background-image: url('/static/icons/pages/gpu.svg');
+    background-image: url('/static/icons/dark/pages/gpu.svg');
+}
+
+.page-theme_light .index-menu__image_type_gpu {
+    background-image: url('/static/icons/light/pages/gpu.svg');
 }
 
 .index-menu__image_type_keyboard {
-    background-image: url('/static/icons/pages/keyboard.svg');
+    background-image: url('/static/icons/dark/pages/keyboard.svg');
+}
+
+.page-theme_light .index-menu__image_type_keyboard {
+    background-image: url('/static/icons/light/pages/keyboard.svg');
 }
 
 .index-menu__image_type_platform {
-    background-image: url('/static/icons/pages/platform.svg');
+    background-image: url('/static/icons/dark/pages/platform.svg');
 }
+
+.page-theme_light .index-menu__image_type_platform {
+    background-image: url('/static/icons/light/pages/platform.svg');
+}
+

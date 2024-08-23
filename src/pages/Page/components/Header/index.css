@@ -1,5 +1,5 @@
 .header {
-    padding: 20px 0 10px 15px;
+    padding: 20px 0 10px 0;
     margin-bottom: 10px;
     border-bottom: 1px solid #222;
     font-size: 30px;
@@ -7,8 +7,17 @@
     color: white;
 }
 
+.page-theme_light .header {
+    color: black;
+    border-bottom-color: #ddd;
+}
+
 .header:hover .header__logo {
     background-color: white;
+}
+
+.page-theme_light .header:hover .header__logo {
+    background-color: #eee;
 }
 
 .header__logo {
@@ -31,6 +40,7 @@
 @media (max-width: 700px) {
     .header {
         font-size: 22px;
+        padding-left: 15px;
     }
 
     .header__logo {

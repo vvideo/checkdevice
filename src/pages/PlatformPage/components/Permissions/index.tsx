@@ -6,6 +6,9 @@ import { List } from '../../../../components/ui/List';
 import { noop } from '../../../../utils/noop';
 import { isSsr } from '../../../../utils/isSsr';
 import { Spinner } from '../../../../components/ui/Spinner';
+import { block } from '../../../../utils/css/bem';
+
+import './index.css';
 
 const permissions = [
     'accessibility-events',
@@ -28,15 +31,7 @@ const permissions = [
     'xr-spatial-tracking',
 ];
 
-function getStatusColor(state: string) {
-    const states: Record<string, string> = {
-        'granted': 'lightgreen',
-        'prompt': '#ffff80',
-        'denied': 'lightcoral',
-    };
-
-    return states[state] || 'white';
-}
+const b = block('permissions');
 
 export function Permissions() {
     if (!isSsr && !navigator.permissions) {
@@ -55,8 +50,7 @@ export function Permissions() {
     const items: [string, string | h.JSX.Element][] = [];
     
     result.map(item => {
-        const color = getStatusColor(item.state);
-        items.push([item.name, (<span style={`color: ${color}`}>{item.state}</span>)]);
+        items.push([item.name, (<span class={b('value', { state: item.state })}>{item.state}</span>)]);
     });
 
     items.sort((a, b) => a[0] > b[0] ? 1 : -1);

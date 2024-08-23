@@ -5,11 +5,11 @@ import { classname } from '../../../utils/css/classname';
 
 import './index.css';
 
-interface LinkProps {
+export interface LinkProps {
     class?: string;
     target?: string;
     href: string;
-    theme?: 'white';
+    theme?: 'white' | 'page-theme';
     children: h.JSX.Element | string;
 }
 

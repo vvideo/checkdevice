@@ -22,6 +22,10 @@
     margin: 3px 10px 0 0;
 }
 
+.page-theme_light .active-question__plus {
+    border-color: black; 
+}
+
 .active-question__plus::before {
     content: '+';
 }

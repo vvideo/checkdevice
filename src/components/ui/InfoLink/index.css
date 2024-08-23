@@ -15,3 +15,10 @@
     text-decoration: none;
     color: white;
 }
+
+.page-theme_light .info-link__link:link,
+.page-theme_light .info-link__link:visited,
+.page-theme_light .info-link__link:hover,
+.page-theme_light .info-link__link:active {
+    color: black;
+}

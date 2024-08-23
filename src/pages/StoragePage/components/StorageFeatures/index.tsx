@@ -25,14 +25,14 @@ export function StorageFeatures() {
 
     const features: Array<[h.JSX.Element | string, string]> = [
         [
-            (<ExtLink theme="white" href="https://developer.mozilla.org/en-US/docs/Web/API/StorageManager/persist">{i18n('Support of persistent storage')}</ExtLink>),
+            (<ExtLink theme="page-theme" href="https://developer.mozilla.org/en-US/docs/Web/API/StorageManager/persist">{i18n('Support of persistent storage')}</ExtLink>),
             getChecked(Boolean(typeof navigator.storage?.persist === 'function'))
         ],
     ];
 
     if (typeof quota === 'number') {
         features.push([
-            (<ExtLink theme="white" href="https://developer.mozilla.org/ru/docs/Web/API/StorageManager/estimate">{i18n('Storage quota for origin')}</ExtLink>),
+            (<ExtLink theme="page-theme" href="https://developer.mozilla.org/ru/docs/Web/API/StorageManager/estimate">{i18n('Storage quota for origin')}</ExtLink>),
             formatBytesToGB(quota)
         ]);
     }

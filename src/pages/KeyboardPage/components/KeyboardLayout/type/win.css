@@ -1,5 +1,6 @@
 .keyboard-layout_type_win {
     position: relative;
+    background-color: black;
     border: 2px solid #333;
     width: 1140px;
     padding: 20px;

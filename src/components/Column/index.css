@@ -12,6 +12,10 @@
     color: gray;
 }
 
+.page-theme_light .column__category_disabled {
+    color: #ccc;
+}
+
 .column__body {
     margin-top: 10px;
 }

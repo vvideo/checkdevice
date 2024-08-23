@@ -27,11 +27,11 @@ export const keysets: I18nKeysets = {
     },
     'Unsupported audio codecs': {
         'en': 'Unsupported audio codecs.',
-        'ru': 'Не поддерживаемые аудиокодеки.'
+        'ru': 'Не поддерживаемые аудиокодеки'
     },
     'Unsupported video codecs': {
         'en': 'Unsupported video codecs.',
-        'ru': 'Не поддерживаемые видеокодеки.'
+        'ru': 'Не поддерживаемые видеокодеки'
     },
     'No supported audio codecs.': {
         'en': 'No supported audio codecs.',
@@ -812,5 +812,13 @@ export const keysets: I18nKeysets = {
     'On/off mirror mode': {
         'en': 'On/off mirror mode',
         'ru': 'Включить/выключить режим зеркала'
+    }, 
+    'Light': {
+        'en': 'Light',
+        'ru': 'Светлая'
+    },  
+    'Dark': {
+        'en': 'Dark',
+        'ru': 'Тёмная'
     }    
 };

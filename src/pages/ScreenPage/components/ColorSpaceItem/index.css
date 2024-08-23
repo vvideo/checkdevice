@@ -7,9 +7,17 @@
     white-space: nowrap;
 }
 
+.page-theme_light .color-space-item {
+    color: #ccc;
+}
+
 .color-space-item_supported .color-space-item__checked {
     color: white;
     font-weight: normal;
+}
+
+.page-theme_light .color-space-item_supported .color-space-item__checked {
+    color: black;
 }
 
 .color-space-item_supported {

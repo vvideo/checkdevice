@@ -25,7 +25,7 @@ export function IndexMenu() {
             {items.map(item => {
                 return (
                     <li key={item.id} class={b('item')}>
-                        <Link class={b('link')} theme="white" href={getPagePath(item.id)}><span><span class={b('image', { type: item.id })}></span> {item.title}</span></Link>
+                        <Link class={b('link')} theme="page-theme" href={getPagePath(item.id)}><span><span class={b('image', { type: item.id })}></span> {item.title}</span></Link>
                         <ul class={b('keywords-list')}>
                             {item.indexMenuList.map(text => (<li class={b('keywords-item')}><div class={b('keywords-item-container')}>{text}</div></li>))}
                         </ul>
