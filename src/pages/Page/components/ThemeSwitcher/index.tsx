@@ -2,7 +2,7 @@ import { h } from 'preact';
 import { useCallback, useState } from 'preact/hooks';
 
 import { block } from '../../../../utils/css/bem';
-import { getPageTheme, setPageTheme, savePageTheme } from '../../../../lib/PageTheme';
+import { getPageTheme, setPageTheme, savePageTheme } from '../../../../lib/Theme';
 import { Button } from '../../../../components/ui/Button';
 import { i18n } from '../../../../i18n';
 
@@ -21,5 +21,5 @@ export function ThemeSwitcher() {
     }, [theme, setTheme]);
 
 
-    return (<Button class={b()} onClick={handleClick}>{theme === 'light' ? i18n('Dark') : i18n('Light')}</Button>);
+    return (<Button size="s" class={b()} onClick={handleClick}>{theme === 'light' ? i18n('Dark') : i18n('Light')}</Button>);
 }

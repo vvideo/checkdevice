@@ -12,13 +12,34 @@
     text-decoration: none;
 }
 
-body.hover_yes .lang-switcher-item:hover {
+.hover_yes .lang-switcher-item:hover {
     background-color: gold;
 }
 
-body.hover_yes .lang-switcher-item:hover .link:link,
-body.hover_yes .lang-switcher-item:hover .link:visited,
-body.hover_yes .lang-switcher-item:hover .link:hover,
-body.hover_yes .lang-switcher-item:hover .link:active {
+.lang-switcher-item .link:link,
+.lang-switcher-item .link:visited,
+.lang-switcher-item .link:hover,
+.lang-switcher-item .link:active {
+    color: white;
+}
+
+.page-theme_light .lang-switcher-item .link:link,
+.page-theme_light .lang-switcher-item .link:visited,
+.page-theme_light .lang-switcher-item .link:hover,
+.page-theme_light .lang-switcher-item .link:active {
+    color: black;
+}
+
+.hover_yes .lang-switcher-item:hover .link:link,
+.hover_yes .lang-switcher-item:hover .link:visited,
+.hover_yes .lang-switcher-item:hover .link:hover,
+.hover_yes .lang-switcher-item:hover .link:active {
+    color: black;
+}
+
+.page-theme_light .hover_yes .lang-switcher-item:hover .link:link,
+.page-theme_light .hover_yes .lang-switcher-item:hover .link:visited,
+.page-theme_light .hover_yes .lang-switcher-item:hover .link:hover,
+.page-theme_light .hover_yes .lang-switcher-item:hover .link:active {
     color: black;
 }

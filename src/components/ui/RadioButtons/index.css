@@ -24,19 +24,6 @@
     display: flex;
 }
 
-.radio-buttons__item {
-    list-style-type: none;
-    display: block;
-}
-
-.radio-buttons__item:first-child {
-    border-radius: 5px 0 0 5px;
-}
-
-.radio-buttons__item:last-child {
-    border-radius: 0 5px 5px 0;
-}
-
 @media (max-width: 700px) {
     .radio-buttons__items {
         display: block;
@@ -44,13 +31,5 @@
 
     .radio-buttons__item {
         display: block;
-    }
-
-    .radio-buttons__item:first-child {
-        border-radius: 5px 5px 0 0;
-    }
-
-    .radio-buttons__item:last-child {
-        border-radius: 0 0 5px 5px;
     }
 }

@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import { useCallback, useRef, useState } from 'preact/hooks';
+import { useCallback, useEffect, useRef, useState } from 'preact/hooks';
 import { classname } from '../../../utils/css/classname';
 import { block } from '../../../utils/css/bem';
 
@@ -18,6 +18,7 @@ const b = block('checkbox');
 
 export function Checkbox(props: CheckboxProps) {
     const [checked, setChecked] = useState(props.checked);
+    const [focus, setFocus] = useState(false);
 
     const ref = useRef<HTMLInputElement>(null);
 
@@ -32,8 +33,34 @@ export function Checkbox(props: CheckboxProps) {
 
     const className = classname(
         props.class,
-        b({ checked, theme: props.theme }),
+        b({ checked, theme: props.theme, focus }),
     );
+
+    useEffect(() => {
+        if (!ref.current) {
+            return;
+        }
+
+        const handleFocus = () => {
+            setFocus(true);
+        };
+
+        const handleBlur = () => {
+            setFocus(false);
+        };
+
+        ref.current.addEventListener('focus', handleFocus);
+        ref.current.addEventListener('blur', handleBlur);
+
+        return () => {
+            if (!ref.current) {
+                return;
+            }     
+
+            ref.current.removeEventListener('focus', handleFocus);
+            ref.current.removeEventListener('blur', handleBlur);
+        };
+    }, [setFocus, focus]);
 
     return (<label title={props.title} class={className} onClick={handleClick}>
         <input

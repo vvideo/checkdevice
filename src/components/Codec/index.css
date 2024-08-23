@@ -2,10 +2,15 @@
     display: inline-block;
     color: white;
     font-size: 16px;
+    margin: 5px;
     text-align: center;
     line-height: 19px;
     vertical-align: middle;
     cursor: default;
+}
+
+.codec:first-child {
+    margin-left: 0;
 }
 
 .codec_color_black .codec__name {
@@ -65,7 +70,6 @@ body.hover_yes .codec_disabled .codec__name:hover {
     border-radius: 1px;
     font-weight: bold;
     padding: 3px 5px;
-    margin: 5px;
 }
 
 body.hover_yes .codec__name:hover {

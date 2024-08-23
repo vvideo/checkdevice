@@ -4,15 +4,16 @@
     font-size: 16px;
     line-height: 1.5em;
     border-radius: 5px;
-    padding: 5px 7px;
+    box-sizing: border-box;
+    padding: 5px 9px;
     border: none;
     cursor: pointer;
     user-select: none;
+    transition: background-color .3s ease;
 }
 
 .page-theme_light .button {
-    background-color: #333;
-    color: white;
+    border: 1px solid #aaa;
 }
 
 .button:active {
@@ -20,7 +21,7 @@
 }
 
 body.hover_yes .button:hover {
-    background: #eee;
+    background: #f5f5f5;
 }
 
 .button_theme_active {
@@ -51,4 +52,5 @@ body.hover_yes .button.button_disabled {
     color: #777;
     cursor: default;
     transform: scale(1);
+    transition: none;
 }

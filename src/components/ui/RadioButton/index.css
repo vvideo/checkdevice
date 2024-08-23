@@ -1,11 +1,29 @@
 .radio-button {
-    cursor: pointer;
-    user-select: none;
-    background-color: #333;
+    display: block;
     color: white;
     padding: 5px 9px;
     box-sizing: border-box;
     border: 1px solid transparent;
+    cursor: pointer;
+    user-select: none;
+    background-color: #333;
+    transition: background-color .3s ease, color .3s ease;
+    list-style-type: none;
+}
+
+.radio-button:first-child {
+    border-radius: 5px 0 0 5px;
+}
+
+.radio-button:last-child {
+    border-radius: 0 5px 5px 0;
+}
+
+.page-theme_light .radio-button {
+    background-color: white;    
+    color: black;
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
 }
 
 .radio-button_selected {
@@ -14,15 +32,47 @@
 }
 
 .page-theme_light .radio-button_selected {
-    box-sizing: border-box;
-    border-top: 1px solid #333;
-    border-bottom: 1px solid #333;
+    background-color: #333;
+    color: white;
 }
 
-.page-theme_light .radio-button_selected:first-child {
+.radio-button:first-child {
     border-left: 1px solid #333;   
 }
 
-.page-theme_light .radio-button_selected:last-child {
+.radio-button:last-child {
     border-right: 1px solid #333;   
+}
+
+.page-theme_light .radio-button_selected:first-child {
+    border-left: 1px solid #aaa;   
+}
+
+.page-theme_light .radio-button_selected:last-child {
+    border-right: 1px solid #aaa;   
+}
+
+@media (max-width: 700px) {
+    .radio-button:first-child {
+        border-radius: 5px 5px 0 0;
+    }
+
+    .radio-button:last-child {
+        border-radius: 0 0 5px 5px;
+    }
+
+    .page-theme_light .radio-button {
+        border-top: 1px solid transparent;
+        border-bottom: 1px solid transparent;
+        border-left: 1px solid #aaa;
+        border-right: 1px solid #aaa;
+    }
+
+    .page-theme_light .radio-button:first-child {
+        border-top: 1px solid #aaa;
+    }    
+
+    .page-theme_light .radio-button:last-child {
+        border-bottom: 1px solid #aaa;   
+    }
 }

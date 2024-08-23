@@ -1,5 +1,5 @@
 import { getStreamParams } from '../../utils/getStreamParams';
-import { getPreferredTheme } from '../PageTheme';
+import { getPageTheme } from '../Theme';
 
 export class MicWaveform {
     private canvas!: HTMLCanvasElement;
@@ -93,9 +93,11 @@ export class MicWaveform {
 
         this.analyser.getByteTimeDomainData(dataArray);
 
-        const theme = getPreferredTheme();
-        const fillStyle = theme === 'light' ? 'white' : 'black';
-        const strokeStyle = theme === 'light' ? 'black' : 'white';
+        const isLight = getPageTheme() === 'light';
+        const fillStyle = isLight ? 'white' : 'black';
+        const strokeStyle = isLight ? 'black' : 'white';
+
+        console.log('isLigh', isLight);
 
         canvasCtx.fillStyle = fillStyle;
         canvasCtx.fillRect(0, 0, this.canvas.width, this.canvas.height);

@@ -20,6 +20,11 @@
     border-radius: 5px;
 }
 
+.page-theme_light .lang-switcher__popup {
+    background-color: white;
+    border-color: #ccc;
+}
+
 .lang-switcher__popup_visible {
     display: block;
 }
