@@ -8,7 +8,7 @@ import { i18n } from '../../../../i18n';
 import { useForceUpdate } from '../../../../hooks/useForceUpdate';
 import { screenInfo } from '../../../../lib/ScreenInfo';
 import { hasTouchScreen } from '../../../../utils/device/hasTouchScreen';
-import { getChecked } from '../../../../utils/getChecked';
+import { getChecked } from '../../../../utils/string/getChecked';
 import { getMaxTouchPoints } from '../../../../utils/device/getMaxTouchPoints';
 import { RefreshRate } from '../RefreshRate';
 import { RefreshRateController } from '../../../../lib/RefreshRateController';

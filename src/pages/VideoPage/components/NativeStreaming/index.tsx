@@ -2,7 +2,7 @@ import { h } from 'preact';
 
 import { isNativeHlsSupported, isNativeMpdSupported, isNativeMssSupported } from 'detect-audio-video';
 import { block } from '../../../../utils/css/bem';
-import { getChecked } from '../../../../utils/getChecked';
+import { getChecked } from '../../../../utils/string/getChecked';
 
 import './index.css';
 

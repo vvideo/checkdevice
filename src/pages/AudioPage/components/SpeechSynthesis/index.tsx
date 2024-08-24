@@ -4,7 +4,7 @@ import { useCallback, useState } from 'preact/hooks';
 import { block } from '../../../../utils/css/bem';
 import { Button } from '../../../../components/ui/Button';
 import { i18n } from '../../../../i18n';
-import { getChecked } from '../../../../utils/getChecked';
+import { getChecked } from '../../../../utils/string/getChecked';
 import { Input } from '../../../../components/ui/Input';
 import { InfoLink } from '../../../../components/ui/InfoLink';
 import { isSsr } from '../../../../utils/isSsr';

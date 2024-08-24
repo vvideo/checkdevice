@@ -6,7 +6,7 @@ import { List } from '../../../../components/ui/List';
 import { noop } from '../../../../utils/function/noop';
 import { isStandalone, hasHardwareAcceleration } from 'detect-audio-video';
 import { InfoLink } from '../../../../components/ui/InfoLink';
-import { getChecked } from '../../../../utils/getChecked';
+import { getChecked } from '../../../../utils/string/getChecked';
 import { isSsr } from '../../../../utils/isSsr';
 import { ValueInProgress } from '../../../../components/ValueInProgress';
 import { DateInProgress } from '../DateInProgress';

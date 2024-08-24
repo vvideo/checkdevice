@@ -1,7 +1,7 @@
 import { h } from 'preact';
 
 import { List } from '../../../../components/ui/List';
-import { getChecked } from '../../../../utils/getChecked';
+import { getChecked } from '../../../../utils/string/getChecked';
 import { StorageFeatures } from '../StorageFeatures';
 import { block } from '../../../../utils/css/bem';
 import { ExtLink } from '../../../../components/ui/ExtLink';

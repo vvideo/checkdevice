@@ -1,7 +1,7 @@
 import { h } from 'preact';
 import { i18n } from '../../../../i18n';
 import { List } from '../../../../components/ui/List';
-import { getChecked } from '../../../../utils/getChecked';
+import { getChecked } from '../../../../utils/string/getChecked';
 import { ValueInProgress } from '../../../../components/ValueInProgress';
 
 interface MicInfoProps {

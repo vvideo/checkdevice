@@ -2,7 +2,7 @@ import { h } from 'preact';
 import { calcAspectRatio } from 'calc-aspect-ratio';
 
 import { DescriptionList } from '../../../../components/DescriptionList';
-import { getChecked } from '../../../../utils/getChecked';
+import { getChecked } from '../../../../utils/string/getChecked';
 import { i18n } from '../../../../i18n';
 import { block } from '../../../../utils/css/bem';
 import { WarningMessage } from '../../../../components/ui/WarningMessage';

@@ -1,4 +1,4 @@
-import { isMacintosh } from '../../../../utils/dom/platform';
+import { isMacintosh } from '../../../../utils/device/isMacintish';
 
 const MAX_WHEELDELTA = 10;
 

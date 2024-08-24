@@ -1,9 +1,9 @@
 import { h } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 
-import { formatBytesToGB } from '../../../../utils/formatBytesToGB';
+import { formatBytesToGB } from '../../../../utils/string/formatBytesToGB';
 import { ExtLink } from '../../../../components/ui/ExtLink';
-import { getChecked } from '../../../../utils/getChecked';
+import { getChecked } from '../../../../utils/string/getChecked';
 import { i18n } from '../../../../i18n';
 import { List } from '../../../../components/ui/List';
 import { isSsr } from '../../../../utils/isSsr';

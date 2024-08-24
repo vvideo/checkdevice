@@ -4,7 +4,7 @@ import { calcAspectRatio } from 'calc-aspect-ratio';
 import { hasZoom } from '../../../../utils/dom/hasZoom';
 import { i18n } from '../../../../i18n';
 import { prepareColorSpaces } from '../../../../utils/dom/getColorSpaces';
-import { getChecked } from '../../../../utils/getChecked';
+import { getChecked } from '../../../../utils/string/getChecked';
 import { block } from '../../../../utils/css/bem';
 import { ValueInProgress } from '../../../../components/ValueInProgress';
 import { isSsr } from '../../../../utils/isSsr';
