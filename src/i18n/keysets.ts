@@ -820,5 +820,25 @@ export const keysets: I18nKeysets = {
     'Dark theme': {
         'en': 'Dark theme',
         'ru': 'Тёмная тема'
-    }    
+    },
+    'Audio Outputs': {
+        'en': 'Audio Outputs',
+        'ru': 'Аудиовыходы'
+    }, 
+    'Audio Inputs': {
+        'en': 'Audio Inputs',
+        'ru': 'Аудиовходы'
+    }, 
+    'Audio Inputs and Outputs': {
+        'en': 'Audio Inputs and Outputs',
+        'ru': 'Входы и выходы для аудио'
+    },   
+    'Request inputs and outputs': {
+        'en': 'Request',
+        'ru': 'Запросить'
+    },
+    'Not detected.': {
+        'en': 'Not detected.',
+        'ru': 'Не обнаружены.'
+    },  
 };

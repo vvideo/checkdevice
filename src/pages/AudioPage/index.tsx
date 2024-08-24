@@ -9,6 +9,7 @@ import { QuestionSurroundSound } from './components/QuestionSurroundSound';
 import { block } from '../../utils/css/bem';
 import { Vibration } from './components/Vibration';
 import { SpeechSynthesis } from './components/SpeechSynthesis';
+import { AudioInputsOutputs } from './components/AudioInputsOutputs';
 
 import './index.css';
 
@@ -26,6 +27,10 @@ export function AudioPage() {
 
                 <Section name={i18n('Audio Codecs')}>
                     <AudioCodecs />
+                </Section>
+
+                <Section name={i18n('Audio Inputs and Outputs')}>
+                    <AudioInputsOutputs />
                 </Section>
 
                 <Section name={i18n('Speech Synthesis')}>
