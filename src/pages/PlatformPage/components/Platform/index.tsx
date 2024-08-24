@@ -86,7 +86,7 @@ export function Platform() {
     items.push(
         [
             i18n('Color scheme'),
-            isSsr ? (<ValueInProgress />) : (getPreferredColorScheme() === 'dark' ? i18n('Dark') : i18n('Light')),
+            isSsr ? (<ValueInProgress />) : (getPreferredColorScheme() === 'dark' ? i18n('dark') : i18n('light')),
         ],
         [
             'User agent',

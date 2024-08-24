@@ -37,12 +37,12 @@ export const keyset: I18nKeyset = {
         'en': 'Color scheme',
         'ru': 'Цветовая схема'
     },
-    'Light': {
+    'light': {
         'en': 'Light',
-        'ru': 'Светлая'
+        'ru': 'светлая'
     },
-    'Dark': {
+    'dark': {
         'en': 'Dark',
-        'ru': 'Тёмное'
+        'ru': 'тёмная'
     }
 };
