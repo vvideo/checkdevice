@@ -1,8 +1,8 @@
 import { h } from 'preact';
-import { useCallback, useState } from 'preact/hooks';
+import { useCallback, useEffect, useState } from 'preact/hooks';
 
 import { block } from '../../../../utils/css/bem';
-import { getPageTheme, setPageTheme, savePageTheme } from '../../../../lib/Theme';
+import { getPageTheme, setPageTheme, savePageTheme, removePageThemeListener, addPageThemeListener, wasSavedPageTheme, PageThemeType } from '../../../../lib/Theme';
 import { i18n } from '../../../../i18n';
 
 import './index.css';
@@ -18,6 +18,21 @@ export function ThemeSwitcher() {
         setPageTheme(currentTheme);
         savePageTheme(currentTheme);
     }, [theme, setTheme]);
+
+    useEffect(() => {
+        const handler = (currentTheme: PageThemeType) => {
+            if (!wasSavedPageTheme()) {
+                setTheme(currentTheme);
+                setPageTheme(currentTheme);
+            }
+        };
+
+        addPageThemeListener(handler);
+
+        return () => {
+            removePageThemeListener(handler);
+        };
+    }, [setTheme]);
 
     const title = theme === 'light' ? i18n('Dark theme') : i18n('Light theme');
 

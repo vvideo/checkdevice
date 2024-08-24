@@ -10,6 +10,7 @@ import { getChecked } from '../../../../utils/getChecked';
 import { isSsr } from '../../../../utils/isSsr';
 import { ValueInProgress } from '../../../../components/ValueInProgress';
 import { DateInProgress } from '../DateInProgress';
+import { getPreferredColorScheme } from '../../../../utils/dom/getPreferredColorScheme';
 
 export function Platform() {
     const ref = useRef<[string, any][]>([]);
@@ -83,6 +84,10 @@ export function Platform() {
     }
 
     items.push(
+        [
+            i18n('Color scheme'),
+            isSsr ? (<ValueInProgress />) : (getPreferredColorScheme() === 'dark' ? i18n('Dark') : i18n('Light')),
+        ],
         [
             'User agent',
             isSsr ? (<ValueInProgress />) : navigator.userAgent

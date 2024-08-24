@@ -1,10 +1,14 @@
+import { getPreferredColorScheme } from '../../utils/dom/getPreferredColorScheme';
 import { getLocalStorageItem, setLocalStorageItem } from '../LocalStorage';
+import { Signal } from '../Signal';
 
 const PAGE_THEME_LOCAL_STORAGE_KEY = 'page-theme';
 
-type PageThemeType = 'dark' | 'light';
+export type PageThemeType = 'dark' | 'light';
 
 const DEFAULT_PAGE_THEME: PageThemeType = 'dark';
+
+let pageTheme: PageThemeType = DEFAULT_PAGE_THEME;
 
 export function setPageTheme(theme: PageThemeType) {
     if (theme === 'light') {
@@ -15,41 +19,54 @@ export function setPageTheme(theme: PageThemeType) {
         document.documentElement.classList.remove('page-theme_light');
     }
 
-    savePageTheme(theme);
+    pageTheme = theme;
 }
 
 export function savePageTheme(theme: PageThemeType) {
     setLocalStorageItem(PAGE_THEME_LOCAL_STORAGE_KEY, theme);
 }
 
+export function wasSavedPageTheme() {
+    return Boolean(getLocalStorageItem(PAGE_THEME_LOCAL_STORAGE_KEY));
+}
+
 export function getPageTheme() {
-    if (typeof window === 'undefined') {
-        return DEFAULT_PAGE_THEME;
-    }
+    return pageTheme;
+}
 
-    return getLocalStorageItem(PAGE_THEME_LOCAL_STORAGE_KEY) as PageThemeType || getPreferredTheme() || DEFAULT_PAGE_THEME;
-}   
+export function isLightPageTheme() {
+    return pageTheme === 'light';
+}
 
-export function getPreferredTheme(): PageThemeType | undefined {
-    if (window.matchMedia) {
-        if (window.matchMedia('(prefers-color-scheme: light)').matches){
-            return 'light';
-        } else {
-            return 'dark';
-        }
-    }
-    
-    return;
+export function isDarkPageTheme() {
+    return pageTheme === 'dark';
+}
+
+const pageThemeChangeSignal = new Signal<PageThemeType>();
+
+export function addPageThemeListener(callback: (theme: PageThemeType) => void) {
+    pageThemeChangeSignal.addListener(callback);
+}
+
+export function removePageThemeListener(callback: (theme: PageThemeType) => void) {
+    pageThemeChangeSignal.removeListener(callback);
 }
 
 export function initPageTheme() {  
     if (typeof window !== 'undefined' && window.matchMedia){
         const query = window.matchMedia('(prefers-color-scheme: dark)');
-        query.addEventListener('change', () => {
-            const theme = getPreferredTheme();
-            setPageTheme(theme || DEFAULT_PAGE_THEME);
+        query.addEventListener('change', () => {      
+            const theme = getPreferredColorScheme() || DEFAULT_PAGE_THEME;
+            pageThemeChangeSignal.trigger(theme);
         });
 
-        setPageTheme(getPageTheme());
+        const theme = getLocalStorageItem(PAGE_THEME_LOCAL_STORAGE_KEY) as PageThemeType || getPreferredColorScheme();
+        if (theme && isCorrectTheme(theme)) {
+            setPageTheme(theme);
+        }
     }
+}
+
+export function isCorrectTheme(value?: string) {
+    return value === 'light' || value === 'dark';
 }
