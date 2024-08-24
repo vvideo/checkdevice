@@ -1,6 +1,6 @@
-import { I18nKeysets } from '.';
+import { I18nKeyset } from '.';
 
-export const keysets: I18nKeysets = {
+export const keyset: I18nKeyset = {
     'Can I watch video in this browser?': {
         'en': 'Can I\u00a0watch video in\u00a0this browser?',
         'ru': 'Могу ли я\u00a0смотреть видео в\u00a0этом браузере?'
@@ -677,30 +677,6 @@ export const keysets: I18nKeysets = {
         'en': 'portrait (secondary)',
         'ru': 'книжная (вторичная)'
     },
-    'Speech Synthesis': {
-        'en': 'Speech Synthesis',
-        'ru': 'Синтез речи'
-    },
-    'Speak': {
-        'en': 'Speak',
-        'ru': 'Сказать'
-    },
-    'Hello world!': {
-        'en': 'Hello world!',
-        'ru': 'Привет, мир!'
-    },
-    'Input text': {
-        'en': 'Input text',
-        'ru': 'Введите текст'
-    },
-    'Speak words': {
-        'en': 'Speak words',
-        'ru': 'Speak слова'
-    },
-    'Input text for speech synthesis': {
-        'en': 'Input text for speech synthesis',
-        'ru': 'Введите текст для синтеза речи'
-    },
     'MIME type': {
         'en': 'MIME type',
         'ru': 'MIME тип'
@@ -821,24 +797,4 @@ export const keysets: I18nKeysets = {
         'en': 'Dark theme',
         'ru': 'Тёмная тема'
     },
-    'Audio Outputs': {
-        'en': 'Audio Outputs',
-        'ru': 'Аудиовыходы'
-    }, 
-    'Audio Inputs': {
-        'en': 'Audio Inputs',
-        'ru': 'Аудиовходы'
-    }, 
-    'Audio Inputs and Outputs': {
-        'en': 'Audio Inputs and Outputs',
-        'ru': 'Входы и выходы для аудио'
-    },   
-    'Request inputs and outputs': {
-        'en': 'Request',
-        'ru': 'Запросить'
-    },
-    'Not detected.': {
-        'en': 'Not detected.',
-        'ru': 'Не обнаружены.'
-    },  
 };

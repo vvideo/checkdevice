@@ -26,4 +26,5 @@ html{background-color:#000;color:#fff;font-family:Arial,Helvetica,sans-serif;fon
 .speech-synthesis__supported{margin:.5em 0}.speech-synthesis__input{max-width:400px;width:50%}
 .list{font-size:16px;line-height:26px;margin:0 0 0 15px;padding:0}
 .audio-inputs-outputs__lists{margin-top:1.5em}.audio-inputs-outputs__list{margin-top:.3em}
+.error-message{color:#f77;margin:1em 0}.error-message_theme_gray{color:gray;filter:grayscale()}
 .audio-page__badge{margin-bottom:15px;margin-top:30px}
