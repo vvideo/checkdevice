@@ -7,11 +7,11 @@
     height: 25px;
     background-size: 100% 100%;
     cursor: pointer;
-    background: url('/static/icons/sun_dark.svg') center center no-repeat;
+    background: url('/static/icons/sun.svg') center center no-repeat;
 }
 
 .theme-switcher_theme_light {
-    background-image: url('/static/icons/moon_light.svg');
+    background-image: url('/static/icons/moon.svg');
 }
 
 @media (max-width: 700px) {

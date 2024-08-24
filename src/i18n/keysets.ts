@@ -813,12 +813,12 @@ export const keysets: I18nKeysets = {
         'en': 'On/off mirror mode',
         'ru': 'Включить/выключить режим зеркала'
     }, 
-    'Light': {
-        'en': 'Light',
-        'ru': 'Светлая'
+    'Light theme': {
+        'en': 'Light theme',
+        'ru': 'Светлая тема'
     },  
-    'Dark': {
-        'en': 'Dark',
-        'ru': 'Тёмная'
+    'Dark theme': {
+        'en': 'Dark theme',
+        'ru': 'Тёмная тема'
     }    
 };

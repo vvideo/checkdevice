@@ -3,6 +3,7 @@ import { useCallback, useState } from 'preact/hooks';
 
 import { block } from '../../../../utils/css/bem';
 import { getPageTheme, setPageTheme, savePageTheme } from '../../../../lib/Theme';
+import { i18n } from '../../../../i18n';
 
 import './index.css';
 
@@ -18,6 +19,7 @@ export function ThemeSwitcher() {
         savePageTheme(currentTheme);
     }, [theme, setTheme]);
 
+    const title = theme === 'light' ? i18n('Dark theme') : i18n('Light theme');
 
-    return (<div class={b({ theme })} onClick={handleClick}></div>);
+    return (<div class={b({ theme })} onClick={handleClick} title={title}></div>);
 }
