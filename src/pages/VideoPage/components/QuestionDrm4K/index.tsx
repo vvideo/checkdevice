@@ -23,7 +23,7 @@ import { i18n } from '../../../../i18n';
 import { isScreensLargerThan2K, needHdcpWarning, screenInfo } from '../../../../lib/ScreenInfo';
 import { isDesktopSafari } from '../../../../utils/device/isDesktopSafari';
 import { getCachedCheckAllHdcpVersions } from '../../../../utils/drm/getCachedCheckAllHdcpVersions';
-import { noop } from '../../../../utils/noop';
+import { noop } from '../../../../utils/function/noop';
 import { isUhdHdcpSupported } from 'hdcp';
 import { isSsr } from '../../../../utils/isSsr';
 import { ExtLink } from '../../../../components/ui/ExtLink';

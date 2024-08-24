@@ -1,4 +1,4 @@
-import { noop } from './noop';
+import { noop } from '../function/noop';
 
 // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#safely_detecting_option_support
 export let passiveSupported = false;

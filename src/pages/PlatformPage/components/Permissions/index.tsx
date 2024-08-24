@@ -3,7 +3,7 @@ import { useEffect, useState } from 'preact/hooks';
 
 import { i18n } from '../../../../i18n';
 import { List } from '../../../../components/ui/List';
-import { noop } from '../../../../utils/noop';
+import { noop } from '../../../../utils/function/noop';
 import { isSsr } from '../../../../utils/isSsr';
 import { Spinner } from '../../../../components/ui/Spinner';
 import { block } from '../../../../utils/css/bem';

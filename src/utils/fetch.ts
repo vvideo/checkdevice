@@ -1,4 +1,4 @@
-import { noop } from './noop';
+import { noop } from './function/noop';
 
 export function fetch(input: RequestInfo | URL, init?: RequestInit): Promise<Response> {
     if (window.fetch) {

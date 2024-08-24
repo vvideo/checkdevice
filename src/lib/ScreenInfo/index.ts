@@ -5,9 +5,9 @@ import {
     isRec2020Supported,
     isSrgbSupported,
 } from 'detect-audio-video';
-import { noop } from '../../utils/noop';
+import { noop } from '../../utils/function/noop';
 import { isSsr } from '../../utils/isSsr';
-import { needChangeWidthHeight } from '../../utils/needChangeWidthHeight';
+import { needChangeWidthHeight } from '../../utils/dom/needChangeWidthHeight';
 
 export interface ScreenDetailed extends Screen {
     label: string;

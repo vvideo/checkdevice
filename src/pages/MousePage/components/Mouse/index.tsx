@@ -3,7 +3,7 @@ import { h } from 'preact';
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { block } from '../../../../utils/css/bem';
 import { useForceUpdate } from '../../../../hooks/useForceUpdate';
-import { passiveSupported } from '../../../../utils/passiveSupported';
+import { passiveSupported } from '../../../../utils/dom/passiveSupported';
 import { i18n } from '../../../../i18n';
 import { prepareDeltaY } from './utils';
 

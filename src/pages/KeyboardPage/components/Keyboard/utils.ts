@@ -1,4 +1,4 @@
-import { isIpad, isMacintosh } from '../../../../utils/platform';
+import { isIpad, isMacintosh } from '../../../../utils/dom/platform';
 
 export function getIsMacBook() {
     const { width, height } = window.screen;

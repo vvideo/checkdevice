@@ -2,7 +2,7 @@ import { showJSError } from 'show-js-error';
 import { hit } from 'lyam';
 
 import { addI18nKeyset, I18NLanguage, setI18nLang, setI18nLangs } from '../../i18n';
-import { withInstallApp } from '../../utils/withInstallApp';
+import { withInstallApp } from '../../utils/dom/withInstallApp';
 import { addHoverOnBody } from '../../utils/css/addHoverOnBody';
 import { isSsr } from '../../utils/isSsr';
 import { setPageId } from '../../utils/pageId';

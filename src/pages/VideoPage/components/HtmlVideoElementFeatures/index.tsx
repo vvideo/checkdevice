@@ -10,7 +10,7 @@ import {
 
 import { block } from '../../../../utils/css/bem';
 import { i18n } from '../../../../i18n';
-import { getAutoplayPolicy } from '../../../../utils/getAutoplayPolicy';
+import { getAutoplayPolicy } from '../../../../utils/dom/getAutoplayPolicy';
 import { isSsr } from '../../../../utils/isSsr';
 
 import './index.css';

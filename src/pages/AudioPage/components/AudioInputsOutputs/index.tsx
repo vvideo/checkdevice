@@ -7,7 +7,7 @@ import { List } from '../../../../components/ui/List';
 import { block } from '../../../../utils/css/bem';
 
 import './index.css';
-import { noop } from '../../../../utils/noop';
+import { noop } from '../../../../utils/function/noop';
 import { AudioError } from '../AudioError';
 
 const b = block('audio-inputs-outputs');
