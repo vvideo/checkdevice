@@ -7,14 +7,17 @@ import { List } from '../../../../components/ui/List';
 import { block } from '../../../../utils/css/bem';
 
 import './index.css';
+import { noop } from '../../../../utils/noop';
+import { AudioError } from '../AudioError';
 
 const b = block('audio-inputs-outputs');
 
 export function AudioInputsOutputs() {
+    const [error, setError] = useState<Error | null>(null);
     const [outputs, setOutputs] = useState<string[]>([]);
     const [inputs, setInputs] = useState<string[]>([]);
 
-    const handleClick = useCallback(() => {
+    const handleClick = useCallback(() => {        
         navigator.mediaDevices.getUserMedia({ audio: true }).then(() => {
             return navigator.mediaDevices.enumerateDevices().then(deviceInfo => {
                 const inputItems: string[] = [];
@@ -32,8 +35,11 @@ export function AudioInputsOutputs() {
 
                 setInputs(inputItems);
                 setOutputs(outputItems);
-            });
-        }).catch(() => {});
+                setError(null);
+            }).catch(noop);
+        }).catch(error => {
+            setError(error);
+        });
     }, []);
 
     const inputItems: [string][] = inputs.map(item => [item]);
@@ -41,6 +47,8 @@ export function AudioInputsOutputs() {
 
     return (<div class={b()}>
         <Button onClick={handleClick}>{i18n('Request inputs and outputs')}</Button>
+
+        <AudioError error={error} />
 
         {inputItems.length || outputs.length ? (
             <div class={b('lists')}>
