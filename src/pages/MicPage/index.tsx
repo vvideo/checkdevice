@@ -1,8 +1,11 @@
 import { h } from 'preact';
 
-import { i18n } from '../../i18n';
+import { addI18nKeyset, i18n } from '../../i18n';
 import { Page } from '../Page';
 import { Mic } from './components/Mic';
+import { keyset } from './i18n/keyset';
+
+addI18nKeyset(keyset);
 
 export function MicPage() {
     return (

@@ -2,12 +2,15 @@ import { h } from 'preact';
 
 import { ScreenList } from './components/ScreenList';
 import { Page } from '../Page';
-import { i18n } from '../../i18n';
+import { addI18nKeyset, i18n } from '../../i18n';
 import { Link } from '../../components/ui/Link';
 import { getPagePath } from '../../utils/getPagePath';
 import { ExtLink } from '../../components/ui/ExtLink';
 import { NavList } from '../../components/NavList';
 import { Section } from '../../components/ui/Section';
+import { keyset } from './i18n/keyset';
+
+addI18nKeyset(keyset);
 
 export function ScreenPage() {
     const items = [

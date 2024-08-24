@@ -1,17 +1,26 @@
-import { keyset } from './keyset';
-import { langs } from './langs';
-
 export type I18NKeys = { 'en': string, 'ru': string };
 export type I18nKeyset = Record<string, I18NKeys>;
 export type I18NLanguage = keyof I18NKeys;
 
-let i18nKeyset = keyset;
+export interface I18NLanguageData {
+    name: string;
+    value: string;
+    default?: boolean;
+};
+
+let i18nKeyset: I18nKeyset = {};
 let i18nLang: I18NLanguage;
+
+export let langsData: I18NLanguageData[] = [];
 
 export function getI18nLangs() {
     return [
-        ...langs,
+        ...langsData,
     ];
+}
+
+export function setI18nLangs(data: I18NLanguageData[]) {
+    langsData = data;
 }
 
 export function addI18nKeyset(keyset: I18nKeyset) {

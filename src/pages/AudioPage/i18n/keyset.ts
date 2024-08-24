@@ -1,6 +1,54 @@
 import { I18nKeyset } from '../../../i18n';
 
 export const keyset: I18nKeyset = {
+    'Audio': {
+        'en': 'Audio',
+        'ru': 'Аудио'
+    },
+    'Supports one of the audio codecs?': {
+        'en': 'Supports one of the audio codecs?',
+        'ru': 'Есть поддержка одного из аудиокодеков?'
+    },
+    'Audio Codecs': {
+        'en': 'Audio Codecs',
+        'ru': 'Аудиокодеки'
+    },
+    'Can I listen to surround sound on online services?': {
+        'en': 'Can I listen to surround sound on online services?',
+        'ru': 'Могу ли я услышать многоканальный звук в онлайн-сервисах?'
+    },
+    'Unsupported audio codecs': {
+        'en': 'Unsupported audio codecs.',
+        'ru': 'Не поддерживаемые аудиокодеки'
+    },
+    'No supported audio codecs.': {
+        'en': 'No supported audio codecs.',
+        'ru': 'Нет поддерживаемых аудиокодеков.'
+    },
+    'Supported audio codecs': {
+        'en': 'Supported audio codecs',
+        'ru': 'Поддерживаемые аудиокодеки'
+    },
+    'Check vibration': {
+        'en': 'Check vibration',
+        'ru': 'Проверить вибрацию'
+    },
+    'Vibration': {
+        'en': 'Vibration',
+        'ru': 'Вибрация'
+    },
+    'Support is mainly on mobile devices.': {
+        'en': 'Support is mainly on mobile devices.',
+        'ru': 'Поддержка в основном на мобильных устройствах.'
+    },
+    'Vibrate': {
+        'en': 'Vibrate',
+        'ru': 'Вибрировать'
+    },
+    'Vibration API is not supported.': {
+        'en': 'Vibration API is not supported.',
+        'ru': 'Vibration API не поддерживается.'
+    },    
     'Speech Synthesis': {
         'en': 'Speech Synthesis',
         'ru': 'Синтез речи'

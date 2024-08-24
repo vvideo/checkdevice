@@ -1,4 +1,4 @@
-export const langs = [
+export const langsData = [
     {
         name: 'EN',
         value: 'en',
@@ -10,4 +10,4 @@ export const langs = [
     },
 ];
 
-export const defaultLang = langs.filter(item => Boolean(item.default))[0].value;
+export const defaultLang = langsData.filter(item => Boolean(item.default))[0].value;

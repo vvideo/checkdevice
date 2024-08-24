@@ -1,21 +1,24 @@
 import { showJSError } from 'show-js-error';
 import { hit } from 'lyam';
 
-import { I18NLanguage, setI18nLang } from '../../i18n';
+import { addI18nKeyset, I18NLanguage, setI18nLang, setI18nLangs } from '../../i18n';
 import { withInstallApp } from '../../utils/withInstallApp';
 import { addHoverOnBody } from '../../utils/css/addHoverOnBody';
 import { isSsr } from '../../utils/isSsr';
 import { setPageId } from '../../utils/pageId';
-import { defaultLang, langs } from '../../i18n/langs';
+import { defaultLang, langsData } from '../../i18n/langs';
+import { keyset } from './i18n/keyset';
 import { config } from '../../config';
 import { initPageTheme } from '../../lib/Theme';
 
 import './global.css';
 
+addI18nKeyset(keyset);
+
 export function getLang() {
     let lang = window.__appData__.lang || getLangFromNavigator();
 
-    const result = langs.filter(item => item.value === lang);
+    const result = langsData.filter(item => item.value === lang);
     if (!result.length) {
         lang = defaultLang;
     }
@@ -27,6 +30,9 @@ function getLangFromNavigator() {
     return ((navigator.language || '').split('-')[0] || defaultLang);
 }
 
+setI18nLangs(langsData);
+addI18nKeyset(keyset);
+
 if (!isSsr) {
     showJSError.setSettings({
         reportUrl: config.showJSErrorRepportUrl,
@@ -34,7 +40,7 @@ if (!isSsr) {
 
     hit(config.metrikaCounterId);
 
-    const lang = getLang();
+    const lang = getLang() as I18NLanguage;
     setI18nLang(lang as I18NLanguage);
 
     setPageId(window.__appData__.pageId);

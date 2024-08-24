@@ -1,7 +1,10 @@
 import { h } from 'preact';
-import { i18n } from '../../i18n';
+import { addI18nKeyset, i18n } from '../../i18n';
 import { Page } from '../Page';
 import { Link } from '../../components/ui/Link';
+import { keyset } from './i18n/keyset';
+
+addI18nKeyset(keyset);
 
 export function Error404Page() {
     return (
