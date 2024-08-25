@@ -1,0 +1,49 @@
+.color-switcher-item {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: 0 10px 0 0;
+    padding: 0;
+    border: 2px solid transparent;
+    border-radius: 100% 100%;
+    cursor: pointer;
+    list-style-type: none;
+    box-sizing: border-box;
+    transition: border-color .2s ease;
+}
+
+.color-switcher-item_selected {
+    border-color: gold;
+}
+
+.color-switcher-item__color {
+    position: relative; 
+    border-radius: 100% 100%;
+    width: 100%;
+    height: 100%;
+}
+
+.color-switcher-item__color:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    border: 1px solid rgba(0, 0, 0, .5);
+    border-radius: 100% 100%;
+    box-sizing: border-box;
+}
+
+.color-switcher-item__color:after {
+    position: absolute;
+    left: 1px;
+    top: 1px;
+    right: 1px;
+    bottom: 1px;
+    content: '';
+    border: 1px solid rgba(255, 255, 255, .5);
+    border-radius: 100% 100%;
+    box-sizing: border-box;
+}
+
