@@ -3,8 +3,8 @@
     top: 35px;
     right: 0;
     border-radius: 100%;
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     background-size: 100% 100%;
     cursor: pointer;
     background: url('/static/icons/sun.svg') center center no-repeat;
@@ -17,7 +17,7 @@
 @media (max-width: 700px) {
     .theme-switcher {
         top: 30px;
-        width: 20px;
-        height: 20px;        
+        width: 15px;
+        height: 15px;        
     }
 }
