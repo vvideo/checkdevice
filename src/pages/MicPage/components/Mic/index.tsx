@@ -55,7 +55,7 @@ export function Mic() {
 
         <MicError error={error} />
 
-        <div class={b('canvas-container')}>
+        <div class={b('canvas-container')} onClick={handleSelectMic}>
             <canvas title={i18n('Sound spectrum visualizer for mic')} ref={refCanvas} class={b('canvas')} width="300" height="200"></canvas>
             <div class={b('speak-up', { started })}>📢 {i18n('Speak up!')}</div>
         </div>
