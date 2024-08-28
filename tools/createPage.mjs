@@ -9,7 +9,6 @@ export function createPage(params) {
     return `<!DOCTYPE html>
 <html lang="${lang || 'en'}">
 <head>
-    <script>!function(){var e=function(){if(!window.localStorage)return"";var e="";try{e=localStorage.getItem("page-theme")}catch(e){}return e}();"dark"!==e&&"light"!==e&&(e="");var t=e||(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)")?"light":"dark");document.documentElement.className+=" page-theme_"+t}();</script>
     <title>${header}</title>
     ${description ? `<meta name="description" content="${description}" />` : ''}
     ${keywords ? `<meta name="keywords" content="${keywords}" />` : ''}
@@ -33,6 +32,8 @@ export function createPage(params) {
             pageId: '${id}',
             lang: '${lang || ''}'
         };
+
+        !function(){var e=function(){if(!window.localStorage)return"";var e="";try{e=localStorage.getItem("page-theme")}catch(e){}return e}();"dark"!==e&&"light"!==e&&(e="");var t=e||(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)")?"light":"dark");document.documentElement.className+=" page-theme_"+t}();        
     </script>
 </head>
 <body>
