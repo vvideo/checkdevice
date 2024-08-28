@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <script>!function(){var e=function(){if(!window.localStorage)return"";var e="";try{e=localStorage.getItem("page-theme")}catch(e){}return e}();"dark"!==e&&"light"!==e&&(e="");var t=e||(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)")?"light":"dark");document.documentElement.className+=" page-theme_"+t}();</script>
     <title>Проверить джойстик / Проверь устройство онлайн</title>
     <meta name="description" content="Тестирование кнопок, триггеров и осей джойстика онлайн" />
     <meta name="keywords" content="оси джойстика, кнопки джойстика, триггеры джойстика" />
@@ -24,6 +23,8 @@
             pageId: 'gamepad',
             lang: 'ru'
         };
+
+        !function(){var e=function(){if(!window.localStorage)return"";var e="";try{e=localStorage.getItem("page-theme")}catch(e){}return e}();"dark"!==e&&"light"!==e&&(e="");var t=e||(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)")?"light":"dark");document.documentElement.className+=" page-theme_"+t}();        
     </script>
 </head>
 <body>

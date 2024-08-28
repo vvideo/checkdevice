@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script>!function(){var e=function(){if(!window.localStorage)return"";var e="";try{e=localStorage.getItem("page-theme")}catch(e){}return e}();"dark"!==e&&"light"!==e&&(e="");var t=e||(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)")?"light":"dark");document.documentElement.className+=" page-theme_"+t}();</script>
     <title>Check Screen / Check device online</title>
     <meta name="description" content="View screen resolution of monitor, laptop, smartphone or tablet online, support for multiple monitors" />
     <meta name="keywords" content="logical size, actual size, resolution screen, hdr, device pixel ratio, max touch points, color depth, aspect ratio, color spaces, orientation, frame rate" />
@@ -24,6 +23,8 @@
             pageId: 'screen',
             lang: 'en'
         };
+
+        !function(){var e=function(){if(!window.localStorage)return"";var e="";try{e=localStorage.getItem("page-theme")}catch(e){}return e}();"dark"!==e&&"light"!==e&&(e="");var t=e||(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)")?"light":"dark");document.documentElement.className+=" page-theme_"+t}();        
     </script>
 </head>
 <body>

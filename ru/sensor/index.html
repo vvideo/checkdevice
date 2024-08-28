@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <script>!function(){var e=function(){if(!window.localStorage)return"";var e="";try{e=localStorage.getItem("page-theme")}catch(e){}return e}();"dark"!==e&&"light"!==e&&(e="");var t=e||(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)")?"light":"dark");document.documentElement.className+=" page-theme_"+t}();</script>
     <title>Сенсор / Проверь устройство онлайн</title>
     <meta name="description" content="Просмотр детальной информации о датчиках онлайн" />
     <meta name="keywords" content="акселерометр, датчик освещенности, датчик силы тяжести, гироскоп, датчик линейного ускорения, магнитометр, датчик ориентации" />
@@ -24,6 +23,8 @@
             pageId: 'sensor',
             lang: 'ru'
         };
+
+        !function(){var e=function(){if(!window.localStorage)return"";var e="";try{e=localStorage.getItem("page-theme")}catch(e){}return e}();"dark"!==e&&"light"!==e&&(e="");var t=e||(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)")?"light":"dark");document.documentElement.className+=" page-theme_"+t}();        
     </script>
 </head>
 <body>
