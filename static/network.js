@@ -1,2 +1,2183 @@
-!function(e){"function"==typeof define&&define.amd?define(e):e()}((function(){"use strict";var e,n,t,r,o,i,s,a,u,l,c={},d=[],_=/acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i,p=Array.isArray;function h(e,n){for(var t in n)e[t]=n[t];return e}function f(e){var n=e.parentNode;n&&n.removeChild(e)}function m(n,t,r){var o,i,s,a={};for(s in t)"key"==s?o=t[s]:"ref"==s?i=t[s]:a[s]=t[s];if(arguments.length>2&&(a.children=arguments.length>3?e.call(arguments,2):r),"function"==typeof n&&null!=n.defaultProps)for(s in n.defaultProps)void 0===a[s]&&(a[s]=n.defaultProps[s]);return v(n,a,o,i,null)}function v(e,r,o,i,s){var a={type:e,props:r,key:o,ref:i,__k:null,__:null,__b:0,__e:null,__d:void 0,__c:null,constructor:void 0,__v:null==s?++t:s,__i:-1,__u:0};return null==s&&null!=n.vnode&&n.vnode(a),a}function g(e){return e.children}function y(e,n){this.props=e,this.context=n}function w(e,n){if(null==n)return e.__?w(e.__,e.__i+1):null;for(var t;n<e.__k.length;n++)if(null!=(t=e.__k[n])&&null!=t.__e)return t.__e;return"function"==typeof e.type?w(e):null}function b(e){var n,t;if(null!=(e=e.__)&&null!=e.__c){for(e.__e=e.__c.base=null,n=0;n<e.__k.length;n++)if(null!=(t=e.__k[n])&&null!=t.__e){e.__e=e.__c.base=t.__e;break}return b(e)}}function k(e){(!e.__d&&(e.__d=!0)&&r.push(e)&&!x.__r++||o!==n.debounceRendering)&&((o=n.debounceRendering)||i)(x)}function x(){var e,t,o,i,a,u,l,c;for(r.sort(s);e=r.shift();)e.__d&&(t=r.length,i=void 0,u=(a=(o=e).__v).__e,l=[],c=[],o.__P&&((i=h({},a)).__v=a.__v+1,n.vnode&&n.vnode(i),L(o.__P,i,a,o.__n,o.__P.namespaceURI,32&a.__u?[u]:null,l,null==u?w(a):u,!!(32&a.__u),c),i.__v=a.__v,i.__.__k[i.__i]=i,D(l,i,c),i.__e!=u&&b(i)),r.length>t&&r.sort(s));x.__r=0}function S(e,n,t,r,o,i,s,a,u,l,_){var p,h,f,m,v,g=r&&r.__k||d,y=n.length;for(t.__d=u,I(t,n,g),u=t.__d,p=0;p<y;p++)null!=(f=t.__k[p])&&"boolean"!=typeof f&&"function"!=typeof f&&(h=-1===f.__i?c:g[f.__i]||c,f.__i=p,L(e,f,h,o,i,s,a,u,l,_),m=f.__e,f.ref&&h.ref!=f.ref&&(h.ref&&j(h.ref,null,f),_.push(f.ref,f.__c||m,f)),null==v&&null!=m&&(v=m),65536&f.__u||h.__k===f.__k?u=M(f,u,e):"function"==typeof f.type&&void 0!==f.__d?u=f.__d:m&&(u=m.nextSibling),f.__d=void 0,f.__u&=-196609);t.__d=u,t.__e=v}function I(e,n,t){var r,o,i,s,a,u=n.length,l=t.length,c=l,d=0;for(e.__k=[],r=0;r<u;r++)s=r+d,null!=(o=e.__k[r]=null==(o=n[r])||"boolean"==typeof o||"function"==typeof o?null:"string"==typeof o||"number"==typeof o||"bigint"==typeof o||o.constructor==String?v(null,o,null,null,null):p(o)?v(g,{children:o},null,null,null):void 0===o.constructor&&o.__b>0?v(o.type,o.props,o.key,o.ref?o.ref:null,o.__v):o)?(o.__=e,o.__b=e.__b+1,a=T(o,t,s,c),o.__i=a,i=null,-1!==a&&(c--,(i=t[a])&&(i.__u|=131072)),null==i||null===i.__v?(-1==a&&d--,"function"!=typeof o.type&&(o.__u|=65536)):a!==s&&(a==s-1?d--:a==s+1?d++:a>s?c>u-s?d+=a-s:d--:a<s&&(a==s-d?d-=a-s:d++),a!==r+d&&(o.__u|=65536))):(i=t[s])&&null==i.key&&i.__e&&!(131072&i.__u)&&(i.__e==e.__d&&(e.__d=w(i)),N(i,i,!1),t[s]=null,c--);if(c)for(r=0;r<l;r++)null!=(i=t[r])&&!(131072&i.__u)&&(i.__e==e.__d&&(e.__d=w(i)),N(i,i))}function M(e,n,t){var r,o;if("function"==typeof e.type){for(r=e.__k,o=0;r&&o<r.length;o++)r[o]&&(r[o].__=e,n=M(r[o],n,t));return n}e.__e!=n&&(n&&e.type&&!t.contains(n)&&(n=w(e)),t.insertBefore(e.__e,n||null),n=e.__e);do{n=n&&n.nextSibling}while(null!=n&&8===n.nodeType);return n}function T(e,n,t,r){var o=e.key,i=e.type,s=t-1,a=t+1,u=n[t];if(null===u||u&&o==u.key&&i===u.type&&!(131072&u.__u))return t;if(r>(null==u||131072&u.__u?0:1))for(;s>=0||a<n.length;){if(s>=0){if((u=n[s])&&!(131072&u.__u)&&o==u.key&&i===u.type)return s;s--}if(a<n.length){if((u=n[a])&&!(131072&u.__u)&&o==u.key&&i===u.type)return a;a++}}return-1}function E(e,n,t){"-"===n[0]?e.setProperty(n,null==t?"":t):e[n]=null==t?"":"number"!=typeof t||_.test(n)?t:t+"px"}function P(e,n,t,r,o){var i;e:if("style"===n)if("string"==typeof t)e.style.cssText=t;else{if("string"==typeof r&&(e.style.cssText=r=""),r)for(n in r)t&&n in t||E(e.style,n,"");if(t)for(n in t)r&&t[n]===r[n]||E(e.style,n,t[n])}else if("o"===n[0]&&"n"===n[1])i=n!==(n=n.replace(/(PointerCapture)$|Capture$/i,"$1")),n=n.toLowerCase()in e||"onFocusOut"===n||"onFocusIn"===n?n.toLowerCase().slice(2):n.slice(2),e.l||(e.l={}),e.l[n+i]=t,t?r?t.u=r.u:(t.u=a,e.addEventListener(n,i?l:u,i)):e.removeEventListener(n,i?l:u,i);else{if("http://www.w3.org/2000/svg"==o)n=n.replace(/xlink(H|:h)/,"h").replace(/sName$/,"s");else if("width"!=n&&"height"!=n&&"href"!=n&&"list"!=n&&"form"!=n&&"tabIndex"!=n&&"download"!=n&&"rowSpan"!=n&&"colSpan"!=n&&"role"!=n&&"popover"!=n&&n in e)try{e[n]=null==t?"":t;break e}catch(e){}"function"==typeof t||(null==t||!1===t&&"-"!==n[4]?e.removeAttribute(n):e.setAttribute(n,"popover"==n&&1==t?"":t))}}function C(e){return function(t){if(this.l){var r=this.l[t.type+e];if(null==t.t)t.t=a++;else if(t.t<r.u)return;return r(n.event?n.event(t):t)}}}function L(e,t,r,o,i,s,a,u,l,c){var d,_,f,m,v,w,b,k,x,I,M,T,E,P,C,L,D=t.type;if(void 0!==t.constructor)return null;128&r.__u&&(l=!!(32&r.__u),s=[u=t.__e=r.__e]),(d=n.__b)&&d(t);e:if("function"==typeof D)try{if(k=t.props,x="prototype"in D&&D.prototype.render,I=(d=D.contextType)&&o[d.__c],M=d?I?I.props.value:d.__:o,r.__c?b=(_=t.__c=r.__c).__=_.__E:(x?t.__c=_=new D(k,M):(t.__c=_=new y(k,M),_.constructor=D,_.render=A),I&&I.sub(_),_.props=k,_.state||(_.state={}),_.context=M,_.__n=o,f=_.__d=!0,_.__h=[],_._sb=[]),x&&null==_.__s&&(_.__s=_.state),x&&null!=D.getDerivedStateFromProps&&(_.__s==_.state&&(_.__s=h({},_.__s)),h(_.__s,D.getDerivedStateFromProps(k,_.__s))),m=_.props,v=_.state,_.__v=t,f)x&&null==D.getDerivedStateFromProps&&null!=_.componentWillMount&&_.componentWillMount(),x&&null!=_.componentDidMount&&_.__h.push(_.componentDidMount);else{if(x&&null==D.getDerivedStateFromProps&&k!==m&&null!=_.componentWillReceiveProps&&_.componentWillReceiveProps(k,M),!_.__e&&(null!=_.shouldComponentUpdate&&!1===_.shouldComponentUpdate(k,_.__s,M)||t.__v===r.__v)){for(t.__v!==r.__v&&(_.props=k,_.state=_.__s,_.__d=!1),t.__e=r.__e,t.__k=r.__k,t.__k.forEach((function(e){e&&(e.__=t)})),T=0;T<_._sb.length;T++)_.__h.push(_._sb[T]);_._sb=[],_.__h.length&&a.push(_);break e}null!=_.componentWillUpdate&&_.componentWillUpdate(k,_.__s,M),x&&null!=_.componentDidUpdate&&_.__h.push((function(){_.componentDidUpdate(m,v,w)}))}if(_.context=M,_.props=k,_.__P=e,_.__e=!1,E=n.__r,P=0,x){for(_.state=_.__s,_.__d=!1,E&&E(t),d=_.render(_.props,_.state,_.context),C=0;C<_._sb.length;C++)_.__h.push(_._sb[C]);_._sb=[]}else do{_.__d=!1,E&&E(t),d=_.render(_.props,_.state,_.context),_.state=_.__s}while(_.__d&&++P<25);_.state=_.__s,null!=_.getChildContext&&(o=h(h({},o),_.getChildContext())),x&&!f&&null!=_.getSnapshotBeforeUpdate&&(w=_.getSnapshotBeforeUpdate(m,v)),S(e,p(L=null!=d&&d.type===g&&null==d.key?d.props.children:d)?L:[L],t,r,o,i,s,a,u,l,c),_.base=t.__e,t.__u&=-161,_.__h.length&&a.push(_),b&&(_.__E=_.__=null)}catch(e){if(t.__v=null,l||null!=s){for(t.__u|=l?160:32;u&&8===u.nodeType&&u.nextSibling;)u=u.nextSibling;s[s.indexOf(u)]=null,t.__e=u}else t.__e=r.__e,t.__k=r.__k;n.__e(e,t,r)}else null==s&&t.__v===r.__v?(t.__k=r.__k,t.__e=r.__e):t.__e=U(r.__e,t,r,o,i,s,a,l,c);(d=n.diffed)&&d(t)}function D(e,t,r){t.__d=void 0;for(var o=0;o<r.length;o++)j(r[o],r[++o],r[++o]);n.__c&&n.__c(t,e),e.some((function(t){try{e=t.__h,t.__h=[],e.some((function(e){e.call(t)}))}catch(e){n.__e(e,t.__v)}}))}function U(n,t,r,o,i,s,a,u,l){var d,_,h,m,v,g,y,b=r.props,k=t.props,x=t.type;if("svg"===x?i="http://www.w3.org/2000/svg":"math"===x?i="http://www.w3.org/1998/Math/MathML":i||(i="http://www.w3.org/1999/xhtml"),null!=s)for(d=0;d<s.length;d++)if((v=s[d])&&"setAttribute"in v==!!x&&(x?v.localName===x:3===v.nodeType)){n=v,s[d]=null;break}if(null==n){if(null===x)return document.createTextNode(k);n=document.createElementNS(i,x,k.is&&k),s=null,u=!1}if(null===x)b===k||u&&n.data===k||(n.data=k);else{if(s=s&&e.call(n.childNodes),b=r.props||c,!u&&null!=s)for(b={},d=0;d<n.attributes.length;d++)b[(v=n.attributes[d]).name]=v.value;for(d in b)if(v=b[d],"children"==d);else if("dangerouslySetInnerHTML"==d)h=v;else if("key"!==d&&!(d in k)){if("value"==d&&"defaultValue"in k||"checked"==d&&"defaultChecked"in k)continue;P(n,d,null,v,i)}for(d in k)v=k[d],"children"==d?m=v:"dangerouslySetInnerHTML"==d?_=v:"value"==d?g=v:"checked"==d?y=v:"key"===d||u&&"function"!=typeof v||b[d]===v||P(n,d,v,b[d],i);if(_)u||h&&(_.__html===h.__html||_.__html===n.innerHTML)||(n.innerHTML=_.__html),t.__k=[];else if(h&&(n.innerHTML=""),S(n,p(m)?m:[m],t,r,o,"foreignObject"===x?"http://www.w3.org/1999/xhtml":i,s,a,s?s[0]:r.__k&&w(r,0),u,l),null!=s)for(d=s.length;d--;)null!=s[d]&&f(s[d]);u||(d="value",void 0!==g&&(g!==n[d]||"progress"===x&&!g||"option"===x&&g!==b[d])&&P(n,d,g,b[d],i),d="checked",void 0!==y&&y!==n[d]&&P(n,d,y,b[d],i))}return n}function j(e,t,r){try{if("function"==typeof e){var o="function"==typeof e.__u;o&&e.__u(),o&&null==t||(e.__u=e(t))}else e.current=t}catch(e){n.__e(e,r)}}function N(e,t,r){var o,i;if(n.unmount&&n.unmount(e),(o=e.ref)&&(o.current&&o.current!==e.__e||j(o,null,t)),null!=(o=e.__c)){if(o.componentWillUnmount)try{o.componentWillUnmount()}catch(e){n.__e(e,t)}o.base=o.__P=null}if(o=e.__k)for(i=0;i<o.length;i++)o[i]&&N(o[i],t,r||"function"!=typeof e.type);r||null==e.__e||f(e.__e),e.__c=e.__=e.__e=e.__d=void 0}function A(e,n,t){return this.constructor(e,t)}e=d.slice,n={__e:function(e,n,t,r){for(var o,i,s;n=n.__;)if((o=n.__c)&&!o.__)try{if((i=o.constructor)&&null!=i.getDerivedStateFromError&&(o.setState(i.getDerivedStateFromError(e)),s=o.__d),null!=o.componentDidCatch&&(o.componentDidCatch(e,r||{}),s=o.__d),s)return o.__E=o}catch(n){e=n}throw e}},t=0,y.prototype.setState=function(e,n){var t;t=null!=this.__s&&this.__s!==this.state?this.__s:this.__s=h({},this.state),"function"==typeof e&&(e=e(h({},t),this.props)),e&&h(t,e),null!=e&&this.__v&&(n&&this._sb.push(n),k(this))},y.prototype.forceUpdate=function(e){this.__v&&(this.__e=!0,e&&this.__h.push(e),k(this))},y.prototype.render=g,r=[],i="function"==typeof Promise?Promise.prototype.then.bind(Promise.resolve()):setTimeout,s=function(e,n){return e.__v.__b-n.__v.__b},x.__r=0,a=0,u=C(!1),l=C(!0);var B=function(){return B=Object.assign||function(e){for(var n,t=1,r=arguments.length;t<r;t++)for(var o in n=arguments[t])Object.prototype.hasOwnProperty.call(n,o)&&(e[o]=n[o]);return e},B.apply(this,arguments)};"function"==typeof SuppressedError&&SuppressedError;var R,H={},z=[];function G(){return function(e,n,t){if(t||2===arguments.length)for(var r,o=0,i=n.length;o<i;o++)!r&&o in n||(r||(r=Array.prototype.slice.call(n,0,o)),r[o]=n[o]);return e.concat(r||Array.prototype.slice.call(n))}([],z,!0)}function V(e){H=B(B({},H),e)}function O(e){var n=H[e];if(!n)return console.error('i18n: not found translation key "'.concat(e,'".')),e;var t=n[R];return void 0===t?(console.error('i18n: not found translation key "'.concat(e,'", lang "').concat(R,'".')),e):t}function W(e){return e[R]}function F(){return R}function $(e){return function(n,t){if(!n)return e;var r=e;return"string"==typeof n?(r=e+"__"+n,t&&(r=q(r,t)),r):(n&&(r=q(r,n)),r)}}function q(e,n){var t=e;return Object.keys(n).forEach((function(r){var o=n[r];!1!==o&&null!=o&&""!==o&&(t+=" "+e+"_",!0===n[r]?t+=r:t+=r+"_"+o)})),t}function K(){for(var e=[],n=0;n<arguments.length;n++)e[n]=arguments[n];return e.filter((function(e){return null!=e})).join(" ")}var J=$("section");function X(e){if(!e.children)return null;var n=K(J(),e.class);return e.name?m("section",{class:n},m("h2",{class:J("name")},e.name),m("div",{class:J("body")},e.children)):m("div",{class:J()},e.children)}var Y=$("tree-list"),Q={string:!0,number:!0,bigint:!0,boolean:!0,symbol:!0,undefined:!0,function:!0,object:!1};function Z(e,n,t){if(void 0===n&&(n={}),void 0===t&&(t=0),"string"==typeof e)return m("span",{class:Y("string")},"'",e,"'");if("number"==typeof e)return m("span",{class:Y("number")},e);if("bigint"==typeof e)return m("span",{class:Y("bigint")},e,"n");if("boolean"==typeof e)return m("span",{class:Y("boolean")},String(e));if("function"==typeof e)return m("span",{class:Y("function")},"ƒ ",e.name,"()");if("symbol"==typeof e)return m("span",{class:Y("symbol")},e.toString());if(void 0===e)return m("span",{class:Y("undefined")},"undefined");if(null===e)return m("span",{class:Y("null")},"null");if(Array.isArray(e))return n.compactArrayWithSimpleTypes&&e.every((function(e){return null===e||Q[typeof e]}))?m("div",{class:Y("inline")},"["," ",e.map((function(e,r){return m("div",{class:Y("inline")},r?", ":"",Z(e,n,t+1))}))," ","]"):m("div",{class:Y("inline")},"[",m("ul",null,e.map((function(r,o){var i=n.showArrayIndex?m("div",{class:Y("inline")}," ",m("span",{class:Y("index")},o,": ")):"";return m("li",null,i,Z(r,n,t+1),o===e.length-1?"":",")}))),"]");if(n.compactObject&&t>0)return m("div",{class:Y("inline")}," ",Object.keys(e).map((function(r,o,i){return m("div",{class:Y("inline")},m("span",{class:Y("property")},r,": "),Z(e[r],n,t+1),o===i.length-1?"":", ")}))," ");var r=[];for(var o in e)r.push(o);var i=Boolean(n.showCurlyBracesAtRootLevel||t);return m("div",{class:Y("inline")},i?"{":"",m("ul",{class:Y("ul",{padding:i?"yes":"no"})},r.map((function(r,o,i){return m("li",null,m("span",{class:Y("property")},r,": "),Z(e[r],n,t+1),o===i.length-1?"":",")}))),i?"}":"")}function ee(e){return m(X,{name:e.title},m("div",{class:Y()},Z(e.data,e.options)))}var ne="undefined"==typeof window,te=$("connection-navigator");function re(){if(ne||!navigator.connection)return null;var e=navigator.connection,n={downlink:e.downlink,effectiveType:e.effectiveType,rtt:e.rtt,saveData:e.saveData};return"type"in e&&(n.type=e.type),"downlinkMax"in e&&(n.downlinkMax=e.downlinkMax),m("div",{class:te()},m(ee,{title:"navigator.connection",data:n}))}var oe,ie,se,ae,ue=0,le=[],ce=n,de=ce.__b,_e=ce.__r,pe=ce.diffed,he=ce.__c,fe=ce.unmount,me=ce.__;function ve(e,n){ce.__h&&ce.__h(ie,e,ue||n),ue=0;var t=ie.__H||(ie.__H={__:[],__h:[]});return e>=t.__.length&&t.__.push({}),t.__[e]}function ge(e){return ue=1,function(e,n){var t=ve(oe++,2);if(t.t=e,!t.__c&&(t.__=[Ee(void 0,n),function(e){var n=t.__N?t.__N[0]:t.__[0],r=t.t(n,e);n!==r&&(t.__N=[r,t.__[1]],t.__c.setState({}))}],t.__c=ie,!ie.u)){var r=function(e,n,r){if(!t.__c.__H)return!0;var i=t.__c.__H.__.filter((function(e){return!!e.__c}));if(i.every((function(e){return!e.__N})))return!o||o.call(this,e,n,r);var s=!1;return i.forEach((function(e){if(e.__N){var n=e.__[0];e.__=e.__N,e.__N=void 0,n!==e.__[0]&&(s=!0)}})),!(!s&&t.__c.props===e)&&(!o||o.call(this,e,n,r))};ie.u=!0;var o=ie.shouldComponentUpdate,i=ie.componentWillUpdate;ie.componentWillUpdate=function(e,n,t){if(this.__e){var s=o;o=void 0,r(e,n,t),o=s}i&&i.call(this,e,n,t)},ie.shouldComponentUpdate=r}return t.__N||t.__}(Ee,e)}function ye(e,n){var t=ve(oe++,3);!ce.__s&&Te(t.__H,n)&&(t.__=e,t.i=n,ie.__H.__h.push(t))}function we(e,n){var t=ve(oe++,7);return Te(t.__H,n)&&(t.__=e(),t.__H=n,t.__h=e),t.__}function be(e,n){return ue=8,we((function(){return e}),n)}function ke(){for(var e;e=le.shift();)if(e.__P&&e.__H)try{e.__H.__h.forEach(Ie),e.__H.__h.forEach(Me),e.__H.__h=[]}catch(n){e.__H.__h=[],ce.__e(n,e.__v)}}ce.__b=function(e){ie=null,de&&de(e)},ce.__=function(e,n){e&&n.__k&&n.__k.__m&&(e.__m=n.__k.__m),me&&me(e,n)},ce.__r=function(e){_e&&_e(e),oe=0;var n=(ie=e.__c).__H;n&&(se===ie?(n.__h=[],ie.__h=[],n.__.forEach((function(e){e.__N&&(e.__=e.__N),e.i=e.__N=void 0}))):(n.__h.forEach(Ie),n.__h.forEach(Me),n.__h=[],oe=0)),se=ie},ce.diffed=function(e){pe&&pe(e);var n=e.__c;n&&n.__H&&(n.__H.__h.length&&(1!==le.push(n)&&ae===ce.requestAnimationFrame||((ae=ce.requestAnimationFrame)||Se)(ke)),n.__H.__.forEach((function(e){e.i&&(e.__H=e.i),e.i=void 0}))),se=ie=null},ce.__c=function(e,n){n.some((function(e){try{e.__h.forEach(Ie),e.__h=e.__h.filter((function(e){return!e.__||Me(e)}))}catch(t){n.some((function(e){e.__h&&(e.__h=[])})),n=[],ce.__e(t,e.__v)}})),he&&he(e,n)},ce.unmount=function(e){fe&&fe(e);var n,t=e.__c;t&&t.__H&&(t.__H.__.forEach((function(e){try{Ie(e)}catch(e){n=e}})),t.__H=void 0,n&&ce.__e(n,t.__v))};var xe="function"==typeof requestAnimationFrame;function Se(e){var n,t=function(){clearTimeout(r),xe&&cancelAnimationFrame(n),setTimeout(e)},r=setTimeout(t,100);xe&&(n=requestAnimationFrame(t))}function Ie(e){var n=ie,t=e.__c;"function"==typeof t&&(e.__c=void 0,t()),ie=n}function Me(e){var n=ie;e.__c=e.__(),ie=n}function Te(e,n){return!e||e.length!==n.length||n.some((function(n,t){return n!==e[t]}))}function Ee(e,n){return"function"==typeof n?n(e):n}var Pe=$("list");function Ce(e){var n=e.items.filter((function(e){if(!e)return!1;if(1===e.length)return!0;e[0];var n=e[1];return void 0!==n&&""!==n})).map((function(e){var n=e[0],t=e[1];return 1===e.length?[n]:[n,"boolean"==typeof t?String(t):t]})),t=K(e.class,Pe());return n.length?m(X,{name:e.title},m("ul",{class:t},n.map((function(e){var n=e[0],t=e[1];return 1===e.length?m("li",null,n):m("li",null,n,": ",t)})))):null}var Le=$("spinner");function De(e){return m("div",{class:Le({size:e.size})})}function Ue(){}function je(e,n){return window.fetch?window.fetch.call(null,e,n):new Promise(Ue)}function Ne(){var e=ge(""),n=e[0],t=e[1],r=ge(""),o=r[0],i=r[1];ye((function(){je("https://checkip.amazonaws.com/").then((function(e){return e.text()})).then((function(e){t(e)})),je("https://www.cloudflare.com/cdn-cgi/trace").then((function(e){return e.text()})).then((function(e){i(function(e){if(!e)return"-";var n=e.match(/^ip=([\w\d:]+?)$/m);return n?n[1]:"-"}(e))}))}),[]);var s=[["IPv4",n||m(De,{size:"s"})],["IPv6",o||m(De,{size:"s"})]];return m(Ce,{items:s})}var Ae=$("network-information");function Be(){return m("div",{class:Ae()},m("div",null,m(Ne,null),m(re,null)))}
-/*! show-js-error | © 2024 Denis Seleznev | MIT License | https://github.com/hcodes/show-js-error/ */function Re(e){const n=document.createElement("style");return document.body.appendChild(n),n.textContent=e,n}function He(e){const n=document.createElement(e.tag||"div");return e.props&&function(e,n){Object.keys(n).forEach((t=>{e[t]=n[t]}))}(n,e.props),n.className=ze(e.name),e.container.appendChild(n),n}function ze(e,n){let t="show-js-error";e&&(t+="__"+e);let r=t;return n&&Object.keys(n).forEach((e=>{const o=n[e];!1!==o&&null!=o&&""!==o&&(!0===n[e]?r+=" "+t+"_"+e:r+=" "+t+"_"+e+"_"+o)})),r}function Ge(e){return e&&e.stack||""}function Ve(e){return e&&e.message||""}function Oe(e,n){return void 0===e?n:e}function We(e){if(!e)return"";let n=e.filename||"";return void 0!==e.lineno&&(n+=":"+Oe(e.lineno,""),void 0!==e.colno&&(n+=":"+Oe(e.colno,""))),n}const Fe='.show-js-error{background:#ffc1cc;bottom:15px;color:#000;font-family:Arial,sans-serif;font-size:13px;left:15px;max-width:90vw;min-width:15em;opacity:1;position:fixed;transition:opacity .2s ease-out;transition-delay:0s;visibility:visible;z-index:10000000}.show-js-error_size_big{transform:scale(2) translate(25%,-25%)}.show-js-error_hidden{opacity:0;transition:opacity .3s,visibility 0s linear .3s;visibility:hidden}.show-js-error__title{background:#f66;color:#fff;font-weight:700;padding:4px 30px 4px 7px}.show-js-error__title_no-errors{background:#6b6}.show-js-error__message{cursor:pointer;display:inline}.show-js-error__message:before{background-color:#eee;border-radius:10px;content:"+";display:inline-block;font-size:10px;height:10px;line-height:10px;margin-bottom:2px;margin-right:5px;text-align:center;vertical-align:middle;width:10px}.show-js-error__body_detailed .show-js-error__message:before{content:"-"}.show-js-error__body_no-stack .show-js-error__message:before{display:none}.show-js-error__body_detailed .show-js-error__filename{display:block}.show-js-error__body_no-stack .show-js-error__filename{display:none}.show-js-error__close{color:#fff;cursor:pointer;font-size:20px;line-height:20px;padding:3px;position:absolute;right:2px;top:0}.show-js-error__body{line-height:19px;padding:5px 8px}.show-js-error__body_hidden{display:none}.show-js-error__filename{background:#ffe1ec;border:1px solid #faa;display:none;margin:3px 0 3px -2px;max-height:15em;overflow-y:auto;padding:5px;white-space:pre-wrap}.show-js-error__actions{border-top:1px solid #faa;margin-top:5px;padding:5px 0 3px}.show-js-error__actions_hidden{display:none}.show-js-error__arrows{margin-left:8px;white-space:nowrap}.show-js-error__arrows_hidden{display:none}.show-js-error__copy,.show-js-error__next,.show-js-error__num,.show-js-error__prev,.show-js-error__report{font-size:12px}.show-js-error__report_hidden{display:none}.show-js-error__next{margin-left:1px}.show-js-error__num{margin-left:5px;margin-right:5px}.show-js-error__copy,.show-js-error__report{margin-right:3px}.show-js-error input{padding:1px 2px}.show-js-error a,.show-js-error a:visited{color:#000;text-decoration:underline}.show-js-error a:hover{text-decoration:underline}';const $e=new class{constructor(){this.elems={},this.state={appended:!1,detailed:!1,errorIndex:0,errorBuffer:[]},this.onerror=e=>{const n=e.error?e.error:e;console.log(1,e),this.pushError({title:"JavaScript Error",message:n.message,filename:n.filename,colno:n.colno,lineno:n.lineno,stack:n.stack})},this.onsecuritypolicyviolation=e=>{this.pushError({title:"CSP Error",message:`blockedURI: ${e.blockedURI||""}\n violatedDirective: ${e.violatedDirective} || ''\n originalPolicy: ${e.originalPolicy||""}`,colno:e.columnNumber,filename:e.sourceFile,lineno:e.lineNumber})},this.onunhandledrejection=e=>{this.pushError({title:"Unhandled promise rejection",message:e.reason.message,colno:e.reason.colno,filename:e.reason.filename,lineno:e.reason.lineno,stack:e.reason.stack})},this.appendToBody=()=>{document.removeEventListener("DOMContentLoaded",this.appendToBody,!1),this.elems.container&&(this.styleNode=Re(Fe),document.body.appendChild(this.elems.container))},this.settings=this.prepareSettings(),"undefined"!=typeof window&&(window.addEventListener("error",this.onerror,!1),window.addEventListener("unhandledrejection",this.onunhandledrejection,!1),document.addEventListener("securitypolicyviolation",this.onsecuritypolicyviolation,!1))}destruct(){var e;window.removeEventListener("error",this.onerror,!1),window.removeEventListener("unhandledrejection",this.onunhandledrejection,!1),document.removeEventListener("securitypolicyviolation",this.onsecuritypolicyviolation,!1),document.removeEventListener("DOMContentLoaded",this.appendToBody,!1),document.body&&this.elems.container&&document.body.removeChild(this.elems.container),this.state.errorBuffer=[],this.elems={},this.styleNode&&(null===(e=this.styleNode.parentNode)||void 0===e||e.removeChild(this.styleNode),this.styleNode=void 0)}setSettings(e){this.settings=this.prepareSettings(e),this.state.appended&&this.updateUI()}show(e){e?"string"==typeof e?this.pushError({message:e}):this.pushError("object"==typeof e?e:new Error(e)):this.showUI()}hide(){this.elems.container&&(this.elems.container.className=ze("",{size:this.settings.size,hidden:!0}))}clear(){this.state.errorBuffer=[],this.state.detailed=!1,this.setCurrentError(0)}toggleView(){this.state.detailed=!this.state.detailed,this.updateUI()}prepareSettings(e){const n=e||{};return{size:n.size||"normal",reportUrl:n.reportUrl||"",templateDetailedMessage:n.templateDetailedMessage||""}}pushError(e){this.state.errorBuffer.push(e),this.state.errorIndex=this.state.errorBuffer.length-1,this.updateUI()}appendUI(){const e=document.createElement("div");e.className=ze("",{size:this.settings.size}),this.elems.container=e,this.elems.close=He({name:"close",props:{innerText:"×",onclick:()=>{this.hide()}},container:e}),this.elems.title=He({name:"title",props:{innerText:this.getTitle()},container:e});const n=He({name:"body",container:e});this.elems.body=n,this.elems.message=He({name:"message",props:{onclick:()=>{this.toggleView()}},container:n}),this.elems.filename=He({name:"filename",container:n}),this.createActions(n),document.body?(document.body.appendChild(e),this.styleNode=Re(Fe)):document.addEventListener("DOMContentLoaded",this.appendToBody,!1)}createActions(e){const n=He({name:"actions",container:e});this.elems.actions=n,He({tag:"input",name:"copy",props:{type:"button",value:"Copy",onclick:()=>{const e=this.getCurrentError();!function(e){const n=document.createElement("textarea");n.value=e,document.body.appendChild(n);try{n.select(),document.execCommand("copy")}catch(e){alert("Copying text is not supported in this browser.")}document.body.removeChild(n)}(this.getDetailedMessage(e))}},container:n});const t=He({tag:"a",name:"report-link",props:{href:"",target:"_blank"},container:n});this.elems.reportLink=t,this.elems.report=He({tag:"input",name:"report",props:{type:"button",value:"Report"},container:t}),this.createArrows(n)}createArrows(e){const n=He({tag:"span",name:"arrows",container:e});this.elems.arrows=n,this.elems.prev=He({tag:"input",name:"prev",props:{type:"button",value:"←",onclick:()=>{this.setCurrentError(this.state.errorIndex-1)}},container:n}),this.elems.num=He({tag:"span",name:"num",props:{innerText:this.state.errorIndex+1},container:n}),this.elems.next=He({tag:"input",name:"next",props:{type:"button",value:"→",onclick:()=>{this.setCurrentError(this.state.errorIndex+1)}},container:n})}getDetailedMessage(e){let n=[["Title",this.getTitle(e)],["Message",Ve(e)],["Filename",We(e)],["Stack",Ge(e)],["Page url",window.location.href],["Refferer",document.referrer],["User-agent",navigator.userAgent],["Screen size",[screen.width,screen.height,screen.colorDepth].join("×")],["Screen orientation","string"==typeof screen.orientation?screen.orientation:screen.orientation.type],["Cookie enabled",navigator.cookieEnabled]].map((e=>e[0]+": "+e[1]+"\n")).join("");return this.settings.templateDetailedMessage&&(n=this.settings.templateDetailedMessage.replace(/\{message\}/,n)),n}getTitle(e){return e?e.title||"Error":"No errors"}showUI(){this.elems.container&&(this.elems.container.className=ze("",{size:this.settings.size}))}hasStack(){const e=this.getCurrentError();return e&&(e.stack||e.filename)}getCurrentError(){return this.state.errorBuffer[this.state.errorIndex]}setCurrentError(e){const n=this.state.errorBuffer.length;let t=e;t>n-1?t=n-1:t<0&&(t=0),this.state.errorIndex=t,this.updateUI()}updateUI(){const e=this.getCurrentError();this.state.appended||(this.state.appended=!0,this.appendUI()),this.elems.body&&(this.elems.body.className=ze("body",{detailed:this.state.detailed,"no-stack":!this.hasStack(),hidden:!e})),this.elems.title&&(this.elems.title.innerText=this.getTitle(e),this.elems.title.className=ze("title",{"no-errors":!e})),this.elems.message&&(this.elems.message.innerText=Ve(e)),this.elems.actions&&(this.elems.actions.className=ze("actions",{hidden:!e})),this.elems.reportLink&&(this.elems.reportLink.className=ze("report",{hidden:!this.settings.reportUrl})),this.elems.reportLink&&(this.elems.reportLink.href=this.settings.reportUrl.replace(/\{title\}/,encodeURIComponent(Ve(e))).replace(/\{body\}/,encodeURIComponent(this.getDetailedMessage(e)))),this.elems.filename&&(this.elems.filename.className=ze("filename",{hidden:!e}),this.elems.filename.innerText=Ge(e)||We(e)),this.updateArrows(e),this.showUI()}updateArrows(e){const n=this.state.errorBuffer.length,t=this.state.errorIndex;this.elems.arrows&&(this.elems.arrows.className=ze("arrows",{hidden:!e})),this.elems.prev&&(this.elems.prev.disabled=!t),this.elems.num&&(this.elems.num.innerText=t+1+" / "+n),this.elems.next&&(this.elems.next.disabled=t===n-1)}};"undefined"!=typeof window&&(window.showJSError=$e);var qe="undefined"!=typeof document,Ke="undefined"!=typeof window,Je="undefined"!=typeof navigator,Xe="undefined"!=typeof screen;var Ye=1;function Qe(e,n){return(e||"").slice(0,n)}function Ze(){return Math.floor(Math.random()*(1<<30))}var en=512;function nn(e,n,t){(t||0===t)&&e.push(n+":"+(!0===t?"1":t))}function tn(e,n){var t=[];e&&Object.keys(e).forEach((function(n){return nn(t,n,e[n])})),nn(t,"rn",Ze()),nn(t,"c",!!Je&&navigator.cookieEnabled),nn(t,"s",Xe?[screen.width,screen.height,screen.colorDepth].join("x"):""),nn(t,"sk",Ke&&window.devicePixelRatio||Ye),nn(t,"w",Ke?[window.innerWidth,window.innerHeight].join("x"):""),nn(t,"en",qe&&"string"==typeof document.charset?document.charset.toLowerCase():"");var r=Math.round(Date.now()/1e3);return nn(t,"et",r),nn(t,"st",r),nn(t,"t",Qe(n,en)),t.join(":")}var rn=1024;function on(e){return Qe(e,rn)}function sn(e,n){var t,r="https://mc.yandex.ru/watch/"+e+"?"+(t=n,Object.keys(t).filter((function(e){return t[e]||0===t[e]})).map((function(e){return encodeURIComponent(e)+"="+encodeURIComponent(t[e])})).join("&"));"undefined"!=typeof navigator&&navigator.sendBeacon&&navigator.sendBeacon(r," ")||("undefined"!=typeof fetch?fetch(r,{credentials:"include"}).catch((function(){})):"undefined"!=typeof Image&&((new Image).src=r))}function an(){var e,n;document.removeEventListener("mousemove",an),e=document.body,n="hover_yes",e.classList?e.classList.add(n):e.className+=(e.className?" ":"")+n}var un="";function ln(){return un}var cn=[{name:"EN",value:"en",default:!0},{name:"RU",value:"ru"}],dn=cn.filter((function(e){return Boolean(e.default)}))[0].value,_n={Supported:{en:"Supported",ru:"Поддерживаемые"},Unsupported:{en:"Unsupported",ru:"Не поддерживаемые"},Size:{en:"Size",ru:"Размер"},"Color depth":{en:"Color depth",ru:"Глубина цвета"},Yes:{en:"Yes",ru:"Да"},No:{en:"No",ru:"Нет"},Warning:{en:"Warning",ru:"Предупреждение"},Screens:{en:"Screens",ru:"Экраны"},Screen:{en:"Screen",ru:"Экран"},"Aspect ratio":{en:"Aspect ratio",ru:"Соотношение сторон"},Primary:{en:"Primary",ru:"Основной"},Internal:{en:"Internal",ru:"Внутренний"},bit:{en:"bit",ru:"бит"},"Not detected":{en:"Not detected",ru:"Не обнаружено"},Request:{en:"Request",ru:"Запрос"},Details:{en:"Details",ru:"Подробности"},GB:{en:"GB",ru:"ГБ"},unsupported:{en:"unsupported",ru:"не поддерживается"},Name:{en:"Name",ru:"Название"},Stop:{en:"Stop",ru:"Стоп"},Specify:{en:"Specify",ru:"Уточнить"},Additionally:{en:"Additionally",ru:"Дополнительно"},RAM:{en:"RAM",ru:"ОЗУ"},Hz:{en:"Hz",ru:"Гц"},Input:{en:"Input",ru:"Ввод"},Reset:{en:"Reset",ru:"Сброс"},"Check device online":{en:"Check device online",ru:"Проверь устройство онлайн"},"Report a bug":{en:"Report a bug",ru:"Сообщить об ошибке"},"Sample rate":{en:"Sample rate",ru:"Частота дискретизации"},"Sample size":{en:"Sample size",ru:"Размер семпла"},"Channel count":{en:"Channel count",ru:"Количество каналов"},"Auto gain control":{en:"Auto gain control",ru:"Автоматическая регулировка усиления"},Latency:{en:"Latency",ru:"Задержка"},"Microphone name":{en:"Microphone name",ru:"Название микрофона"},"Noise suppression":{en:"Noise suppression",ru:"Шумоподавление"},"Echo cancellation":{en:"Echo cancellation",ru:"Эхоподавление"},"Background blur":{en:"Background blur",ru:"Размытие фона"},"hr.":{en:"hr.",ru:"ч."},"min.":{en:"min.",ru:"мин."},"sec.":{en:"sec.",ru:"с."},"Media Devices API is not supported.":{en:"Media Devices API is not supported.",ru:"Media Devices API не поддерживается."},"MIME type":{en:"MIME type",ru:"MIME тип"},"Types of testing":{en:"Types of testing",ru:"Виды тестирования"},"Light theme":{en:"Light theme",ru:"Светлая тема"},"Dark theme":{en:"Dark theme",ru:"Тёмная тема"}},pn="https://github.com/hcodes/show-js-error/issues/new?title={title}&body={body}",hn="95998062";function fn(){if(window.matchMedia){if(window.matchMedia("(prefers-color-scheme: light)").matches)return"light";if(window.matchMedia("(prefers-color-scheme: dark)").matches)return"dark"}}var mn={};function vn(e){var n=window.localStorage;try{return n.getItem(e)}catch(n){return mn[e]}}var gn=function(){function e(){this.listeners=[]}return e.prototype.addListener=function(e){e&&this.listeners.push(e)},e.prototype.removeListener=function(e){this.listeners=this.listeners.filter((function(n){return e!==n}))},e.prototype.trigger=function(e){this.listeners.forEach((function(n){return n(e)}))},e.prototype.clearListeners=function(){this.listeners.length=0},e}(),yn="page-theme",wn="dark",bn=wn;function kn(e){"light"===e?(document.documentElement.classList.add("page-theme_light"),document.documentElement.classList.remove("page-theme_dark")):(document.documentElement.classList.add("page-theme_dark"),document.documentElement.classList.remove("page-theme_light")),bn=e}function xn(e){!function(e,n){var t=window.localStorage;mn[e]=String(n);try{t.setItem(e,n)}catch(e){}}(yn,e)}var Sn,In,Mn,Tn=new gn;if(V(_n),z=cn,V(_n),!ne){$e.setSettings({reportUrl:pn}),function(e){var n=e.browserInfo,t=e.counterId,r=e.pageParams,o={"browser-info":tn(n,r.title),rn:Ze(),ut:r.ut};r.url&&(o["page-url"]=on(r.url)),r.referrer&&(o["page-ref"]=on(r.referrer)),sn(t,o)}({browserInfo:{pv:!0,ar:!0},counterId:hn,pageParams:{referrer:qe?document.referrer:"",title:qe?document.title:"",url:Ke&&window.location?window.location.href:""},params:Mn});var En=function(){var e=window.__appData__.lang||(navigator.language||"").split("-")[0]||dn;return cn.filter((function(n){return n.value===e})).length||(e=dn),e}();!function(e){e&&(R=e)}(En),In=window.__appData__.pageId,un=In,window.addEventListener("beforeinstallprompt",(function(e){})),document.addEventListener("mousemove",an),function(){if("undefined"!=typeof window&&window.matchMedia){window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",(function(){var e=fn()||wn;Tn.trigger(e)}));var e=vn(yn)||fn();e&&("light"===(n=e)||"dark"===n)&&kn(e)}var n}(),null===(Sn=document.documentElement)||void 0===Sn||Sn.setAttribute("lang",En)}var Pn=$("link");function Cn(e){var n=K(e.class,Pn({theme:e.theme}));return m("a",{target:e.target,class:n,href:e.href},e.children)}var Ln=$("lang-icon");function Dn(e){return m("span",{class:Ln({lang:e.lang})})}var Un=$("lang-switcher-item");function jn(e){var n=e.value,t=e.name,r=e.selected,o=e.url;return m("li",{class:Un()},m(Cn,{href:o},m("span",null,m(Dn,{lang:n})," ",t,r?" ✓":"")))}function Nn(e,n){var t="index"===e?"":e+"/";return"/".concat(n||F(),"/").concat(t)}var An=$("lang-switcher");function Bn(){var e=ge(!1),n=e[0],t=e[1],r=F(),o=G(),i=function(e){return ue=5,we((function(){return{current:e}}),[])}(null),s=be((function(){t(!0)}),[t]);ye((function(){var e=function(e){if(e.target&&i.current){var n=e.target;i.current.contains&&!i.current.contains(n)&&t(!1)}},n=function(e){"Escape"===e.code&&t(!1)};return document.addEventListener("click",e,!1),document.addEventListener("keydown",n,!1),function(){document.removeEventListener("click",e,!1),document.removeEventListener("keydown",n,!1)}}),[t]);var a=o.filter((function(e){return r===e.value}))[0];return m("div",{ref:i,class:An()},m("div",{class:An("current"),onClick:s},m(Dn,{lang:a.value})," ",a.name),m("menu",{class:An("popup",{visible:n})},o.map((function(e){var n=Nn(ln(),e.value);return m(jn,{key:e.value,name:e.name,value:e.value,selected:r===e.value,url:n})}))))}var Rn=$("footer");function Hn(){return m("footer",{class:Rn()},m("div",{class:Rn("item",{report:!0})},m(Cn,{theme:"page-theme",target:"_blank",href:"https://github.com/vvideo/caniwatchvideo/issues/new"},O("Report a bug"))),m("div",{class:Rn("item")},m(Bn,null)),m("div",{class:Rn("item")},"© Vvideo"))}var zn=$("main-menu");function Gn(e){return m("nav",{class:zn()},m("ul",{class:zn("list")},e.items.filter((function(e){return!e.hidden})).map((function(e){return m("li",{class:zn("item",{selected:e.selected}),key:e.id},m("a",{class:zn("link"),href:Nn(e.id)},e.title)," ")}))))}var Vn=[{header:{en:"Check device online",ru:"Проверь устройство онлайн"},menuTitle:{en:"",ru:""},description:{en:"Online testing and viewing detailed information about devices in your browser",ru:"Тестирование и просмотр детальной информации об устройствах в вашем браузере онлайн"},keywords:{en:"audio, video, mouse, keyboard, gamepad, geo, gpu, battery, screen, midi, usb, mic, camera",ru:"аудио, видео, мышь, клавиатура, джойстик, гео, gpu, батарея, экран, миди, юсб, микрофон, веб-камера"},id:"index",hidden:!0,isIndex:!0},{header:{en:"Check Video",ru:"Проверить видео"},menuTitle:{en:"Video",ru:"Видео"},id:"video",indexMenuList:{en:["Can I watch 4K video? ","Supported video codecs","Supported types of DRM"],ru:["Могу ли я смотреть 4К видео?","Поддерживаемые видеокодеки","Поддерживаемые типы DRM"]}},{header:{en:"Check Audio",ru:"Проверить аудио"},menuTitle:{en:"Audio",ru:"Аудио"},description:{en:"View information about audio codecs and multichannel audio support in your browser",ru:"Посмотреть информацию о поддержке аудиокодеков и многоканального звука в вашем браузере"},keywords:{en:"check dolby atmos, check dolby digital, check surround sound, check vibration, check speech syntesis",ru:"проверить dolby atmos, проверить dolby digital, проверить многоканальый звук, аудиокодеки, проверить вибрацию, синтез речи"},id:"audio",indexMenuList:{en:["Can I listen to surround sound?","Supported audio codecs","Speech Synthesis, Vibration"],ru:["Могу ли я услышать многоканальный звук?","Поддерживаемые аудиокодеки","Синтез речи, Вибрация"]}},{header:{en:"Check Screen",ru:"Проверить экран"},menuTitle:{en:"Screen",ru:"Экран"},description:{en:"View screen resolution of monitor, laptop, smartphone or tablet online, support for multiple monitors",ru:"Посмотреть разрешение экрана монитора, ноутбука, смартфона или планшета онлайн, поддержка нескольких мониторов"},keywords:{en:"logical size, actual size, resolution screen, hdr, device pixel ratio, max touch points, color depth, aspect ratio, color spaces, orientation, frame rate",ru:"разрешение экрана, логический и фактический размер, HDR, соотношение сторон, глубина цвета, ориентация, частота обновления, цветовые пространства"},id:"screen",indexMenuList:{en:["Screen Size, Aspect ratio, Frame rate","HDR support, Color depth, Color spaces","Multi-screen support"],ru:["Размер экрана, Соотношение сторон, Частота обновления","Поддержка HDR, Глубина цвета, Цветовые пространства","Поддержка нескольких экранов"]}},{header:{en:"Check Webcamera",ru:"Проверить веб-камеру"},menuTitle:{en:"Webcamera",ru:"Веб-камера"},description:{en:"Online testing of webcam with or without microphone",ru:"Онлайн-тестирование веб-камеры с микрофоном или без микрофона"},keywords:{en:"web camera, microphone, web camera with microphone, web camera without microphone, low resolution of camera, high resolution of camera, high rate of camera",ru:"веб-камера, микрофон, веб-камера с микрофоном, веб-камера без микрофона, веб-камера с низким разрешением, веб-камера с высоким разрешением, веб-камера с высокой частотой обновления"},id:"camera",indexMenuList:{en:["Testing webcam","Information about webcam","Low and high resolution webcam"],ru:["Тестирование веб-камеры","Расширенная информация о веб-камере","Низкое и высокое разрешение веб-камеры"]}},{header:{en:"Check Microphone",ru:"Проверить микрофон"},menuTitle:{en:"Microphone",ru:"Микрофон"},description:{en:"Online testing of microphone with ability to hear yourself",ru:"Онлайн-тестирование микрофона с возможностью слышать себя"},keywords:{en:"microphone, hear yourself, auto gain control, channel count, echo cancellation, noise suppression, sample rate, sample size",ru:"микрофон, слышать себя, автоматическая регулировка усиления, количество каналов, эхоподавление, шумоподавление, размер семпла"},id:"mic",indexMenuList:{en:["Testing microphone","Information about microphone","Ability to hear yourself"],ru:["Тестирование микрофона","Информация о микрофоне","Возможность слышать себя"]}},{header:{en:"Check GPU",ru:"Проверить GPU"},menuTitle:{en:"GPU",ru:"GPU"},id:"gpu",indexMenuList:{en:["Detailed information about GPU","GPU name and vendor","WebGPU"],ru:["Детальная информация о GPU","Название и производитель GPU","WebGPU"]},description:{en:"View detailed information about your GPU online",ru:"Просмотр детальной информации о графическом процессоре онлайн"},keywords:{en:"GPU, GPU vendor, GPU name, Lower power GPU, High power GPU",ru:"производитель GPU, название GPU, GPU, графический процессор, графический процессор с пониженной мощностью, графический процессор с повышенной мощностью"}},{header:{en:"Check Mouse",ru:"Проверить мышку"},menuTitle:{en:"Mouse",ru:"Мышь"},id:"mouse",indexMenuList:{en:["Testing mouse","Displaying mouse button clicks","Support for additional buttons"],ru:["Тестирование мышки","Отображение нажатий кнопок мышки","Поддержка дополнительных кнопок"]},description:{en:"Mouse click testing online",ru:"Тестирование нажатий кнопок мышки онлайн"},keywords:{en:"left mouse click, right mouse click, middle mouse click, mouse, wheel mouse",ru:"левая кнопка мышки, правая кнопка мышки, средняя кнопка мышки, колесо прокрутки мышки"}},{header:{en:"Check Keyboard",ru:"Проверить клавиатуру"},menuTitle:{en:"Keyboard",ru:"Клавиатура"},id:"keyboard",indexMenuList:{en:["Displaying keystrokes on keyboard","Displaying keyboard key codes","Keyboards: Windows, Mac, MacBook, iPad"],ru:["Отображение нажатий клавиш на клавиатуре","Отображение кодов клавиш клавиатуры","Клавиатуры: Windows, Mac, MacBook, iPad"]},description:{en:"Online keyboard key testing",ru:"Тестирование клавиш клавиатуры онлайн"},keywords:{en:"keyboard, keyboard keys, num lock, scroll lock, led indicators, CTRL, SHIT, MET",ru:"клавиатура, клавиши клавиатуры, индикаторы клавиатуры, CTRL, SHIFT, META"}},{header:{en:"Displaying Сode of Pressed Key",ru:"Отображение кода нажатой клавиши"},menuTitle:{en:"Key codes",ru:"Коды клавиш"},id:"keycodes",hidden:!0,description:{en:"Display keyboard key codes online",ru:"Отображение кодов клавиш клавиатуры онлайн"},keywords:{en:"key codes, keydown event",ru:"Коды клавиш клавиатуры, keydown событие"}},{header:{en:"Check Gamepad",ru:"Проверить джойстик"},menuTitle:{en:"Gamepad",ru:"Джойстик"},id:"gamepad",indexMenuList:{en:["Display of joystick button presses","Vibration check","Joystick support: PS3, PS4, PS5, Xbox360 and others"],ru:["Отображение нажатий кнопок джойстика","Проверка вибрации джойстика","Поддержка джойстиков: PS3, PS4, PS5, Xbox360 и другие"]},description:{en:"Online testing joystick buttons, triggers and axes",ru:"Тестирование кнопок, триггеров и осей джойстика онлайн"},keywords:{en:"gamepad axes, gamepad buttons, gamepad triggers",ru:"оси джойстика, кнопки джойстика, триггеры джойстика"}},{header:{en:"Check Storage",ru:"Проверить хранилище"},menuTitle:{en:"Storage",ru:"Хранилище"},id:"storage",indexMenuList:{en:["Types of supported storage","Support of persistent storage","Storage quota for origin"],ru:["Виды поддерживаемых хранилищ","Поддержка постоянного хранилища","Квота хранилища на домен"]},description:{en:"View supported storage types in your browser",ru:"Просмотр поддерживаемых типов хранилищ в браузере"},keywords:{en:"cookies, local storage, session storage, indexeddb, origin private file system",ru:"cookies, local storage, session storage, indexeddb, origin private file system"}},{header:{en:"Check Network",ru:"Проверить сеть"},menuTitle:{en:"Network",ru:"Сеть"},id:"network",indexMenuList:{en:["IPv4, IPv6","Downlink","RTT"],ru:["IPv4, IPv6","Downlink","RTT"]},description:{en:"Display information about your network in browser",ru:"Отображение информации о вашей сети в браузере"},keywords:{en:"IPv4, IPv6, Downlink, RTT",ru:"IPv4, IPv6, Downlink, RTT"}},{header:{en:"Check Geo",ru:"Проверить геолокацию"},menuTitle:{en:"Geo",ru:"Гео"},id:"geo",indexMenuList:{en:["Latitude","Longitude","Displaying location on map"],ru:["Широта","Долгота","Отображение геопозиции на карте"]},description:{en:"Displaying your geolocation information in the browser",ru:"Отображение информации о вашей геопозиции в браузере"},keywords:{en:"latitude, longitude, displaying location on map",ru:"широта, долгота, отображение геопозиции на карте"}},{header:{en:"Check MIDI Keyboard",ru:"Проверить MIDI-клавиатуру"},menuTitle:{en:"MIDI",ru:"MIDI"},id:"midi",hidden:!0,indexMenuList:{en:["Product name","Serial number","Detailed MIDI info"],ru:["Название устройства","Серийный номер","Детальная информация o MIDI"]},description:{en:"Testing MIDI keyboard in browser",ru:"Тестирование MIDI-клавиатуры в браузере"},keywords:{en:"MIDI",ru:"MIDI"}},{header:{en:"View Info About USB Device",ru:"Посмотреть информацию о USB-устройстве"},menuTitle:{en:"USB",ru:"USB"},id:"usb",indexMenuList:{en:["Product name","Serial number","Detailed USB info"],ru:["Название устройства","Серийный номер","Детальная информация"]},description:{en:"View detailed information about a USB device in browser",ru:"Посмотреть детальную информацию о USB-устройстве в браузере"},keywords:{en:"product name, serial number, detailed USB info",ru:"название устройства, серийный номер, детальная информация"}},{menuTitle:{en:"Bluetooth",ru:"Bluetooth"},id:"bluetooth",hidden:!0,indexMenuList:{en:["Product name","Serial number","Detailed USB info"],ru:["Название устройства","Серийный номер","Детальная информация"]},description:{en:"Просмотр детальной информации о bluetooth-устройстве онлайн",ru:"View detailed information about a Bluetooth device online"},keywords:{en:"bluetooth",ru:"bluetooth"}},{menuTitle:{en:"Sensor",ru:"Сенсор"},id:"sensor",hidden:!0,indexMenuList:{en:["Accelerometer, Ammbient light sensor","Gravity sensor","Gyroscope, Magnetometer"],ru:["Акселерометр, Датчик освещенности","Датчик силы тяжести","Гироскоп, Магнитометр"]},description:{en:"View detailed information about sensors online",ru:"Просмотр детальной информации о датчиках онлайн"},keywords:{en:"accelerometer, ammbient light sensor, gravity sensor, gyroscope, linear acceleration sensor, magnetometer, orientation sensor",ru:"акселерометр, датчик освещенности, датчик силы тяжести, гироскоп, датчик линейного ускорения, магнитометр, датчик ориентации"}},{header:{en:"View Info About Platform",ru:"Посмотреть информацию о платформе"},menuTitle:{en:"Platform",ru:"Платформа"},id:"platform",indexMenuList:{en:["Detailed information about platform","Permissions","RAM and number of processor cores"],ru:["Информация о платформе","Разрешения","ОЗУ и количество ядер процессора"]},description:{en:"View detailed platform information in your browser",ru:"Посмотреть детальную информацию о платформе в браузере"},keywords:{en:"permissions, RAM, number of processor core ",ru:"разрешения, ОЗУ, количество ядер процессора"}},{header:{en:"Check Battery",ru:"Проверить батарею"},menuTitle:{en:"Battery",ru:"Батарея"},id:"battery",indexMenuList:{en:["Battery status","Battery charge level","Battery charge and discharge time"],ru:["Статус батареи","Уровень заряда батареи","Время заряда и разряда батареи"]},description:{en:"View detailed battery status information",ru:"Просмотр детальной информации о статусе батареи"},keywords:{en:"battery status, battery charge level, battery charge and discharge time",ru:"статус батареи, уровень заряда батареи, время заряда и разряда батареи"}},{header:{en:"View Local Fonts",ru:"Посмотреть локальные шрифты"},menuTitle:{en:"Fonts",ru:"Шрифты"},id:"fonts",indexMenuList:{en:["List of local fonts","Group by font family","Searching and viewing fonts"],ru:["Список локальных шрифтов","Группировка шрифтов по семейству","Поиск и просмотр шрифтов"]},description:{en:"Viewing local fonts in browser",ru:"Просмотр локальных шрифтов в браузере"},keywords:{en:"list of local fonts, group by font family",ru:"список локальных шрифтов, группировка шрифтов по семейству"}},{menuTitle:{en:"404",ru:"404"},id:"error404",hidden:!0,sitemap:!1,isError:!0,description:{en:"Page not found",ru:"Страница не найдена"}},{menuTitle:{en:"Test dead pixels",ru:"Тестирование битых пикселей"},id:"test-dead-pixels",hidden:!0,description:{en:"Testing your monitor or TV for dead pixels",ru:"Тестирование битых пикселей вашего монитора или ТВ"},keywords:{en:"dead pixels",ru:"битые пиксели"}}];function On(){var e=ln();return m(Gn,{items:Vn.map((function(n){var t=n.id===e;return B(B({},n),{url:Nn(n.id),title:W(n.menuTitle),selected:t})}))})}var Wn=$("theme-switcher");function Fn(){var e=ge(bn),n=e[0],t=e[1],r=be((function(){var e="light"===n?"dark":"light";t(e),kn(e),xn(e)}),[n,t]);ye((function(){var e,n=function(e){Boolean(vn(yn))||(t(e),kn(e))};return e=n,Tn.addListener(e),function(){!function(e){Tn.removeListener(e)}(n)}}),[t]);var o=O("light"===n?"Dark theme":"Light theme");return m("div",{class:Wn({theme:n}),onClick:r,title:o})}var $n=$("header");function qn(){return m("header",{class:$n()},m(Cn,{theme:"page-theme",href:Nn("index")},m("span",null,m("span",{class:$n("logo")}),O("Check device online"))),m(Fn,null))}var Kn=$("page-title");function Jn(e){return m("h1",{class:Kn()},e.children)}var Xn=$("page");function Yn(e){return m("div",{class:Xn()},m(qn,null),e.withoutMenu?"":m(On,null),e.title?m(Jn,null,e.title):"",e.children,m(Hn,null))}var Qn;V({"Network Information API is not supported.":{en:"Network Information API is not supported.",ru:"Network Information API не поддерживается."},"Internet Speed":{en:"Internet Speed",ru:"Скорость интернета"},Connection:{en:"Connection",ru:"Связь"},Network:{en:"Network",ru:"Сеть"}}),Qn=function(){return m(Yn,{title:O("Network")},m(Be,null))},function(t,r,o){var i,s,a,u;n.__&&n.__(t,r),s=(i="function"==typeof o)?null:r.__k,a=[],u=[],L(r,t=(!i&&o||r).__k=m(g,null,[t]),s||c,c,r.namespaceURI,!i&&o?[o]:s?null:r.firstChild?e.call(r.childNodes):null,a,!i&&o?o:s?s.__e:r.firstChild,i,u),D(a,t,u)}(m(Qn,null),document.querySelector(".root"))}));
+(function (factory) {
+    typeof define === 'function' && define.amd ? define(factory) :
+    factory();
+})((function () { 'use strict';
+
+    var n,l$1,u$1,i$1,o$1,r$1,f$1,e$1,c$1,s$1,h$1={},p$1=[],v$1=/acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i,y$1=Array.isArray;function d$1(n,l){for(var u in l)n[u]=l[u];return n}function w$1(n){var l=n.parentNode;l&&l.removeChild(n);}function _(l,u,t){var i,o,r,f={};for(r in u)"key"==r?i=u[r]:"ref"==r?o=u[r]:f[r]=u[r];if(arguments.length>2&&(f.children=arguments.length>3?n.call(arguments,2):t),"function"==typeof l&&null!=l.defaultProps)for(r in l.defaultProps)void 0===f[r]&&(f[r]=l.defaultProps[r]);return g(l,f,i,o,null)}function g(n,t,i,o,r){var f={type:n,props:t,key:i,ref:o,__k:null,__:null,__b:0,__e:null,__d:void 0,__c:null,constructor:void 0,__v:null==r?++u$1:r,__i:-1,__u:0};return null==r&&null!=l$1.vnode&&l$1.vnode(f),f}function k$1(n){return n.children}function b$g(n,l){this.props=n,this.context=l;}function x(n,l){if(null==l)return n.__?x(n.__,n.__i+1):null;for(var u;l<n.__k.length;l++)if(null!=(u=n.__k[l])&&null!=u.__e)return u.__e;return "function"==typeof n.type?x(n):null}function C$1(n){var l,u;if(null!=(n=n.__)&&null!=n.__c){for(n.__e=n.__c.base=null,l=0;l<n.__k.length;l++)if(null!=(u=n.__k[l])&&null!=u.__e){n.__e=n.__c.base=u.__e;break}return C$1(n)}}function M(n){(!n.__d&&(n.__d=!0)&&i$1.push(n)&&!P.__r++||o$1!==l$1.debounceRendering)&&((o$1=l$1.debounceRendering)||r$1)(P);}function P(){var n,u,t,o,r,e,c,s;for(i$1.sort(f$1);n=i$1.shift();)n.__d&&(u=i$1.length,o=void 0,e=(r=(t=n).__v).__e,c=[],s=[],t.__P&&((o=d$1({},r)).__v=r.__v+1,l$1.vnode&&l$1.vnode(o),O(t.__P,o,r,t.__n,t.__P.namespaceURI,32&r.__u?[e]:null,c,null==e?x(r):e,!!(32&r.__u),s),o.__v=r.__v,o.__.__k[o.__i]=o,j$1(c,o,s),o.__e!=e&&C$1(o)),i$1.length>u&&i$1.sort(f$1));P.__r=0;}function S(n,l,u,t,i,o,r,f,e,c,s){var a,v,y,d,w,_=t&&t.__k||p$1,g=l.length;for(u.__d=e,$(u,l,_),e=u.__d,a=0;a<g;a++)null!=(y=u.__k[a])&&"boolean"!=typeof y&&"function"!=typeof y&&(v=-1===y.__i?h$1:_[y.__i]||h$1,y.__i=a,O(n,y,v,i,o,r,f,e,c,s),d=y.__e,y.ref&&v.ref!=y.ref&&(v.ref&&N(v.ref,null,y),s.push(y.ref,y.__c||d,y)),null==w&&null!=d&&(w=d),65536&y.__u||v.__k===y.__k?e=I(y,e,n):"function"==typeof y.type&&void 0!==y.__d?e=y.__d:d&&(e=d.nextSibling),y.__d=void 0,y.__u&=-196609);u.__d=e,u.__e=w;}function $(n,l,u){var t,i,o,r,f,e=l.length,c=u.length,s=c,a=0;for(n.__k=[],t=0;t<e;t++)r=t+a,null!=(i=n.__k[t]=null==(i=l[t])||"boolean"==typeof i||"function"==typeof i?null:"string"==typeof i||"number"==typeof i||"bigint"==typeof i||i.constructor==String?g(null,i,null,null,null):y$1(i)?g(k$1,{children:i},null,null,null):void 0===i.constructor&&i.__b>0?g(i.type,i.props,i.key,i.ref?i.ref:null,i.__v):i)?(i.__=n,i.__b=n.__b+1,f=L(i,u,r,s),i.__i=f,o=null,-1!==f&&(s--,(o=u[f])&&(o.__u|=131072)),null==o||null===o.__v?(-1==f&&a--,"function"!=typeof i.type&&(i.__u|=65536)):f!==r&&(f==r-1?a--:f==r+1?a++:f>r?s>e-r?a+=f-r:a--:f<r&&(f==r-a?a-=f-r:a++),f!==t+a&&(i.__u|=65536))):(o=u[r])&&null==o.key&&o.__e&&0==(131072&o.__u)&&(o.__e==n.__d&&(n.__d=x(o)),V(o,o,!1),u[r]=null,s--);if(s)for(t=0;t<c;t++)null!=(o=u[t])&&0==(131072&o.__u)&&(o.__e==n.__d&&(n.__d=x(o)),V(o,o));}function I(n,l,u){var t,i;if("function"==typeof n.type){for(t=n.__k,i=0;t&&i<t.length;i++)t[i]&&(t[i].__=n,l=I(t[i],l,u));return l}n.__e!=l&&(l&&n.type&&!u.contains(l)&&(l=x(n)),u.insertBefore(n.__e,l||null),l=n.__e);do{l=l&&l.nextSibling;}while(null!=l&&8===l.nodeType);return l}function L(n,l,u,t){var i=n.key,o=n.type,r=u-1,f=u+1,e=l[u];if(null===e||e&&i==e.key&&o===e.type&&0==(131072&e.__u))return u;if(t>(null!=e&&0==(131072&e.__u)?1:0))for(;r>=0||f<l.length;){if(r>=0){if((e=l[r])&&0==(131072&e.__u)&&i==e.key&&o===e.type)return r;r--;}if(f<l.length){if((e=l[f])&&0==(131072&e.__u)&&i==e.key&&o===e.type)return f;f++;}}return -1}function T$1(n,l,u){"-"===l[0]?n.setProperty(l,null==u?"":u):n[l]=null==u?"":"number"!=typeof u||v$1.test(l)?u:u+"px";}function A$1(n,l,u,t,i){var o;n:if("style"===l)if("string"==typeof u)n.style.cssText=u;else {if("string"==typeof t&&(n.style.cssText=t=""),t)for(l in t)u&&l in u||T$1(n.style,l,"");if(u)for(l in u)t&&u[l]===t[l]||T$1(n.style,l,u[l]);}else if("o"===l[0]&&"n"===l[1])o=l!==(l=l.replace(/(PointerCapture)$|Capture$/i,"$1")),l=l.toLowerCase()in n||"onFocusOut"===l||"onFocusIn"===l?l.toLowerCase().slice(2):l.slice(2),n.l||(n.l={}),n.l[l+o]=u,u?t?u.u=t.u:(u.u=e$1,n.addEventListener(l,o?s$1:c$1,o)):n.removeEventListener(l,o?s$1:c$1,o);else {if("http://www.w3.org/2000/svg"==i)l=l.replace(/xlink(H|:h)/,"h").replace(/sName$/,"s");else if("width"!=l&&"height"!=l&&"href"!=l&&"list"!=l&&"form"!=l&&"tabIndex"!=l&&"download"!=l&&"rowSpan"!=l&&"colSpan"!=l&&"role"!=l&&"popover"!=l&&l in n)try{n[l]=null==u?"":u;break n}catch(n){}"function"==typeof u||(null==u||!1===u&&"-"!==l[4]?n.removeAttribute(l):n.setAttribute(l,"popover"==l&&1==u?"":u));}}function F(n){return function(u){if(this.l){var t=this.l[u.type+n];if(null==u.t)u.t=e$1++;else if(u.t<t.u)return;return t(l$1.event?l$1.event(u):u)}}}function O(n,u,t,i,o,r,f,e,c,s){var a,h,p,v,w,_,g,m,x,C,M,P,$,I,H,L,T=u.type;if(void 0!==u.constructor)return null;128&t.__u&&(c=!!(32&t.__u),r=[e=u.__e=t.__e]),(a=l$1.__b)&&a(u);n:if("function"==typeof T)try{if(m=u.props,x="prototype"in T&&T.prototype.render,C=(a=T.contextType)&&i[a.__c],M=a?C?C.props.value:a.__:i,t.__c?g=(h=u.__c=t.__c).__=h.__E:(x?u.__c=h=new T(m,M):(u.__c=h=new b$g(m,M),h.constructor=T,h.render=q$1),C&&C.sub(h),h.props=m,h.state||(h.state={}),h.context=M,h.__n=i,p=h.__d=!0,h.__h=[],h._sb=[]),x&&null==h.__s&&(h.__s=h.state),x&&null!=T.getDerivedStateFromProps&&(h.__s==h.state&&(h.__s=d$1({},h.__s)),d$1(h.__s,T.getDerivedStateFromProps(m,h.__s))),v=h.props,w=h.state,h.__v=u,p)x&&null==T.getDerivedStateFromProps&&null!=h.componentWillMount&&h.componentWillMount(),x&&null!=h.componentDidMount&&h.__h.push(h.componentDidMount);else {if(x&&null==T.getDerivedStateFromProps&&m!==v&&null!=h.componentWillReceiveProps&&h.componentWillReceiveProps(m,M),!h.__e&&(null!=h.shouldComponentUpdate&&!1===h.shouldComponentUpdate(m,h.__s,M)||u.__v===t.__v)){for(u.__v!==t.__v&&(h.props=m,h.state=h.__s,h.__d=!1),u.__e=t.__e,u.__k=t.__k,u.__k.forEach(function(n){n&&(n.__=u);}),P=0;P<h._sb.length;P++)h.__h.push(h._sb[P]);h._sb=[],h.__h.length&&f.push(h);break n}null!=h.componentWillUpdate&&h.componentWillUpdate(m,h.__s,M),x&&null!=h.componentDidUpdate&&h.__h.push(function(){h.componentDidUpdate(v,w,_);});}if(h.context=M,h.props=m,h.__P=n,h.__e=!1,$=l$1.__r,I=0,x){for(h.state=h.__s,h.__d=!1,$&&$(u),a=h.render(h.props,h.state,h.context),H=0;H<h._sb.length;H++)h.__h.push(h._sb[H]);h._sb=[];}else do{h.__d=!1,$&&$(u),a=h.render(h.props,h.state,h.context),h.state=h.__s;}while(h.__d&&++I<25);h.state=h.__s,null!=h.getChildContext&&(i=d$1(d$1({},i),h.getChildContext())),x&&!p&&null!=h.getSnapshotBeforeUpdate&&(_=h.getSnapshotBeforeUpdate(v,w)),S(n,y$1(L=null!=a&&a.type===k$1&&null==a.key?a.props.children:a)?L:[L],u,t,i,o,r,f,e,c,s),h.base=u.__e,u.__u&=-161,h.__h.length&&f.push(h),g&&(h.__E=h.__=null);}catch(n){if(u.__v=null,c||null!=r){for(u.__u|=c?160:32;e&&8===e.nodeType&&e.nextSibling;)e=e.nextSibling;r[r.indexOf(e)]=null,u.__e=e;}else u.__e=t.__e,u.__k=t.__k;l$1.__e(n,u,t);}else null==r&&u.__v===t.__v?(u.__k=t.__k,u.__e=t.__e):u.__e=z$1(t.__e,u,t,i,o,r,f,c,s);(a=l$1.diffed)&&a(u);}function j$1(n,u,t){u.__d=void 0;for(var i=0;i<t.length;i++)N(t[i],t[++i],t[++i]);l$1.__c&&l$1.__c(u,n),n.some(function(u){try{n=u.__h,u.__h=[],n.some(function(n){n.call(u);});}catch(n){l$1.__e(n,u.__v);}});}function z$1(l,u,t,i,o,r,f,e,c){var s,a,p,v,d,_,g,m=t.props,k=u.props,b=u.type;if("svg"===b?o="http://www.w3.org/2000/svg":"math"===b?o="http://www.w3.org/1998/Math/MathML":o||(o="http://www.w3.org/1999/xhtml"),null!=r)for(s=0;s<r.length;s++)if((d=r[s])&&"setAttribute"in d==!!b&&(b?d.localName===b:3===d.nodeType)){l=d,r[s]=null;break}if(null==l){if(null===b)return document.createTextNode(k);l=document.createElementNS(o,b,k.is&&k),r=null,e=!1;}if(null===b)m===k||e&&l.data===k||(l.data=k);else {if(r=r&&n.call(l.childNodes),m=t.props||h$1,!e&&null!=r)for(m={},s=0;s<l.attributes.length;s++)m[(d=l.attributes[s]).name]=d.value;for(s in m)if(d=m[s],"children"==s);else if("dangerouslySetInnerHTML"==s)p=d;else if("key"!==s&&!(s in k)){if("value"==s&&"defaultValue"in k||"checked"==s&&"defaultChecked"in k)continue;A$1(l,s,null,d,o);}for(s in k)d=k[s],"children"==s?v=d:"dangerouslySetInnerHTML"==s?a=d:"value"==s?_=d:"checked"==s?g=d:"key"===s||e&&"function"!=typeof d||m[s]===d||A$1(l,s,d,m[s],o);if(a)e||p&&(a.__html===p.__html||a.__html===l.innerHTML)||(l.innerHTML=a.__html),u.__k=[];else if(p&&(l.innerHTML=""),S(l,y$1(v)?v:[v],u,t,i,"foreignObject"===b?"http://www.w3.org/1999/xhtml":o,r,f,r?r[0]:t.__k&&x(t,0),e,c),null!=r)for(s=r.length;s--;)null!=r[s]&&w$1(r[s]);e||(s="value",void 0!==_&&(_!==l[s]||"progress"===b&&!_||"option"===b&&_!==m[s])&&A$1(l,s,_,m[s],o),s="checked",void 0!==g&&g!==l[s]&&A$1(l,s,g,m[s],o));}return l}function N(n,u,t){try{if("function"==typeof n){var i="function"==typeof n.__u;i&&n.__u(),i&&null==u||(n.__u=n(u));}else n.current=u;}catch(n){l$1.__e(n,t);}}function V(n,u,t){var i,o;if(l$1.unmount&&l$1.unmount(n),(i=n.ref)&&(i.current&&i.current!==n.__e||N(i,null,u)),null!=(i=n.__c)){if(i.componentWillUnmount)try{i.componentWillUnmount();}catch(n){l$1.__e(n,u);}i.base=i.__P=null;}if(i=n.__k)for(o=0;o<i.length;o++)i[o]&&V(i[o],u,t||"function"!=typeof n.type);t||null==n.__e||w$1(n.__e),n.__c=n.__=n.__e=n.__d=void 0;}function q$1(n,l,u){return this.constructor(n,u)}function B$1(u,t,i){var o,r,f,e;l$1.__&&l$1.__(u,t),r=(o="function"==typeof i)?null:t.__k,f=[],e=[],O(t,u=(!o&&i||t).__k=_(k$1,null,[u]),r||h$1,h$1,t.namespaceURI,!o&&i?[i]:r?null:t.firstChild?n.call(t.childNodes):null,f,!o&&i?i:r?r.__e:t.firstChild,o,e),j$1(f,u,e);}n=p$1.slice,l$1={__e:function(n,l,u,t){for(var i,o,r;l=l.__;)if((i=l.__c)&&!i.__)try{if((o=i.constructor)&&null!=o.getDerivedStateFromError&&(i.setState(o.getDerivedStateFromError(n)),r=i.__d),null!=i.componentDidCatch&&(i.componentDidCatch(n,t||{}),r=i.__d),r)return i.__E=i}catch(l){n=l;}throw n}},u$1=0,b$g.prototype.setState=function(n,l){var u;u=null!=this.__s&&this.__s!==this.state?this.__s:this.__s=d$1({},this.state),"function"==typeof n&&(n=n(d$1({},u),this.props)),n&&d$1(u,n),null!=n&&this.__v&&(l&&this._sb.push(l),M(this));},b$g.prototype.forceUpdate=function(n){this.__v&&(this.__e=!0,n&&this.__h.push(n),M(this));},b$g.prototype.render=k$1,i$1=[],r$1="function"==typeof Promise?Promise.prototype.then.bind(Promise.resolve()):setTimeout,f$1=function(n,l){return n.__v.__b-l.__v.__b},P.__r=0,e$1=0,c$1=F(!1),s$1=F(!0);
+
+    /******************************************************************************
+    Copyright (c) Microsoft Corporation.
+
+    Permission to use, copy, modify, and/or distribute this software for any
+    purpose with or without fee is hereby granted.
+
+    THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+    REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+    AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+    INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+    LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+    OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+    PERFORMANCE OF THIS SOFTWARE.
+    ***************************************************************************** */
+    /* global Reflect, Promise, SuppressedError, Symbol, Iterator */
+
+
+    var __assign = function() {
+        __assign = Object.assign || function __assign(t) {
+            for (var s, i = 1, n = arguments.length; i < n; i++) {
+                s = arguments[i];
+                for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+            }
+            return t;
+        };
+        return __assign.apply(this, arguments);
+    };
+
+    function __spreadArray(to, from, pack) {
+        if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+            if (ar || !(i in from)) {
+                if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+                ar[i] = from[i];
+            }
+        }
+        return to.concat(ar || Array.prototype.slice.call(from));
+    }
+
+    typeof SuppressedError === "function" ? SuppressedError : function (error, suppressed, message) {
+        var e = new Error(message);
+        return e.name = "SuppressedError", e.error = error, e.suppressed = suppressed, e;
+    };
+
+    var i18nKeyset = {};
+    var i18nLang;
+    var langsData$1 = [];
+    function getI18nLangs() {
+        return __spreadArray([], langsData$1, true);
+    }
+    function setI18nLangs(data) {
+        langsData$1 = data;
+    }
+    function addI18nKeyset(keyset) {
+        i18nKeyset = __assign(__assign({}, i18nKeyset), keyset);
+    }
+    function i18n(id) {
+        var key = i18nKeyset[id];
+        if (!key) {
+            console.error("i18n: not found translation key \"".concat(id, "\"."));
+            return id;
+        }
+        var value = key[i18nLang];
+        if (typeof value === 'undefined') {
+            console.error("i18n: not found translation key \"".concat(id, "\", lang \"").concat(i18nLang, "\"."));
+            return id;
+        }
+        return value;
+    }
+    function i18nWithKeyset(keyset) {
+        return keyset[i18nLang];
+    }
+    function setI18nLang(lang) {
+        if (lang) {
+            i18nLang = lang;
+        }
+    }
+    function getI18nLang() {
+        return i18nLang;
+    }
+
+    function block(name) {
+        return function (elem, mods) {
+            if (!elem) {
+                return name;
+            }
+            var className = name;
+            if (typeof elem === 'string') {
+                className = name + '__' + elem;
+                if (mods) {
+                    className = buildMods(className, mods);
+                }
+                return className;
+            }
+            if (elem) {
+                className = buildMods(className, elem);
+            }
+            return className;
+        };
+    }
+    function buildMods(className, mods) {
+        var result = className;
+        Object.keys(mods).forEach(function (modName) {
+            var modValue = mods[modName];
+            if (modValue === false || modValue === null || modValue === undefined || modValue === '') {
+                return;
+            }
+            result += ' ' + className + '_';
+            if (mods[modName] === true) {
+                result += modName;
+            }
+            else {
+                result += modName + '_' + modValue;
+            }
+        });
+        return result;
+    }
+
+    function classname() {
+        var values = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            values[_i] = arguments[_i];
+        }
+        return values.filter(function (item) {
+            return item !== null && item !== undefined;
+        }).join(' ');
+    }
+
+    var b$f = block('section');
+    function Section(props) {
+        if (!props.children) {
+            return null;
+        }
+        var className = classname(b$f(), props.class);
+        return props.name ? (_("section", { class: className },
+            _("h2", { class: b$f('name') }, props.name),
+            _("div", { class: b$f('body') }, props.children))) : (_("div", { class: b$f() }, props.children));
+    }
+
+    var b$e = block('tree-list');
+
+    var simpleTypes = {
+        string: true,
+        number: true,
+        bigint: true,
+        boolean: true,
+        symbol: true,
+        undefined: true,
+        function: true,
+        object: false,
+    };
+    function isArrayWithSimpleTypes(arr) {
+        return arr.every(function (item) {
+            return item === null || simpleTypes[typeof item];
+        });
+    }
+    function buildData(data, options, level) {
+        if (options === void 0) { options = {}; }
+        if (level === void 0) { level = 0; }
+        if (typeof data === 'string') {
+            return (_("span", { class: b$e('string') },
+                "'",
+                data,
+                "'"));
+        }
+        if (typeof data === 'number') {
+            return (_("span", { class: b$e('number') }, data));
+        }
+        if (typeof data === 'bigint') {
+            return (_("span", { class: b$e('bigint') },
+                data,
+                "n"));
+        }
+        if (typeof data === 'boolean') {
+            return (_("span", { class: b$e('boolean') }, String(data)));
+        }
+        if (typeof data === 'function') {
+            return (_("span", { class: b$e('function') },
+                "\u0192 ",
+                data.name,
+                "()"));
+        }
+        if (typeof data === 'symbol') {
+            return (_("span", { class: b$e('symbol') }, data.toString()));
+        }
+        if (typeof data === 'undefined') {
+            return (_("span", { class: b$e('undefined') }, "undefined"));
+        }
+        if (data === null) {
+            return (_("span", { class: b$e('null') }, "null"));
+        }
+        if (Array.isArray(data)) {
+            if (options.compactArrayWithSimpleTypes && isArrayWithSimpleTypes(data)) {
+                return (_("div", { class: b$e('inline') },
+                    "[",
+                    ' ',
+                    data.map(function (item, i) {
+                        return (_("div", { class: b$e('inline') },
+                            i ? ', ' : '',
+                            buildData(item, options, level + 1)));
+                    }),
+                    ' ',
+                    "]"));
+            }
+            else {
+                return (_("div", { class: b$e('inline') },
+                    "[",
+                    _("ul", null, data.map(function (item, i) {
+                        var arrayIndex = options.showArrayIndex ? (_("div", { class: b$e('inline') },
+                            " ",
+                            _("span", { class: b$e('index') },
+                                i,
+                                ": "))) : '';
+                        return (_("li", null,
+                            arrayIndex,
+                            buildData(item, options, level + 1),
+                            i === data.length - 1 ? '' : ','));
+                    })),
+                    "]"));
+            }
+        }
+        if (options.compactObject && level > 0) {
+            return (_("div", { class: b$e('inline') },
+                ' ',
+                Object.keys(data).map(function (key, i, items) {
+                    return (_("div", { class: b$e('inline') },
+                        _("span", { class: b$e('property') },
+                            key,
+                            ": "),
+                        buildData(data[key], options, level + 1),
+                        i === items.length - 1 ? '' : ', '));
+                }),
+                ' '));
+        }
+        var props = [];
+        for (var key in data) {
+            props.push(key);
+        }
+        var hasBraces = Boolean(options.showCurlyBracesAtRootLevel || level);
+        return (_("div", { class: b$e('inline') },
+            hasBraces ? '{' : '',
+            _("ul", { class: b$e('ul', { padding: hasBraces ? 'yes' : 'no' }) }, props.map(function (key, i, items) {
+                return (_("li", null,
+                    _("span", { class: b$e('property') },
+                        key,
+                        ": "),
+                    buildData(data[key], options, level + 1),
+                    i === items.length - 1 ? '' : ','));
+            })),
+            hasBraces ? '}' : ''));
+    }
+
+    function TreeList(props) {
+        return (_(Section, { name: props.title },
+            _("div", { class: b$e() }, buildData(props.data, props.options))));
+    }
+
+    var isSsr = typeof window === 'undefined';
+
+    var b$d = block('connection-navigator');
+    function ConnectionNavigator() {
+        if (isSsr || !navigator.connection) {
+            return null;
+        }
+        var connection = navigator.connection;
+        var data = {
+            downlink: connection.downlink,
+            effectiveType: connection.effectiveType,
+            rtt: connection.rtt,
+            saveData: connection.saveData,
+        };
+        if ('type' in connection) {
+            data.type = connection.type;
+        }
+        if ('downlinkMax' in connection) {
+            data.downlinkMax = connection.downlinkMax;
+        }
+        return (_("div", { class: b$d() },
+            _(TreeList, { title: "navigator.connection", data: data })));
+    }
+
+    var t,r,u,i,o=0,f=[],c=l$1,e=c.__b,a=c.__r,v=c.diffed,l=c.__c,m=c.unmount,s=c.__;function d(n,t){c.__h&&c.__h(r,n,o||t),o=0;var u=r.__H||(r.__H={__:[],__h:[]});return n>=u.__.length&&u.__.push({}),u.__[n]}function h(n){return o=1,p(D,n)}function p(n,u,i){var o=d(t++,2);if(o.t=n,!o.__c&&(o.__=[D(void 0,u),function(n){var t=o.__N?o.__N[0]:o.__[0],r=o.t(t,n);t!==r&&(o.__N=[r,o.__[1]],o.__c.setState({}));}],o.__c=r,!r.u)){var f=function(n,t,r){if(!o.__c.__H)return !0;var u=o.__c.__H.__.filter(function(n){return !!n.__c});if(u.every(function(n){return !n.__N}))return !c||c.call(this,n,t,r);var i=!1;return u.forEach(function(n){if(n.__N){var t=n.__[0];n.__=n.__N,n.__N=void 0,t!==n.__[0]&&(i=!0);}}),!(!i&&o.__c.props===n)&&(!c||c.call(this,n,t,r))};r.u=!0;var c=r.shouldComponentUpdate,e=r.componentWillUpdate;r.componentWillUpdate=function(n,t,r){if(this.__e){var u=c;c=void 0,f(n,t,r),c=u;}e&&e.call(this,n,t,r);},r.shouldComponentUpdate=f;}return o.__N||o.__}function y(n,u){var i=d(t++,3);!c.__s&&C(i.__H,u)&&(i.__=n,i.i=u,r.__H.__h.push(i));}function A(n){return o=5,T(function(){return {current:n}},[])}function T(n,r){var u=d(t++,7);return C(u.__H,r)&&(u.__=n(),u.__H=r,u.__h=n),u.__}function q(n,t){return o=8,T(function(){return n},t)}function j(){for(var n;n=f.shift();)if(n.__P&&n.__H)try{n.__H.__h.forEach(z),n.__H.__h.forEach(B),n.__H.__h=[];}catch(t){n.__H.__h=[],c.__e(t,n.__v);}}c.__b=function(n){r=null,e&&e(n);},c.__=function(n,t){n&&t.__k&&t.__k.__m&&(n.__m=t.__k.__m),s&&s(n,t);},c.__r=function(n){a&&a(n),t=0;var i=(r=n.__c).__H;i&&(u===r?(i.__h=[],r.__h=[],i.__.forEach(function(n){n.__N&&(n.__=n.__N),n.i=n.__N=void 0;})):(i.__h.forEach(z),i.__h.forEach(B),i.__h=[],t=0)),u=r;},c.diffed=function(n){v&&v(n);var t=n.__c;t&&t.__H&&(t.__H.__h.length&&(1!==f.push(t)&&i===c.requestAnimationFrame||((i=c.requestAnimationFrame)||w)(j)),t.__H.__.forEach(function(n){n.i&&(n.__H=n.i),n.i=void 0;})),u=r=null;},c.__c=function(n,t){t.some(function(n){try{n.__h.forEach(z),n.__h=n.__h.filter(function(n){return !n.__||B(n)});}catch(r){t.some(function(n){n.__h&&(n.__h=[]);}),t=[],c.__e(r,n.__v);}}),l&&l(n,t);},c.unmount=function(n){m&&m(n);var t,r=n.__c;r&&r.__H&&(r.__H.__.forEach(function(n){try{z(n);}catch(n){t=n;}}),r.__H=void 0,t&&c.__e(t,r.__v));};var k="function"==typeof requestAnimationFrame;function w(n){var t,r=function(){clearTimeout(u),k&&cancelAnimationFrame(t),setTimeout(n);},u=setTimeout(r,100);k&&(t=requestAnimationFrame(r));}function z(n){var t=r,u=n.__c;"function"==typeof u&&(n.__c=void 0,u()),r=t;}function B(n){var t=r;n.__c=n.__(),r=t;}function C(n,t){return !n||n.length!==t.length||t.some(function(t,r){return t!==n[r]})}function D(n,t){return "function"==typeof t?t(n):t}
+
+    var b$c = block('list');
+    function List(props) {
+        var filteredItems = props.items
+            .filter(function (item) {
+            if (!item) {
+                return false;
+            }
+            if (item.length === 1) {
+                return true;
+            }
+            item[0]; var value = item[1];
+            return typeof value !== 'undefined' && value !== '';
+        })
+            .map(function (item) {
+            var name = item[0], value = item[1];
+            return item.length === 1 ?
+                [name] :
+                [name, typeof value === 'boolean' ? String(value) : value];
+        });
+        var className = classname(props.class, b$c());
+        return filteredItems.length ? (_(Section, { name: props.title },
+            _("ul", { class: className }, filteredItems.map(function (item) {
+                var name = item[0], value = item[1];
+                if (item.length === 1) {
+                    return (_("li", null, name));
+                }
+                return (_("li", null,
+                    name,
+                    ": ",
+                    value));
+            })))) : null;
+    }
+
+    var b$b = block('spinner');
+    function Spinner(props) {
+        return (_("div", { class: b$b({ size: props.size }) }));
+    }
+
+    function getCfIp(text) {
+        if (!text) {
+            return '-';
+        }
+        var result = text.match(/^ip=([\w\d:]+?)$/m);
+        if (result) {
+            return result[1];
+        }
+        return '-';
+    }
+
+    function noop() { }
+
+    function fetch$1(input, init) {
+        if (window.fetch) {
+            return window.fetch.call(null, input, init);
+        }
+        // TODO: add polyfill
+        return new Promise(noop);
+    }
+
+    function IP() {
+        var _a = h(''), ipv4 = _a[0], setIpv4 = _a[1];
+        var _b = h(''), ipv6 = _b[0], setIpv6 = _b[1];
+        y(function () {
+            fetch$1('https://checkip.amazonaws.com/')
+                .then(function (data) { return data.text(); })
+                .then(function (result) {
+                setIpv4(result);
+            });
+            fetch$1('https://www.cloudflare.com/cdn-cgi/trace')
+                .then(function (data) { return data.text(); })
+                .then(function (result) {
+                setIpv6(getCfIp(result));
+            });
+        }, []);
+        var items = [
+            ['IPv4', ipv4 || (_(Spinner, { size: "s" }))],
+            ['IPv6', ipv6 || (_(Spinner, { size: "s" }))]
+        ];
+        return (_(List, { items: items }));
+    }
+
+    var b$a = block('network-information');
+    function NetworkInformation() {
+        return (_("div", { class: b$a() },
+            _("div", null,
+                _(IP, null),
+                _(ConnectionNavigator, null))));
+    }
+
+    /*! show-js-error | © 2024 Denis Seleznev | MIT License | https://github.com/hcodes/show-js-error/ */
+    function getScreenSize$1() {
+        return [screen.width, screen.height, screen.colorDepth].join('×');
+    }
+    function getScreenOrientation() {
+        return typeof screen.orientation === 'string' ? screen.orientation : screen.orientation.type;
+    }
+    function copyTextToClipboard(text) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        try {
+            textarea.select();
+            document.execCommand('copy');
+        }
+        catch (e) {
+            alert('Copying text is not supported in this browser.');
+        }
+        document.body.removeChild(textarea);
+    }
+    function injectStyle(style) {
+        const styleNode = document.createElement('style');
+        document.body.appendChild(styleNode);
+        styleNode.textContent = style;
+        return styleNode;
+    }
+
+    function createElem(data) {
+        const elem = document.createElement(data.tag || 'div');
+        if (data.props) {
+            addProps(elem, data.props);
+        }
+        elem.className = buildElemClass(data.name);
+        data.container.appendChild(elem);
+        return elem;
+    }
+    function addProps(elem, props) {
+        Object.keys(props).forEach(key => {
+            elem[key] = props[key];
+        });
+    }
+    function buildElemClass(name, mod) {
+        let elemName = 'show-js-error';
+        if (name) {
+            elemName += '__' + name;
+        }
+        let className = elemName;
+        if (mod) {
+            Object.keys(mod).forEach((modName) => {
+                const modValue = mod[modName];
+                if (modValue === false || modValue === null || modValue === undefined || modValue === '') {
+                    return;
+                }
+                if (mod[modName] === true) {
+                    className += ' ' + elemName + '_' + modName;
+                }
+                else {
+                    className += ' ' + elemName + '_' + modName + '_' + modValue;
+                }
+            });
+        }
+        return className;
+    }
+
+    function getStack(error) {
+        return error && error.stack || '';
+    }
+    function getMessage(error) {
+        return error && error.message || '';
+    }
+    function getValue(value, defaultValue) {
+        return typeof value === 'undefined' ? defaultValue : value;
+    }
+    function getFilenameWithPosition(error) {
+        if (!error) {
+            return '';
+        }
+        let text = error.filename || '';
+        if (typeof error.lineno !== 'undefined') {
+            text += ':' + getValue(error.lineno, '');
+            if (typeof error.colno !== 'undefined') {
+                text += ':' + getValue(error.colno, '');
+            }
+        }
+        return text;
+    }
+
+    const STYLE = '.show-js-error{background:#ffc1cc;bottom:15px;color:#000;font-family:Arial,sans-serif;font-size:13px;left:15px;max-width:90vw;min-width:15em;opacity:1;position:fixed;transition:opacity .2s ease-out;transition-delay:0s;visibility:visible;z-index:10000000}.show-js-error_size_big{transform:scale(2) translate(25%,-25%)}.show-js-error_hidden{opacity:0;transition:opacity .3s,visibility 0s linear .3s;visibility:hidden}.show-js-error__title{background:#f66;color:#fff;font-weight:700;padding:4px 30px 4px 7px}.show-js-error__title_no-errors{background:#6b6}.show-js-error__message{cursor:pointer;display:inline}.show-js-error__message:before{background-color:#eee;border-radius:10px;content:"+";display:inline-block;font-size:10px;height:10px;line-height:10px;margin-bottom:2px;margin-right:5px;text-align:center;vertical-align:middle;width:10px}.show-js-error__body_detailed .show-js-error__message:before{content:"-"}.show-js-error__body_no-stack .show-js-error__message:before{display:none}.show-js-error__body_detailed .show-js-error__filename{display:block}.show-js-error__body_no-stack .show-js-error__filename{display:none}.show-js-error__close{color:#fff;cursor:pointer;font-size:20px;line-height:20px;padding:3px;position:absolute;right:2px;top:0}.show-js-error__body{line-height:19px;padding:5px 8px}.show-js-error__body_hidden{display:none}.show-js-error__filename{background:#ffe1ec;border:1px solid #faa;display:none;margin:3px 0 3px -2px;max-height:15em;overflow-y:auto;padding:5px;white-space:pre-wrap}.show-js-error__actions{border-top:1px solid #faa;margin-top:5px;padding:5px 0 3px}.show-js-error__actions_hidden{display:none}.show-js-error__arrows{margin-left:8px;white-space:nowrap}.show-js-error__arrows_hidden{display:none}.show-js-error__copy,.show-js-error__next,.show-js-error__num,.show-js-error__prev,.show-js-error__report{font-size:12px}.show-js-error__report_hidden{display:none}.show-js-error__next{margin-left:1px}.show-js-error__num{margin-left:5px;margin-right:5px}.show-js-error__copy,.show-js-error__report{margin-right:3px}.show-js-error input{padding:1px 2px}.show-js-error a,.show-js-error a:visited{color:#000;text-decoration:underline}.show-js-error a:hover{text-decoration:underline}';
+    class ShowJSError {
+        constructor() {
+            this.elems = {};
+            this.state = {
+                appended: false,
+                detailed: false,
+                errorIndex: 0,
+                errorBuffer: [],
+            };
+            this.onerror = (event) => {
+                const error = event.error ? event.error : event;
+                console.log(1, event);
+                this.pushError({
+                    title: 'JavaScript Error',
+                    message: error.message,
+                    filename: error.filename,
+                    colno: error.colno,
+                    lineno: error.lineno,
+                    stack: error.stack,
+                });
+            };
+            this.onsecuritypolicyviolation = (error) => {
+                this.pushError({
+                    title: 'CSP Error',
+                    message: `blockedURI: ${error.blockedURI || ''}\n violatedDirective: ${error.violatedDirective} || ''\n originalPolicy: ${error.originalPolicy || ''}`,
+                    colno: error.columnNumber,
+                    filename: error.sourceFile,
+                    lineno: error.lineNumber,
+                });
+            };
+            this.onunhandledrejection = (error) => {
+                this.pushError({
+                    title: 'Unhandled promise rejection',
+                    message: error.reason.message,
+                    colno: error.reason.colno,
+                    filename: error.reason.filename,
+                    lineno: error.reason.lineno,
+                    stack: error.reason.stack,
+                });
+            };
+            this.appendToBody = () => {
+                document.removeEventListener('DOMContentLoaded', this.appendToBody, false);
+                if (this.elems.container) {
+                    this.styleNode = injectStyle(STYLE);
+                    document.body.appendChild(this.elems.container);
+                }
+            };
+            this.settings = this.prepareSettings();
+            if (typeof window === 'undefined') {
+                return;
+            }
+            window.addEventListener('error', this.onerror, false);
+            window.addEventListener('unhandledrejection', this.onunhandledrejection, false);
+            document.addEventListener('securitypolicyviolation', this.onsecuritypolicyviolation, false);
+        }
+        destruct() {
+            var _a;
+            window.removeEventListener('error', this.onerror, false);
+            window.removeEventListener('unhandledrejection', this.onunhandledrejection, false);
+            document.removeEventListener('securitypolicyviolation', this.onsecuritypolicyviolation, false);
+            document.removeEventListener('DOMContentLoaded', this.appendToBody, false);
+            if (document.body && this.elems.container) {
+                document.body.removeChild(this.elems.container);
+            }
+            this.state.errorBuffer = [];
+            this.elems = {};
+            if (this.styleNode) {
+                (_a = this.styleNode.parentNode) === null || _a === void 0 ? void 0 : _a.removeChild(this.styleNode);
+                this.styleNode = undefined;
+            }
+        }
+        setSettings(settings) {
+            this.settings = this.prepareSettings(settings);
+            if (this.state.appended) {
+                this.updateUI();
+            }
+        }
+        /**
+         * Show error panel with transmitted error.
+         */
+        show(error) {
+            if (!error) {
+                this.showUI();
+                return;
+            }
+            if (typeof error === 'string') {
+                this.pushError({ message: error });
+            }
+            else {
+                this.pushError(typeof error === 'object' ?
+                    error :
+                    new Error(error));
+            }
+        }
+        /**
+         * Hide error panel.
+         */
+        hide() {
+            if (this.elems.container) {
+                this.elems.container.className = buildElemClass('', {
+                    size: this.settings.size,
+                    hidden: true
+                });
+            }
+        }
+        /**
+         * Clear error panel.
+         */
+        clear() {
+            this.state.errorBuffer = [];
+            this.state.detailed = false;
+            this.setCurrentError(0);
+        }
+        /**
+         * Toggle view (shortly/detail).
+         */
+        toggleView() {
+            this.state.detailed = !this.state.detailed;
+            this.updateUI();
+        }
+        prepareSettings(rawSettings) {
+            const settings = rawSettings || {};
+            return {
+                size: settings.size || 'normal',
+                reportUrl: settings.reportUrl || '',
+                templateDetailedMessage: settings.templateDetailedMessage || '',
+            };
+        }
+        pushError(error) {
+            this.state.errorBuffer.push(error);
+            this.state.errorIndex = this.state.errorBuffer.length - 1;
+            this.updateUI();
+        }
+        appendUI() {
+            const container = document.createElement('div');
+            container.className = buildElemClass('', {
+                size: this.settings.size,
+            });
+            this.elems.container = container;
+            this.elems.close = createElem({
+                name: 'close',
+                props: {
+                    innerText: '×',
+                    onclick: () => {
+                        this.hide();
+                    }
+                },
+                container
+            });
+            this.elems.title = createElem({
+                name: 'title',
+                props: {
+                    innerText: this.getTitle()
+                },
+                container
+            });
+            const body = createElem({
+                name: 'body',
+                container
+            });
+            this.elems.body = body;
+            this.elems.message = createElem({
+                name: 'message',
+                props: {
+                    onclick: () => {
+                        this.toggleView();
+                    }
+                },
+                container: body
+            });
+            this.elems.filename = createElem({
+                name: 'filename',
+                container: body
+            });
+            this.createActions(body);
+            if (document.body) {
+                document.body.appendChild(container);
+                this.styleNode = injectStyle(STYLE);
+            }
+            else {
+                document.addEventListener('DOMContentLoaded', this.appendToBody, false);
+            }
+        }
+        createActions(container) {
+            const actions = createElem({
+                name: 'actions',
+                container
+            });
+            this.elems.actions = actions;
+            createElem({
+                tag: 'input',
+                name: 'copy',
+                props: {
+                    type: 'button',
+                    value: 'Copy',
+                    onclick: () => {
+                        const error = this.getCurrentError();
+                        copyTextToClipboard(this.getDetailedMessage(error));
+                    }
+                },
+                container: actions
+            });
+            const reportLink = createElem({
+                tag: 'a',
+                name: 'report-link',
+                props: {
+                    href: '',
+                    target: '_blank'
+                },
+                container: actions
+            });
+            this.elems.reportLink = reportLink;
+            this.elems.report = createElem({
+                tag: 'input',
+                name: 'report',
+                props: {
+                    type: 'button',
+                    value: 'Report'
+                },
+                container: reportLink
+            });
+            this.createArrows(actions);
+        }
+        createArrows(container) {
+            const arrows = createElem({
+                tag: 'span',
+                name: 'arrows',
+                container
+            });
+            this.elems.arrows = arrows;
+            this.elems.prev = createElem({
+                tag: 'input',
+                name: 'prev',
+                props: {
+                    type: 'button',
+                    value: '←',
+                    onclick: () => {
+                        this.setCurrentError(this.state.errorIndex - 1);
+                    }
+                },
+                container: arrows
+            });
+            this.elems.num = createElem({
+                tag: 'span',
+                name: 'num',
+                props: {
+                    innerText: this.state.errorIndex + 1
+                },
+                container: arrows
+            });
+            this.elems.next = createElem({
+                tag: 'input',
+                name: 'next',
+                props: {
+                    type: 'button',
+                    value: '→',
+                    onclick: () => {
+                        this.setCurrentError(this.state.errorIndex + 1);
+                    }
+                },
+                container: arrows
+            });
+        }
+        getDetailedMessage(error) {
+            let text = [
+                ['Title', this.getTitle(error)],
+                ['Message', getMessage(error)],
+                ['Filename', getFilenameWithPosition(error)],
+                ['Stack', getStack(error)],
+                ['Page url', window.location.href],
+                ['Refferer', document.referrer],
+                ['User-agent', navigator.userAgent],
+                ['Screen size', getScreenSize$1()],
+                ['Screen orientation', getScreenOrientation()],
+                ['Cookie enabled', navigator.cookieEnabled]
+            ].map(item => (item[0] + ': ' + item[1] + '\n')).join('');
+            if (this.settings.templateDetailedMessage) {
+                text = this.settings.templateDetailedMessage.replace(/\{message\}/, text);
+            }
+            return text;
+        }
+        getTitle(error) {
+            return error ? (error.title || 'Error') : 'No errors';
+        }
+        showUI() {
+            if (this.elems.container) {
+                this.elems.container.className = buildElemClass('', {
+                    size: this.settings.size,
+                });
+            }
+        }
+        hasStack() {
+            const error = this.getCurrentError();
+            return error && (error.stack || error.filename);
+        }
+        getCurrentError() {
+            return this.state.errorBuffer[this.state.errorIndex];
+        }
+        setCurrentError(index) {
+            const length = this.state.errorBuffer.length;
+            let newIndex = index;
+            if (newIndex > length - 1) {
+                newIndex = length - 1;
+            }
+            else if (newIndex < 0) {
+                newIndex = 0;
+            }
+            this.state.errorIndex = newIndex;
+            this.updateUI();
+        }
+        updateUI() {
+            const error = this.getCurrentError();
+            if (!this.state.appended) {
+                this.state.appended = true;
+                this.appendUI();
+            }
+            if (this.elems.body) {
+                this.elems.body.className = buildElemClass('body', {
+                    detailed: this.state.detailed,
+                    'no-stack': !this.hasStack(),
+                    hidden: !error,
+                });
+            }
+            if (this.elems.title) {
+                this.elems.title.innerText = this.getTitle(error);
+                this.elems.title.className = buildElemClass('title', {
+                    'no-errors': !error
+                });
+            }
+            if (this.elems.message) {
+                this.elems.message.innerText = getMessage(error);
+            }
+            if (this.elems.actions) {
+                this.elems.actions.className = buildElemClass('actions', { hidden: !error });
+            }
+            if (this.elems.reportLink) {
+                this.elems.reportLink.className = buildElemClass('report', {
+                    hidden: !this.settings.reportUrl
+                });
+            }
+            if (this.elems.reportLink) {
+                this.elems.reportLink.href = this.settings.reportUrl
+                    .replace(/\{title\}/, encodeURIComponent(getMessage(error)))
+                    .replace(/\{body\}/, encodeURIComponent(this.getDetailedMessage(error)));
+            }
+            if (this.elems.filename) {
+                this.elems.filename.className = buildElemClass('filename', { hidden: !error });
+                this.elems.filename.innerText = getStack(error) || getFilenameWithPosition(error);
+            }
+            this.updateArrows(error);
+            this.showUI();
+        }
+        updateArrows(error) {
+            const length = this.state.errorBuffer.length;
+            const errorIndex = this.state.errorIndex;
+            if (this.elems.arrows) {
+                this.elems.arrows.className = buildElemClass('arrows', { hidden: !error });
+            }
+            if (this.elems.prev) {
+                this.elems.prev.disabled = !errorIndex;
+            }
+            if (this.elems.num) {
+                this.elems.num.innerText = (errorIndex + 1) + '\u2009/\u2009' + length;
+            }
+            if (this.elems.next) {
+                this.elems.next.disabled = errorIndex === length - 1;
+            }
+        }
+    }
+
+    const showJSError = new ShowJSError();
+    if (typeof window !== 'undefined') {
+        window.showJSError = showJSError;
+    }
+
+    var hasDocument = typeof document !== 'undefined';
+    var hasWindow = typeof window !== 'undefined';
+    var hasNavigator = typeof navigator != 'undefined';
+    var hasScreen = typeof screen != 'undefined';
+    function getCharset() {
+        return hasDocument && typeof document.charset === 'string' ?
+            document.charset.toLowerCase() :
+            '';
+    }
+    function getPageUrl() {
+        return hasWindow && window.location ? window.location.href : '';
+    }
+    function getReferrer() {
+        return hasDocument ? document.referrer : '';
+    }
+    function getTitle() {
+        return hasDocument ? document.title : '';
+    }
+    function cookieEnabled() {
+        return hasNavigator ? navigator.cookieEnabled : false;
+    }
+    function getScreenSize() {
+        return hasScreen ? [
+            screen.width,
+            screen.height,
+            screen.colorDepth
+        ].join('x') : '';
+    }
+    var DEFAULT_DEVICE_PIXEL_RATIO = 1;
+    function getDevicePixelRatio() {
+        return hasWindow ?
+            (window.devicePixelRatio || DEFAULT_DEVICE_PIXEL_RATIO) :
+            DEFAULT_DEVICE_PIXEL_RATIO;
+    }
+    function getClientSize() {
+        return hasWindow ? [
+            window.innerWidth,
+            window.innerHeight
+        ].join('x') : '';
+    }
+
+    function truncate(str, len) {
+        return (str || '').slice(0, len);
+    }
+
+    function getRandom() {
+        return Math.floor(Math.random() * (1 << 31 - 1));
+    }
+
+    function getSeconds() {
+        return Math.round(Date.now() / 1000);
+    }
+
+    var MAX_TITLE_LEN = 512;
+    function addParam(result, name, value) {
+        if (value || value === 0) {
+            result.push(name + ':' + (value === true ? '1' : value));
+        }
+    }
+    function getBrowserInfo(params, title) {
+        var result = [];
+        if (params) {
+            Object.keys(params).forEach(function (key) { return addParam(result, key, params[key]); });
+        }
+        addParam(result, 'rn', getRandom());
+        addParam(result, 'c', cookieEnabled());
+        addParam(result, 's', getScreenSize());
+        addParam(result, 'sk', getDevicePixelRatio());
+        addParam(result, 'w', getClientSize());
+        addParam(result, 'en', getCharset());
+        var time = getSeconds();
+        addParam(result, 'et', time);
+        addParam(result, 'st', time);
+        addParam(result, 't', truncate(title, MAX_TITLE_LEN));
+        return result.join(':');
+    }
+
+    function queryStringify(params) {
+        return Object.keys(params)
+            .filter(function (key) { return params[key] || params[key] === 0; })
+            .map(function (key) { return encodeURIComponent(key) + '=' + encodeURIComponent(params[key]); })
+            .join('&');
+    }
+    var MAX_URL_LEN = 1024;
+    function prepareUrl(url) {
+        return truncate(url, MAX_URL_LEN);
+    }
+
+    function sendData(counterId, queryParams) {
+        var url = 'https://mc.yandex.ru/watch/' + counterId + '?' + queryStringify(queryParams);
+        var hasBeacon = typeof navigator !== 'undefined' && navigator.sendBeacon;
+        if (!hasBeacon || !navigator.sendBeacon(url, ' ')) {
+            if (typeof fetch !== 'undefined') {
+                fetch(url, { credentials: 'include' }).catch(function () { });
+            }
+            else if (typeof Image !== 'undefined') {
+                new Image().src = url;
+            }
+        }
+    }
+
+    function hitExt(hitExtParams) {
+        var browserInfo = hitExtParams.browserInfo, counterId = hitExtParams.counterId, pageParams = hitExtParams.pageParams;
+        var data = {
+            'browser-info': getBrowserInfo(browserInfo, pageParams.title),
+            rn: getRandom(),
+            ut: pageParams.ut
+        };
+        if (pageParams.url) {
+            data['page-url'] = prepareUrl(pageParams.url);
+        }
+        if (pageParams.referrer) {
+            data['page-ref'] = prepareUrl(pageParams.referrer);
+        }
+        sendData(counterId, data);
+    }
+    /**
+     * Отправка хита.
+     *
+     * @param counterId - Номер счётчика.
+     * @param hitParams -  Параметры страницы.
+     * @param userVars - Параметры визитов.
+     *
+     * @example
+     * hit('123456');
+     *
+     * hit('123456', {
+     *     referer: document.referer,
+     *     title: document.title,
+     *     url: window.location.href
+     * }, {
+     *     myParam: 'value'
+     * });
+     */
+    function hit(counterId, hitParams, params) {
+        var referrer = getReferrer();
+        var title = getTitle();
+        var url = getPageUrl();
+        hitExt({
+            browserInfo: { pv: true, ar: true },
+            counterId: counterId,
+            pageParams: {
+                referrer: referrer,
+                title: title,
+                url: url
+            },
+            params: params
+        });
+    }
+
+    function withInstallApp() {
+        window.addEventListener('beforeinstallprompt', function (e) {
+        });
+    }
+
+    function addClassName(elem, className) {
+        if (elem.classList) {
+            elem.classList.add(className);
+        }
+        else {
+            elem.className += (elem.className ? ' ' : '') + className;
+        }
+    }
+
+    function handleHover() {
+        document.removeEventListener('mousemove', handleHover);
+        addClassName(document.body, 'hover_yes');
+    }
+    function addHoverOnBody() {
+        document.addEventListener('mousemove', handleHover);
+    }
+
+    var pageId = '';
+    function setPageId(id) {
+        pageId = id;
+    }
+    function getPageId() {
+        return pageId;
+    }
+
+    var langsData = [
+        {
+            name: 'EN',
+            value: 'en',
+            default: true
+        },
+        {
+            name: 'RU',
+            value: 'ru',
+        },
+    ];
+    var defaultLang = langsData.filter(function (item) { return Boolean(item.default); })[0].value;
+
+    var keyset$1 = {
+        'Supported': {
+            'en': 'Supported',
+            'ru': 'Поддерживаемые'
+        },
+        'Unsupported': {
+            'en': 'Unsupported',
+            'ru': 'Не поддерживаемые'
+        },
+        'Size': {
+            'en': 'Size',
+            'ru': 'Размер'
+        },
+        'Color depth': {
+            'en': 'Color depth',
+            'ru': 'Глубина цвета'
+        },
+        'Yes': {
+            'en': 'Yes',
+            'ru': 'Да'
+        },
+        'No': {
+            'en': 'No',
+            'ru': 'Нет'
+        },
+        'Warning': {
+            'en': 'Warning',
+            'ru': 'Предупреждение'
+        },
+        'Screens': {
+            'en': 'Screens',
+            'ru': 'Экраны'
+        },
+        'Screen': {
+            'en': 'Screen',
+            'ru': 'Экран'
+        },
+        'Aspect ratio': {
+            'en': 'Aspect ratio',
+            'ru': 'Соотношение сторон'
+        },
+        'Primary': {
+            'en': 'Primary',
+            'ru': 'Основной'
+        },
+        'Internal': {
+            'en': 'Internal',
+            'ru': 'Внутренний'
+        },
+        'bit': {
+            'en': 'bit',
+            'ru': 'бит'
+        },
+        'Not detected': {
+            'en': 'Not detected',
+            'ru': 'Не обнаружено'
+        },
+        'Request': {
+            'en': 'Request',
+            'ru': 'Запрос'
+        },
+        'Details': {
+            'en': 'Details',
+            'ru': 'Подробности'
+        },
+        'GB': {
+            'en': 'GB',
+            'ru': 'ГБ'
+        },
+        'unsupported': {
+            'en': 'unsupported',
+            'ru': 'не поддерживается'
+        },
+        'Name': {
+            'en': 'Name',
+            'ru': 'Название'
+        },
+        'Stop': {
+            'en': 'Stop',
+            'ru': 'Стоп'
+        },
+        'Specify': {
+            'en': 'Specify',
+            'ru': 'Уточнить'
+        },
+        'Additionally': {
+            'en': 'Additionally',
+            'ru': 'Дополнительно'
+        },
+        'RAM': {
+            'en': 'RAM',
+            'ru': 'ОЗУ'
+        },
+        'Hz': {
+            'en': 'Hz',
+            'ru': 'Гц'
+        },
+        'Input': {
+            'en': 'Input',
+            'ru': 'Ввод'
+        },
+        'Reset': {
+            'en': 'Reset',
+            'ru': 'Сброс'
+        },
+        'Check device online': {
+            'en': 'Check device online',
+            'ru': 'Проверь устройство онлайн'
+        },
+        'Report a bug': {
+            'en': 'Report a bug',
+            'ru': 'Сообщить об ошибке'
+        },
+        'Sample rate': {
+            'en': 'Sample rate',
+            'ru': 'Частота дискретизации'
+        },
+        'Sample size': {
+            'en': 'Sample size',
+            'ru': 'Размер семпла'
+        },
+        'Channel count': {
+            'en': 'Channel count',
+            'ru': 'Количество каналов'
+        },
+        'Auto gain control': {
+            'en': 'Auto gain control',
+            'ru': 'Автоматическая регулировка усиления'
+        },
+        'Latency': {
+            'en': 'Latency',
+            'ru': 'Задержка'
+        },
+        'Microphone name': {
+            'en': 'Microphone name',
+            'ru': 'Название микрофона'
+        },
+        'Noise suppression': {
+            'en': 'Noise suppression',
+            'ru': 'Шумоподавление'
+        },
+        'Echo cancellation': {
+            'en': 'Echo cancellation',
+            'ru': 'Эхоподавление'
+        },
+        'Background blur': {
+            'en': 'Background blur',
+            'ru': 'Размытие фона'
+        },
+        'hr.': {
+            'en': 'hr.',
+            'ru': 'ч.'
+        },
+        'min.': {
+            'en': 'min.',
+            'ru': 'мин.'
+        },
+        'sec.': {
+            'en': 'sec.',
+            'ru': 'с.'
+        },
+        'Media Devices API is not supported.': {
+            'en': 'Media Devices API is not supported.',
+            'ru': 'Media Devices API не поддерживается.'
+        },
+        'MIME type': {
+            'en': 'MIME type',
+            'ru': 'MIME тип'
+        },
+        'Types of testing': {
+            'en': 'Types of testing',
+            'ru': 'Виды тестирования'
+        },
+        'Light theme': {
+            'en': 'Light theme',
+            'ru': 'Светлая тема'
+        },
+        'Dark theme': {
+            'en': 'Dark theme',
+            'ru': 'Тёмная тема'
+        },
+    };
+
+    var config = {
+        yaMapsApiKey: '82d7a38b-bad1-4b72-b66c-bfdaf838ba66',
+        showJSErrorRepportUrl: 'https://github.com/hcodes/show-js-error/issues/new?title={title}&body={body}',
+        metrikaCounterId: '95998062', // 97747983
+    };
+
+    function getPreferredColorScheme() {
+        if (window.matchMedia) {
+            if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+                return 'light';
+            }
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                return 'dark';
+            }
+        }
+        return;
+    }
+
+    var localStorageInMemory = {};
+    function setLocalStorageItem(key, value) {
+        var ls = window.localStorage;
+        localStorageInMemory[key] = String(value);
+        try {
+            ls.setItem(key, value);
+        }
+        catch ( /* */_a) { /* */ }
+    }
+    function getLocalStorageItem(key) {
+        var ls = window.localStorage;
+        try {
+            return ls.getItem(key);
+        }
+        catch (_a) {
+            return localStorageInMemory[key];
+        }
+    }
+
+    var Signal = /** @class */ (function () {
+        function Signal() {
+            this.listeners = [];
+        }
+        Signal.prototype.addListener = function (callback) {
+            if (callback) {
+                this.listeners.push(callback);
+            }
+        };
+        Signal.prototype.removeListener = function (callback) {
+            this.listeners = this.listeners.filter(function (item) { return callback !== item; });
+        };
+        Signal.prototype.trigger = function (data) {
+            this.listeners.forEach(function (item) { return item(data); });
+        };
+        Signal.prototype.clearListeners = function () {
+            this.listeners.length = 0;
+        };
+        return Signal;
+    }());
+
+    var PAGE_THEME_LOCAL_STORAGE_KEY = 'page-theme';
+    var DEFAULT_PAGE_THEME = 'dark';
+    var pageTheme = DEFAULT_PAGE_THEME;
+    function setPageTheme(theme) {
+        if (theme === 'light') {
+            document.documentElement.classList.add('page-theme_light');
+            document.documentElement.classList.remove('page-theme_dark');
+        }
+        else {
+            document.documentElement.classList.add('page-theme_dark');
+            document.documentElement.classList.remove('page-theme_light');
+        }
+        pageTheme = theme;
+    }
+    function savePageTheme(theme) {
+        setLocalStorageItem(PAGE_THEME_LOCAL_STORAGE_KEY, theme);
+    }
+    function wasSavedPageTheme() {
+        return Boolean(getLocalStorageItem(PAGE_THEME_LOCAL_STORAGE_KEY));
+    }
+    function getPageTheme() {
+        return pageTheme;
+    }
+    var pageThemeChangeSignal = new Signal();
+    function addPageThemeListener(callback) {
+        pageThemeChangeSignal.addListener(callback);
+    }
+    function removePageThemeListener(callback) {
+        pageThemeChangeSignal.removeListener(callback);
+    }
+    function initPageTheme() {
+        if (typeof window !== 'undefined' && window.matchMedia) {
+            var query = window.matchMedia('(prefers-color-scheme: dark)');
+            query.addEventListener('change', function () {
+                var theme = getPreferredColorScheme() || DEFAULT_PAGE_THEME;
+                pageThemeChangeSignal.trigger(theme);
+            });
+            var theme = getLocalStorageItem(PAGE_THEME_LOCAL_STORAGE_KEY) || getPreferredColorScheme();
+            if (theme && isCorrectTheme(theme)) {
+                setPageTheme(theme);
+            }
+        }
+    }
+    function isCorrectTheme(value) {
+        return value === 'light' || value === 'dark';
+    }
+
+    var _a;
+    addI18nKeyset(keyset$1);
+    function getLang() {
+        var lang = window.__appData__.lang || getLangFromNavigator();
+        var result = langsData.filter(function (item) { return item.value === lang; });
+        if (!result.length) {
+            lang = defaultLang;
+        }
+        return lang;
+    }
+    function getLangFromNavigator() {
+        return ((navigator.language || '').split('-')[0] || defaultLang);
+    }
+    setI18nLangs(langsData);
+    addI18nKeyset(keyset$1);
+    if (!isSsr) {
+        showJSError.setSettings({
+            reportUrl: config.showJSErrorRepportUrl,
+        });
+        hit(config.metrikaCounterId);
+        var lang = getLang();
+        setI18nLang(lang);
+        setPageId(window.__appData__.pageId);
+        withInstallApp();
+        addHoverOnBody();
+        initPageTheme();
+        // ally
+        (_a = document.documentElement) === null || _a === void 0 ? void 0 : _a.setAttribute('lang', lang);
+    }
+
+    var b$9 = block('link');
+    function Link(props) {
+        var className = classname(props.class, b$9({ theme: props.theme }));
+        return (_("a", { target: props.target, class: className, href: props.href }, props.children));
+    }
+
+    var b$8 = block('lang-icon');
+    function LangIcon(props) {
+        return (_("span", { class: b$8({ lang: props.lang }) }));
+    }
+
+    var b$7 = block('lang-switcher-item');
+    function LangSwitcherItem(props) {
+        var value = props.value, name = props.name, selected = props.selected, url = props.url;
+        return (_("li", { class: b$7() },
+            _(Link, { href: url },
+                _("span", null,
+                    _(LangIcon, { lang: value }),
+                    " ",
+                    name,
+                    selected ? ' ✓' : ''))));
+    }
+
+    function getPagePath(id, lang) {
+        var idPath = id === 'index' ? '' : (id + '/');
+        return "/".concat(lang || getI18nLang(), "/").concat(idPath);
+    }
+
+    var b$6 = block('lang-switcher');
+    function LangSwitcher() {
+        var _a = h(false), visible = _a[0], setVisible = _a[1];
+        var currentLang = getI18nLang();
+        var langs = getI18nLangs();
+        var ref = A(null);
+        var handleClick = q(function () {
+            setVisible(true);
+        }, [setVisible]);
+        y(function () {
+            var handleDocumentClick = function (event) {
+                if (event.target && ref.current) {
+                    var target = event.target;
+                    if (ref.current.contains && !ref.current.contains(target)) {
+                        setVisible(false);
+                    }
+                }
+            };
+            var handleDocumentKeydown = function (event) {
+                if (event.code === 'Escape') {
+                    setVisible(false);
+                }
+            };
+            document.addEventListener('click', handleDocumentClick, false);
+            document.addEventListener('keydown', handleDocumentKeydown, false);
+            return function () {
+                document.removeEventListener('click', handleDocumentClick, false);
+                document.removeEventListener('keydown', handleDocumentKeydown, false);
+            };
+        }, [setVisible]);
+        var currentLangItem = langs.filter(function (item) { return currentLang === item.value; })[0];
+        return (_("div", { ref: ref, class: b$6() },
+            _("div", { class: b$6('current'), onClick: handleClick },
+                _(LangIcon, { lang: currentLangItem.value }),
+                " ",
+                currentLangItem.name),
+            _("menu", { class: b$6('popup', { visible: visible }) }, langs.map(function (item) {
+                var url = getPagePath(getPageId(), item.value);
+                return (_(LangSwitcherItem, { key: item.value, name: item.name, value: item.value, selected: currentLang === item.value, url: url }));
+            }))));
+    }
+
+    var b$5 = block('footer');
+    function Footer() {
+        return (_("footer", { class: b$5() },
+            _("div", { class: b$5('item', { report: true }) },
+                _(Link, { theme: "page-theme", target: "_blank", href: "https://github.com/vvideo/caniwatchvideo/issues/new" }, i18n('Report a bug'))),
+            _("div", { class: b$5('item') },
+                _(LangSwitcher, null)),
+            _("div", { class: b$5('item') }, "\u00A9 Vvideo")));
+    }
+
+    var b$4 = block('main-menu');
+    function MainMenu(props) {
+        return (_("nav", { class: b$4() },
+            _("ul", { class: b$4('list') }, props.items.filter(function (item) { return !item.hidden; }).map(function (item) {
+                return (_("li", { class: b$4('item', { selected: item.selected }), key: item.id },
+                    _("a", { class: b$4('link'), href: getPagePath(item.id) }, item.title),
+                    " "));
+            }))));
+    }
+
+    var pages = [
+        {
+            "header": {
+                "en": "Check device online",
+                "ru": "Проверь устройство онлайн"
+            },
+            "menuTitle": {
+                "en": "",
+                "ru": ""
+            },
+            "description": {
+                "en": "Online testing and viewing detailed information about devices in your browser",
+                "ru": "Тестирование и просмотр детальной информации об устройствах в вашем браузере онлайн"
+            },
+            "keywords": {
+                "en": "audio, video, mouse, keyboard, gamepad, geo, gpu, battery, screen, midi, usb, mic, camera",
+                "ru": "аудио, видео, мышь, клавиатура, джойстик, гео, gpu, батарея, экран, миди, юсб, микрофон, веб-камера"
+            },
+            "id": "index",
+            "hidden": true,
+            "isIndex": true
+        },
+        {
+            "header": {
+                "en": "Check Video",
+                "ru": "Проверить видео"
+            },
+            "menuTitle": {
+                "en": "Video",
+                "ru": "Видео"
+            },
+            "id": "video",
+            "indexMenuList": {
+                "en": [
+                    "Can I watch 4K video? ",
+                    "Supported video codecs",
+                    "Supported types of DRM"
+                ],
+                "ru": [
+                    "Могу ли я смотреть 4К видео?",
+                    "Поддерживаемые видеокодеки",
+                    "Поддерживаемые типы DRM"
+                ]
+            }
+        },
+        {
+            "header": {
+                "en": "Check Audio",
+                "ru": "Проверить аудио"
+            },
+            "menuTitle": {
+                "en": "Audio",
+                "ru": "Аудио"
+            },
+            "description": {
+                "en": "View information about audio codecs and multichannel audio support in your browser",
+                "ru": "Посмотреть информацию о поддержке аудиокодеков и многоканального звука в вашем браузере"
+            },
+            "keywords": {
+                "en": "check dolby atmos, check dolby digital, check surround sound, check vibration, check speech syntesis",
+                "ru": "проверить dolby atmos, проверить dolby digital, проверить многоканальый звук, аудиокодеки, проверить вибрацию, синтез речи"
+            },
+            "id": "audio",
+            "indexMenuList": {
+                "en": [
+                    "Can I listen to surround sound?",
+                    "Supported audio codecs",
+                    "Speech Synthesis, Vibration"
+                ],
+                "ru": [
+                    "Могу ли я услышать многоканальный звук?",
+                    "Поддерживаемые аудиокодеки",
+                    "Синтез речи, Вибрация"
+                ]
+            }
+        },
+        {
+            "header": {
+                "en": "Check Screen",
+                "ru": "Проверить экран"
+            },
+            "menuTitle": {
+                "en": "Screen",
+                "ru": "Экран"
+            },
+            "description": {
+                "en": "View screen resolution of monitor, laptop, smartphone or tablet online, support for multiple monitors",
+                "ru": "Посмотреть разрешение экрана монитора, ноутбука, смартфона или планшета онлайн, поддержка нескольких мониторов"
+            },
+            "keywords": {
+                "en": "logical size, actual size, resolution screen, hdr, device pixel ratio, max touch points, color depth, aspect ratio, color spaces, orientation, frame rate",
+                "ru": "разрешение экрана, логический и фактический размер, HDR, соотношение сторон, глубина цвета, ориентация, частота обновления, цветовые пространства"
+            },
+            "id": "screen",
+            "indexMenuList": {
+                "en": [
+                    "Screen Size, Aspect ratio, Frame rate",
+                    "HDR support, Color depth, Color spaces",
+                    "Multi-screen support"
+                ],
+                "ru": [
+                    "Размер экрана, Соотношение сторон, Частота обновления",
+                    "Поддержка HDR, Глубина цвета, Цветовые пространства",
+                    "Поддержка нескольких экранов"
+                ]
+            }
+        },
+        {
+            "header": {
+                "en": "Check Webcamera",
+                "ru": "Проверить веб-камеру"
+            },
+            "menuTitle": {
+                "en": "Webcamera",
+                "ru": "Веб-камера"
+            },
+            "description": {
+                "en": "Online testing of webcam with or without microphone",
+                "ru": "Онлайн-тестирование веб-камеры с микрофоном или без микрофона"
+            },
+            "keywords": {
+                "en": "web camera, microphone, web camera with microphone, web camera without microphone, low resolution of camera, high resolution of camera, high rate of camera",
+                "ru": "веб-камера, микрофон, веб-камера с микрофоном, веб-камера без микрофона, веб-камера с низким разрешением, веб-камера с высоким разрешением, веб-камера с высокой частотой обновления"
+            },
+            "id": "camera",
+            "indexMenuList": {
+                "en": [
+                    "Testing webcam",
+                    "Information about webcam",
+                    "Low and high resolution webcam"
+                ],
+                "ru": [
+                    "Тестирование веб-камеры",
+                    "Расширенная информация о веб-камере",
+                    "Низкое и высокое разрешение веб-камеры"
+                ]
+            }
+        },
+        {
+            "header": {
+                "en": "Check Microphone",
+                "ru": "Проверить микрофон"
+            },
+            "menuTitle": {
+                "en": "Microphone",
+                "ru": "Микрофон"
+            },
+            "description": {
+                "en": "Online testing of microphone with ability to hear yourself",
+                "ru": "Онлайн-тестирование микрофона с возможностью слышать себя"
+            },
+            "keywords": {
+                "en": "microphone, hear yourself, auto gain control, channel count, echo cancellation, noise suppression, sample rate, sample size",
+                "ru": "микрофон, слышать себя, автоматическая регулировка усиления, количество каналов, эхоподавление, шумоподавление, размер семпла"
+            },
+            "id": "mic",
+            "indexMenuList": {
+                "en": [
+                    "Testing microphone",
+                    "Information about microphone",
+                    "Ability to hear yourself"
+                ],
+                "ru": [
+                    "Тестирование микрофона",
+                    "Информация о микрофоне",
+                    "Возможность слышать себя"
+                ]
+            }
+        },
+        {
+            "header": {
+                "en": "Check GPU",
+                "ru": "Проверить GPU"
+            },
+            "menuTitle": {
+                "en": "GPU",
+                "ru": "GPU"
+            },
+            "id": "gpu",
+            "indexMenuList": {
+                "en": [
+                    "Detailed information about GPU",
+                    "GPU name and vendor",
+                    "WebGPU"
+                ],
+                "ru": [
+                    "Детальная информация о GPU",
+                    "Название и производитель GPU",
+                    "WebGPU"
+                ]
+            },
+            "description": {
+                "en": "View detailed information about your GPU online",
+                "ru": "Просмотр детальной информации о графическом процессоре онлайн"
+            },
+            "keywords": {
+                "en": "GPU, GPU vendor, GPU name, Lower power GPU, High power GPU",
+                "ru": "производитель GPU, название GPU, GPU, графический процессор, графический процессор с пониженной мощностью, графический процессор с повышенной мощностью"
+            }
+        },
+        {
+            "header": {
+                "en": "Check Mouse",
+                "ru": "Проверить мышку"
+            },
+            "menuTitle": {
+                "en": "Mouse",
+                "ru": "Мышь"
+            },
+            "id": "mouse",
+            "indexMenuList": {
+                "en": [
+                    "Testing mouse",
+                    "Displaying mouse button clicks",
+                    "Support for additional buttons"
+                ],
+                "ru": [
+                    "Тестирование мышки",
+                    "Отображение нажатий кнопок мышки",
+                    "Поддержка дополнительных кнопок"
+                ]
+            },
+            "description": {
+                "en": "Mouse click testing online",
+                "ru": "Тестирование нажатий кнопок мышки онлайн"
+            },
+            "keywords": {
+                "en": "left mouse click, right mouse click, middle mouse click, mouse, wheel mouse",
+                "ru": "левая кнопка мышки, правая кнопка мышки, средняя кнопка мышки, колесо прокрутки мышки"
+            }
+        },
+        {
+            "header": {
+                "en": "Check Keyboard",
+                "ru": "Проверить клавиатуру"
+            },
+            "menuTitle": {
+                "en": "Keyboard",
+                "ru": "Клавиатура"
+            },
+            "id": "keyboard",
+            "indexMenuList": {
+                "en": [
+                    "Displaying keystrokes on keyboard",
+                    "Displaying keyboard key codes",
+                    "Keyboards: Windows, Mac, MacBook, iPad"
+                ],
+                "ru": [
+                    "Отображение нажатий клавиш на клавиатуре",
+                    "Отображение кодов клавиш клавиатуры",
+                    "Клавиатуры: Windows, Mac, MacBook, iPad"
+                ]
+            },
+            "description": {
+                "en": "Online keyboard key testing",
+                "ru": "Тестирование клавиш клавиатуры онлайн"
+            },
+            "keywords": {
+                "en": "keyboard, keyboard keys, num lock, scroll lock, led indicators, CTRL, SHIT, MET",
+                "ru": "клавиатура, клавиши клавиатуры, индикаторы клавиатуры, CTRL, SHIFT, META"
+            }
+        },
+        {
+            "header": {
+                "en": "Displaying Сode of Pressed Key",
+                "ru": "Отображение кода нажатой клавиши"
+            },
+            "menuTitle": {
+                "en": "Key codes",
+                "ru": "Коды клавиш"
+            },
+            "id": "keycodes",
+            "hidden": true,
+            "description": {
+                "en": "Display keyboard key codes online",
+                "ru": "Отображение кодов клавиш клавиатуры онлайн"
+            },
+            "keywords": {
+                "en": "key codes, keydown event",
+                "ru": "Коды клавиш клавиатуры, keydown событие"
+            }
+        },
+        {
+            "header": {
+                "en": "Check Gamepad",
+                "ru": "Проверить джойстик"
+            },
+            "menuTitle": {
+                "en": "Gamepad",
+                "ru": "Джойстик"
+            },
+            "id": "gamepad",
+            "indexMenuList": {
+                "en": [
+                    "Display of joystick button presses",
+                    "Vibration check",
+                    "Joystick support: PS3, PS4, PS5, Xbox360 and others"
+                ],
+                "ru": [
+                    "Отображение нажатий кнопок джойстика",
+                    "Проверка вибрации джойстика",
+                    "Поддержка джойстиков: PS3, PS4, PS5, Xbox360 и другие"
+                ]
+            },
+            "description": {
+                "en": "Online testing joystick buttons, triggers and axes",
+                "ru": "Тестирование кнопок, триггеров и осей джойстика онлайн"
+            },
+            "keywords": {
+                "en": "gamepad axes, gamepad buttons, gamepad triggers",
+                "ru": "оси джойстика, кнопки джойстика, триггеры джойстика"
+            }
+        },
+        {
+            "header": {
+                "en": "Check Storage",
+                "ru": "Проверить хранилище"
+            },
+            "menuTitle": {
+                "en": "Storage",
+                "ru": "Хранилище"
+            },
+            "id": "storage",
+            "indexMenuList": {
+                "en": [
+                    "Types of supported storage",
+                    "Support of persistent storage",
+                    "Storage quota for origin"
+                ],
+                "ru": [
+                    "Виды поддерживаемых хранилищ",
+                    "Поддержка постоянного хранилища",
+                    "Квота хранилища на домен"
+                ]
+            },
+            "description": {
+                "en": "View supported storage types in your browser",
+                "ru": "Просмотр поддерживаемых типов хранилищ в браузере"
+            },
+            "keywords": {
+                "en": "cookies, local storage, session storage, indexeddb, origin private file system",
+                "ru": "cookies, local storage, session storage, indexeddb, origin private file system"
+            }
+        },
+        {
+            "header": {
+                "en": "Check Network",
+                "ru": "Проверить сеть"
+            },
+            "menuTitle": {
+                "en": "Network",
+                "ru": "Сеть"
+            },
+            "id": "network",
+            "indexMenuList": {
+                "en": [
+                    "IPv4, IPv6",
+                    "Downlink",
+                    "RTT"
+                ],
+                "ru": [
+                    "IPv4, IPv6",
+                    "Downlink",
+                    "RTT"
+                ]
+            },
+            "description": {
+                "en": "Display information about your network in browser",
+                "ru": "Отображение информации о вашей сети в браузере"
+            },
+            "keywords": {
+                "en": "IPv4, IPv6, Downlink, RTT",
+                "ru": "IPv4, IPv6, Downlink, RTT"
+            }
+        },
+        {
+            "header": {
+                "en": "Check Geo",
+                "ru": "Проверить геолокацию"
+            },
+            "menuTitle": {
+                "en": "Geo",
+                "ru": "Гео"
+            },
+            "id": "geo",
+            "indexMenuList": {
+                "en": [
+                    "Latitude",
+                    "Longitude",
+                    "Displaying location on map"
+                ],
+                "ru": [
+                    "Широта",
+                    "Долгота",
+                    "Отображение геопозиции на карте"
+                ]
+            },
+            "description": {
+                "en": "Displaying your geolocation information in the browser",
+                "ru": "Отображение информации о вашей геопозиции в браузере"
+            },
+            "keywords": {
+                "en": "latitude, longitude, displaying location on map",
+                "ru": "широта, долгота, отображение геопозиции на карте"
+            }
+        },
+        {
+            "header": {
+                "en": "Check MIDI Keyboard",
+                "ru": "Проверить MIDI-клавиатуру"
+            },
+            "menuTitle": {
+                "en": "MIDI",
+                "ru": "MIDI"
+            },
+            "id": "midi",
+            "hidden": true,
+            "indexMenuList": {
+                "en": [
+                    "Product name",
+                    "Serial number",
+                    "Detailed MIDI info"
+                ],
+                "ru": [
+                    "Название устройства",
+                    "Серийный номер",
+                    "Детальная информация o MIDI"
+                ]
+            },
+            "description": {
+                "en": "Testing MIDI keyboard in browser",
+                "ru": "Тестирование MIDI-клавиатуры в браузере"
+            },
+            "keywords": {
+                "en": "MIDI",
+                "ru": "MIDI"
+            }
+        },
+        {
+            "header": {
+                "en": "View Info About USB Device",
+                "ru": "Посмотреть информацию о USB-устройстве"
+            },
+            "menuTitle": {
+                "en": "USB",
+                "ru": "USB"
+            },
+            "id": "usb",
+            "indexMenuList": {
+                "en": [
+                    "Product name",
+                    "Serial number",
+                    "Detailed USB info"
+                ],
+                "ru": [
+                    "Название устройства",
+                    "Серийный номер",
+                    "Детальная информация"
+                ]
+            },
+            "description": {
+                "en": "View detailed information about a USB device in browser",
+                "ru": "Посмотреть детальную информацию о USB-устройстве в браузере"
+            },
+            "keywords": {
+                "en": "product name, serial number, detailed USB info",
+                "ru": "название устройства, серийный номер, детальная информация"
+            }
+        },
+        {
+            "menuTitle": {
+                "en": "Bluetooth",
+                "ru": "Bluetooth"
+            },
+            "id": "bluetooth",
+            "hidden": true,
+            "indexMenuList": {
+                "en": [
+                    "Product name",
+                    "Serial number",
+                    "Detailed USB info"
+                ],
+                "ru": [
+                    "Название устройства",
+                    "Серийный номер",
+                    "Детальная информация"
+                ]
+            },
+            "description": {
+                "en": "Просмотр детальной информации о bluetooth-устройстве онлайн",
+                "ru": "View detailed information about a Bluetooth device online"
+            },
+            "keywords": {
+                "en": "bluetooth",
+                "ru": "bluetooth"
+            }
+        },
+        {
+            "menuTitle": {
+                "en": "Sensor",
+                "ru": "Сенсор"
+            },
+            "id": "sensor",
+            "hidden": true,
+            "indexMenuList": {
+                "en": [
+                    "Accelerometer, Ammbient light sensor",
+                    "Gravity sensor",
+                    "Gyroscope, Magnetometer"
+                ],
+                "ru": [
+                    "Акселерометр, Датчик освещенности",
+                    "Датчик силы тяжести",
+                    "Гироскоп, Магнитометр"
+                ]
+            },
+            "description": {
+                "en": "View detailed information about sensors online",
+                "ru": "Просмотр детальной информации о датчиках онлайн"
+            },
+            "keywords": {
+                "en": "accelerometer, ammbient light sensor, gravity sensor, gyroscope, linear acceleration sensor, magnetometer, orientation sensor",
+                "ru": "акселерометр, датчик освещенности, датчик силы тяжести, гироскоп, датчик линейного ускорения, магнитометр, датчик ориентации"
+            }
+        },
+        {
+            "header": {
+                "en": "View Info About Platform",
+                "ru": "Посмотреть информацию о платформе"
+            },
+            "menuTitle": {
+                "en": "Platform",
+                "ru": "Платформа"
+            },
+            "id": "platform",
+            "indexMenuList": {
+                "en": [
+                    "Detailed information about platform",
+                    "Permissions",
+                    "RAM and number of processor cores"
+                ],
+                "ru": [
+                    "Информация о платформе",
+                    "Разрешения",
+                    "ОЗУ и количество ядер процессора"
+                ]
+            },
+            "description": {
+                "en": "View detailed platform information in your browser",
+                "ru": "Посмотреть детальную информацию о платформе в браузере"
+            },
+            "keywords": {
+                "en": "permissions, RAM, number of processor core ",
+                "ru": "разрешения, ОЗУ, количество ядер процессора"
+            }
+        },
+        {
+            "header": {
+                "en": "Check Battery",
+                "ru": "Проверить батарею"
+            },
+            "menuTitle": {
+                "en": "Battery",
+                "ru": "Батарея"
+            },
+            "id": "battery",
+            "indexMenuList": {
+                "en": [
+                    "Battery status",
+                    "Battery charge level",
+                    "Battery charge and discharge time"
+                ],
+                "ru": [
+                    "Статус батареи",
+                    "Уровень заряда батареи",
+                    "Время заряда и разряда батареи"
+                ]
+            },
+            "description": {
+                "en": "View detailed battery status information",
+                "ru": "Просмотр детальной информации о статусе батареи"
+            },
+            "keywords": {
+                "en": "battery status, battery charge level, battery charge and discharge time",
+                "ru": "статус батареи, уровень заряда батареи, время заряда и разряда батареи"
+            }
+        },
+        {
+            "header": {
+                "en": "View Local Fonts",
+                "ru": "Посмотреть локальные шрифты"
+            },
+            "menuTitle": {
+                "en": "Fonts",
+                "ru": "Шрифты"
+            },
+            "id": "fonts",
+            "indexMenuList": {
+                "en": [
+                    "List of local fonts",
+                    "Group by font family",
+                    "Searching and viewing fonts"
+                ],
+                "ru": [
+                    "Список локальных шрифтов",
+                    "Группировка шрифтов по семейству",
+                    "Поиск и просмотр шрифтов"
+                ]
+            },
+            "description": {
+                "en": "Viewing local fonts in browser",
+                "ru": "Просмотр локальных шрифтов в браузере"
+            },
+            "keywords": {
+                "en": "list of local fonts, group by font family",
+                "ru": "список локальных шрифтов, группировка шрифтов по семейству"
+            }
+        },
+        {
+            "menuTitle": {
+                "en": "404",
+                "ru": "404"
+            },
+            "id": "error404",
+            "hidden": true,
+            "sitemap": false,
+            "isError": true,
+            "description": {
+                "en": "Page not found",
+                "ru": "Страница не найдена"
+            }
+        },
+        {
+            "menuTitle": {
+                "en": "Test dead pixels",
+                "ru": "Тестирование битых пикселей"
+            },
+            "id": "test-dead-pixels",
+            "hidden": true,
+            "description": {
+                "en": "Testing your monitor or TV for dead pixels",
+                "ru": "Тестирование битых пикселей вашего монитора или ТВ"
+            },
+            "keywords": {
+                "en": "dead pixels",
+                "ru": "битые пиксели"
+            }
+        }
+    ];
+
+    function Menu() {
+        var id = getPageId();
+        var items = pages.map(function (item) {
+            var selected = item.id === id;
+            return __assign(__assign({}, item), { url: getPagePath(item.id), title: i18nWithKeyset(item.menuTitle), selected: selected });
+        });
+        return (_(MainMenu, { items: items }));
+    }
+
+    var b$3 = block('theme-switcher');
+    function ThemeSwitcher() {
+        var _a = h(getPageTheme()), theme = _a[0], setTheme = _a[1];
+        var handleClick = q(function () {
+            var currentTheme = theme === 'light' ? 'dark' : 'light';
+            setTheme(currentTheme);
+            setPageTheme(currentTheme);
+            savePageTheme(currentTheme);
+        }, [theme, setTheme]);
+        y(function () {
+            var handler = function (currentTheme) {
+                if (!wasSavedPageTheme()) {
+                    setTheme(currentTheme);
+                    setPageTheme(currentTheme);
+                }
+            };
+            addPageThemeListener(handler);
+            return function () {
+                removePageThemeListener(handler);
+            };
+        }, [setTheme]);
+        var title = theme === 'light' ? i18n('Dark theme') : i18n('Light theme');
+        return (_("div", { class: b$3({ theme: theme }), onClick: handleClick, title: title }));
+    }
+
+    var b$2 = block('header');
+    function Header() {
+        return (_("header", { class: b$2() },
+            _(Link, { theme: "page-theme", href: getPagePath('index') },
+                _("span", null,
+                    _("span", { class: b$2('logo') }),
+                    i18n('Check device online'))),
+            _(ThemeSwitcher, null)));
+    }
+
+    var b$1 = block('page-title');
+    function PageTitle(props) {
+        return (_("h1", { class: b$1() }, props.children));
+    }
+
+    var b = block('page');
+    function Page(props) {
+        return (_("div", { class: b() },
+            _(Header, null),
+            props.withoutMenu ? '' : (_(Menu, null)),
+            props.title ? (_(PageTitle, null, props.title)) : '',
+            props.children,
+            _(Footer, null)));
+    }
+
+    var keyset = {
+        'Network Information API is not supported.': {
+            'en': 'Network Information API is not supported.',
+            'ru': 'Network Information API не поддерживается.'
+        },
+        'Internet Speed': {
+            'en': 'Internet Speed',
+            'ru': 'Скорость интернета'
+        },
+        'Connection': {
+            'en': 'Connection',
+            'ru': 'Связь'
+        },
+        'Network': {
+            'en': 'Network',
+            'ru': 'Сеть'
+        },
+    };
+
+    addI18nKeyset(keyset);
+    function NetworkPage() {
+        return (_(Page, { title: i18n('Network') },
+            _(NetworkInformation, null)));
+    }
+
+    function renderToRoot(Component) {
+        return B$1(_(Component, null), document.querySelector('.root'));
+    }
+
+    renderToRoot(NetworkPage);
+
+}));

@@ -1,2 +1,4179 @@
-!function(e){"function"==typeof define&&define.amd?define(e):e()}((function(){"use strict";var e,t,o,n,r,i,s,a,c,l,d={},u=[],m=/acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i,p=Array.isArray;function h(e,t){for(var o in t)e[o]=t[o];return e}function y(e){var t=e.parentNode;t&&t.removeChild(e)}function f(t,o,n){var r,i,s,a={};for(s in o)"key"==s?r=o[s]:"ref"==s?i=o[s]:a[s]=o[s];if(arguments.length>2&&(a.children=arguments.length>3?e.call(arguments,2):n),"function"==typeof t&&null!=t.defaultProps)for(s in t.defaultProps)void 0===a[s]&&(a[s]=t.defaultProps[s]);return _(t,a,r,i,null)}function _(e,n,r,i,s){var a={type:e,props:n,key:r,ref:i,__k:null,__:null,__b:0,__e:null,__d:void 0,__c:null,constructor:void 0,__v:null==s?++o:s,__i:-1,__u:0};return null==s&&null!=t.vnode&&t.vnode(a),a}function b(e){return e.children}function g(e,t){this.props=e,this.context=t}function v(e,t){if(null==t)return e.__?v(e.__,e.__i+1):null;for(var o;t<e.__k.length;t++)if(null!=(o=e.__k[t])&&null!=o.__e)return o.__e;return"function"==typeof e.type?v(e):null}function x(e){var t,o;if(null!=(e=e.__)&&null!=e.__c){for(e.__e=e.__c.base=null,t=0;t<e.__k.length;t++)if(null!=(o=e.__k[t])&&null!=o.__e){e.__e=e.__c.base=o.__e;break}return x(e)}}function S(e){(!e.__d&&(e.__d=!0)&&n.push(e)&&!w.__r++||r!==t.debounceRendering)&&((r=t.debounceRendering)||i)(w)}function w(){var e,o,r,i,a,c,l,d;for(n.sort(s);e=n.shift();)e.__d&&(o=n.length,i=void 0,c=(a=(r=e).__v).__e,l=[],d=[],r.__P&&((i=h({},a)).__v=a.__v+1,t.vnode&&t.vnode(i),P(r.__P,i,a,r.__n,r.__P.namespaceURI,32&a.__u?[c]:null,l,null==c?v(a):c,!!(32&a.__u),d),i.__v=a.__v,i.__.__k[i.__i]=i,C(l,i,d),i.__e!=c&&x(i)),n.length>o&&n.sort(s));w.__r=0}function k(e,t,o,n,r,i,s,a,c,l,m){var p,h,y,f,_,b=n&&n.__k||u,g=t.length;for(o.__d=c,L(o,t,b),c=o.__d,p=0;p<g;p++)null!=(y=o.__k[p])&&"boolean"!=typeof y&&"function"!=typeof y&&(h=-1===y.__i?d:b[y.__i]||d,y.__i=p,P(e,y,h,r,i,s,a,c,l,m),f=y.__e,y.ref&&h.ref!=y.ref&&(h.ref&&N(h.ref,null,y),m.push(y.ref,y.__c||f,y)),null==_&&null!=f&&(_=f),65536&y.__u||h.__k===y.__k?c=K(y,c,e):"function"==typeof y.type&&void 0!==y.__d?c=y.__d:f&&(c=f.nextSibling),y.__d=void 0,y.__u&=-196609);o.__d=c,o.__e=_}function L(e,t,o){var n,r,i,s,a,c=t.length,l=o.length,d=l,u=0;for(e.__k=[],n=0;n<c;n++)s=n+u,null!=(r=e.__k[n]=null==(r=t[n])||"boolean"==typeof r||"function"==typeof r?null:"string"==typeof r||"number"==typeof r||"bigint"==typeof r||r.constructor==String?_(null,r,null,null,null):p(r)?_(b,{children:r},null,null,null):void 0===r.constructor&&r.__b>0?_(r.type,r.props,r.key,r.ref?r.ref:null,r.__v):r)?(r.__=e,r.__b=e.__b+1,a=M(r,o,s,d),r.__i=a,i=null,-1!==a&&(d--,(i=o[a])&&(i.__u|=131072)),null==i||null===i.__v?(-1==a&&u--,"function"!=typeof r.type&&(r.__u|=65536)):a!==s&&(a==s-1?u--:a==s+1?u++:a>s?d>c-s?u+=a-s:u--:a<s&&(a==s-u?u-=a-s:u++),a!==n+u&&(r.__u|=65536))):(i=o[s])&&null==i.key&&i.__e&&!(131072&i.__u)&&(i.__e==e.__d&&(e.__d=v(i)),R(i,i,!1),o[s]=null,d--);if(d)for(n=0;n<l;n++)null!=(i=o[n])&&!(131072&i.__u)&&(i.__e==e.__d&&(e.__d=v(i)),R(i,i))}function K(e,t,o){var n,r;if("function"==typeof e.type){for(n=e.__k,r=0;n&&r<n.length;r++)n[r]&&(n[r].__=e,t=K(n[r],t,o));return t}e.__e!=t&&(t&&e.type&&!o.contains(t)&&(t=v(e)),o.insertBefore(e.__e,t||null),t=e.__e);do{t=t&&t.nextSibling}while(null!=t&&8===t.nodeType);return t}function M(e,t,o,n){var r=e.key,i=e.type,s=o-1,a=o+1,c=t[o];if(null===c||c&&r==c.key&&i===c.type&&!(131072&c.__u))return o;if(n>(null==c||131072&c.__u?0:1))for(;s>=0||a<t.length;){if(s>=0){if((c=t[s])&&!(131072&c.__u)&&r==c.key&&i===c.type)return s;s--}if(a<t.length){if((c=t[a])&&!(131072&c.__u)&&r==c.key&&i===c.type)return a;a++}}return-1}function E(e,t,o){"-"===t[0]?e.setProperty(t,null==o?"":o):e[t]=null==o?"":"number"!=typeof o||m.test(t)?o:o+"px"}function T(e,t,o,n,r){var i;e:if("style"===t)if("string"==typeof o)e.style.cssText=o;else{if("string"==typeof n&&(e.style.cssText=n=""),n)for(t in n)o&&t in o||E(e.style,t,"");if(o)for(t in o)n&&o[t]===n[t]||E(e.style,t,o[t])}else if("o"===t[0]&&"n"===t[1])i=t!==(t=t.replace(/(PointerCapture)$|Capture$/i,"$1")),t=t.toLowerCase()in e||"onFocusOut"===t||"onFocusIn"===t?t.toLowerCase().slice(2):t.slice(2),e.l||(e.l={}),e.l[t+i]=o,o?n?o.u=n.u:(o.u=a,e.addEventListener(t,i?l:c,i)):e.removeEventListener(t,i?l:c,i);else{if("http://www.w3.org/2000/svg"==r)t=t.replace(/xlink(H|:h)/,"h").replace(/sName$/,"s");else if("width"!=t&&"height"!=t&&"href"!=t&&"list"!=t&&"form"!=t&&"tabIndex"!=t&&"download"!=t&&"rowSpan"!=t&&"colSpan"!=t&&"role"!=t&&"popover"!=t&&t in e)try{e[t]=null==o?"":o;break e}catch(e){}"function"==typeof o||(null==o||!1===o&&"-"!==t[4]?e.removeAttribute(t):e.setAttribute(t,"popover"==t&&1==o?"":o))}}function D(e){return function(o){if(this.l){var n=this.l[o.type+e];if(null==o.t)o.t=a++;else if(o.t<n.u)return;return n(t.event?t.event(o):o)}}}function P(e,o,n,r,i,s,a,c,l,d){var u,m,y,f,_,v,x,S,w,L,K,M,E,T,D,P,C=o.type;if(void 0!==o.constructor)return null;128&n.__u&&(l=!!(32&n.__u),s=[c=o.__e=n.__e]),(u=t.__b)&&u(o);e:if("function"==typeof C)try{if(S=o.props,w="prototype"in C&&C.prototype.render,L=(u=C.contextType)&&r[u.__c],K=u?L?L.props.value:u.__:r,n.__c?x=(m=o.__c=n.__c).__=m.__E:(w?o.__c=m=new C(S,K):(o.__c=m=new g(S,K),m.constructor=C,m.render=I),L&&L.sub(m),m.props=S,m.state||(m.state={}),m.context=K,m.__n=r,y=m.__d=!0,m.__h=[],m._sb=[]),w&&null==m.__s&&(m.__s=m.state),w&&null!=C.getDerivedStateFromProps&&(m.__s==m.state&&(m.__s=h({},m.__s)),h(m.__s,C.getDerivedStateFromProps(S,m.__s))),f=m.props,_=m.state,m.__v=o,y)w&&null==C.getDerivedStateFromProps&&null!=m.componentWillMount&&m.componentWillMount(),w&&null!=m.componentDidMount&&m.__h.push(m.componentDidMount);else{if(w&&null==C.getDerivedStateFromProps&&S!==f&&null!=m.componentWillReceiveProps&&m.componentWillReceiveProps(S,K),!m.__e&&(null!=m.shouldComponentUpdate&&!1===m.shouldComponentUpdate(S,m.__s,K)||o.__v===n.__v)){for(o.__v!==n.__v&&(m.props=S,m.state=m.__s,m.__d=!1),o.__e=n.__e,o.__k=n.__k,o.__k.forEach((function(e){e&&(e.__=o)})),M=0;M<m._sb.length;M++)m.__h.push(m._sb[M]);m._sb=[],m.__h.length&&a.push(m);break e}null!=m.componentWillUpdate&&m.componentWillUpdate(S,m.__s,K),w&&null!=m.componentDidUpdate&&m.__h.push((function(){m.componentDidUpdate(f,_,v)}))}if(m.context=K,m.props=S,m.__P=e,m.__e=!1,E=t.__r,T=0,w){for(m.state=m.__s,m.__d=!1,E&&E(o),u=m.render(m.props,m.state,m.context),D=0;D<m._sb.length;D++)m.__h.push(m._sb[D]);m._sb=[]}else do{m.__d=!1,E&&E(o),u=m.render(m.props,m.state,m.context),m.state=m.__s}while(m.__d&&++T<25);m.state=m.__s,null!=m.getChildContext&&(r=h(h({},r),m.getChildContext())),w&&!y&&null!=m.getSnapshotBeforeUpdate&&(v=m.getSnapshotBeforeUpdate(f,_)),k(e,p(P=null!=u&&u.type===b&&null==u.key?u.props.children:u)?P:[P],o,n,r,i,s,a,c,l,d),m.base=o.__e,o.__u&=-161,m.__h.length&&a.push(m),x&&(m.__E=m.__=null)}catch(e){if(o.__v=null,l||null!=s){for(o.__u|=l?160:32;c&&8===c.nodeType&&c.nextSibling;)c=c.nextSibling;s[s.indexOf(c)]=null,o.__e=c}else o.__e=n.__e,o.__k=n.__k;t.__e(e,o,n)}else null==s&&o.__v===n.__v?(o.__k=n.__k,o.__e=n.__e):o.__e=F(n.__e,o,n,r,i,s,a,l,d);(u=t.diffed)&&u(o)}function C(e,o,n){o.__d=void 0;for(var r=0;r<n.length;r++)N(n[r],n[++r],n[++r]);t.__c&&t.__c(o,e),e.some((function(o){try{e=o.__h,o.__h=[],e.some((function(e){e.call(o)}))}catch(e){t.__e(e,o.__v)}}))}function F(t,o,n,r,i,s,a,c,l){var u,m,h,f,_,b,g,x=n.props,S=o.props,w=o.type;if("svg"===w?i="http://www.w3.org/2000/svg":"math"===w?i="http://www.w3.org/1998/Math/MathML":i||(i="http://www.w3.org/1999/xhtml"),null!=s)for(u=0;u<s.length;u++)if((_=s[u])&&"setAttribute"in _==!!w&&(w?_.localName===w:3===_.nodeType)){t=_,s[u]=null;break}if(null==t){if(null===w)return document.createTextNode(S);t=document.createElementNS(i,w,S.is&&S),s=null,c=!1}if(null===w)x===S||c&&t.data===S||(t.data=S);else{if(s=s&&e.call(t.childNodes),x=n.props||d,!c&&null!=s)for(x={},u=0;u<t.attributes.length;u++)x[(_=t.attributes[u]).name]=_.value;for(u in x)if(_=x[u],"children"==u);else if("dangerouslySetInnerHTML"==u)h=_;else if("key"!==u&&!(u in S)){if("value"==u&&"defaultValue"in S||"checked"==u&&"defaultChecked"in S)continue;T(t,u,null,_,i)}for(u in S)_=S[u],"children"==u?f=_:"dangerouslySetInnerHTML"==u?m=_:"value"==u?b=_:"checked"==u?g=_:"key"===u||c&&"function"!=typeof _||x[u]===_||T(t,u,_,x[u],i);if(m)c||h&&(m.__html===h.__html||m.__html===t.innerHTML)||(t.innerHTML=m.__html),o.__k=[];else if(h&&(t.innerHTML=""),k(t,p(f)?f:[f],o,n,r,"foreignObject"===w?"http://www.w3.org/1999/xhtml":i,s,a,s?s[0]:n.__k&&v(n,0),c,l),null!=s)for(u=s.length;u--;)null!=s[u]&&y(s[u]);c||(u="value",void 0!==b&&(b!==t[u]||"progress"===w&&!b||"option"===w&&b!==x[u])&&T(t,u,b,x[u],i),u="checked",void 0!==g&&g!==t[u]&&T(t,u,g,x[u],i))}return t}function N(e,o,n){try{if("function"==typeof e){var r="function"==typeof e.__u;r&&e.__u(),r&&null==o||(e.__u=e(o))}else e.current=o}catch(e){t.__e(e,n)}}function R(e,o,n){var r,i;if(t.unmount&&t.unmount(e),(r=e.ref)&&(r.current&&r.current!==e.__e||N(r,null,o)),null!=(r=e.__c)){if(r.componentWillUnmount)try{r.componentWillUnmount()}catch(e){t.__e(e,o)}r.base=r.__P=null}if(r=e.__k)for(i=0;i<r.length;i++)r[i]&&R(r[i],o,n||"function"!=typeof e.type);n||null==e.__e||y(e.__e),e.__c=e.__=e.__e=e.__d=void 0}function I(e,t,o){return this.constructor(e,o)}e=u.slice,t={__e:function(e,t,o,n){for(var r,i,s;t=t.__;)if((r=t.__c)&&!r.__)try{if((i=r.constructor)&&null!=i.getDerivedStateFromError&&(r.setState(i.getDerivedStateFromError(e)),s=r.__d),null!=r.componentDidCatch&&(r.componentDidCatch(e,n||{}),s=r.__d),s)return r.__E=r}catch(t){e=t}throw e}},o=0,g.prototype.setState=function(e,t){var o;o=null!=this.__s&&this.__s!==this.state?this.__s:this.__s=h({},this.state),"function"==typeof e&&(e=e(h({},o),this.props)),e&&h(o,e),null!=e&&this.__v&&(t&&this._sb.push(t),S(this))},g.prototype.forceUpdate=function(e){this.__v&&(this.__e=!0,e&&this.__h.push(e),S(this))},g.prototype.render=b,n=[],i="function"==typeof Promise?Promise.prototype.then.bind(Promise.resolve()):setTimeout,s=function(e,t){return e.__v.__b-t.__v.__b},w.__r=0,a=0,c=D(!1),l=D(!0);var A=function(){return A=Object.assign||function(e){for(var t,o=1,n=arguments.length;o<n;o++)for(var r in t=arguments[o])Object.prototype.hasOwnProperty.call(t,r)&&(e[r]=t[r]);return e},A.apply(this,arguments)};"function"==typeof SuppressedError&&SuppressedError;var U,B={},j=[];function z(){return function(e,t,o){if(o||2===arguments.length)for(var n,r=0,i=t.length;r<i;r++)!n&&r in t||(n||(n=Array.prototype.slice.call(t,0,r)),n[r]=t[r]);return e.concat(n||Array.prototype.slice.call(t))}([],j,!0)}function H(e){B=A(A({},B),e)}function G(e){var t=B[e];if(!t)return console.error('i18n: not found translation key "'.concat(e,'".')),e;var o=t[U];return void 0===o?(console.error('i18n: not found translation key "'.concat(e,'", lang "').concat(U,'".')),e):o}function O(e){return e[U]}function W(){return U}
-/*! show-js-error | © 2024 Denis Seleznev | MIT License | https://github.com/hcodes/show-js-error/ */function V(e){const t=document.createElement("style");return document.body.appendChild(t),t.textContent=e,t}function q(e){const t=document.createElement(e.tag||"div");return e.props&&function(e,t){Object.keys(t).forEach((o=>{e[o]=t[o]}))}(t,e.props),t.className=Q(e.name),e.container.appendChild(t),t}function Q(e,t){let o="show-js-error";e&&(o+="__"+e);let n=o;return t&&Object.keys(t).forEach((e=>{const r=t[e];!1!==r&&null!=r&&""!==r&&(!0===t[e]?n+=" "+o+"_"+e:n+=" "+o+"_"+e+"_"+r)})),n}function $(e){return e&&e.stack||""}function J(e){return e&&e.message||""}function X(e,t){return void 0===e?t:e}function Y(e){if(!e)return"";let t=e.filename||"";return void 0!==e.lineno&&(t+=":"+X(e.lineno,""),void 0!==e.colno&&(t+=":"+X(e.colno,""))),t}const Z='.show-js-error{background:#ffc1cc;bottom:15px;color:#000;font-family:Arial,sans-serif;font-size:13px;left:15px;max-width:90vw;min-width:15em;opacity:1;position:fixed;transition:opacity .2s ease-out;transition-delay:0s;visibility:visible;z-index:10000000}.show-js-error_size_big{transform:scale(2) translate(25%,-25%)}.show-js-error_hidden{opacity:0;transition:opacity .3s,visibility 0s linear .3s;visibility:hidden}.show-js-error__title{background:#f66;color:#fff;font-weight:700;padding:4px 30px 4px 7px}.show-js-error__title_no-errors{background:#6b6}.show-js-error__message{cursor:pointer;display:inline}.show-js-error__message:before{background-color:#eee;border-radius:10px;content:"+";display:inline-block;font-size:10px;height:10px;line-height:10px;margin-bottom:2px;margin-right:5px;text-align:center;vertical-align:middle;width:10px}.show-js-error__body_detailed .show-js-error__message:before{content:"-"}.show-js-error__body_no-stack .show-js-error__message:before{display:none}.show-js-error__body_detailed .show-js-error__filename{display:block}.show-js-error__body_no-stack .show-js-error__filename{display:none}.show-js-error__close{color:#fff;cursor:pointer;font-size:20px;line-height:20px;padding:3px;position:absolute;right:2px;top:0}.show-js-error__body{line-height:19px;padding:5px 8px}.show-js-error__body_hidden{display:none}.show-js-error__filename{background:#ffe1ec;border:1px solid #faa;display:none;margin:3px 0 3px -2px;max-height:15em;overflow-y:auto;padding:5px;white-space:pre-wrap}.show-js-error__actions{border-top:1px solid #faa;margin-top:5px;padding:5px 0 3px}.show-js-error__actions_hidden{display:none}.show-js-error__arrows{margin-left:8px;white-space:nowrap}.show-js-error__arrows_hidden{display:none}.show-js-error__copy,.show-js-error__next,.show-js-error__num,.show-js-error__prev,.show-js-error__report{font-size:12px}.show-js-error__report_hidden{display:none}.show-js-error__next{margin-left:1px}.show-js-error__num{margin-left:5px;margin-right:5px}.show-js-error__copy,.show-js-error__report{margin-right:3px}.show-js-error input{padding:1px 2px}.show-js-error a,.show-js-error a:visited{color:#000;text-decoration:underline}.show-js-error a:hover{text-decoration:underline}';const ee=new class{constructor(){this.elems={},this.state={appended:!1,detailed:!1,errorIndex:0,errorBuffer:[]},this.onerror=e=>{const t=e.error?e.error:e;console.log(1,e),this.pushError({title:"JavaScript Error",message:t.message,filename:t.filename,colno:t.colno,lineno:t.lineno,stack:t.stack})},this.onsecuritypolicyviolation=e=>{this.pushError({title:"CSP Error",message:`blockedURI: ${e.blockedURI||""}\n violatedDirective: ${e.violatedDirective} || ''\n originalPolicy: ${e.originalPolicy||""}`,colno:e.columnNumber,filename:e.sourceFile,lineno:e.lineNumber})},this.onunhandledrejection=e=>{this.pushError({title:"Unhandled promise rejection",message:e.reason.message,colno:e.reason.colno,filename:e.reason.filename,lineno:e.reason.lineno,stack:e.reason.stack})},this.appendToBody=()=>{document.removeEventListener("DOMContentLoaded",this.appendToBody,!1),this.elems.container&&(this.styleNode=V(Z),document.body.appendChild(this.elems.container))},this.settings=this.prepareSettings(),"undefined"!=typeof window&&(window.addEventListener("error",this.onerror,!1),window.addEventListener("unhandledrejection",this.onunhandledrejection,!1),document.addEventListener("securitypolicyviolation",this.onsecuritypolicyviolation,!1))}destruct(){var e;window.removeEventListener("error",this.onerror,!1),window.removeEventListener("unhandledrejection",this.onunhandledrejection,!1),document.removeEventListener("securitypolicyviolation",this.onsecuritypolicyviolation,!1),document.removeEventListener("DOMContentLoaded",this.appendToBody,!1),document.body&&this.elems.container&&document.body.removeChild(this.elems.container),this.state.errorBuffer=[],this.elems={},this.styleNode&&(null===(e=this.styleNode.parentNode)||void 0===e||e.removeChild(this.styleNode),this.styleNode=void 0)}setSettings(e){this.settings=this.prepareSettings(e),this.state.appended&&this.updateUI()}show(e){e?"string"==typeof e?this.pushError({message:e}):this.pushError("object"==typeof e?e:new Error(e)):this.showUI()}hide(){this.elems.container&&(this.elems.container.className=Q("",{size:this.settings.size,hidden:!0}))}clear(){this.state.errorBuffer=[],this.state.detailed=!1,this.setCurrentError(0)}toggleView(){this.state.detailed=!this.state.detailed,this.updateUI()}prepareSettings(e){const t=e||{};return{size:t.size||"normal",reportUrl:t.reportUrl||"",templateDetailedMessage:t.templateDetailedMessage||""}}pushError(e){this.state.errorBuffer.push(e),this.state.errorIndex=this.state.errorBuffer.length-1,this.updateUI()}appendUI(){const e=document.createElement("div");e.className=Q("",{size:this.settings.size}),this.elems.container=e,this.elems.close=q({name:"close",props:{innerText:"×",onclick:()=>{this.hide()}},container:e}),this.elems.title=q({name:"title",props:{innerText:this.getTitle()},container:e});const t=q({name:"body",container:e});this.elems.body=t,this.elems.message=q({name:"message",props:{onclick:()=>{this.toggleView()}},container:t}),this.elems.filename=q({name:"filename",container:t}),this.createActions(t),document.body?(document.body.appendChild(e),this.styleNode=V(Z)):document.addEventListener("DOMContentLoaded",this.appendToBody,!1)}createActions(e){const t=q({name:"actions",container:e});this.elems.actions=t,q({tag:"input",name:"copy",props:{type:"button",value:"Copy",onclick:()=>{const e=this.getCurrentError();!function(e){const t=document.createElement("textarea");t.value=e,document.body.appendChild(t);try{t.select(),document.execCommand("copy")}catch(e){alert("Copying text is not supported in this browser.")}document.body.removeChild(t)}(this.getDetailedMessage(e))}},container:t});const o=q({tag:"a",name:"report-link",props:{href:"",target:"_blank"},container:t});this.elems.reportLink=o,this.elems.report=q({tag:"input",name:"report",props:{type:"button",value:"Report"},container:o}),this.createArrows(t)}createArrows(e){const t=q({tag:"span",name:"arrows",container:e});this.elems.arrows=t,this.elems.prev=q({tag:"input",name:"prev",props:{type:"button",value:"←",onclick:()=>{this.setCurrentError(this.state.errorIndex-1)}},container:t}),this.elems.num=q({tag:"span",name:"num",props:{innerText:this.state.errorIndex+1},container:t}),this.elems.next=q({tag:"input",name:"next",props:{type:"button",value:"→",onclick:()=>{this.setCurrentError(this.state.errorIndex+1)}},container:t})}getDetailedMessage(e){let t=[["Title",this.getTitle(e)],["Message",J(e)],["Filename",Y(e)],["Stack",$(e)],["Page url",window.location.href],["Refferer",document.referrer],["User-agent",navigator.userAgent],["Screen size",[screen.width,screen.height,screen.colorDepth].join("×")],["Screen orientation","string"==typeof screen.orientation?screen.orientation:screen.orientation.type],["Cookie enabled",navigator.cookieEnabled]].map((e=>e[0]+": "+e[1]+"\n")).join("");return this.settings.templateDetailedMessage&&(t=this.settings.templateDetailedMessage.replace(/\{message\}/,t)),t}getTitle(e){return e?e.title||"Error":"No errors"}showUI(){this.elems.container&&(this.elems.container.className=Q("",{size:this.settings.size}))}hasStack(){const e=this.getCurrentError();return e&&(e.stack||e.filename)}getCurrentError(){return this.state.errorBuffer[this.state.errorIndex]}setCurrentError(e){const t=this.state.errorBuffer.length;let o=e;o>t-1?o=t-1:o<0&&(o=0),this.state.errorIndex=o,this.updateUI()}updateUI(){const e=this.getCurrentError();this.state.appended||(this.state.appended=!0,this.appendUI()),this.elems.body&&(this.elems.body.className=Q("body",{detailed:this.state.detailed,"no-stack":!this.hasStack(),hidden:!e})),this.elems.title&&(this.elems.title.innerText=this.getTitle(e),this.elems.title.className=Q("title",{"no-errors":!e})),this.elems.message&&(this.elems.message.innerText=J(e)),this.elems.actions&&(this.elems.actions.className=Q("actions",{hidden:!e})),this.elems.reportLink&&(this.elems.reportLink.className=Q("report",{hidden:!this.settings.reportUrl})),this.elems.reportLink&&(this.elems.reportLink.href=this.settings.reportUrl.replace(/\{title\}/,encodeURIComponent(J(e))).replace(/\{body\}/,encodeURIComponent(this.getDetailedMessage(e)))),this.elems.filename&&(this.elems.filename.className=Q("filename",{hidden:!e}),this.elems.filename.innerText=$(e)||Y(e)),this.updateArrows(e),this.showUI()}updateArrows(e){const t=this.state.errorBuffer.length,o=this.state.errorIndex;this.elems.arrows&&(this.elems.arrows.className=Q("arrows",{hidden:!e})),this.elems.prev&&(this.elems.prev.disabled=!o),this.elems.num&&(this.elems.num.innerText=o+1+" / "+t),this.elems.next&&(this.elems.next.disabled=o===t-1)}};"undefined"!=typeof window&&(window.showJSError=ee);var te="undefined"!=typeof document,oe="undefined"!=typeof window,ne="undefined"!=typeof navigator,re="undefined"!=typeof screen;var ie=1;function se(e,t){return(e||"").slice(0,t)}function ae(){return Math.floor(Math.random()*(1<<30))}var ce=512;function le(e,t,o){(o||0===o)&&e.push(t+":"+(!0===o?"1":o))}function de(e,t){var o=[];e&&Object.keys(e).forEach((function(t){return le(o,t,e[t])})),le(o,"rn",ae()),le(o,"c",!!ne&&navigator.cookieEnabled),le(o,"s",re?[screen.width,screen.height,screen.colorDepth].join("x"):""),le(o,"sk",oe&&window.devicePixelRatio||ie),le(o,"w",oe?[window.innerWidth,window.innerHeight].join("x"):""),le(o,"en",te&&"string"==typeof document.charset?document.charset.toLowerCase():"");var n=Math.round(Date.now()/1e3);return le(o,"et",n),le(o,"st",n),le(o,"t",se(t,ce)),o.join(":")}var ue=1024;function me(e){return se(e,ue)}function pe(e,t){var o,n="https://mc.yandex.ru/watch/"+e+"?"+(o=t,Object.keys(o).filter((function(e){return o[e]||0===o[e]})).map((function(e){return encodeURIComponent(e)+"="+encodeURIComponent(o[e])})).join("&"));"undefined"!=typeof navigator&&navigator.sendBeacon&&navigator.sendBeacon(n," ")||("undefined"!=typeof fetch?fetch(n,{credentials:"include"}).catch((function(){})):"undefined"!=typeof Image&&((new Image).src=n))}function he(){var e,t;document.removeEventListener("mousemove",he),e=document.body,t="hover_yes",e.classList?e.classList.add(t):e.className+=(e.className?" ":"")+t}var ye="undefined"==typeof window,fe="";function _e(){return fe}var be=[{name:"EN",value:"en",default:!0},{name:"RU",value:"ru"}],ge=be.filter((function(e){return Boolean(e.default)}))[0].value,ve={Supported:{en:"Supported",ru:"Поддерживаемые"},Unsupported:{en:"Unsupported",ru:"Не поддерживаемые"},Size:{en:"Size",ru:"Размер"},"Color depth":{en:"Color depth",ru:"Глубина цвета"},Yes:{en:"Yes",ru:"Да"},No:{en:"No",ru:"Нет"},Warning:{en:"Warning",ru:"Предупреждение"},Screens:{en:"Screens",ru:"Экраны"},Screen:{en:"Screen",ru:"Экран"},"Aspect ratio":{en:"Aspect ratio",ru:"Соотношение сторон"},Primary:{en:"Primary",ru:"Основной"},Internal:{en:"Internal",ru:"Внутренний"},bit:{en:"bit",ru:"бит"},"Not detected":{en:"Not detected",ru:"Не обнаружено"},Request:{en:"Request",ru:"Запрос"},Details:{en:"Details",ru:"Подробности"},GB:{en:"GB",ru:"ГБ"},unsupported:{en:"unsupported",ru:"не поддерживается"},Name:{en:"Name",ru:"Название"},Stop:{en:"Stop",ru:"Стоп"},Specify:{en:"Specify",ru:"Уточнить"},Additionally:{en:"Additionally",ru:"Дополнительно"},RAM:{en:"RAM",ru:"ОЗУ"},Hz:{en:"Hz",ru:"Гц"},Input:{en:"Input",ru:"Ввод"},Reset:{en:"Reset",ru:"Сброс"},"Check device online":{en:"Check device online",ru:"Проверь устройство онлайн"},"Report a bug":{en:"Report a bug",ru:"Сообщить об ошибке"},"Sample rate":{en:"Sample rate",ru:"Частота дискретизации"},"Sample size":{en:"Sample size",ru:"Размер семпла"},"Channel count":{en:"Channel count",ru:"Количество каналов"},"Auto gain control":{en:"Auto gain control",ru:"Автоматическая регулировка усиления"},Latency:{en:"Latency",ru:"Задержка"},"Microphone name":{en:"Microphone name",ru:"Название микрофона"},"Noise suppression":{en:"Noise suppression",ru:"Шумоподавление"},"Echo cancellation":{en:"Echo cancellation",ru:"Эхоподавление"},"Background blur":{en:"Background blur",ru:"Размытие фона"},"hr.":{en:"hr.",ru:"ч."},"min.":{en:"min.",ru:"мин."},"sec.":{en:"sec.",ru:"с."},"Media Devices API is not supported.":{en:"Media Devices API is not supported.",ru:"Media Devices API не поддерживается."},"MIME type":{en:"MIME type",ru:"MIME тип"},"Types of testing":{en:"Types of testing",ru:"Виды тестирования"},"Light theme":{en:"Light theme",ru:"Светлая тема"},"Dark theme":{en:"Dark theme",ru:"Тёмная тема"}},xe="https://github.com/hcodes/show-js-error/issues/new?title={title}&body={body}",Se="95998062";function we(){if(window.matchMedia){if(window.matchMedia("(prefers-color-scheme: light)").matches)return"light";if(window.matchMedia("(prefers-color-scheme: dark)").matches)return"dark"}}var ke={};function Le(e){var t=window.localStorage;try{return t.getItem(e)}catch(t){return ke[e]}}var Ke=function(){function e(){this.listeners=[]}return e.prototype.addListener=function(e){e&&this.listeners.push(e)},e.prototype.removeListener=function(e){this.listeners=this.listeners.filter((function(t){return e!==t}))},e.prototype.trigger=function(e){this.listeners.forEach((function(t){return t(e)}))},e.prototype.clearListeners=function(){this.listeners.length=0},e}(),Me="page-theme",Ee="dark",Te=Ee;function De(e){"light"===e?(document.documentElement.classList.add("page-theme_light"),document.documentElement.classList.remove("page-theme_dark")):(document.documentElement.classList.add("page-theme_dark"),document.documentElement.classList.remove("page-theme_light")),Te=e}function Pe(e){!function(e,t){var o=window.localStorage;ke[e]=String(t);try{o.setItem(e,t)}catch(e){}}(Me,e)}var Ce,Fe,Ne,Re=new Ke;if(H(ve),j=be,H(ve),!ye){ee.setSettings({reportUrl:xe}),function(e){var t=e.browserInfo,o=e.counterId,n=e.pageParams,r={"browser-info":de(t,n.title),rn:ae(),ut:n.ut};n.url&&(r["page-url"]=me(n.url)),n.referrer&&(r["page-ref"]=me(n.referrer)),pe(o,r)}({browserInfo:{pv:!0,ar:!0},counterId:Se,pageParams:{referrer:te?document.referrer:"",title:te?document.title:"",url:oe&&window.location?window.location.href:""},params:Ne});var Ie=function(){var e=window.__appData__.lang||(navigator.language||"").split("-")[0]||ge;return be.filter((function(t){return t.value===e})).length||(e=ge),e}();!function(e){e&&(U=e)}(Ie),Fe=window.__appData__.pageId,fe=Fe,window.addEventListener("beforeinstallprompt",(function(e){})),document.addEventListener("mousemove",he),function(){if("undefined"!=typeof window&&window.matchMedia){window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",(function(){var e=we()||Ee;Re.trigger(e)}));var e=Le(Me)||we();e&&("light"===(t=e)||"dark"===t)&&De(e)}var t}(),null===(Ce=document.documentElement)||void 0===Ce||Ce.setAttribute("lang",Ie)}function Ae(e){return function(t,o){if(!t)return e;var n=e;return"string"==typeof t?(n=e+"__"+t,o&&(n=Ue(n,o)),n):(t&&(n=Ue(n,t)),n)}}function Ue(e,t){var o=e;return Object.keys(t).forEach((function(n){var r=t[n];!1!==r&&null!=r&&""!==r&&(o+=" "+e+"_",!0===t[n]?o+=n:o+=n+"_"+r)})),o}function Be(){for(var e=[],t=0;t<arguments.length;t++)e[t]=arguments[t];return e.filter((function(e){return null!=e})).join(" ")}var je=Ae("link");function ze(e){var t=Be(e.class,je({theme:e.theme}));return f("a",{target:e.target,class:t,href:e.href},e.children)}var He,Ge,Oe,We,Ve=0,qe=[],Qe=t,$e=Qe.__b,Je=Qe.__r,Xe=Qe.diffed,Ye=Qe.__c,Ze=Qe.unmount,et=Qe.__;function tt(e,t){Qe.__h&&Qe.__h(Ge,e,Ve||t),Ve=0;var o=Ge.__H||(Ge.__H={__:[],__h:[]});return e>=o.__.length&&o.__.push({}),o.__[e]}function ot(e){return Ve=1,function(e,t){var o=tt(He++,2);if(o.t=e,!o.__c&&(o.__=[mt(void 0,t),function(e){var t=o.__N?o.__N[0]:o.__[0],n=o.t(t,e);t!==n&&(o.__N=[n,o.__[1]],o.__c.setState({}))}],o.__c=Ge,!Ge.u)){var n=function(e,t,n){if(!o.__c.__H)return!0;var i=o.__c.__H.__.filter((function(e){return!!e.__c}));if(i.every((function(e){return!e.__N})))return!r||r.call(this,e,t,n);var s=!1;return i.forEach((function(e){if(e.__N){var t=e.__[0];e.__=e.__N,e.__N=void 0,t!==e.__[0]&&(s=!0)}})),!(!s&&o.__c.props===e)&&(!r||r.call(this,e,t,n))};Ge.u=!0;var r=Ge.shouldComponentUpdate,i=Ge.componentWillUpdate;Ge.componentWillUpdate=function(e,t,o){if(this.__e){var s=r;r=void 0,n(e,t,o),r=s}i&&i.call(this,e,t,o)},Ge.shouldComponentUpdate=n}return o.__N||o.__}(mt,e)}function nt(e,t){var o=tt(He++,3);!Qe.__s&&ut(o.__H,t)&&(o.__=e,o.i=t,Ge.__H.__h.push(o))}function rt(e,t){var o=tt(He++,7);return ut(o.__H,t)&&(o.__=e(),o.__H=t,o.__h=e),o.__}function it(e,t){return Ve=8,rt((function(){return e}),t)}function st(){for(var e;e=qe.shift();)if(e.__P&&e.__H)try{e.__H.__h.forEach(lt),e.__H.__h.forEach(dt),e.__H.__h=[]}catch(t){e.__H.__h=[],Qe.__e(t,e.__v)}}Qe.__b=function(e){Ge=null,$e&&$e(e)},Qe.__=function(e,t){e&&t.__k&&t.__k.__m&&(e.__m=t.__k.__m),et&&et(e,t)},Qe.__r=function(e){Je&&Je(e),He=0;var t=(Ge=e.__c).__H;t&&(Oe===Ge?(t.__h=[],Ge.__h=[],t.__.forEach((function(e){e.__N&&(e.__=e.__N),e.i=e.__N=void 0}))):(t.__h.forEach(lt),t.__h.forEach(dt),t.__h=[],He=0)),Oe=Ge},Qe.diffed=function(e){Xe&&Xe(e);var t=e.__c;t&&t.__H&&(t.__H.__h.length&&(1!==qe.push(t)&&We===Qe.requestAnimationFrame||((We=Qe.requestAnimationFrame)||ct)(st)),t.__H.__.forEach((function(e){e.i&&(e.__H=e.i),e.i=void 0}))),Oe=Ge=null},Qe.__c=function(e,t){t.some((function(e){try{e.__h.forEach(lt),e.__h=e.__h.filter((function(e){return!e.__||dt(e)}))}catch(o){t.some((function(e){e.__h&&(e.__h=[])})),t=[],Qe.__e(o,e.__v)}})),Ye&&Ye(e,t)},Qe.unmount=function(e){Ze&&Ze(e);var t,o=e.__c;o&&o.__H&&(o.__H.__.forEach((function(e){try{lt(e)}catch(e){t=e}})),o.__H=void 0,t&&Qe.__e(t,o.__v))};var at="function"==typeof requestAnimationFrame;function ct(e){var t,o=function(){clearTimeout(n),at&&cancelAnimationFrame(t),setTimeout(e)},n=setTimeout(o,100);at&&(t=requestAnimationFrame(o))}function lt(e){var t=Ge,o=e.__c;"function"==typeof o&&(e.__c=void 0,o()),Ge=t}function dt(e){var t=Ge;e.__c=e.__(),Ge=t}function ut(e,t){return!e||e.length!==t.length||t.some((function(t,o){return t!==e[o]}))}function mt(e,t){return"function"==typeof t?t(e):t}var pt=Ae("lang-icon");function ht(e){return f("span",{class:pt({lang:e.lang})})}var yt=Ae("lang-switcher-item");function ft(e){var t=e.value,o=e.name,n=e.selected,r=e.url;return f("li",{class:yt()},f(ze,{href:r},f("span",null,f(ht,{lang:t})," ",o,n?" ✓":"")))}function _t(e,t){var o="index"===e?"":e+"/";return"/".concat(t||W(),"/").concat(o)}var bt=Ae("lang-switcher");function gt(){var e=ot(!1),t=e[0],o=e[1],n=W(),r=z(),i=function(e){return Ve=5,rt((function(){return{current:e}}),[])}(null),s=it((function(){o(!0)}),[o]);nt((function(){var e=function(e){if(e.target&&i.current){var t=e.target;i.current.contains&&!i.current.contains(t)&&o(!1)}},t=function(e){"Escape"===e.code&&o(!1)};return document.addEventListener("click",e,!1),document.addEventListener("keydown",t,!1),function(){document.removeEventListener("click",e,!1),document.removeEventListener("keydown",t,!1)}}),[o]);var a=r.filter((function(e){return n===e.value}))[0];return f("div",{ref:i,class:bt()},f("div",{class:bt("current"),onClick:s},f(ht,{lang:a.value})," ",a.name),f("menu",{class:bt("popup",{visible:t})},r.map((function(e){var t=_t(_e(),e.value);return f(ft,{key:e.value,name:e.name,value:e.value,selected:n===e.value,url:t})}))))}var vt=Ae("footer");function xt(){return f("footer",{class:vt()},f("div",{class:vt("item",{report:!0})},f(ze,{theme:"page-theme",target:"_blank",href:"https://github.com/vvideo/caniwatchvideo/issues/new"},G("Report a bug"))),f("div",{class:vt("item")},f(gt,null)),f("div",{class:vt("item")},"© Vvideo"))}var St=Ae("main-menu");function wt(e){return f("nav",{class:St()},f("ul",{class:St("list")},e.items.filter((function(e){return!e.hidden})).map((function(e){return f("li",{class:St("item",{selected:e.selected}),key:e.id},f("a",{class:St("link"),href:_t(e.id)},e.title)," ")}))))}var kt=[{header:{en:"Check device online",ru:"Проверь устройство онлайн"},menuTitle:{en:"",ru:""},description:{en:"Online testing and viewing detailed information about devices in your browser",ru:"Тестирование и просмотр детальной информации об устройствах в вашем браузере онлайн"},keywords:{en:"audio, video, mouse, keyboard, gamepad, geo, gpu, battery, screen, midi, usb, mic, camera",ru:"аудио, видео, мышь, клавиатура, джойстик, гео, gpu, батарея, экран, миди, юсб, микрофон, веб-камера"},id:"index",hidden:!0,isIndex:!0},{header:{en:"Check Video",ru:"Проверить видео"},menuTitle:{en:"Video",ru:"Видео"},id:"video",indexMenuList:{en:["Can I watch 4K video? ","Supported video codecs","Supported types of DRM"],ru:["Могу ли я смотреть 4К видео?","Поддерживаемые видеокодеки","Поддерживаемые типы DRM"]}},{header:{en:"Check Audio",ru:"Проверить аудио"},menuTitle:{en:"Audio",ru:"Аудио"},description:{en:"View information about audio codecs and multichannel audio support in your browser",ru:"Посмотреть информацию о поддержке аудиокодеков и многоканального звука в вашем браузере"},keywords:{en:"check dolby atmos, check dolby digital, check surround sound, check vibration, check speech syntesis",ru:"проверить dolby atmos, проверить dolby digital, проверить многоканальый звук, аудиокодеки, проверить вибрацию, синтез речи"},id:"audio",indexMenuList:{en:["Can I listen to surround sound?","Supported audio codecs","Speech Synthesis, Vibration"],ru:["Могу ли я услышать многоканальный звук?","Поддерживаемые аудиокодеки","Синтез речи, Вибрация"]}},{header:{en:"Check Screen",ru:"Проверить экран"},menuTitle:{en:"Screen",ru:"Экран"},description:{en:"View screen resolution of monitor, laptop, smartphone or tablet online, support for multiple monitors",ru:"Посмотреть разрешение экрана монитора, ноутбука, смартфона или планшета онлайн, поддержка нескольких мониторов"},keywords:{en:"logical size, actual size, resolution screen, hdr, device pixel ratio, max touch points, color depth, aspect ratio, color spaces, orientation, frame rate",ru:"разрешение экрана, логический и фактический размер, HDR, соотношение сторон, глубина цвета, ориентация, частота обновления, цветовые пространства"},id:"screen",indexMenuList:{en:["Screen Size, Aspect ratio, Frame rate","HDR support, Color depth, Color spaces","Multi-screen support"],ru:["Размер экрана, Соотношение сторон, Частота обновления","Поддержка HDR, Глубина цвета, Цветовые пространства","Поддержка нескольких экранов"]}},{header:{en:"Check Webcamera",ru:"Проверить веб-камеру"},menuTitle:{en:"Webcamera",ru:"Веб-камера"},description:{en:"Online testing of webcam with or without microphone",ru:"Онлайн-тестирование веб-камеры с микрофоном или без микрофона"},keywords:{en:"web camera, microphone, web camera with microphone, web camera without microphone, low resolution of camera, high resolution of camera, high rate of camera",ru:"веб-камера, микрофон, веб-камера с микрофоном, веб-камера без микрофона, веб-камера с низким разрешением, веб-камера с высоким разрешением, веб-камера с высокой частотой обновления"},id:"camera",indexMenuList:{en:["Testing webcam","Information about webcam","Low and high resolution webcam"],ru:["Тестирование веб-камеры","Расширенная информация о веб-камере","Низкое и высокое разрешение веб-камеры"]}},{header:{en:"Check Microphone",ru:"Проверить микрофон"},menuTitle:{en:"Microphone",ru:"Микрофон"},description:{en:"Online testing of microphone with ability to hear yourself",ru:"Онлайн-тестирование микрофона с возможностью слышать себя"},keywords:{en:"microphone, hear yourself, auto gain control, channel count, echo cancellation, noise suppression, sample rate, sample size",ru:"микрофон, слышать себя, автоматическая регулировка усиления, количество каналов, эхоподавление, шумоподавление, размер семпла"},id:"mic",indexMenuList:{en:["Testing microphone","Information about microphone","Ability to hear yourself"],ru:["Тестирование микрофона","Информация о микрофоне","Возможность слышать себя"]}},{header:{en:"Check GPU",ru:"Проверить GPU"},menuTitle:{en:"GPU",ru:"GPU"},id:"gpu",indexMenuList:{en:["Detailed information about GPU","GPU name and vendor","WebGPU"],ru:["Детальная информация о GPU","Название и производитель GPU","WebGPU"]},description:{en:"View detailed information about your GPU online",ru:"Просмотр детальной информации о графическом процессоре онлайн"},keywords:{en:"GPU, GPU vendor, GPU name, Lower power GPU, High power GPU",ru:"производитель GPU, название GPU, GPU, графический процессор, графический процессор с пониженной мощностью, графический процессор с повышенной мощностью"}},{header:{en:"Check Mouse",ru:"Проверить мышку"},menuTitle:{en:"Mouse",ru:"Мышь"},id:"mouse",indexMenuList:{en:["Testing mouse","Displaying mouse button clicks","Support for additional buttons"],ru:["Тестирование мышки","Отображение нажатий кнопок мышки","Поддержка дополнительных кнопок"]},description:{en:"Mouse click testing online",ru:"Тестирование нажатий кнопок мышки онлайн"},keywords:{en:"left mouse click, right mouse click, middle mouse click, mouse, wheel mouse",ru:"левая кнопка мышки, правая кнопка мышки, средняя кнопка мышки, колесо прокрутки мышки"}},{header:{en:"Check Keyboard",ru:"Проверить клавиатуру"},menuTitle:{en:"Keyboard",ru:"Клавиатура"},id:"keyboard",indexMenuList:{en:["Displaying keystrokes on keyboard","Displaying keyboard key codes","Keyboards: Windows, Mac, MacBook, iPad"],ru:["Отображение нажатий клавиш на клавиатуре","Отображение кодов клавиш клавиатуры","Клавиатуры: Windows, Mac, MacBook, iPad"]},description:{en:"Online keyboard key testing",ru:"Тестирование клавиш клавиатуры онлайн"},keywords:{en:"keyboard, keyboard keys, num lock, scroll lock, led indicators, CTRL, SHIT, MET",ru:"клавиатура, клавиши клавиатуры, индикаторы клавиатуры, CTRL, SHIFT, META"}},{header:{en:"Displaying Сode of Pressed Key",ru:"Отображение кода нажатой клавиши"},menuTitle:{en:"Key codes",ru:"Коды клавиш"},id:"keycodes",hidden:!0,description:{en:"Display keyboard key codes online",ru:"Отображение кодов клавиш клавиатуры онлайн"},keywords:{en:"key codes, keydown event",ru:"Коды клавиш клавиатуры, keydown событие"}},{header:{en:"Check Gamepad",ru:"Проверить джойстик"},menuTitle:{en:"Gamepad",ru:"Джойстик"},id:"gamepad",indexMenuList:{en:["Display of joystick button presses","Vibration check","Joystick support: PS3, PS4, PS5, Xbox360 and others"],ru:["Отображение нажатий кнопок джойстика","Проверка вибрации джойстика","Поддержка джойстиков: PS3, PS4, PS5, Xbox360 и другие"]},description:{en:"Online testing joystick buttons, triggers and axes",ru:"Тестирование кнопок, триггеров и осей джойстика онлайн"},keywords:{en:"gamepad axes, gamepad buttons, gamepad triggers",ru:"оси джойстика, кнопки джойстика, триггеры джойстика"}},{header:{en:"Check Storage",ru:"Проверить хранилище"},menuTitle:{en:"Storage",ru:"Хранилище"},id:"storage",indexMenuList:{en:["Types of supported storage","Support of persistent storage","Storage quota for origin"],ru:["Виды поддерживаемых хранилищ","Поддержка постоянного хранилища","Квота хранилища на домен"]},description:{en:"View supported storage types in your browser",ru:"Просмотр поддерживаемых типов хранилищ в браузере"},keywords:{en:"cookies, local storage, session storage, indexeddb, origin private file system",ru:"cookies, local storage, session storage, indexeddb, origin private file system"}},{header:{en:"Check Network",ru:"Проверить сеть"},menuTitle:{en:"Network",ru:"Сеть"},id:"network",indexMenuList:{en:["IPv4, IPv6","Downlink","RTT"],ru:["IPv4, IPv6","Downlink","RTT"]},description:{en:"Display information about your network in browser",ru:"Отображение информации о вашей сети в браузере"},keywords:{en:"IPv4, IPv6, Downlink, RTT",ru:"IPv4, IPv6, Downlink, RTT"}},{header:{en:"Check Geo",ru:"Проверить геолокацию"},menuTitle:{en:"Geo",ru:"Гео"},id:"geo",indexMenuList:{en:["Latitude","Longitude","Displaying location on map"],ru:["Широта","Долгота","Отображение геопозиции на карте"]},description:{en:"Displaying your geolocation information in the browser",ru:"Отображение информации о вашей геопозиции в браузере"},keywords:{en:"latitude, longitude, displaying location on map",ru:"широта, долгота, отображение геопозиции на карте"}},{header:{en:"Check MIDI Keyboard",ru:"Проверить MIDI-клавиатуру"},menuTitle:{en:"MIDI",ru:"MIDI"},id:"midi",hidden:!0,indexMenuList:{en:["Product name","Serial number","Detailed MIDI info"],ru:["Название устройства","Серийный номер","Детальная информация o MIDI"]},description:{en:"Testing MIDI keyboard in browser",ru:"Тестирование MIDI-клавиатуры в браузере"},keywords:{en:"MIDI",ru:"MIDI"}},{header:{en:"View Info About USB Device",ru:"Посмотреть информацию о USB-устройстве"},menuTitle:{en:"USB",ru:"USB"},id:"usb",indexMenuList:{en:["Product name","Serial number","Detailed USB info"],ru:["Название устройства","Серийный номер","Детальная информация"]},description:{en:"View detailed information about a USB device in browser",ru:"Посмотреть детальную информацию о USB-устройстве в браузере"},keywords:{en:"product name, serial number, detailed USB info",ru:"название устройства, серийный номер, детальная информация"}},{menuTitle:{en:"Bluetooth",ru:"Bluetooth"},id:"bluetooth",hidden:!0,indexMenuList:{en:["Product name","Serial number","Detailed USB info"],ru:["Название устройства","Серийный номер","Детальная информация"]},description:{en:"Просмотр детальной информации о bluetooth-устройстве онлайн",ru:"View detailed information about a Bluetooth device online"},keywords:{en:"bluetooth",ru:"bluetooth"}},{menuTitle:{en:"Sensor",ru:"Сенсор"},id:"sensor",hidden:!0,indexMenuList:{en:["Accelerometer, Ammbient light sensor","Gravity sensor","Gyroscope, Magnetometer"],ru:["Акселерометр, Датчик освещенности","Датчик силы тяжести","Гироскоп, Магнитометр"]},description:{en:"View detailed information about sensors online",ru:"Просмотр детальной информации о датчиках онлайн"},keywords:{en:"accelerometer, ammbient light sensor, gravity sensor, gyroscope, linear acceleration sensor, magnetometer, orientation sensor",ru:"акселерометр, датчик освещенности, датчик силы тяжести, гироскоп, датчик линейного ускорения, магнитометр, датчик ориентации"}},{header:{en:"View Info About Platform",ru:"Посмотреть информацию о платформе"},menuTitle:{en:"Platform",ru:"Платформа"},id:"platform",indexMenuList:{en:["Detailed information about platform","Permissions","RAM and number of processor cores"],ru:["Информация о платформе","Разрешения","ОЗУ и количество ядер процессора"]},description:{en:"View detailed platform information in your browser",ru:"Посмотреть детальную информацию о платформе в браузере"},keywords:{en:"permissions, RAM, number of processor core ",ru:"разрешения, ОЗУ, количество ядер процессора"}},{header:{en:"Check Battery",ru:"Проверить батарею"},menuTitle:{en:"Battery",ru:"Батарея"},id:"battery",indexMenuList:{en:["Battery status","Battery charge level","Battery charge and discharge time"],ru:["Статус батареи","Уровень заряда батареи","Время заряда и разряда батареи"]},description:{en:"View detailed battery status information",ru:"Просмотр детальной информации о статусе батареи"},keywords:{en:"battery status, battery charge level, battery charge and discharge time",ru:"статус батареи, уровень заряда батареи, время заряда и разряда батареи"}},{header:{en:"View Local Fonts",ru:"Посмотреть локальные шрифты"},menuTitle:{en:"Fonts",ru:"Шрифты"},id:"fonts",indexMenuList:{en:["List of local fonts","Group by font family","Searching and viewing fonts"],ru:["Список локальных шрифтов","Группировка шрифтов по семейству","Поиск и просмотр шрифтов"]},description:{en:"Viewing local fonts in browser",ru:"Просмотр локальных шрифтов в браузере"},keywords:{en:"list of local fonts, group by font family",ru:"список локальных шрифтов, группировка шрифтов по семейству"}},{menuTitle:{en:"404",ru:"404"},id:"error404",hidden:!0,sitemap:!1,isError:!0,description:{en:"Page not found",ru:"Страница не найдена"}},{menuTitle:{en:"Test dead pixels",ru:"Тестирование битых пикселей"},id:"test-dead-pixels",hidden:!0,description:{en:"Testing your monitor or TV for dead pixels",ru:"Тестирование битых пикселей вашего монитора или ТВ"},keywords:{en:"dead pixels",ru:"битые пиксели"}}];function Lt(){var e=_e();return f(wt,{items:kt.map((function(t){var o=t.id===e;return A(A({},t),{url:_t(t.id),title:O(t.menuTitle),selected:o})}))})}var Kt=Ae("theme-switcher");function Mt(){var e=ot(Te),t=e[0],o=e[1],n=it((function(){var e="light"===t?"dark":"light";o(e),De(e),Pe(e)}),[t,o]);nt((function(){var e,t=function(e){Boolean(Le(Me))||(o(e),De(e))};return e=t,Re.addListener(e),function(){!function(e){Re.removeListener(e)}(t)}}),[o]);var r=G("light"===t?"Dark theme":"Light theme");return f("div",{class:Kt({theme:t}),onClick:n,title:r})}var Et=Ae("header");function Tt(){return f("header",{class:Et()},f(ze,{theme:"page-theme",href:_t("index")},f("span",null,f("span",{class:Et("logo")}),G("Check device online"))),f(Mt,null))}var Dt=Ae("page-title");function Pt(e){return f("h1",{class:Dt()},e.children)}var Ct=Ae("page");function Ft(e){return f("div",{class:Ct()},f(Tt,null),e.withoutMenu?"":f(Lt,null),e.title?f(Pt,null,e.title):"",e.children,f(xt,null))}var Nt=Ae("button");function Rt(e){var t=e.disabled,o=e.size,n=e.theme,r=e.onClick,i=e.title,s=Be(e.class,Nt({theme:n,size:o,disabled:t})),a=it((function(){t||null==r||r()}),[t,r]);return f("button",{title:i,class:s,disabled:t,onClick:a},e.children)}var It=new(function(){function e(){var e=this;this.signal=new Ke,this.isFirefox=!ye&&/firefox/.test(window.navigator.userAgent.toLowerCase()),this.capsLock=!1,this.scrollLock=!1,this.numLock=!1,this.handleMouse=function(t){e.update(t)},this.handleKey=function(t){e.isFirefox&&t.code&&-1!==t.code.indexOf("Arrow")||e.update(t)}}return e.prototype.on=function(){this.bindMouseEvents(),this.bindKeyboardEvents()},e.prototype.off=function(){this.unbindMouseEvents(),this.unbindKeyboardEvents()},e.prototype.bindMouseEvents=function(){document.addEventListener("mousemove",this.handleMouse),document.addEventListener("mousedown",this.handleMouse),document.addEventListener("mouseup",this.handleMouse)},e.prototype.bindKeyboardEvents=function(){document.addEventListener("keydown",this.handleKey,!0),document.addEventListener("keyup",this.handleKey,!0)},e.prototype.unbindMouseEvents=function(){document.removeEventListener("mousemove",this.handleMouse),document.removeEventListener("mousedown",this.handleMouse),document.removeEventListener("mouseup",this.handleMouse)},e.prototype.unbindKeyboardEvents=function(){document.removeEventListener("keydown",this.handleKey,!0),document.removeEventListener("keyup",this.handleKey,!0)},e.prototype.update=function(e){if(e.getModifierState){var t=e.getModifierState("CapsLock");this.capsLock!==t&&(this.capsLock=t,this.signal.trigger("CapsLock"));var o=e.getModifierState("ScrollLock");this.scrollLock!==o&&(this.scrollLock=o,this.signal.trigger("ScrollLock"));var n=e.getModifierState("NumLock");this.numLock!==n&&(this.numLock=n,this.signal.trigger("NumLock"))}},e.prototype.addListener=function(e){this.signal.addListener(e)},e.prototype.removeListener=function(e){this.signal.removeListener(e)},e}()),At=new(function(){function e(){var e=this;this.state={},this.signal=new Ke,this.handleLed=function(){e.setLed("CapsLock",It.capsLock),e.setLed("ScrollLock",It.scrollLock),e.setLed("NumLock",It.numLock)},this.handleKeydown=function(t){t.preventDefault();var o=e.prepareKeyboardCode(t.code,t.key);"CapsLock"!==t.code&&e.setPressed(o,!0),e.setWasPressed(o,!0)},this.handleBlur=function(){e.clearPressed()},this.handleKeyup=function(t){t.preventDefault();var o=e.prepareKeyboardCode(t.code,t.key);e.setPressed(o,!1),e.setWasPressed(o,!0),"MetaLeft"!==o&&"MetaRight"!==o||e.clearPressed()}}return e.prototype.destroy=function(){this.unbindEvents(),this.signal.clearListeners(),this.state={}},e.prototype.on=function(){this.bindEvents()},e.prototype.off=function(){this.unbindEvents()},e.prototype.addListener=function(e){this.signal.addListener(e)},e.prototype.removeListener=function(e){this.signal.removeListener(e)},e.prototype.setPressed=function(e,t){this.state[e]=this.state[e]||{},this.state[e].pressed=t,this.signal.trigger(e)},e.prototype.setWasPressed=function(e,t){this.state[e]=this.state[e]||{},this.state[e].wasPressed=t,this.signal.trigger(e)},e.prototype.setLed=function(e,t){this.state[e]=this.state[e]||{},this.state[e].led=t,this.signal.trigger(e)},e.prototype.clearPressed=function(){var e=this;Object.keys(this.state).forEach((function(t){e.setPressed(t,!1)}))},e.prototype.clearState=function(){var e=this;Object.keys(this.state).forEach((function(t){e.setPressed(t,!1),e.setWasPressed(t,!1)}))},e.prototype.getKeyState=function(e){return this.state[e]||{pressed:!1,wasPressed:!1,led:!1}},e.prototype.bindEvents=function(){document.addEventListener("keydown",this.handleKeydown),document.addEventListener("keyup",this.handleKeyup),document.addEventListener("blur",this.handleBlur),It.addListener(this.handleLed)},e.prototype.unbindEvents=function(){document.removeEventListener("keydown",this.handleKeydown),document.removeEventListener("keyup",this.handleKeyup),document.removeEventListener("blur",this.handleBlur),It.removeListener(this.handleLed)},e.prototype.prepareKeyboardCode=function(e,t){return"IntlBackslash"!==e||"`"!==t&&"~"!==t?"Backquote"!==e||"§"!==t&&"±"!==t?e||t:"IntlBackslash":"Backquote"},e}()),Ut=function(){var e=ot({})[1];return it((function(){return e({})}),[])},Bt=Ae("keyboard-key");function jt(e){var t=e.keyData,o=Ut();nt((function(){var e=function(e){t.code===e&&o()};return At.addListener(e),function(){At.removeListener(e)}}),[t.code]);var n=At.getKeyState(t.code);return f("div",{title:t.code,class:Bt({align:t.align,code:t.code,pressed:n.pressed,wasPressed:n.wasPressed,view:t.view,fontSize:t.fontSize})},t.text||"",t.topSymbol?f("div",{class:Bt("top-symbol")},t.topSymbol):"",t.topLeftSymbol?f("div",{class:Bt("top-left-symbol")},t.topLeftSymbol):"",t.topRightSymbol?f("div",{class:Bt("top-right-symbol")},t.topRightSymbol):"",t.bottomLeftSymbol?f("div",{class:Bt("bottom-left-symbol")},t.bottomLeftSymbol):"",t.bottomRightSymbol?f("div",{class:Bt("bottom-right-symbol")},t.bottomRightSymbol):"",t.bottomSymbol?f("div",{class:Bt("bottom-symbol")},t.bottomSymbol):"",t.bottomText?f("div",{class:Bt("bottom-text")},t.bottomText):"","boolean"==typeof t.led?f("div",{class:Bt("led",{on:n.led})}):"")}var zt=Ae("keyboard-led");function Ht(e){var t=Ut();nt((function(){var o=function(o){e.code===o&&t()};return At.addListener(o),function(){At.removeListener(o)}}),[e.code]);var o=At.getKeyState(e.code);return f("div",{title:e.code,class:zt({on:o.led,code:e.code})})}var Gt=Ae("keyboard-spacer");function Ot(e){return f("div",{class:Gt({name:e.name})})}var Wt=Ae("keyboard-row");function Vt(e){var t=e.rowData;return f("div",{class:Wt()},t.map((function(e,t){return"spacer"===e.type?f(Ot,{key:t,name:e.name}):"led"===e.type?f(Ht,{key:t,code:e.code}):f(jt,{key:t,keyData:e})})))}var qt={type:"ipad",rows:[[{code:"Backquote",topSymbol:"~",bottomSymbol:"`"},{code:"Digit1",topSymbol:"!",bottomSymbol:"1"},{code:"Digit2",topSymbol:"@",bottomSymbol:"2"},{code:"Digit3",topSymbol:"#",bottomSymbol:"3"},{code:"Digit4",topSymbol:"$",bottomSymbol:"4"},{code:"Digit5",topSymbol:"%",bottomSymbol:"5"},{code:"Digit6",topSymbol:"^",bottomSymbol:"6"},{code:"Digit7",topSymbol:"&",bottomSymbol:"7"},{code:"Digit8",topSymbol:"*",bottomSymbol:"8"},{code:"Digit9",topSymbol:"(",bottomSymbol:"9"},{code:"Digit0",topSymbol:")",bottomSymbol:"0"},{code:"Minus",topSymbol:"_",bottomSymbol:"-"},{code:"Equal",topSymbol:"+",bottomSymbol:"="},{code:"Backspace",bottomText:"delete",align:"right"}],[{code:"Tab",bottomText:"tab",align:"left"},{code:"KeyQ",text:"Q"},{code:"KeyW",text:"W"},{code:"KeyE",text:"E"},{code:"KeyR",text:"R"},{code:"KeyT",text:"T"},{code:"KeyY",text:"Y"},{code:"KeyU",text:"U"},{code:"KeyI",text:"I"},{code:"KeyO",text:"O"},{code:"KeyP",text:"P"},{code:"BracketLeft",topSymbol:"{",bottomSymbol:"["},{code:"BracketRight",topSymbol:"}",bottomSymbol:"]"},{code:"Backslash",topSymbol:"|",bottomSymbol:"\\"}],[{code:"CapsLock",bottomText:"caps lock",led:!0,align:"left"},{code:"KeyA",text:"A"},{code:"KeyS",text:"S"},{code:"KeyD",text:"D"},{code:"KeyF",text:"F"},{code:"KeyG",text:"G"},{code:"KeyH",text:"H"},{code:"KeyJ",text:"J"},{code:"KeyK",text:"K"},{code:"KeyL",text:"L"},{code:"Semicolon",topSymbol:":",bottomSymbol:";"},{code:"Quote",topSymbol:'"',bottomSymbol:"'"},{code:"Enter",bottomText:"return",align:"right"}],[{code:"ShiftLeft",bottomText:"shift",align:"left"},{code:"KeyZ",text:"Z"},{code:"KeyX",text:"X"},{code:"KeyC",text:"C"},{code:"KeyV",text:"V"},{code:"KeyB",text:"B"},{code:"KeyN",text:"N"},{code:"KeyM",text:"M"},{code:"Comma",topSymbol:"<",bottomSymbol:","},{code:"Period",topSymbol:">",bottomSymbol:"."},{code:"Slash",topSymbol:"?",bottomSymbol:"/"},{code:"ShiftRight",bottomText:"shift",align:"right"}],[{code:"Fn",bottomLeftSymbol:"🌐"},{code:"ControlLeft",topRightSymbol:"^",bottomText:"control"},{code:"AltLeft",topRightSymbol:"⌥",bottomText:"option"},{code:"MetaLeft",topRightSymbol:"⌘",bottomText:"command"},{code:"Space"},{code:"MetaRight",topLeftSymbol:"⌘",bottomText:"command"},{code:"AltRight",topLeftSymbol:"⌥",bottomText:"option"},{code:"ArrowLeft"},{code:"ArrowDown"},{code:"ArrowUp"},{code:"ArrowRight"}]]},Qt={type:"mac",rows:[[{code:"Escape",bottomText:"esc",align:"left"},{code:"F1",text:"F1"},{code:"F2",text:"F2"},{code:"F3",text:"F3"},{code:"F4",text:"F4"},{code:"F5",text:"F5"},{code:"F6",text:"F6"},{code:"F7",text:"F7"},{code:"F8",text:"F8"},{code:"F9",text:"F9"},{code:"F10",text:"F10"},{code:"F11",text:"F11"},{code:"F12",text:"F12"},{code:"PowerOff"},{type:"spacer",name:"before-sys"},{code:"F13",text:"F13"},{code:"F14",text:"F14"},{code:"F15",text:"F15"},{type:"spacer",name:"before-numpad"},{code:"F16",text:"F16"},{code:"F17",text:"F17"},{code:"F18",text:"F18"},{code:"F19",text:"F19"}],[{code:"Backquote",topSymbol:"~",bottomSymbol:"`"},{code:"Digit1",topSymbol:"!",bottomSymbol:"1"},{code:"Digit2",topSymbol:"@",bottomSymbol:"2"},{code:"Digit3",topSymbol:"#",bottomSymbol:"3"},{code:"Digit4",topSymbol:"$",bottomSymbol:"4"},{code:"Digit5",topSymbol:"%",bottomSymbol:"5"},{code:"Digit6",topSymbol:"^",bottomSymbol:"6"},{code:"Digit7",topSymbol:"&",bottomSymbol:"7"},{code:"Digit8",topSymbol:"*",bottomSymbol:"8"},{code:"Digit9",topSymbol:"(",bottomSymbol:"9"},{code:"Digit0",topSymbol:")",bottomSymbol:"0"},{code:"Minus",topSymbol:"_",bottomSymbol:"-"},{code:"Equal",topSymbol:"+",bottomSymbol:"="},{code:"Backspace",bottomText:"delete",align:"right"},{type:"spacer",name:"before-sys"},{code:"Fn",bottomRightSymbol:"fn",text:"🌐"},{code:"Home",text:"home",fontSize:"small"},{code:"PageUp",text:"page up",fontSize:"small"},{type:"spacer",name:"before-numpad"},{code:"Clear",text:"clear",fontSize:"small"},{code:"NumpadEqual",text:"="},{code:"NumpadDivide",text:"/"},{code:"NumpadMultiply",text:"*"}],[{code:"Tab",bottomText:"tab",align:"left"},{code:"KeyQ",text:"Q"},{code:"KeyW",text:"W"},{code:"KeyE",text:"E"},{code:"KeyR",text:"R"},{code:"KeyT",text:"T"},{code:"KeyY",text:"Y"},{code:"KeyU",text:"U"},{code:"KeyI",text:"I"},{code:"KeyO",text:"O"},{code:"KeyP",text:"P"},{code:"BracketLeft",topSymbol:"{",bottomSymbol:"["},{code:"BracketRight",topSymbol:"}",bottomSymbol:"]"},{code:"Backslash",topSymbol:"|",bottomSymbol:"\\"},{type:"spacer",name:"before-sys"},{code:"Delete",text:"⌫",fontSize:"small"},{code:"End",text:"end",fontSize:"small"},{code:"PageDown",text:"page down",fontSize:"small"},{type:"spacer",name:"before-numpad"},{code:"Numpad7",text:"7"},{code:"Numpad8",text:"8"},{code:"Numpad9",text:"9"},{code:"NumpadSubtract",text:"-"}],[{code:"CapsLock",bottomText:"caps lock",align:"left",led:!0},{code:"KeyA",text:"A"},{code:"KeyS",text:"S"},{code:"KeyD",text:"D"},{code:"KeyF",text:"F"},{code:"KeyG",text:"G"},{code:"KeyH",text:"H"},{code:"KeyJ",text:"J"},{code:"KeyK",text:"K"},{code:"KeyL",text:"L"},{code:"Semicolon",topSymbol:":",bottomSymbol:";"},{code:"Quote",topSymbol:'"',bottomSymbol:"'"},{code:"Enter",bottomText:"return",align:"right"},{type:"spacer",name:"before-numpad-long"},{code:"Numpad4",text:"4"},{code:"Numpad5",text:"5"},{code:"Numpad6",text:"6"},{code:"NumpadAdd",text:"+"}],[{code:"ShiftLeft",bottomText:"shift",align:"left"},{code:"KeyZ",text:"Z"},{code:"KeyX",text:"X"},{code:"KeyC",text:"C"},{code:"KeyV",text:"V"},{code:"KeyB",text:"B"},{code:"KeyN",text:"N"},{code:"KeyM",text:"M"},{code:"Comma",topSymbol:"<",bottomSymbol:","},{code:"Period",topSymbol:">",bottomSymbol:"."},{code:"Slash",topSymbol:"?",bottomSymbol:"/"},{code:"ShiftRight",bottomText:"shift",align:"right"},{type:"spacer",name:"before-arrow-up"},{code:"ArrowUp"},{type:"spacer",name:"after-arrow-up"},{code:"Numpad1",text:"1"},{code:"Numpad2",text:"2"},{code:"Numpad3",text:"3"},{code:"NumpadEnter",bottomText:"enter",fontSize:"small"}],[{code:"ControlLeft",topRightSymbol:"^",bottomText:"control",align:"right"},{code:"AltLeft",topRightSymbol:"⌥",bottomText:"option",align:"right"},{code:"MetaLeft",topRightSymbol:"⌘",bottomText:"command",align:"right"},{code:"Space"},{code:"MetaRight",topLeftSymbol:"⌘",bottomText:"command",align:"left"},{code:"AltRight",topLeftSymbol:"⌥",bottomText:"option",align:"left"},{code:"ControlRight",topLeftSymbol:"^",bottomText:"control",align:"left"},{type:"spacer",name:"before-arrows"},{code:"ArrowLeft"},{code:"ArrowDown"},{code:"ArrowRight"},{type:"spacer",name:"after-arrows"},{code:"Numpad0",text:"0"},{code:"NumpadDecimal",text:"."}]]},$t={type:"macbook",rows:[[{code:"Escape",text:"esc",align:"left"},{code:"F1",text:"F1"},{code:"F2",text:"F2"},{code:"F3",text:"F3"},{code:"F4",text:"F4"},{code:"F5",text:"F5"},{code:"F6",text:"F6"},{code:"F7",text:"F7"},{code:"F8",text:"F8"},{code:"F9",text:"F9"},{code:"F10",text:"F10"},{code:"F11",text:"F11"},{code:"F12",text:"F12"},{code:"PowerOff"}],[{code:"IntlBackslash",topLeftSymbol:"±",topRightSymbol:"<",bottomLeftSymbol:"§",bottomRightSymbol:">"},{code:"Digit1",topSymbol:"!",bottomSymbol:"1"},{code:"Digit2",topSymbol:"@",bottomSymbol:"2"},{code:"Digit3",topSymbol:"#",bottomSymbol:"3"},{code:"Digit4",topSymbol:"$",bottomSymbol:"4"},{code:"Digit5",topSymbol:"%",bottomSymbol:"5"},{code:"Digit6",topSymbol:"^",bottomSymbol:"6"},{code:"Digit7",topSymbol:"&",bottomSymbol:"7"},{code:"Digit8",topSymbol:"*",bottomSymbol:"8"},{code:"Digit9",topSymbol:"(",bottomSymbol:"9"},{code:"Digit0",topSymbol:")",bottomSymbol:"0"},{code:"Minus",topSymbol:"_",bottomSymbol:"-"},{code:"Equal",topSymbol:"+",bottomSymbol:"="},{code:"Backspace",bottomRightSymbol:"⌫"}],[{code:"Tab",bottomLeftSymbol:"⇥"},{code:"KeyQ",text:"Q"},{code:"KeyW",text:"W"},{code:"KeyE",text:"E"},{code:"KeyR",text:"R"},{code:"KeyT",text:"T"},{code:"KeyY",text:"Y"},{code:"KeyU",text:"U"},{code:"KeyI",text:"I"},{code:"KeyO",text:"O"},{code:"KeyP",text:"P"},{code:"BracketLeft",topSymbol:"{",bottomSymbol:"["},{code:"BracketRight",topSymbol:"}",bottomSymbol:"]"},{code:"Enter",text:"⏎"}],[{code:"CapsLock",bottomLeftSymbol:"⇪",led:!0},{code:"KeyA",text:"A"},{code:"KeyS",text:"S"},{code:"KeyD",text:"D"},{code:"KeyF",text:"F"},{code:"KeyG",text:"G"},{code:"KeyH",text:"H"},{code:"KeyJ",text:"J"},{code:"KeyK",text:"K"},{code:"KeyL",text:"L"},{code:"Semicolon",topSymbol:":",bottomSymbol:";"},{code:"Quote",topSymbol:'"',bottomSymbol:"'"},{code:"Backslash",topSymbol:"|",bottomSymbol:"\\"}],[{code:"ShiftLeft",bottomText:"shift",align:"left"},{code:"Backquote",topSymbol:"~",bottomSymbol:"`"},{code:"KeyZ",text:"Z"},{code:"KeyX",text:"X"},{code:"KeyC",text:"C"},{code:"KeyV",text:"V"},{code:"KeyB",text:"B"},{code:"KeyN",text:"N"},{code:"KeyM",text:"M"},{code:"Comma",topSymbol:"<",bottomSymbol:","},{code:"Period",topSymbol:">",bottomSymbol:"."},{code:"Slash",topSymbol:"?",bottomSymbol:"/"},{code:"ShiftRight",bottomText:"shift",align:"right"}],[{code:"Fn",fontSize:"small",topRightSymbol:"fn",bottomLeftSymbol:"🌐"},{code:"ControlLeft",topRightSymbol:"^",bottomText:"control"},{code:"AltLeft",topRightSymbol:"⌥",bottomText:"option"},{code:"MetaLeft",topRightSymbol:"⌘",bottomText:"command"},{code:"Space"},{code:"MetaRight",topLeftSymbol:"⌘",bottomText:"command"},{code:"AltRight",topLeftSymbol:"⌥",bottomText:"option"},{code:"ArrowLeft"},{code:"ArrowDown"},{code:"ArrowUp"},{code:"ArrowRight"}]]},Jt={type:"win",rows:[[{code:"Escape",text:"ESC"},{type:"spacer",name:"between-func"},{code:"F1",text:"F1"},{code:"F2",text:"F2"},{code:"F3",text:"F3"},{code:"F4",text:"F4"},{type:"spacer",name:"between-func"},{code:"F5",text:"F5"},{code:"F6",text:"F6"},{code:"F7",text:"F7"},{code:"F8",text:"F8"},{type:"spacer",name:"between-func"},{code:"F9",text:"F9"},{code:"F10",text:"F10"},{code:"F11",text:"F11"},{code:"F12",text:"F12"},{type:"spacer",name:"before-sys"},{code:"PrintScreen",text:"PRINT SCRN",fontSize:"small"},{code:"ScrollLock",text:"SCROLL LOCK",fontSize:"small"},{code:"Pause",text:"PAUSE BREAK",fontSize:"small"},{type:"spacer",name:"before-numpad"},{code:"MediaPlayPause",text:"⏯",view:"circle"},{code:"MediaStop",text:"⏹",view:"circle"},{code:"MediaTrackPrevious",text:"⏮",view:"circle"},{code:"MediaTrackNext",text:"⏭",view:"circle"}],[{code:"Backquote",topSymbol:"~",bottomSymbol:"`"},{code:"Digit1",topSymbol:"!",bottomSymbol:"1"},{code:"Digit2",topSymbol:"@",bottomSymbol:"2"},{code:"Digit3",topSymbol:"#",bottomSymbol:"3"},{code:"Digit4",topSymbol:"$",bottomSymbol:"4"},{code:"Digit5",topSymbol:"%",bottomSymbol:"5"},{code:"Digit6",topSymbol:"^",bottomSymbol:"6"},{code:"Digit7",topSymbol:"&",bottomSymbol:"7"},{code:"Digit8",topSymbol:"*",bottomSymbol:"8"},{code:"Digit9",topSymbol:"(",bottomSymbol:"9"},{code:"Digit0",topSymbol:")",bottomSymbol:"0"},{code:"Minus",topSymbol:"_",bottomSymbol:"-"},{code:"Equal",topSymbol:"+",bottomSymbol:"="},{code:"Backspace",text:"←"},{type:"spacer",name:"before-sys"},{code:"Insert",text:"INSERT",fontSize:"small"},{code:"Home",text:"HOME",fontSize:"small"},{code:"PageUp",text:"PAGE UP",fontSize:"small"},{type:"spacer",name:"before-numpad"},{code:"NumLock",text:"NUM LOCK",fontSize:"small"},{code:"NumpadDivide",text:"/"},{code:"NumpadMultiply",text:"*"},{code:"NumpadSubtract",text:"-"}],[{code:"Tab",text:"TAB ⇥",fontSize:"small"},{code:"KeyQ",text:"Q"},{code:"KeyW",text:"W"},{code:"KeyE",text:"E"},{code:"KeyR",text:"R"},{code:"KeyT",text:"T"},{code:"KeyY",text:"Y"},{code:"KeyU",text:"U"},{code:"KeyI",text:"I"},{code:"KeyO",text:"O"},{code:"KeyP",text:"P"},{code:"BracketLeft",topSymbol:"{",bottomSymbol:"["},{code:"BracketRight",topSymbol:"}",bottomSymbol:"]"},{code:"Enter",text:"⏎"},{type:"spacer",name:"before-sys"},{code:"Delete",text:"DELETE",fontSize:"small"},{code:"End",text:"END",fontSize:"small"},{code:"PageDown",text:"PAGE DOWN",fontSize:"small"},{type:"spacer",name:"before-numpad"},{code:"Numpad7",text:"7"},{code:"Numpad8",text:"8"},{code:"Numpad9",text:"9"},{code:"NumpadAdd",text:"+"}],[{code:"CapsLock",text:"CAPS LOCK",fontSize:"small"},{code:"KeyA",text:"A"},{code:"KeyS",text:"S"},{code:"KeyD",text:"D"},{code:"KeyF",text:"F"},{code:"KeyG",text:"G"},{code:"KeyH",text:"H"},{code:"KeyJ",text:"J"},{code:"KeyK",text:"K"},{code:"KeyL",text:"L"},{code:"Semicolon",topSymbol:":",bottomSymbol:";"},{code:"Quote",topSymbol:'"',bottomSymbol:"'"},{code:"Backslash",topSymbol:"|",bottomSymbol:"\\"},{type:"spacer",name:"before-numpad-long"},{code:"Numpad4",text:"4"},{code:"Numpad5",text:"5"},{code:"Numpad6",text:"6"}],[{code:"ShiftLeft",text:"SHIFT",fontSize:"small"},{code:"KeyZ",text:"Z"},{code:"KeyX",text:"X"},{code:"KeyC",text:"C"},{code:"KeyV",text:"V"},{code:"KeyB",text:"B"},{code:"KeyN",text:"N"},{code:"KeyM",text:"M"},{code:"Comma",topSymbol:"<",bottomSymbol:","},{code:"Period",topSymbol:">",bottomSymbol:"."},{code:"Slash",topSymbol:"?",bottomSymbol:"/"},{code:"ShiftRight",text:"SHIFT",fontSize:"small"},{type:"spacer",name:"before-arrow-up"},{code:"ArrowUp",text:"↑"},{type:"spacer",name:"after-arrow-up"},{code:"Numpad1",text:"1"},{code:"Numpad2",text:"2"},{code:"Numpad3",text:"3"},{code:"NumpadEnter",text:"ENTER",fontSize:"small"}],[{code:"ControlLeft",text:"CTRL",fontSize:"small"},{code:"MetaLeft",topLeftSymbol:" ",topRightSymbol:" ",bottomLeftSymbol:" ",bottomRightSymbol:" "},{code:"AltLeft",text:"ALT",fontSize:"small"},{code:"Space"},{code:"AltRight",text:"ALT",fontSize:"small"},{code:"MetaRight",topLeftSymbol:" ",topRightSymbol:" ",bottomLeftSymbol:" ",bottomRightSymbol:" "},{code:"ContextMenu",topLeftSymbol:" ",topRightSymbol:" ",bottomLeftSymbol:" ",bottomRightSymbol:" "},{code:"ControlRight",text:"CTRL",fontSize:"small"},{type:"spacer",name:"before-arrows"},{code:"ArrowLeft",text:"←"},{code:"ArrowDown",text:"↓"},{code:"ArrowRight",text:"→"},{type:"spacer",name:"after-arrows"},{code:"Numpad0",text:"0"},{code:"NumpadDecimal",text:"."}],[{type:"led",code:"NumLock"},{type:"led",code:"CapsLock"},{type:"led",code:"ScrollLock"}]]},Xt=Ae("keyboard-layout");function Yt(e){var t=e.layout,o=t.rows.map((function(e,t){return f("div",{key:t,class:Xt("row",{num:t})},f(Vt,{rowData:e}))}));return f("div",{class:Xt({type:t.type})},o)}function Zt(e){switch(e){case"ipad":return qt;case"mac":return Qt;case"macbook":return $t;default:return Jt}}var eo=Ae("radio-button");function to(e){var t=it((function(){var t;null===(t=e.onClick)||void 0===t||t.call(e,e.value)}),[e.onClick]),o=Be(eo({selected:e.selected}),e.class);return f("li",{title:e.title,class:o,onClick:t,key:e.value},e.text)}var oo=Ae("radio-buttons");function no(e){return e.filter((function(e){return e.selected}))[0]}function ro(e){var t=e.className,o=e.buttons,n=e.label,r=e.onSelect,i=no(o),s=ot(i?i.value:void 0),a=s[0],c=s[1],l=it((function(e){c(e),r(e)}),[r]);return f("fieldset",{class:Be(oo(),t)},n?f("legend",{class:oo("label",{hidden:e.hideLabel})},n):"",f("ul",{class:oo("items")},o.map((function(e){return f(to,{key:e.value,class:oo("item"),selected:e.value===a,title:e.title,text:e.text,value:e.value,onClick:l})}))))}var io=Ae("keyboard"),so=ye?"win":/iPad/.test(navigator.platform)||Boolean(navigator.maxTouchPoints&&navigator.maxTouchPoints>2&&/MacIntel/.test(navigator.platform))?"ipad":navigator.userAgent.indexOf("Mac")>-1?function(){var e=window.screen,t=e.width/e.height;return t>1.5&&t<1.7}()?"macbook":"mac":"win";function ao(){var e=[{text:"Win",value:"win",title:G("Windows Logitech G810 keyboard"),selected:"win"===so},{text:"Mac",value:"mac",title:G("Apple Magic Keyboard with Numeric Keypad"),selected:"mac"===so},{text:"MacBook",value:"macbook",title:G("MacBook keyboard"),selected:"macbook"===so},{text:"iPad",value:"ipad",title:G("Apple Magic Keyboard for iPad"),selected:"ipad"===so}],t=no(e),o=ot(t&&t.value),n=o[0],r=o[1],i=it((function(){At.clearState()}),[]),s=it((function(e){r(e)}),[n]);return f("div",{class:io()},f("div",{class:io("top-controls")},f(ro,{hideLabel:!0,label:G("Select keyboard"),onSelect:s,buttons:e})),f(Yt,{layout:Zt(n)}),f("div",{class:io("bottom-controls")},f(Rt,{title:G("Reset pressed keys on keyboard"),onClick:i},G("Reset"))))}var co=Ae("section");function lo(e){if(!e.children)return null;var t=Be(co(),e.class);return e.name?f("section",{class:t},f("h2",{class:co("name")},e.name),f("div",{class:co("body")},e.children)):f("div",{class:co()},e.children)}var uo=Ae("nav-list");function mo(e){var t=e.items.filter((function(e){return Boolean(e)})),o=Be(e.class,uo());return t.length?f("nav",{class:o},f("ul",{class:uo("list")},t.map((function(e){return f("li",null,e)})))):null}var po;H({Keyboard:{en:"Keyboard",ru:"Клавиатура"},"Windows Logitech G810 keyboard":{en:"Windows Logitech G810 keyboard",ru:"Клавиатура Windows Logitech G810"},"Apple Magic Keyboard with Numeric Keypad":{en:"Apple Magic Keyboard with Numeric Keypad",ru:"Клавиатура Apple MagicKeyboard with Numeric Keypad"},"MacBook keyboard":{en:"MacBook keyboard",ru:"MacBook клавиатура"},"Apple Magic Keyboard for iPad":{en:"Apple Magic Keyboard for iPad",ru:"Клавиатура Apple Magic Keyboard for iPad"},"Select keyboard":{en:"Select keyboard",ru:"Выберите клавиатуру"},"Reset pressed keys on keyboard":{en:"Reset pressed keys on keyboard",ru:"Сбросить нажатые клавиши на клавиатуре"},"Testing keyboard":{en:"Testing keyboard",ru:"Тестирование клавиатуры"}}),At.on(),It.on(),po=function(){var e=[[f(ze,{href:_t("keycodes")},G("Displaying key codes"))]];return f(Ft,{title:G("Testing keyboard")},f("div",null,f(ao,null),f(lo,{name:G("Additionally")},f(mo,{items:e}))))},function(o,n,r){var i,s,a,c;t.__&&t.__(o,n),s=(i="function"==typeof r)?null:n.__k,a=[],c=[],P(n,o=(!i&&r||n).__k=f(b,null,[o]),s||d,d,n.namespaceURI,!i&&r?[r]:s?null:n.firstChild?e.call(n.childNodes):null,a,!i&&r?r:s?s.__e:n.firstChild,i,c),C(a,o,c)}(f(po,null),document.querySelector(".root"))}));
+(function (factory) {
+    typeof define === 'function' && define.amd ? define(factory) :
+    factory();
+})((function () { 'use strict';
+
+    var n,l$1,u$1,i$1,o$1,r$1,f$1,e$1,c$1,s$1,h$1={},p$1=[],v$1=/acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i,y$1=Array.isArray;function d$1(n,l){for(var u in l)n[u]=l[u];return n}function w$1(n){var l=n.parentNode;l&&l.removeChild(n);}function _(l,u,t){var i,o,r,f={};for(r in u)"key"==r?i=u[r]:"ref"==r?o=u[r]:f[r]=u[r];if(arguments.length>2&&(f.children=arguments.length>3?n.call(arguments,2):t),"function"==typeof l&&null!=l.defaultProps)for(r in l.defaultProps)void 0===f[r]&&(f[r]=l.defaultProps[r]);return g(l,f,i,o,null)}function g(n,t,i,o,r){var f={type:n,props:t,key:i,ref:o,__k:null,__:null,__b:0,__e:null,__d:void 0,__c:null,constructor:void 0,__v:null==r?++u$1:r,__i:-1,__u:0};return null==r&&null!=l$1.vnode&&l$1.vnode(f),f}function k$1(n){return n.children}function b$l(n,l){this.props=n,this.context=l;}function x(n,l){if(null==l)return n.__?x(n.__,n.__i+1):null;for(var u;l<n.__k.length;l++)if(null!=(u=n.__k[l])&&null!=u.__e)return u.__e;return "function"==typeof n.type?x(n):null}function C$1(n){var l,u;if(null!=(n=n.__)&&null!=n.__c){for(n.__e=n.__c.base=null,l=0;l<n.__k.length;l++)if(null!=(u=n.__k[l])&&null!=u.__e){n.__e=n.__c.base=u.__e;break}return C$1(n)}}function M(n){(!n.__d&&(n.__d=!0)&&i$1.push(n)&&!P.__r++||o$1!==l$1.debounceRendering)&&((o$1=l$1.debounceRendering)||r$1)(P);}function P(){var n,u,t,o,r,e,c,s;for(i$1.sort(f$1);n=i$1.shift();)n.__d&&(u=i$1.length,o=void 0,e=(r=(t=n).__v).__e,c=[],s=[],t.__P&&((o=d$1({},r)).__v=r.__v+1,l$1.vnode&&l$1.vnode(o),O(t.__P,o,r,t.__n,t.__P.namespaceURI,32&r.__u?[e]:null,c,null==e?x(r):e,!!(32&r.__u),s),o.__v=r.__v,o.__.__k[o.__i]=o,j$1(c,o,s),o.__e!=e&&C$1(o)),i$1.length>u&&i$1.sort(f$1));P.__r=0;}function S(n,l,u,t,i,o,r,f,e,c,s){var a,v,y,d,w,_=t&&t.__k||p$1,g=l.length;for(u.__d=e,$(u,l,_),e=u.__d,a=0;a<g;a++)null!=(y=u.__k[a])&&"boolean"!=typeof y&&"function"!=typeof y&&(v=-1===y.__i?h$1:_[y.__i]||h$1,y.__i=a,O(n,y,v,i,o,r,f,e,c,s),d=y.__e,y.ref&&v.ref!=y.ref&&(v.ref&&N(v.ref,null,y),s.push(y.ref,y.__c||d,y)),null==w&&null!=d&&(w=d),65536&y.__u||v.__k===y.__k?e=I(y,e,n):"function"==typeof y.type&&void 0!==y.__d?e=y.__d:d&&(e=d.nextSibling),y.__d=void 0,y.__u&=-196609);u.__d=e,u.__e=w;}function $(n,l,u){var t,i,o,r,f,e=l.length,c=u.length,s=c,a=0;for(n.__k=[],t=0;t<e;t++)r=t+a,null!=(i=n.__k[t]=null==(i=l[t])||"boolean"==typeof i||"function"==typeof i?null:"string"==typeof i||"number"==typeof i||"bigint"==typeof i||i.constructor==String?g(null,i,null,null,null):y$1(i)?g(k$1,{children:i},null,null,null):void 0===i.constructor&&i.__b>0?g(i.type,i.props,i.key,i.ref?i.ref:null,i.__v):i)?(i.__=n,i.__b=n.__b+1,f=L(i,u,r,s),i.__i=f,o=null,-1!==f&&(s--,(o=u[f])&&(o.__u|=131072)),null==o||null===o.__v?(-1==f&&a--,"function"!=typeof i.type&&(i.__u|=65536)):f!==r&&(f==r-1?a--:f==r+1?a++:f>r?s>e-r?a+=f-r:a--:f<r&&(f==r-a?a-=f-r:a++),f!==t+a&&(i.__u|=65536))):(o=u[r])&&null==o.key&&o.__e&&0==(131072&o.__u)&&(o.__e==n.__d&&(n.__d=x(o)),V(o,o,!1),u[r]=null,s--);if(s)for(t=0;t<c;t++)null!=(o=u[t])&&0==(131072&o.__u)&&(o.__e==n.__d&&(n.__d=x(o)),V(o,o));}function I(n,l,u){var t,i;if("function"==typeof n.type){for(t=n.__k,i=0;t&&i<t.length;i++)t[i]&&(t[i].__=n,l=I(t[i],l,u));return l}n.__e!=l&&(l&&n.type&&!u.contains(l)&&(l=x(n)),u.insertBefore(n.__e,l||null),l=n.__e);do{l=l&&l.nextSibling;}while(null!=l&&8===l.nodeType);return l}function L(n,l,u,t){var i=n.key,o=n.type,r=u-1,f=u+1,e=l[u];if(null===e||e&&i==e.key&&o===e.type&&0==(131072&e.__u))return u;if(t>(null!=e&&0==(131072&e.__u)?1:0))for(;r>=0||f<l.length;){if(r>=0){if((e=l[r])&&0==(131072&e.__u)&&i==e.key&&o===e.type)return r;r--;}if(f<l.length){if((e=l[f])&&0==(131072&e.__u)&&i==e.key&&o===e.type)return f;f++;}}return -1}function T$1(n,l,u){"-"===l[0]?n.setProperty(l,null==u?"":u):n[l]=null==u?"":"number"!=typeof u||v$1.test(l)?u:u+"px";}function A$1(n,l,u,t,i){var o;n:if("style"===l)if("string"==typeof u)n.style.cssText=u;else {if("string"==typeof t&&(n.style.cssText=t=""),t)for(l in t)u&&l in u||T$1(n.style,l,"");if(u)for(l in u)t&&u[l]===t[l]||T$1(n.style,l,u[l]);}else if("o"===l[0]&&"n"===l[1])o=l!==(l=l.replace(/(PointerCapture)$|Capture$/i,"$1")),l=l.toLowerCase()in n||"onFocusOut"===l||"onFocusIn"===l?l.toLowerCase().slice(2):l.slice(2),n.l||(n.l={}),n.l[l+o]=u,u?t?u.u=t.u:(u.u=e$1,n.addEventListener(l,o?s$1:c$1,o)):n.removeEventListener(l,o?s$1:c$1,o);else {if("http://www.w3.org/2000/svg"==i)l=l.replace(/xlink(H|:h)/,"h").replace(/sName$/,"s");else if("width"!=l&&"height"!=l&&"href"!=l&&"list"!=l&&"form"!=l&&"tabIndex"!=l&&"download"!=l&&"rowSpan"!=l&&"colSpan"!=l&&"role"!=l&&"popover"!=l&&l in n)try{n[l]=null==u?"":u;break n}catch(n){}"function"==typeof u||(null==u||!1===u&&"-"!==l[4]?n.removeAttribute(l):n.setAttribute(l,"popover"==l&&1==u?"":u));}}function F(n){return function(u){if(this.l){var t=this.l[u.type+n];if(null==u.t)u.t=e$1++;else if(u.t<t.u)return;return t(l$1.event?l$1.event(u):u)}}}function O(n,u,t,i,o,r,f,e,c,s){var a,h,p,v,w,_,g,m,x,C,M,P,$,I,H,L,T=u.type;if(void 0!==u.constructor)return null;128&t.__u&&(c=!!(32&t.__u),r=[e=u.__e=t.__e]),(a=l$1.__b)&&a(u);n:if("function"==typeof T)try{if(m=u.props,x="prototype"in T&&T.prototype.render,C=(a=T.contextType)&&i[a.__c],M=a?C?C.props.value:a.__:i,t.__c?g=(h=u.__c=t.__c).__=h.__E:(x?u.__c=h=new T(m,M):(u.__c=h=new b$l(m,M),h.constructor=T,h.render=q$1),C&&C.sub(h),h.props=m,h.state||(h.state={}),h.context=M,h.__n=i,p=h.__d=!0,h.__h=[],h._sb=[]),x&&null==h.__s&&(h.__s=h.state),x&&null!=T.getDerivedStateFromProps&&(h.__s==h.state&&(h.__s=d$1({},h.__s)),d$1(h.__s,T.getDerivedStateFromProps(m,h.__s))),v=h.props,w=h.state,h.__v=u,p)x&&null==T.getDerivedStateFromProps&&null!=h.componentWillMount&&h.componentWillMount(),x&&null!=h.componentDidMount&&h.__h.push(h.componentDidMount);else {if(x&&null==T.getDerivedStateFromProps&&m!==v&&null!=h.componentWillReceiveProps&&h.componentWillReceiveProps(m,M),!h.__e&&(null!=h.shouldComponentUpdate&&!1===h.shouldComponentUpdate(m,h.__s,M)||u.__v===t.__v)){for(u.__v!==t.__v&&(h.props=m,h.state=h.__s,h.__d=!1),u.__e=t.__e,u.__k=t.__k,u.__k.forEach(function(n){n&&(n.__=u);}),P=0;P<h._sb.length;P++)h.__h.push(h._sb[P]);h._sb=[],h.__h.length&&f.push(h);break n}null!=h.componentWillUpdate&&h.componentWillUpdate(m,h.__s,M),x&&null!=h.componentDidUpdate&&h.__h.push(function(){h.componentDidUpdate(v,w,_);});}if(h.context=M,h.props=m,h.__P=n,h.__e=!1,$=l$1.__r,I=0,x){for(h.state=h.__s,h.__d=!1,$&&$(u),a=h.render(h.props,h.state,h.context),H=0;H<h._sb.length;H++)h.__h.push(h._sb[H]);h._sb=[];}else do{h.__d=!1,$&&$(u),a=h.render(h.props,h.state,h.context),h.state=h.__s;}while(h.__d&&++I<25);h.state=h.__s,null!=h.getChildContext&&(i=d$1(d$1({},i),h.getChildContext())),x&&!p&&null!=h.getSnapshotBeforeUpdate&&(_=h.getSnapshotBeforeUpdate(v,w)),S(n,y$1(L=null!=a&&a.type===k$1&&null==a.key?a.props.children:a)?L:[L],u,t,i,o,r,f,e,c,s),h.base=u.__e,u.__u&=-161,h.__h.length&&f.push(h),g&&(h.__E=h.__=null);}catch(n){if(u.__v=null,c||null!=r){for(u.__u|=c?160:32;e&&8===e.nodeType&&e.nextSibling;)e=e.nextSibling;r[r.indexOf(e)]=null,u.__e=e;}else u.__e=t.__e,u.__k=t.__k;l$1.__e(n,u,t);}else null==r&&u.__v===t.__v?(u.__k=t.__k,u.__e=t.__e):u.__e=z$1(t.__e,u,t,i,o,r,f,c,s);(a=l$1.diffed)&&a(u);}function j$1(n,u,t){u.__d=void 0;for(var i=0;i<t.length;i++)N(t[i],t[++i],t[++i]);l$1.__c&&l$1.__c(u,n),n.some(function(u){try{n=u.__h,u.__h=[],n.some(function(n){n.call(u);});}catch(n){l$1.__e(n,u.__v);}});}function z$1(l,u,t,i,o,r,f,e,c){var s,a,p,v,d,_,g,m=t.props,k=u.props,b=u.type;if("svg"===b?o="http://www.w3.org/2000/svg":"math"===b?o="http://www.w3.org/1998/Math/MathML":o||(o="http://www.w3.org/1999/xhtml"),null!=r)for(s=0;s<r.length;s++)if((d=r[s])&&"setAttribute"in d==!!b&&(b?d.localName===b:3===d.nodeType)){l=d,r[s]=null;break}if(null==l){if(null===b)return document.createTextNode(k);l=document.createElementNS(o,b,k.is&&k),r=null,e=!1;}if(null===b)m===k||e&&l.data===k||(l.data=k);else {if(r=r&&n.call(l.childNodes),m=t.props||h$1,!e&&null!=r)for(m={},s=0;s<l.attributes.length;s++)m[(d=l.attributes[s]).name]=d.value;for(s in m)if(d=m[s],"children"==s);else if("dangerouslySetInnerHTML"==s)p=d;else if("key"!==s&&!(s in k)){if("value"==s&&"defaultValue"in k||"checked"==s&&"defaultChecked"in k)continue;A$1(l,s,null,d,o);}for(s in k)d=k[s],"children"==s?v=d:"dangerouslySetInnerHTML"==s?a=d:"value"==s?_=d:"checked"==s?g=d:"key"===s||e&&"function"!=typeof d||m[s]===d||A$1(l,s,d,m[s],o);if(a)e||p&&(a.__html===p.__html||a.__html===l.innerHTML)||(l.innerHTML=a.__html),u.__k=[];else if(p&&(l.innerHTML=""),S(l,y$1(v)?v:[v],u,t,i,"foreignObject"===b?"http://www.w3.org/1999/xhtml":o,r,f,r?r[0]:t.__k&&x(t,0),e,c),null!=r)for(s=r.length;s--;)null!=r[s]&&w$1(r[s]);e||(s="value",void 0!==_&&(_!==l[s]||"progress"===b&&!_||"option"===b&&_!==m[s])&&A$1(l,s,_,m[s],o),s="checked",void 0!==g&&g!==l[s]&&A$1(l,s,g,m[s],o));}return l}function N(n,u,t){try{if("function"==typeof n){var i="function"==typeof n.__u;i&&n.__u(),i&&null==u||(n.__u=n(u));}else n.current=u;}catch(n){l$1.__e(n,t);}}function V(n,u,t){var i,o;if(l$1.unmount&&l$1.unmount(n),(i=n.ref)&&(i.current&&i.current!==n.__e||N(i,null,u)),null!=(i=n.__c)){if(i.componentWillUnmount)try{i.componentWillUnmount();}catch(n){l$1.__e(n,u);}i.base=i.__P=null;}if(i=n.__k)for(o=0;o<i.length;o++)i[o]&&V(i[o],u,t||"function"!=typeof n.type);t||null==n.__e||w$1(n.__e),n.__c=n.__=n.__e=n.__d=void 0;}function q$1(n,l,u){return this.constructor(n,u)}function B$1(u,t,i){var o,r,f,e;l$1.__&&l$1.__(u,t),r=(o="function"==typeof i)?null:t.__k,f=[],e=[],O(t,u=(!o&&i||t).__k=_(k$1,null,[u]),r||h$1,h$1,t.namespaceURI,!o&&i?[i]:r?null:t.firstChild?n.call(t.childNodes):null,f,!o&&i?i:r?r.__e:t.firstChild,o,e),j$1(f,u,e);}n=p$1.slice,l$1={__e:function(n,l,u,t){for(var i,o,r;l=l.__;)if((i=l.__c)&&!i.__)try{if((o=i.constructor)&&null!=o.getDerivedStateFromError&&(i.setState(o.getDerivedStateFromError(n)),r=i.__d),null!=i.componentDidCatch&&(i.componentDidCatch(n,t||{}),r=i.__d),r)return i.__E=i}catch(l){n=l;}throw n}},u$1=0,b$l.prototype.setState=function(n,l){var u;u=null!=this.__s&&this.__s!==this.state?this.__s:this.__s=d$1({},this.state),"function"==typeof n&&(n=n(d$1({},u),this.props)),n&&d$1(u,n),null!=n&&this.__v&&(l&&this._sb.push(l),M(this));},b$l.prototype.forceUpdate=function(n){this.__v&&(this.__e=!0,n&&this.__h.push(n),M(this));},b$l.prototype.render=k$1,i$1=[],r$1="function"==typeof Promise?Promise.prototype.then.bind(Promise.resolve()):setTimeout,f$1=function(n,l){return n.__v.__b-l.__v.__b},P.__r=0,e$1=0,c$1=F(!1),s$1=F(!0);
+
+    /******************************************************************************
+    Copyright (c) Microsoft Corporation.
+
+    Permission to use, copy, modify, and/or distribute this software for any
+    purpose with or without fee is hereby granted.
+
+    THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+    REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+    AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+    INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+    LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+    OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+    PERFORMANCE OF THIS SOFTWARE.
+    ***************************************************************************** */
+    /* global Reflect, Promise, SuppressedError, Symbol, Iterator */
+
+
+    var __assign = function() {
+        __assign = Object.assign || function __assign(t) {
+            for (var s, i = 1, n = arguments.length; i < n; i++) {
+                s = arguments[i];
+                for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+            }
+            return t;
+        };
+        return __assign.apply(this, arguments);
+    };
+
+    function __spreadArray(to, from, pack) {
+        if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+            if (ar || !(i in from)) {
+                if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+                ar[i] = from[i];
+            }
+        }
+        return to.concat(ar || Array.prototype.slice.call(from));
+    }
+
+    typeof SuppressedError === "function" ? SuppressedError : function (error, suppressed, message) {
+        var e = new Error(message);
+        return e.name = "SuppressedError", e.error = error, e.suppressed = suppressed, e;
+    };
+
+    var i18nKeyset = {};
+    var i18nLang;
+    var langsData$1 = [];
+    function getI18nLangs() {
+        return __spreadArray([], langsData$1, true);
+    }
+    function setI18nLangs(data) {
+        langsData$1 = data;
+    }
+    function addI18nKeyset(keyset) {
+        i18nKeyset = __assign(__assign({}, i18nKeyset), keyset);
+    }
+    function i18n(id) {
+        var key = i18nKeyset[id];
+        if (!key) {
+            console.error("i18n: not found translation key \"".concat(id, "\"."));
+            return id;
+        }
+        var value = key[i18nLang];
+        if (typeof value === 'undefined') {
+            console.error("i18n: not found translation key \"".concat(id, "\", lang \"").concat(i18nLang, "\"."));
+            return id;
+        }
+        return value;
+    }
+    function i18nWithKeyset(keyset) {
+        return keyset[i18nLang];
+    }
+    function setI18nLang(lang) {
+        if (lang) {
+            i18nLang = lang;
+        }
+    }
+    function getI18nLang() {
+        return i18nLang;
+    }
+
+    /*! show-js-error | © 2024 Denis Seleznev | MIT License | https://github.com/hcodes/show-js-error/ */
+    function getScreenSize$1() {
+        return [screen.width, screen.height, screen.colorDepth].join('×');
+    }
+    function getScreenOrientation() {
+        return typeof screen.orientation === 'string' ? screen.orientation : screen.orientation.type;
+    }
+    function copyTextToClipboard(text) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        try {
+            textarea.select();
+            document.execCommand('copy');
+        }
+        catch (e) {
+            alert('Copying text is not supported in this browser.');
+        }
+        document.body.removeChild(textarea);
+    }
+    function injectStyle(style) {
+        const styleNode = document.createElement('style');
+        document.body.appendChild(styleNode);
+        styleNode.textContent = style;
+        return styleNode;
+    }
+
+    function createElem(data) {
+        const elem = document.createElement(data.tag || 'div');
+        if (data.props) {
+            addProps(elem, data.props);
+        }
+        elem.className = buildElemClass(data.name);
+        data.container.appendChild(elem);
+        return elem;
+    }
+    function addProps(elem, props) {
+        Object.keys(props).forEach(key => {
+            elem[key] = props[key];
+        });
+    }
+    function buildElemClass(name, mod) {
+        let elemName = 'show-js-error';
+        if (name) {
+            elemName += '__' + name;
+        }
+        let className = elemName;
+        if (mod) {
+            Object.keys(mod).forEach((modName) => {
+                const modValue = mod[modName];
+                if (modValue === false || modValue === null || modValue === undefined || modValue === '') {
+                    return;
+                }
+                if (mod[modName] === true) {
+                    className += ' ' + elemName + '_' + modName;
+                }
+                else {
+                    className += ' ' + elemName + '_' + modName + '_' + modValue;
+                }
+            });
+        }
+        return className;
+    }
+
+    function getStack(error) {
+        return error && error.stack || '';
+    }
+    function getMessage(error) {
+        return error && error.message || '';
+    }
+    function getValue(value, defaultValue) {
+        return typeof value === 'undefined' ? defaultValue : value;
+    }
+    function getFilenameWithPosition(error) {
+        if (!error) {
+            return '';
+        }
+        let text = error.filename || '';
+        if (typeof error.lineno !== 'undefined') {
+            text += ':' + getValue(error.lineno, '');
+            if (typeof error.colno !== 'undefined') {
+                text += ':' + getValue(error.colno, '');
+            }
+        }
+        return text;
+    }
+
+    const STYLE = '.show-js-error{background:#ffc1cc;bottom:15px;color:#000;font-family:Arial,sans-serif;font-size:13px;left:15px;max-width:90vw;min-width:15em;opacity:1;position:fixed;transition:opacity .2s ease-out;transition-delay:0s;visibility:visible;z-index:10000000}.show-js-error_size_big{transform:scale(2) translate(25%,-25%)}.show-js-error_hidden{opacity:0;transition:opacity .3s,visibility 0s linear .3s;visibility:hidden}.show-js-error__title{background:#f66;color:#fff;font-weight:700;padding:4px 30px 4px 7px}.show-js-error__title_no-errors{background:#6b6}.show-js-error__message{cursor:pointer;display:inline}.show-js-error__message:before{background-color:#eee;border-radius:10px;content:"+";display:inline-block;font-size:10px;height:10px;line-height:10px;margin-bottom:2px;margin-right:5px;text-align:center;vertical-align:middle;width:10px}.show-js-error__body_detailed .show-js-error__message:before{content:"-"}.show-js-error__body_no-stack .show-js-error__message:before{display:none}.show-js-error__body_detailed .show-js-error__filename{display:block}.show-js-error__body_no-stack .show-js-error__filename{display:none}.show-js-error__close{color:#fff;cursor:pointer;font-size:20px;line-height:20px;padding:3px;position:absolute;right:2px;top:0}.show-js-error__body{line-height:19px;padding:5px 8px}.show-js-error__body_hidden{display:none}.show-js-error__filename{background:#ffe1ec;border:1px solid #faa;display:none;margin:3px 0 3px -2px;max-height:15em;overflow-y:auto;padding:5px;white-space:pre-wrap}.show-js-error__actions{border-top:1px solid #faa;margin-top:5px;padding:5px 0 3px}.show-js-error__actions_hidden{display:none}.show-js-error__arrows{margin-left:8px;white-space:nowrap}.show-js-error__arrows_hidden{display:none}.show-js-error__copy,.show-js-error__next,.show-js-error__num,.show-js-error__prev,.show-js-error__report{font-size:12px}.show-js-error__report_hidden{display:none}.show-js-error__next{margin-left:1px}.show-js-error__num{margin-left:5px;margin-right:5px}.show-js-error__copy,.show-js-error__report{margin-right:3px}.show-js-error input{padding:1px 2px}.show-js-error a,.show-js-error a:visited{color:#000;text-decoration:underline}.show-js-error a:hover{text-decoration:underline}';
+    class ShowJSError {
+        constructor() {
+            this.elems = {};
+            this.state = {
+                appended: false,
+                detailed: false,
+                errorIndex: 0,
+                errorBuffer: [],
+            };
+            this.onerror = (event) => {
+                const error = event.error ? event.error : event;
+                console.log(1, event);
+                this.pushError({
+                    title: 'JavaScript Error',
+                    message: error.message,
+                    filename: error.filename,
+                    colno: error.colno,
+                    lineno: error.lineno,
+                    stack: error.stack,
+                });
+            };
+            this.onsecuritypolicyviolation = (error) => {
+                this.pushError({
+                    title: 'CSP Error',
+                    message: `blockedURI: ${error.blockedURI || ''}\n violatedDirective: ${error.violatedDirective} || ''\n originalPolicy: ${error.originalPolicy || ''}`,
+                    colno: error.columnNumber,
+                    filename: error.sourceFile,
+                    lineno: error.lineNumber,
+                });
+            };
+            this.onunhandledrejection = (error) => {
+                this.pushError({
+                    title: 'Unhandled promise rejection',
+                    message: error.reason.message,
+                    colno: error.reason.colno,
+                    filename: error.reason.filename,
+                    lineno: error.reason.lineno,
+                    stack: error.reason.stack,
+                });
+            };
+            this.appendToBody = () => {
+                document.removeEventListener('DOMContentLoaded', this.appendToBody, false);
+                if (this.elems.container) {
+                    this.styleNode = injectStyle(STYLE);
+                    document.body.appendChild(this.elems.container);
+                }
+            };
+            this.settings = this.prepareSettings();
+            if (typeof window === 'undefined') {
+                return;
+            }
+            window.addEventListener('error', this.onerror, false);
+            window.addEventListener('unhandledrejection', this.onunhandledrejection, false);
+            document.addEventListener('securitypolicyviolation', this.onsecuritypolicyviolation, false);
+        }
+        destruct() {
+            var _a;
+            window.removeEventListener('error', this.onerror, false);
+            window.removeEventListener('unhandledrejection', this.onunhandledrejection, false);
+            document.removeEventListener('securitypolicyviolation', this.onsecuritypolicyviolation, false);
+            document.removeEventListener('DOMContentLoaded', this.appendToBody, false);
+            if (document.body && this.elems.container) {
+                document.body.removeChild(this.elems.container);
+            }
+            this.state.errorBuffer = [];
+            this.elems = {};
+            if (this.styleNode) {
+                (_a = this.styleNode.parentNode) === null || _a === void 0 ? void 0 : _a.removeChild(this.styleNode);
+                this.styleNode = undefined;
+            }
+        }
+        setSettings(settings) {
+            this.settings = this.prepareSettings(settings);
+            if (this.state.appended) {
+                this.updateUI();
+            }
+        }
+        /**
+         * Show error panel with transmitted error.
+         */
+        show(error) {
+            if (!error) {
+                this.showUI();
+                return;
+            }
+            if (typeof error === 'string') {
+                this.pushError({ message: error });
+            }
+            else {
+                this.pushError(typeof error === 'object' ?
+                    error :
+                    new Error(error));
+            }
+        }
+        /**
+         * Hide error panel.
+         */
+        hide() {
+            if (this.elems.container) {
+                this.elems.container.className = buildElemClass('', {
+                    size: this.settings.size,
+                    hidden: true
+                });
+            }
+        }
+        /**
+         * Clear error panel.
+         */
+        clear() {
+            this.state.errorBuffer = [];
+            this.state.detailed = false;
+            this.setCurrentError(0);
+        }
+        /**
+         * Toggle view (shortly/detail).
+         */
+        toggleView() {
+            this.state.detailed = !this.state.detailed;
+            this.updateUI();
+        }
+        prepareSettings(rawSettings) {
+            const settings = rawSettings || {};
+            return {
+                size: settings.size || 'normal',
+                reportUrl: settings.reportUrl || '',
+                templateDetailedMessage: settings.templateDetailedMessage || '',
+            };
+        }
+        pushError(error) {
+            this.state.errorBuffer.push(error);
+            this.state.errorIndex = this.state.errorBuffer.length - 1;
+            this.updateUI();
+        }
+        appendUI() {
+            const container = document.createElement('div');
+            container.className = buildElemClass('', {
+                size: this.settings.size,
+            });
+            this.elems.container = container;
+            this.elems.close = createElem({
+                name: 'close',
+                props: {
+                    innerText: '×',
+                    onclick: () => {
+                        this.hide();
+                    }
+                },
+                container
+            });
+            this.elems.title = createElem({
+                name: 'title',
+                props: {
+                    innerText: this.getTitle()
+                },
+                container
+            });
+            const body = createElem({
+                name: 'body',
+                container
+            });
+            this.elems.body = body;
+            this.elems.message = createElem({
+                name: 'message',
+                props: {
+                    onclick: () => {
+                        this.toggleView();
+                    }
+                },
+                container: body
+            });
+            this.elems.filename = createElem({
+                name: 'filename',
+                container: body
+            });
+            this.createActions(body);
+            if (document.body) {
+                document.body.appendChild(container);
+                this.styleNode = injectStyle(STYLE);
+            }
+            else {
+                document.addEventListener('DOMContentLoaded', this.appendToBody, false);
+            }
+        }
+        createActions(container) {
+            const actions = createElem({
+                name: 'actions',
+                container
+            });
+            this.elems.actions = actions;
+            createElem({
+                tag: 'input',
+                name: 'copy',
+                props: {
+                    type: 'button',
+                    value: 'Copy',
+                    onclick: () => {
+                        const error = this.getCurrentError();
+                        copyTextToClipboard(this.getDetailedMessage(error));
+                    }
+                },
+                container: actions
+            });
+            const reportLink = createElem({
+                tag: 'a',
+                name: 'report-link',
+                props: {
+                    href: '',
+                    target: '_blank'
+                },
+                container: actions
+            });
+            this.elems.reportLink = reportLink;
+            this.elems.report = createElem({
+                tag: 'input',
+                name: 'report',
+                props: {
+                    type: 'button',
+                    value: 'Report'
+                },
+                container: reportLink
+            });
+            this.createArrows(actions);
+        }
+        createArrows(container) {
+            const arrows = createElem({
+                tag: 'span',
+                name: 'arrows',
+                container
+            });
+            this.elems.arrows = arrows;
+            this.elems.prev = createElem({
+                tag: 'input',
+                name: 'prev',
+                props: {
+                    type: 'button',
+                    value: '←',
+                    onclick: () => {
+                        this.setCurrentError(this.state.errorIndex - 1);
+                    }
+                },
+                container: arrows
+            });
+            this.elems.num = createElem({
+                tag: 'span',
+                name: 'num',
+                props: {
+                    innerText: this.state.errorIndex + 1
+                },
+                container: arrows
+            });
+            this.elems.next = createElem({
+                tag: 'input',
+                name: 'next',
+                props: {
+                    type: 'button',
+                    value: '→',
+                    onclick: () => {
+                        this.setCurrentError(this.state.errorIndex + 1);
+                    }
+                },
+                container: arrows
+            });
+        }
+        getDetailedMessage(error) {
+            let text = [
+                ['Title', this.getTitle(error)],
+                ['Message', getMessage(error)],
+                ['Filename', getFilenameWithPosition(error)],
+                ['Stack', getStack(error)],
+                ['Page url', window.location.href],
+                ['Refferer', document.referrer],
+                ['User-agent', navigator.userAgent],
+                ['Screen size', getScreenSize$1()],
+                ['Screen orientation', getScreenOrientation()],
+                ['Cookie enabled', navigator.cookieEnabled]
+            ].map(item => (item[0] + ': ' + item[1] + '\n')).join('');
+            if (this.settings.templateDetailedMessage) {
+                text = this.settings.templateDetailedMessage.replace(/\{message\}/, text);
+            }
+            return text;
+        }
+        getTitle(error) {
+            return error ? (error.title || 'Error') : 'No errors';
+        }
+        showUI() {
+            if (this.elems.container) {
+                this.elems.container.className = buildElemClass('', {
+                    size: this.settings.size,
+                });
+            }
+        }
+        hasStack() {
+            const error = this.getCurrentError();
+            return error && (error.stack || error.filename);
+        }
+        getCurrentError() {
+            return this.state.errorBuffer[this.state.errorIndex];
+        }
+        setCurrentError(index) {
+            const length = this.state.errorBuffer.length;
+            let newIndex = index;
+            if (newIndex > length - 1) {
+                newIndex = length - 1;
+            }
+            else if (newIndex < 0) {
+                newIndex = 0;
+            }
+            this.state.errorIndex = newIndex;
+            this.updateUI();
+        }
+        updateUI() {
+            const error = this.getCurrentError();
+            if (!this.state.appended) {
+                this.state.appended = true;
+                this.appendUI();
+            }
+            if (this.elems.body) {
+                this.elems.body.className = buildElemClass('body', {
+                    detailed: this.state.detailed,
+                    'no-stack': !this.hasStack(),
+                    hidden: !error,
+                });
+            }
+            if (this.elems.title) {
+                this.elems.title.innerText = this.getTitle(error);
+                this.elems.title.className = buildElemClass('title', {
+                    'no-errors': !error
+                });
+            }
+            if (this.elems.message) {
+                this.elems.message.innerText = getMessage(error);
+            }
+            if (this.elems.actions) {
+                this.elems.actions.className = buildElemClass('actions', { hidden: !error });
+            }
+            if (this.elems.reportLink) {
+                this.elems.reportLink.className = buildElemClass('report', {
+                    hidden: !this.settings.reportUrl
+                });
+            }
+            if (this.elems.reportLink) {
+                this.elems.reportLink.href = this.settings.reportUrl
+                    .replace(/\{title\}/, encodeURIComponent(getMessage(error)))
+                    .replace(/\{body\}/, encodeURIComponent(this.getDetailedMessage(error)));
+            }
+            if (this.elems.filename) {
+                this.elems.filename.className = buildElemClass('filename', { hidden: !error });
+                this.elems.filename.innerText = getStack(error) || getFilenameWithPosition(error);
+            }
+            this.updateArrows(error);
+            this.showUI();
+        }
+        updateArrows(error) {
+            const length = this.state.errorBuffer.length;
+            const errorIndex = this.state.errorIndex;
+            if (this.elems.arrows) {
+                this.elems.arrows.className = buildElemClass('arrows', { hidden: !error });
+            }
+            if (this.elems.prev) {
+                this.elems.prev.disabled = !errorIndex;
+            }
+            if (this.elems.num) {
+                this.elems.num.innerText = (errorIndex + 1) + '\u2009/\u2009' + length;
+            }
+            if (this.elems.next) {
+                this.elems.next.disabled = errorIndex === length - 1;
+            }
+        }
+    }
+
+    const showJSError = new ShowJSError();
+    if (typeof window !== 'undefined') {
+        window.showJSError = showJSError;
+    }
+
+    var hasDocument = typeof document !== 'undefined';
+    var hasWindow = typeof window !== 'undefined';
+    var hasNavigator = typeof navigator != 'undefined';
+    var hasScreen = typeof screen != 'undefined';
+    function getCharset() {
+        return hasDocument && typeof document.charset === 'string' ?
+            document.charset.toLowerCase() :
+            '';
+    }
+    function getPageUrl() {
+        return hasWindow && window.location ? window.location.href : '';
+    }
+    function getReferrer() {
+        return hasDocument ? document.referrer : '';
+    }
+    function getTitle() {
+        return hasDocument ? document.title : '';
+    }
+    function cookieEnabled() {
+        return hasNavigator ? navigator.cookieEnabled : false;
+    }
+    function getScreenSize() {
+        return hasScreen ? [
+            screen.width,
+            screen.height,
+            screen.colorDepth
+        ].join('x') : '';
+    }
+    var DEFAULT_DEVICE_PIXEL_RATIO = 1;
+    function getDevicePixelRatio() {
+        return hasWindow ?
+            (window.devicePixelRatio || DEFAULT_DEVICE_PIXEL_RATIO) :
+            DEFAULT_DEVICE_PIXEL_RATIO;
+    }
+    function getClientSize() {
+        return hasWindow ? [
+            window.innerWidth,
+            window.innerHeight
+        ].join('x') : '';
+    }
+
+    function truncate(str, len) {
+        return (str || '').slice(0, len);
+    }
+
+    function getRandom() {
+        return Math.floor(Math.random() * (1 << 31 - 1));
+    }
+
+    function getSeconds() {
+        return Math.round(Date.now() / 1000);
+    }
+
+    var MAX_TITLE_LEN = 512;
+    function addParam(result, name, value) {
+        if (value || value === 0) {
+            result.push(name + ':' + (value === true ? '1' : value));
+        }
+    }
+    function getBrowserInfo(params, title) {
+        var result = [];
+        if (params) {
+            Object.keys(params).forEach(function (key) { return addParam(result, key, params[key]); });
+        }
+        addParam(result, 'rn', getRandom());
+        addParam(result, 'c', cookieEnabled());
+        addParam(result, 's', getScreenSize());
+        addParam(result, 'sk', getDevicePixelRatio());
+        addParam(result, 'w', getClientSize());
+        addParam(result, 'en', getCharset());
+        var time = getSeconds();
+        addParam(result, 'et', time);
+        addParam(result, 'st', time);
+        addParam(result, 't', truncate(title, MAX_TITLE_LEN));
+        return result.join(':');
+    }
+
+    function queryStringify(params) {
+        return Object.keys(params)
+            .filter(function (key) { return params[key] || params[key] === 0; })
+            .map(function (key) { return encodeURIComponent(key) + '=' + encodeURIComponent(params[key]); })
+            .join('&');
+    }
+    var MAX_URL_LEN = 1024;
+    function prepareUrl(url) {
+        return truncate(url, MAX_URL_LEN);
+    }
+
+    function sendData(counterId, queryParams) {
+        var url = 'https://mc.yandex.ru/watch/' + counterId + '?' + queryStringify(queryParams);
+        var hasBeacon = typeof navigator !== 'undefined' && navigator.sendBeacon;
+        if (!hasBeacon || !navigator.sendBeacon(url, ' ')) {
+            if (typeof fetch !== 'undefined') {
+                fetch(url, { credentials: 'include' }).catch(function () { });
+            }
+            else if (typeof Image !== 'undefined') {
+                new Image().src = url;
+            }
+        }
+    }
+
+    function hitExt(hitExtParams) {
+        var browserInfo = hitExtParams.browserInfo, counterId = hitExtParams.counterId, pageParams = hitExtParams.pageParams;
+        var data = {
+            'browser-info': getBrowserInfo(browserInfo, pageParams.title),
+            rn: getRandom(),
+            ut: pageParams.ut
+        };
+        if (pageParams.url) {
+            data['page-url'] = prepareUrl(pageParams.url);
+        }
+        if (pageParams.referrer) {
+            data['page-ref'] = prepareUrl(pageParams.referrer);
+        }
+        sendData(counterId, data);
+    }
+    /**
+     * Отправка хита.
+     *
+     * @param counterId - Номер счётчика.
+     * @param hitParams -  Параметры страницы.
+     * @param userVars - Параметры визитов.
+     *
+     * @example
+     * hit('123456');
+     *
+     * hit('123456', {
+     *     referer: document.referer,
+     *     title: document.title,
+     *     url: window.location.href
+     * }, {
+     *     myParam: 'value'
+     * });
+     */
+    function hit(counterId, hitParams, params) {
+        var referrer = getReferrer();
+        var title = getTitle();
+        var url = getPageUrl();
+        hitExt({
+            browserInfo: { pv: true, ar: true },
+            counterId: counterId,
+            pageParams: {
+                referrer: referrer,
+                title: title,
+                url: url
+            },
+            params: params
+        });
+    }
+
+    function withInstallApp() {
+        window.addEventListener('beforeinstallprompt', function (e) {
+        });
+    }
+
+    function addClassName(elem, className) {
+        if (elem.classList) {
+            elem.classList.add(className);
+        }
+        else {
+            elem.className += (elem.className ? ' ' : '') + className;
+        }
+    }
+
+    function handleHover() {
+        document.removeEventListener('mousemove', handleHover);
+        addClassName(document.body, 'hover_yes');
+    }
+    function addHoverOnBody() {
+        document.addEventListener('mousemove', handleHover);
+    }
+
+    var isSsr = typeof window === 'undefined';
+
+    var pageId = '';
+    function setPageId(id) {
+        pageId = id;
+    }
+    function getPageId() {
+        return pageId;
+    }
+
+    var langsData = [
+        {
+            name: 'EN',
+            value: 'en',
+            default: true
+        },
+        {
+            name: 'RU',
+            value: 'ru',
+        },
+    ];
+    var defaultLang = langsData.filter(function (item) { return Boolean(item.default); })[0].value;
+
+    var keyset$1 = {
+        'Supported': {
+            'en': 'Supported',
+            'ru': 'Поддерживаемые'
+        },
+        'Unsupported': {
+            'en': 'Unsupported',
+            'ru': 'Не поддерживаемые'
+        },
+        'Size': {
+            'en': 'Size',
+            'ru': 'Размер'
+        },
+        'Color depth': {
+            'en': 'Color depth',
+            'ru': 'Глубина цвета'
+        },
+        'Yes': {
+            'en': 'Yes',
+            'ru': 'Да'
+        },
+        'No': {
+            'en': 'No',
+            'ru': 'Нет'
+        },
+        'Warning': {
+            'en': 'Warning',
+            'ru': 'Предупреждение'
+        },
+        'Screens': {
+            'en': 'Screens',
+            'ru': 'Экраны'
+        },
+        'Screen': {
+            'en': 'Screen',
+            'ru': 'Экран'
+        },
+        'Aspect ratio': {
+            'en': 'Aspect ratio',
+            'ru': 'Соотношение сторон'
+        },
+        'Primary': {
+            'en': 'Primary',
+            'ru': 'Основной'
+        },
+        'Internal': {
+            'en': 'Internal',
+            'ru': 'Внутренний'
+        },
+        'bit': {
+            'en': 'bit',
+            'ru': 'бит'
+        },
+        'Not detected': {
+            'en': 'Not detected',
+            'ru': 'Не обнаружено'
+        },
+        'Request': {
+            'en': 'Request',
+            'ru': 'Запрос'
+        },
+        'Details': {
+            'en': 'Details',
+            'ru': 'Подробности'
+        },
+        'GB': {
+            'en': 'GB',
+            'ru': 'ГБ'
+        },
+        'unsupported': {
+            'en': 'unsupported',
+            'ru': 'не поддерживается'
+        },
+        'Name': {
+            'en': 'Name',
+            'ru': 'Название'
+        },
+        'Stop': {
+            'en': 'Stop',
+            'ru': 'Стоп'
+        },
+        'Specify': {
+            'en': 'Specify',
+            'ru': 'Уточнить'
+        },
+        'Additionally': {
+            'en': 'Additionally',
+            'ru': 'Дополнительно'
+        },
+        'RAM': {
+            'en': 'RAM',
+            'ru': 'ОЗУ'
+        },
+        'Hz': {
+            'en': 'Hz',
+            'ru': 'Гц'
+        },
+        'Input': {
+            'en': 'Input',
+            'ru': 'Ввод'
+        },
+        'Reset': {
+            'en': 'Reset',
+            'ru': 'Сброс'
+        },
+        'Check device online': {
+            'en': 'Check device online',
+            'ru': 'Проверь устройство онлайн'
+        },
+        'Report a bug': {
+            'en': 'Report a bug',
+            'ru': 'Сообщить об ошибке'
+        },
+        'Sample rate': {
+            'en': 'Sample rate',
+            'ru': 'Частота дискретизации'
+        },
+        'Sample size': {
+            'en': 'Sample size',
+            'ru': 'Размер семпла'
+        },
+        'Channel count': {
+            'en': 'Channel count',
+            'ru': 'Количество каналов'
+        },
+        'Auto gain control': {
+            'en': 'Auto gain control',
+            'ru': 'Автоматическая регулировка усиления'
+        },
+        'Latency': {
+            'en': 'Latency',
+            'ru': 'Задержка'
+        },
+        'Microphone name': {
+            'en': 'Microphone name',
+            'ru': 'Название микрофона'
+        },
+        'Noise suppression': {
+            'en': 'Noise suppression',
+            'ru': 'Шумоподавление'
+        },
+        'Echo cancellation': {
+            'en': 'Echo cancellation',
+            'ru': 'Эхоподавление'
+        },
+        'Background blur': {
+            'en': 'Background blur',
+            'ru': 'Размытие фона'
+        },
+        'hr.': {
+            'en': 'hr.',
+            'ru': 'ч.'
+        },
+        'min.': {
+            'en': 'min.',
+            'ru': 'мин.'
+        },
+        'sec.': {
+            'en': 'sec.',
+            'ru': 'с.'
+        },
+        'Media Devices API is not supported.': {
+            'en': 'Media Devices API is not supported.',
+            'ru': 'Media Devices API не поддерживается.'
+        },
+        'MIME type': {
+            'en': 'MIME type',
+            'ru': 'MIME тип'
+        },
+        'Types of testing': {
+            'en': 'Types of testing',
+            'ru': 'Виды тестирования'
+        },
+        'Light theme': {
+            'en': 'Light theme',
+            'ru': 'Светлая тема'
+        },
+        'Dark theme': {
+            'en': 'Dark theme',
+            'ru': 'Тёмная тема'
+        },
+    };
+
+    var config = {
+        yaMapsApiKey: '82d7a38b-bad1-4b72-b66c-bfdaf838ba66',
+        showJSErrorRepportUrl: 'https://github.com/hcodes/show-js-error/issues/new?title={title}&body={body}',
+        metrikaCounterId: '95998062', // 97747983
+    };
+
+    function getPreferredColorScheme() {
+        if (window.matchMedia) {
+            if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+                return 'light';
+            }
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                return 'dark';
+            }
+        }
+        return;
+    }
+
+    var localStorageInMemory = {};
+    function setLocalStorageItem(key, value) {
+        var ls = window.localStorage;
+        localStorageInMemory[key] = String(value);
+        try {
+            ls.setItem(key, value);
+        }
+        catch ( /* */_a) { /* */ }
+    }
+    function getLocalStorageItem(key) {
+        var ls = window.localStorage;
+        try {
+            return ls.getItem(key);
+        }
+        catch (_a) {
+            return localStorageInMemory[key];
+        }
+    }
+
+    var Signal = /** @class */ (function () {
+        function Signal() {
+            this.listeners = [];
+        }
+        Signal.prototype.addListener = function (callback) {
+            if (callback) {
+                this.listeners.push(callback);
+            }
+        };
+        Signal.prototype.removeListener = function (callback) {
+            this.listeners = this.listeners.filter(function (item) { return callback !== item; });
+        };
+        Signal.prototype.trigger = function (data) {
+            this.listeners.forEach(function (item) { return item(data); });
+        };
+        Signal.prototype.clearListeners = function () {
+            this.listeners.length = 0;
+        };
+        return Signal;
+    }());
+
+    var PAGE_THEME_LOCAL_STORAGE_KEY = 'page-theme';
+    var DEFAULT_PAGE_THEME = 'dark';
+    var pageTheme = DEFAULT_PAGE_THEME;
+    function setPageTheme(theme) {
+        if (theme === 'light') {
+            document.documentElement.classList.add('page-theme_light');
+            document.documentElement.classList.remove('page-theme_dark');
+        }
+        else {
+            document.documentElement.classList.add('page-theme_dark');
+            document.documentElement.classList.remove('page-theme_light');
+        }
+        pageTheme = theme;
+    }
+    function savePageTheme(theme) {
+        setLocalStorageItem(PAGE_THEME_LOCAL_STORAGE_KEY, theme);
+    }
+    function wasSavedPageTheme() {
+        return Boolean(getLocalStorageItem(PAGE_THEME_LOCAL_STORAGE_KEY));
+    }
+    function getPageTheme() {
+        return pageTheme;
+    }
+    var pageThemeChangeSignal = new Signal();
+    function addPageThemeListener(callback) {
+        pageThemeChangeSignal.addListener(callback);
+    }
+    function removePageThemeListener(callback) {
+        pageThemeChangeSignal.removeListener(callback);
+    }
+    function initPageTheme() {
+        if (typeof window !== 'undefined' && window.matchMedia) {
+            var query = window.matchMedia('(prefers-color-scheme: dark)');
+            query.addEventListener('change', function () {
+                var theme = getPreferredColorScheme() || DEFAULT_PAGE_THEME;
+                pageThemeChangeSignal.trigger(theme);
+            });
+            var theme = getLocalStorageItem(PAGE_THEME_LOCAL_STORAGE_KEY) || getPreferredColorScheme();
+            if (theme && isCorrectTheme(theme)) {
+                setPageTheme(theme);
+            }
+        }
+    }
+    function isCorrectTheme(value) {
+        return value === 'light' || value === 'dark';
+    }
+
+    var _a;
+    addI18nKeyset(keyset$1);
+    function getLang() {
+        var lang = window.__appData__.lang || getLangFromNavigator();
+        var result = langsData.filter(function (item) { return item.value === lang; });
+        if (!result.length) {
+            lang = defaultLang;
+        }
+        return lang;
+    }
+    function getLangFromNavigator() {
+        return ((navigator.language || '').split('-')[0] || defaultLang);
+    }
+    setI18nLangs(langsData);
+    addI18nKeyset(keyset$1);
+    if (!isSsr) {
+        showJSError.setSettings({
+            reportUrl: config.showJSErrorRepportUrl,
+        });
+        hit(config.metrikaCounterId);
+        var lang = getLang();
+        setI18nLang(lang);
+        setPageId(window.__appData__.pageId);
+        withInstallApp();
+        addHoverOnBody();
+        initPageTheme();
+        // ally
+        (_a = document.documentElement) === null || _a === void 0 ? void 0 : _a.setAttribute('lang', lang);
+    }
+
+    function block(name) {
+        return function (elem, mods) {
+            if (!elem) {
+                return name;
+            }
+            var className = name;
+            if (typeof elem === 'string') {
+                className = name + '__' + elem;
+                if (mods) {
+                    className = buildMods(className, mods);
+                }
+                return className;
+            }
+            if (elem) {
+                className = buildMods(className, elem);
+            }
+            return className;
+        };
+    }
+    function buildMods(className, mods) {
+        var result = className;
+        Object.keys(mods).forEach(function (modName) {
+            var modValue = mods[modName];
+            if (modValue === false || modValue === null || modValue === undefined || modValue === '') {
+                return;
+            }
+            result += ' ' + className + '_';
+            if (mods[modName] === true) {
+                result += modName;
+            }
+            else {
+                result += modName + '_' + modValue;
+            }
+        });
+        return result;
+    }
+
+    function classname() {
+        var values = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            values[_i] = arguments[_i];
+        }
+        return values.filter(function (item) {
+            return item !== null && item !== undefined;
+        }).join(' ');
+    }
+
+    var b$k = block('link');
+    function Link(props) {
+        var className = classname(props.class, b$k({ theme: props.theme }));
+        return (_("a", { target: props.target, class: className, href: props.href }, props.children));
+    }
+
+    var t,r,u,i,o=0,f=[],c=l$1,e=c.__b,a=c.__r,v=c.diffed,l=c.__c,m=c.unmount,s=c.__;function d(n,t){c.__h&&c.__h(r,n,o||t),o=0;var u=r.__H||(r.__H={__:[],__h:[]});return n>=u.__.length&&u.__.push({}),u.__[n]}function h(n){return o=1,p(D,n)}function p(n,u,i){var o=d(t++,2);if(o.t=n,!o.__c&&(o.__=[D(void 0,u),function(n){var t=o.__N?o.__N[0]:o.__[0],r=o.t(t,n);t!==r&&(o.__N=[r,o.__[1]],o.__c.setState({}));}],o.__c=r,!r.u)){var f=function(n,t,r){if(!o.__c.__H)return !0;var u=o.__c.__H.__.filter(function(n){return !!n.__c});if(u.every(function(n){return !n.__N}))return !c||c.call(this,n,t,r);var i=!1;return u.forEach(function(n){if(n.__N){var t=n.__[0];n.__=n.__N,n.__N=void 0,t!==n.__[0]&&(i=!0);}}),!(!i&&o.__c.props===n)&&(!c||c.call(this,n,t,r))};r.u=!0;var c=r.shouldComponentUpdate,e=r.componentWillUpdate;r.componentWillUpdate=function(n,t,r){if(this.__e){var u=c;c=void 0,f(n,t,r),c=u;}e&&e.call(this,n,t,r);},r.shouldComponentUpdate=f;}return o.__N||o.__}function y(n,u){var i=d(t++,3);!c.__s&&C(i.__H,u)&&(i.__=n,i.i=u,r.__H.__h.push(i));}function A(n){return o=5,T(function(){return {current:n}},[])}function T(n,r){var u=d(t++,7);return C(u.__H,r)&&(u.__=n(),u.__H=r,u.__h=n),u.__}function q(n,t){return o=8,T(function(){return n},t)}function j(){for(var n;n=f.shift();)if(n.__P&&n.__H)try{n.__H.__h.forEach(z),n.__H.__h.forEach(B),n.__H.__h=[];}catch(t){n.__H.__h=[],c.__e(t,n.__v);}}c.__b=function(n){r=null,e&&e(n);},c.__=function(n,t){n&&t.__k&&t.__k.__m&&(n.__m=t.__k.__m),s&&s(n,t);},c.__r=function(n){a&&a(n),t=0;var i=(r=n.__c).__H;i&&(u===r?(i.__h=[],r.__h=[],i.__.forEach(function(n){n.__N&&(n.__=n.__N),n.i=n.__N=void 0;})):(i.__h.forEach(z),i.__h.forEach(B),i.__h=[],t=0)),u=r;},c.diffed=function(n){v&&v(n);var t=n.__c;t&&t.__H&&(t.__H.__h.length&&(1!==f.push(t)&&i===c.requestAnimationFrame||((i=c.requestAnimationFrame)||w)(j)),t.__H.__.forEach(function(n){n.i&&(n.__H=n.i),n.i=void 0;})),u=r=null;},c.__c=function(n,t){t.some(function(n){try{n.__h.forEach(z),n.__h=n.__h.filter(function(n){return !n.__||B(n)});}catch(r){t.some(function(n){n.__h&&(n.__h=[]);}),t=[],c.__e(r,n.__v);}}),l&&l(n,t);},c.unmount=function(n){m&&m(n);var t,r=n.__c;r&&r.__H&&(r.__H.__.forEach(function(n){try{z(n);}catch(n){t=n;}}),r.__H=void 0,t&&c.__e(t,r.__v));};var k="function"==typeof requestAnimationFrame;function w(n){var t,r=function(){clearTimeout(u),k&&cancelAnimationFrame(t),setTimeout(n);},u=setTimeout(r,100);k&&(t=requestAnimationFrame(r));}function z(n){var t=r,u=n.__c;"function"==typeof u&&(n.__c=void 0,u()),r=t;}function B(n){var t=r;n.__c=n.__(),r=t;}function C(n,t){return !n||n.length!==t.length||t.some(function(t,r){return t!==n[r]})}function D(n,t){return "function"==typeof t?t(n):t}
+
+    var b$j = block('lang-icon');
+    function LangIcon(props) {
+        return (_("span", { class: b$j({ lang: props.lang }) }));
+    }
+
+    var b$i = block('lang-switcher-item');
+    function LangSwitcherItem(props) {
+        var value = props.value, name = props.name, selected = props.selected, url = props.url;
+        return (_("li", { class: b$i() },
+            _(Link, { href: url },
+                _("span", null,
+                    _(LangIcon, { lang: value }),
+                    " ",
+                    name,
+                    selected ? ' ✓' : ''))));
+    }
+
+    function getPagePath(id, lang) {
+        var idPath = id === 'index' ? '' : (id + '/');
+        return "/".concat(lang || getI18nLang(), "/").concat(idPath);
+    }
+
+    var b$h = block('lang-switcher');
+    function LangSwitcher() {
+        var _a = h(false), visible = _a[0], setVisible = _a[1];
+        var currentLang = getI18nLang();
+        var langs = getI18nLangs();
+        var ref = A(null);
+        var handleClick = q(function () {
+            setVisible(true);
+        }, [setVisible]);
+        y(function () {
+            var handleDocumentClick = function (event) {
+                if (event.target && ref.current) {
+                    var target = event.target;
+                    if (ref.current.contains && !ref.current.contains(target)) {
+                        setVisible(false);
+                    }
+                }
+            };
+            var handleDocumentKeydown = function (event) {
+                if (event.code === 'Escape') {
+                    setVisible(false);
+                }
+            };
+            document.addEventListener('click', handleDocumentClick, false);
+            document.addEventListener('keydown', handleDocumentKeydown, false);
+            return function () {
+                document.removeEventListener('click', handleDocumentClick, false);
+                document.removeEventListener('keydown', handleDocumentKeydown, false);
+            };
+        }, [setVisible]);
+        var currentLangItem = langs.filter(function (item) { return currentLang === item.value; })[0];
+        return (_("div", { ref: ref, class: b$h() },
+            _("div", { class: b$h('current'), onClick: handleClick },
+                _(LangIcon, { lang: currentLangItem.value }),
+                " ",
+                currentLangItem.name),
+            _("menu", { class: b$h('popup', { visible: visible }) }, langs.map(function (item) {
+                var url = getPagePath(getPageId(), item.value);
+                return (_(LangSwitcherItem, { key: item.value, name: item.name, value: item.value, selected: currentLang === item.value, url: url }));
+            }))));
+    }
+
+    var b$g = block('footer');
+    function Footer() {
+        return (_("footer", { class: b$g() },
+            _("div", { class: b$g('item', { report: true }) },
+                _(Link, { theme: "page-theme", target: "_blank", href: "https://github.com/vvideo/caniwatchvideo/issues/new" }, i18n('Report a bug'))),
+            _("div", { class: b$g('item') },
+                _(LangSwitcher, null)),
+            _("div", { class: b$g('item') }, "\u00A9 Vvideo")));
+    }
+
+    var b$f = block('main-menu');
+    function MainMenu(props) {
+        return (_("nav", { class: b$f() },
+            _("ul", { class: b$f('list') }, props.items.filter(function (item) { return !item.hidden; }).map(function (item) {
+                return (_("li", { class: b$f('item', { selected: item.selected }), key: item.id },
+                    _("a", { class: b$f('link'), href: getPagePath(item.id) }, item.title),
+                    " "));
+            }))));
+    }
+
+    var pages = [
+        {
+            "header": {
+                "en": "Check device online",
+                "ru": "Проверь устройство онлайн"
+            },
+            "menuTitle": {
+                "en": "",
+                "ru": ""
+            },
+            "description": {
+                "en": "Online testing and viewing detailed information about devices in your browser",
+                "ru": "Тестирование и просмотр детальной информации об устройствах в вашем браузере онлайн"
+            },
+            "keywords": {
+                "en": "audio, video, mouse, keyboard, gamepad, geo, gpu, battery, screen, midi, usb, mic, camera",
+                "ru": "аудио, видео, мышь, клавиатура, джойстик, гео, gpu, батарея, экран, миди, юсб, микрофон, веб-камера"
+            },
+            "id": "index",
+            "hidden": true,
+            "isIndex": true
+        },
+        {
+            "header": {
+                "en": "Check Video",
+                "ru": "Проверить видео"
+            },
+            "menuTitle": {
+                "en": "Video",
+                "ru": "Видео"
+            },
+            "id": "video",
+            "indexMenuList": {
+                "en": [
+                    "Can I watch 4K video? ",
+                    "Supported video codecs",
+                    "Supported types of DRM"
+                ],
+                "ru": [
+                    "Могу ли я смотреть 4К видео?",
+                    "Поддерживаемые видеокодеки",
+                    "Поддерживаемые типы DRM"
+                ]
+            }
+        },
+        {
+            "header": {
+                "en": "Check Audio",
+                "ru": "Проверить аудио"
+            },
+            "menuTitle": {
+                "en": "Audio",
+                "ru": "Аудио"
+            },
+            "description": {
+                "en": "View information about audio codecs and multichannel audio support in your browser",
+                "ru": "Посмотреть информацию о поддержке аудиокодеков и многоканального звука в вашем браузере"
+            },
+            "keywords": {
+                "en": "check dolby atmos, check dolby digital, check surround sound, check vibration, check speech syntesis",
+                "ru": "проверить dolby atmos, проверить dolby digital, проверить многоканальый звук, аудиокодеки, проверить вибрацию, синтез речи"
+            },
+            "id": "audio",
+            "indexMenuList": {
+                "en": [
+                    "Can I listen to surround sound?",
+                    "Supported audio codecs",
+                    "Speech Synthesis, Vibration"
+                ],
+                "ru": [
+                    "Могу ли я услышать многоканальный звук?",
+                    "Поддерживаемые аудиокодеки",
+                    "Синтез речи, Вибрация"
+                ]
+            }
+        },
+        {
+            "header": {
+                "en": "Check Screen",
+                "ru": "Проверить экран"
+            },
+            "menuTitle": {
+                "en": "Screen",
+                "ru": "Экран"
+            },
+            "description": {
+                "en": "View screen resolution of monitor, laptop, smartphone or tablet online, support for multiple monitors",
+                "ru": "Посмотреть разрешение экрана монитора, ноутбука, смартфона или планшета онлайн, поддержка нескольких мониторов"
+            },
+            "keywords": {
+                "en": "logical size, actual size, resolution screen, hdr, device pixel ratio, max touch points, color depth, aspect ratio, color spaces, orientation, frame rate",
+                "ru": "разрешение экрана, логический и фактический размер, HDR, соотношение сторон, глубина цвета, ориентация, частота обновления, цветовые пространства"
+            },
+            "id": "screen",
+            "indexMenuList": {
+                "en": [
+                    "Screen Size, Aspect ratio, Frame rate",
+                    "HDR support, Color depth, Color spaces",
+                    "Multi-screen support"
+                ],
+                "ru": [
+                    "Размер экрана, Соотношение сторон, Частота обновления",
+                    "Поддержка HDR, Глубина цвета, Цветовые пространства",
+                    "Поддержка нескольких экранов"
+                ]
+            }
+        },
+        {
+            "header": {
+                "en": "Check Webcamera",
+                "ru": "Проверить веб-камеру"
+            },
+            "menuTitle": {
+                "en": "Webcamera",
+                "ru": "Веб-камера"
+            },
+            "description": {
+                "en": "Online testing of webcam with or without microphone",
+                "ru": "Онлайн-тестирование веб-камеры с микрофоном или без микрофона"
+            },
+            "keywords": {
+                "en": "web camera, microphone, web camera with microphone, web camera without microphone, low resolution of camera, high resolution of camera, high rate of camera",
+                "ru": "веб-камера, микрофон, веб-камера с микрофоном, веб-камера без микрофона, веб-камера с низким разрешением, веб-камера с высоким разрешением, веб-камера с высокой частотой обновления"
+            },
+            "id": "camera",
+            "indexMenuList": {
+                "en": [
+                    "Testing webcam",
+                    "Information about webcam",
+                    "Low and high resolution webcam"
+                ],
+                "ru": [
+                    "Тестирование веб-камеры",
+                    "Расширенная информация о веб-камере",
+                    "Низкое и высокое разрешение веб-камеры"
+                ]
+            }
+        },
+        {
+            "header": {
+                "en": "Check Microphone",
+                "ru": "Проверить микрофон"
+            },
+            "menuTitle": {
+                "en": "Microphone",
+                "ru": "Микрофон"
+            },
+            "description": {
+                "en": "Online testing of microphone with ability to hear yourself",
+                "ru": "Онлайн-тестирование микрофона с возможностью слышать себя"
+            },
+            "keywords": {
+                "en": "microphone, hear yourself, auto gain control, channel count, echo cancellation, noise suppression, sample rate, sample size",
+                "ru": "микрофон, слышать себя, автоматическая регулировка усиления, количество каналов, эхоподавление, шумоподавление, размер семпла"
+            },
+            "id": "mic",
+            "indexMenuList": {
+                "en": [
+                    "Testing microphone",
+                    "Information about microphone",
+                    "Ability to hear yourself"
+                ],
+                "ru": [
+                    "Тестирование микрофона",
+                    "Информация о микрофоне",
+                    "Возможность слышать себя"
+                ]
+            }
+        },
+        {
+            "header": {
+                "en": "Check GPU",
+                "ru": "Проверить GPU"
+            },
+            "menuTitle": {
+                "en": "GPU",
+                "ru": "GPU"
+            },
+            "id": "gpu",
+            "indexMenuList": {
+                "en": [
+                    "Detailed information about GPU",
+                    "GPU name and vendor",
+                    "WebGPU"
+                ],
+                "ru": [
+                    "Детальная информация о GPU",
+                    "Название и производитель GPU",
+                    "WebGPU"
+                ]
+            },
+            "description": {
+                "en": "View detailed information about your GPU online",
+                "ru": "Просмотр детальной информации о графическом процессоре онлайн"
+            },
+            "keywords": {
+                "en": "GPU, GPU vendor, GPU name, Lower power GPU, High power GPU",
+                "ru": "производитель GPU, название GPU, GPU, графический процессор, графический процессор с пониженной мощностью, графический процессор с повышенной мощностью"
+            }
+        },
+        {
+            "header": {
+                "en": "Check Mouse",
+                "ru": "Проверить мышку"
+            },
+            "menuTitle": {
+                "en": "Mouse",
+                "ru": "Мышь"
+            },
+            "id": "mouse",
+            "indexMenuList": {
+                "en": [
+                    "Testing mouse",
+                    "Displaying mouse button clicks",
+                    "Support for additional buttons"
+                ],
+                "ru": [
+                    "Тестирование мышки",
+                    "Отображение нажатий кнопок мышки",
+                    "Поддержка дополнительных кнопок"
+                ]
+            },
+            "description": {
+                "en": "Mouse click testing online",
+                "ru": "Тестирование нажатий кнопок мышки онлайн"
+            },
+            "keywords": {
+                "en": "left mouse click, right mouse click, middle mouse click, mouse, wheel mouse",
+                "ru": "левая кнопка мышки, правая кнопка мышки, средняя кнопка мышки, колесо прокрутки мышки"
+            }
+        },
+        {
+            "header": {
+                "en": "Check Keyboard",
+                "ru": "Проверить клавиатуру"
+            },
+            "menuTitle": {
+                "en": "Keyboard",
+                "ru": "Клавиатура"
+            },
+            "id": "keyboard",
+            "indexMenuList": {
+                "en": [
+                    "Displaying keystrokes on keyboard",
+                    "Displaying keyboard key codes",
+                    "Keyboards: Windows, Mac, MacBook, iPad"
+                ],
+                "ru": [
+                    "Отображение нажатий клавиш на клавиатуре",
+                    "Отображение кодов клавиш клавиатуры",
+                    "Клавиатуры: Windows, Mac, MacBook, iPad"
+                ]
+            },
+            "description": {
+                "en": "Online keyboard key testing",
+                "ru": "Тестирование клавиш клавиатуры онлайн"
+            },
+            "keywords": {
+                "en": "keyboard, keyboard keys, num lock, scroll lock, led indicators, CTRL, SHIT, MET",
+                "ru": "клавиатура, клавиши клавиатуры, индикаторы клавиатуры, CTRL, SHIFT, META"
+            }
+        },
+        {
+            "header": {
+                "en": "Displaying Сode of Pressed Key",
+                "ru": "Отображение кода нажатой клавиши"
+            },
+            "menuTitle": {
+                "en": "Key codes",
+                "ru": "Коды клавиш"
+            },
+            "id": "keycodes",
+            "hidden": true,
+            "description": {
+                "en": "Display keyboard key codes online",
+                "ru": "Отображение кодов клавиш клавиатуры онлайн"
+            },
+            "keywords": {
+                "en": "key codes, keydown event",
+                "ru": "Коды клавиш клавиатуры, keydown событие"
+            }
+        },
+        {
+            "header": {
+                "en": "Check Gamepad",
+                "ru": "Проверить джойстик"
+            },
+            "menuTitle": {
+                "en": "Gamepad",
+                "ru": "Джойстик"
+            },
+            "id": "gamepad",
+            "indexMenuList": {
+                "en": [
+                    "Display of joystick button presses",
+                    "Vibration check",
+                    "Joystick support: PS3, PS4, PS5, Xbox360 and others"
+                ],
+                "ru": [
+                    "Отображение нажатий кнопок джойстика",
+                    "Проверка вибрации джойстика",
+                    "Поддержка джойстиков: PS3, PS4, PS5, Xbox360 и другие"
+                ]
+            },
+            "description": {
+                "en": "Online testing joystick buttons, triggers and axes",
+                "ru": "Тестирование кнопок, триггеров и осей джойстика онлайн"
+            },
+            "keywords": {
+                "en": "gamepad axes, gamepad buttons, gamepad triggers",
+                "ru": "оси джойстика, кнопки джойстика, триггеры джойстика"
+            }
+        },
+        {
+            "header": {
+                "en": "Check Storage",
+                "ru": "Проверить хранилище"
+            },
+            "menuTitle": {
+                "en": "Storage",
+                "ru": "Хранилище"
+            },
+            "id": "storage",
+            "indexMenuList": {
+                "en": [
+                    "Types of supported storage",
+                    "Support of persistent storage",
+                    "Storage quota for origin"
+                ],
+                "ru": [
+                    "Виды поддерживаемых хранилищ",
+                    "Поддержка постоянного хранилища",
+                    "Квота хранилища на домен"
+                ]
+            },
+            "description": {
+                "en": "View supported storage types in your browser",
+                "ru": "Просмотр поддерживаемых типов хранилищ в браузере"
+            },
+            "keywords": {
+                "en": "cookies, local storage, session storage, indexeddb, origin private file system",
+                "ru": "cookies, local storage, session storage, indexeddb, origin private file system"
+            }
+        },
+        {
+            "header": {
+                "en": "Check Network",
+                "ru": "Проверить сеть"
+            },
+            "menuTitle": {
+                "en": "Network",
+                "ru": "Сеть"
+            },
+            "id": "network",
+            "indexMenuList": {
+                "en": [
+                    "IPv4, IPv6",
+                    "Downlink",
+                    "RTT"
+                ],
+                "ru": [
+                    "IPv4, IPv6",
+                    "Downlink",
+                    "RTT"
+                ]
+            },
+            "description": {
+                "en": "Display information about your network in browser",
+                "ru": "Отображение информации о вашей сети в браузере"
+            },
+            "keywords": {
+                "en": "IPv4, IPv6, Downlink, RTT",
+                "ru": "IPv4, IPv6, Downlink, RTT"
+            }
+        },
+        {
+            "header": {
+                "en": "Check Geo",
+                "ru": "Проверить геолокацию"
+            },
+            "menuTitle": {
+                "en": "Geo",
+                "ru": "Гео"
+            },
+            "id": "geo",
+            "indexMenuList": {
+                "en": [
+                    "Latitude",
+                    "Longitude",
+                    "Displaying location on map"
+                ],
+                "ru": [
+                    "Широта",
+                    "Долгота",
+                    "Отображение геопозиции на карте"
+                ]
+            },
+            "description": {
+                "en": "Displaying your geolocation information in the browser",
+                "ru": "Отображение информации о вашей геопозиции в браузере"
+            },
+            "keywords": {
+                "en": "latitude, longitude, displaying location on map",
+                "ru": "широта, долгота, отображение геопозиции на карте"
+            }
+        },
+        {
+            "header": {
+                "en": "Check MIDI Keyboard",
+                "ru": "Проверить MIDI-клавиатуру"
+            },
+            "menuTitle": {
+                "en": "MIDI",
+                "ru": "MIDI"
+            },
+            "id": "midi",
+            "hidden": true,
+            "indexMenuList": {
+                "en": [
+                    "Product name",
+                    "Serial number",
+                    "Detailed MIDI info"
+                ],
+                "ru": [
+                    "Название устройства",
+                    "Серийный номер",
+                    "Детальная информация o MIDI"
+                ]
+            },
+            "description": {
+                "en": "Testing MIDI keyboard in browser",
+                "ru": "Тестирование MIDI-клавиатуры в браузере"
+            },
+            "keywords": {
+                "en": "MIDI",
+                "ru": "MIDI"
+            }
+        },
+        {
+            "header": {
+                "en": "View Info About USB Device",
+                "ru": "Посмотреть информацию о USB-устройстве"
+            },
+            "menuTitle": {
+                "en": "USB",
+                "ru": "USB"
+            },
+            "id": "usb",
+            "indexMenuList": {
+                "en": [
+                    "Product name",
+                    "Serial number",
+                    "Detailed USB info"
+                ],
+                "ru": [
+                    "Название устройства",
+                    "Серийный номер",
+                    "Детальная информация"
+                ]
+            },
+            "description": {
+                "en": "View detailed information about a USB device in browser",
+                "ru": "Посмотреть детальную информацию о USB-устройстве в браузере"
+            },
+            "keywords": {
+                "en": "product name, serial number, detailed USB info",
+                "ru": "название устройства, серийный номер, детальная информация"
+            }
+        },
+        {
+            "menuTitle": {
+                "en": "Bluetooth",
+                "ru": "Bluetooth"
+            },
+            "id": "bluetooth",
+            "hidden": true,
+            "indexMenuList": {
+                "en": [
+                    "Product name",
+                    "Serial number",
+                    "Detailed USB info"
+                ],
+                "ru": [
+                    "Название устройства",
+                    "Серийный номер",
+                    "Детальная информация"
+                ]
+            },
+            "description": {
+                "en": "Просмотр детальной информации о bluetooth-устройстве онлайн",
+                "ru": "View detailed information about a Bluetooth device online"
+            },
+            "keywords": {
+                "en": "bluetooth",
+                "ru": "bluetooth"
+            }
+        },
+        {
+            "menuTitle": {
+                "en": "Sensor",
+                "ru": "Сенсор"
+            },
+            "id": "sensor",
+            "hidden": true,
+            "indexMenuList": {
+                "en": [
+                    "Accelerometer, Ammbient light sensor",
+                    "Gravity sensor",
+                    "Gyroscope, Magnetometer"
+                ],
+                "ru": [
+                    "Акселерометр, Датчик освещенности",
+                    "Датчик силы тяжести",
+                    "Гироскоп, Магнитометр"
+                ]
+            },
+            "description": {
+                "en": "View detailed information about sensors online",
+                "ru": "Просмотр детальной информации о датчиках онлайн"
+            },
+            "keywords": {
+                "en": "accelerometer, ammbient light sensor, gravity sensor, gyroscope, linear acceleration sensor, magnetometer, orientation sensor",
+                "ru": "акселерометр, датчик освещенности, датчик силы тяжести, гироскоп, датчик линейного ускорения, магнитометр, датчик ориентации"
+            }
+        },
+        {
+            "header": {
+                "en": "View Info About Platform",
+                "ru": "Посмотреть информацию о платформе"
+            },
+            "menuTitle": {
+                "en": "Platform",
+                "ru": "Платформа"
+            },
+            "id": "platform",
+            "indexMenuList": {
+                "en": [
+                    "Detailed information about platform",
+                    "Permissions",
+                    "RAM and number of processor cores"
+                ],
+                "ru": [
+                    "Информация о платформе",
+                    "Разрешения",
+                    "ОЗУ и количество ядер процессора"
+                ]
+            },
+            "description": {
+                "en": "View detailed platform information in your browser",
+                "ru": "Посмотреть детальную информацию о платформе в браузере"
+            },
+            "keywords": {
+                "en": "permissions, RAM, number of processor core ",
+                "ru": "разрешения, ОЗУ, количество ядер процессора"
+            }
+        },
+        {
+            "header": {
+                "en": "Check Battery",
+                "ru": "Проверить батарею"
+            },
+            "menuTitle": {
+                "en": "Battery",
+                "ru": "Батарея"
+            },
+            "id": "battery",
+            "indexMenuList": {
+                "en": [
+                    "Battery status",
+                    "Battery charge level",
+                    "Battery charge and discharge time"
+                ],
+                "ru": [
+                    "Статус батареи",
+                    "Уровень заряда батареи",
+                    "Время заряда и разряда батареи"
+                ]
+            },
+            "description": {
+                "en": "View detailed battery status information",
+                "ru": "Просмотр детальной информации о статусе батареи"
+            },
+            "keywords": {
+                "en": "battery status, battery charge level, battery charge and discharge time",
+                "ru": "статус батареи, уровень заряда батареи, время заряда и разряда батареи"
+            }
+        },
+        {
+            "header": {
+                "en": "View Local Fonts",
+                "ru": "Посмотреть локальные шрифты"
+            },
+            "menuTitle": {
+                "en": "Fonts",
+                "ru": "Шрифты"
+            },
+            "id": "fonts",
+            "indexMenuList": {
+                "en": [
+                    "List of local fonts",
+                    "Group by font family",
+                    "Searching and viewing fonts"
+                ],
+                "ru": [
+                    "Список локальных шрифтов",
+                    "Группировка шрифтов по семейству",
+                    "Поиск и просмотр шрифтов"
+                ]
+            },
+            "description": {
+                "en": "Viewing local fonts in browser",
+                "ru": "Просмотр локальных шрифтов в браузере"
+            },
+            "keywords": {
+                "en": "list of local fonts, group by font family",
+                "ru": "список локальных шрифтов, группировка шрифтов по семейству"
+            }
+        },
+        {
+            "menuTitle": {
+                "en": "404",
+                "ru": "404"
+            },
+            "id": "error404",
+            "hidden": true,
+            "sitemap": false,
+            "isError": true,
+            "description": {
+                "en": "Page not found",
+                "ru": "Страница не найдена"
+            }
+        },
+        {
+            "menuTitle": {
+                "en": "Test dead pixels",
+                "ru": "Тестирование битых пикселей"
+            },
+            "id": "test-dead-pixels",
+            "hidden": true,
+            "description": {
+                "en": "Testing your monitor or TV for dead pixels",
+                "ru": "Тестирование битых пикселей вашего монитора или ТВ"
+            },
+            "keywords": {
+                "en": "dead pixels",
+                "ru": "битые пиксели"
+            }
+        }
+    ];
+
+    function Menu() {
+        var id = getPageId();
+        var items = pages.map(function (item) {
+            var selected = item.id === id;
+            return __assign(__assign({}, item), { url: getPagePath(item.id), title: i18nWithKeyset(item.menuTitle), selected: selected });
+        });
+        return (_(MainMenu, { items: items }));
+    }
+
+    var b$e = block('theme-switcher');
+    function ThemeSwitcher() {
+        var _a = h(getPageTheme()), theme = _a[0], setTheme = _a[1];
+        var handleClick = q(function () {
+            var currentTheme = theme === 'light' ? 'dark' : 'light';
+            setTheme(currentTheme);
+            setPageTheme(currentTheme);
+            savePageTheme(currentTheme);
+        }, [theme, setTheme]);
+        y(function () {
+            var handler = function (currentTheme) {
+                if (!wasSavedPageTheme()) {
+                    setTheme(currentTheme);
+                    setPageTheme(currentTheme);
+                }
+            };
+            addPageThemeListener(handler);
+            return function () {
+                removePageThemeListener(handler);
+            };
+        }, [setTheme]);
+        var title = theme === 'light' ? i18n('Dark theme') : i18n('Light theme');
+        return (_("div", { class: b$e({ theme: theme }), onClick: handleClick, title: title }));
+    }
+
+    var b$d = block('header');
+    function Header() {
+        return (_("header", { class: b$d() },
+            _(Link, { theme: "page-theme", href: getPagePath('index') },
+                _("span", null,
+                    _("span", { class: b$d('logo') }),
+                    i18n('Check device online'))),
+            _(ThemeSwitcher, null)));
+    }
+
+    var b$c = block('page-title');
+    function PageTitle(props) {
+        return (_("h1", { class: b$c() }, props.children));
+    }
+
+    var b$b = block('page');
+    function Page(props) {
+        return (_("div", { class: b$b() },
+            _(Header, null),
+            props.withoutMenu ? '' : (_(Menu, null)),
+            props.title ? (_(PageTitle, null, props.title)) : '',
+            props.children,
+            _(Footer, null)));
+    }
+
+    var b$a = block('button');
+    function Button(props) {
+        var disabled = props.disabled, size = props.size, theme = props.theme, onClick = props.onClick, title = props.title;
+        var className = classname(props.class, b$a({ theme: theme, size: size, disabled: disabled }));
+        var handleClick = q(function () {
+            if (disabled) {
+                return;
+            }
+            onClick === null || onClick === void 0 ? void 0 : onClick();
+        }, [disabled, onClick]);
+        return (_("button", { title: title, class: className, disabled: disabled, onClick: handleClick }, props.children));
+    }
+
+    function isFirefox() {
+        return /firefox/.test(window.navigator.userAgent.toLowerCase());
+    }
+
+    var KeyboardLedController = /** @class */ (function () {
+        function KeyboardLedController() {
+            var _this = this;
+            this.signal = new Signal();
+            this.isFirefox = !isSsr && isFirefox();
+            this.capsLock = false;
+            this.scrollLock = false;
+            this.numLock = false;
+            this.handleMouse = function (event) {
+                _this.update(event);
+            };
+            this.handleKey = function (event) {
+                if (_this.isFirefox && event.code && event.code.indexOf('Arrow') !== -1) {
+                    return;
+                }
+                _this.update(event);
+            };
+        }
+        KeyboardLedController.prototype.on = function () {
+            this.bindMouseEvents();
+            this.bindKeyboardEvents();
+        };
+        KeyboardLedController.prototype.off = function () {
+            this.unbindMouseEvents();
+            this.unbindKeyboardEvents();
+        };
+        KeyboardLedController.prototype.bindMouseEvents = function () {
+            document.addEventListener('mousemove', this.handleMouse);
+            document.addEventListener('mousedown', this.handleMouse);
+            document.addEventListener('mouseup', this.handleMouse);
+        };
+        KeyboardLedController.prototype.bindKeyboardEvents = function () {
+            document.addEventListener('keydown', this.handleKey, true);
+            document.addEventListener('keyup', this.handleKey, true);
+        };
+        KeyboardLedController.prototype.unbindMouseEvents = function () {
+            document.removeEventListener('mousemove', this.handleMouse);
+            document.removeEventListener('mousedown', this.handleMouse);
+            document.removeEventListener('mouseup', this.handleMouse);
+        };
+        KeyboardLedController.prototype.unbindKeyboardEvents = function () {
+            document.removeEventListener('keydown', this.handleKey, true);
+            document.removeEventListener('keyup', this.handleKey, true);
+        };
+        KeyboardLedController.prototype.update = function (event) {
+            if (event.getModifierState) {
+                var statusCapsLock = event.getModifierState('CapsLock');
+                if (this.capsLock !== statusCapsLock) {
+                    this.capsLock = statusCapsLock;
+                    this.signal.trigger('CapsLock');
+                }
+                var statusScrollLock = event.getModifierState('ScrollLock');
+                if (this.scrollLock !== statusScrollLock) {
+                    this.scrollLock = statusScrollLock;
+                    this.signal.trigger('ScrollLock');
+                }
+                var statusNumLock = event.getModifierState('NumLock');
+                if (this.numLock !== statusNumLock) {
+                    this.numLock = statusNumLock;
+                    this.signal.trigger('NumLock');
+                }
+            }
+        };
+        KeyboardLedController.prototype.addListener = function (callback) {
+            this.signal.addListener(callback);
+        };
+        KeyboardLedController.prototype.removeListener = function (callback) {
+            this.signal.removeListener(callback);
+        };
+        return KeyboardLedController;
+    }());
+    var keyboardLedController = new KeyboardLedController();
+
+    var KeyboardStateController = /** @class */ (function () {
+        function KeyboardStateController() {
+            var _this = this;
+            this.state = {};
+            this.signal = new Signal();
+            this.handleLed = function () {
+                _this.setLed('CapsLock', keyboardLedController.capsLock);
+                _this.setLed('ScrollLock', keyboardLedController.scrollLock);
+                _this.setLed('NumLock', keyboardLedController.numLock);
+            };
+            this.handleKeydown = function (event) {
+                event.preventDefault();
+                var code = _this.prepareKeyboardCode(event.code, event.key);
+                if (event.code !== 'CapsLock') {
+                    _this.setPressed(code, true);
+                }
+                _this.setWasPressed(code, true);
+            };
+            this.handleBlur = function () {
+                _this.clearPressed();
+            };
+            this.handleKeyup = function (event) {
+                event.preventDefault();
+                var code = _this.prepareKeyboardCode(event.code, event.key);
+                _this.setPressed(code, false);
+                _this.setWasPressed(code, true);
+                if (code === 'MetaLeft' || code === 'MetaRight') {
+                    _this.clearPressed();
+                }
+            };
+        }
+        KeyboardStateController.prototype.destroy = function () {
+            this.unbindEvents();
+            this.signal.clearListeners();
+            this.state = {};
+        };
+        KeyboardStateController.prototype.on = function () {
+            this.bindEvents();
+        };
+        KeyboardStateController.prototype.off = function () {
+            this.unbindEvents();
+        };
+        KeyboardStateController.prototype.addListener = function (callback) {
+            this.signal.addListener(callback);
+        };
+        KeyboardStateController.prototype.removeListener = function (callback) {
+            this.signal.removeListener(callback);
+        };
+        KeyboardStateController.prototype.setPressed = function (code, value) {
+            this.state[code] = this.state[code] || {};
+            this.state[code].pressed = value;
+            this.signal.trigger(code);
+        };
+        KeyboardStateController.prototype.setWasPressed = function (code, value) {
+            this.state[code] = this.state[code] || {};
+            this.state[code].wasPressed = value;
+            this.signal.trigger(code);
+        };
+        KeyboardStateController.prototype.setLed = function (code, value) {
+            this.state[code] = this.state[code] || {};
+            this.state[code].led = value;
+            this.signal.trigger(code);
+        };
+        KeyboardStateController.prototype.clearPressed = function () {
+            var _this = this;
+            Object.keys(this.state).forEach(function (code) {
+                _this.setPressed(code, false);
+            });
+        };
+        KeyboardStateController.prototype.clearState = function () {
+            var _this = this;
+            Object.keys(this.state).forEach(function (code) {
+                _this.setPressed(code, false);
+                _this.setWasPressed(code, false);
+            });
+        };
+        KeyboardStateController.prototype.getKeyState = function (code) {
+            return this.state[code] || { pressed: false, wasPressed: false, led: false };
+        };
+        KeyboardStateController.prototype.bindEvents = function () {
+            document.addEventListener('keydown', this.handleKeydown);
+            document.addEventListener('keyup', this.handleKeyup);
+            document.addEventListener('blur', this.handleBlur);
+            keyboardLedController.addListener(this.handleLed);
+        };
+        KeyboardStateController.prototype.unbindEvents = function () {
+            document.removeEventListener('keydown', this.handleKeydown);
+            document.removeEventListener('keyup', this.handleKeyup);
+            document.removeEventListener('blur', this.handleBlur);
+            keyboardLedController.removeListener(this.handleLed);
+        };
+        KeyboardStateController.prototype.prepareKeyboardCode = function (code, key) {
+            if (code === 'IntlBackslash' && (key === '`' || key === '~')) {
+                return 'Backquote';
+            }
+            else if (code === 'Backquote' && (key === '§' || key === '±')) {
+                return 'IntlBackslash';
+            }
+            // Fix for media keys on Windows.
+            return code || key;
+        };
+        return KeyboardStateController;
+    }());
+    var keyboardStateController = new KeyboardStateController();
+
+    var useForceUpdate = function () {
+        var _a = h({}), updateState = _a[1];
+        return q(function () { return updateState({}); }, []);
+    };
+
+    var b$9 = block('keyboard-key');
+    function KeyboardKey(props) {
+        var keyData = props.keyData;
+        var forceUpdate = useForceUpdate();
+        y(function () {
+            var handler = function (code) {
+                if (keyData.code === code) {
+                    forceUpdate();
+                }
+            };
+            keyboardStateController.addListener(handler);
+            return function () {
+                keyboardStateController.removeListener(handler);
+            };
+        }, [keyData.code]);
+        var state = keyboardStateController.getKeyState(keyData.code);
+        var title = keyData.code;
+        return (_("div", { title: title, class: b$9({ align: keyData.align, code: keyData.code, pressed: state.pressed, wasPressed: state.wasPressed, view: keyData.view, fontSize: keyData.fontSize }) },
+            keyData.text || '',
+            keyData.topSymbol ? (_("div", { class: b$9('top-symbol') }, keyData.topSymbol)) : '',
+            keyData.topLeftSymbol ? (_("div", { class: b$9('top-left-symbol') }, keyData.topLeftSymbol)) : '',
+            keyData.topRightSymbol ? (_("div", { class: b$9('top-right-symbol') }, keyData.topRightSymbol)) : '',
+            keyData.bottomLeftSymbol ? (_("div", { class: b$9('bottom-left-symbol') }, keyData.bottomLeftSymbol)) : '',
+            keyData.bottomRightSymbol ? (_("div", { class: b$9('bottom-right-symbol') }, keyData.bottomRightSymbol)) : '',
+            keyData.bottomSymbol ? (_("div", { class: b$9('bottom-symbol') }, keyData.bottomSymbol)) : '',
+            keyData.bottomText ? (_("div", { class: b$9('bottom-text') }, keyData.bottomText)) : '',
+            typeof keyData.led === 'boolean' ? (_("div", { class: b$9('led', { on: state.led }) })) : ''));
+    }
+
+    var b$8 = block('keyboard-led');
+    function KeyboardLed(props) {
+        var forceUpdate = useForceUpdate();
+        y(function () {
+            var handler = function (code) {
+                if (props.code === code) {
+                    forceUpdate();
+                }
+            };
+            keyboardStateController.addListener(handler);
+            return function () {
+                keyboardStateController.removeListener(handler);
+            };
+        }, [props.code]);
+        var state = keyboardStateController.getKeyState(props.code);
+        return (_("div", { title: props.code, class: b$8({ on: state.led, code: props.code }) }));
+    }
+
+    var b$7 = block('keyboard-spacer');
+    function KeyboardSpacer(props) {
+        return (_("div", { class: b$7({ name: props.name }) }));
+    }
+
+    var b$6 = block('keyboard-row');
+    function KeyboardRow(props) {
+        var rowData = props.rowData;
+        return (_("div", { class: b$6() }, rowData.map(function (item, i) {
+            if (item.type === 'spacer') {
+                return (_(KeyboardSpacer, { key: i, name: item.name }));
+            }
+            if (item.type === 'led') {
+                return (_(KeyboardLed, { key: i, code: item.code }));
+            }
+            return (_(KeyboardKey, { key: i, keyData: item }));
+        })));
+    }
+
+    var row0$3 = [
+        {
+            code: 'Backquote',
+            topSymbol: '~',
+            bottomSymbol: '`'
+        },
+        {
+            code: 'Digit1',
+            topSymbol: '!',
+            bottomSymbol: '1'
+        },
+        {
+            code: 'Digit2',
+            topSymbol: '@',
+            bottomSymbol: '2'
+        },
+        {
+            code: 'Digit3',
+            topSymbol: '#',
+            bottomSymbol: '3'
+        },
+        {
+            code: 'Digit4',
+            topSymbol: '$',
+            bottomSymbol: '4'
+        },
+        {
+            code: 'Digit5',
+            topSymbol: '%',
+            bottomSymbol: '5'
+        },
+        {
+            code: 'Digit6',
+            topSymbol: '^',
+            bottomSymbol: '6'
+        },
+        {
+            code: 'Digit7',
+            topSymbol: '&',
+            bottomSymbol: '7'
+        },
+        {
+            code: 'Digit8',
+            topSymbol: '*',
+            bottomSymbol: '8'
+        },
+        {
+            code: 'Digit9',
+            topSymbol: '(',
+            bottomSymbol: '9'
+        },
+        {
+            code: 'Digit0',
+            topSymbol: ')',
+            bottomSymbol: '0'
+        },
+        {
+            code: 'Minus',
+            topSymbol: '_',
+            bottomSymbol: '-'
+        },
+        {
+            code: 'Equal',
+            topSymbol: '+',
+            bottomSymbol: '='
+        },
+        {
+            code: 'Backspace',
+            bottomText: 'delete',
+            align: 'right'
+        },
+    ];
+    var row1$3 = [
+        {
+            code: 'Tab',
+            bottomText: 'tab',
+            align: 'left'
+        },
+        {
+            code: 'KeyQ',
+            text: 'Q'
+        },
+        {
+            code: 'KeyW',
+            text: 'W'
+        },
+        {
+            code: 'KeyE',
+            text: 'E'
+        },
+        {
+            code: 'KeyR',
+            text: 'R'
+        },
+        {
+            code: 'KeyT',
+            text: 'T'
+        },
+        {
+            code: 'KeyY',
+            text: 'Y'
+        },
+        {
+            code: 'KeyU',
+            text: 'U'
+        },
+        {
+            code: 'KeyI',
+            text: 'I'
+        },
+        {
+            code: 'KeyO',
+            text: 'O'
+        },
+        {
+            code: 'KeyP',
+            text: 'P'
+        },
+        {
+            code: 'BracketLeft',
+            topSymbol: '{',
+            bottomSymbol: '['
+        },
+        {
+            code: 'BracketRight',
+            topSymbol: '}',
+            bottomSymbol: ']'
+        },
+        {
+            code: 'Backslash',
+            topSymbol: '|',
+            bottomSymbol: '\\'
+        }
+    ];
+    var row2$3 = [
+        {
+            code: 'CapsLock',
+            bottomText: 'caps lock',
+            led: true,
+            align: 'left'
+        },
+        {
+            code: 'KeyA',
+            text: 'A'
+        },
+        {
+            code: 'KeyS',
+            text: 'S'
+        },
+        {
+            code: 'KeyD',
+            text: 'D'
+        },
+        {
+            code: 'KeyF',
+            text: 'F'
+        },
+        {
+            code: 'KeyG',
+            text: 'G'
+        },
+        {
+            code: 'KeyH',
+            text: 'H'
+        },
+        {
+            code: 'KeyJ',
+            text: 'J'
+        },
+        {
+            code: 'KeyK',
+            text: 'K'
+        },
+        {
+            code: 'KeyL',
+            text: 'L'
+        },
+        {
+            code: 'Semicolon',
+            topSymbol: ':',
+            bottomSymbol: ';'
+        },
+        {
+            code: 'Quote',
+            topSymbol: '"',
+            bottomSymbol: '\''
+        },
+        {
+            code: 'Enter',
+            bottomText: 'return',
+            align: 'right'
+        }
+    ];
+    var row3$3 = [
+        {
+            code: 'ShiftLeft',
+            bottomText: 'shift',
+            align: 'left'
+        },
+        {
+            code: 'KeyZ',
+            text: 'Z'
+        },
+        {
+            code: 'KeyX',
+            text: 'X'
+        },
+        {
+            code: 'KeyC',
+            text: 'C'
+        },
+        {
+            code: 'KeyV',
+            text: 'V'
+        },
+        {
+            code: 'KeyB',
+            text: 'B'
+        },
+        {
+            code: 'KeyN',
+            text: 'N'
+        },
+        {
+            code: 'KeyM',
+            text: 'M'
+        },
+        {
+            code: 'Comma',
+            topSymbol: '<',
+            bottomSymbol: ','
+        },
+        {
+            code: 'Period',
+            topSymbol: '>',
+            bottomSymbol: '.'
+        },
+        {
+            code: 'Slash',
+            topSymbol: '?',
+            bottomSymbol: '/'
+        },
+        {
+            code: 'ShiftRight',
+            bottomText: 'shift',
+            align: 'right'
+        },
+    ];
+    var row4$3 = [
+        {
+            code: 'Fn',
+            bottomLeftSymbol: '🌐'
+        },
+        {
+            code: 'ControlLeft',
+            topRightSymbol: '^',
+            bottomText: 'control'
+        },
+        {
+            code: 'AltLeft',
+            topRightSymbol: '⌥',
+            bottomText: 'option'
+        },
+        {
+            code: 'MetaLeft',
+            topRightSymbol: '⌘',
+            bottomText: 'command'
+        },
+        {
+            code: 'Space'
+        },
+        {
+            code: 'MetaRight',
+            topLeftSymbol: '⌘',
+            bottomText: 'command'
+        },
+        {
+            code: 'AltRight',
+            topLeftSymbol: '⌥',
+            bottomText: 'option'
+        },
+        {
+            code: 'ArrowLeft'
+        },
+        {
+            code: 'ArrowDown'
+        },
+        {
+            code: 'ArrowUp'
+        },
+        {
+            code: 'ArrowRight'
+        },
+    ];
+    var ipadKeyboardLayout = {
+        type: 'ipad',
+        rows: [
+            row0$3,
+            row1$3,
+            row2$3,
+            row3$3,
+            row4$3,
+        ]
+    };
+
+    var row0$2 = [
+        {
+            code: 'Escape',
+            bottomText: 'esc',
+            align: 'left'
+        },
+        {
+            code: 'F1',
+            text: 'F1'
+        },
+        {
+            code: 'F2',
+            text: 'F2'
+        },
+        {
+            code: 'F3',
+            text: 'F3'
+        },
+        {
+            code: 'F4',
+            text: 'F4'
+        },
+        {
+            code: 'F5',
+            text: 'F5'
+        },
+        {
+            code: 'F6',
+            text: 'F6'
+        },
+        {
+            code: 'F7',
+            text: 'F7'
+        },
+        {
+            code: 'F8',
+            text: 'F8'
+        },
+        {
+            code: 'F9',
+            text: 'F9'
+        },
+        {
+            code: 'F10',
+            text: 'F10'
+        },
+        {
+            code: 'F11',
+            text: 'F11'
+        },
+        {
+            code: 'F12',
+            text: 'F12'
+        },
+        {
+            code: 'PowerOff',
+        },
+        {
+            type: 'spacer',
+            name: 'before-sys'
+        },
+        {
+            code: 'F13',
+            text: 'F13'
+        },
+        {
+            code: 'F14',
+            text: 'F14'
+        },
+        {
+            code: 'F15',
+            text: 'F15'
+        },
+        {
+            type: 'spacer',
+            name: 'before-numpad'
+        },
+        {
+            code: 'F16',
+            text: 'F16'
+        },
+        {
+            code: 'F17',
+            text: 'F17'
+        },
+        {
+            code: 'F18',
+            text: 'F18'
+        },
+        {
+            code: 'F19',
+            text: 'F19'
+        }
+    ];
+    var row1$2 = [
+        {
+            code: 'Backquote',
+            topSymbol: '~',
+            bottomSymbol: '`'
+        },
+        {
+            code: 'Digit1',
+            topSymbol: '!',
+            bottomSymbol: '1'
+        },
+        {
+            code: 'Digit2',
+            topSymbol: '@',
+            bottomSymbol: '2'
+        },
+        {
+            code: 'Digit3',
+            topSymbol: '#',
+            bottomSymbol: '3'
+        },
+        {
+            code: 'Digit4',
+            topSymbol: '$',
+            bottomSymbol: '4'
+        },
+        {
+            code: 'Digit5',
+            topSymbol: '%',
+            bottomSymbol: '5'
+        },
+        {
+            code: 'Digit6',
+            topSymbol: '^',
+            bottomSymbol: '6'
+        },
+        {
+            code: 'Digit7',
+            topSymbol: '&',
+            bottomSymbol: '7'
+        },
+        {
+            code: 'Digit8',
+            topSymbol: '*',
+            bottomSymbol: '8'
+        },
+        {
+            code: 'Digit9',
+            topSymbol: '(',
+            bottomSymbol: '9'
+        },
+        {
+            code: 'Digit0',
+            topSymbol: ')',
+            bottomSymbol: '0'
+        },
+        {
+            code: 'Minus',
+            topSymbol: '_',
+            bottomSymbol: '-'
+        },
+        {
+            code: 'Equal',
+            topSymbol: '+',
+            bottomSymbol: '='
+        },
+        {
+            code: 'Backspace',
+            bottomText: 'delete',
+            align: 'right'
+        },
+        {
+            type: 'spacer',
+            name: 'before-sys'
+        },
+        {
+            code: 'Fn',
+            bottomRightSymbol: 'fn',
+            text: '🌐'
+        },
+        {
+            code: 'Home',
+            text: 'home',
+            fontSize: 'small'
+        },
+        {
+            code: 'PageUp',
+            text: 'page up',
+            fontSize: 'small'
+        },
+        {
+            type: 'spacer',
+            name: 'before-numpad'
+        },
+        {
+            code: 'Clear',
+            text: 'clear',
+            fontSize: 'small'
+        },
+        {
+            code: 'NumpadEqual',
+            text: '='
+        },
+        {
+            code: 'NumpadDivide',
+            text: '/'
+        },
+        {
+            code: 'NumpadMultiply',
+            text: '*'
+        }
+    ];
+    var row2$2 = [
+        {
+            code: 'Tab',
+            bottomText: 'tab',
+            align: 'left'
+        },
+        {
+            code: 'KeyQ',
+            text: 'Q'
+        },
+        {
+            code: 'KeyW',
+            text: 'W'
+        },
+        {
+            code: 'KeyE',
+            text: 'E'
+        },
+        {
+            code: 'KeyR',
+            text: 'R'
+        },
+        {
+            code: 'KeyT',
+            text: 'T'
+        },
+        {
+            code: 'KeyY',
+            text: 'Y'
+        },
+        {
+            code: 'KeyU',
+            text: 'U'
+        },
+        {
+            code: 'KeyI',
+            text: 'I'
+        },
+        {
+            code: 'KeyO',
+            text: 'O'
+        },
+        {
+            code: 'KeyP',
+            text: 'P'
+        },
+        {
+            code: 'BracketLeft',
+            topSymbol: '{',
+            bottomSymbol: '['
+        },
+        {
+            code: 'BracketRight',
+            topSymbol: '}',
+            bottomSymbol: ']'
+        },
+        {
+            code: 'Backslash',
+            topSymbol: '|',
+            bottomSymbol: '\\'
+        },
+        {
+            type: 'spacer',
+            name: 'before-sys'
+        },
+        {
+            code: 'Delete',
+            text: '⌫',
+            fontSize: 'small'
+        },
+        {
+            code: 'End',
+            text: 'end',
+            fontSize: 'small'
+        },
+        {
+            code: 'PageDown',
+            text: 'page down',
+            fontSize: 'small'
+        },
+        {
+            type: 'spacer',
+            name: 'before-numpad'
+        },
+        {
+            code: 'Numpad7',
+            text: '7'
+        },
+        {
+            code: 'Numpad8',
+            text: '8'
+        },
+        {
+            code: 'Numpad9',
+            text: '9'
+        },
+        {
+            code: 'NumpadSubtract',
+            text: '-'
+        }
+    ];
+    var row3$2 = [
+        {
+            code: 'CapsLock',
+            bottomText: 'caps lock',
+            align: 'left',
+            led: true
+        },
+        {
+            code: 'KeyA',
+            text: 'A'
+        },
+        {
+            code: 'KeyS',
+            text: 'S'
+        },
+        {
+            code: 'KeyD',
+            text: 'D'
+        },
+        {
+            code: 'KeyF',
+            text: 'F'
+        },
+        {
+            code: 'KeyG',
+            text: 'G'
+        },
+        {
+            code: 'KeyH',
+            text: 'H'
+        },
+        {
+            code: 'KeyJ',
+            text: 'J'
+        },
+        {
+            code: 'KeyK',
+            text: 'K'
+        },
+        {
+            code: 'KeyL',
+            text: 'L'
+        },
+        {
+            code: 'Semicolon',
+            topSymbol: ':',
+            bottomSymbol: ';'
+        },
+        {
+            code: 'Quote',
+            topSymbol: '"',
+            bottomSymbol: '\''
+        },
+        {
+            code: 'Enter',
+            bottomText: 'return',
+            align: 'right'
+        },
+        {
+            type: 'spacer',
+            name: 'before-numpad-long'
+        },
+        {
+            code: 'Numpad4',
+            text: '4'
+        },
+        {
+            code: 'Numpad5',
+            text: '5'
+        },
+        {
+            code: 'Numpad6',
+            text: '6'
+        },
+        {
+            code: 'NumpadAdd',
+            text: '+'
+        }
+    ];
+    var row4$2 = [
+        {
+            code: 'ShiftLeft',
+            bottomText: 'shift',
+            align: 'left'
+        },
+        {
+            code: 'KeyZ',
+            text: 'Z'
+        },
+        {
+            code: 'KeyX',
+            text: 'X'
+        },
+        {
+            code: 'KeyC',
+            text: 'C'
+        },
+        {
+            code: 'KeyV',
+            text: 'V'
+        },
+        {
+            code: 'KeyB',
+            text: 'B'
+        },
+        {
+            code: 'KeyN',
+            text: 'N'
+        },
+        {
+            code: 'KeyM',
+            text: 'M'
+        },
+        {
+            code: 'Comma',
+            topSymbol: '<',
+            bottomSymbol: ','
+        },
+        {
+            code: 'Period',
+            topSymbol: '>',
+            bottomSymbol: '.'
+        },
+        {
+            code: 'Slash',
+            topSymbol: '?',
+            bottomSymbol: '/'
+        },
+        {
+            code: 'ShiftRight',
+            bottomText: 'shift',
+            align: 'right'
+        },
+        {
+            type: 'spacer',
+            name: 'before-arrow-up'
+        },
+        {
+            code: 'ArrowUp'
+        },
+        {
+            type: 'spacer',
+            name: 'after-arrow-up'
+        },
+        {
+            code: 'Numpad1',
+            text: '1'
+        },
+        {
+            code: 'Numpad2',
+            text: '2'
+        },
+        {
+            code: 'Numpad3',
+            text: '3'
+        },
+        {
+            code: 'NumpadEnter',
+            bottomText: 'enter',
+            fontSize: 'small'
+        }
+    ];
+    var row5$2 = [
+        {
+            code: 'ControlLeft',
+            topRightSymbol: '^',
+            bottomText: 'control',
+            align: 'right'
+        },
+        {
+            code: 'AltLeft',
+            topRightSymbol: '⌥',
+            bottomText: 'option',
+            align: 'right'
+        },
+        {
+            code: 'MetaLeft',
+            topRightSymbol: '⌘',
+            bottomText: 'command',
+            align: 'right'
+        },
+        {
+            code: 'Space'
+        },
+        {
+            code: 'MetaRight',
+            topLeftSymbol: '⌘',
+            bottomText: 'command',
+            align: 'left'
+        },
+        {
+            code: 'AltRight',
+            topLeftSymbol: '⌥',
+            bottomText: 'option',
+            align: 'left'
+        },
+        {
+            code: 'ControlRight',
+            topLeftSymbol: '^',
+            bottomText: 'control',
+            align: 'left'
+        },
+        {
+            type: 'spacer',
+            name: 'before-arrows'
+        },
+        {
+            code: 'ArrowLeft'
+        },
+        {
+            code: 'ArrowDown'
+        },
+        {
+            code: 'ArrowRight'
+        },
+        {
+            type: 'spacer',
+            name: 'after-arrows'
+        },
+        {
+            code: 'Numpad0',
+            text: '0'
+        },
+        {
+            code: 'NumpadDecimal',
+            text: '.'
+        }
+    ];
+    var macKeyboardLayout = {
+        type: 'mac',
+        rows: [
+            row0$2,
+            row1$2,
+            row2$2,
+            row3$2,
+            row4$2,
+            row5$2,
+        ]
+    };
+
+    var row0$1 = [
+        {
+            code: 'Escape',
+            text: 'esc',
+            align: 'left'
+        },
+        {
+            code: 'F1',
+            text: 'F1'
+        },
+        {
+            code: 'F2',
+            text: 'F2'
+        },
+        {
+            code: 'F3',
+            text: 'F3'
+        },
+        {
+            code: 'F4',
+            text: 'F4'
+        },
+        {
+            code: 'F5',
+            text: 'F5'
+        },
+        {
+            code: 'F6',
+            text: 'F6'
+        },
+        {
+            code: 'F7',
+            text: 'F7'
+        },
+        {
+            code: 'F8',
+            text: 'F8'
+        },
+        {
+            code: 'F9',
+            text: 'F9'
+        },
+        {
+            code: 'F10',
+            text: 'F10'
+        },
+        {
+            code: 'F11',
+            text: 'F11'
+        },
+        {
+            code: 'F12',
+            text: 'F12'
+        },
+        {
+            code: 'PowerOff',
+        }
+    ];
+    var row1$1 = [
+        {
+            code: 'IntlBackslash',
+            topLeftSymbol: '±',
+            topRightSymbol: '<',
+            bottomLeftSymbol: '§',
+            bottomRightSymbol: '>',
+        },
+        {
+            code: 'Digit1',
+            topSymbol: '!',
+            bottomSymbol: '1'
+        },
+        {
+            code: 'Digit2',
+            topSymbol: '@',
+            bottomSymbol: '2'
+        },
+        {
+            code: 'Digit3',
+            topSymbol: '#',
+            bottomSymbol: '3'
+        },
+        {
+            code: 'Digit4',
+            topSymbol: '$',
+            bottomSymbol: '4'
+        },
+        {
+            code: 'Digit5',
+            topSymbol: '%',
+            bottomSymbol: '5'
+        },
+        {
+            code: 'Digit6',
+            topSymbol: '^',
+            bottomSymbol: '6'
+        },
+        {
+            code: 'Digit7',
+            topSymbol: '&',
+            bottomSymbol: '7'
+        },
+        {
+            code: 'Digit8',
+            topSymbol: '*',
+            bottomSymbol: '8'
+        },
+        {
+            code: 'Digit9',
+            topSymbol: '(',
+            bottomSymbol: '9'
+        },
+        {
+            code: 'Digit0',
+            topSymbol: ')',
+            bottomSymbol: '0'
+        },
+        {
+            code: 'Minus',
+            topSymbol: '_',
+            bottomSymbol: '-'
+        },
+        {
+            code: 'Equal',
+            topSymbol: '+',
+            bottomSymbol: '='
+        },
+        {
+            code: 'Backspace',
+            bottomRightSymbol: '⌫'
+        },
+    ];
+    var row2$1 = [
+        {
+            code: 'Tab',
+            bottomLeftSymbol: '⇥'
+        },
+        {
+            code: 'KeyQ',
+            text: 'Q'
+        },
+        {
+            code: 'KeyW',
+            text: 'W'
+        },
+        {
+            code: 'KeyE',
+            text: 'E'
+        },
+        {
+            code: 'KeyR',
+            text: 'R'
+        },
+        {
+            code: 'KeyT',
+            text: 'T'
+        },
+        {
+            code: 'KeyY',
+            text: 'Y'
+        },
+        {
+            code: 'KeyU',
+            text: 'U'
+        },
+        {
+            code: 'KeyI',
+            text: 'I'
+        },
+        {
+            code: 'KeyO',
+            text: 'O'
+        },
+        {
+            code: 'KeyP',
+            text: 'P'
+        },
+        {
+            code: 'BracketLeft',
+            topSymbol: '{',
+            bottomSymbol: '['
+        },
+        {
+            code: 'BracketRight',
+            topSymbol: '}',
+            bottomSymbol: ']'
+        },
+        {
+            code: 'Enter',
+            text: '⏎'
+        },
+    ];
+    var row3$1 = [
+        {
+            code: 'CapsLock',
+            bottomLeftSymbol: '⇪',
+            led: true
+        },
+        {
+            code: 'KeyA',
+            text: 'A'
+        },
+        {
+            code: 'KeyS',
+            text: 'S'
+        },
+        {
+            code: 'KeyD',
+            text: 'D'
+        },
+        {
+            code: 'KeyF',
+            text: 'F'
+        },
+        {
+            code: 'KeyG',
+            text: 'G'
+        },
+        {
+            code: 'KeyH',
+            text: 'H'
+        },
+        {
+            code: 'KeyJ',
+            text: 'J'
+        },
+        {
+            code: 'KeyK',
+            text: 'K'
+        },
+        {
+            code: 'KeyL',
+            text: 'L'
+        },
+        {
+            code: 'Semicolon',
+            topSymbol: ':',
+            bottomSymbol: ';'
+        },
+        {
+            code: 'Quote',
+            topSymbol: '"',
+            bottomSymbol: '\''
+        },
+        {
+            code: 'Backslash',
+            topSymbol: '|',
+            bottomSymbol: '\\'
+        },
+    ];
+    var row4$1 = [
+        {
+            code: 'ShiftLeft',
+            bottomText: 'shift',
+            align: 'left'
+        },
+        {
+            code: 'Backquote',
+            topSymbol: '~',
+            bottomSymbol: '`'
+        },
+        {
+            code: 'KeyZ',
+            text: 'Z'
+        },
+        {
+            code: 'KeyX',
+            text: 'X'
+        },
+        {
+            code: 'KeyC',
+            text: 'C'
+        },
+        {
+            code: 'KeyV',
+            text: 'V'
+        },
+        {
+            code: 'KeyB',
+            text: 'B'
+        },
+        {
+            code: 'KeyN',
+            text: 'N'
+        },
+        {
+            code: 'KeyM',
+            text: 'M'
+        },
+        {
+            code: 'Comma',
+            topSymbol: '<',
+            bottomSymbol: ','
+        },
+        {
+            code: 'Period',
+            topSymbol: '>',
+            bottomSymbol: '.'
+        },
+        {
+            code: 'Slash',
+            topSymbol: '?',
+            bottomSymbol: '/'
+        },
+        {
+            code: 'ShiftRight',
+            bottomText: 'shift',
+            align: 'right'
+        },
+    ];
+    var row5$1 = [
+        {
+            code: 'Fn',
+            fontSize: 'small',
+            topRightSymbol: 'fn',
+            bottomLeftSymbol: '🌐'
+        },
+        {
+            code: 'ControlLeft',
+            topRightSymbol: '^',
+            bottomText: 'control'
+        },
+        {
+            code: 'AltLeft',
+            topRightSymbol: '⌥',
+            bottomText: 'option'
+        },
+        {
+            code: 'MetaLeft',
+            topRightSymbol: '⌘',
+            bottomText: 'command'
+        },
+        {
+            code: 'Space'
+        },
+        {
+            code: 'MetaRight',
+            topLeftSymbol: '⌘',
+            bottomText: 'command'
+        },
+        {
+            code: 'AltRight',
+            topLeftSymbol: '⌥',
+            bottomText: 'option'
+        },
+        {
+            code: 'ArrowLeft'
+        },
+        {
+            code: 'ArrowDown'
+        },
+        {
+            code: 'ArrowUp'
+        },
+        {
+            code: 'ArrowRight'
+        },
+    ];
+    var macbookKeyboardLayout = {
+        type: 'macbook',
+        rows: [
+            row0$1,
+            row1$1,
+            row2$1,
+            row3$1,
+            row4$1,
+            row5$1,
+        ]
+    };
+
+    var row0 = [
+        {
+            code: 'Escape',
+            text: 'ESC'
+        },
+        {
+            type: 'spacer',
+            name: 'between-func'
+        },
+        {
+            code: 'F1',
+            text: 'F1'
+        },
+        {
+            code: 'F2',
+            text: 'F2'
+        },
+        {
+            code: 'F3',
+            text: 'F3'
+        },
+        {
+            code: 'F4',
+            text: 'F4'
+        },
+        {
+            type: 'spacer',
+            name: 'between-func'
+        },
+        {
+            code: 'F5',
+            text: 'F5'
+        },
+        {
+            code: 'F6',
+            text: 'F6'
+        },
+        {
+            code: 'F7',
+            text: 'F7'
+        },
+        {
+            code: 'F8',
+            text: 'F8'
+        },
+        {
+            type: 'spacer',
+            name: 'between-func'
+        },
+        {
+            code: 'F9',
+            text: 'F9'
+        },
+        {
+            code: 'F10',
+            text: 'F10'
+        },
+        {
+            code: 'F11',
+            text: 'F11'
+        },
+        {
+            code: 'F12',
+            text: 'F12'
+        },
+        {
+            type: 'spacer',
+            name: 'before-sys'
+        },
+        {
+            code: 'PrintScreen',
+            text: 'PRINT SCRN',
+            fontSize: 'small'
+        },
+        {
+            code: 'ScrollLock',
+            text: 'SCROLL LOCK',
+            fontSize: 'small'
+        },
+        {
+            code: 'Pause',
+            text: 'PAUSE BREAK',
+            fontSize: 'small'
+        },
+        {
+            type: 'spacer',
+            name: 'before-numpad'
+        },
+        {
+            code: 'MediaPlayPause',
+            text: '⏯',
+            view: 'circle'
+        },
+        {
+            code: 'MediaStop',
+            text: '⏹',
+            view: 'circle'
+        },
+        {
+            code: 'MediaTrackPrevious',
+            text: '⏮',
+            view: 'circle'
+        },
+        {
+            code: 'MediaTrackNext',
+            text: '⏭',
+            view: 'circle'
+        }
+    ];
+    var row1 = [
+        {
+            code: 'Backquote',
+            topSymbol: '~',
+            bottomSymbol: '`'
+        },
+        {
+            code: 'Digit1',
+            topSymbol: '!',
+            bottomSymbol: '1'
+        },
+        {
+            code: 'Digit2',
+            topSymbol: '@',
+            bottomSymbol: '2'
+        },
+        {
+            code: 'Digit3',
+            topSymbol: '#',
+            bottomSymbol: '3'
+        },
+        {
+            code: 'Digit4',
+            topSymbol: '$',
+            bottomSymbol: '4'
+        },
+        {
+            code: 'Digit5',
+            topSymbol: '%',
+            bottomSymbol: '5'
+        },
+        {
+            code: 'Digit6',
+            topSymbol: '^',
+            bottomSymbol: '6'
+        },
+        {
+            code: 'Digit7',
+            topSymbol: '&',
+            bottomSymbol: '7'
+        },
+        {
+            code: 'Digit8',
+            topSymbol: '*',
+            bottomSymbol: '8'
+        },
+        {
+            code: 'Digit9',
+            topSymbol: '(',
+            bottomSymbol: '9'
+        },
+        {
+            code: 'Digit0',
+            topSymbol: ')',
+            bottomSymbol: '0'
+        },
+        {
+            code: 'Minus',
+            topSymbol: '_',
+            bottomSymbol: '-'
+        },
+        {
+            code: 'Equal',
+            topSymbol: '+',
+            bottomSymbol: '='
+        },
+        {
+            code: 'Backspace',
+            text: '←'
+        },
+        {
+            type: 'spacer',
+            name: 'before-sys'
+        },
+        {
+            code: 'Insert',
+            text: 'INSERT',
+            fontSize: 'small'
+        },
+        {
+            code: 'Home',
+            text: 'HOME',
+            fontSize: 'small'
+        },
+        {
+            code: 'PageUp',
+            text: 'PAGE UP',
+            fontSize: 'small'
+        },
+        {
+            type: 'spacer',
+            name: 'before-numpad'
+        },
+        {
+            code: 'NumLock',
+            text: 'NUM LOCK',
+            fontSize: 'small'
+        },
+        {
+            code: 'NumpadDivide',
+            text: '/'
+        },
+        {
+            code: 'NumpadMultiply',
+            text: '*'
+        },
+        {
+            code: 'NumpadSubtract',
+            text: '-'
+        }
+    ];
+    var row2 = [
+        {
+            code: 'Tab',
+            text: 'TAB ⇥',
+            fontSize: 'small'
+        },
+        {
+            code: 'KeyQ',
+            text: 'Q'
+        },
+        {
+            code: 'KeyW',
+            text: 'W'
+        },
+        {
+            code: 'KeyE',
+            text: 'E'
+        },
+        {
+            code: 'KeyR',
+            text: 'R'
+        },
+        {
+            code: 'KeyT',
+            text: 'T'
+        },
+        {
+            code: 'KeyY',
+            text: 'Y'
+        },
+        {
+            code: 'KeyU',
+            text: 'U'
+        },
+        {
+            code: 'KeyI',
+            text: 'I'
+        },
+        {
+            code: 'KeyO',
+            text: 'O'
+        },
+        {
+            code: 'KeyP',
+            text: 'P'
+        },
+        {
+            code: 'BracketLeft',
+            topSymbol: '{',
+            bottomSymbol: '['
+        },
+        {
+            code: 'BracketRight',
+            topSymbol: '}',
+            bottomSymbol: ']'
+        },
+        {
+            code: 'Enter',
+            text: '⏎'
+        },
+        {
+            type: 'spacer',
+            name: 'before-sys'
+        },
+        {
+            code: 'Delete',
+            text: 'DELETE',
+            fontSize: 'small'
+        },
+        {
+            code: 'End',
+            text: 'END',
+            fontSize: 'small'
+        },
+        {
+            code: 'PageDown',
+            text: 'PAGE DOWN',
+            fontSize: 'small'
+        },
+        {
+            type: 'spacer',
+            name: 'before-numpad'
+        },
+        {
+            code: 'Numpad7',
+            text: '7'
+        },
+        {
+            code: 'Numpad8',
+            text: '8'
+        },
+        {
+            code: 'Numpad9',
+            text: '9'
+        },
+        {
+            code: 'NumpadAdd',
+            text: '+'
+        }
+    ];
+    var row3 = [
+        {
+            code: 'CapsLock',
+            text: 'CAPS LOCK',
+            fontSize: 'small'
+        },
+        {
+            code: 'KeyA',
+            text: 'A'
+        },
+        {
+            code: 'KeyS',
+            text: 'S'
+        },
+        {
+            code: 'KeyD',
+            text: 'D'
+        },
+        {
+            code: 'KeyF',
+            text: 'F'
+        },
+        {
+            code: 'KeyG',
+            text: 'G'
+        },
+        {
+            code: 'KeyH',
+            text: 'H'
+        },
+        {
+            code: 'KeyJ',
+            text: 'J'
+        },
+        {
+            code: 'KeyK',
+            text: 'K'
+        },
+        {
+            code: 'KeyL',
+            text: 'L'
+        },
+        {
+            code: 'Semicolon',
+            topSymbol: ':',
+            bottomSymbol: ';'
+        },
+        {
+            code: 'Quote',
+            topSymbol: '"',
+            bottomSymbol: '\''
+        },
+        {
+            code: 'Backslash',
+            topSymbol: '|',
+            bottomSymbol: '\\'
+        },
+        {
+            type: 'spacer',
+            name: 'before-numpad-long'
+        },
+        {
+            code: 'Numpad4',
+            text: '4'
+        },
+        {
+            code: 'Numpad5',
+            text: '5'
+        },
+        {
+            code: 'Numpad6',
+            text: '6'
+        }
+    ];
+    var row4 = [
+        {
+            code: 'ShiftLeft',
+            text: 'SHIFT',
+            fontSize: 'small'
+        },
+        {
+            code: 'KeyZ',
+            text: 'Z'
+        },
+        {
+            code: 'KeyX',
+            text: 'X'
+        },
+        {
+            code: 'KeyC',
+            text: 'C'
+        },
+        {
+            code: 'KeyV',
+            text: 'V'
+        },
+        {
+            code: 'KeyB',
+            text: 'B'
+        },
+        {
+            code: 'KeyN',
+            text: 'N'
+        },
+        {
+            code: 'KeyM',
+            text: 'M'
+        },
+        {
+            code: 'Comma',
+            topSymbol: '<',
+            bottomSymbol: ','
+        },
+        {
+            code: 'Period',
+            topSymbol: '>',
+            bottomSymbol: '.'
+        },
+        {
+            code: 'Slash',
+            topSymbol: '?',
+            bottomSymbol: '/'
+        },
+        {
+            code: 'ShiftRight',
+            text: 'SHIFT',
+            fontSize: 'small'
+        },
+        {
+            type: 'spacer',
+            name: 'before-arrow-up'
+        },
+        {
+            code: 'ArrowUp',
+            text: '↑'
+        },
+        {
+            type: 'spacer',
+            name: 'after-arrow-up'
+        },
+        {
+            code: 'Numpad1',
+            text: '1'
+        },
+        {
+            code: 'Numpad2',
+            text: '2'
+        },
+        {
+            code: 'Numpad3',
+            text: '3'
+        },
+        {
+            code: 'NumpadEnter',
+            text: 'ENTER',
+            fontSize: 'small'
+        },
+    ];
+    var row5 = [
+        {
+            code: 'ControlLeft',
+            text: 'CTRL',
+            fontSize: 'small'
+        },
+        {
+            code: 'MetaLeft',
+            topLeftSymbol: ' ',
+            topRightSymbol: ' ',
+            bottomLeftSymbol: ' ',
+            bottomRightSymbol: ' '
+        },
+        {
+            code: 'AltLeft',
+            text: 'ALT',
+            fontSize: 'small'
+        },
+        {
+            code: 'Space'
+        },
+        {
+            code: 'AltRight',
+            text: 'ALT',
+            fontSize: 'small'
+        },
+        {
+            code: 'MetaRight',
+            topLeftSymbol: ' ',
+            topRightSymbol: ' ',
+            bottomLeftSymbol: ' ',
+            bottomRightSymbol: ' '
+        },
+        {
+            code: 'ContextMenu',
+            topLeftSymbol: ' ',
+            topRightSymbol: ' ',
+            bottomLeftSymbol: ' ',
+            bottomRightSymbol: ' '
+        },
+        {
+            code: 'ControlRight',
+            text: 'CTRL',
+            fontSize: 'small'
+        },
+        {
+            type: 'spacer',
+            name: 'before-arrows'
+        },
+        {
+            code: 'ArrowLeft',
+            text: '←'
+        },
+        {
+            code: 'ArrowDown',
+            text: '↓'
+        },
+        {
+            code: 'ArrowRight',
+            text: '→'
+        },
+        {
+            type: 'spacer',
+            name: 'after-arrows'
+        },
+        {
+            code: 'Numpad0',
+            text: '0'
+        },
+        {
+            code: 'NumpadDecimal',
+            text: '.'
+        }
+    ];
+    var row6 = [
+        {
+            type: 'led',
+            code: 'NumLock'
+        },
+        {
+            type: 'led',
+            code: 'CapsLock'
+        },
+        {
+            type: 'led',
+            code: 'ScrollLock'
+        }
+    ];
+    var winKeyboardLayout = {
+        type: 'win',
+        rows: [
+            row0,
+            row1,
+            row2,
+            row3,
+            row4,
+            row5,
+            row6,
+        ]
+    };
+
+    var b$5 = block('keyboard-layout');
+    function KeyboardLayout(props) {
+        var layout = props.layout;
+        var items = layout.rows.map(function (rowData, num) {
+            return (_("div", { key: num, class: b$5('row', { num: num }) },
+                _(KeyboardRow, { rowData: rowData })));
+        });
+        return (_("div", { class: b$5({ type: layout.type }) }, items));
+    }
+    function getLayoutData(layout) {
+        switch (layout) {
+            case 'ipad':
+                return ipadKeyboardLayout;
+            case 'mac':
+                return macKeyboardLayout;
+            case 'macbook':
+                return macbookKeyboardLayout;
+            default:
+                return winKeyboardLayout;
+        }
+    }
+
+    var b$4 = block('radio-button');
+    function RadioButton(props) {
+        var handleClick = q(function () {
+            var _a;
+            (_a = props.onClick) === null || _a === void 0 ? void 0 : _a.call(props, props.value);
+        }, [props.onClick]);
+        var className = classname(b$4({ selected: props.selected }), props.class);
+        return (_("li", { title: props.title, class: className, onClick: handleClick, key: props.value }, props.text));
+    }
+
+    var b$3 = block('radio-buttons');
+    function getSelectedButton(buttons) {
+        var selectedButtons = buttons.filter(function (item) { return item.selected; });
+        return selectedButtons[0];
+    }
+    function RadioButtons(props) {
+        var className = props.className, buttons = props.buttons, label = props.label, onSelect = props.onSelect;
+        var selectedButton = getSelectedButton(buttons);
+        var _a = h(selectedButton ? selectedButton.value : undefined), selectedValue = _a[0], setSelectedValue = _a[1];
+        var handleSelect = q(function (value) {
+            setSelectedValue(value);
+            onSelect(value);
+        }, [onSelect]);
+        return (_("fieldset", { class: classname(b$3(), className) },
+            label ? (_("legend", { class: b$3('label', { hidden: props.hideLabel }) }, label)) : '',
+            _("ul", { class: b$3('items') }, buttons.map(function (item) {
+                return (_(RadioButton, { key: item.value, class: b$3('item'), selected: item.value === selectedValue, title: item.title, text: item.text, value: item.value, onClick: handleSelect }));
+            }))));
+    }
+
+    function isMacintosh() {
+        return navigator.userAgent.indexOf('Mac') > -1;
+    }
+
+    function isIpad() {
+        if (/iPad/.test(navigator.platform)) {
+            return true;
+        }
+        else {
+            return Boolean(navigator.maxTouchPoints &&
+                navigator.maxTouchPoints > 2 &&
+                /MacIntel/.test(navigator.platform));
+        }
+    }
+
+    function getIsMacBook() {
+        var _a = window.screen, width = _a.width, height = _a.height;
+        var aspectRatio = width / height;
+        return aspectRatio > 1.5 && aspectRatio < 1.7;
+    }
+    function getPlatform() {
+        if (isIpad()) {
+            return 'ipad';
+        }
+        if (isMacintosh()) {
+            return getIsMacBook() ? 'macbook' : 'mac';
+        }
+        return 'win';
+    }
+
+    var b$2 = block('keyboard');
+    var platform = isSsr ? 'win' : getPlatform();
+    function Keyboard() {
+        var buttons = [
+            {
+                text: 'Win',
+                value: 'win',
+                title: i18n('Windows Logitech G810 keyboard'),
+                selected: platform === 'win'
+            },
+            {
+                text: 'Mac',
+                value: 'mac',
+                title: i18n('Apple Magic Keyboard with Numeric Keypad'),
+                selected: platform === 'mac'
+            },
+            {
+                text: 'MacBook',
+                value: 'macbook',
+                title: i18n('MacBook keyboard'),
+                selected: platform === 'macbook',
+            },
+            {
+                text: 'iPad',
+                value: 'ipad',
+                title: i18n('Apple Magic Keyboard for iPad'),
+                selected: platform === 'ipad'
+            }
+        ];
+        var selectedButton = getSelectedButton(buttons);
+        var _a = h(selectedButton && selectedButton.value), layout = _a[0], setLayout = _a[1];
+        var handleReset = q(function () {
+            keyboardStateController.clearState();
+        }, []);
+        var handleSelect = q(function (value) {
+            setLayout(value);
+        }, [layout]);
+        return (_("div", { class: b$2() },
+            _("div", { class: b$2('top-controls') },
+                _(RadioButtons, { hideLabel: true, label: i18n('Select keyboard'), onSelect: handleSelect, buttons: buttons })),
+            _(KeyboardLayout, { layout: getLayoutData(layout) }),
+            _("div", { class: b$2('bottom-controls') },
+                _(Button, { title: i18n('Reset pressed keys on keyboard'), onClick: handleReset }, i18n('Reset')))));
+    }
+
+    var b$1 = block('section');
+    function Section(props) {
+        if (!props.children) {
+            return null;
+        }
+        var className = classname(b$1(), props.class);
+        return props.name ? (_("section", { class: className },
+            _("h2", { class: b$1('name') }, props.name),
+            _("div", { class: b$1('body') }, props.children))) : (_("div", { class: b$1() }, props.children));
+    }
+
+    var b = block('nav-list');
+    function NavList(props) {
+        var filteredItems = props.items.filter(function (item) { return Boolean(item); });
+        var className = classname(props.class, b());
+        return filteredItems.length ? (_("nav", { class: className },
+            _("ul", { class: b('list') }, filteredItems.map(function (item) { return (_("li", null, item)); })))) : null;
+    }
+
+    var keyset = {
+        'Keyboard': {
+            'en': 'Keyboard',
+            'ru': 'Клавиатура'
+        },
+        'Windows Logitech G810 keyboard': {
+            'en': 'Windows Logitech G810 keyboard',
+            'ru': 'Клавиатура Windows Logitech G810'
+        },
+        'Apple Magic Keyboard with Numeric Keypad': {
+            'en': 'Apple Magic Keyboard with Numeric Keypad',
+            'ru': 'Клавиатура Apple MagicKeyboard with Numeric Keypad'
+        },
+        'MacBook keyboard': {
+            'en': 'MacBook keyboard',
+            'ru': 'MacBook клавиатура'
+        },
+        'Apple Magic Keyboard for iPad': {
+            'en': 'Apple Magic Keyboard for iPad',
+            'ru': 'Клавиатура Apple Magic Keyboard for iPad'
+        },
+        'Select keyboard': {
+            'en': 'Select keyboard',
+            'ru': 'Выберите клавиатуру'
+        },
+        'Reset pressed keys on keyboard': {
+            'en': 'Reset pressed keys on keyboard',
+            'ru': 'Сбросить нажатые клавиши на клавиатуре'
+        },
+        'Testing keyboard': {
+            'en': 'Testing keyboard',
+            'ru': 'Тестирование клавиатуры'
+        },
+    };
+
+    addI18nKeyset(keyset);
+    function KeyboardPage() {
+        var items = [
+            [(_(Link, { href: getPagePath('keycodes') }, i18n('Displaying key codes')))]
+        ];
+        return (_(Page, { title: i18n('Testing keyboard') },
+            _("div", null,
+                _(Keyboard, null),
+                _(Section, { name: i18n('Additionally') },
+                    _(NavList, { items: items })))));
+    }
+
+    function renderToRoot(Component) {
+        return B$1(_(Component, null), document.querySelector('.root'));
+    }
+
+    keyboardStateController.on();
+    keyboardLedController.on();
+    renderToRoot(KeyboardPage);
+
+}));
