@@ -16,16 +16,25 @@
     <link rel="manifest" href="/manifest.json" />
     <link rel="shortcut icon" href="/static/favicons/icon32x32.png" />
     <link rel="apple-touch-icon" href="/static/favicons/icon152x152.png" />
-    <link rel="stylesheet" href="/static/bluetooth.css?md5=a25ef342c4392293f6cb2891ae0c3054" />
-    <link rel="yandex-tableau-widget" href="/yandex-tableau-widget.json" />
+    <style>
+        .page-theme_light {
+            background: #fff;
+        }
+
+        .page-theme_dark {
+            background: #000;
+        }
+    </style>
     <script>
         var __appData__ = {
             pageId: 'bluetooth',
             lang: 'en'
         };
 
-        !function(){var e=function(){if(!window.localStorage)return"";var e="";try{e=localStorage.getItem("page-theme")}catch(e){}return e}();"dark"!==e&&"light"!==e&&(e="");var t=e||(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)")?"light":"dark");document.documentElement.className+=" page-theme_"+t}();        
+        !function(){var e=function(){if(!window.localStorage)return"";var e="";try{e=localStorage.getItem("page-theme")}catch(e){}return e}();"dark"!==e&&"light"!==e&&(e="");var t=e||(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)")?"light":"dark");document.documentElement.className+=" page-theme_"+t}();
     </script>
+    <link rel="stylesheet" href="/static/bluetooth.css?md5=a25ef342c4392293f6cb2891ae0c3054" />
+    <link rel="yandex-tableau-widget" href="/yandex-tableau-widget.json" />
 </head>
 <body>
     <div class="root"><div class="page">
