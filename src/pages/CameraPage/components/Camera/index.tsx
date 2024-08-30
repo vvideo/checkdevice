@@ -13,10 +13,13 @@ import { Checkbox } from '../../../../components/ui/Checkbox';
 import { CameraError } from '../CameraError';
 import { getStreamParams } from '../../../../utils/getStreamParams';
 import { isSsr } from '../../../../utils/isSsr';
+import { FaviconVideo } from 'favorite-icon-video';
 
 import './index.css';
 
 const b = block('camera');
+
+const favicon = new FaviconVideo();
 
 export function Camera() {
     const buttons: RadioButtonProps[] = [
@@ -53,12 +56,16 @@ export function Camera() {
             stopCamera(stream, video);
             setStream(null);
             video.controls = false;
+            favicon.stop();
+            favicon.reset();
+
             return;
         }
 
         requestCamera(video, getConstraints(quality, withMic)!).then(stream => {
             setStream(stream);
             setError(null);
+            favicon.start(video);
         }).catch(error => {
             setError(error);
             console.log(error);

@@ -41,6 +41,7 @@
         "del-cli": "5.1.0",
         "detect-audio-video": "^2.2.0",
         "eslint": "9.9.1",
+        "favorite-icon-video": "^2.1.2",
         "globals": "15.9.0",
         "hdcp": "^1.1.0",
         "htmlfy": "0.2.1",
