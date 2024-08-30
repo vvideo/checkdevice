@@ -53,4 +53,24 @@ export const keyset: I18nKeyset = {
         'en': 'Resolution',
         'ru': 'Разрешение'
     },
+    'Mic': {
+        'en': 'Mic',
+        'ru': 'Микрофон'
+    },
+    'Mirror': {
+        'en': 'Mirror',
+        'ru': 'Режим зеркала'
+    },
+    'Save photo': {
+        'en': 'Save photo',
+        'ru': 'Сохранить фото'
+    },
+    'On/off mirror mode': {
+        'en': 'On/off mirror mode',
+        'ru': 'Вкл./Выкл. режим зеркала'
+    },
+    'Resize mode': {
+        'en': 'Resize mode',
+        'ru': 'Resize mode'
+    }    
 };
