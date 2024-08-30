@@ -58,7 +58,16 @@ export function Platform() {
         setUserData(true);
     }).catch(noop);
 
-    let items: [h.JSX.Element | string, any][] = [
+    let items: [h.JSX.Element | string, any][] = [];
+    
+    // if (!isSsr && isMacintosh()) {
+    //     items.push([
+    //         'Apple Silicon',
+    //         getChecked(isAppleSilicon()),
+    //     ])
+    // }
+
+    items.push(
         [
             (<span>Hardware concurrency <InfoLink title="MDN" href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/hardwareConcurrency" /></span>),
             isSsr ? (<ValueInProgress />) : navigator.hardwareConcurrency
@@ -67,7 +76,7 @@ export function Platform() {
             i18n('Standalone application'),
             isSsr ? (<ValueInProgress />) : getChecked(isStandalone())
         ],
-    ];
+    );
 
     if (!isSsr && navigator.deviceMemory) {
         items.unshift([
