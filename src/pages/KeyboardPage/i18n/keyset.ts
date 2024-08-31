@@ -33,4 +33,8 @@ export const keyset: I18nKeyset = {
         'en': 'Testing keyboard',
         'ru': 'Тестирование клавиатуры'
     },
+    'Displaying key codes': {
+        'en': 'Displaying key codes',
+        'ru': 'Отображение кодов клавиш'
+    },
 };

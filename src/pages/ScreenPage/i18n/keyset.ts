@@ -4,7 +4,7 @@ export const keyset: I18nKeyset = {
     'Max touch points': {
         'en': 'Max touch points',
         'ru': 'Max touch points'
-    },    
+    },
     'Logical size': {
         'en': 'Logical size',
         'ru': 'Логический размер'
@@ -28,7 +28,7 @@ export const keyset: I18nKeyset = {
     'portrait-secondary': {
         'en': 'portrait (secondary)',
         'ru': 'книжная (вторичная)'
-    }, 
+    },
     'Check HDCP version': {
         'en': 'Check HDCP version',
         'ru': 'Проверить HDCP версию'
@@ -52,5 +52,9 @@ export const keyset: I18nKeyset = {
     'Tests': {
         'en': 'Tests',
         'ru': 'Тесты'
+    },
+    'Test dead pixels': {
+        'en': 'Test dead pixels',
+        'ru': 'Тест битых пикселей'
     },
 };
