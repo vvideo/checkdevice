@@ -5,10 +5,6 @@ export const keyset: I18nKeyset = {
         'en': 'Webcamera',
         'ru': 'Веб-камера'
     },
-    'Hear yourself': {
-        'en': 'Hear yourself',
-        'ru': 'Слышать себя'
-    },
     'Camera not found.': {
         'en': 'Camera not found.',
         'ru': 'Камера не найдена.'
@@ -16,7 +12,7 @@ export const keyset: I18nKeyset = {
     'Camera is blocked.': {
         'en': 'Camera is blocked.',
         'ru': 'Камера заблокирована.'
-    }, 
+    },
     'On/off microphone': {
         'en': 'On/off microphone',
         'ru': 'Включить/выключить микрофон'
@@ -72,5 +68,5 @@ export const keyset: I18nKeyset = {
     'Resize mode': {
         'en': 'Resize mode',
         'ru': 'Resize mode'
-    }    
+    }
 };
