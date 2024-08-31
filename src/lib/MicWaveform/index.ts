@@ -160,7 +160,7 @@ export class MicWaveform {
         }
 
         for (let x = 0; x < faviconArray.length; x++) {
-            const y = faviconArray[x] * size / 256;
+            const y = ((faviconArray[x] - 128) * 2 + 128) * size / 256;
 
             if (!x) {
                 context.moveTo(x, y);
