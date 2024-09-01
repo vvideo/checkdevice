@@ -8,7 +8,7 @@ import cssnano from 'cssnano';
 
 const pages = JSON.parse(fs.readFileSync('./src/pages/pages.json', 'utf-8'));
 
-const withMinify = process.env['MINIFY'];
+const isProduction = process.env.NODE_ENV === 'production';
 
 const createConfig = name => ({
     input: `src/entries/${name}.ts`,
@@ -24,11 +24,11 @@ const createConfig = name => ({
         postcss({
             config: true,
             extract: path.resolve(`static/${name}.css`),
-            plugins: withMinify ? [
+            plugins: isProduction ? [
                 cssnano,
             ] : [],
         }),
-        withMinify ? terser() : undefined,
+        isProduction ? terser() : undefined,
     ]
 });
 
