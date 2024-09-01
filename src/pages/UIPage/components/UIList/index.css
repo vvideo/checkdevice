@@ -1,0 +1,14 @@
+h2 {
+    margin: 1.5em 0 0 0;
+    padding: 0;
+}
+
+.ui-list__items {
+    margin: .3em 0 0 0;
+    padding: 0;
+}
+
+.ui-list__items > li {
+    margin: 1em 0 0 0;
+    padding: 0;
+}
