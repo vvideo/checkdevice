@@ -1,5 +1,6 @@
 import { h } from 'preact';
 import { useCallback, useState } from 'preact/hooks';
+
 import { block } from '../../../utils/css/bem';
 import { RadioButtonProps, RadioButton } from '../RadioButton';
 import { classname } from '../../../utils/css/classname';
@@ -11,7 +12,7 @@ export interface RadioButtonsProps {
     hideLabel?: boolean;
     label: string;
     buttons: RadioButtonProps[];
-    onSelect(value: string): void;
+    onSelect?: (value: string) => void;
 }
 
 const b = block('radio-buttons');
@@ -29,7 +30,10 @@ export function RadioButtons(props: RadioButtonsProps) {
 
     const handleSelect = useCallback((value: string) => {
         setSelectedValue(value);
-        onSelect(value);
+
+        if (onSelect) {
+            onSelect(value);
+        }
     }, [onSelect]);
 
     return (<fieldset class={classname(b(), className)}>

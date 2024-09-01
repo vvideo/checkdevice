@@ -4,7 +4,7 @@ import { block } from '../../../utils/css/bem';
 import './index.css';
 
 interface SpinnerProps {
-    size?: 's' | 'm';
+    size: 's' | 'm' | 'xl';
 }
 
 const b = block('spinner');

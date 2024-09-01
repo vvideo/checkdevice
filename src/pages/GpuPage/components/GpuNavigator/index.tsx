@@ -8,9 +8,9 @@ import { block } from '../../../../utils/css/bem';
 import { TreeList } from '../../../../components/TreeList';
 import { i18n } from '../../../../i18n';
 import { isSsr } from '../../../../utils/isSsr';
+import { ValueInProgress } from '../../../../components/ValueInProgress';
 
 import './index.css';
-import { ValueInProgress } from '../../../../components/ValueInProgress';
 
 const buttons: RadioButtonsProps['buttons'] = [
     {
@@ -34,8 +34,8 @@ export function GpuNavigator() {
     const refAdapter = useRef<GPUAdapter | null>();
     const refAdapterInfo = useRef<GPUAdapterInfo | null>();
 
-    const onSelect = useCallback((value: GPUPowerPreference) => {
-        setPowerPreference(value);
+    const onSelect = useCallback((value: string) => {
+        setPowerPreference(value as GPUPowerPreference);
     }, []);
 
     useEffect(() => {

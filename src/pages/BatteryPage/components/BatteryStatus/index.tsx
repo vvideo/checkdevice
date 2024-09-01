@@ -56,7 +56,7 @@ export function BatteryStatus() {
             <BatteryBadge level={batteryManager.level} charging={batteryManager.charging} />
             <List class={b('list')} items={items} />
         </div>
-    ) : (<Spinner />);
+    ) : (<Spinner size="xl" />);
 }
 
 export function BatteryStatusSsr() {

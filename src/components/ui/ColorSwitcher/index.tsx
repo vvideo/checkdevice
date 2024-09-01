@@ -1,6 +1,6 @@
 import { h } from 'preact';
 
-import { block } from '../../utils/css/bem';
+import { block } from '../../../utils/css/bem';
 import { useCallback, useState } from 'preact/hooks';
 import { ColorSwitcherItem } from '../ColorSwitcherItem';
 

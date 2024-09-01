@@ -11,7 +11,7 @@ interface CheckboxProps {
     label: string;
     title?: string;
     theme?: 'active';
-    onClick: (checked: boolean) => void;
+    onClick?: (checked: boolean) => void;
 }
 
 const b = block('checkbox');
@@ -26,7 +26,7 @@ export function Checkbox(props: CheckboxProps) {
         if (ref.current) {
             const value = !ref.current.checked;
             setChecked(value);
-            
+
             props.onClick?.(value);
         }
     }, [checked]);
@@ -55,7 +55,7 @@ export function Checkbox(props: CheckboxProps) {
         return () => {
             if (!ref.current) {
                 return;
-            }     
+            }
 
             ref.current.removeEventListener('focus', handleFocus);
             ref.current.removeEventListener('blur', handleBlur);

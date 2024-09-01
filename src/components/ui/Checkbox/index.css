@@ -45,7 +45,7 @@
 
 .checkbox_theme_active::before,
 .page-theme_light .checkbox_theme_active::before {
-    background: gold;
+    background-color: gold;
 }
 
 .checkbox_checked::before {

@@ -1,7 +1,7 @@
 import { h } from 'preact';
 import { useCallback } from 'preact/hooks';
 
-import { block } from '../../utils/css/bem';
+import { block } from '../../../utils/css/bem';
 
 import './index.css';
 

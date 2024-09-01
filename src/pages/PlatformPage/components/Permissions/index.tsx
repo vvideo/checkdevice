@@ -48,7 +48,7 @@ export function Permissions() {
     }
 
     const items: [string, string | h.JSX.Element][] = [];
-    
+
     result.map(item => {
         items.push([item.name, (<span class={b('value', { state: item.state })}>{item.state}</span>)]);
     });
@@ -77,5 +77,5 @@ export function Permissions() {
 
     return done ? (
         <List title={i18n('Permissions')} items={items} />) :
-        (<Spinner />);
+        (<Spinner size="xl" />);
 }
