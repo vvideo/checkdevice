@@ -33,12 +33,12 @@
 
         !function(){var e=function(){if(!window.localStorage)return"";var e="";try{e=localStorage.getItem("page-theme")}catch(e){}return e}();"dark"!==e&&"light"!==e&&(e="");var t=e||(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)")?"light":"dark");document.documentElement.className+=" page-theme_"+t}();
     </script>
-    <link rel="stylesheet" href="/static/index.css?md5=d6c07641e11f6dfe745e39f416b5d826" />
+    <link rel="stylesheet" href="/static/index.css?md5=3acfcddab9414cce6d5a94c7af92c311" />
     <link rel="yandex-tableau-widget" href="/yandex-tableau-widget.json" />
 </head>
 <body>
     <div class="root"><div class="page">
-    <header class="header"><a class="link link_theme_page-theme" href="/ru/"><span class="header__logo"></span>Проверь устройство онлайн</a>
+    <header class="header"><span class="header__menu-switcher"><span class="icon icon_type_menu"></span></span><a class="link link_theme_page-theme" href="/ru/"><span class="header__logo"></span>Проверь устройство онлайн</a>
         <div class="theme-switcher theme-switcher_theme_dark" title="Светлая тема"></div>
     </header>
     <nav class="index-menu">
@@ -46,7 +46,7 @@
             <input class="input" placeholder="Найти" value/>
         </div>
         <ul class="index-menu__list">
-            <li class="index-menu__item"><a class="index-menu__link link link_theme_page-theme" href="/ru/video/"><span class="index-menu__image index-menu__image_type_video"></span> Видео</a>
+            <li class="index-menu__item"><a class="index-menu__link link link_theme_page-theme" href="/ru/video/"><span class="icon icon_type_video index-menu__image"></span> Видео</a>
                 <ul class="index-menu__keywords-list">
                     <li class="index-menu__keywords-item">
                         <div class="index-menu__keywords-item-container">Могу ли я смотреть 4К видео?</div>
@@ -59,7 +59,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="index-menu__item"><a class="index-menu__link link link_theme_page-theme" href="/ru/audio/"><span class="index-menu__image index-menu__image_type_audio"></span> Аудио</a>
+            <li class="index-menu__item"><a class="index-menu__link link link_theme_page-theme" href="/ru/audio/"><span class="icon icon_type_audio index-menu__image"></span> Аудио</a>
                 <ul class="index-menu__keywords-list">
                     <li class="index-menu__keywords-item">
                         <div class="index-menu__keywords-item-container">Могу ли я услышать многоканальный звук?</div>
@@ -72,7 +72,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="index-menu__item"><a class="index-menu__link link link_theme_page-theme" href="/ru/screen/"><span class="index-menu__image index-menu__image_type_screen"></span> Экран</a>
+            <li class="index-menu__item"><a class="index-menu__link link link_theme_page-theme" href="/ru/screen/"><span class="icon icon_type_screen index-menu__image"></span> Экран</a>
                 <ul class="index-menu__keywords-list">
                     <li class="index-menu__keywords-item">
                         <div class="index-menu__keywords-item-container">Размер экрана, Соотношение сторон, Частота обновления</div>
@@ -85,7 +85,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="index-menu__item"><a class="index-menu__link link link_theme_page-theme" href="/ru/camera/"><span class="index-menu__image index-menu__image_type_camera"></span> Веб-камера</a>
+            <li class="index-menu__item"><a class="index-menu__link link link_theme_page-theme" href="/ru/camera/"><span class="icon icon_type_camera index-menu__image"></span> Веб-камера</a>
                 <ul class="index-menu__keywords-list">
                     <li class="index-menu__keywords-item">
                         <div class="index-menu__keywords-item-container">Тестирование веб-камеры</div>
@@ -98,7 +98,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="index-menu__item"><a class="index-menu__link link link_theme_page-theme" href="/ru/mic/"><span class="index-menu__image index-menu__image_type_mic"></span> Микрофон</a>
+            <li class="index-menu__item"><a class="index-menu__link link link_theme_page-theme" href="/ru/mic/"><span class="icon icon_type_mic index-menu__image"></span> Микрофон</a>
                 <ul class="index-menu__keywords-list">
                     <li class="index-menu__keywords-item">
                         <div class="index-menu__keywords-item-container">Тестирование микрофона</div>
@@ -111,7 +111,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="index-menu__item"><a class="index-menu__link link link_theme_page-theme" href="/ru/gpu/"><span class="index-menu__image index-menu__image_type_gpu"></span> GPU</a>
+            <li class="index-menu__item"><a class="index-menu__link link link_theme_page-theme" href="/ru/gpu/"><span class="icon icon_type_gpu index-menu__image"></span> GPU</a>
                 <ul class="index-menu__keywords-list">
                     <li class="index-menu__keywords-item">
                         <div class="index-menu__keywords-item-container">Детальная информация о GPU</div>
@@ -124,7 +124,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="index-menu__item"><a class="index-menu__link link link_theme_page-theme" href="/ru/mouse/"><span class="index-menu__image index-menu__image_type_mouse"></span> Мышь</a>
+            <li class="index-menu__item"><a class="index-menu__link link link_theme_page-theme" href="/ru/mouse/"><span class="icon icon_type_mouse index-menu__image"></span> Мышь</a>
                 <ul class="index-menu__keywords-list">
                     <li class="index-menu__keywords-item">
                         <div class="index-menu__keywords-item-container">Тестирование мышки</div>
@@ -137,7 +137,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="index-menu__item"><a class="index-menu__link link link_theme_page-theme" href="/ru/keyboard/"><span class="index-menu__image index-menu__image_type_keyboard"></span> Клавиатура</a>
+            <li class="index-menu__item"><a class="index-menu__link link link_theme_page-theme" href="/ru/keyboard/"><span class="icon icon_type_keyboard index-menu__image"></span> Клавиатура</a>
                 <ul class="index-menu__keywords-list">
                     <li class="index-menu__keywords-item">
                         <div class="index-menu__keywords-item-container">Отображение нажатий клавиш на клавиатуре</div>
@@ -150,7 +150,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="index-menu__item"><a class="index-menu__link link link_theme_page-theme" href="/ru/gamepad/"><span class="index-menu__image index-menu__image_type_gamepad"></span> Джойстик</a>
+            <li class="index-menu__item"><a class="index-menu__link link link_theme_page-theme" href="/ru/gamepad/"><span class="icon icon_type_gamepad index-menu__image"></span> Джойстик</a>
                 <ul class="index-menu__keywords-list">
                     <li class="index-menu__keywords-item">
                         <div class="index-menu__keywords-item-container">Отображение нажатий кнопок джойстика</div>
@@ -163,7 +163,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="index-menu__item"><a class="index-menu__link link link_theme_page-theme" href="/ru/storage/"><span class="index-menu__image index-menu__image_type_storage"></span> Хранилище</a>
+            <li class="index-menu__item"><a class="index-menu__link link link_theme_page-theme" href="/ru/storage/"><span class="icon icon_type_storage index-menu__image"></span> Хранилище</a>
                 <ul class="index-menu__keywords-list">
                     <li class="index-menu__keywords-item">
                         <div class="index-menu__keywords-item-container">Виды поддерживаемых хранилищ</div>
@@ -176,7 +176,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="index-menu__item"><a class="index-menu__link link link_theme_page-theme" href="/ru/network/"><span class="index-menu__image index-menu__image_type_network"></span> Сеть</a>
+            <li class="index-menu__item"><a class="index-menu__link link link_theme_page-theme" href="/ru/network/"><span class="icon icon_type_network index-menu__image"></span> Сеть</a>
                 <ul class="index-menu__keywords-list">
                     <li class="index-menu__keywords-item">
                         <div class="index-menu__keywords-item-container">IPv4, IPv6</div>
@@ -189,7 +189,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="index-menu__item"><a class="index-menu__link link link_theme_page-theme" href="/ru/geo/"><span class="index-menu__image index-menu__image_type_geo"></span> Гео</a>
+            <li class="index-menu__item"><a class="index-menu__link link link_theme_page-theme" href="/ru/geo/"><span class="icon icon_type_geo index-menu__image"></span> Гео</a>
                 <ul class="index-menu__keywords-list">
                     <li class="index-menu__keywords-item">
                         <div class="index-menu__keywords-item-container">Широта</div>
@@ -202,7 +202,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="index-menu__item"><a class="index-menu__link link link_theme_page-theme" href="/ru/usb/"><span class="index-menu__image index-menu__image_type_usb"></span> USB</a>
+            <li class="index-menu__item"><a class="index-menu__link link link_theme_page-theme" href="/ru/usb/"><span class="icon icon_type_usb index-menu__image"></span> USB</a>
                 <ul class="index-menu__keywords-list">
                     <li class="index-menu__keywords-item">
                         <div class="index-menu__keywords-item-container">Название устройства</div>
@@ -215,7 +215,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="index-menu__item"><a class="index-menu__link link link_theme_page-theme" href="/ru/platform/"><span class="index-menu__image index-menu__image_type_platform"></span> Платформа</a>
+            <li class="index-menu__item"><a class="index-menu__link link link_theme_page-theme" href="/ru/platform/"><span class="icon icon_type_platform index-menu__image"></span> Платформа</a>
                 <ul class="index-menu__keywords-list">
                     <li class="index-menu__keywords-item">
                         <div class="index-menu__keywords-item-container">Информация о платформе</div>
@@ -228,7 +228,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="index-menu__item"><a class="index-menu__link link link_theme_page-theme" href="/ru/battery/"><span class="index-menu__image index-menu__image_type_battery"></span> Батарея</a>
+            <li class="index-menu__item"><a class="index-menu__link link link_theme_page-theme" href="/ru/battery/"><span class="icon icon_type_battery index-menu__image"></span> Батарея</a>
                 <ul class="index-menu__keywords-list">
                     <li class="index-menu__keywords-item">
                         <div class="index-menu__keywords-item-container">Статус батареи</div>
@@ -241,7 +241,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="index-menu__item"><a class="index-menu__link link link_theme_page-theme" href="/ru/fonts/"><span class="index-menu__image index-menu__image_type_fonts"></span> Шрифты</a>
+            <li class="index-menu__item"><a class="index-menu__link link link_theme_page-theme" href="/ru/fonts/"><span class="icon icon_type_fonts index-menu__image"></span> Шрифты</a>
                 <ul class="index-menu__keywords-list">
                     <li class="index-menu__keywords-item">
                         <div class="index-menu__keywords-item-container">Список локальных шрифтов</div>
@@ -274,6 +274,6 @@
         <div class="footer__item">© Vvideo</div>
     </footer>
 </div></div>
-    <script defer src="/static/index.js?md5=b34055c795bb925ee5947ccc2fb3cac7"></script>
+    <script defer src="/static/index.js?md5=8efcfb5acb54f8e671b26d762d4d37c1"></script>
 </body>
 </html>
