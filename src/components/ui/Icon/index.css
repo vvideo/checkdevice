@@ -1,0 +1,156 @@
+.icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: no-repeat center center;
+    background-size: 100% 100%;
+}
+
+.icon_size_s {
+    width: 20px;
+    height: 20px;
+}
+
+.icon_type_mic {
+    background-image: url('/static/icons/mic_dark.svg');
+}
+
+.page-theme_light .icon_type_mic {
+    background-image: url('/static/icons/mic_light.svg');
+}
+
+.icon_type_gamepad {
+    background-image: url('/static/icons/gamepad_dark.svg');
+}
+
+.page-theme_light .icon_type_gamepad {
+    background-image: url('/static/icons/gamepad_light.svg');
+}
+
+.icon_type_mouse {
+    background-image: url('/static/icons/mouse_dark.svg');
+}
+
+.page-theme_light .icon_type_mouse {
+    background-image: url('/static/icons/mouse_light.svg');
+}
+
+.icon_type_storage {
+    background-image: url('/static/icons/storage_dark.svg');
+}
+
+.page-theme_light .icon_type_storage {
+    background-image: url('/static/icons/storage_light.svg');
+}
+
+.icon_type_screen {
+    background-image: url('/static/icons/screen_dark.svg');
+}
+
+.page-theme_light .icon_type_screen {
+    background-image: url('/static/icons/screen_light.svg');
+}
+
+.icon_type_battery {
+    background-image: url('/static/icons/battery_dark.svg');
+}
+
+.page-theme_light .icon_type_battery {
+    background-image: url('/static/icons/battery_light.svg');
+}
+
+.icon_type_usb {
+    background-image: url('/static/icons/usb_dark.svg');
+}
+
+.page-theme_light .icon_type_usb {
+    background-image: url('/static/icons/usb_light.svg');
+}
+
+.icon_type_audio {
+    background-image: url('/static/icons/audio_dark.svg');
+}
+
+.page-theme_light .icon_type_audio {
+    background-image: url('/static/icons/audio_light.svg');
+}
+
+.icon_type_video {
+    background-image: url('/static/icons/video_dark.svg');
+}
+
+.page-theme_light .icon_type_video {
+    background-image: url('/static/icons/video_light.svg');
+}
+
+.icon_type_camera {
+    background-image: url('/static/icons/camera_dark.svg');
+}
+
+.page-theme_light .icon_type_camera {
+    background-image: url('/static/icons/camera_light.svg');
+}
+
+.icon_type_network {
+    background-image: url('/static/icons/network_dark.svg');
+}
+
+.page-theme_light .icon_type_network {
+    background-image: url('/static/icons/network_light.svg');
+}
+
+.icon_type_geo {
+    background-image: url('/static/icons/geo_dark.svg');
+}
+
+.page-theme_light .icon_type_geo {
+    background-image: url('/static/icons/geo_light.svg');
+}
+
+.icon_type_fonts {
+    background-image: url('/static/icons/fonts_dark.svg');
+}
+
+.page-theme_light .icon_type_fonts {
+    background-image: url('/static/icons/fonts_light.svg');
+}
+
+.icon_type_gpu {
+    background-image: url('/static/icons/gpu_dark.svg');
+}
+
+.page-theme_light .icon_type_gpu {
+    background-image: url('/static/icons/gpu_light.svg');
+}
+
+.icon_type_keyboard {
+    background-image: url('/static/icons/keyboard_dark.svg');
+}
+
+.page-theme_light .icon_type_keyboard {
+    background-image: url('/static/icons/keyboard_light.svg');
+}
+
+.icon_type_platform {
+    background-image: url('/static/icons/platform_dark.svg');
+}
+
+.page-theme_light .icon_type_platform {
+    background-image: url('/static/icons/platform_light.svg');
+}
+
+.icon_type_cross {
+    background-image: url('/static/icons/cross_dark.svg');
+}
+
+.page-theme_light .icon_type_cross {
+    background-image: url('/static/icons/cross_light.svg');
+}
+
+.icon_type_menu {
+    background-image: url('/static/icons/menu_dark.svg');
+}
+
+.page-theme_light .icon_type_menu {
+    background-image: url('/static/icons/menu_light.svg');
+}

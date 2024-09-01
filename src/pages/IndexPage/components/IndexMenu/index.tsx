@@ -8,6 +8,7 @@ import { Link } from '../../../../components/ui/Link';
 import { getPagePath } from '../../../../utils/getPagePath';
 import { Input } from '../../../../components/ui/Input';
 import { searchInMenuList, searchInMenuTitle } from './utils';
+import { Icon } from '../../../../components/ui/Icon';
 
 import './index.css';
 
@@ -55,7 +56,7 @@ export function IndexMenu() {
             {items.map(item => {
                 return (
                     <li key={item.id} class={b('item')}>
-                        <Link class={b('link')} theme="page-theme" href={getPagePath(item.id)}><span class={b('image', { type: item.id })}></span> {item.title}</Link>
+                        <Link class={b('link')} theme="page-theme" href={getPagePath(item.id)}><Icon type={item.id} class={b('image')} /> {item.title}</Link>
                         <ul class={b('keywords-list')}>
                             {item.indexMenuList.map(text => (<li class={b('keywords-item')}><div class={b('keywords-item-container')}>{text}</div></li>))}
                         </ul>

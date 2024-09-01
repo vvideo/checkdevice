@@ -16,8 +16,7 @@
 
 @media (max-width: 700px) {
     .theme-switcher {
-        top: 30px;
         width: 15px;
-        height: 15px;        
+        height: 15px;
     }
 }

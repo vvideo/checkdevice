@@ -12,6 +12,16 @@
     border-bottom-color: #ddd;
 }
 
+.header__menu-switcher {
+    display: none;
+    position: relative;
+    top: 7px;
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
 .header:hover .header__logo {
     background-color: white;
 }
@@ -40,11 +50,13 @@
 @media (max-width: 700px) {
     .header {
         font-size: 22px;
-        padding-left: 15px;
+    }
+
+    .header__menu-switcher {
+        display: inline-block;
     }
 
     .header__logo {
-        width: 18px;
-        height: 18px;
+        display: none;
     }
 }
