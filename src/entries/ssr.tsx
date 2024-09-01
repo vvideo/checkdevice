@@ -26,6 +26,7 @@ import { UsbPage } from '../pages/UsbPage';
 import { BluetoothPage } from '../pages/BluetoothPage';
 import { MidiPage } from '../pages/MidiPage';
 import { GeoPage } from '../pages/GeoPage';
+import { UIPage } from '../pages/UIPage';
 
 export const pages: Record<string, any> = {
     audio: AudioPage,
@@ -51,6 +52,7 @@ export const pages: Record<string, any> = {
     usb: UsbPage,
     bluetooth: BluetoothPage,
     geo: GeoPage,
+    ui: UIPage,
 };
 
 export function buildPage(id: string): string {

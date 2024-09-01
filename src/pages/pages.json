@@ -227,7 +227,7 @@
         "keywords": {
             "en": "left mouse click, right mouse click, middle mouse click, mouse, wheel mouse",
             "ru": "левая кнопка мышки, правая кнопка мышки, средняя кнопка мышки, колесо прокрутки мышки"
-        }        
+        }
     },
     {
         "header": {
@@ -309,7 +309,7 @@
         "keywords": {
             "en": "gamepad axes, gamepad buttons, gamepad triggers",
             "ru": "оси джойстика, кнопки джойстика, триггеры джойстика"
-        }        
+        }
     },
     {
         "header": {
@@ -340,7 +340,7 @@
         "keywords": {
             "en": "cookies, local storage, session storage, indexeddb, origin private file system",
             "ru": "cookies, local storage, session storage, indexeddb, origin private file system"
-        }        
+        }
     },
     {
         "header": {
@@ -371,7 +371,7 @@
         "keywords": {
             "en": "IPv4, IPv6, Downlink, RTT",
             "ru": "IPv4, IPv6, Downlink, RTT"
-        }        
+        }
     },
     {
         "header": {
@@ -402,7 +402,7 @@
         "keywords": {
             "en": "latitude, longitude, displaying location on map",
             "ru": "широта, долгота, отображение геопозиции на карте"
-        }        
+        }
     },
     {
         "header": {
@@ -425,7 +425,7 @@
                 "Название устройства",
                 "Серийный номер",
                 "Детальная информация o MIDI"
-  
+
             ]
         },
         "description": {
@@ -435,7 +435,7 @@
         "keywords": {
             "en": "MIDI",
             "ru": "MIDI"
-        } 
+        }
     },
     {
         "header": {
@@ -629,7 +629,7 @@
         "description": {
             "en": "Page not found",
             "ru": "Страница не найдена"
-        }        
+        }
     },
     {
         "menuTitle": {
@@ -645,6 +645,22 @@
         "keywords": {
             "en": "dead pixels",
             "ru": "битые пиксели"
-        }        
+        }
+    },
+    {
+      "header": {
+          "en": "UI",
+          "ru": "UI"
+      },
+      "menuTitle": {
+          "en": "",
+          "ru": ""
+      },
+      "id": "ui",
+      "indexMenuList": {
+          "en": [],
+          "ru": []
+      },
+      "hidden": true
     }
 ]
