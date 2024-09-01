@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>UI / Check device online</title>
+    
+    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#FFd700" />
+    <meta name="google-site-verification" content="BUV1qxuhIx696cS8GU9knQcJcZaGugHSDV2kAkEG73I" />
+    <meta name="yandex-verification" content="985312253f7c8a44" />
+    <link rel="canonical" href="https://checkdevice.online/en/ui/" />
+    <link rel="alternate" hreflang="ru" href="https://checkdevice.online/ru/ui/" />
+
+    
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="shortcut icon" href="/static/favicons/icon32x32.png" />
+    <link rel="apple-touch-icon" href="/static/favicons/icon152x152.png" />
+    <style>
+        .page-theme_light {
+            background: #fff;
+        }
+
+        .page-theme_dark {
+            background: #000;
+        }
+    </style>
+    <script>
+        var __appData__ = {
+            pageId: 'ui',
+            lang: 'en'
+        };
+
+        !function(){var e=function(){if(!window.localStorage)return"";var e="";try{e=localStorage.getItem("page-theme")}catch(e){}return e}();"dark"!==e&&"light"!==e&&(e="");var t=e||(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)")?"light":"dark");document.documentElement.className+=" page-theme_"+t}();
+    </script>
+    <link rel="stylesheet" href="/static/ui.css?md5=1cca1c073711c1263fed41694d5ab41f" />
+    <link rel="yandex-tableau-widget" href="/yandex-tableau-widget.json" />
+</head>
+<body>
+    <div class="root"><div class="page">
+    <header class="header"><a class="link link_theme_page-theme" href="/en/"><span><span class="header__logo"></span>Check device online</span></a>
+        <div class="theme-switcher theme-switcher_theme_dark" title="Light theme"></div>
+    </header>
+    <nav class="main-menu">
+        <ul class="main-menu__list">
+            <li class="main-menu__item"><a class="main-menu__link" href="/en/video/">Video</a> 
+            </li>
+            <li class="main-menu__item"><a class="main-menu__link" href="/en/audio/">Audio</a> 
+            </li>
+            <li class="main-menu__item"><a class="main-menu__link" href="/en/screen/">Screen</a> 
+            </li>
+            <li class="main-menu__item"><a class="main-menu__link" href="/en/camera/">Webcamera</a> 
+            </li>
+            <li class="main-menu__item"><a class="main-menu__link" href="/en/mic/">Microphone</a> 
+            </li>
+            <li class="main-menu__item"><a class="main-menu__link" href="/en/gpu/">GPU</a> 
+            </li>
+            <li class="main-menu__item"><a class="main-menu__link" href="/en/mouse/">Mouse</a> 
+            </li>
+            <li class="main-menu__item"><a class="main-menu__link" href="/en/keyboard/">Keyboard</a> 
+            </li>
+            <li class="main-menu__item"><a class="main-menu__link" href="/en/gamepad/">Gamepad</a> 
+            </li>
+            <li class="main-menu__item"><a class="main-menu__link" href="/en/storage/">Storage</a> 
+            </li>
+            <li class="main-menu__item"><a class="main-menu__link" href="/en/network/">Network</a> 
+            </li>
+            <li class="main-menu__item"><a class="main-menu__link" href="/en/geo/">Geo</a> 
+            </li>
+            <li class="main-menu__item"><a class="main-menu__link" href="/en/usb/">USB</a> 
+            </li>
+            <li class="main-menu__item"><a class="main-menu__link" href="/en/platform/">Platform</a> 
+            </li>
+            <li class="main-menu__item"><a class="main-menu__link" href="/en/battery/">Battery</a> 
+            </li>
+            <li class="main-menu__item"><a class="main-menu__link" href="/en/fonts/">Fonts</a> 
+            </li>
+        </ul>
+    </nav>
+    <h1 class="page-title">UI</h1>
+    <div class="ui-list">
+        <h2>Button</h2>
+        <ul class="ui-list__items">
+            <li>
+                <button class="button">Button</button>
+                <button class="button button_disabled" disabled>Button disabled</button>
+                <button class="button button_theme_active">Button theme=active</button>
+                <button class="button button_theme_red">Button theme=red</button>
+            </li>
+            <li>
+                <button class="button button_size_s">Button size=s</button>
+                <button class="button button_size_s button_disabled" disabled>Button disabled</button>
+                <button class="button button_theme_active button_size_s">Button theme=active size=s</button>
+                <button class="button button_theme_red button_size_s">Button theme=red size=s</button>
+            </li>
+        </ul>
+        <h2>Input</h2>
+        <ul class="ui-list__items">
+            <li>
+                <input class="input" placeholder="Placeholder" value/>
+            </li>
+            <li>
+                <input class="input" value="text" />
+            </li>
+        </ul>
+        <h2>RadioButtons</h2>
+        <ul class="ui-list__items">
+            <li>
+                <fieldset class="radio-buttons">
+                    <legend class="radio-buttons__label">Label</legend>
+                    <ul class="radio-buttons__items">
+                        <li class="radio-button radio-button_selected radio-buttons__item">text1</li>
+                        <li class="radio-button radio-buttons__item">text2</li>
+                    </ul>
+                </fieldset>
+            </li>
+        </ul>
+        <h2>Checkbox</h2>
+        <ul class="ui-list__items">
+            <li>
+                <label class="checkbox checkbox_checked">
+                    <input type="checkbox" class="checkbox__input" checked/>Checkbox</label>
+            </li>
+            <li>
+                <label class="checkbox checkbox_checked checkbox_theme_active">
+                    <input type="checkbox" class="checkbox__input" checked/>Checkbox theme=active</label>
+            </li>
+        </ul>
+        <h2>ColorSwitcher</h2>
+        <ul class="ui-list__items">
+            <li>
+                <div class="color-switcher">
+                    <div class="color-switcher__label">Label</div>
+                    <ul class="color-switcher__list">
+                        <li class="color-switcher-item color-switcher-item_selected">
+                            <div title="Black" class="color-switcher-item__color" style="background-color: black"></div>
+                        </li>
+                        <li class="color-switcher-item">
+                            <div title="Red" class="color-switcher-item__color" style="background-color: red"></div>
+                        </li>
+                        <li class="color-switcher-item">
+                            <div title="White" class="color-switcher-item__color" style="background-color: white"></div>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <h2>Spinner</h2>
+        <ul class="ui-list__items">
+            <li>Spinner size=m:
+                <div class="spinner spinner_size_m"></div>
+            </li>
+            <li>Spinner size=s:
+                <div class="spinner spinner_size_s"></div>
+            </li>
+            <li>Spinner size=xl:
+                <div class="spinner spinner_size_xl"></div>
+            </li>
+        </ul>
+        <h2>Link</h2>
+        <ul class="ui-list__items">
+            <li><a class="link" href="/">Link</a>
+            </li>
+            <li><a class="link link_theme_white" href="/">Link theme=white</a>
+            </li>
+        </ul>
+        <h2>Messages</h2>
+        <ul class="ui-list__items">
+            <li>
+                <div class="error-message">❌ Error Message</div>
+            </li>
+            <li><span class="warning-message">⚠️ Warning Message</span>
+            </li>
+        </ul>
+    </div>
+    <footer class="footer">
+        <div class="footer__item footer__item_report"><a target="_blank" class="link link_theme_page-theme" href="https://github.com/vvideo/caniwatchvideo/issues/new">Report a bug</a>
+        </div>
+        <div class="footer__item">
+            <div class="lang-switcher">
+                <div class="lang-switcher__current"><span class="lang-icon lang-icon_lang_en"></span> EN</div>
+                <menu class="lang-switcher__popup">
+                    <li class="lang-switcher-item"><a class="link" href="/en/ui/"><span><span class="lang-icon lang-icon_lang_en"></span> EN ✓</span></a>
+                    </li>
+                    <li class="lang-switcher-item"><a class="link" href="/ru/ui/"><span><span class="lang-icon lang-icon_lang_ru"></span> RU</span></a>
+                    </li>
+                </menu>
+            </div>
+        </div>
+        <div class="footer__item">© Vvideo</div>
+    </footer>
+</div></div>
+    <script defer src="/static/ui.js?md5=9b9d86458b16765a1fb94e7d0632cc70"></script>
+</body>
+</html>
