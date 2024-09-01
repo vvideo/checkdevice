@@ -1,4 +1,5 @@
 export type I18NKeys = { 'en': string, 'ru': string };
+export type I18NIndexMenuKeys = { 'en': string[], 'ru': string[] };
 export type I18nKeyset = Record<string, I18NKeys>;
 export type I18NLanguage = keyof I18NKeys;
 

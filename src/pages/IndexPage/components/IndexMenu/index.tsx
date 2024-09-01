@@ -1,18 +1,47 @@
 import { h } from 'preact';
+import { useCallback, useState } from 'preact/hooks';
 
 import { block } from '../../../../utils/css/bem';
 import pages from '../../../../pages/pages';
-import { getI18nLang, i18nWithKeyset } from '../../../../i18n';
+import { getI18nLang, i18n, i18nWithKeyset } from '../../../../i18n';
 import { Link } from '../../../../components/ui/Link';
 import { getPagePath } from '../../../../utils/getPagePath';
+import { Input } from '../../../../components/ui/Input';
+import { searchInMenuList, searchInMenuTitle } from './utils';
 
 import './index.css';
 
 const b = block('index-menu');
 
 export function IndexMenu() {
+    const [ searchValue, setSearchValue ] = useState('');
+
+    const handleSearchChange = useCallback((value: string) => {
+        setSearchValue(value);
+    }, [setSearchValue]);
+
     const lang = getI18nLang();
-    const items = pages.filter(item => !item.hidden).map(item => {
+
+    const preparedSearchValue = searchValue.toLowerCase();
+    const items = pages.filter(item => {
+        if (item.hidden) {
+            return false;
+        }
+
+        if (!preparedSearchValue) {
+            return true;
+        }
+
+        if (searchInMenuTitle(item.menuTitle, preparedSearchValue)) {
+            return true;
+        }
+
+        if (searchInMenuList(item.indexMenuList, preparedSearchValue)) {
+            return true;
+        }
+
+        return false;
+    }).map(item => {
         return {
             ...item,
             title: i18nWithKeyset(item.menuTitle),
@@ -21,7 +50,8 @@ export function IndexMenu() {
     });
 
     return (<nav class={b()}>
-        <ul class={b('list')}>
+        <div class={b('search')}><Input placeholder={i18n('Search')} value={searchValue} onChange={handleSearchChange} /></div>
+        {items.length ? (<ul class={b('list')}>
             {items.map(item => {
                 return (
                     <li key={item.id} class={b('item')}>
@@ -32,7 +62,7 @@ export function IndexMenu() {
                     </li>
                 );
             })}
-        </ul>
+        </ul>) : (<div class={b('not-found')}>{i18n('Not found.')}</div>)}
         <div class={b('clear')}></div>
     </nav>);
 }
