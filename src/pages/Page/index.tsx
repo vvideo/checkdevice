@@ -1,6 +1,6 @@
 import './common';
 
-import { h } from 'preact';
+import { ComponentChildren, h } from 'preact';
 
 import { Footer } from './components/Footer';
 import { Menu } from './components/Menu';
@@ -11,8 +11,8 @@ import { PageTitle } from '../../components/PageTitle';
 import './index.css';
 
 interface PageProps {
-    children: h.JSX.Element;
-    title?: string; 
+    children: ComponentChildren;
+    title?: string;
     withoutMenu?: boolean;
 }
 

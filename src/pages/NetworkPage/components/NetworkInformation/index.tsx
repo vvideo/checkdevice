@@ -10,10 +10,8 @@ const b = block('network-information');
 export function NetworkInformation() {
     return (
         <div class={b()}>
-            <div>
-                <IP />
-                <ConnectionNavigator />
-            </div>
+            <IP />
+            <ConnectionNavigator />
         </div>
     );
 }

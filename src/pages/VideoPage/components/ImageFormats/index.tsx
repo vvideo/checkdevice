@@ -99,12 +99,10 @@ export function ImageFormats() {
     });
 
     return (<Columns>
-        <div>
-            <Column name={i18n('Supported')}>
-                {supported.length ? supported : i18n('No supported image formats.')}
-            </Column>
-            {unsupported.length ? (<Column disabled name={i18n('Unsupported')}>{unsupported}</Column>) : null}
-        </div>
+        <Column name={i18n('Supported')}>
+            {supported.length ? supported : i18n('No supported image formats.')}
+        </Column>
+        {unsupported.length ? (<Column disabled name={i18n('Unsupported')}>{unsupported}</Column>) : null}
     </Columns>);
 }
 

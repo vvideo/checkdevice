@@ -25,13 +25,11 @@ export function Vibration() {
     }
 
     return (<Section class={b()} name={i18n('Vibration')}>
-        <div>
-            <Button onClick={onClick} title={i18n('Check vibration')}>{i18n('Vibrate')}</Button>
-            {
-                !isSsr && isMobile() ? '' : (<div class={b('details')}>
-                    <WarningMessage theme="gray">{i18n('Support is mainly on mobile devices.')}</WarningMessage>
-                </div>)
-            }
-        </div>
+        <Button onClick={onClick} title={i18n('Check vibration')}>{i18n('Vibrate')}</Button>
+        {
+            !isSsr && isMobile() ? '' : (<div class={b('details')}>
+                <WarningMessage theme="gray">{i18n('Support is mainly on mobile devices.')}</WarningMessage>
+            </div>)
+        }
     </Section>);
 }

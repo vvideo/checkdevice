@@ -33,31 +33,29 @@ export function VideoPage() {
 
     return (
         <Page title={i18n('Video')}>
-            <div>
-                <h2>{i18n('Can I watch video in this browser?')}</h2>
-                <VideoQuestions />
-                <ScreenBadges />
+            <h2>{i18n('Can I watch video in this browser?')}</h2>
+            <VideoQuestions />
+            <ScreenBadges />
 
-                <Section name={i18n('Video Codecs')}>
-                    <VideoCodecs />
-                </Section>
+            <Section name={i18n('Video Codecs')}>
+                <VideoCodecs />
+            </Section>
 
-                <Section name="DRM">
-                    <DrmBadges />
-                </Section>
+            <Section name="DRM">
+                <DrmBadges />
+            </Section>
 
-                <Section name={i18n('Image Formats')}>
-                    <ImageFormats />
-                </Section>
+            <Section name={i18n('Image Formats')}>
+                <ImageFormats />
+            </Section>
 
-                <Section name={i18n('Native Streaming Support')}>
-                    <NativeStreaming />
-                </Section>
+            <Section name={i18n('Native Streaming Support')}>
+                <NativeStreaming />
+            </Section>
 
-                <Section name={i18n('HTMLVideoElement Features')}>
-                    <HtmlVideoElementFeatures />
-                </Section>
-            </div>
+            <Section name={i18n('HTMLVideoElement Features')}>
+                <HtmlVideoElementFeatures />
+            </Section>
         </Page>
     );
 }

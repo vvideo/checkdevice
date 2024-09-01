@@ -11,10 +11,8 @@ addI18nKeyset(keyset);
 export function PlatformPage() {
     return (
         <Page title={i18n('Platform')}>
-            <div>
-                <Platform />
-                <Permissions />
-            </div>
+            <Platform />
+            <Permissions />
         </Page>
     );
 }

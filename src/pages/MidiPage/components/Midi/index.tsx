@@ -34,7 +34,7 @@ export function Midi() {
     }
 
     return (<div class={b()}>
-        <Button disabled={disabled} theme="active" onClick={handleClick}><span>{disabled ? (<Spinner size="s" />) : null} {i18n('Request')}</span></Button>
+        <Button disabled={disabled} theme="active" onClick={handleClick}>{disabled ? (<Spinner size="s" />) : null} {i18n('Request')}</Button>
         <MidiError error={error} />
     </div>);
 }

@@ -50,7 +50,7 @@ export function Bluetooth() {
     }
 
     return (<div class={b()}>
-        <Button disabled={disabled} theme="active" onClick={handleClick}><span>{disabled ? (<Spinner size="s" />) : null} {i18n('Request')}</span></Button>
+        <Button disabled={disabled} theme="active" onClick={handleClick}>{disabled ? (<Spinner size="s" />) : null} {i18n('Request')}</Button>
 
         <List class={b('list')} items={items} />
 

@@ -1,4 +1,4 @@
-import { h } from 'preact';
+import { h, ComponentChildren } from 'preact';
 
 import { block } from '../../../utils/css/bem';
 import { classname } from '../../../utils/css/classname';
@@ -10,7 +10,7 @@ const b = block('section');
 interface SectionProps {
     name?: string | number;
     class?: string;
-    children: h.JSX.Element;
+    children: ComponentChildren;
 }
 
 export function Section(props: SectionProps) {
@@ -19,7 +19,7 @@ export function Section(props: SectionProps) {
     }
 
     const className = classname(b(), props.class);
-    
+
     return props.name ? (<section class={className}>
         <h2 class={b('name')}>{props.name}</h2>
         <div class={b('body')}>{props.children}</div>

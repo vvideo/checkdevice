@@ -1,4 +1,4 @@
-import { h } from 'preact';
+import { ComponentChildren, h } from 'preact';
 
 import { block } from '../../utils/css/bem';
 
@@ -7,7 +7,7 @@ import './index.css';
 const b = block('columns');
 
 interface ColumnsProps {
-    children: h.JSX.Element | h.JSX.Element[];
+    children: ComponentChildren;
 }
 
 export function Columns(props: ColumnsProps) {

@@ -1,4 +1,4 @@
-import { h } from 'preact';
+import { ComponentChildren, h } from 'preact';
 
 import { block } from '../../../utils/css/bem';
 import { classname } from '../../../utils/css/classname';
@@ -10,7 +10,7 @@ export interface LinkProps {
     target?: string;
     href: string;
     theme?: 'white' | 'page-theme';
-    children: h.JSX.Element | string;
+    children: ComponentChildren;
 }
 
 const b = block('link');

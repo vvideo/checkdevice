@@ -18,12 +18,10 @@ export function KeyboardPage() {
 
     return (
         <Page title={i18n('Testing keyboard')}>
-            <div>
-                <Keyboard />
-                <Section name={i18n('Additionally')}>
-                    <NavList items={items} />
-                </Section>
-            </div>
+            <Keyboard />
+            <Section name={i18n('Additionally')}>
+                <NavList items={items} />
+            </Section>
         </Page>
     );
 }

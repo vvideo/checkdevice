@@ -1,4 +1,4 @@
-import { h } from 'preact';
+import { ComponentChildren, h } from 'preact';
 import { useCallback } from 'preact/hooks';
 
 import { classname } from '../../../utils/css/classname';
@@ -8,7 +8,7 @@ import './index.css';
 
 interface ButtonProps {
     class?: string;
-    children: h.JSX.Element | string;
+    children: ComponentChildren;
     onClick?: () => void;
     theme?: 'active' | 'red';
     disabled?: boolean;

@@ -58,14 +58,12 @@ export function VideoCodecs() {
 
     return (
         <Columns>
-            <div>
-                {supported.length ? (<Column title={i18n('Supported video codecs')} name={i18n('Supported')}>
-                    {supported}
-                </Column>) : i18n('No supported video codecs.')}
-                {unsupported.length ? (<Column disabled title={i18n('Unsupported video codecs')} name={i18n('Unsupported')}>
-                    {unsupported}
-                </Column>) : ''}
-            </div>
+            {supported.length ? (<Column title={i18n('Supported video codecs')} name={i18n('Supported')}>
+                {supported}
+            </Column>) : i18n('No supported video codecs.')}
+            {unsupported.length ? (<Column disabled title={i18n('Unsupported video codecs')} name={i18n('Unsupported')}>
+                {unsupported}
+            </Column>) : ''}
         </Columns>
     );
 }

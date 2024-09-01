@@ -12,10 +12,8 @@ addI18nKeyset(keyset);
 export function TestDeadPixelsPage() {
     return (
         <Page title={i18n('Test dead pixels')}>
-            <div>
-                <Monitor><ScreenDeadPixelsExample /></Monitor>
-                <TestDeadPixels />
-            </div>
+            <Monitor><ScreenDeadPixelsExample /></Monitor>
+            <TestDeadPixels />
         </Page>
     );
 }

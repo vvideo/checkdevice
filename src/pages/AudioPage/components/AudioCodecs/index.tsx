@@ -61,11 +61,9 @@ export function AudioCodecs() {
     });
 
     return (<Columns>
-        <div>
             <Column title={i18n('Supported audio codecs')} name={i18n('Supported')}>
                 {supported.length ? supported : i18n('No supported audio codecs.')}
             </Column>
-            {unsupported.length ? (<Column disabled title={i18n('Unsupported audio codecs')} name={i18n('Unsupported')}>{unsupported}</Column>) : ''}
-        </div>
+            {unsupported.length ? (<Column disabled title={i18n('Unsupported audio codecs')} name={i18n('Unsupported')}>{unsupported}</Column>) : null}
     </Columns>);
 }

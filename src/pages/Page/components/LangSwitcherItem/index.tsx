@@ -19,6 +19,6 @@ export function LangSwitcherItem(props: LangSwitcherItemProps) {
     const { value, name, selected, url } = props;
 
     return (<li class={b()}>
-        <Link href={url}><span><LangIcon lang={value} /> {name}{selected ? ' ✓' : ''}</span></Link>
+        <Link href={url}><LangIcon lang={value} /> {name}{selected ? ' ✓' : ''}</Link>
     </li>);
 }

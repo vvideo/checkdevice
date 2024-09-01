@@ -20,12 +20,10 @@ export function ScreenPage() {
 
     return (
         <Page>
-            <div>
-                <ScreenList />
-                <Section name={i18n('Tests')}>
-                    <NavList items={items} />
-                </Section>
-            </div>
+            <ScreenList />
+            <Section name={i18n('Tests')}>
+                <NavList items={items} />
+            </Section>
         </Page>
     );
 }

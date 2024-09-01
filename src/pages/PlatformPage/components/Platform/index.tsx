@@ -59,7 +59,7 @@ export function Platform() {
     }).catch(noop);
 
     let items: [h.JSX.Element | string, any][] = [];
-    
+
     // if (!isSsr && isMacintosh()) {
     //     items.push([
     //         'Apple Silicon',

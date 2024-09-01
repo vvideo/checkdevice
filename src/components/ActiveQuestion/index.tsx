@@ -1,4 +1,4 @@
-import { h } from 'preact';
+import { ComponentChildren, h } from 'preact';
 import { useCallback, useState } from 'preact/hooks';
 
 import { block } from '../../utils/css/bem';
@@ -9,7 +9,7 @@ const b = block('active-question');
 
 interface ActiveQuestionProps {
     head: h.JSX.Element;
-    children: h.JSX.Element;
+    children: ComponentChildren;
 }
 
 export function ActiveQuestion(props: ActiveQuestionProps) {

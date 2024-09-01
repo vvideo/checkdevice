@@ -21,27 +21,25 @@ addI18nKeyset(keyset);
 export function AudioPage() {
     return (
         <Page title={i18n('Audio')}>
-            <div>
-                <QuestionSurroundSound />
+            <QuestionSurroundSound />
 
-                <div class={b('badge')}>
-                    <AudioBadge />
-                </div>
-
-                <Section name={i18n('Audio Codecs')}>
-                    <AudioCodecs />
-                </Section>
-
-                <Section name={i18n('Audio Inputs and Outputs')}>
-                    <AudioInputsOutputs />
-                </Section>
-
-                <Section name={i18n('Speech Synthesis')}>
-                    <SpeechSynthesis />
-                </Section>
-
-                <Vibration />
+            <div class={b('badge')}>
+                <AudioBadge />
             </div>
+
+            <Section name={i18n('Audio Codecs')}>
+                <AudioCodecs />
+            </Section>
+
+            <Section name={i18n('Audio Inputs and Outputs')}>
+                <AudioInputsOutputs />
+            </Section>
+
+            <Section name={i18n('Speech Synthesis')}>
+                <SpeechSynthesis />
+            </Section>
+
+            <Vibration />
         </Page>
     );
 }

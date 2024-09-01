@@ -11,11 +11,9 @@ addI18nKeyset(keyset);
 export function GpuPage() {
     return (
         <Page title="GPU">
-            <div>
-                <Cube3d />
-                <WebGLContext />
-                <GpuNavigator />
-            </div>
+            <Cube3d />
+            <WebGLContext />
+            <GpuNavigator />
         </Page>
     );
 }
