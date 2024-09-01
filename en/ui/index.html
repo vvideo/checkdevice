@@ -33,7 +33,7 @@
 
         !function(){var e=function(){if(!window.localStorage)return"";var e="";try{e=localStorage.getItem("page-theme")}catch(e){}return e}();"dark"!==e&&"light"!==e&&(e="");var t=e||(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)")?"light":"dark");document.documentElement.className+=" page-theme_"+t}();
     </script>
-    <link rel="stylesheet" href="/static/ui.css?md5=1cca1c073711c1263fed41694d5ab41f" />
+    <link rel="stylesheet" href="/static/ui.css?md5=fce5ebe6c2357355441e2f94efb702db" />
     <link rel="yandex-tableau-widget" href="/yandex-tableau-widget.json" />
 </head>
 <body>
@@ -96,11 +96,14 @@
         </ul>
         <h2>Input</h2>
         <ul class="ui-list__items">
-            <li>
+            <li>Input placeholder:
                 <input class="input" placeholder="Placeholder" value/>
             </li>
-            <li>
-                <input class="input" value="text" />
+            <li>Input value:
+                <input class="input" value="value" />
+            </li>
+            <li>Input disabled:
+                <input class="input input_disabled" disabled value="value" />
             </li>
         </ul>
         <h2>RadioButtons</h2>
@@ -118,12 +121,28 @@
         <h2>Checkbox</h2>
         <ul class="ui-list__items">
             <li>
+                <label class="checkbox">
+                    <input type="checkbox" class="checkbox__input" />Checkbox</label>
+            </li>
+            <li>
                 <label class="checkbox checkbox_checked">
-                    <input type="checkbox" class="checkbox__input" checked/>Checkbox</label>
+                    <input type="checkbox" class="checkbox__input" checked/>Checkbox checked</label>
+            </li>
+            <li>
+                <label class="checkbox checkbox_disabled">
+                    <input type="checkbox" disabled class="checkbox__input" />Checkbox disabled</label>
+            </li>
+            <li>
+                <label class="checkbox checkbox_checked checkbox_disabled">
+                    <input type="checkbox" disabled class="checkbox__input" checked/>Checkbox disabled checked</label>
+            </li>
+            <li>
+                <label class="checkbox checkbox_theme_active">
+                    <input type="checkbox" class="checkbox__input" />Checkbox theme=active</label>
             </li>
             <li>
                 <label class="checkbox checkbox_checked checkbox_theme_active">
-                    <input type="checkbox" class="checkbox__input" checked/>Checkbox theme=active</label>
+                    <input type="checkbox" class="checkbox__input" checked/>Checkbox checked theme=active</label>
             </li>
         </ul>
         <h2>ColorSwitcher</h2>
@@ -161,15 +180,18 @@
         <ul class="ui-list__items">
             <li><a class="link" href="/">Link</a>
             </li>
-            <li><a class="link link_theme_white" href="/">Link theme=white</a>
+            <li><span style="background: black; padding: 1em;"><a class="link link_theme_white" href="/">Link theme=white</a></span>
             </li>
         </ul>
         <h2>Messages</h2>
         <ul class="ui-list__items">
             <li>
-                <div class="error-message">❌ Error Message</div>
+                <div class="error-message">❌ Error message</div>
             </li>
-            <li><span class="warning-message">⚠️ Warning Message</span>
+            <li>
+                <div class="error-message error-message_theme_gray">❌ Gray error message</div>
+            </li>
+            <li><span class="warning-message">⚠️ Warning message</span>
             </li>
         </ul>
     </div>
@@ -190,6 +212,6 @@
         <div class="footer__item">© Vvideo</div>
     </footer>
 </div></div>
-    <script defer src="/static/ui.js?md5=9b9d86458b16765a1fb94e7d0632cc70"></script>
+    <script defer src="/static/ui.js?md5=c4205a8603993c9e0a8ee8f28275cc0e"></script>
 </body>
 </html>
