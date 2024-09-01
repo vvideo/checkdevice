@@ -37,8 +37,9 @@ export function UIList() {
 
             <h2>Input</h2>
             <ul class={b('items')}>
-            <li><Input placeholder="Placeholder" /></li>
-            <li><Input value="text" /></li>
+                <li>Input placeholder: <Input placeholder="Placeholder" /></li>
+                <li>Input value: <Input value="value" /></li>
+                <li>Input disabled: <Input disabled value="value" /></li>
             </ul>
 
             <h2>RadioButtons</h2>
@@ -48,8 +49,12 @@ export function UIList() {
 
             <h2>Checkbox</h2>
             <ul class={b('items')}>
-                <li><Checkbox checked label="Checkbox" /></li>
-                <li><Checkbox theme="active" checked label="Checkbox theme=active" /></li>
+                <li><Checkbox label="Checkbox" /></li>
+                <li><Checkbox checked label="Checkbox checked" /></li>
+                <li><Checkbox disabled label="Checkbox disabled" /></li>
+                <li><Checkbox disabled checked label="Checkbox disabled checked" /></li>
+                <li><Checkbox theme="active" label="Checkbox theme=active" /></li>
+                <li><Checkbox theme="active" checked label="Checkbox checked theme=active" /></li>
             </ul>
 
             <h2>ColorSwitcher</h2>
@@ -67,13 +72,14 @@ export function UIList() {
             <h2>Link</h2>
             <ul class={b('items')}>
                 <li><Link href="/">Link</Link></li>
-                <li><Link theme="white" href="/">Link theme=white</Link></li>
+                <li><span style="background: black; padding: 3px;"><Link theme="white" href="/">Link theme=white</Link></span></li>
             </ul>
 
             <h2>Messages</h2>
             <ul class={b('items')}>
-                <li><ErrorMessage>Error Message</ErrorMessage></li>
-                <li><WarningMessage>Warning Message</WarningMessage></li>
+                <li><ErrorMessage>Error message</ErrorMessage></li>
+                <li><ErrorMessage theme="gray">Gray error message</ErrorMessage></li>
+                <li><WarningMessage>Warning message</WarningMessage></li>
             </ul>
         </div>
     );

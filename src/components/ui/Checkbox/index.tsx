@@ -1,14 +1,16 @@
 import { h } from 'preact';
 import { useCallback, useEffect, useRef, useState } from 'preact/hooks';
+
 import { classname } from '../../../utils/css/classname';
 import { block } from '../../../utils/css/bem';
 
 import './index.css';
 
 interface CheckboxProps {
-    class?: string;
-    checked: boolean;
+    checked?: boolean;
     label: string;
+    disabled?: boolean;
+    class?: string;
     title?: string;
     theme?: 'active';
     onClick?: (checked: boolean) => void;
@@ -17,23 +19,25 @@ interface CheckboxProps {
 const b = block('checkbox');
 
 export function Checkbox(props: CheckboxProps) {
-    const [checked, setChecked] = useState(props.checked);
+    const [checked, setChecked] = useState(Boolean(props.checked));
     const [focus, setFocus] = useState(false);
 
     const ref = useRef<HTMLInputElement>(null);
 
     const handleClick = useCallback(() => {
-        if (ref.current) {
-            const value = !ref.current.checked;
-            setChecked(value);
-
-            props.onClick?.(value);
+        if (!ref.current || props.disabled) {
+            return;
         }
-    }, [checked]);
+
+        const value = !ref.current.checked;
+        setChecked(value);
+
+        props.onClick?.(value);
+    }, [checked, props.disabled]);
 
     const className = classname(
         props.class,
-        b({ checked, theme: props.theme, focus }),
+        b({ checked, theme: props.theme, focus, disabled: props.disabled }),
     );
 
     useEffect(() => {
@@ -65,6 +69,7 @@ export function Checkbox(props: CheckboxProps) {
     return (<label title={props.title} class={className} onClick={handleClick}>
         <input
             type="checkbox"
+            disabled={props.disabled}
             ref={ref}
             class={b('input')}
             checked={checked}
