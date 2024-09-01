@@ -24,7 +24,7 @@ export default [
         pragma: 'h',
         version: 'preact'
       }
-    },    
+    },
     rules: {
       '@typescript-eslint/ban-ts-comment': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
@@ -32,7 +32,7 @@ export default [
         'error',
         {
           argsIgnorePattern: '^_',
-          varsIgnorePattern: "(^_|^h$)"
+          varsIgnorePattern: "(^_|^h$|^Fragment$)"
         }
       ]
     }
