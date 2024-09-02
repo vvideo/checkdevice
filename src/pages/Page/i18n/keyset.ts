@@ -176,9 +176,13 @@ export const keyset: I18nKeyset = {
     'Light theme': {
         'en': 'Light theme',
         'ru': 'Светлая тема'
-    },  
+    },
     'Dark theme': {
         'en': 'Dark theme',
         'ru': 'Тёмная тема'
     },
+    'Default': {
+        'en': 'Default',
+        'ru': 'По умолчанию'
+    }
 };

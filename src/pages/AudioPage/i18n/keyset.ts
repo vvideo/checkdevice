@@ -48,7 +48,7 @@ export const keyset: I18nKeyset = {
     'Vibration API is not supported.': {
         'en': 'Vibration API is not supported.',
         'ru': 'Vibration API не поддерживается.'
-    },    
+    },
     'Speech Synthesis': {
         'en': 'Speech Synthesis',
         'ru': 'Синтез речи'
@@ -72,19 +72,19 @@ export const keyset: I18nKeyset = {
     'Input text for speech synthesis': {
         'en': 'Input text for speech synthesis',
         'ru': 'Введите текст для синтеза речи'
-    }, 
+    },
     'Audio Outputs': {
         'en': 'Audio Outputs',
         'ru': 'Аудиовыходы'
-    }, 
+    },
     'Audio Inputs': {
         'en': 'Audio Inputs',
         'ru': 'Аудиовходы'
-    }, 
+    },
     'Audio Inputs and Outputs': {
         'en': 'Audio Inputs and Outputs',
         'ru': 'Входы и выходы для аудио'
-    },   
+    },
     'Request inputs and outputs': {
         'en': 'Request',
         'ru': 'Запросить'
@@ -92,7 +92,7 @@ export const keyset: I18nKeyset = {
     'Not detected.': {
         'en': 'Not detected.',
         'ru': 'Не обнаружены.'
-    }, 
+    },
     'Action is aborted.': {
         'en': 'Action is aborted.',
         'ru': 'Действие прервано.'
@@ -120,5 +120,17 @@ export const keyset: I18nKeyset = {
     'No devices were found as a result of the specified restrictions.': {
         'en': 'No devices were found as a result of the specified restrictions.',
         'ru': 'В результате указанных ограничений не было найдено устройств',
-    }
+    },
+    'Voice: ': {
+        'en': 'Voice: ',
+        'ru': 'Голос: '
+    },
+    'Inputs': {
+        'en': 'Inputs',
+        'ru': 'Входы'
+    },
+    'Outputs': {
+        'en': 'Outputs',
+        'ru': 'Выходы'
+    },
 };

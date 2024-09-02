@@ -6,3 +6,11 @@
     width: 50%;
     max-width: 400px;
 }
+
+.speech-synthesis__voice {
+    margin-bottom: .8em;
+}
+
+.speech-synthesis__select {
+    max-width: 15em;
+}
