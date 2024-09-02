@@ -3,16 +3,14 @@ import beautify from 'simply-beautiful';
 
 import { createPage } from './createPage.mjs';
 import { updateTemplate } from './updateTemplate.mjs';
-import { loadJson } from './utils/loadJson.mjs';
 import { buildPage, setLang, i18n, setPageId } from '../dist/ssr.mjs';
 import { getPagePath } from './getPagePath.mjs';
 import { siteUrl, langs } from './data.mjs';
+import pages from './getPagesForBuild.mjs';
 
 function getAbsolutePageUrl(lang, id) {
     return `${siteUrl}/${getPagePath(lang, id).dir}`;
 }
-
-const pages = loadJson('./src/pages/pages.json');
 
 langs.forEach(lang => {
     setLang(lang);

@@ -5,8 +5,7 @@ import { nodeResolve } from '@rollup/plugin-node-resolve';
 import postcss from 'rollup-plugin-postcss';
 import terser from '@rollup/plugin-terser';
 import cssnano from 'cssnano';
-
-const pages = JSON.parse(fs.readFileSync('./src/pages/pages.json', 'utf-8'));
+import pages from './tools/getPagesForBuild.mjs';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
