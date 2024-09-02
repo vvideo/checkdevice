@@ -12,6 +12,7 @@ import { RadioButtons } from '../../../../components/ui/RadioButtons';
 import { ColorSwitcher } from '../../../../components/ui/ColorSwitcher';
 
 import './index.css';
+import { Select, SelectOption } from '../../../../components/ui/Select';
 
 const b = block('ui-list');
 
@@ -26,9 +27,30 @@ const colorSwitcherItems = [
     { color: 'white', value: 'white', title: 'White' },
 ];
 
+const selectOptions: SelectOption[] = [
+    {
+        value: '1',
+        title: 'item1'
+    },
+    {
+        value: '2',
+        title: 'item2'
+    },
+    {
+        value: '3',
+        title: 'item3'
+    },
+];
+
 export function UIList() {
     return (
         <div class={b()}>
+            <h2>Select</h2>
+            <ul class={b('items')}>
+                <li><Select options={selectOptions} /></li>
+                <li>theme=active: <Select theme="active" options={selectOptions} /></li>
+            </ul>
+
             <h2>Button</h2>
             <ul class={b('items')}>
                 <li><Button>Button</Button> <Button disabled>Button disabled</Button> <Button theme="active">Button theme=active</Button> <Button theme="red">Button theme=red</Button></li>

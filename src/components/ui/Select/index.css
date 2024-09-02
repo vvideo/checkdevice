@@ -1,0 +1,33 @@
+.select {
+    background: white;
+    color: black;
+    font-size: 16px;
+    line-height: 1.5em;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 5px 9px;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color .3s ease;
+}
+
+.page-theme_light .select {
+    border: 1px solid #aaa;
+}
+
+.select:active {
+    transform: scale(0.98);
+}
+
+body.hover_yes .select:hover {
+    background: #f5f5f5;
+}
+
+.select_theme_active {
+    background: #ffd700;
+}
+
+body.hover_yes .select_theme_active:hover {
+    background: #efc700;
+}
