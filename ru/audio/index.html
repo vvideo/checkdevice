@@ -33,7 +33,7 @@
 
         !function(){var e=function(){if(!window.localStorage)return"";var e="";try{e=localStorage.getItem("page-theme")}catch(e){}return e}();"dark"!==e&&"light"!==e&&(e="");var t=e||(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)")?"light":"dark");document.documentElement.className+=" page-theme_"+t}();
     </script>
-    <link rel="stylesheet" href="/static/audio.css?md5=d682f0e4159f12e840ebd5eb24ef98f2" />
+    <link rel="stylesheet" href="/static/audio.css?md5=8326feb6107128a5ae5d47447acecb76" />
     <link rel="yandex-tableau-widget" href="/yandex-tableau-widget.json" />
 </head>
 <body>
@@ -431,6 +431,11 @@
             <div class="speech-synthesis">
                 <div class="speech-synthesis__supported">Web Speech API<span class="info-link"><a class="info-link__link" href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis" title="MDN" target="_blank">ⓘ</a></span>: Нет</div>
                 <div class="speech-synthesis__form">
+                    <div class="speech-synthesis__voice">Голос:
+                        <select class="select speech-synthesis__select">
+                            <option value>По умолчанию</option>
+                        </select>
+                    </div>
                     <input class="input speech-synthesis__input" title="Введите текст для синтеза речи" placeholder="Введите текст" value="Привет, мир!" />
                     <button title="Speak слова" class="button">Сказать</button>
                 </div>
@@ -462,6 +467,6 @@
         <div class="footer__item">© Vvideo</div>
     </footer>
 </div></div>
-    <script defer src="/static/audio.js?md5=81994a6cbe01fb00f07bcc7dcc041803"></script>
+    <script defer src="/static/audio.js?md5=7ac3954d9cc75d98e71195ef6a6e4d8d"></script>
 </body>
 </html>

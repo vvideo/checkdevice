@@ -33,7 +33,7 @@
 
         !function(){var e=function(){if(!window.localStorage)return"";var e="";try{e=localStorage.getItem("page-theme")}catch(e){}return e}();"dark"!==e&&"light"!==e&&(e="");var t=e||(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)")?"light":"dark");document.documentElement.className+=" page-theme_"+t}();
     </script>
-    <link rel="stylesheet" href="/static/ui.css?md5=f3a1de1f6ac24b19df065e702f8a3045" />
+    <link rel="stylesheet" href="/static/ui.css?md5=7c095705f6470142a5bcf7bd88f80b10" />
     <link rel="yandex-tableau-widget" href="/yandex-tableau-widget.json" />
 </head>
 <body>
@@ -79,6 +79,23 @@
     </nav>
     <h1 class="page-title">UI</h1>
     <div class="ui-list">
+        <h2>Select</h2>
+        <ul class="ui-list__items">
+            <li>
+                <select class="select">
+                    <option value="1">item1</option>
+                    <option value="2">item2</option>
+                    <option value="3">item3</option>
+                </select>
+            </li>
+            <li>theme=active:
+                <select class="select select_theme_active">
+                    <option value="1">item1</option>
+                    <option value="2">item2</option>
+                    <option value="3">item3</option>
+                </select>
+            </li>
+        </ul>
         <h2>Button</h2>
         <ul class="ui-list__items">
             <li>
@@ -212,6 +229,6 @@
         <div class="footer__item">© Vvideo</div>
     </footer>
 </div></div>
-    <script defer src="/static/ui.js?md5=997096f788191c51511a0133c8d93017"></script>
+    <script defer src="/static/ui.js?md5=42a2595d0c5845f89d82b6fd3990bfb4"></script>
 </body>
 </html>
