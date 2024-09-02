@@ -20,8 +20,8 @@ const b = block('sidebar-menu');
 
 export function SidebarMenu(props: SidebarMenuProps) {
 
-    return (
-        <Sidebar visible={props.visible} onClose={props.onClose}>
+    return props.visible ? (
+        <Sidebar visible onClose={props.onClose}>
             <nav class={b()}>
                 <ul class={b('list')}>
                     {pages.filter(item => Boolean(!item.hidden)).map(item => {
@@ -32,6 +32,5 @@ export function SidebarMenu(props: SidebarMenuProps) {
                     })}
                 </ul>
             </nav>
-        </Sidebar>
-    );
+        </Sidebar>) : null;
 }
