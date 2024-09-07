@@ -1,5 +1,5 @@
 import { showJSError } from 'show-js-error';
-//import { hit } from 'lyam';
+import { hit } from 'lyam';
 
 import { addI18nKeyset, I18NLanguage, setI18nLang, setI18nLangs } from '../../i18n';
 import { withInstallApp } from '../../utils/dom/withInstallApp';
@@ -38,7 +38,7 @@ if (!isSsr) {
         reportUrl: config.showJSErrorRepportUrl,
     });
 
-    //hit(config.metrikaCounterId);
+    hit(config.metrikaCounterId);
 
     const lang = getLang() as I18NLanguage;
     setI18nLang(lang as I18NLanguage);

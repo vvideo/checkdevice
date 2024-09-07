@@ -1,5 +1,5 @@
 import './common';
-import { MetrikaCounter } from 'react-metrika';
+//import { MetrikaCounter } from 'react-metrika';
 
 import { ComponentChildren, h } from 'preact';
 
@@ -9,7 +9,7 @@ import { Header } from './components/Header';
 import { block } from '../../utils/css/bem';
 import { PageTitle } from '../../components/PageTitle';
 
-import { config } from '../../config';
+//import { config } from '../../config';
 
 import './index.css';
 
@@ -29,7 +29,7 @@ export function Page(props: PageProps) {
             {props.title ? (<PageTitle>{props.title}</PageTitle>) : ''}
             {props.children}
             <Footer />
-            <MetrikaCounter id={config.metrikaCounterId} options={config.metrikaOptions} />
+            {/* <MetrikaCounter id={config.metrikaCounterId} options={config.metrikaOptions} /> */}
         </div>
     );
 }
