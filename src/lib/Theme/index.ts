@@ -52,10 +52,10 @@ export function removePageThemeListener(callback: (theme: PageThemeType) => void
     pageThemeChangeSignal.removeListener(callback);
 }
 
-export function initPageTheme() {  
+export function initPageTheme() {
     if (typeof window !== 'undefined' && window.matchMedia){
         const query = window.matchMedia('(prefers-color-scheme: dark)');
-        query.addEventListener('change', () => {      
+        query.addEventListener('change', () => {
             const theme = getPreferredColorScheme() || DEFAULT_PAGE_THEME;
             pageThemeChangeSignal.trigger(theme);
         });
@@ -63,8 +63,16 @@ export function initPageTheme() {
         const theme = getLocalStorageItem(PAGE_THEME_LOCAL_STORAGE_KEY) as PageThemeType || getPreferredColorScheme();
         if (theme && isCorrectTheme(theme)) {
             setPageTheme(theme);
+        } else {
+            updatePageTheme();
         }
+    } else {
+        updatePageTheme();
     }
+}
+
+function updatePageTheme() {
+    setPageTheme(pageTheme);
 }
 
 export function isCorrectTheme(value?: string) {
