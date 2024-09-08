@@ -63,15 +63,10 @@ export function initPageTheme() {
         const theme = getLocalStorageItem(PAGE_THEME_LOCAL_STORAGE_KEY) as PageThemeType || getPreferredColorScheme();
         if (theme && isCorrectTheme(theme)) {
             setPageTheme(theme);
-        } else {
-            updatePageTheme();
+            return;
         }
-    } else {
-        updatePageTheme();
     }
-}
 
-function updatePageTheme() {
     setPageTheme(pageTheme);
 }
 
