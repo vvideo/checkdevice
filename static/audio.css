@@ -30,6 +30,6 @@ html{background-color:#000;color:#fff;font-family:Arial,Helvetica,sans-serif;fon
 .speech-synthesis__supported{margin:.5em 0}.speech-synthesis__input{max-width:400px;width:50%}.speech-synthesis__voice{margin-bottom:.8em}.speech-synthesis__select{max-width:15em}
 .select{background:#fff;border:none;border-radius:5px;box-sizing:border-box;color:#000;cursor:pointer;font-size:16px;line-height:1.5em;padding:5px 9px;transition:background-color .3s ease;user-select:none}.page-theme_light .select{border:1px solid #aaa}.select:active{transform:scale(.98)}body.hover_yes .select:hover{background:#f5f5f5}.select_theme_active{background:gold}body.hover_yes .select_theme_active:hover{background:#efc700}
 .list{font-size:16px;line-height:26px;margin:0 0 0 15px;padding:0}
-.audio-inputs-outputs__lists{margin-top:1.5em}.audio-inputs-outputs__list{margin-top:.3em}
 .error-message{color:#f77;margin:1em 0}.error-message_theme_gray{color:gray;filter:grayscale()}
+.audio-inputs-outputs__lists{margin-top:1.5em}.audio-inputs-outputs__list{margin-top:.3em}
 .audio-page__badge{margin-bottom:15px;margin-top:30px}
