@@ -10,6 +10,7 @@ import { AudioError } from '../AudioError';
 import { isSsr } from '../../../../utils/isSsr';
 
 import './index.css';
+import { Section } from '../../../../components/ui/Section';
 
 const b = block('audio-inputs-outputs');
 
@@ -50,7 +51,7 @@ export function AudioInputsOutputs() {
         return null;
     }
 
-    return (<div class={b()}>
+    return (<Section class={b()} name={i18n('Audio Inputs and Outputs')}>
         <Button onClick={handleClick}>{i18n('Request inputs and outputs')}</Button>
 
         <AudioError error={error} />
@@ -68,5 +69,5 @@ export function AudioInputsOutputs() {
                 </div>
             </div>
         ) : null}
-    </div>);
+    </Section>);
 }
