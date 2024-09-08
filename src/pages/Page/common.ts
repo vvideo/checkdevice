@@ -36,6 +36,10 @@ addI18nKeyset(keyset);
 if (!isSsr) {
     showJSError.setSettings({
         reportUrl: config.showJSErrorRepportUrl,
+        // Fix for old webOS
+        errorFilter: (error) => {
+            return error?.message !== 'Script error.';
+        }
     });
 
     hit(config.metrikaCounterId);
