@@ -15,7 +15,8 @@ export default [
       'src/pages/pages.ts',
       'static/**',
       'dist/**',
-      'rollup.config.mjs'
+      'rollup.config.mjs',
+      'coverage'
     ],
   },
   {
