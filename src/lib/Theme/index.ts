@@ -53,7 +53,7 @@ export function removePageThemeListener(callback: (theme: PageThemeType) => void
 }
 
 export function initPageTheme() {
-    if (typeof window !== 'undefined' && window.matchMedia){
+    if (window.matchMedia){
         const query = window.matchMedia('(prefers-color-scheme: dark)');
         query.addEventListener('change', () => {
             const theme = getPreferredColorScheme() || DEFAULT_PAGE_THEME;
