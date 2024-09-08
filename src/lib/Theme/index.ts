@@ -1,3 +1,5 @@
+import { addClassName } from '../../utils/css/addClassName';
+import { removeClassName } from '../../utils/css/removeClassName';
 import { getPreferredColorScheme } from '../../utils/dom/getPreferredColorScheme';
 import { getLocalStorageItem, setLocalStorageItem } from '../LocalStorage';
 import { Signal } from '../Signal';
@@ -12,11 +14,11 @@ let pageTheme: PageThemeType = DEFAULT_PAGE_THEME;
 
 export function setPageTheme(theme: PageThemeType) {
     if (theme === 'light') {
-        document.documentElement.classList.add('page-theme_light');
-        document.documentElement.classList.remove('page-theme_dark');
+        addClassName(document.documentElement, 'page-theme_light');
+        removeClassName(document.documentElement, 'page-theme_dark');
     } else {
-        document.documentElement.classList.add('page-theme_dark');
-        document.documentElement.classList.remove('page-theme_light');
+        addClassName(document.documentElement, 'page-theme_dark');
+        removeClassName(document.documentElement, 'page-theme_light');
     }
 
     pageTheme = theme;
