@@ -5,10 +5,12 @@ import { i18n } from '../../../../i18n';
 import { Button } from '../../../../components/ui/Button';
 import { List } from '../../../../components/ui/List';
 import { block } from '../../../../utils/css/bem';
-
-import './index.css';
 import { noop } from '../../../../utils/function/noop';
 import { AudioError } from '../AudioError';
+import { isSsr } from '../../../../utils/isSsr';
+
+import './index.css';
+import { Section } from '../../../../components/ui/Section';
 
 const b = block('audio-inputs-outputs');
 
@@ -17,7 +19,7 @@ export function AudioInputsOutputs() {
     const [outputs, setOutputs] = useState<string[]>([]);
     const [inputs, setInputs] = useState<string[]>([]);
 
-    const handleClick = useCallback(() => {        
+    const handleClick = useCallback(() => {
         navigator.mediaDevices.getUserMedia({ audio: true }).then(() => {
             return navigator.mediaDevices.enumerateDevices().then(deviceInfo => {
                 const inputItems: string[] = [];
@@ -45,7 +47,11 @@ export function AudioInputsOutputs() {
     const inputItems: [string][] = inputs.map(item => [item]);
     const outputItems: [string][] = outputs.map(item => [item]);
 
-    return (<div class={b()}>
+    if (!isSsr && !navigator.mediaDevices?.getUserMedia) {
+        return null;
+    }
+
+    return (<Section class={b()} name={i18n('Audio Inputs and Outputs')}>
         <Button onClick={handleClick}>{i18n('Request inputs and outputs')}</Button>
 
         <AudioError error={error} />
@@ -63,5 +69,5 @@ export function AudioInputsOutputs() {
                 </div>
             </div>
         ) : null}
-    </div>);
+    </Section>);
 }

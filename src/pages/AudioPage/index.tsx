@@ -31,9 +31,7 @@ export function AudioPage() {
                 <AudioCodecs />
             </Section>
 
-            <Section name={i18n('Audio Inputs and Outputs')}>
-                <AudioInputsOutputs />
-            </Section>
+            <AudioInputsOutputs />
 
             <Section name={i18n('Speech Synthesis')}>
                 <SpeechSynthesis />

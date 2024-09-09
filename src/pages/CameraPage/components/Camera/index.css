@@ -14,7 +14,7 @@
     border-radius: 5px;
     height: 50vh;
     min-height: 100px;
-    background: url('/static/icons/pages/camera_gray.svg') center center no-repeat;
+    background: url('/static/icons/camera_gray.svg') center center no-repeat;
     background-size: 200px 200px;
 }
 
