@@ -1,6 +1,0 @@
-- hdcp for drm question
-- Additional monitors
-- Refresh when change order of monitors
-- Fix float window for video page
-- Refresh after select mic for camera page
-- Front / back for camera page
