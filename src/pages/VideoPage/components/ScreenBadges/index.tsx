@@ -42,12 +42,7 @@ export function ScreenBadges() {
 
     const screenInfoData = screenInfo.get();
     const content = screenInfoData.map(item => {
-        const props = {
-            isScreenDetails: screenInfo.isScreenDetails,
-            ...item,
-        };
-
-        return (<ScreenBadge {...props} />);
+        return (<ScreenBadge {...item} />);
     });
 
     const name = screenInfoData.length > 1 ? i18n('Screens') : i18n('Screen');
