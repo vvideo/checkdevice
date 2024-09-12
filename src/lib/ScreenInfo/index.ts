@@ -17,6 +17,11 @@ export interface ScreenDetailed extends Screen {
     isPrimary?: boolean;
 }
 
+export interface ScreenDetailedPrepared extends ScreenDetailed {
+    isHdr?: boolean;
+    colorSpaces: string[];
+}
+
 export interface ScreenDetailedResult {
     currentScreen: ScreenDetailed;
     screens: ScreenDetailed[];
@@ -40,7 +45,7 @@ declare global {
 class ScreenInfo {
     private listeners: (() => void)[] = [];
     private devicePixelRatio = isSsr ? 1 : getDevicePixelRatio();
-    private screens: ScreenDetailed[] = [];
+    private preparedScreens: ScreenDetailedPrepared[] = [];
     private timer = -1;
 
     public isScreenDetails = false;
@@ -98,14 +103,11 @@ class ScreenInfo {
             this.isScreenDetails = true;
             this.needUserActivity = false;
 
-            this.screens = result.screens;
+            this.setScreens(result.screens);
 
             this.unbindScreenChange();
-            this.bindScreensChange(result.screens);
-
             result.onscreenschange = () => {
-                this.bindScreensChange(result.screens);
-                this.screens = result.screens;
+                this.setScreens(result.screens);
                 this.emit();
             };
 
@@ -114,8 +116,8 @@ class ScreenInfo {
             this.needUserActivity = true;
             this.emit();
 
-            // @ts-ignore
-            navigator.permissions.query({ name: 'window-management' }).then((result) => {
+            const permissions = { name: 'window-management' } as any as PermissionDescriptor;
+            navigator.permissions.query(permissions).then((result) => {
                 if (result.state === 'denied') {
                     this.isDenied = true;
                     this.needUserActivity = false;
@@ -129,6 +131,11 @@ class ScreenInfo {
 
             throw e;
         });
+    }
+
+    private setScreens(screens: ScreenDetailed[]) {
+        this.bindScreensChange(screens);
+        this.preparedScreens = this.prepareScreens(screens);
     }
 
     private bindScreensChange(screens: ScreenDetailed[]) {
@@ -158,7 +165,7 @@ class ScreenInfo {
     }
 
     private getAdditionalPropsForScreen(screen: ScreenDetailed) {
-        const result: { isHdr: boolean, colorSpaces: string[]; } = {
+        const result: { isHdr: boolean | undefined, colorSpaces: string[]; } = {
             isHdr: false,
             colorSpaces: [],
         };
@@ -168,12 +175,10 @@ class ScreenInfo {
                 'about:blank',
                 'checkdevice',
                 `popup=yes,left=${screen.availLeft},top=${screen.availTop},width=100,height=100`,
-            );
+            ) as Window & typeof globalThis | null;
 
             if (win) {
-                // @ts-ignore
-                result.isHdrSupported = isHighDynamicRangeSupported(win);
-                // @ts-ignore
+                result.isHdr = isHighDynamicRangeSupported(win);
                 result.colorSpaces = this.getColorSpaces(win);
                 win.close();
             }
@@ -210,38 +215,35 @@ class ScreenInfo {
     }
 
     public get() {
-        if (isSsr) {
-            return { screens: [] } as { screens: ScreenDetailed[] };
-        }
+        return isSsr ? [] : this.preparedScreens;
+    }
 
-        const result = {
-            screens: this.isScreenDetails ?
-                this.screens.map(item => {
-                    const additionalProps = item.isPrimary ?
-                        this.getAdditionalProps() :
-                        this.getAdditionalPropsForScreen(item);
+    private prepareScreens(screens: ScreenDetailed[]): ScreenDetailedPrepared[] {
+        const result = this.isScreenDetails ?
+            screens.map(item => {
+                const additionalProps = item.isPrimary ?
+                    this.getAdditionalProps() :
+                    this.getAdditionalPropsForScreen(item);
 
-                    return {
-                        availLeft: item.availLeft,
-                        availTop: item.availTop,
-                        availWidth: item.availWidth,
-                        availHeight: item.availHeight,
-                        colorDepth: item.colorDepth,
-                        pixelDepth: item.pixelDepth,
-                        width: item.width,
-                        height: item.height,
-                        label: item.label,
-                        isInternal: item.isInternal,
-                        isPrimary: item.isPrimary,
-                        isHdr: additionalProps.isHdr,
-                        colorSpaces: additionalProps.colorSpaces,
-                        isExtended: item.isExtended,
-                        orientation: item.orientation,
-                        devicePixelRatio: item.devicePixelRatio,
-                    };
-                }) :
-                [this.getScreen()],
-        };
+                return {
+                    availLeft: item.availLeft,
+                    availTop: item.availTop,
+                    availWidth: item.availWidth,
+                    availHeight: item.availHeight,
+                    colorDepth: item.colorDepth,
+                    pixelDepth: item.pixelDepth,
+                    width: item.width,
+                    height: item.height,
+                    label: item.label,
+                    isInternal: item.isInternal,
+                    isPrimary: item.isPrimary,
+                    isHdr: additionalProps.isHdr,
+                    colorSpaces: additionalProps.colorSpaces,
+                    isExtended: item.isExtended,
+                    orientation: item.orientation,
+                    devicePixelRatio: item.devicePixelRatio,
+                };
+            }) : [this.getScreen()];
 
         return result;
     }
@@ -304,7 +306,7 @@ export function isLargerFullHd(height: number) {
 }
 
 export function needHdcpWarning() {
-    const screens = screenInfo.get().screens;
+    const screens = screenInfo.get();
 
     if (
         screenInfo.isScreenDetails &&
