@@ -57,7 +57,9 @@ class ScreenInfo {
             return;
         }
 
-        let screenJson = JSON.stringify(this.getScreen());
+        const screen = this.getScreen()
+        this.setScreens([screen]);
+        let screenJson = JSON.stringify(screen);
 
         this.timer = window.setInterval(() => {
             const currentDevicePixelRation = getDevicePixelRatio();
