@@ -24,6 +24,7 @@ export interface ScreenItemProps {
     label?: string;
     isExtended?: boolean;
     maxTouchPoints?: number;
+    isScreenDetailed?: boolean;
 }
 
 const b = block('screen-item');
@@ -42,6 +43,7 @@ export function ScreenItem(props: ScreenItemProps) {
         maxTouchPoints,
         isExtended,
         orientation,
+        isScreenDetailed,
     } = props;
 
     const logicalSize = [width, height];
@@ -60,14 +62,14 @@ export function ScreenItem(props: ScreenItemProps) {
         typeof isInternal === 'undefined' ? ['', ''] : [i18n('Internal'), getChecked(Boolean(isInternal))],
         typeof maxTouchPoints === 'undefined' ? ['', ''] : [i18n('Max touch points'), maxTouchPoints],
     ];
-    
+
     items = items.filter(Boolean);
 
     return (
         <div class={b()}>
             {label ? (<div class={b('label')}>{label}</div>) : ''}
             <DescriptionList items={items} />
-            {isExtended === true ? (<WarningMessage>{i18n('Additional monitor detected')}</WarningMessage>) : ''}
+            {!isScreenDetailed && isExtended === true ? (<WarningMessage>{i18n('Additional monitor detected')}</WarningMessage>) : ''}
         </div>
     );
 }

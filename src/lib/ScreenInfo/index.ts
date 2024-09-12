@@ -20,6 +20,7 @@ export interface ScreenDetailed extends Screen {
 export interface ScreenDetailedPrepared extends ScreenDetailed {
     isHdr?: boolean;
     colorSpaces: string[];
+    isScreenDetails: boolean;
 }
 
 export interface ScreenDetailedResult {
@@ -221,7 +222,8 @@ class ScreenInfo {
     }
 
     private prepareScreens(screens: ScreenDetailed[]): ScreenDetailedPrepared[] {
-        const result = this.isScreenDetails ?
+        const { isScreenDetails } = this;
+        const result = isScreenDetails ?
             screens.map(item => {
                 const additionalProps = item.isPrimary ?
                     this.getAdditionalProps() :
@@ -244,6 +246,7 @@ class ScreenInfo {
                     isExtended: item.isExtended,
                     orientation: item.orientation,
                     devicePixelRatio: item.devicePixelRatio,
+                    isScreenDetails,
                 };
             }) : [this.getScreen()];
 
@@ -288,6 +291,7 @@ class ScreenInfo {
             devicePixelRatio: getDevicePixelRatio(),
             isHdr: additionalProps.isHdr,
             colorSpaces: additionalProps.colorSpaces,
+            isScreenDetails: false,
         };
     }
 }
