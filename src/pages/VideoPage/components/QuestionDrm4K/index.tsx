@@ -47,11 +47,11 @@ export function QuestionDrm4K() {
     const [hasWidevineNeededHdcp, setWidevineNeededHdcp] = useState<null | boolean>(null);
     const [hasPlayReadyNeededHdcp, setPlayReadyNeededHdcp] = useState<null | boolean>(null);
 
-    const [screens, setScreens] = useState(screenInfo.get().screens);
+    const [screens, setScreens] = useState(screenInfo.get());
 
     useEffect(() => {
         const handler = () => {
-            setScreens(screenInfo.get().screens);
+            setScreens(screenInfo.get());
         };
 
         screenInfo.addListener(handler);

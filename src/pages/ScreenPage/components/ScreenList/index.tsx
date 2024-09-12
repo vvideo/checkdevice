@@ -61,13 +61,13 @@ export function ScreenList() {
 
     return (<div class={b()}>
         <PageTitle>
-            {screenInfoData.screens.length === 1 ? i18n('Screen') : i18n('Screens')}
+            {screenInfoData.length === 1 ? i18n('Screen') : i18n('Screens')}
         </PageTitle>
 
         {!screenInfo.isDenied && screenInfo.needUserActivity ? (<div class={b('specify')}><Button theme="red" size="s" onClick={handleClick}>{i18n('Specify')}</Button></div>) : ''}
 
         {
-            screenInfoData.screens.map(item => {
+            screenInfoData.map(item => {
                 return (<ScreenItem {...item} />);
             })
         }

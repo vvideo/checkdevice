@@ -10,11 +10,11 @@ import { i18n } from '../../../../i18n';
 import { CodecDetails } from '../../../../components/CodecDetails';
 
 export function Question4K() {
-    const [screens, setScreens] = useState(screenInfo.get().screens);
+    const [screens, setScreens] = useState(screenInfo.get());
 
     useEffect(() => {
         const handler = () => {
-            setScreens(screenInfo.get().screens);
+            setScreens(screenInfo.get());
         };
 
         screenInfo.addListener(handler);

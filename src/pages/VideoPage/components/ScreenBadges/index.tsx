@@ -41,7 +41,7 @@ export function ScreenBadges() {
     }, []);
 
     const screenInfoData = screenInfo.get();
-    const content = screenInfoData.screens.map(item => {
+    const content = screenInfoData.map(item => {
         const props = {
             isScreenDetails: screenInfo.isScreenDetails,
             ...item,
@@ -50,7 +50,7 @@ export function ScreenBadges() {
         return (<ScreenBadge {...props} />);
     });
 
-    const name = screenInfoData.screens.length > 1 ? i18n('Screens') : i18n('Screen');
+    const name = screenInfoData.length > 1 ? i18n('Screens') : i18n('Screen');
 
     return (<Section name={name}>
         {!screenInfo.isDenied && screenInfo.needUserActivity ? (<div class={b('specify')}><Button size="s" theme="red" onClick={handleClick}>{i18n('Specify')}</Button></div>) : ''}
