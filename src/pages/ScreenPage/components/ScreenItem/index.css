@@ -5,3 +5,8 @@
 .screen-item__label {
     font-size: 20px;
 }
+
+.screen-item__additional-monitor {
+    display: block;
+    margin-bottom: 1em;
+}

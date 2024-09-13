@@ -8,6 +8,7 @@ import { block } from '../../../../utils/css/bem';
 import { WarningMessage } from '../../../../components/ui/WarningMessage';
 import { HdrLabel } from '../HdrLabel';
 import { ColorSpaceList } from '../ColorSpaceList';
+import { needAdditionalMonitorWarning } from '../../../../lib/ScreenInfo';
 
 import './index.css';
 
@@ -41,9 +42,7 @@ export function ScreenItem(props: ScreenItemProps) {
         isPrimary,
         label,
         maxTouchPoints,
-        isExtended,
         orientation,
-        isScreenDetailed,
     } = props;
 
     const logicalSize = [width, height];
@@ -69,7 +68,7 @@ export function ScreenItem(props: ScreenItemProps) {
         <div class={b()}>
             {label ? (<div class={b('label')}>{label}</div>) : ''}
             <DescriptionList items={items} />
-            {!isScreenDetailed && isExtended === true ? (<WarningMessage>{i18n('Additional monitor detected')}</WarningMessage>) : ''}
+            {needAdditionalMonitorWarning() ? (<WarningMessage class={b('additional-monitor')}>{i18n('Additional monitor detected')}</WarningMessage>) : ''}
         </div>
     );
 }

@@ -6,7 +6,7 @@ import {
 import { noop } from '../../utils/function/noop';
 import { isSsr } from '../../utils/isSsr';
 import { needChangeWidthHeight } from '../../utils/dom/needChangeWidthHeight';
-import { getColorSpaces } from './utils';
+import { getColorSpaces, hasSupportScreenChangeEvent } from './utils';
 import { ScreenDetailed, ScreenDetailedPrepared, ScreenDetailedResult } from './types';
 import { DEFAULT_DEVICE_PIXEL_RATIO } from './constants';
 
@@ -26,11 +26,11 @@ class ScreenInfo {
             return;
         }
 
-        const screen = this.getScreen()
-        this.setScreens([screen]);
-        let screenJson = JSON.stringify(screen);
+        const currentScreen = this.getScreen()
+        this.setScreens([currentScreen]);
+        let screenJson = JSON.stringify(currentScreen);
 
-        this.timer = window.setInterval(() => {
+        this.timer = setInterval(() => {
             const currentDevicePixelRation = getDevicePixelRatio();
             if (this.devicePixelRatio !== currentDevicePixelRation) {
                 this.devicePixelRatio = currentDevicePixelRation;
@@ -38,7 +38,7 @@ class ScreenInfo {
                 return;
             }
 
-            if (window.screen.addEventListener) {
+            if (hasSupportScreenChangeEvent) {
                 return;
             }
 
@@ -74,7 +74,8 @@ class ScreenInfo {
         }
 
         return window.getScreenDetails().then(result => {
-            window.clearInterval(this.timer);
+            clearInterval(this.timer);
+            delete this.timer;
 
             this.isScreenDetails = true;
             this.needUserActivity = false;
@@ -94,7 +95,6 @@ class ScreenInfo {
             return result;
         }).catch(e => {
             this.needUserActivity = true;
-            this.emit();
 
             const permissions = { name: 'window-management' } as any as PermissionDescriptor;
             navigator.permissions.query(permissions).then((result) => {
@@ -164,20 +164,20 @@ class ScreenInfo {
     private bindScreenChange() {
         this.unbindScreenChange();
 
-        if (screen.addEventListener) {
+        if (hasSupportScreenChangeEvent && screen.addEventListener) {
             screen.addEventListener('change', this.handleScreenChange);
         }
     }
 
     private unbindScreenChange() {
-        if (screen.removeEventListener) {
+        if (hasSupportScreenChangeEvent && screen.removeEventListener) {
             screen.removeEventListener('change', this.handleScreenChange);
         }
     }
 
     private getAdditionalPropsForScreen(screen: ScreenDetailed) {
         const result: { isHdr: boolean | undefined, colorSpaces: string[]; } = {
-            isHdr: false,
+            isHdr: undefined,
             colorSpaces: [],
         };
 
@@ -245,6 +245,12 @@ class ScreenInfo {
     }
 
     private handleScreenChange = () => {
+        if (this.isScreenDetails && this.lastResult) {
+            this.setScreens(this.lastResult.screens);
+        } else {
+            this.setScreens([this.getScreen()]);
+        }
+
         this.emit();
     }
 
@@ -296,4 +302,10 @@ export function needHdcpWarning() {
     }
 
     return true;
+}
+
+export function needAdditionalMonitorWarning() {
+    return !screenInfo.isScreenDetails &&
+        typeof screen !== 'undefined' &&
+        screen.isExtended === true;
 }

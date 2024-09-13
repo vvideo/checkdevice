@@ -29,3 +29,7 @@ export function getColorSpaces(win = window) {
 
     return result;
 }
+
+export const hasSupportScreenChangeEvent = typeof screen !== 'undefined' &&
+    'onchange' in screen &&
+    screen.addEventListener;

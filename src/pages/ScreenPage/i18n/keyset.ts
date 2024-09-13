@@ -57,4 +57,8 @@ export const keyset: I18nKeyset = {
         'en': 'Test dead pixels',
         'ru': 'Тест битых пикселей'
     },
+    'Additional monitor detected': {
+        'en': 'Additional monitor detected',
+        'ru': 'Обнаружен дополнительный монитор'
+    }
 };
