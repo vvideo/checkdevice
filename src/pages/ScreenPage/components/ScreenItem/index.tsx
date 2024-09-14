@@ -30,6 +30,8 @@ export interface ScreenItemProps {
 
 const b = block('screen-item');
 
+const EMPTY_ITEM: [string, string] = ['', ''];
+
 export function ScreenItem(props: ScreenItemProps) {
     const {
         width,
@@ -55,11 +57,11 @@ export function ScreenItem(props: ScreenItemProps) {
         [i18n('Aspect ratio'), calcAspectRatio(Math.max(width, height), Math.min(width, height)).value],
         orientation ? [i18n('Orientation'), i18n(orientation.type)] : ['', ''],
         [i18n('Color depth'), `${colorDepth} ${i18n('bit')}`],
-        [(<HdrLabel enabled={Boolean(isHdr)} />), getChecked(Boolean(isHdr))],
-        [i18n('Color spaces'), (<ColorSpaceList items={colorSpaces} />)],
-        typeof isPrimary === 'undefined' ? ['', ''] : [i18n('Primary'), getChecked(Boolean(isPrimary))],
-        typeof isInternal === 'undefined' ? ['', ''] : [i18n('Internal'), getChecked(Boolean(isInternal))],
-        typeof maxTouchPoints === 'undefined' ? ['', ''] : [i18n('Max touch points'), maxTouchPoints],
+        typeof isHdr === 'undefined' ? EMPTY_ITEM : [(<HdrLabel enabled={Boolean(isHdr)} />), getChecked(Boolean(isHdr))],
+        !colorSpaces || !colorSpaces.length ? EMPTY_ITEM : [i18n('Color spaces'), (<ColorSpaceList items={colorSpaces} />)],
+        typeof isPrimary === 'undefined' ? EMPTY_ITEM : [i18n('Primary'), getChecked(Boolean(isPrimary))],
+        typeof isInternal === 'undefined' ? EMPTY_ITEM : [i18n('Internal'), getChecked(Boolean(isInternal))],
+        typeof maxTouchPoints === 'undefined' ? EMPTY_ITEM : [i18n('Max touch points'), maxTouchPoints],
     ];
 
     items = items.filter(Boolean);
