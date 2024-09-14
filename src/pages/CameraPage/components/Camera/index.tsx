@@ -45,24 +45,26 @@ export function Camera() {
     const [withMirror, setWithMirror] = useState(false);
     const [error, setError] = useState<Error | null>(null);
 
-    const handleClick = useCallback(() => {
+    const stop = function() {
         const video = refVideo.current;
+        if (!video || !stream) {
+            return;
+        }
 
+        stopCamera(stream, video);
+        setStream(null);
+        video.controls = false;
+        favicon.stop();
+        favicon.reset();
+    };
+
+    const start = function(props: { quality: string, withMic: boolean }) {
+        const video = refVideo.current;
         if (!video) {
             return;
         }
 
-        if (stream) {
-            stopCamera(stream, video);
-            setStream(null);
-            video.controls = false;
-            favicon.stop();
-            favicon.reset();
-
-            return;
-        }
-
-        requestCamera(video, getConstraints(quality, withMic)!).then(stream => {
+        requestCamera(video, getConstraints(props.quality, props.withMic)!).then(stream => {
             setStream(stream);
             setError(null);
             favicon.start(video);
@@ -70,39 +72,43 @@ export function Camera() {
             setError(error);
             console.log(error);
         });
+    };
+
+    const handleClick = useCallback(() => {
+        if (stream) {
+            stop();
+        } else {
+            start({ quality, withMic });
+        }
     }, [stream, quality, withMic]);
 
     const handleSavePhoto = useCallback(() => {
-        if (refVideo.current) {
+        const video = refVideo.current;
+        if (video) {
             savePhoto(
-                refVideo.current,
+                video,
                 `camera_photo_${new Date().toISOString().split('T')[0]}.png`
             );
         }
     }, [])
 
     const handleSelect = useCallback((value: string) => {
-        const video = refVideo.current;
-
         setQuality(value);
 
-        if (stream && video) {
-            stopCamera(stream, video);
-            setStream(null);
-
-            requestCamera(video, getConstraints(value, withMic)!).then(stream => {
-                setStream(stream);
-                setError(null);
-            }).catch(error => {
-                setError(error);
-                console.log(error);
-            });
+        if (stream) {
+            stop();
+            start({ withMic, quality: value });
         }
     }, [quality, stream, withMic]);
 
     const handleMic = useCallback((checked: boolean) => {
         setWithMic(checked);
-    }, []);
+
+        if (stream) {
+            stop();
+            start({ withMic: checked, quality });
+        }
+    }, [stream, quality]);
 
     const handleMirror = useCallback((checked: boolean) => {
         setWithMirror(checked);
