@@ -6,7 +6,8 @@ let pages = loadJson('./src/pages/pages.json');
 const pageId = process.env.PAGE_ID;
 
 if (pageId) {
-    pages = pages.filter(item => item.id === pageId);
+    const pageIds = pageId.split(',');
+    pages = pages.filter(item => pageIds.includes(item.id));
 }
 
 export default pages;
