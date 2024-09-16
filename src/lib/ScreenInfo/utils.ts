@@ -30,6 +30,32 @@ export function getColorSpaces(win = window) {
     return result;
 }
 
+declare global {
+    interface Window {
+        checkWindow: Window | null;
+    }
+}
+
+export function openCheckWindow(left: number, top: number): Window | null {
+    if (window.checkWindow && !window.checkWindow.closed) {
+        window.checkWindow.moveTo(left, top);
+        window.checkWindow.document.documentElement.setAttribute('style', 'color:white; background:black');
+        if (window.checkWindow.document.body) {
+            window.checkWindow.document.body.innerText = 'Check HDR';
+        }
+
+        return window.checkWindow;
+    }
+
+    window.checkWindow = window.open(
+        'about:blank',
+        'checkdevice',
+        `popup=yes,left=${left},top=${top},width=100,height=100`,
+    );
+
+    return window.checkWindow;
+}
+
 export const hasSupportScreenChangeEvent = typeof screen !== 'undefined' &&
     'onchange' in screen &&
     screen.addEventListener;

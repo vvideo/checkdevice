@@ -6,7 +6,7 @@ import {
 import { noop } from '../../utils/function/noop';
 import { isSsr } from '../../utils/isSsr';
 import { needChangeWidthHeight } from '../../utils/dom/needChangeWidthHeight';
-import { getColorSpaces, hasSupportScreenChangeEvent } from './utils';
+import { getColorSpaces, hasSupportScreenChangeEvent, openCheckWindow } from './utils';
 import { ScreenDetailed, ScreenDetailedPrepared, ScreenDetailedResult } from './types';
 import { DEFAULT_DEVICE_PIXEL_RATIO } from './constants';
 
@@ -182,16 +182,13 @@ class ScreenInfo {
         };
 
         try {
-            const win = window.open(
-                'about:blank',
-                'checkdevice',
-                `popup=yes,left=${screen.availLeft},top=${screen.availTop},width=100,height=100`,
-            ) as Window & typeof globalThis | null;
+            const win = openCheckWindow(screen.availLeft!, screen.availTop!);
 
             if (win) {
+                // @ts-ignore
                 result.isHdr = isHighDynamicRangeSupported(win);
+                // @ts-ignore
                 result.colorSpaces = getColorSpaces(win);
-                win.close();
             }
         } catch(e) {
             console.error(e);
