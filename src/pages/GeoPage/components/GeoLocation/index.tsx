@@ -39,7 +39,7 @@ export function GeoLocation(props: GeoLocationProps) {
         return (<WarningMessage>{i18n('Geo Location API is not supported.')}</WarningMessage>);
     }
 
-    const [coords, setCoords] = useState<GeolocationCoordinates | null>(null);
+    const [coords, setCoords] = useState<Omit<GeolocationCoordinates, 'toJSON'> | null>(null);
     const [inProgress, setInProgress] = useState(false);
     const [error, setError] = useState<string | null>(null);
 

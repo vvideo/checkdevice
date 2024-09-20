@@ -19,7 +19,7 @@ export default [
       'static/**',
       'dist/**',
       'rollup.config.mjs',
-      'coverage'
+      '.config/coverage'
     ],
   },
   {

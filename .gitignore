@@ -3,3 +3,4 @@ src/pages/pages.ts
 coverage
 dist
 .DS_Store
+.vscode

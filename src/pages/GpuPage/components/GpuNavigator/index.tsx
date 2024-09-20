@@ -58,6 +58,7 @@ export function GpuNavigator() {
             }
 
             // Fallback
+            // @ts-ignore
             adapter.requestAdapterInfo().then(adapterInfo => {
                 refAdapterInfo.current = adapterInfo;
                 setAdapterInfo(true);
