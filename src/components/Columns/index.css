@@ -1,3 +1,11 @@
 .columns {
     display: flex;
 }
+
+.columns .column {
+    margin-left: 10px;
+}
+
+.columns .column:first-child {
+    margin-left: 0;
+}

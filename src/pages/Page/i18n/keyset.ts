@@ -7,7 +7,7 @@ export const keyset: I18nKeyset = {
     },
     'Unsupported': {
         'en': 'Unsupported',
-        'ru': 'Не поддерживаемые'
+        'ru': 'Не\u00a0поддерживаемые'
     },
     'Size': {
         'en': 'Size',
