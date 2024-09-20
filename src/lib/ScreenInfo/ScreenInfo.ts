@@ -189,9 +189,7 @@ class ScreenInfo {
             const win = openCheckWindow(screen.availLeft!, screen.availTop!);
 
             if (win) {
-                // @ts-ignore
                 result.isHdr = isHighDynamicRangeSupported(win);
-                // @ts-ignore
                 result.colorSpaces = getColorSpaces(win);
             }
         } catch(e) {

@@ -12,7 +12,7 @@ export function isLargerFullHd(height: number) {
     return height > FULL_HD_HEIGHT + HEIGHT_PADDING;
 }
 
-export function getColorSpaces(win = window) {
+export function getColorSpaces(win: Window = window) {
     const result: string[] = [];
 
     if (isSrgbSupported(win)) {
