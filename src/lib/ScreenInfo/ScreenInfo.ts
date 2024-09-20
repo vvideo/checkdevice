@@ -6,7 +6,7 @@ import {
 import { noop } from '../../utils/function/noop';
 import { isSsr } from '../../utils/isSsr';
 import { needChangeWidthHeight } from '../../utils/dom/needChangeWidthHeight';
-import { getColorSpaces, hasSupportScreenChangeEvent, openCheckWindow } from './utils';
+import { closeCheckWindow, getColorSpaces, hasSupportScreenChangeEvent, openCheckWindow } from './utils';
 import { ScreenDetailed, ScreenDetailedPrepared, ScreenDetailedResult } from './types';
 import { DEFAULT_DEVICE_PIXEL_RATIO } from './constants';
 
@@ -52,6 +52,10 @@ class ScreenInfo {
         this.bindScreenChange();
 
         this.getScreenDetails().catch(noop);
+
+        window.addEventListener('unload', () => {
+            closeCheckWindow();
+        });
     }
 
     public addListener(callback: () => void) {

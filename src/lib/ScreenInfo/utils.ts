@@ -56,6 +56,12 @@ export function openCheckWindow(left: number, top: number): Window | null {
     return window.checkWindow;
 }
 
+export function closeCheckWindow() {
+    if (window.checkWindow && !window.checkWindow.closed) {
+        window.checkWindow.close();
+    }
+}
+
 export const hasSupportScreenChangeEvent = typeof screen !== 'undefined' &&
     'onchange' in screen &&
     screen.addEventListener;
