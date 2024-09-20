@@ -83,7 +83,7 @@ export function GeoLocation(props: GeoLocationProps) {
 
     return (
         <div class={b()}>
-            <Button disabled={inProgress} theme="active" onClick={handleClick}>{inProgress ? (<Spinner size="m" />) : ''}{i18n('Request geo location')}</Button>
+            <Button disabled={inProgress} theme="active" onClick={handleClick}>{inProgress ? (<Spinner size="m" />) : ''} {i18n('Request geo location')}</Button>
             {coords ? (<div class={b('list')}><TreeList data={coords} /></div>) : ''}
             {error ? (<ErrorMessage>{error}</ErrorMessage>) : ''}
             {coords ? (<div class={b('map')}>
