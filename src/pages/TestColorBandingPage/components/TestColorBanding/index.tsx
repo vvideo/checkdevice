@@ -9,7 +9,7 @@ import './index.css';
 
 const b = block('test-color-banding');
 
-const colors = ['red', 'green', 'blue', 'green', 'yellow', 'white'];
+const colors = ['red', 'green', 'blue', 'violet', 'yellow', 'white'];
 
 export function TestColorBanding() {
     const [isFullScreen, setFullScreen] = useState(false);
