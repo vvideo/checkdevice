@@ -15,6 +15,7 @@ addI18nKeyset(keyset);
 export function ScreenPage() {
     const items = [
         [(<Link href={getPagePath('test-dead-pixels')}>{i18n('Test dead pixels')}</Link>)],
+        [(<Link href={getPagePath('test-color-banding')}>{i18n('Test color banding')}</Link>)],
         [(<ExtLink target="_blank" href="https://vvideo.github.io/hdcp/index.html">{i18n('Check HDCP version')}</ExtLink>)],
     ];
 

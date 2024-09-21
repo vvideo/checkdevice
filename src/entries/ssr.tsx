@@ -27,12 +27,14 @@ import { BluetoothPage } from '../pages/BluetoothPage';
 import { MidiPage } from '../pages/MidiPage';
 import { GeoPage } from '../pages/GeoPage';
 import { UIPage } from '../pages/UIPage';
+import { TestColorBandingPage } from '../pages/TestColorBandingPage';
 
 export const pages: Record<string, any> = {
     audio: AudioPage,
     video: VideoPage,
     screen: ScreenPage,
     'test-dead-pixels': TestDeadPixelsPage,
+    'test-color-banding': TestColorBandingPage,
     gamepad: GamepadPage,
     storage: StoragePage,
     platform: PlatformPage,
