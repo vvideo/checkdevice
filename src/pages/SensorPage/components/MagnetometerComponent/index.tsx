@@ -9,10 +9,9 @@ import { isSsr } from '../../../../utils/isSsr';
 import { ErrorMessage } from '../../../../components/ui/ErrorMessage';
 import { floor, floorTimestamp } from '../../utils/floor';
 import { DEFAULT_FREQUENCY } from '../../const';
-import { getChecked } from '../../../../utils/string/getChecked';
 
 const b = block('magnetometer');
-const hasSupport = typeof Magnetometer !== 'undefined';
+export const hasSupportMagnetometer = typeof Magnetometer !== 'undefined';
 
 export function MagnetometerComponent() {
     const [ sensor, setSensor ] = useState<Magnetometer | null>(null);
@@ -20,7 +19,7 @@ export function MagnetometerComponent() {
     const forceUpdate = useForceUpdate();
 
     useEffect(() => {
-        if (!hasSupport) {
+        if (!hasSupportMagnetometer) {
             return;
         }
 
@@ -49,7 +48,7 @@ export function MagnetometerComponent() {
         };
     }, [setSensor, setError, forceUpdate]);
 
-    if (!isSsr && !hasSupport) {
+    if (!isSsr && !hasSupportMagnetometer) {
         return (<WarningMessage>{i18n('Magnetometer is not supported.')}</WarningMessage>);
     }
 
@@ -60,7 +59,7 @@ export function MagnetometerComponent() {
                 <li>Magnetic field along the X-axis: {String(floor(sensor.x))}</li>
                 <li>Magnetic field along the Y-axis:{String(floor(sensor.y))}</li>
                 <li>Magnetic field along the Z-axis: {String(floor(sensor.z))}</li>
-                <li>Activated: {getChecked(sensor.activated)}, timestamp: {String(floorTimestamp(sensor.timestamp))}</li>
+                <li>Activated: {String(sensor.activated)}, timestamp: {String(floorTimestamp(sensor.timestamp))}</li>
             </ul>
         </div>
     ) : null;

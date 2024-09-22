@@ -1,5 +1,14 @@
 .sensor__section {
+    opacity: .5;
     margin-top: 1em;
+}
+
+.sensor__section .error-message {
+    margin: .2em 0;
+}
+
+.sensor__section_support {
+    opacity: 1;
 }
 
 .sensor__header {
@@ -8,7 +17,7 @@
 }
 
 .sensor ul {
-    margin-left: 0;
+    margin-left: 1em;
     padding-left: 0;
     margin-top: 0;
 }

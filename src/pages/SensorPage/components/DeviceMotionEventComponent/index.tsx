@@ -8,7 +8,7 @@ import { WarningMessage } from '../../../../components/ui/WarningMessage';
 import { floor } from '../../utils/floor';
 
 const b = block('device-motion-event');
-const hasSupport = typeof DeviceMotionEvent !== 'undefined';
+export const hasSupportDeviceMotionEvent = typeof DeviceMotionEvent !== 'undefined';
 
 export function DeviceMotionEventComponent() {
     const [ motionEvent, setMotionEvent ] = useState<DeviceMotionEvent | null>(null);
@@ -25,7 +25,7 @@ export function DeviceMotionEventComponent() {
         };
     }, []);
 
-    if (!hasSupport) {
+    if (!hasSupportDeviceMotionEvent) {
         return (<WarningMessage>{i18n('DeviceMotionEvent is not supported.')}</WarningMessage>);
     }
 

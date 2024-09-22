@@ -9,10 +9,9 @@ import { isSsr } from '../../../../utils/isSsr';
 import { ErrorMessage } from '../../../../components/ui/ErrorMessage';
 import { floor, floorTimestamp } from '../../utils/floor';
 import { DEFAULT_FREQUENCY } from '../../const';
-import { getChecked } from '../../../../utils/string/getChecked';
 
 const b = block('gravity-sensor');
-const hasSupport = typeof GravitySensor !== 'undefined';
+export const hasSupportGravitySensor = typeof GravitySensor !== 'undefined';
 
 export function GravitySensorComponent() {
     const [ sensor, setSensor ] = useState<GravitySensor | null>(null);
@@ -20,7 +19,7 @@ export function GravitySensorComponent() {
     const forceUpdate = useForceUpdate();
 
     useEffect(() => {
-        if (!hasSupport) {
+        if (!hasSupportGravitySensor) {
             return;
         }
 
@@ -49,7 +48,7 @@ export function GravitySensorComponent() {
         };
     }, [setSensor, setError, forceUpdate]);
 
-    if (!isSsr && !hasSupport) {
+    if (!isSsr && !hasSupportGravitySensor) {
         return (<WarningMessage>{i18n('GravitySensor is not supported.')}</WarningMessage>);
     }
 
@@ -60,7 +59,7 @@ export function GravitySensorComponent() {
                 <li>Gravity along the X-axis: {String(floor(sensor.x))}</li>
                 <li>Gravity along the Y-axis: {String(floor(sensor.y))}</li>
                 <li>Gravity along the Z-axis: {String(floor(sensor.z))}</li>
-                <li>Activated: {getChecked(sensor.activated)}, timestamp: {String(floorTimestamp(sensor.timestamp))}</li>
+                <li>Activated: {String(sensor.activated)}, timestamp: {String(floorTimestamp(sensor.timestamp))}</li>
             </ul>
         </div>
     ) : null;

@@ -9,10 +9,9 @@ import { useForceUpdate } from '../../../../hooks/useForceUpdate';
 import { ErrorMessage } from '../../../../components/ui/ErrorMessage';
 import { floor, floorTimestamp } from '../../utils/floor';
 import { DEFAULT_FREQUENCY } from '../../const';
-import { getChecked } from '../../../../utils/string/getChecked';
 
 const b = block('accelerometer');
-const hasSupport = typeof Accelerometer !== 'undefined';
+export const hasSupportAccelerometer = typeof Accelerometer !== 'undefined';
 
 export function AccelerometerComponent() {
     const [ sensor, setSensor ] = useState<Accelerometer>();
@@ -20,7 +19,7 @@ export function AccelerometerComponent() {
     const forceUpdate = useForceUpdate();
 
     useEffect(() => {
-        if (!hasSupport) {
+        if (!hasSupportAccelerometer) {
             return;
         }
 
@@ -49,7 +48,7 @@ export function AccelerometerComponent() {
         };
     }, [setSensor, setError, forceUpdate]);
 
-    if (!isSsr && !hasSupport) {
+    if (!isSsr && !hasSupportAccelerometer) {
         return(<WarningMessage>{i18n('Accelerometer is not supported.')}</WarningMessage>);
     }
 
@@ -60,7 +59,7 @@ export function AccelerometerComponent() {
                 <li>Acceleration along the X-axis: {String(floor(sensor.x))}</li>
                 <li>Acceleration along the Y-axis: {String(floor(sensor.y))}</li>
                 <li>Acceleration along the Z-axis {String(floor(sensor.z))}</li>
-                <li>Activated: {getChecked(sensor.activated)}, timestamp: {String(floorTimestamp(sensor.timestamp))}</li>
+                <li>Activated: {String(sensor.activated)}, timestamp: {String(floorTimestamp(sensor.timestamp))}</li>
             </ul>
         </div>
     ) : null;

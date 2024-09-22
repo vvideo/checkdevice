@@ -11,6 +11,22 @@ export const keyset: I18nKeyset = {
     },
     'DeviceMotionEvent is not supported.': {
         'en': 'DeviceMotionEvent is not supported.',
-        'ru': 'DeviceMotionEvent не поддерживается.'
+        'ru': 'Событие DeviceMotion не поддерживается.'
+    },
+    'Accelerometer is not supported.': {
+        'en': 'Accelerometer is not supported.',
+        'ru': 'Акселерометр не поддерживается.'
+    },
+    'Magnetometer is not supported.': {
+        'en': 'Magnetometer is not supported.',
+        'ru': 'Магнитометр не поддерживается.'
+    },
+    'GravitySensor is not supported.': {
+        'en': 'GravitySensor is not supported.',
+        'ru': 'Датчик гравитации не поддерживается.'
+    },
+    'AmbientLightSensor is not supported.': {
+        'en': 'AmbientLightSensor is not supported.',
+        'ru': 'Датчик внешней освещенности не поддерживается.'
     }
 };

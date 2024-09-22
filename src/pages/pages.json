@@ -502,7 +502,6 @@
             "ru": "Сенсор"
         },
         "id": "sensor",
-        "hidden": true,
         "indexMenuList": {
             "en": [
               "Accelerometer, Ammbient light sensor",

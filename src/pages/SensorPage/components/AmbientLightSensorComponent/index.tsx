@@ -9,10 +9,9 @@ import { isSsr } from '../../../../utils/isSsr';
 import { ErrorMessage } from '../../../../components/ui/ErrorMessage';
 import { floor, floorTimestamp } from '../../utils/floor';
 import { DEFAULT_FREQUENCY } from '../../const';
-import { getChecked } from '../../../../utils/string/getChecked';
 
 const b = block('ambient-light-sensor');
-const hasSupport = typeof AmbientLightSensor !== 'undefined';
+export const hasSupportAmbientLightSensor = typeof AmbientLightSensor !== 'undefined';
 
 export function AmbientLightSensorComponent() {
     const [ error, setError ] = useState<Error | null>(null);
@@ -20,7 +19,7 @@ export function AmbientLightSensorComponent() {
     const forceUpdate = useForceUpdate();
 
     useEffect(() => {
-        if (!hasSupport) {
+        if (!hasSupportAmbientLightSensor) {
             return;
         }
 
@@ -49,7 +48,7 @@ export function AmbientLightSensorComponent() {
         };
     }, [setSensor, setError, forceUpdate]);
 
-    if (!isSsr && !hasSupport) {
+    if (!isSsr && !hasSupportAmbientLightSensor) {
         return (<WarningMessage>{i18n('AmbientLightSensor is not supported.')}</WarningMessage>);
     }
 
@@ -58,7 +57,7 @@ export function AmbientLightSensorComponent() {
             {error ? (<ErrorMessage>{error.message}</ErrorMessage>) : null}
             <ul>
                 <li>Current light level: {String(floor(sensor.illuminance))}</li>
-                <li>Activated: {getChecked(sensor.activated)}, timestamp: {String(floorTimestamp(sensor.timestamp))}</li>
+                <li>Activated: {String(sensor.activated)}, timestamp: {String(floorTimestamp(sensor.timestamp))}</li>
             </ul>
         </div>
     ) : null;
