@@ -7,6 +7,7 @@ import { WarningMessage } from '../../../../components/ui/WarningMessage';
 import { useForceUpdate } from '../../../../hooks/useForceUpdate';
 import { isSsr } from '../../../../utils/isSsr';
 import { ErrorMessage } from '../../../../components/ui/ErrorMessage';
+import { floor } from '../../utils/floor';
 
 const b = block('magnetometer');
 const hasSupport = typeof Magnetometer !== 'undefined';
@@ -57,9 +58,9 @@ export function MagnetometerComponent() {
                 <li>Activated: {String(sensor.activated)}</li>
                 <li>Has reading: {String(sensor.hasReading)}</li>
                 <li>Timestamp: {String(sensor.timestamp)}</li>
-                <li>Magnetic field along the X-axis {sensor.x}</li>
-                <li>Magnetic field along the Y-axis {sensor.y}</li>
-                <li>Magnetic field along the Z-axis {sensor.z}</li>
+                <li>Magnetic field along the X-axis {String(floor(sensor.x))}</li>
+                <li>Magnetic field along the Y-axis {String(floor(sensor.y))}</li>
+                <li>Magnetic field along the Z-axis {String(floor(sensor.z))}</li>
             </ul>
         </div>
     ) : null;

@@ -7,6 +7,7 @@ import { WarningMessage } from '../../../../components/ui/WarningMessage';
 import { i18n } from '../../../../i18n';
 import { useForceUpdate } from '../../../../hooks/useForceUpdate';
 import { ErrorMessage } from '../../../../components/ui/ErrorMessage';
+import { floor } from '../../utils/floor';
 
 const b = block('accelerometer');
 const hasSupport = typeof Accelerometer !== 'undefined';
@@ -57,9 +58,9 @@ export function AccelerometerComponent() {
                 <li>Activated: {String(sensor.activated)}</li>
                 <li>Has reading: {String(sensor.hasReading)}</li>
                 <li>Timestamp: {String(sensor.timestamp)}</li>
-                <li>Acceleration along the X-axis {sensor.x}</li>
-                <li>Acceleration along the Y-axis {sensor.y}</li>
-                <li>Acceleration along the Z-axis {sensor.z}</li>
+                <li>Acceleration along the X-axis {floor(sensor.x)}</li>
+                <li>Acceleration along the Y-axis {floor(sensor.y)}</li>
+                <li>Acceleration along the Z-axis {floor(sensor.z)}</li>
             </ul>
         </div>
     ) : null;

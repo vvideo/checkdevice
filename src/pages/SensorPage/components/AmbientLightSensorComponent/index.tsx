@@ -7,6 +7,7 @@ import { WarningMessage } from '../../../../components/ui/WarningMessage';
 import { useForceUpdate } from '../../../../hooks/useForceUpdate';
 import { isSsr } from '../../../../utils/isSsr';
 import { ErrorMessage } from '../../../../components/ui/ErrorMessage';
+import { floor } from '../../utils/floor';
 
 const b = block('ambient-light-sensor');
 const hasSupport = typeof AmbientLightSensor !== 'undefined';
@@ -57,7 +58,7 @@ export function AmbientLightSensorComponent() {
                 <li>Activated: {String(sensor.activated)}</li>
                 <li>Has reading: {String(sensor.hasReading)}</li>
                 <li>Timestamp: {String(sensor.timestamp)}</li>
-                <li>Current light level: {String(sensor.illuminance)}</li>
+                <li>Current light level: {String(floor(sensor.illuminance))}</li>
             </ul>
         </div>
     ) : null;
