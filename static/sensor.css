@@ -16,3 +16,4 @@ html{background-color:#000;color:#fff;font-family:Arial,Helvetica,sans-serif;fon
 .section{margin:0 0 30px;padding:0}.section__name{font-size:18px;font-weight:400;line-height:1.6em;margin:0 0 .5em;padding:0}
 .list{font-size:16px;line-height:26px;margin:0 0 0 15px;padding:0}
 .warning-message_theme_gray{color:gray;filter:grayscale()}
+.sensor__section{margin-top:1em}.sensor__header{font-weight:700;margin-bottom:.2em}

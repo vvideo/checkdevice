@@ -67,6 +67,11 @@
 
       /* Advanced Options */
       "forceConsistentCasingInFileNames": true, /* Disallow inconsistently-cased references to the same file. */
-      "types": ["@webgpu/types", "@types/w3c-web-usb", "@types/jest"]
+      "types": [
+        "@webgpu/types",
+        "@types/w3c-web-usb",
+        "@types/jest",
+        "@types/w3c-generic-sensor"
+      ]
     }
   }
