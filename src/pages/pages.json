@@ -499,7 +499,7 @@
     {
         "menuTitle": {
             "en": "Sensor",
-            "ru": "Сенсор"
+            "ru": "Датчик"
         },
         "id": "sensor",
         "indexMenuList": {
