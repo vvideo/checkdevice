@@ -33,7 +33,7 @@
 
         !function(){var e=function(){if(!window.localStorage)return"";var e="";try{e=localStorage.getItem("page-theme")}catch(e){}return e}();"dark"!==e&&"light"!==e&&(e="");var t=e||(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)")?"light":"dark");document.documentElement.className+=" page-theme_"+t}();
     </script>
-    <link rel="stylesheet" href="/static/sensor.css?md5=3af2758b6d708202153fb7afc70720dc" />
+    <link rel="stylesheet" href="/static/sensor.css?md5=364008b770fe52dbfe75f4e49305df57" />
     <link rel="yandex-tableau-widget" href="/yandex-tableau-widget.json" />
 </head>
 <body>
@@ -78,6 +78,23 @@
         </ul>
     </nav>
     <h1 class="page-title">Сенсоры</h1>
+    <div class="sensor">
+        <div class="sensor__section">
+            <div class="sensor__header">DeviceMotionEvent</div><span class="warning-message">⚠️ DeviceMotionEvent is not supported.</span>
+        </div>
+        <div class="sensor__section">
+            <div class="sensor__header">Accelerometer</div>
+        </div>
+        <div class="sensor__section">
+            <div class="sensor__header">AmbientLightSensor</div>
+        </div>
+        <div class="sensor__section">
+            <div class="sensor__header">Magnetometer</div>
+        </div>
+        <div class="sensor__section">
+            <div class="sensor__header">GravitySensor</div>
+        </div>
+    </div>
     <footer class="footer">
         <div class="footer__item footer__item_report"><a target="_blank" class="link link_theme_page-theme" href="https://github.com/vvideo/caniwatchvideo/issues/new">Сообщить об ошибке</a>
         </div>
@@ -95,6 +112,6 @@
         <div class="footer__item">© Vvideo</div>
     </footer>
 </div></div>
-    <script defer src="/static/sensor.js?md5=a054707860ab02bcce571848da0502a4"></script>
+    <script defer src="/static/sensor.js?md5=d124dd6a2f720f732a5d8512a411964b"></script>
 </body>
 </html>
