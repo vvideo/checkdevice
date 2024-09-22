@@ -7,7 +7,7 @@ import { List } from '../../../../components/ui/List';
 
 const b = block('device-motion-event');
 
-export function DeviceMotionEvent() {
+export function DeviceMotionEventComponent() {
     const [ motionEvent, setMotionEvent ] = useState<DeviceMotionEvent | null>(null);
 
     useEffect(() => {
