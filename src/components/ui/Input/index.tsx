@@ -5,7 +5,7 @@ import { classname } from '../../../utils/css/classname';
 
 import './index.css';
 
-interface InputProps {
+export interface InputProps {
     class?: string;
     value?: string;
     disabled?: boolean;

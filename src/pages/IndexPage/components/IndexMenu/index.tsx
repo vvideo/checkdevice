@@ -6,9 +6,9 @@ import pages from '../../../../pages/pages';
 import { getI18nLang, i18n, i18nWithKeyset } from '../../../../i18n';
 import { Link } from '../../../../components/ui/Link';
 import { getPagePath } from '../../../../utils/getPagePath';
-import { Input } from '../../../../components/ui/Input';
 import { searchInMenuList, searchInMenuTitle } from './utils';
 import { Icon } from '../../../../components/ui/Icon';
+import { Search } from '../../../../components/ui/Search';
 
 import './index.css';
 
@@ -51,7 +51,7 @@ export function IndexMenu() {
     });
 
     return (<nav class={b()}>
-        <div class={b('search')}><Input placeholder={i18n('Search')} value={searchValue} onChange={handleSearchChange} /></div>
+        <div class={b('search')}><Search placeholder={i18n('Search')} value={searchValue} onChange={handleSearchChange} /></div>
         {items.length ? (<ul class={b('list')}>
             {items.map(item => {
                 return (
