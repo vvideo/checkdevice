@@ -88,7 +88,14 @@ export function Mouse() {
 
     useEffect(() => {
         const handleWheel = (e: WheelEvent) => {
-            e.preventDefault();
+            const target = e.target as Node;
+            if (
+                target &&
+                refRoot.current?.contains?.(target)
+            ) {
+                e.preventDefault();
+            }
+
             const deltaY = prepareDeltaY(e);
             setWheelY(wheelY + deltaY);
 
@@ -115,10 +122,11 @@ export function Mouse() {
             }
         };
 
-        refRoot.current?.addEventListener('wheel', handleWheel, passiveSupported ? { passive: false } : false);
+        const passiveParam = passiveSupported ? { passive: false } : false;
+        document.body.addEventListener('wheel', handleWheel, passiveParam);
 
         return () => {
-            refRoot.current?.removeEventListener('wheel', handleWheel);
+            document.body.removeEventListener('wheel', handleWheel);
         };
     }, [wheelY]);
 

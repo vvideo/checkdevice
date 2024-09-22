@@ -11,8 +11,10 @@ try {
         },
     };
 
-    window.addEventListener('test', noop, options);
-    window.removeEventListener('test', noop, {});
+    if (typeof window !== 'undefined') {
+        window.addEventListener('test', noop, options);
+        window.removeEventListener('test', noop, {});
+    }
 } catch {
     passiveSupported = false;
 }
