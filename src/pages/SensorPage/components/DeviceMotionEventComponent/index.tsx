@@ -42,9 +42,9 @@ export function DeviceMotionEventComponent() {
     ] : [];
 
     const rotationRateItems: [string, number | null | undefined][] = motionEvent?.rotationRate ?[
-        ['alpha', floor(motionEvent.rotationRate?.alpha)],
-        ['beta', floor(motionEvent.rotationRate?.beta)],
-        ['gamma', floor(motionEvent.rotationRate?.gamma)],
+        [i18n('alpha'), floor(motionEvent.rotationRate?.alpha)],
+        [i18n('beta'), floor(motionEvent.rotationRate?.beta)],
+        [i18n('gamma'), floor(motionEvent.rotationRate?.gamma)],
     ] : [];
 
     return (

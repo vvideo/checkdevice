@@ -56,10 +56,10 @@ export function GravitySensorComponent() {
         <div class={b()}>
             {error ? (<ErrorMessage>{error.message}</ErrorMessage>) : null}
             <ul>
-                <li>Gravity along the X-axis: {String(floor(sensor.x))}</li>
-                <li>Gravity along the Y-axis: {String(floor(sensor.y))}</li>
-                <li>Gravity along the Z-axis: {String(floor(sensor.z))}</li>
-                <li>Activated: {String(sensor.activated)}, timestamp: {String(floorTimestamp(sensor.timestamp))}</li>
+                <li>{i18n('Gravity along the X-axis')}: {String(floor(sensor.x))}</li>
+                <li>{i18n('Gravity along the Y-axis')}: {String(floor(sensor.y))}</li>
+                <li>{i18n('Gravity along the Z-axis')}: {String(floor(sensor.z))}</li>
+                <li>{i18n('Activated')}: {String(sensor.activated)}, {i18n('timestamp')}: {String(floorTimestamp(sensor.timestamp))}</li>
             </ul>
         </div>
     ) : null;

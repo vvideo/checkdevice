@@ -6,50 +6,57 @@ import { AccelerometerComponent, hasSupportAccelerometer } from '../Acceleromete
 import { AmbientLightSensorComponent, hasSupportAmbientLightSensor } from '../AmbientLightSensorComponent';
 import { hasSupportMagnetometer, MagnetometerComponent } from '../MagnetometerComponent';
 import { GravitySensorComponent, hasSupportGravitySensor } from '../GravitySensorComponent';
+import { GyroscopeComponent, hasSupportGyroscope } from '../GyroscopeComponent';
 
 import './index.css';
+import { i18n } from '../../../../i18n';
 
 const b = block('sensor');
 
-const components = [
-    {
-        title: 'DeviceMotionEvent',
-        hasSupport: hasSupportDeviceMotionEvent,
-        Component: DeviceMotionEventComponent,
-    },
-    {
-        title: 'Accelerometer',
-        hasSupport: hasSupportAccelerometer,
-        Component: AccelerometerComponent,
-    },
-    {
-        title: 'AmbientLightSensor',
-        hasSupport: hasSupportAmbientLightSensor,
-        Component: AmbientLightSensorComponent,
-    },
-    {
-        title: 'Magnetometer',
-        hasSupport: hasSupportMagnetometer,
-        Component: MagnetometerComponent,
-    },
-    {
-        title: 'GravitySensor',
-        hasSupport: hasSupportGravitySensor,
-        Component: GravitySensorComponent,
-    }
-].sort((a, b) => {
-    if (a.hasSupport && !b.hasSupport) {
-        return -1;
-    }
-
-    if (!a.hasSupport && b.hasSupport) {
-        return 1;
-    }
-
-    return a.title > b.title ? 1 : -1;
-});
-
 export function Sensor() {
+    const components = [
+        {
+            title: i18n('DeviceMotion event'),
+            hasSupport: hasSupportDeviceMotionEvent,
+            Component: DeviceMotionEventComponent,
+        },
+        {
+            title: i18n('Accelerometer'),
+            hasSupport: hasSupportAccelerometer,
+            Component: AccelerometerComponent,
+        },
+        {
+            title: i18n('Ambient Light Sensor'),
+            hasSupport: hasSupportAmbientLightSensor,
+            Component: AmbientLightSensorComponent,
+        },
+        {
+            title: i18n('Magnetometer'),
+            hasSupport: hasSupportMagnetometer,
+            Component: MagnetometerComponent,
+        },
+        {
+            title: i18n('Gravity Sensor'),
+            hasSupport: hasSupportGravitySensor,
+            Component: GravitySensorComponent,
+        },
+        {
+            title: i18n('Gyroscope'),
+            hasSupport: hasSupportGyroscope,
+            Component: GyroscopeComponent,
+        }
+    ].sort((a, b) => {
+        if (a.hasSupport && !b.hasSupport) {
+            return -1;
+        }
+
+        if (!a.hasSupport && b.hasSupport) {
+            return 1;
+        }
+
+        return a.title > b.title ? 1 : -1;
+    });
+
     return (
         <div class={b()}>
             {
