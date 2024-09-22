@@ -53,9 +53,9 @@ export const keyset: I18nKeyset = {
         'en': 'timestamp',
         'ru': 'временная метка'
     },
-    'DeviceMotion event': {
-        'en': 'DeviceMotion event',
-        'ru': 'Событие DeviceMotion'
+    'devicemotion event': {
+        'en': 'devicemotion event',
+        'ru': 'Событие devicemotion'
     },
     'Accelerometer': {
         'en': 'Accelerometer',
@@ -164,5 +164,45 @@ export const keyset: I18nKeyset = {
     'Relative Orientation Sensor': {
         'en': 'Relative Orientation Sensor',
         'ru': 'Датчик относительной ориентации'
-    }
+    },
+    'Waiting for the event…': {
+        'en': 'Waiting for the event…',
+        'ru': 'Ожидание события…'
+    },
+    'The devicemotion event is fired at a regular interval and indicates the acceleration rate of the device with/without the contribution of the gravity force at that time. It also provides information about the rate of rotation, if available.': {
+        'en': 'The devicemotion event is fired at a regular interval and indicates the acceleration rate of the device with/without the contribution of the gravity force at that time. It also provides information about the rate of rotation, if available.',
+        'ru': 'Событие devicemotion запускается с регулярным интервалом и указывает скорость ускорения устройства с/без учёта силы тяжести в данный момент. Оно также предоставляет информацию о скорости вращения, если она доступна.'
+    },
+    'The Accelerometer interface provides on each reading the acceleration applied to the device along all three axes.': {
+        'en': 'The Accelerometer interface provides on each reading the acceleration applied to the device along all three axes.',
+        'ru': 'Интерфейс Accelerometer обеспечивает получение при каждом считывании ускорения, приложенного к устройству по всем трем осям.'
+    },
+    'The AmbientLightSensor interface returns the current light level or illuminance of the ambient light around the hosting device.': {
+        'en': 'The AmbientLightSensor interface returns the current light level or illuminance of the ambient light around the hosting device.',
+        'ru': 'Интерфейс AmbientLightSensor возвращает текущий уровень освещенности или освещенность внешнего освещения вокруг хост-устройства.'
+    },
+    'The Magnetometer interface provides information about the magnetic field as detected by the device\'s primary magnetometer sensor.': {
+        'en': 'The Magnetometer interface provides information about the magnetic field as detected by the device\'s primary magnetometer sensor.',
+        'ru': 'Интерфейс Magnetometer предоставляет информацию о магнитном поле, обнаруженном основным датчиком магнитометра устройства.'
+    },
+    'The GravitySensor interface provides on each reading the gravity applied to the device along all three axes.': {
+        'en': 'The GravitySensor interface provides on each reading the gravity applied to the device along all three axes.',
+        'ru': 'Интерфейс GravitySensor обеспечивает получение при каждом считывании данных о силе тяжести, действующей на устройство по всем трем осям.'
+    },
+    'The Gyroscope interface provides on each reading the angular velocity of the device along all three axes.': {
+        'en': 'The Gyroscope interface provides on each reading the angular velocity of the device along all three axes.',
+        'ru': 'Интерфейс Gyroscope обеспечивает получение при каждом считывании угловой скорости устройства по всем трем осям.'
+    },
+    'The LinearAccelerationSensor interface provides on each reading the acceleration applied to the device along all three axes, but without the contribution of gravity.': {
+        'en': 'The LinearAccelerationSensor interface provides on each reading the acceleration applied to the device along all three axes, but without the contribution of gravity.',
+        'ru': 'Интерфейс LinearAccelerationSensor обеспечивает для каждого считывания ускорение, приложенное к устройству по всем трем осям, но без учёта силы тяжести.'
+    },
+    'The AbsoluteOrientationSensor interface describes the device\'s physical orientation in relation to the Earth\'s reference coordinate system.': {
+        'en': 'The AbsoluteOrientationSensor interface describes the device\'s physical orientation in relation to the Earth\'s reference coordinate system.',
+        'ru': 'Интерфейс AbsoluteOrientationSensor описывает физическую ориентацию устройства по отношению к системе координат Земли.'
+    },
+    'The RelativeOrientationSensor interface describes the device\'s physical orientation without regard to the Earth\'s reference coordinate system.': {
+        'en': 'The RelativeOrientationSensor interface describes the device\'s physical orientation without regard to the Earth\'s reference coordinate system.',
+        'ru': 'Интерфейс RelativeOrientationSensor описывает физическую ориентацию устройства без учёта системы координат Земли.'
+    },
 };

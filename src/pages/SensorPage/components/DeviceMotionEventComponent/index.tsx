@@ -49,6 +49,11 @@ export function DeviceMotionEventComponent() {
 
     return (
         <div class={b()}>
+            {
+                !accelerationItems.length && !accelerationIncludingGravityItems.length && !rotationRateItems.length ? (
+                    i18n('Waiting for the event…')
+                ) : null
+            }
             {accelerationItems.length ? (
                 <List title={i18n('Acceleration')} items={accelerationItems} />
             ) : null}
