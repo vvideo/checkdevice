@@ -9,6 +9,7 @@ import { useForceUpdate } from '../../../../hooks/useForceUpdate';
 import { ErrorMessage } from '../../../../components/ui/ErrorMessage';
 import { floor, floorTimestamp } from '../../utils/floor';
 import { DEFAULT_FREQUENCY } from '../../const';
+import { getChecked } from '../../../../utils/string/getChecked';
 
 const b = block('accelerometer');
 const hasSupport = typeof Accelerometer !== 'undefined';
@@ -56,12 +57,10 @@ export function AccelerometerComponent() {
         <div class={b()}>
             {error ? (<ErrorMessage>{error.message}</ErrorMessage>) : null}
             <ul>
-                <li>Activated: {String(sensor.activated)}</li>
-                <li>Has reading: {String(sensor.hasReading)}</li>
-                <li>Timestamp: {String(floorTimestamp(sensor.timestamp))}</li>
-                <li>Acceleration along the X-axis {floor(sensor.x)}</li>
-                <li>Acceleration along the Y-axis {floor(sensor.y)}</li>
-                <li>Acceleration along the Z-axis {floor(sensor.z)}</li>
+                <li>Acceleration along the X-axis: {String(floor(sensor.x))}</li>
+                <li>Acceleration along the Y-axis: {String(floor(sensor.y))}</li>
+                <li>Acceleration along the Z-axis {String(floor(sensor.z))}</li>
+                <li>Activated: {getChecked(sensor.activated)}, timestamp: {String(floorTimestamp(sensor.timestamp))}</li>
             </ul>
         </div>
     ) : null;

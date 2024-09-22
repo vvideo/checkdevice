@@ -9,6 +9,7 @@ import { isSsr } from '../../../../utils/isSsr';
 import { ErrorMessage } from '../../../../components/ui/ErrorMessage';
 import { floor, floorTimestamp } from '../../utils/floor';
 import { DEFAULT_FREQUENCY } from '../../const';
+import { getChecked } from '../../../../utils/string/getChecked';
 
 const b = block('ambient-light-sensor');
 const hasSupport = typeof AmbientLightSensor !== 'undefined';
@@ -56,10 +57,8 @@ export function AmbientLightSensorComponent() {
         <div class={b()}>
             {error ? (<ErrorMessage>{error.message}</ErrorMessage>) : null}
             <ul>
-                <li>Activated: {String(sensor.activated)}</li>
-                <li>Has reading: {String(sensor.hasReading)}</li>
-                <li>Timestamp: {String(floorTimestamp(sensor.timestamp))}</li>
                 <li>Current light level: {String(floor(sensor.illuminance))}</li>
+                <li>Activated: {getChecked(sensor.activated)}, timestamp: {String(floorTimestamp(sensor.timestamp))}</li>
             </ul>
         </div>
     ) : null;

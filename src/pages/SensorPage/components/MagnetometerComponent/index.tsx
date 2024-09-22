@@ -9,6 +9,7 @@ import { isSsr } from '../../../../utils/isSsr';
 import { ErrorMessage } from '../../../../components/ui/ErrorMessage';
 import { floor, floorTimestamp } from '../../utils/floor';
 import { DEFAULT_FREQUENCY } from '../../const';
+import { getChecked } from '../../../../utils/string/getChecked';
 
 const b = block('magnetometer');
 const hasSupport = typeof Magnetometer !== 'undefined';
@@ -56,12 +57,10 @@ export function MagnetometerComponent() {
         <div class={b()}>
             {error ? (<ErrorMessage>{error.message}</ErrorMessage>) : null}
             <ul>
-                <li>Activated: {String(sensor.activated)}</li>
-                <li>Has reading: {String(sensor.hasReading)}</li>
-                <li>Timestamp: {String(floorTimestamp(sensor.timestamp))}</li>
-                <li>Magnetic field along the X-axis {String(floor(sensor.x))}</li>
-                <li>Magnetic field along the Y-axis {String(floor(sensor.y))}</li>
-                <li>Magnetic field along the Z-axis {String(floor(sensor.z))}</li>
+                <li>Magnetic field along the X-axis: {String(floor(sensor.x))}</li>
+                <li>Magnetic field along the Y-axis:{String(floor(sensor.y))}</li>
+                <li>Magnetic field along the Z-axis: {String(floor(sensor.z))}</li>
+                <li>Activated: {getChecked(sensor.activated)}, timestamp: {String(floorTimestamp(sensor.timestamp))}</li>
             </ul>
         </div>
     ) : null;
