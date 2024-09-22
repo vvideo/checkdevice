@@ -3,10 +3,9 @@ import { h } from 'preact';
 import { block } from '../../../../utils/css/bem';
 import { DeviceMotionEventComponent } from '../DeviceMotionEventComponent';
 import { isSsr } from '../../../../utils/isSsr';
-import { i18n } from '../../../../i18n';
-import { WarningMessage } from '../../../../components/ui/WarningMessage';
 import { AccelerometerComponent } from '../AccelerometerComponent';
 import { AmbientLightSensorComponent } from '../AmbientLightSensorComponent';
+import { MagnetometerComponent } from '../MagnetometerComponent';
 
 import './index.css';
 
@@ -21,23 +20,19 @@ export function Sensor() {
         <div class={b()}>
             <div class={b('section')}>
                 <div class={b('header')}>DeviceMotionEvent</div>
-                {
-                    typeof DeviceMotionEvent === 'undefined' ?
-                        (<WarningMessage>{i18n('DeviceMotionEvent is not supported.')}</WarningMessage>) :
-                        (<DeviceMotionEventComponent />)
-                }
+                <DeviceMotionEventComponent />
             </div>
             <div class={b('section')}>
                 <div class={b('header')}>Accelerometer</div>
-                {
-                    typeof Accelerometer === 'undefined' ?
-                        (<WarningMessage>{i18n('Accelerometer is not supported.')}</WarningMessage>) :
-                        (<AccelerometerComponent />)
-                }
+                <AccelerometerComponent />
             </div>
             <div class={b('section')}>
                 <div class={b('header')}>AmbientLightSensor</div>
                 <AmbientLightSensorComponent />
+            </div>
+            <div class={b('section')}>
+                <div class={b('header')}>Magnetometer</div>
+                <MagnetometerComponent />
             </div>
         </div>
     );

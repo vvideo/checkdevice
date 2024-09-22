@@ -7,19 +7,19 @@ import { WarningMessage } from '../../../../components/ui/WarningMessage';
 import { useForceUpdate } from '../../../../hooks/useForceUpdate';
 import { isSsr } from '../../../../utils/isSsr';
 
-const b = block('ambient-light-sensor');
-const hasSupport = typeof AmbientLightSensor !== 'undefined';
+const b = block('magnetometer');
+const hasSupport = typeof Magnetometer !== 'undefined';
 
-export function AmbientLightSensorComponent() {
+export function MagnetometerComponent() {
     const forceUpdate = useForceUpdate();
-    const [ sensor, setSensor ] = useState<AmbientLightSensor | null>(null);
+    const [ sensor, setSensor ] = useState<Magnetometer | null>(null);
 
     useEffect(() => {
         if (!hasSupport) {
             return;
         }
 
-        const sensor = new AmbientLightSensor();
+        const sensor = new Magnetometer();
         const handleAny = () => {
             forceUpdate();
         };
@@ -40,7 +40,7 @@ export function AmbientLightSensorComponent() {
     }, [setSensor, forceUpdate]);
 
     if (!isSsr && !hasSupport) {
-        return (<WarningMessage>{i18n('AmbientLightSensor is not supported.')}</WarningMessage>);
+        return (<WarningMessage>{i18n('Magnetometer is not supported.')}</WarningMessage>);
     }
 
     return sensor ? (
@@ -49,7 +49,9 @@ export function AmbientLightSensorComponent() {
                 <li>Activated: {String(sensor.activated)}</li>
                 <li>Has reading: {String(sensor.hasReading)}</li>
                 <li>Timestamp: {String(sensor.timestamp)}</li>
-                <li>Current light level: {String(sensor.illuminance)}</li>
+                <li>Magnetic field along the X-axis {sensor.x}</li>
+                <li>Magnetic field along the Y-axis {sensor.y}</li>
+                <li>Magnetic field along the Z-axis {sensor.z}</li>
             </ul>
         </div>
     ) : null;
