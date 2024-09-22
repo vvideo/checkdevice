@@ -647,23 +647,6 @@
         }
     },
     {
-        "menuTitle": {
-            "en": "Test dead pixels",
-            "ru": "Тестирование битых пикселей"
-        },
-        "id": "test-dead-pixels",
-        "hidden": true,
-        "description": {
-            "en": "Testing your monitor or TV for dead pixels",
-            "ru": "Тестирование битых пикселей вашего монитора или ТВ"
-        },
-        "keywords": {
-            "en": "dead pixels",
-            "ru": "битые пиксели"
-        }
-    },
-
-    {
       "menuTitle": {
           "en": "Test color banding",
           "ru": "Тестирование ступенчатых переходов"
