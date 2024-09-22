@@ -17,4 +17,4 @@ html{background-color:#000;color:#fff;font-family:Arial,Helvetica,sans-serif;fon
 .list{font-size:16px;line-height:26px;margin:0 0 0 15px;padding:0}
 .warning-message_theme_gray{color:gray;filter:grayscale()}
 .error-message{color:#f77;margin:1em 0}.error-message_theme_gray{color:gray;filter:grayscale()}
-.sensor__section{margin-top:1em}.sensor__header{font-weight:700;margin-bottom:.2em}.sensor ul{margin-left:0;margin-top:0;padding-left:0}
+.sensor__section{margin-top:1em;opacity:.5}.sensor__section .error-message{margin:.2em 0}.sensor__section_support{opacity:1}.sensor__header{font-weight:700;margin-bottom:.2em}.sensor ul{margin-left:1em;margin-top:0;padding-left:0}

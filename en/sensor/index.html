@@ -33,7 +33,7 @@
 
         !function(){var e=function(){if(!window.localStorage)return"";var e="";try{e=localStorage.getItem("page-theme")}catch(e){}return e}();"dark"!==e&&"light"!==e&&(e="");var t=e||(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)")?"light":"dark");document.documentElement.className+=" page-theme_"+t}();
     </script>
-    <link rel="stylesheet" href="/static/sensor.css?md5=b9fcd599843d7f9ad30946c2ac826924" />
+    <link rel="stylesheet" href="/static/sensor.css?md5=8d29f99c00e52af9aabe0c2f672ee51a" />
     <link rel="yandex-tableau-widget" href="/yandex-tableau-widget.json" />
 </head>
 <body>
@@ -69,6 +69,8 @@
             </li>
             <li class="main-menu__item"><a class="main-menu__link" href="/en/usb/">USB</a> 
             </li>
+            <li class="main-menu__item main-menu__item_selected"><a class="main-menu__link" href="/en/sensor/">Sensor</a> 
+            </li>
             <li class="main-menu__item"><a class="main-menu__link" href="/en/platform/">Platform</a> 
             </li>
             <li class="main-menu__item"><a class="main-menu__link" href="/en/battery/">Battery</a> 
@@ -80,19 +82,19 @@
     <h1 class="page-title">Sensors</h1>
     <div class="sensor">
         <div class="sensor__section">
-            <div class="sensor__header">DeviceMotionEvent</div><span class="warning-message">⚠️ DeviceMotionEvent is not supported.</span>
-        </div>
-        <div class="sensor__section">
             <div class="sensor__header">Accelerometer</div>
         </div>
         <div class="sensor__section">
             <div class="sensor__header">AmbientLightSensor</div>
         </div>
         <div class="sensor__section">
-            <div class="sensor__header">Magnetometer</div>
+            <div class="sensor__header">DeviceMotionEvent</div><span class="warning-message">⚠️ DeviceMotionEvent is not supported.</span>
         </div>
         <div class="sensor__section">
             <div class="sensor__header">GravitySensor</div>
+        </div>
+        <div class="sensor__section">
+            <div class="sensor__header">Magnetometer</div>
         </div>
     </div>
     <footer class="footer">
@@ -112,6 +114,6 @@
         <div class="footer__item">© Vvideo</div>
     </footer>
 </div></div>
-    <script defer src="/static/sensor.js?md5=27f5941a73e7a800bb9be27366d407ad"></script>
+    <script defer src="/static/sensor.js?md5=2f42006a62877330f6ea412a67292f79"></script>
 </body>
 </html>
