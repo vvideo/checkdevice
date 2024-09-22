@@ -6,13 +6,15 @@ import { i18n } from '../../../../i18n';
 import { WarningMessage } from '../../../../components/ui/WarningMessage';
 import { useForceUpdate } from '../../../../hooks/useForceUpdate';
 import { isSsr } from '../../../../utils/isSsr';
+import { ErrorMessage } from '../../../../components/ui/ErrorMessage';
 
 const b = block('magnetometer');
 const hasSupport = typeof Magnetometer !== 'undefined';
 
 export function MagnetometerComponent() {
-    const forceUpdate = useForceUpdate();
     const [ sensor, setSensor ] = useState<Magnetometer | null>(null);
+    const [ error, setError ] = useState<Error | null>(null);
+    const forceUpdate = useForceUpdate();
 
     useEffect(() => {
         if (!hasSupport) {
@@ -24,9 +26,14 @@ export function MagnetometerComponent() {
             forceUpdate();
         };
 
+        const handleError = (e: Event) => {
+            const error = (e as SensorErrorEvent).error;
+            setError(error);
+        }
+
         sensor.addEventListener('activate', handleAny);
         sensor.addEventListener('reading', handleAny);
-        sensor.addEventListener('error', handleAny);
+        sensor.addEventListener('error', handleError);
         sensor.start()
 
         setSensor(sensor);
@@ -34,10 +41,10 @@ export function MagnetometerComponent() {
         return () => {
             sensor.removeEventListener('activate', handleAny);
             sensor.removeEventListener('reading', handleAny);
-            sensor.removeEventListener('error', handleAny);
+            sensor.removeEventListener('error', handleError);
             sensor.stop();
         };
-    }, [setSensor, forceUpdate]);
+    }, [setSensor, setError, forceUpdate]);
 
     if (!isSsr && !hasSupport) {
         return (<WarningMessage>{i18n('Magnetometer is not supported.')}</WarningMessage>);
@@ -45,6 +52,7 @@ export function MagnetometerComponent() {
 
     return sensor ? (
         <div class={b()}>
+            {error ? (<ErrorMessage>{error.message}</ErrorMessage>) : null}
             <ul>
                 <li>Activated: {String(sensor.activated)}</li>
                 <li>Has reading: {String(sensor.hasReading)}</li>

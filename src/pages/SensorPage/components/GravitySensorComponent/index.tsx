@@ -8,12 +8,12 @@ import { useForceUpdate } from '../../../../hooks/useForceUpdate';
 import { isSsr } from '../../../../utils/isSsr';
 import { ErrorMessage } from '../../../../components/ui/ErrorMessage';
 
-const b = block('ambient-light-sensor');
-const hasSupport = typeof AmbientLightSensor !== 'undefined';
+const b = block('gravity-sensor');
+const hasSupport = typeof GravitySensor !== 'undefined';
 
-export function AmbientLightSensorComponent() {
+export function GravitySensorComponent() {
+    const [ sensor, setSensor ] = useState<GravitySensor | null>(null);
     const [ error, setError ] = useState<Error | null>(null);
-    const [ sensor, setSensor ] = useState<AmbientLightSensor | null>(null);
     const forceUpdate = useForceUpdate();
 
     useEffect(() => {
@@ -21,7 +21,7 @@ export function AmbientLightSensorComponent() {
             return;
         }
 
-        const sensor = new AmbientLightSensor();
+        const sensor = new GravitySensor();
         const handleAny = () => {
             forceUpdate();
         };
@@ -47,7 +47,7 @@ export function AmbientLightSensorComponent() {
     }, [setSensor, setError, forceUpdate]);
 
     if (!isSsr && !hasSupport) {
-        return (<WarningMessage>{i18n('AmbientLightSensor is not supported.')}</WarningMessage>);
+        return (<WarningMessage>{i18n('GravitySensor is not supported.')}</WarningMessage>);
     }
 
     return sensor ? (
@@ -57,7 +57,9 @@ export function AmbientLightSensorComponent() {
                 <li>Activated: {String(sensor.activated)}</li>
                 <li>Has reading: {String(sensor.hasReading)}</li>
                 <li>Timestamp: {String(sensor.timestamp)}</li>
-                <li>Current light level: {String(sensor.illuminance)}</li>
+                <li>Gravity along the X-axis {sensor.x}</li>
+                <li>Gravity along the Y-axis {sensor.y}</li>
+                <li>Gravity along the Z-axis {sensor.z}</li>
             </ul>
         </div>
     ) : null;
