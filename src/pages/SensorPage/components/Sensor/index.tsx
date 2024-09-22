@@ -37,11 +37,7 @@ export function Sensor() {
             </div>
             <div class={b('section')}>
                 <div class={b('header')}>AmbientLightSensor</div>
-                {
-                    typeof AmbientLightSensor === 'undefined' ?
-                        (<WarningMessage>{i18n('AmbientLightSensor is not supported.')}</WarningMessage>) :
-                        (<AmbientLightSensorComponent />)
-                }
+                <AmbientLightSensorComponent />
             </div>
         </div>
     );
