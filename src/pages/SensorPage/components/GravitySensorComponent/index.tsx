@@ -7,7 +7,7 @@ import { WarningMessage } from '../../../../components/ui/WarningMessage';
 import { useForceUpdate } from '../../../../hooks/useForceUpdate';
 import { isSsr } from '../../../../utils/isSsr';
 import { ErrorMessage } from '../../../../components/ui/ErrorMessage';
-import { floor } from '../../utils/floor';
+import { floor, floorTimestamp } from '../../utils/floor';
 
 const b = block('gravity-sensor');
 const hasSupport = typeof GravitySensor !== 'undefined';
@@ -57,7 +57,7 @@ export function GravitySensorComponent() {
             <ul>
                 <li>Activated: {String(sensor.activated)}</li>
                 <li>Has reading: {String(sensor.hasReading)}</li>
-                <li>Timestamp: {String(sensor.timestamp)}</li>
+                <li>Timestamp: {String(floorTimestamp(sensor.timestamp))}</li>
                 <li>Gravity along the X-axis {String(floor(sensor.x))}</li>
                 <li>Gravity along the Y-axis {String(floor(sensor.y))}</li>
                 <li>Gravity along the Z-axis {String(floor(sensor.z))}</li>

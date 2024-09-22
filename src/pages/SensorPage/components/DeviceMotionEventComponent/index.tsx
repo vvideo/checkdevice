@@ -5,6 +5,7 @@ import { useEffect, useState } from 'preact/hooks';
 import { i18n } from '../../../../i18n';
 import { List } from '../../../../components/ui/List';
 import { WarningMessage } from '../../../../components/ui/WarningMessage';
+import { floor } from '../../utils/floor';
 
 const b = block('device-motion-event');
 const hasSupport = typeof DeviceMotionEvent !== 'undefined';
@@ -29,21 +30,21 @@ export function DeviceMotionEventComponent() {
     }
 
     const accelerationItems: [string, number | null | undefined][] = motionEvent?.acceleration ?[
-        ['x: ', motionEvent.acceleration?.x],
-        ['y: ', motionEvent.acceleration?.y],
-        ['z: ', motionEvent.acceleration?.z],
+        ['x: ', floor(motionEvent.acceleration?.x)],
+        ['y: ', floor(motionEvent.acceleration?.y)],
+        ['z: ', floor(motionEvent.acceleration?.z)],
     ] : [];
 
     const accelerationIncludingGravityItems: [string, number | null | undefined][] = motionEvent?.acceleration ?[
-        ['x: ', motionEvent.accelerationIncludingGravity?.x],
-        ['y: ', motionEvent.accelerationIncludingGravity?.y],
-        ['z: ', motionEvent.accelerationIncludingGravity?.z],
+        ['x: ', floor(motionEvent.accelerationIncludingGravity?.x)],
+        ['y: ', floor(motionEvent.accelerationIncludingGravity?.y)],
+        ['z: ', floor(motionEvent.accelerationIncludingGravity?.z)],
     ] : [];
 
     const rotationRateItems: [string, number | null | undefined][] = motionEvent?.rotationRate ?[
-        ['alpha: ', motionEvent.rotationRate?.alpha],
-        ['beta: ', motionEvent.rotationRate?.beta],
-        ['gamma: ', motionEvent.rotationRate?.gamma],
+        ['alpha: ', floor(motionEvent.rotationRate?.alpha)],
+        ['beta: ', floor(motionEvent.rotationRate?.beta)],
+        ['gamma: ', floor(motionEvent.rotationRate?.gamma)],
     ] : [];
 
     return (
