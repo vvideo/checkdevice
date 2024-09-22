@@ -132,5 +132,37 @@ export const keyset: I18nKeyset = {
     'gamma': {
         'en': 'gamma',
         'ru': 'гамма'
+    },
+    'Linear acceleration along the X-axis': {
+        'en': 'Linear acceleration along the X-axis',
+        'ru': 'Линейное ускорение вдоль оси X'
+    },
+    'Linear acceleration along the Y-axis': {
+        'en': 'Linear acceleration along the Y-axis',
+        'ru': 'Линейное ускорение вдоль оси Y'
+    },
+    'Linear acceleration along the Z-axis': {
+        'en': 'Linear acceleration along the Z-axis',
+        'ru': 'Линейное ускорение вдоль оси Z'
+    },
+    'LinearAccelerationSensor is not supported.': {
+        'en': 'LinearAccelerationSensor is not supported.',
+        'ru': 'LinearAccelerationSensor не поддерживается.'
+    },
+    'Linear Acceleration Sensor': {
+        'en': 'Linear Acceleration Sensor',
+        'ru': 'Датчик линейного ускорения'
+    },
+    'Quaternion': {
+        'en': 'Quaternion',
+        'ru': 'Кватернион'
+    },
+    'Absolute Orientation Sensor': {
+        'en': 'Absolute Orientation Sensor',
+        'ru': 'Датчик абсолютной ориентации'
+    },
+    'Relative Orientation Sensor': {
+        'en': 'Relative Orientation Sensor',
+        'ru': 'Датчик относительной ориентации'
     }
 };

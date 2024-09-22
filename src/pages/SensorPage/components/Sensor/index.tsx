@@ -7,9 +7,12 @@ import { AmbientLightSensorComponent, hasSupportAmbientLightSensor } from '../Am
 import { hasSupportMagnetometer, MagnetometerComponent } from '../MagnetometerComponent';
 import { GravitySensorComponent, hasSupportGravitySensor } from '../GravitySensorComponent';
 import { GyroscopeComponent, hasSupportGyroscope } from '../GyroscopeComponent';
+import { hasSupportLinearAccelerationSensor, LinearAccelerationSensorComponent } from '../LinearAccelerometerComponent';
+import { hasSupportAbsoluteOrientationSensor, AbsoluteOrientationSensorComponent } from '../AbsoluteOrientationSensorComponent';
+import { hasSupportRelativeOrientationSensor, RelativeOrientationSensorComponent } from '../RelativeOrientationSensorComponent';
+import { i18n } from '../../../../i18n';
 
 import './index.css';
-import { i18n } from '../../../../i18n';
 
 const b = block('sensor');
 
@@ -44,6 +47,21 @@ export function Sensor() {
             title: i18n('Gyroscope'),
             hasSupport: hasSupportGyroscope,
             Component: GyroscopeComponent,
+        },
+        {
+            title: i18n('Linear Acceleration Sensor'),
+            hasSupport: hasSupportLinearAccelerationSensor,
+            Component: LinearAccelerationSensorComponent,
+        },
+        {
+            title: i18n('Absolute Orientation Sensor'),
+            hasSupport: hasSupportAbsoluteOrientationSensor,
+            Component: AbsoluteOrientationSensorComponent
+        },
+        {
+            title: i18n('Relative Orientation Sensor'),
+            hasSupport: hasSupportRelativeOrientationSensor,
+            Component: RelativeOrientationSensorComponent,
         }
     ].sort((a, b) => {
         if (a.hasSupport && !b.hasSupport) {
