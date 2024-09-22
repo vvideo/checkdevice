@@ -30,21 +30,21 @@ export function DeviceMotionEventComponent() {
     }
 
     const accelerationItems: [string, number | null | undefined][] = motionEvent?.acceleration ?[
-        ['x: ', floor(motionEvent.acceleration?.x)],
-        ['y: ', floor(motionEvent.acceleration?.y)],
-        ['z: ', floor(motionEvent.acceleration?.z)],
+        ['x', floor(motionEvent.acceleration?.x)],
+        ['y', floor(motionEvent.acceleration?.y)],
+        ['z', floor(motionEvent.acceleration?.z)],
     ] : [];
 
     const accelerationIncludingGravityItems: [string, number | null | undefined][] = motionEvent?.acceleration ?[
-        ['x: ', floor(motionEvent.accelerationIncludingGravity?.x)],
-        ['y: ', floor(motionEvent.accelerationIncludingGravity?.y)],
-        ['z: ', floor(motionEvent.accelerationIncludingGravity?.z)],
+        ['x', floor(motionEvent.accelerationIncludingGravity?.x)],
+        ['y', floor(motionEvent.accelerationIncludingGravity?.y)],
+        ['z', floor(motionEvent.accelerationIncludingGravity?.z)],
     ] : [];
 
     const rotationRateItems: [string, number | null | undefined][] = motionEvent?.rotationRate ?[
-        ['alpha: ', floor(motionEvent.rotationRate?.alpha)],
-        ['beta: ', floor(motionEvent.rotationRate?.beta)],
-        ['gamma: ', floor(motionEvent.rotationRate?.gamma)],
+        ['alpha', floor(motionEvent.rotationRate?.alpha)],
+        ['beta', floor(motionEvent.rotationRate?.beta)],
+        ['gamma', floor(motionEvent.rotationRate?.gamma)],
     ] : [];
 
     return (
