@@ -33,7 +33,7 @@
 
         !function(){var e=function(){if(!window.localStorage)return"";var e="";try{e=localStorage.getItem("page-theme")}catch(e){}return e}();"dark"!==e&&"light"!==e&&(e="");var t=e||(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)")?"light":"dark");document.documentElement.className+=" page-theme_"+t}();
     </script>
-    <link rel="stylesheet" href="/static/sensor.css?md5=fbe6bb1536646eaa0d427c3d4abd9c60" />
+    <link rel="stylesheet" href="/static/sensor.css?md5=719bcc381c4628b95f78ccacd35b8c6a" />
     <link rel="yandex-tableau-widget" href="/yandex-tableau-widget.json" />
 </head>
 <body>
@@ -80,44 +80,71 @@
         </ul>
     </nav>
     <h1 class="page-title">Sensors</h1>
-    <div class="sensor">
-        <div class="sensor__section">
-            <div class="sensor__header">Absolute Orientation Sensor</div>
-            <div class="sensor__descriptiom">The AbsoluteOrientationSensor interface describes the device's physical orientation in relation to the Earth's reference coordinate system.</div>
-        </div>
-        <div class="sensor__section">
-            <div class="sensor__header">Accelerometer</div>
-            <div class="sensor__descriptiom">The Accelerometer interface provides on each reading the acceleration applied to the device along all three axes.</div>
-        </div>
-        <div class="sensor__section">
-            <div class="sensor__header">Ambient Light Sensor</div>
-            <div class="sensor__descriptiom">The AmbientLightSensor interface returns the current light level or illuminance of the ambient light around the hosting device.</div>
-        </div>
-        <div class="sensor__section">
-            <div class="sensor__header">Gravity Sensor</div>
-            <div class="sensor__descriptiom">The GravitySensor interface provides on each reading the gravity applied to the device along all three axes.</div>
-        </div>
-        <div class="sensor__section">
-            <div class="sensor__header">Gyroscope</div>
-            <div class="sensor__descriptiom">The Gyroscope interface provides on each reading the angular velocity of the device along all three axes.</div>
-        </div>
-        <div class="sensor__section">
-            <div class="sensor__header">Linear Acceleration Sensor</div>
-            <div class="sensor__descriptiom">The LinearAccelerationSensor interface provides on each reading the acceleration applied to the device along all three axes, but without the contribution of gravity.</div>
-        </div>
-        <div class="sensor__section">
-            <div class="sensor__header">Magnetometer</div>
-            <div class="sensor__descriptiom">The Magnetometer interface provides information about the magnetic field as detected by the device's primary magnetometer sensor.</div>
-        </div>
-        <div class="sensor__section">
-            <div class="sensor__header">Relative Orientation Sensor</div>
-            <div class="sensor__descriptiom">The RelativeOrientationSensor interface describes the device's physical orientation without regard to the Earth's reference coordinate system.</div>
-        </div>
-        <div class="sensor__section">
-            <div class="sensor__header">devicemotion event</div>
-            <div class="sensor__descriptiom">The devicemotion event is fired at a regular interval and indicates the acceleration rate of the device with/without the contribution of the gravity force at that time. It also provides information about the rate of rotation, if available.</div><span class="warning-message">⚠️ DeviceMotionEvent is not supported.</span>
-        </div>
-    </div>
+    <ul class="sensor">
+        <li class="sensor__item">
+            <div class="show-hide">
+                <div class="show-hide__title">
+                    <div class="show-hide__plus"></div>Absolute Orientation Sensor</div>
+                <div class="show-hide__description">The AbsoluteOrientationSensor interface describes the device's physical orientation in relation to the Earth's reference coordinate system.</div>
+            </div>
+        </li>
+        <li class="sensor__item">
+            <div class="show-hide">
+                <div class="show-hide__title">
+                    <div class="show-hide__plus"></div>Accelerometer</div>
+                <div class="show-hide__description">The Accelerometer interface provides on each reading the acceleration applied to the device along all three axes.</div>
+            </div>
+        </li>
+        <li class="sensor__item">
+            <div class="show-hide">
+                <div class="show-hide__title">
+                    <div class="show-hide__plus"></div>Ambient Light Sensor</div>
+                <div class="show-hide__description">The AmbientLightSensor interface returns the current light level or illuminance of the ambient light around the hosting device.</div>
+            </div>
+        </li>
+        <li class="sensor__item">
+            <div class="show-hide">
+                <div class="show-hide__title">
+                    <div class="show-hide__plus"></div>Gravity Sensor</div>
+                <div class="show-hide__description">The GravitySensor interface provides on each reading the gravity applied to the device along all three axes.</div>
+            </div>
+        </li>
+        <li class="sensor__item">
+            <div class="show-hide">
+                <div class="show-hide__title">
+                    <div class="show-hide__plus"></div>Gyroscope</div>
+                <div class="show-hide__description">The Gyroscope interface provides on each reading the angular velocity of the device along all three axes.</div>
+            </div>
+        </li>
+        <li class="sensor__item">
+            <div class="show-hide">
+                <div class="show-hide__title">
+                    <div class="show-hide__plus"></div>Linear Acceleration Sensor</div>
+                <div class="show-hide__description">The LinearAccelerationSensor interface provides on each reading the acceleration applied to the device along all three axes, but without the contribution of gravity.</div>
+            </div>
+        </li>
+        <li class="sensor__item">
+            <div class="show-hide">
+                <div class="show-hide__title">
+                    <div class="show-hide__plus"></div>Magnetometer</div>
+                <div class="show-hide__description">The Magnetometer interface provides information about the magnetic field as detected by the device's primary magnetometer sensor.</div>
+            </div>
+        </li>
+        <li class="sensor__item">
+            <div class="show-hide">
+                <div class="show-hide__title">
+                    <div class="show-hide__plus"></div>Relative Orientation Sensor</div>
+                <div class="show-hide__description">The RelativeOrientationSensor interface describes the device's physical orientation without regard to the Earth's reference coordinate system.</div>
+            </div>
+        </li>
+        <li class="sensor__item">
+            <div class="show-hide">
+                <div class="show-hide__title">
+                    <div class="show-hide__plus"></div>devicemotion event</div>
+                <div class="show-hide__description">The devicemotion event is fired at a regular interval and indicates the acceleration rate of the device with/without the contribution of the gravity force at that time. It also provides information about the rate of rotation, if available.</div>
+            </div>
+        </li>
+    </ul>
     <footer class="footer">
         <div class="footer__item footer__item_report"><a target="_blank" class="link link_theme_page-theme" href="https://github.com/vvideo/caniwatchvideo/issues/new">Report a bug</a>
         </div>
@@ -135,6 +162,6 @@
         <div class="footer__item">© Vvideo</div>
     </footer>
 </div></div>
-    <script defer src="/static/sensor.js?md5=bda9536f79101c226b98d0c3774bd762"></script>
+    <script defer src="/static/sensor.js?md5=0b82ef2f4259e1b0fd908ccb3fb73e5b"></script>
 </body>
 </html>
