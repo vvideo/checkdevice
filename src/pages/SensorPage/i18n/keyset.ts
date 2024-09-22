@@ -9,4 +9,8 @@ export const keyset: I18nKeyset = {
         'en': 'Sensors',
         'ru': 'Сенсоры'
     },
+    'DeviceMotionEvent is not supported.': {
+        'en': 'DeviceMotionEvent is not supported.',
+        'ru': 'DeviceMotionEvent не поддерживается.'
+    }
 };
