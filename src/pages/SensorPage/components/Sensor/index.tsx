@@ -11,6 +11,7 @@ import { hasSupportLinearAccelerationSensor, LinearAccelerationSensorComponent }
 import { hasSupportAbsoluteOrientationSensor, AbsoluteOrientationSensorComponent } from '../AbsoluteOrientationSensorComponent';
 import { hasSupportRelativeOrientationSensor, RelativeOrientationSensorComponent } from '../RelativeOrientationSensorComponent';
 import { i18n } from '../../../../i18n';
+import { ShowHide } from '../ShowHide';
 
 import './index.css';
 
@@ -85,19 +86,19 @@ export function Sensor() {
     });
 
     return (
-        <div class={b()}>
+        <ul class={b()}>
             {
                 components.map(item => {
                     const { Component, title, description, hasSupport } = item;
                     return (
-                        <div class={b('section', { support: hasSupport})}>
-                            <div class={b('header')}>{title}</div>
-                            <div class={b('descriptiom')}>{description}</div>
-                            <Component />
-                        </div>
+                        <li class={b('item', { support: hasSupport})}>
+                            <ShowHide title={title} description={description}>
+                                <Component />
+                            </ShowHide>
+                        </li>
                     );
                 })
             }
-        </div>
+        </ul>
     );
 }

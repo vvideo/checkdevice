@@ -1,19 +1,21 @@
-.sensor__section {
-    opacity: .5;
-    margin-top: 1em;
+.sensor {
+    padding: 0;
+    margin: 0;
 }
 
-.sensor__section .error-message {
+.sensor__item {
+    opacity: .5;
+    margin: .5em 0 0 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.sensor__item .error-message {
     margin: .2em 0;
 }
 
-.sensor__section_support {
+.sensor__item_support {
     opacity: 1;
-}
-
-.sensor__header {
-    font-weight: bold;
-    margin-bottom: .2em;
 }
 
 .sensor ul {
