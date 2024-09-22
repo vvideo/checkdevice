@@ -8,6 +8,7 @@ import { useForceUpdate } from '../../../../hooks/useForceUpdate';
 import { isSsr } from '../../../../utils/isSsr';
 import { ErrorMessage } from '../../../../components/ui/ErrorMessage';
 import { floor, floorTimestamp } from '../../utils/floor';
+import { DEFAULT_FREQUENCY } from '../../const';
 
 const b = block('gravity-sensor');
 const hasSupport = typeof GravitySensor !== 'undefined';
@@ -22,7 +23,7 @@ export function GravitySensorComponent() {
             return;
         }
 
-        const sensor = new GravitySensor();
+        const sensor = new GravitySensor({ frequency: DEFAULT_FREQUENCY });
         const handleAny = () => {
             forceUpdate();
         };

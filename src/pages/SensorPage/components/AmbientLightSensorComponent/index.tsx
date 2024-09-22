@@ -8,6 +8,7 @@ import { useForceUpdate } from '../../../../hooks/useForceUpdate';
 import { isSsr } from '../../../../utils/isSsr';
 import { ErrorMessage } from '../../../../components/ui/ErrorMessage';
 import { floor, floorTimestamp } from '../../utils/floor';
+import { DEFAULT_FREQUENCY } from '../../const';
 
 const b = block('ambient-light-sensor');
 const hasSupport = typeof AmbientLightSensor !== 'undefined';
@@ -22,7 +23,7 @@ export function AmbientLightSensorComponent() {
             return;
         }
 
-        const sensor = new AmbientLightSensor();
+        const sensor = new AmbientLightSensor({ frequency: DEFAULT_FREQUENCY });
         const handleAny = () => {
             forceUpdate();
         };

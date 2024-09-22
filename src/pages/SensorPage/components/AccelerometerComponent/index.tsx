@@ -8,6 +8,7 @@ import { i18n } from '../../../../i18n';
 import { useForceUpdate } from '../../../../hooks/useForceUpdate';
 import { ErrorMessage } from '../../../../components/ui/ErrorMessage';
 import { floor, floorTimestamp } from '../../utils/floor';
+import { DEFAULT_FREQUENCY } from '../../const';
 
 const b = block('accelerometer');
 const hasSupport = typeof Accelerometer !== 'undefined';
@@ -22,7 +23,7 @@ export function AccelerometerComponent() {
             return;
         }
 
-        const sensor = new Accelerometer();
+        const sensor = new Accelerometer({ frequency: DEFAULT_FREQUENCY });
         const handleAny = () => {
             forceUpdate();
         };

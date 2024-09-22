@@ -8,6 +8,7 @@ import { useForceUpdate } from '../../../../hooks/useForceUpdate';
 import { isSsr } from '../../../../utils/isSsr';
 import { ErrorMessage } from '../../../../components/ui/ErrorMessage';
 import { floor, floorTimestamp } from '../../utils/floor';
+import { DEFAULT_FREQUENCY } from '../../const';
 
 const b = block('magnetometer');
 const hasSupport = typeof Magnetometer !== 'undefined';
@@ -22,7 +23,7 @@ export function MagnetometerComponent() {
             return;
         }
 
-        const sensor = new Magnetometer();
+        const sensor = new Magnetometer({ frequency: DEFAULT_FREQUENCY });
         const handleAny = () => {
             forceUpdate();
         };
