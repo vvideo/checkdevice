@@ -1,6 +1,5 @@
 import { h } from 'preact';
 
-import { block } from '../../../../utils/css/bem';
 import { DeviceMotionEventComponent, hasSupportDeviceMotionEvent } from '../DeviceMotionEventComponent';
 import { AccelerometerComponent, hasSupportAccelerometer } from '../AccelerometerComponent';
 import { AmbientLightSensorComponent, hasSupportAmbientLightSensor } from '../AmbientLightSensorComponent';
@@ -10,8 +9,9 @@ import { GyroscopeComponent, hasSupportGyroscope } from '../GyroscopeComponent';
 import { hasSupportLinearAccelerationSensor, LinearAccelerationSensorComponent } from '../LinearAccelerometerComponent';
 import { hasSupportAbsoluteOrientationSensor, AbsoluteOrientationSensorComponent } from '../AbsoluteOrientationSensorComponent';
 import { hasSupportRelativeOrientationSensor, RelativeOrientationSensorComponent } from '../RelativeOrientationSensorComponent';
-import { i18n } from '../../../../i18n';
 import { ShowHide } from '../ShowHide';
+import { block } from '../../../../utils/css/bem';
+import { i18n } from '../../../../i18n';
 
 import './index.css';
 

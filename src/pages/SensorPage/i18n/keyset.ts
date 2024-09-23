@@ -50,8 +50,8 @@ export const keyset: I18nKeyset = {
         'ru': 'Активирован'
     },
     'timestamp': {
-        'en': 'timestamp',
-        'ru': 'временная метка'
+        'en': 'Timestamp',
+        'ru': 'Временная метка'
     },
     'devicemotion event': {
         'en': 'devicemotion event',

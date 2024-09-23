@@ -57,7 +57,8 @@ export function AmbientLightSensorComponent() {
             {error ? (<ErrorMessage>{error.message}</ErrorMessage>) : null}
             <ul>
                 <li>{i18n('Current light level')}: {String(floor(sensor.illuminance))}</li>
-                <li>{i18n('Activated')}: {String(sensor.activated)}, {i18n('timestamp')}: {String(floorTimestamp(sensor.timestamp))}</li>
+                <li>{i18n('Activated')}: {String(sensor.activated)}</li>
+                <li>{i18n('Timestamp')}: {String(floorTimestamp(sensor.timestamp))}</li>
             </ul>
         </div>
     ) : null;

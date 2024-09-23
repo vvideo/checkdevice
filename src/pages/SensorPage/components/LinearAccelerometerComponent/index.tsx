@@ -59,7 +59,8 @@ export function LinearAccelerationSensorComponent() {
                 <li>{i18n('Linear acceleration along the X-axis')}: {String(floor(sensor.x))}</li>
                 <li>{i18n('Linear acceleration along the Y-axis')}: {String(floor(sensor.y))}</li>
                 <li>{i18n('Linear acceleration along the Z-axis')}: {String(floor(sensor.z))}</li>
-                <li>{i18n('Activated')}: {String(sensor.activated)}, {i18n('timestamp')}: {String(floorTimestamp(sensor.timestamp))}</li>
+                <li>{i18n('Activated')}: {String(sensor.activated)}</li>
+                <li>{i18n('Timestamp')}: {String(floorTimestamp(sensor.timestamp))}</li>
             </ul>
         </div>
     ) : null;

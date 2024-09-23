@@ -59,7 +59,8 @@ export function GyroscopeComponent() {
                 <li>{i18n('Angular velocity along the X-axis')}: {String(floor(sensor.x))}</li>
                 <li>{i18n('Angular velocity along the Y-axis')}: {String(floor(sensor.y))}</li>
                 <li>{i18n('Angular velocity along the Z-axis')}: {String(floor(sensor.z))}</li>
-                <li>{i18n('Activated')}: {String(sensor.activated)}, {i18n('timestamp')}: {String(floorTimestamp(sensor.timestamp))}</li>
+                <li>{i18n('Activated')}: {String(sensor.activated)}</li>
+                <li>{i18n('Timestamp')}: {String(floorTimestamp(sensor.timestamp))}</li>
             </ul>
         </div>
     ) : null;
