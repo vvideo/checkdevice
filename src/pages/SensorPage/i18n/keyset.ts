@@ -205,4 +205,12 @@ export const keyset: I18nKeyset = {
         'en': 'The RelativeOrientationSensor interface describes the device\'s physical orientation without regard to the Earth\'s reference coordinate system.',
         'ru': 'Интерфейс RelativeOrientationSensor описывает физическую ориентацию устройства без учёта системы координат Земли.'
     },
+    'RelativeOrientationSensor is not supported.': {
+        'en': 'RelativeOrientationSensor is not supported.',
+        'ru': 'RelativeOrientationSensor не поддерживается.'
+    },
+    'AbsoluteOrientationSensor is not supported.': {
+        'en': 'AbsoluteOrientationSensor is not supported.',
+        'ru': 'AbsoluteOrientationSensor не поддерживается.'
+    }
 };
