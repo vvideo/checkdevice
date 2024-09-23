@@ -49,7 +49,7 @@ export const keyset: I18nKeyset = {
         'en': 'Activated',
         'ru': 'Активирован'
     },
-    'timestamp': {
+    'Timestamp': {
         'en': 'Timestamp',
         'ru': 'Временная метка'
     },
