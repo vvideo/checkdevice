@@ -1,0 +1,7 @@
+.ya-static-map__image {
+    border: 1px solid rgba(255, 255, 255, .1);
+}
+
+.page-theme_light .ya-static-map__image {
+    border-color: rgba(0, 0, 0, .1);
+}
