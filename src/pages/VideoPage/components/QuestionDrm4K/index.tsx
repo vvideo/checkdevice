@@ -1,20 +1,5 @@
 import { h } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
-import {
-    AV1_CONTENT_TYPE,
-    HEV_MAIN_CONTENT_TYPE,
-    PLAYREADY_RECOMMENDATION_KEY_SYSTEM,
-    VP9_CONTENT_TYPE,
-    WIDEWINE_KEY_SYSTEM,
-    isAV1Supported,
-    isFairPlaySupported,
-    isHevcMainSupported,
-    isPlayReadySL3000Supported,
-    isPlayReadySupported,
-    isVp9Supported,
-    isWidevineL1Supported,
-    isWidevineSupported,
-} from 'detect-audio-video';
 
 import { ActiveQuestion } from '../../../../components/ActiveQuestion';
 import { Result } from '../../../../components/ui/Result';
@@ -22,31 +7,16 @@ import { Codec } from '../../../../components/Codec';
 import { i18n } from '../../../../i18n';
 import { isScreensLargerThan2K, needHdcpWarning, screenInfo } from '../../../../lib/ScreenInfo';
 import { isDesktopSafari } from '../../../../utils/device/isDesktopSafari';
-import { getCachedCheckAllHdcpVersions } from '../../../../utils/drm/getCachedCheckAllHdcpVersions';
-import { noop } from '../../../../utils/function/noop';
-import { isUhdHdcpSupported } from 'hdcp';
 import { isSsr } from '../../../../utils/isSsr';
 import { ExtLink } from '../../../../components/ui/ExtLink';
+import { QuestionDrm4KController } from './QuestionDrm4KController';
+import { useForceUpdate } from '../../../../hooks/useForceUpdate';
+import { noop } from '../../../../utils/function/noop';
+
+const questioDrm4KController = new QuestionDrm4KController();
 
 export function QuestionDrm4K() {
-    const [isWidevine, setIsWidevine] = useState(false);
-    const [isWidevineL1Vp9, setIsWidevineL1Vp9] = useState(false);
-    const [isWidevineL1Hevc, setIsWidevineL1Hevc] = useState(false);
-    const [isWidevineL1Av1, setIsWidevineL1Av1] = useState(false);
-
-    const [isPlayReady, setIsPlayReady] = useState(false);
-    const [isPlayReadySL3000Vp9, setIsPlayReadySL3000Vp9] = useState(false);
-    const [isPlayReadySL3000Hevc, setIsPlayReadySL3000Hevc] = useState(false);
-    const [isPlayReadySL3000Av1, setIsPlayReadySL3000Av1] = useState(false);
-
-    const [isFairplay, setIsFairplay] = useState(false);
-    const [isFairplayVp9, setIsFairplayVp9] = useState(false);
-    const [isFairplayHevc, setIsFairplayHevc] = useState(false);
-    const [isFairplayAv1, setIsFairplayAv1] = useState(false);
-
-    const [hasWidevineNeededHdcp, setWidevineNeededHdcp] = useState<null | boolean>(null);
-    const [hasPlayReadyNeededHdcp, setPlayReadyNeededHdcp] = useState<null | boolean>(null);
-
+    const forceUpdate = useForceUpdate();
     const [screens, setScreens] = useState(screenInfo.get());
 
     useEffect(() => {
@@ -56,75 +26,30 @@ export function QuestionDrm4K() {
 
         screenInfo.addListener(handler);
 
+        questioDrm4KController.get().then(() => {
+            forceUpdate();
+        }).catch(noop);
+
         return () => {
             screenInfo.removeListener(handler);
         };
-    }, [screens]);
+    }, [screens, forceUpdate]);
 
-    useEffect(() => {
-        getCachedCheckAllHdcpVersions(WIDEWINE_KEY_SYSTEM).then((data) => {
-            const result = isUhdHdcpSupported(data);
-            setWidevineNeededHdcp(result);
-        }).catch(noop);
+    const anyCodecWithWidevine = questioDrm4KController.hasWidevineNeededHdcp !== false &&
+        (
+            questioDrm4KController.isWidevineL1Vp9 ||
+            questioDrm4KController.isWidevineL1Hevc ||
+            questioDrm4KController.isWidevineL1Av1
+        );
 
-        getCachedCheckAllHdcpVersions(PLAYREADY_RECOMMENDATION_KEY_SYSTEM).then((data) => {
-            const result = isUhdHdcpSupported(data);
-            setPlayReadyNeededHdcp(result);
-        }).catch(noop);
+    const anyCodecWithPlayReady = questioDrm4KController.hasPlayReadyNeededHdcp !== false &&
+        questioDrm4KController.isPlayReadySL3000Vp9 ||
+        questioDrm4KController.isPlayReadySL3000Hevc ||
+        questioDrm4KController.isPlayReadySL3000Av1;
 
-        Promise.all([
-            isWidevineSupported(),
-            isWidevineL1Supported({
-                videoCapabilities: [{ contentType: VP9_CONTENT_TYPE }]
-            }),
-            isWidevineL1Supported({
-                videoCapabilities: [{ contentType: HEV_MAIN_CONTENT_TYPE }]
-            }),
-            isWidevineL1Supported({
-                videoCapabilities: [{ contentType: AV1_CONTENT_TYPE }]
-            }),
-            isPlayReadySupported(),
-            isPlayReadySL3000Supported({
-                videoCapabilities: [{ contentType: VP9_CONTENT_TYPE }]
-            }),
-            isPlayReadySL3000Supported({
-                videoCapabilities: [{ contentType: HEV_MAIN_CONTENT_TYPE }]
-            }),
-            isPlayReadySL3000Supported({
-                videoCapabilities: [{ contentType: AV1_CONTENT_TYPE }]
-            }),
-            isFairPlaySupported(),
-        ]).then(data => {
-            const [
-                resultWidevine, resultWidevineL1VP9, resultWidevineL1HEV, resultWidevineL1AV1,
-                resultPlayReady, resultPlayReadyVP9, resultPlayReadyHEV, resultPlayReadyAV1,
-                resultFairplay,
-            ] = data;
-
-            setIsWidevine(resultWidevine);
-            setIsWidevineL1Vp9(resultWidevineL1VP9);
-            setIsWidevineL1Hevc(resultWidevineL1HEV);
-            setIsWidevineL1Av1(resultWidevineL1AV1);
-
-            setIsPlayReady(resultPlayReady);
-            setIsPlayReadySL3000Vp9(resultPlayReadyVP9);
-            setIsPlayReadySL3000Hevc(resultPlayReadyHEV);
-            setIsPlayReadySL3000Av1(resultPlayReadyAV1);
-
-            setIsFairplay(resultFairplay);
-            setIsFairplayVp9(resultFairplay && isVp9Supported().any);
-            setIsFairplayHevc(resultFairplay && isHevcMainSupported().any);
-            setIsFairplayAv1(resultFairplay && isAV1Supported().any);
-        });
-    }, [
-        isWidevineL1Vp9, isWidevineL1Hevc, isWidevineL1Av1,
-        isPlayReadySL3000Vp9, isPlayReadySL3000Hevc, isPlayReadySL3000Av1,
-        isFairplayVp9, isFairplayHevc, isFairplayAv1,
-    ]);
-
-    const anyCodecWithWidevine = hasWidevineNeededHdcp !== false && (isWidevineL1Vp9 || isWidevineL1Hevc || isWidevineL1Av1);
-    const anyCodecWithPlayReady = hasPlayReadyNeededHdcp !== false && isPlayReadySL3000Vp9 || isPlayReadySL3000Hevc || isPlayReadySL3000Av1;
-    const anyCodecWithFairplay = isFairplayVp9 || isFairplayHevc || isFairplayAv1;
+    const anyCodecWithFairplay = questioDrm4KController.isFairplayVp9 ||
+        questioDrm4KController.isFairplayHevc ||
+        questioDrm4KController.isFairplayAv1;
 
     const anyCodecWithDrm = Boolean(
         anyCodecWithWidevine ||
@@ -148,29 +73,29 @@ export function QuestionDrm4K() {
                     <ul>
                         <DrmItem
                             name="Google Widevine L1"
-                            hasNeededHdcp={hasWidevineNeededHdcp}
-                            isSupported={isWidevine}
-                            isVp9Supported={isWidevineL1Vp9}
-                            isHevcSupported={isWidevineL1Hevc}
-                            isAv1Supported={isWidevineL1Av1}
+                            hasNeededHdcp={questioDrm4KController.hasWidevineNeededHdcp}
+                            isSupported={questioDrm4KController.isWidevine}
+                            isVp9Supported={questioDrm4KController.isWidevineL1Vp9}
+                            isHevcSupported={questioDrm4KController.isWidevineL1Hevc}
+                            isAv1Supported={questioDrm4KController.isWidevineL1Av1}
                         />
 
                         <DrmItem
                             name="Microsoft PlayReady SL3000"
-                            hasNeededHdcp={hasPlayReadyNeededHdcp}
-                            isSupported={isPlayReady}
-                            isVp9Supported={isPlayReadySL3000Vp9}
-                            isHevcSupported={isPlayReadySL3000Hevc}
-                            isAv1Supported={isPlayReadySL3000Av1}
+                            hasNeededHdcp={questioDrm4KController.hasPlayReadyNeededHdcp}
+                            isSupported={questioDrm4KController.isPlayReady}
+                            isVp9Supported={questioDrm4KController.isPlayReadySL3000Vp9}
+                            isHevcSupported={questioDrm4KController.isPlayReadySL3000Hevc}
+                            isAv1Supported={questioDrm4KController.isPlayReadySL3000Av1}
                         />
 
                         <DrmItem
                             name="Apple FairPlay"
                             hasNeededHdcp={null}
-                            isSupported={isFairplay}
-                            isVp9Supported={isFairplayVp9}
-                            isHevcSupported={isFairplayHevc}
-                            isAv1Supported={isFairplayAv1}
+                            isSupported={questioDrm4KController.isFairplay}
+                            isVp9Supported={questioDrm4KController.isFairplayVp9}
+                            isHevcSupported={questioDrm4KController.isFairplayHevc}
+                            isAv1Supported={questioDrm4KController.isFairplayAv1}
                         />
                     </ul>
                 </li>
