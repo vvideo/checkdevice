@@ -40,7 +40,6 @@ export function SpeechSynthesis() {
     }, [setText]);
 
     const handleSelectChange = useCallback((value: string) => {
-        console.log(value);
         const voices = speechSynthesis.getVoices().filter(item => item.voiceURI === value);
 
         if (voices.length) {
