@@ -21,7 +21,9 @@ export function VideoPage() {
 
     useEffect(() => {
         function onVisibilityСhange() {
-            forceUpdate();
+            if (document.visibilityState === 'visible') {
+                forceUpdate();
+            }
         }
 
         document.addEventListener('visibilitychange', onVisibilityСhange);
@@ -29,7 +31,7 @@ export function VideoPage() {
         return () => {
             document.removeEventListener('visibilitychange', onVisibilityСhange);
         };
-    }, []);
+    }, [forceUpdate]);
 
     return (
         <Page title={i18n('Video')}>
