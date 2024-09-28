@@ -1,79 +1,62 @@
 import { h } from 'preact';
-import { useState } from 'preact/hooks';
+import { useEffect } from 'preact/hooks';
 
 import {
     FAIRPLAY_KEY_SYSTEM,
     FAIRPLAY_V1_KEY_SYSTEM,
     FAIRPLAY_V2_KEY_SYSTEM,
     FAIRPLAY_V3_KEY_SYSTEM,
-    isFairPlaySupported,
-    isFairPlayV1Supported,
-    isFairPlayV2Supported,
-    isFairPlayV3Supported,
 } from 'detect-audio-video';
 import { Badge } from '../../../../components/Badge';
 import { KeySystems } from '../KeySystems';
 import { block } from '../../../../utils/css/bem';
-import { getEncryptionSchemes } from '../../../../utils/drm/getEncryptionSchemes';
 import { i18n } from '../../../../i18n';
+import { FairplayBadgeController } from './FairplayBadgeController';
+import { useForceUpdate } from '../../../../hooks/useForceUpdate';
 
 import './index.css';
 
 const b = block('fairplay-badge');
 
+const fairplayBadgeController = new FairplayBadgeController();
+
 export function FairplayBadge() {
-    const [hasFairplay, setFairplay] = useState(false);
+    const forceUpdate = useForceUpdate();
 
-    const [hasFairplay1, setFairplay1] = useState(false);
-    const [hasFairplay2, setFairplay2] = useState(false);
-    const [hasFairplay3, setFairplay3] = useState(false);
-
-    const [encryptionSchemes, setEncryptionSchemes] = useState<string>('');
-
-    Promise.all([
-        isFairPlaySupported(),
-        isFairPlayV1Supported(),
-        isFairPlayV2Supported(),
-        isFairPlayV3Supported(),
-        getEncryptionSchemes(FAIRPLAY_KEY_SYSTEM),
-    ]).then(data => {
-        const [ resultFairPlay, resultFairPlay1, resultFairPlay2, resultFairPlay3, resultEncryption ] = data;
-        setFairplay(resultFairPlay);
-        setFairplay1(resultFairPlay1);
-        setFairplay2(resultFairPlay2);
-        setFairplay3(resultFairPlay3);
-
-        setEncryptionSchemes(resultEncryption.join(', '));
-    });
+    useEffect(() => {
+        fairplayBadgeController.get().then(() => {
+            forceUpdate();
+        });
+    }, [forceUpdate]);
 
     const keySystems: string[] = [];
 
-    if (hasFairplay) {
+    if (fairplayBadgeController.hasFairplay) {
         keySystems.push(FAIRPLAY_KEY_SYSTEM);
     }
 
-    if (hasFairplay1) {
+    if (fairplayBadgeController.hasFairplay1) {
         keySystems.push(FAIRPLAY_V1_KEY_SYSTEM);
     }
 
-    if (hasFairplay2) {
+    if (fairplayBadgeController.hasFairplay2) {
         keySystems.push(FAIRPLAY_V2_KEY_SYSTEM);
     }
 
-    if (hasFairplay3) {
+    if (fairplayBadgeController.hasFairplay3) {
         keySystems.push(FAIRPLAY_V3_KEY_SYSTEM);
     }
 
-    return hasFairplay ? (
+    return fairplayBadgeController.hasFairplay ? (
         <div class={b()}>
-            <Badge 
+            <Badge
                 text="FairPlay"
                 background="white"
                 top={{ text: 'Apple' }}
                 bottom={{
                     text: (<ul class={b('list')}>
                         <li class={b('item')}><KeySystems items={keySystems} /></li>
-                        <li class={b('item')}>{encryptionSchemes.length ? `${i18n('Encryption schemes')}: ${encryptionSchemes}` : ''}</li>
+                        <li class={b('item')}>{fairplayBadgeController.encryptionSchemes.length ? `${i18n('Encryption schemes')}: ${fairplayBadgeController.encryptionSchemes.join(', ')}` : ''}</li>
                     </ul>)
                 }}
             />
