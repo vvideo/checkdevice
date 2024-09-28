@@ -12,7 +12,7 @@ const createServerConfig = () => ({
         },
 ]   ,
     plugins: [
-        typescript(),
+        typescript({ tsconfig: './tsconfig.ssr.json' }),
         nodeResolve(),
         postcss({
             config: true,
