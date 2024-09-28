@@ -1,7 +1,7 @@
-import { isWidevineL1Supported, isWidevineL3Supported, isWidevineSupported, WIDEWINE_KEY_SYSTEM } from "detect-audio-video";
-import { getEncryptionSchemes } from "../../../../utils/drm/getEncryptionSchemes";
-import { getHdcpNotDetected, getHdcpVersion } from "../../../../utils/drm/getHcpVersion";
-import { getCachedCheckAllHdcpVersions } from "../../../../utils/drm/getCachedCheckAllHdcpVersions";
+import { isWidevineL1Supported, isWidevineL3Supported, isWidevineSupported, WIDEWINE_KEY_SYSTEM } from 'detect-audio-video';
+import { getEncryptionSchemes } from '../../../../utils/drm/getEncryptionSchemes';
+import { getHdcpNotDetected, getHdcpVersion } from '../../../../utils/drm/getHcpVersion';
+import { getCachedCheckAllHdcpVersions } from '../../../../utils/drm/getCachedCheckAllHdcpVersions';
 
 export class WidevineBadgeController {
     hasWidevine = false;

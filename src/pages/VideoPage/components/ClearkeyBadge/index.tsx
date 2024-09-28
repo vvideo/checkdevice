@@ -1,15 +1,13 @@
-import {
-    CLEAR_KEY_SYSTEM,
-    isClearKeySupported,
-} from 'detect-audio-video';
+import { CLEAR_KEY_SYSTEM } from 'detect-audio-video';
 import { h } from 'preact';
-import { useState } from 'preact/hooks';
+import { useEffect } from 'preact/hooks';
 
 import { Badge } from '../../../../components/Badge';
 import { KeySystems } from '../KeySystems';
 import { block } from '../../../../utils/css/bem';
 import { i18n } from '../../../../i18n';
-import { getEncryptionSchemes } from '../../../../utils/drm/getEncryptionSchemes';
+import { ClearkeyBadgeController } from './ClearkeyBadgeController';
+import { useForceUpdate } from '../../../../hooks/useForceUpdate';
 
 import './index.css';
 
@@ -17,28 +15,27 @@ const b = block('clearkey-badge');
 
 const keySystemsItems = [CLEAR_KEY_SYSTEM];
 
+const clearkeyBadgeController = new ClearkeyBadgeController();
+
 export function ClearkeyBadge() {
-    const [hasClearkey, setClearkey] = useState(false);
-    const [encryptionSchemes, setEncryptionSchemes] = useState<string>('');
+    const forceUpdate = useForceUpdate();
 
-    isClearKeySupported().then(result => {
-        setClearkey(result);
-    });
+    useEffect(() => {
+        clearkeyBadgeController.get().then(() => {
+            forceUpdate();
+        });
+    }, [forceUpdate]);
 
-    getEncryptionSchemes(CLEAR_KEY_SYSTEM).then(result => {
-        setEncryptionSchemes(result.join(', '));
-    });
-
-    return hasClearkey ? (
+    return clearkeyBadgeController.hasClearkey ? (
         <div class={b()}>
-            <Badge 
+            <Badge
                 text="ClearKey"
                 background="white"
                 size="small"
                 bottom={{
                     text: (<ul class={b('list')}>
                         <li class={b('item')}><KeySystems items={keySystemsItems} /></li>
-                        <li class={b('item')}>{encryptionSchemes.length ? `${i18n('Encryption schemes')}: ${encryptionSchemes}` : ''}</li>
+                        <li class={b('item')}>{clearkeyBadgeController.encryptionSchemes.length ? `${i18n('Encryption schemes')}: ${clearkeyBadgeController.encryptionSchemes.join(', ')}` : ''}</li>
                     </ul>)
                 }}
             />
