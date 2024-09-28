@@ -71,8 +71,8 @@ export function CodecDetails(props: CodecDetailsProps | boolean) {
             <div class={b('mimetype')}>{i18n('MIME type')}: <code>{props.contentType}</code></div>
             <div class={b('types')}>{i18n('Types of testing')}:</div>
             <ul class={b('list')}>
-                <li class={b('item')}><code>{[props.mediaElementType]}.canPlayType(): <span style={`color:${canPlayTypeResult.color}`}>{canPlayTypeResult.value}</span></code></li>
-                <li class={b('item')}><code>MediaSource.isTypeSupported(): <span style={`color:${isTypeSupportedResult.color}`}>{isTypeSupportedResult.value}</span></code></li>
+                <li class={b('item')}><code>{[props.mediaElementType]}.canPlayType(mimeType): <span style={`color:${canPlayTypeResult.color}`}>{canPlayTypeResult.value}</span></code></li>
+                <li class={b('item')}><code>MediaSource.isTypeSupported(mimeType): <span style={`color:${isTypeSupportedResult.color}`}>{isTypeSupportedResult.value}</span></code></li>
             </ul>
         </div>
     );
