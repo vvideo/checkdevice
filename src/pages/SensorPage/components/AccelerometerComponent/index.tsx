@@ -13,7 +13,13 @@ import { DEFAULT_FREQUENCY } from '../../const';
 const b = block('accelerometer');
 export const hasSupportAccelerometer = typeof Accelerometer !== 'undefined';
 
-export function AccelerometerComponent() {
+interface AccelerometerComponentProps {
+    onError: (error: SensorErrorEvent) => void;
+}
+
+
+export function AccelerometerComponent(props: AccelerometerComponentProps) {
+    const { onError } = props;
     const [ sensor, setSensor ] = useState<Accelerometer>();
     const [ error, setError ] = useState<Error | null>(null);
     const forceUpdate = useForceUpdate();
@@ -28,9 +34,9 @@ export function AccelerometerComponent() {
             forceUpdate();
         };
 
-        const handleError = (e: Event) => {
-            const error = (e as SensorErrorEvent).error;
-            setError(error);
+        const handleError = (e: SensorErrorEvent) => {
+            setError(e.error);
+            onError(e);
         };
 
         sensor.addEventListener('activate', handleAny);
@@ -43,10 +49,11 @@ export function AccelerometerComponent() {
         return () => {
             sensor.removeEventListener('activate', handleAny);
             sensor.removeEventListener('reading', handleAny);
+            // @ts-ignore
             sensor.removeEventListener('error', handleError);
             sensor.stop();
         };
-    }, [setSensor, setError, forceUpdate]);
+    }, [setSensor, onError, setError, forceUpdate]);
 
     if (!isSsr && !hasSupportAccelerometer) {
         return(<WarningMessage>{i18n('Accelerometer is not supported.')}</WarningMessage>);

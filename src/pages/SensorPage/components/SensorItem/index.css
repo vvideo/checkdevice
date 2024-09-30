@@ -1,0 +1,7 @@
+.sensor-item {
+    opacity: .5;
+}
+
+.sensor-item_supported {
+    opacity: 1;
+}

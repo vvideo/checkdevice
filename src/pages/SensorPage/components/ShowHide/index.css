@@ -4,7 +4,6 @@
 }
 
 .show-hide__description {
-    display: none;
     max-width: 700px;
     margin: 5px 0;
     padding: 10px;
@@ -21,7 +20,11 @@
     margin: 0 20px 20px 0;
 }
 
-.show-hide_opened .show-hide__description {
+.show-hide__content {
+    display: none;
+}
+
+.show-hide_opened .show-hide__content {
     display: block;
 }
 

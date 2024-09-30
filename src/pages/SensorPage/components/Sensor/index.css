@@ -4,7 +4,6 @@
 }
 
 .sensor__item {
-    opacity: .5;
     margin: .5em 0 0 0;
     padding: 0;
     list-style-type: none;
@@ -12,10 +11,6 @@
 
 .sensor__item .error-message {
     margin: .2em 0;
-}
-
-.sensor__item_support {
-    opacity: 1;
 }
 
 .sensor ul {

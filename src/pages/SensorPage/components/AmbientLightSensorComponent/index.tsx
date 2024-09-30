@@ -13,7 +13,12 @@ import { DEFAULT_FREQUENCY } from '../../const';
 const b = block('ambient-light-sensor');
 export const hasSupportAmbientLightSensor = typeof AmbientLightSensor !== 'undefined';
 
-export function AmbientLightSensorComponent() {
+interface AmbientLightSensorComponentProps {
+    onError: (e: SensorErrorEvent) => void;
+}
+
+export function AmbientLightSensorComponent(props: AmbientLightSensorComponentProps) {
+    const {onError } = props;
     const [ error, setError ] = useState<Error | null>(null);
     const [ sensor, setSensor ] = useState<AmbientLightSensor | null>(null);
     const forceUpdate = useForceUpdate();
@@ -28,9 +33,9 @@ export function AmbientLightSensorComponent() {
             forceUpdate();
         };
 
-        const handleError = (e: Event) => {
-            const error = (e as SensorErrorEvent).error;
-            setError(error);
+        const handleError = (e: SensorErrorEvent) => {
+            setError(e.error);
+            onError(e);
         }
 
         sensor.addEventListener('activate', handleAny);
@@ -43,6 +48,7 @@ export function AmbientLightSensorComponent() {
         return () => {
             sensor.removeEventListener('activate', handleAny);
             sensor.removeEventListener('reading', handleAny);
+            // @ts-ignore
             sensor.removeEventListener('error', handleError);
             sensor.stop();
         };

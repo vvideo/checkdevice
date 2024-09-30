@@ -13,7 +13,12 @@ import { DEFAULT_FREQUENCY } from '../../const';
 const b = block('absolute-orientation-sensor');
 export const hasSupportAbsoluteOrientationSensor = typeof AbsoluteOrientationSensor !== 'undefined';
 
-export function AbsoluteOrientationSensorComponent() {
+interface AbsoluteOrientationSensorComponentProps {
+    onError: (error: SensorErrorEvent) => void;
+}
+
+export function AbsoluteOrientationSensorComponent(props: AbsoluteOrientationSensorComponentProps) {
+    const { onError } = props;
     const [ sensor, setSensor ] = useState<AbsoluteOrientationSensor>();
     const [ error, setError ] = useState<Error | null>(null);
     const forceUpdate = useForceUpdate();
@@ -28,9 +33,9 @@ export function AbsoluteOrientationSensorComponent() {
             forceUpdate();
         };
 
-        const handleError = (e: Event) => {
-            const error = (e as SensorErrorEvent).error;
-            setError(error);
+        const handleError = (e: SensorErrorEvent) => {
+            setError(e.error);
+            onError(e);
         };
 
         sensor.addEventListener('activate', handleAny);
@@ -43,10 +48,11 @@ export function AbsoluteOrientationSensorComponent() {
         return () => {
             sensor.removeEventListener('activate', handleAny);
             sensor.removeEventListener('reading', handleAny);
+            // @ts-ignore
             sensor.removeEventListener('error', handleError);
             sensor.stop();
         };
-    }, [setSensor, setError, forceUpdate]);
+    }, [setSensor, onError, setError, forceUpdate]);
 
     if (!isSsr && !hasSupportAbsoluteOrientationSensor) {
         return(<WarningMessage>{i18n('AbsoluteOrientationSensor is not supported.')}</WarningMessage>);

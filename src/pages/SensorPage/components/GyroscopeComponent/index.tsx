@@ -13,7 +13,12 @@ import { DEFAULT_FREQUENCY } from '../../const';
 const b = block('gyroscope');
 export const hasSupportGyroscope = typeof Gyroscope !== 'undefined';
 
-export function GyroscopeComponent() {
+interface GyroscopeComponentProps {
+    onError: (e: SensorErrorEvent) => void;
+}
+
+export function GyroscopeComponent(props: GyroscopeComponentProps) {
+    const { onError } = props;
     const [ sensor, setSensor ] = useState<Gyroscope>();
     const [ error, setError ] = useState<Error | null>(null);
     const forceUpdate = useForceUpdate();
@@ -28,9 +33,9 @@ export function GyroscopeComponent() {
             forceUpdate();
         };
 
-        const handleError = (e: Event) => {
-            const error = (e as SensorErrorEvent).error;
-            setError(error);
+        const handleError = (e: SensorErrorEvent) => {
+            setError(e.error);
+            onError(e);
         };
 
         sensor.addEventListener('activate', handleAny);
@@ -43,6 +48,7 @@ export function GyroscopeComponent() {
         return () => {
             sensor.removeEventListener('activate', handleAny);
             sensor.removeEventListener('reading', handleAny);
+            // @ts-ignore
             sensor.removeEventListener('error', handleError);
             sensor.stop();
         };

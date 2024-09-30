@@ -13,7 +13,12 @@ import { DEFAULT_FREQUENCY } from '../../const';
 const b = block('linear-acceleration-sensor');
 export const hasSupportLinearAccelerationSensor = typeof LinearAccelerationSensor !== 'undefined';
 
-export function LinearAccelerationSensorComponent() {
+interface LinearAccelerationSensorComponentProps {
+    onError: (e: SensorErrorEvent) => void;
+}
+
+export function LinearAccelerationSensorComponent(props: LinearAccelerationSensorComponentProps) {
+    const { onError } = props;
     const [ sensor, setSensor ] = useState<Accelerometer>();
     const [ error, setError ] = useState<Error | null>(null);
     const forceUpdate = useForceUpdate();
@@ -28,9 +33,9 @@ export function LinearAccelerationSensorComponent() {
             forceUpdate();
         };
 
-        const handleError = (e: Event) => {
-            const error = (e as SensorErrorEvent).error;
-            setError(error);
+        const handleError = (e: SensorErrorEvent) => {
+            setError(e.error);
+            onError(e);
         };
 
         sensor.addEventListener('activate', handleAny);
@@ -43,6 +48,7 @@ export function LinearAccelerationSensorComponent() {
         return () => {
             sensor.removeEventListener('activate', handleAny);
             sensor.removeEventListener('reading', handleAny);
+            // @ts-ignore
             sensor.removeEventListener('error', handleError);
             sensor.stop();
         };

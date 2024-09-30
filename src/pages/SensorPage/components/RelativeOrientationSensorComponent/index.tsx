@@ -13,7 +13,12 @@ import { DEFAULT_FREQUENCY } from '../../const';
 const b = block('relative-orientation-sensor');
 export const hasSupportRelativeOrientationSensor = typeof RelativeOrientationSensor !== 'undefined';
 
-export function RelativeOrientationSensorComponent() {
+interface RelativeOrientationSensorComponentProps {
+    onError: (e: SensorErrorEvent) => void;
+}
+
+export function RelativeOrientationSensorComponent(props: RelativeOrientationSensorComponentProps) {
+    const { onError } = props;
     const [ sensor, setSensor ] = useState<RelativeOrientationSensor>();
     const [ error, setError ] = useState<Error | null>(null);
     const forceUpdate = useForceUpdate();
@@ -28,9 +33,9 @@ export function RelativeOrientationSensorComponent() {
             forceUpdate();
         };
 
-        const handleError = (e: Event) => {
-            const error = (e as SensorErrorEvent).error;
-            setError(error);
+        const handleError = (e: SensorErrorEvent) => {
+            setError(e.error);
+            onError(e);
         };
 
         sensor.addEventListener('activate', handleAny);
@@ -43,6 +48,7 @@ export function RelativeOrientationSensorComponent() {
         return () => {
             sensor.removeEventListener('activate', handleAny);
             sensor.removeEventListener('reading', handleAny);
+            // @ts-ignore
             sensor.removeEventListener('error', handleError);
             sensor.stop();
         };

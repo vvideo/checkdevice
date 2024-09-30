@@ -8,6 +8,7 @@ const b = block('show-hide');
 
 interface ShowHideProps {
     title: string;
+    postfix?: string;
     description: string;
     children: ComponentChildren;
 }
@@ -20,13 +21,11 @@ export function ShowHide(props: ShowHideProps) {
 
     return (<div class={b({ opened })}>
         <div class={b('title')} onClick={callback}>
-            <div class={b('plus', { opened })}></div> {props.title}
+            <div class={b('plus', { opened })}></div> {props.title}{props.postfix ? ' ' + props.postfix : ''}
         </div>
-        <div class={b('description', { opened })}>{props.description}</div>
-        {
-            opened ? (
-                <div class={b('body')}>{props.children}</div>
-            ) : null
-        }
+        <div class={b('content', { opened })}>
+            <div class={b('description')}>{props.description}</div>
+            <div class={b('body')}>{props.children}</div>
+        </div>
     </div>);
 }

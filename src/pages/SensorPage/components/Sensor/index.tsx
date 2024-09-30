@@ -9,9 +9,9 @@ import { GyroscopeComponent, hasSupportGyroscope } from '../GyroscopeComponent';
 import { hasSupportLinearAccelerationSensor, LinearAccelerationSensorComponent } from '../LinearAccelerometerComponent';
 import { hasSupportAbsoluteOrientationSensor, AbsoluteOrientationSensorComponent } from '../AbsoluteOrientationSensorComponent';
 import { hasSupportRelativeOrientationSensor, RelativeOrientationSensorComponent } from '../RelativeOrientationSensorComponent';
-import { ShowHide } from '../ShowHide';
 import { block } from '../../../../utils/css/bem';
 import { i18n } from '../../../../i18n';
+import { SensorItem } from '../SensorItem';
 
 import './index.css';
 
@@ -92,9 +92,12 @@ export function Sensor() {
                     const { Component, title, description, hasSupport } = item;
                     return (
                         <li class={b('item', { support: hasSupport})}>
-                            <ShowHide title={title} description={description}>
-                                <Component />
-                            </ShowHide>
+                            <SensorItem
+                                title={title}
+                                description={description}
+                                hasSupport={hasSupport}
+                                Component={Component}
+                            />
                         </li>
                     );
                 })
