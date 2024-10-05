@@ -10,7 +10,7 @@ const b = block('section');
 interface SectionProps {
     name?: string | number;
     class?: string;
-    children: ComponentChildren;
+    children?: ComponentChildren;
 }
 
 export function Section(props: SectionProps) {
@@ -21,7 +21,7 @@ export function Section(props: SectionProps) {
     const className = classname(b(), props.class);
 
     return props.name ? (<section class={className}>
-        <h2 class={b('name')}>{props.name}</h2>
+        <h2 class={b('name')}>{String(props.name)}</h2>
         <div class={b('body')}>{props.children}</div>
     </section>) : (<div class={b()}>{props.children}</div>);
 }
