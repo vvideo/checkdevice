@@ -12,6 +12,7 @@ export interface RadioButtonsProps {
     hideLabel?: boolean;
     label: string;
     buttons: RadioButtonProps[];
+    vertical?: boolean;
     onSelect?: (value: string) => void;
 }
 
@@ -24,7 +25,7 @@ export function getSelectedButton(buttons: RadioButtonProps[]) {
 }
 
 export function RadioButtons(props: RadioButtonsProps) {
-    const { className, buttons, label, onSelect } = props;
+    const { className, buttons, label, vertical, onSelect } = props;
     const selectedButton = getSelectedButton(buttons);
     const [selectedValue, setSelectedValue] = useState<string | undefined>(selectedButton ? selectedButton.value : undefined);
 
@@ -36,7 +37,7 @@ export function RadioButtons(props: RadioButtonsProps) {
         }
     }, [onSelect]);
 
-    return (<fieldset class={classname(b(), className)}>
+    return (<fieldset class={classname(b({ vertical }), className)}>
             {label ? (<legend class={b('label', { hidden: props.hideLabel })}>{label}</legend>) : ''}
             <ul class={b('items')}>
                 {

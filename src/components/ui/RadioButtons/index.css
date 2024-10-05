@@ -24,6 +24,14 @@
     display: flex;
 }
 
+.radio-buttons_vertical .radio-buttons__items {
+    display: block;
+}
+
+.radio-buttons_vertical .radio-buttons__item {
+    display: block;
+}
+
 @media (max-width: 700px) {
     .radio-buttons__items {
         display: block;
