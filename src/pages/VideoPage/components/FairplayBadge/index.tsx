@@ -47,6 +47,14 @@ export function FairplayBadge() {
         keySystems.push(FAIRPLAY_V3_KEY_SYSTEM);
     }
 
+    const sessionTypes = [
+        'temporary',
+    ];
+
+    if (fairplayBadgeController.isPersistentLicenseSupported) {
+        sessionTypes.push('persistent-license');
+    }
+
     return fairplayBadgeController.hasFairplay ? (
         <div class={b()}>
             <Badge
@@ -57,6 +65,7 @@ export function FairplayBadge() {
                     text: (<ul class={b('list')}>
                         <li class={b('item')}><KeySystems items={keySystems} /></li>
                         <li class={b('item')}>{fairplayBadgeController.encryptionSchemes.length ? `${i18n('Encryption schemes')}: ${fairplayBadgeController.encryptionSchemes.join(', ')}` : ''}</li>
+                        <li class={b('item')}>{`${i18n('Session types')}: ${sessionTypes.join(', ')}`}</li>
                     </ul>)
                 }}
             />

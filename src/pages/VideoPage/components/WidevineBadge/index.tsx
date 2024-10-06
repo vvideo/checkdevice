@@ -38,6 +38,14 @@ export function WidevineBadge() {
         levels.push('L3');
     }
 
+    const sessionTypes = [
+        'temporary',
+    ];
+
+    if (widevineBadgeConroller.isPersistentLicenseSupported) {
+        sessionTypes.push('persistent-license');
+    }
+
     return widevineBadgeConroller.hasWidevine ? (
         <div class={b()}>
             <Badge
@@ -49,6 +57,7 @@ export function WidevineBadge() {
                         <li class={b('item')}><SecurityLevels items={levels} /></li>
                         <li class={b('item')}><KeySystems items={[WIDEWINE_KEY_SYSTEM]} /></li>
                         <li class={b('item')}>{widevineBadgeConroller.encryptionSchemes.length ? `${i18n('Encryption schemes')}: ${widevineBadgeConroller.encryptionSchemes.join(', ')}` : ''}</li>
+                        <li class={b('item')}>{`${i18n('Session types')}: ${sessionTypes.join(', ')}`}</li>
                         <li class={b('item')}><HdcpLink version={widevineBadgeConroller.hdcpVersion} /></li>
                     </ul>),
                 }}

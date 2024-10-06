@@ -26,6 +26,15 @@ export function ClearkeyBadge() {
         });
     }, [forceUpdate]);
 
+
+    const sessionTypes = [
+        'temporary',
+    ];
+
+    if (clearkeyBadgeController.isPersistentLicenseSupported) {
+        sessionTypes.push('persistent-license');
+    }
+
     return clearkeyBadgeController.hasClearkey ? (
         <div class={b()}>
             <Badge
@@ -36,6 +45,7 @@ export function ClearkeyBadge() {
                     text: (<ul class={b('list')}>
                         <li class={b('item')}><KeySystems items={keySystemsItems} /></li>
                         <li class={b('item')}>{clearkeyBadgeController.encryptionSchemes.length ? `${i18n('Encryption schemes')}: ${clearkeyBadgeController.encryptionSchemes.join(', ')}` : ''}</li>
+                        <li class={b('item')}>{`${i18n('Session types')}: ${sessionTypes.join(', ')}`}</li>
                     </ul>)
                 }}
             />

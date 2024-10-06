@@ -7,6 +7,7 @@ export class FairplayBadgeController {
     hasFairplay2 = false;
     hasFairplay3 = false;
     encryptionSchemes: string[] = [];
+    isPersistentLicenseSupported = false;
 
     promise: Promise<void> | undefined;
 
@@ -17,13 +18,15 @@ export class FairplayBadgeController {
             isFairPlayV2Supported(),
             isFairPlayV3Supported(),
             getEncryptionSchemes(FAIRPLAY_KEY_SYSTEM),
+            isFairPlaySupported({ sessionTypes: ['persistent-license'] }),
         ]).then(data => {
-            const [ resultFairPlay, resultFairPlay1, resultFairPlay2, resultFairPlay3, resultEncryption ] = data;
+            const [ resultFairPlay, resultFairPlay1, resultFairPlay2, resultFairPlay3, resultEncryption, resultPersistent ] = data;
             this.hasFairplay = resultFairPlay;
             this.hasFairplay1 = resultFairPlay1;
             this.hasFairplay2 = resultFairPlay2;
             this.hasFairplay3 = resultFairPlay3;
             this.encryptionSchemes = resultEncryption;
+            this.isPersistentLicenseSupported = resultPersistent;
 
             this.promise = undefined;
         }).catch(e => {

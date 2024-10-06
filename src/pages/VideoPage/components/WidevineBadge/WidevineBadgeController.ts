@@ -9,6 +9,7 @@ export class WidevineBadgeController {
     hasL3 = false;
     hdcpVersion = '';
     encryptionSchemes: string[] = [];
+    isPersistentLicenseSupported = false;
 
     promise: Promise<void> | undefined;
 
@@ -18,17 +19,19 @@ export class WidevineBadgeController {
             isWidevineL1Supported(),
             isWidevineL3Supported(),
             getEncryptionSchemes(WIDEWINE_KEY_SYSTEM),
+            isWidevineSupported({ sessionTypes: ['persistent-license'] }),
             getCachedCheckAllHdcpVersions(WIDEWINE_KEY_SYSTEM).then(data => {
                 this.hdcpVersion = getHdcpVersion(data);
             }).catch(() => {
                 this.hdcpVersion = getHdcpNotDetected();
             })
         ]).then(data => {
-            const [result, resultL1, resultL3, resultEncryption] = data;
+            const [result, resultL1, resultL3, resultEncryption, resultPersistent] = data;
             this.hasWidevine = result;
             this.hasL1 = resultL1;
             this.hasL3 = resultL3;
             this.encryptionSchemes = resultEncryption;
+            this.isPersistentLicenseSupported = resultPersistent;
 
             this.promise = undefined;
         }).catch(e => {

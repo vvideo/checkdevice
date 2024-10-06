@@ -44,6 +44,14 @@ export function PlayreadyBadge() {
         levels.push('SL3000');
     }
 
+    const sessionTypes = [
+        'temporary',
+    ];
+
+    if (playreadyBadgeController.isPersistentLicenseSupported) {
+        sessionTypes.push('persistent-license');
+    }
+
     return playreadyBadgeController.hasPlayready ? (
         <div class={b()}>
             <Badge
@@ -55,6 +63,7 @@ export function PlayreadyBadge() {
                         <li class={b('item')}><SecurityLevels items={levels} /></li>
                         <li class={b('item')}><KeySystems items={keySystemsItems} /></li>
                         <li class={b('item')}>{playreadyBadgeController.encryptionSchemes.length ? `${i18n('Encryption schemes')}: ${playreadyBadgeController.encryptionSchemes.join(', ')}` : ''}</li>
+                        <li class={b('item')}>{`${i18n('Session types')}: ${sessionTypes.join(', ')}`}</li>
                         <li class={b('item')}><HdcpLink version={playreadyBadgeController.hdcpVersion} /></li>
                     </ul>)
                 }}

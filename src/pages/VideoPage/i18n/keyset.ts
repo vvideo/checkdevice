@@ -133,4 +133,8 @@ export const keyset: I18nKeyset = {
         'en': 'Encryption schemes',
         'ru': 'Схемы шифрования'
     },
+    'Session types': {
+        'en': 'Session types',
+        'ru': 'Типы сессий'
+    }
 };
