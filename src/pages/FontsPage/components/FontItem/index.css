@@ -9,6 +9,9 @@
 .font-item__content {
     margin-left: 1em;
     margin-bottom: 5px;
+}
+
+.font-item__description {
     color: #aaa;
 }
 

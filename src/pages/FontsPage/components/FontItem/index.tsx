@@ -2,6 +2,7 @@ import { h } from 'preact';
 import { useCallback, useState } from 'preact/hooks';
 import { block } from '../../../../utils/css/bem';
 import { i18n } from '../../../../i18n';
+import { FontPreview } from '../FontPreview';
 
 import './index.css';
 
@@ -25,8 +26,11 @@ export function FontItem(props: FontItemProps) {
         <div class={b('value')}>
             <span class={b('switcher')} onClick={handleClick}>{props.fullName}</span>
             {opened ? (<div class={b('content')}>
-                <div class={b('family')}>{i18n('Family')}: {props.family}</div>
-                <div class={b('style')}>{i18n('Style')}: {props.style}</div>
+                <div class={b('description')}>
+                    <div class={b('family')}>{i18n('Family')}: {props.family}</div>
+                    <div class={b('style')}>{i18n('Style')}: {props.style}</div>
+                </div>
+                <FontPreview family={props.family} />
             </div>) : ''}
         </div>
     </div>);
