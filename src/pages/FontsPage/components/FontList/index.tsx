@@ -13,7 +13,14 @@ export function FontList(props: FontsListProps) {
 
     return (<div class={b()}>
         {items.map((item, i: number) => {
-            return (<FontItem key={item.fullName} family={item.family} fullName={item.fullName} style={item.style} num={i + 1} />);
+            return (<FontItem
+                key={item.fullName}
+                family={item.family}
+                fullName={item.fullName}
+                postscriptName={item.postscriptName}
+                style={item.style}
+                num={i + 1}
+            />);
         })}
     </div>);
 }

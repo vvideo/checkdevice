@@ -2,10 +2,6 @@
     margin: 5px 0;
 }
 
-.font-preview__line {
-    margin: 2px 0;
-}
-
 .font-preview__line_lowercase {
     text-transform: lowercase;
 }

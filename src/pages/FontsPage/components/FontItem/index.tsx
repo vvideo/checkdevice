@@ -9,6 +9,7 @@ import './index.css';
 interface FontItemProps {
     num: number;
     fullName: string;
+    postscriptName: string;
     family: string;
     style: string;
 }
@@ -30,7 +31,7 @@ export function FontItem(props: FontItemProps) {
                     <div class={b('family')}>{i18n('Family')}: {props.family}</div>
                     <div class={b('style')}>{i18n('Style')}: {props.style}</div>
                 </div>
-                <FontPreview family={props.family} />
+                <FontPreview fullName={props.fullName} postscriptName={props.postscriptName} />
             </div>) : ''}
         </div>
     </div>);
