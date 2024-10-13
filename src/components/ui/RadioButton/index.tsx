@@ -8,6 +8,7 @@ import './index.css';
 export interface RadioButtonProps {
     text: string;
     value: string;
+    size?: 'm' | 's';
     selected?: boolean;
     title?: string;
     class?: string;
@@ -21,7 +22,7 @@ export function RadioButton(props: RadioButtonProps) {
         props.onClick?.(props.value);
     }, [props.onClick]);
 
-    const className = classname(b({ selected: props.selected }), props.class);
+    const className = classname(b({ selected: props.selected, size: props.size }), props.class);
 
     return (<li title={props.title} class={className} onClick={handleClick} key={props.value}>{props.text}</li>);
 }

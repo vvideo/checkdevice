@@ -2,6 +2,7 @@
     display: block;
     color: white;
     padding: 5px 9px;
+    line-height: 1.6em;
     box-sizing: border-box;
     border: 1px solid transparent;
     cursor: pointer;
@@ -9,6 +10,11 @@
     background-color: #333;
     transition: background-color .3s ease, color .3s ease;
     list-style-type: none;
+}
+
+.radio-button_size_s {
+    font-size: 12px;
+    padding: 3px 5px;
 }
 
 .radio-button:first-child {
@@ -20,7 +26,7 @@
 }
 
 .page-theme_light .radio-button {
-    background-color: white;    
+    background-color: white;
     color: black;
     border-top: 1px solid #aaa;
     border-bottom: 1px solid #aaa;
@@ -37,19 +43,19 @@
 }
 
 .radio-button:first-child {
-    border-left: 1px solid #333;   
+    border-left: 1px solid #333;
 }
 
 .radio-button:last-child {
-    border-right: 1px solid #333;   
+    border-right: 1px solid #333;
 }
 
 .page-theme_light .radio-button_selected:first-child {
-    border-left: 1px solid #aaa;   
+    border-left: 1px solid #aaa;
 }
 
 .page-theme_light .radio-button_selected:last-child {
-    border-right: 1px solid #aaa;   
+    border-right: 1px solid #aaa;
 }
 
 @media (max-width: 700px) {
@@ -70,9 +76,9 @@
 
     .page-theme_light .radio-button:first-child {
         border-top: 1px solid #aaa;
-    }    
+    }
 
     .page-theme_light .radio-button:last-child {
-        border-bottom: 1px solid #aaa;   
+        border-bottom: 1px solid #aaa;
     }
 }

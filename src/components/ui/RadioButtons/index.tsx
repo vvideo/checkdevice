@@ -12,6 +12,7 @@ export interface RadioButtonsProps {
     hideLabel?: boolean;
     label: string;
     buttons: RadioButtonProps[];
+    size?: 'm' | 's';
     vertical?: boolean;
     onSelect?: (value: string) => void;
 }
@@ -25,7 +26,7 @@ export function getSelectedButton(buttons: RadioButtonProps[]) {
 }
 
 export function RadioButtons(props: RadioButtonsProps) {
-    const { className, buttons, label, vertical, onSelect } = props;
+    const { className, buttons, label, vertical, size, onSelect } = props;
     const selectedButton = getSelectedButton(buttons);
     const [selectedValue, setSelectedValue] = useState<string | undefined>(selectedButton ? selectedButton.value : undefined);
 
@@ -46,6 +47,7 @@ export function RadioButtons(props: RadioButtonsProps) {
                             key={item.value}
                             class={b('item')}
                             selected={item.value === selectedValue}
+                            size={size}
                             title={item.title}
                             text={item.text}
                             value={item.value}
