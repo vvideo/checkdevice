@@ -33,4 +33,20 @@ export const keyset: I18nKeyset = {
         'en': 'Group by family',
         'ru': 'Группировать по семейству'
     },
+    'Font size:': {
+        'en': 'Font size:',
+        'ru': 'Размер шрифта:'
+    },
+    'Small': {
+        'en': 'Small',
+        'ru': 'Маленький'
+    },
+    'Medium': {
+        'en': 'Medium',
+        'ru': 'Средний'
+    },
+    'Big': {
+        'en': 'Big',
+        'ru': 'Большой'
+    },
 };

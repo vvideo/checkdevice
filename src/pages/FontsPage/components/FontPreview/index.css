@@ -1,7 +1,16 @@
-.font-preview {
-    margin: 5px 0;
-}
-
 .font-preview__line_lowercase {
     text-transform: lowercase;
+}
+
+.font-preview__preview {
+    margin-top: 1em;
+    line-height: 1.6em;
+}
+
+.font-preview__preview_size_small {
+    font-size: 11px;
+}
+
+.font-preview__preview_size_big {
+    font-size: 36px;
 }
