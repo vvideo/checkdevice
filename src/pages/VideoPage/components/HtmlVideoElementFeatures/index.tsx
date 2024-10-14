@@ -6,6 +6,9 @@ import {
     isPipSupported,
     isDocumentPipSupported,
     isCastToAirPlaySupported,
+    isMseInWorkersSupported,
+    isMmsInWorkersSupported,
+    isRemotePlaybackApiSupported,
 } from 'detect-audio-video';
 
 import { block } from '../../../../utils/css/bem';
@@ -25,9 +28,19 @@ export function HtmlVideoElementFeatures() {
             supported: isSsr ? false : isMseSupported(),
         },
         {
+            label: 'Media Source Extensions in Workers',
+            title: 'MSE in Workers',
+            supported: isSsr ? false : isMseInWorkersSupported(),
+        },
+        {
             label: 'Managed Media Source',
             title: 'MMS',
             supported: isSsr ? false : isMmsSupported(),
+        },
+        {
+            label: 'Managed Media Source in Workers',
+            title: 'MMS in Workers',
+            supported: isSsr ? false : isMmsInWorkersSupported(),
         },
         {
             label: 'Encrypted Media Extensions',
@@ -49,6 +62,11 @@ export function HtmlVideoElementFeatures() {
             title: 'AirPlay',
             supported: isSsr ? false : isCastToAirPlaySupported(),
         },
+        {
+            label: 'Remote Playback API',
+            title: 'Remote Playback API',
+            supported: isSsr ? false : isRemotePlaybackApiSupported(),
+        }
     ];
 
     items.sort((a, b) => {
