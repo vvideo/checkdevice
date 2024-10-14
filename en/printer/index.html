@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Check Battery / Check device online</title>
-    <meta name="description" content="View detailed battery status information" />
-    <meta name="keywords" content="battery status, battery charge level, battery charge and discharge time" />
+    <title>Printer / Check device online</title>
+    <meta name="description" content="Print a test sample" />
+    <meta name="keywords" content="printer, print" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#ffd700" />
     <meta name="google-site-verification" content="BUV1qxuhIx696cS8GU9knQcJcZaGugHSDV2kAkEG73I" />
     <meta name="yandex-verification" content="985312253f7c8a44" />
     <meta http-equiv="Referrer-Policy" content="no-referrer, strict-origin-when-cross-origin" />
-    <link rel="canonical" href="https://checkdevice.online/en/battery/" />
-    <link rel="alternate" hreflang="ru" href="https://checkdevice.online/ru/battery/" />
+    <link rel="canonical" href="https://checkdevice.online/en/printer/" />
+    <link rel="alternate" hreflang="ru" href="https://checkdevice.online/ru/printer/" />
 
     
     <link rel="manifest" href="/manifest.json" />
@@ -28,13 +28,13 @@
     </style>
     <script>
         var __appData__ = {
-            pageId: 'battery',
+            pageId: 'printer',
             lang: 'en'
         };
 
         !function(){var e=function(){if(!window.localStorage)return"";var e="";try{e=localStorage.getItem("page-theme")}catch(e){}return e}();"dark"!==e&&"light"!==e&&(e="");var t=e||(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)")?"light":"dark");document.documentElement.className+=" page-theme_"+t}();
     </script>
-    <link rel="stylesheet" href="/static/battery.css?md5=58d606634714c252a1e62acbe8175385" />
+    <link rel="stylesheet" href="/static/printer.css?md5=6f7a2d2e0baf8212c7ef0d97fbfd605f" />
     <link rel="yandex-tableau-widget" href="/yandex-tableau-widget.json" />
 </head>
 <body>
@@ -74,29 +74,19 @@
             </li>
             <li class="main-menu__item"><a class="main-menu__link" href="/en/platform/">Platform</a> 
             </li>
-            <li class="main-menu__item main-menu__item_selected"><a class="main-menu__link" href="/en/battery/">Battery</a> 
+            <li class="main-menu__item"><a class="main-menu__link" href="/en/battery/">Battery</a> 
             </li>
             <li class="main-menu__item"><a class="main-menu__link" href="/en/fonts/">Fonts</a> 
             </li>
-            <li class="main-menu__item"><a class="main-menu__link" href="/en/printer/">Printer</a> 
+            <li class="main-menu__item main-menu__item_selected"><a class="main-menu__link" href="/en/printer/">Printer</a> 
             </li>
         </ul>
     </nav>
-    <h1 class="page-title">Battery</h1>
-    <div class="battery-status">
-        <div class="battery-badge battery-badge_low">
-            <div class="battery-badge__charge" style="width: 0%"></div>
-            <div class="battery-badge__contact"></div>
-            <div class="battery-badge__level">0%</div>
-        </div>
-        <div class="section">
-            <ul class="battery-status__list list">
-                <li>Charging time: <span>…</span>
-                </li>
-                <li>Discharging time: <span>…</span>
-                </li>
-            </ul>
-        </div>
+    <h1 class="page-title">Printer</h1>
+    <div class="print-example">
+        <button class="print-example__button button">Print</button>
+        <p class="print-example__paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <img class="print-example__image" src="/static/images/printer_test.jpg" width="640" />
     </div>
     <footer class="footer">
         <div class="footer__item footer__item_report"><a target="_blank" class="link link_theme_page-theme" href="https://github.com/vvideo/caniwatchvideo/issues/new">Report a bug</a>
@@ -105,9 +95,9 @@
             <div class="lang-switcher">
                 <div class="lang-switcher__current"><span class="lang-icon lang-icon_lang_en"></span> EN</div>
                 <menu class="lang-switcher__popup">
-                    <li class="lang-switcher-item"><a class="link" href="/en/battery/"><span class="lang-icon lang-icon_lang_en"></span> EN ✓</a>
+                    <li class="lang-switcher-item"><a class="link" href="/en/printer/"><span class="lang-icon lang-icon_lang_en"></span> EN ✓</a>
                     </li>
-                    <li class="lang-switcher-item"><a class="link" href="/ru/battery/"><span class="lang-icon lang-icon_lang_ru"></span> RU</a>
+                    <li class="lang-switcher-item"><a class="link" href="/ru/printer/"><span class="lang-icon lang-icon_lang_ru"></span> RU</a>
                     </li>
                 </menu>
             </div>
@@ -115,6 +105,6 @@
         <div class="footer__item">© Vvideo</div>
     </footer>
 </div></div>
-    <script defer src="/static/battery.js?md5=76c3bdba6941efd48fcaa4518adf4874"></script>
+    <script defer src="/static/printer.js?md5=8da780c56ee58c74ae9ef4a1aafe7462"></script>
 </body>
 </html>
