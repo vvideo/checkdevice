@@ -11,6 +11,11 @@
     color: white;
 }
 
+.page-theme_light .battery-badge {
+    color: black;
+    border-color: black;
+}
+
 .battery-badge__charge {
     background-color: green;
     border-radius: 5px;
@@ -31,13 +36,8 @@
     background-color: white;
 }
 
-.battery-badge__contact {
-    position: absolute;
-    right: -10px;
-    top: 20px;
-    width: 5px;
-    height: 30px;
-    background-color: white;
+.page-theme_light .battery-badge__contact {
+    background-color: black;
 }
 
 .battery-badge__charging {
