@@ -28,6 +28,7 @@ import { MidiPage } from '../pages/MidiPage';
 import { GeoPage } from '../pages/GeoPage';
 import { UIPage } from '../pages/UIPage';
 import { TestColorBandingPage } from '../pages/TestColorBandingPage';
+import { PrinterPage } from '../pages/PrinterPage';
 
 export const pages: Record<string, any> = {
     audio: AudioPage,
@@ -55,6 +56,7 @@ export const pages: Record<string, any> = {
     bluetooth: BluetoothPage,
     geo: GeoPage,
     ui: UIPage,
+    printer: PrinterPage,
 };
 
 export function buildPage(id: string): string {

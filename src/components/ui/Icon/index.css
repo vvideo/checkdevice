@@ -139,6 +139,14 @@
     background-image: url('/static/icons/platform_light.svg');
 }
 
+.icon_type_printer {
+    background-image: url('/static/icons/printer_dark.svg');
+}
+
+.page-theme_light .icon_type_printer {
+    background-image: url('/static/icons/printer_light.svg');
+}
+
 .icon_type_sensor {
     background-image: url('/static/icons/sensor_dark.svg');
 }

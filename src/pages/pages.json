@@ -664,6 +664,30 @@
     },
 
     {
+      "menuTitle": {
+          "en": "Printer",
+          "ru": "Принтер"
+      },
+      "id": "printer",
+      "indexMenuList": {
+        "en": [
+          "Print a test sample"
+        ],
+        "ru": [
+          "Распечатать тестовый образец"
+        ]
+      },
+      "description": {
+          "en": "Print a test sample",
+          "ru": "Распечатать тестовый образец"
+      },
+      "keywords": {
+          "en": "printer, print",
+          "ru": "принтер, печать"
+      }
+    },
+
+    {
       "header": {
           "en": "UI",
           "ru": "UI"
