@@ -99,7 +99,7 @@ export function GeoLocation(props: GeoLocationProps) {
     return (
         <div class={b()}>
             <Button disabled={inProgress} theme="active" onClick={handleClick}>{inProgress ? (<Spinner size="m" />) : ''} {i18n('Request geo location')}</Button>
-            {preparedItems.length ? (<List items={preparedItems} />) : ''}
+            {preparedItems.length ? (<List class={b('list')} items={preparedItems} />) : ''}
             {error ? (<ErrorMessage>{error}</ErrorMessage>) : ''}
             {coords ? (<div class={b('map')}>
                 <YaStaticMap
