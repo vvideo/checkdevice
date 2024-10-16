@@ -1,14 +1,15 @@
 import { h } from 'preact';
 import { useCallback, useState } from 'preact/hooks';
+
 import { Button } from '../../../../components/ui/Button';
-import { TreeList } from '../../../../components/TreeList';
+import { Spinner } from '../../../../components/ui/Spinner';
+import { List } from '../../../../components/ui/List';
+import { ErrorMessage } from '../../../../components/ui/ErrorMessage';
+import { WarningMessage } from '../../../../components/ui/WarningMessage';
 import { YaStaticMap } from '../YaStaticMap';
 import { block } from '../../../../utils/css/bem';
 import { i18n } from '../../../../i18n';
-import { Spinner } from '../../../../components/ui/Spinner';
 import { isSsr } from '../../../../utils/isSsr';
-import { ErrorMessage } from '../../../../components/ui/ErrorMessage';
-import { WarningMessage } from '../../../../components/ui/WarningMessage';
 
 import './index.css';
 
@@ -81,10 +82,24 @@ export function GeoLocation(props: GeoLocationProps) {
         navigator.geolocation.getCurrentPosition(success, error, options);
     }, []);
 
+    const items: [string, string | number | null, string, string][] = coords ? [
+        [i18n('Latitude'), coords.latitude, '', '°'],
+        [i18n('Longitude'), coords.longitude, '', '°'],
+        [i18n('Accuracy'), coords.accuracy, ' ', i18n('m')],
+        [i18n('Altitude'), coords.altitude, ' ', i18n('m')],
+        [i18n('Altitude accuracy'), coords.altitudeAccuracy, ' ', i18n('m')],
+        [i18n('Speed'), coords.speed, ' ', i18n('m/s')],
+        [i18n('Heading'), coords.heading, '', '°'],
+    ] : [];
+
+    const preparedItems: [string, string][] = items
+        .filter(item => item[1] !== null && item[1] !== '')
+        .map(([title, ...values]) => [title, values.join('')]);
+
     return (
         <div class={b()}>
             <Button disabled={inProgress} theme="active" onClick={handleClick}>{inProgress ? (<Spinner size="m" />) : ''} {i18n('Request geo location')}</Button>
-            {coords ? (<div class={b('list')}><TreeList data={coords} /></div>) : ''}
+            {preparedItems.length ? (<List items={preparedItems} />) : ''}
             {error ? (<ErrorMessage>{error}</ErrorMessage>) : ''}
             {coords ? (<div class={b('map')}>
                 <YaStaticMap

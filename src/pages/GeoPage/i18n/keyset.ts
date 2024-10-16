@@ -25,4 +25,40 @@ export const keyset: I18nKeyset = {
         'en': 'Geo',
         'ru': 'Гео'
     },
+    'Latitude': {
+        'en': 'Latitude',
+        'ru': 'Широта'
+    },
+    'Longitude': {
+        'en': 'Longitude',
+        'ru': 'Долгота'
+    },
+    'Accuracy': {
+        'en': 'Accuracy',
+        'ru': 'Точность'
+    },
+    'Altitude': {
+        'en': 'Altitude',
+        'ru': 'Высота'
+    },
+    'Altitude accuracy': {
+        'en': 'Altitude accuracy',
+        'ru': 'Точность высоты'
+    },
+    'Speed': {
+        'en': 'Speed',
+        'ru': 'Скорость'
+    },
+    'Heading': {
+        'en': 'Heading',
+        'ru': 'Направление'
+    },
+    'm': {
+        'en': 'm',
+        'ru': 'м'
+    },
+    'm/s': {
+        'en': 'm/s',
+        'ru': 'м/с'
+    },
 };
