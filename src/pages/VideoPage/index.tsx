@@ -14,6 +14,7 @@ import { useForceUpdate } from '../../hooks/useForceUpdate';
 import { Page } from '../Page';
 import { keyset } from './i18n/keyset';
 import { RemotePlayback } from './components/RemotePlayback';
+import { InfoLink } from '../../components/ui/InfoLink';
 
 addI18nKeyset(keyset);
 
@@ -33,6 +34,8 @@ export function VideoPage() {
             document.removeEventListener('visibilitychange', onVisibilityСhange);
         };
     }, [forceUpdate]);
+
+    const sectionNameRemotePlayback = (<span>Remote Playback API <InfoLink href="https://developer.mozilla.org/en-US/docs/Web/API/Remote_Playback_API" /></span>);
 
     return (
         <Page title={i18n('Video')}>
@@ -60,7 +63,7 @@ export function VideoPage() {
                 <HtmlVideoElementFeatures />
             </Section>
 
-            <Section name="Remote Playback API">
+            <Section name={sectionNameRemotePlayback}>
                 <RemotePlayback />
             </Section>
         </Page>
