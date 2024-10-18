@@ -34,7 +34,7 @@
 
         !function(){var e=function(){if(!window.localStorage)return"";var e="";try{e=localStorage.getItem("page-theme")}catch(e){}return e}();"dark"!==e&&"light"!==e&&(e="");var t=e||(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)")?"light":"dark");document.documentElement.className+=" page-theme_"+t}();
     </script>
-    <link rel="stylesheet" href="/static/video.css?md5=f047ecdbb01d7f8688f4def1abab8a28" />
+    <link rel="stylesheet" href="/static/video.css?md5=abcfdc557e391633097731bcdd780277" />
     <link rel="yandex-tableau-widget" href="/yandex-tableau-widget.json" />
 </head>
 <body>
@@ -572,8 +572,21 @@
                 <li title="Pip">Picture-in-picture: No</li>
                 <li title="Document Pip">Document Picture-in-picture: No</li>
                 <li title="AirPlay">Cast to AirPlay: No</li>
-                <li title="Remote Playback API">Remote Playback API: No</li>
             </ul>
+        </div>
+    </section>
+    <section class="section">
+        <h2 class="section__name"><span>Remote Playback API <span class="info-link"><a class="info-link__link" href="https://developer.mozilla.org/en-US/docs/Web/API/Remote_Playback_API" target="_blank">ⓘ</a></span></span></h2>
+        <div class="section__body">
+            <div class="remote-playback">
+                <div class="remote-playback__support">
+                    <div>Support: No</div>
+                </div>
+                <video class="remote-playback__video" controls src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" preload="metadata"></video>
+                <div class="remote-playback__button">
+                    <button class="button button_disabled" disabled>Cast</button>
+                </div>
+            </div>
         </div>
     </section>
     <footer class="footer">
@@ -593,6 +606,6 @@
         <div class="footer__item">© Vvideo</div>
     </footer>
 </div></div>
-    <script defer src="/static/video.js?md5=1ca5bd1f34954b61933babc6b0201273"></script>
+    <script defer src="/static/video.js?md5=6ab4964492be79201c1bf41d84b25c1f"></script>
 </body>
 </html>
