@@ -1,9 +1,6 @@
 import { h } from 'preact';
 import { useCallback, useEffect, useRef, useState } from 'preact/hooks';
-import {
-    getDefaultVideoElement,
-    isRemotePlaybackApiSupported,
-} from 'detect-audio-video';
+import { isRemotePlaybackApiSupported } from 'detect-audio-video';
 
 import { block } from '../../../../utils/css/bem';
 import { isSsr } from '../../../../utils/isSsr';
@@ -65,10 +62,18 @@ export function RemotePlayback() {
     return (<div class={b()}>
         <div class={b('support')}>
             <div>{i18n('Support')}: {getChecked(supported)}</div>
-            {refVideo.current?.remote ? (<div>{i18n('State')}: {isSsr ? '' : getDefaultVideoElement().remote.state}</div>) : null}
+            {refVideo.current?.remote ? (<div>{i18n('State')}: {isSsr ? '' : refVideo.current?.remote.state}</div>) : null}
         </div>
 
-        <video class={b('video')} controls ref={refVideo} src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" preload="metadata" />
+        <video
+            ref={refVideo}
+            class={b('video')}
+            controls
+            preload=""
+            playsinline
+            src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+        />
+
         <div class={b('button')}>
             <Button onClick={handleClick} disabled={disabled}>{i18n('Cast')}</Button>
         </div>
