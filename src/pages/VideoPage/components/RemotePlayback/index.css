@@ -1,6 +1,6 @@
 .remote-playback__video {
     margin: 1em 0;
-    width: 320px;
+    width: 480px;
     max-width: 100%;
     aspect-ratio: 16 / 9;
     border: 1px solid rgba(100, 100, 100, .5);

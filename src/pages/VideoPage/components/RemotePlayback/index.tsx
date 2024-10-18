@@ -12,6 +12,8 @@ import { RemotePlaybackController } from './RemotePlaybackController';
 import { useForceUpdate } from '../../../../hooks/useForceUpdate';
 
 import './index.css';
+import { playWithPromise } from '../../../../utils/dom/play';
+import { noop } from '../../../../utils/function/noop';
 
 const b = block('remote-playback');
 
@@ -26,7 +28,7 @@ export function RemotePlayback() {
 
     const handleClick = useCallback(() => {
         if (refVideo.current) {
-            refVideo.current.play();
+            playWithPromise(refVideo.current).catch(noop);
         }
 
         remotePlaybackController.prompt().catch((e) => {
