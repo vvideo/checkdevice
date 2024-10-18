@@ -136,5 +136,17 @@ export const keyset: I18nKeyset = {
     'Session types': {
         'en': 'Session types',
         'ru': 'Типы сессий'
+    },
+    'Cast': {
+        'en': 'Cast',
+        'ru': 'Удалённое воспроизведение'
+    },
+    'Support': {
+        'en': 'Support',
+        'ru': 'Поддержка'
+    },
+    'State': {
+        'en': 'State',
+        'ru': 'Состояние'
     }
 };

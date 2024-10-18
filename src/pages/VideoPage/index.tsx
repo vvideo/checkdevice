@@ -13,6 +13,7 @@ import { addI18nKeyset, i18n } from '../../i18n';
 import { useForceUpdate } from '../../hooks/useForceUpdate';
 import { Page } from '../Page';
 import { keyset } from './i18n/keyset';
+import { RemotePlayback } from './components/RemotePlayback';
 
 addI18nKeyset(keyset);
 
@@ -57,6 +58,10 @@ export function VideoPage() {
 
             <Section name={i18n('HTMLVideoElement Features')}>
                 <HtmlVideoElementFeatures />
+            </Section>
+
+            <Section name="Remote Playback API">
+                <RemotePlayback />
             </Section>
         </Page>
     );

@@ -8,7 +8,6 @@ import {
     isCastToAirPlaySupported,
     isMseInWorkersSupported,
     isMmsInWorkersSupported,
-    isRemotePlaybackApiSupported,
 } from 'detect-audio-video';
 
 import { block } from '../../../../utils/css/bem';
@@ -62,11 +61,6 @@ export function HtmlVideoElementFeatures() {
             title: 'AirPlay',
             supported: isSsr ? false : isCastToAirPlaySupported(),
         },
-        {
-            label: 'Remote Playback API',
-            title: 'Remote Playback API',
-            supported: isSsr ? false : isRemotePlaybackApiSupported(),
-        }
     ];
 
     items.sort((a, b) => {
