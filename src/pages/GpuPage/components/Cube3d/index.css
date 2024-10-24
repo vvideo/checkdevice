@@ -1,5 +1,10 @@
 .cube-3d {
-    margin: 50px 0 50px 20px;
+    margin: 20px 0 50px;
+}
+
+.cube-3d__header {
+    font-size: 18px;
+    margin-bottom: 20px;
 }
 
 .cube-3d__side,
@@ -11,6 +16,7 @@
 .cube-3d__container {
     transform-style: preserve-3d;
     animation: cube-3d-rotate 10s infinite linear;
+    margin-left: 20px;
 }
 
 .cube-3d__side {
